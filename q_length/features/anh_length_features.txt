@@ -1,0 +1,353 @@
+Features độ dài cho môn anh
+--------------------------------------------------
+
+Câu 1:
+Câu hỏi: From each number pick out the word whose underlined part is pronounced differently from the others
+Features câu hỏi:
+  - char_length: 98
+  - word_length: 16
+  - token_length: 16
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 2:
+Câu hỏi: From each number pick out the word whose underlined part is pronounced differently from the others
+Features câu hỏi:
+  - char_length: 98
+  - word_length: 16
+  - token_length: 16
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 3:
+Câu hỏi: From each number pick out the word whose underlined part is pronounced differently from the others
+Features câu hỏi:
+  - char_length: 98
+  - word_length: 16
+  - token_length: 16
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 4:
+Câu hỏi: From each number pick out the word whose underlined part is pronounced differently from the others
+Features câu hỏi:
+  - char_length: 98
+  - word_length: 16
+  - token_length: 16
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 5:
+Câu hỏi: From each number pick out the word whose underlined part is pronounced differently from the others
+Features câu hỏi:
+  - char_length: 98
+  - word_length: 16
+  - token_length: 16
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 6:
+Câu hỏi: I have no idea what the traditional drums
+Features câu hỏi:
+  - char_length: 41
+  - word_length: 8
+  - token_length: 8
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 7:
+Câu hỏi: Minhs father often takes him the park every summer
+Features câu hỏi:
+  - char_length: 50
+  - word_length: 9
+  - token_length: 9
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 8:
+Câu hỏi: A I won the first prize in the English speaking contest B
+Features câu hỏi:
+  - char_length: 57
+  - word_length: 12
+  - token_length: 12
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 9:
+Câu hỏi: My father gave up smoking two years ago
+Features câu hỏi:
+  - char_length: 39
+  - word_length: 8
+  - token_length: 8
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 10:
+Câu hỏi: my cousin is young she is one of the most skillful artisan in Bat Trang village
+Features câu hỏi:
+  - char_length: 79
+  - word_length: 16
+  - token_length: 16
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 11:
+Câu hỏi: The amusement centre is so small that they cannot the demand of the local residents
+Features câu hỏi:
+  - char_length: 83
+  - word_length: 15
+  - token_length: 15
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 12:
+Câu hỏi: Karachi is city in the world population
+Features câu hỏi:
+  - char_length: 39
+  - word_length: 7
+  - token_length: 7
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 13:
+Câu hỏi: He wondered his parents what he really thought
+Features câu hỏi:
+  - char_length: 46
+  - word_length: 8
+  - token_length: 8
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 14:
+Câu hỏi: My parents once took me to Bat Trang village I could make my own there I really enjoyed it
+Features câu hỏi:
+  - char_length: 90
+  - word_length: 19
+  - token_length: 19
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 15:
+Câu hỏi: hes spent a lot of money to decorate his shop he cannot make any more profit
+Features câu hỏi:
+  - char_length: 76
+  - word_length: 16
+  - token_length: 16
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 16:
+Câu hỏi: Read the following passage and circle the letter A B C or D to indicate the correct word My village is 1 Hoa Binh Province It is a very beautiful and 2 place where people 3 flowers and vegetables only It is very famous for its pretty roses and picturesque scenery The air is quite fresh however the smell of roses makes people feel cool In spring my village looks like a carpet with plenty of 4 Tourists come to visit it so often Nowadays with electricity and labor saving devices it doesnt take the villagers 5 time to water the roses And even at night People can walk along the path and enjoy the fresh smell of the flowers Questions 1
+Features câu hỏi:
+  - char_length: 637
+  - word_length: 122
+  - token_length: 122
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 17:
+Câu hỏi: Read the following passage and circle the letter A B C or D to indicate the correct word My village is 1 Hoa Binh Province It is a very beautiful and 2 place where people 3 flowers and vegetables only It is very famous for its pretty roses and picturesque scenery The air is quite fresh however the smell of roses makes people feel cool In spring my village looks like a carpet with plenty of 4 Tourists come to visit it so often Nowadays with electricity and labor saving devices it doesnt take the villagers 5 time to water the roses And even at night People can walk along the path and enjoy the fresh smell of the flowers Questions 2
+Features câu hỏi:
+  - char_length: 637
+  - word_length: 122
+  - token_length: 122
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 18:
+Câu hỏi: Read the following passage and circle the letter A B C or D to indicate the correct word My village is 1 Hoa Binh Province It is a very beautiful and 2 place where people 3 flowers and vegetables only It is very famous for its pretty roses and picturesque scenery The air is quite fresh however the smell of roses makes people feel cool In spring my village looks like a carpet with plenty of 4 Tourists come to visit it so often Nowadays with electricity and labor saving devices it doesnt take the villagers 5 time to water the roses And even at night People can walk along the path and enjoy the fresh smell of the flowers Questions 3
+Features câu hỏi:
+  - char_length: 637
+  - word_length: 122
+  - token_length: 122
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 19:
+Câu hỏi: Read the following passage and circle the letter A B C or D to indicate the correct word My village is 1 Hoa Binh Province It is a very beautiful and 2 place where people 3 flowers and vegetables only It is very famous for its pretty roses and picturesque scenery The air is quite fresh however the smell of roses makes people feel cool In spring my village looks like a carpet with plenty of 4 Tourists come to visit it so often Nowadays with electricity and labor saving devices it doesnt take the villagers 5 time to water the roses And even at night People can walk along the path and enjoy the fresh smell of the flowers Question 4
+Features câu hỏi:
+  - char_length: 636
+  - word_length: 122
+  - token_length: 122
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 20:
+Câu hỏi: Read the following passage and circle the letter A B C or D to indicate the correct word My village is 1 Hoa Binh Province It is a very beautiful and 2 place where people 3 flowers and vegetables only It is very famous for its pretty roses and picturesque scenery The air is quite fresh however the smell of roses makes people feel cool In spring my village looks like a carpet with plenty of 4 Tourists come to visit it so often Nowadays with electricity and labor saving devices it doesnt take the villagers 5 time to water the roses And even at night People can walk along the path and enjoy the fresh smell of the flowers Question 5
+Features câu hỏi:
+  - char_length: 636
+  - word_length: 122
+  - token_length: 122
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 21:
+Câu hỏi: Choose the word which contains the vowel sound pronounced differently from that of the others
+Features câu hỏi:
+  - char_length: 93
+  - word_length: 15
+  - token_length: 15
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 22:
+Câu hỏi: Choose the word which contains the vowel sound pronounced differently from that of the others
+Features câu hỏi:
+  - char_length: 93
+  - word_length: 15
+  - token_length: 15
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 23:
+Câu hỏi: Choose the word which contains the vowel sound pronounced differently from that of the others
+Features câu hỏi:
+  - char_length: 93
+  - word_length: 15
+  - token_length: 15
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 24:
+Câu hỏi: Choose the word which contains the vowel sound pronounced differently from that of the others
+Features câu hỏi:
+  - char_length: 93
+  - word_length: 15
+  - token_length: 15
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 25:
+Câu hỏi: Choose the word which contains the vowel sound pronounced differently from that of the others
+Features câu hỏi:
+  - char_length: 93
+  - word_length: 15
+  - token_length: 15
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 26:
+Câu hỏi: Choose a b c or d to complete these sentences They _________ Da Lat last summer
+Features câu hỏi:
+  - char_length: 79
+  - word_length: 16
+  - token_length: 16
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 27:
+Câu hỏi: We have learnt English_________2003
+Features câu hỏi:
+  - char_length: 35
+  - word_length: 4
+  - token_length: 4
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 28:
+Câu hỏi: Ba cant fly He wishes he_________fly
+Features câu hỏi:
+  - char_length: 36
+  - word_length: 6
+  - token_length: 6
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 29:
+Câu hỏi: He is a teacher _________
+Features câu hỏi:
+  - char_length: 25
+  - word_length: 5
+  - token_length: 5
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 30:
+Câu hỏi: He is tired _________ he has to stay up late
+Features câu hỏi:
+  - char_length: 44
+  - word_length: 10
+  - token_length: 10
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 31:
+Câu hỏi: The car_________ in Japan
+Features câu hỏi:
+  - char_length: 25
+  - word_length: 4
+  - token_length: 4
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 32:
+Câu hỏi: Tom said that he_________ in the city
+Features câu hỏi:
+  - char_length: 37
+  - word_length: 7
+  - token_length: 7
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 33:
+Câu hỏi: Lets play soccer _________
+Features câu hỏi:
+  - char_length: 26
+  - word_length: 4
+  - token_length: 4
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 34:
+Câu hỏi: I used to_________ up late when I was a child
+Features câu hỏi:
+  - char_length: 45
+  - word_length: 10
+  - token_length: 10
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 35:
+Câu hỏi: He_________ playing guitar at night
+Features câu hỏi:
+  - char_length: 35
+  - word_length: 5
+  - token_length: 5
+Features câu trả lời:
+
+--------------------------------------------------
+

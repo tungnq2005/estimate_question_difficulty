@@ -1,0 +1,503 @@
+Features độ dài cho môn địa
+--------------------------------------------------
+
+Câu 1:
+Câu hỏi: Các dân tộc ít người có số dân trên một triệu người ở nước ta gồm
+Features câu hỏi:
+  - char_length: 65
+  - word_length: 16
+  - token_length: 16
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 2:
+Câu hỏi: Dân tộc Kinh chiếm bao nhiêu trong tổng dân số của nước ta
+Features câu hỏi:
+  - char_length: 58
+  - word_length: 13
+  - token_length: 13
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 3:
+Câu hỏi: Dân tộc Kinh phân bố chủ yếu ở
+Features câu hỏi:
+  - char_length: 30
+  - word_length: 8
+  - token_length: 8
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 4:
+Câu hỏi: Người Tày Nùng Thái Mường phân bố ở khu vực
+Features câu hỏi:
+  - char_length: 43
+  - word_length: 10
+  - token_length: 10
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 5:
+Câu hỏi: Khu vực Trung du và miền núi Bắc Bộ có khoảng bao nhiêu dân tộc sinh sống
+Features câu hỏi:
+  - char_length: 73
+  - word_length: 17
+  - token_length: 17
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 6:
+Câu hỏi: Khu vực Duyên hải Nam Trung Bộ và Nam Bộ là địa bàn cư trú của các dân tộc ít người nào sau đây
+Features câu hỏi:
+  - char_length: 95
+  - word_length: 24
+  - token_length: 24
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 7:
+Câu hỏi: Bên cạnh người Việt và các dân tộc ít người nước ta còn có nhóm dân cư nào cũng được xem là một bộ phận của cộng đồng các dân tộc Việt Nam
+Features câu hỏi:
+  - char_length: 138
+  - word_length: 33
+  - token_length: 33
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 8:
+Câu hỏi: Người Việt định cư ở nước ngoài có đặc điểm nào dưới đây
+Features câu hỏi:
+  - char_length: 56
+  - word_length: 13
+  - token_length: 13
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 9:
+Câu hỏi: Người Êđê Giarai phân bố chủ yếu ở khu vực
+Features câu hỏi:
+  - char_length: 42
+  - word_length: 10
+  - token_length: 10
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 10:
+Câu hỏi: Văn hóa Việt Nam phong phú giàu bản sắc là do có
+Features câu hỏi:
+  - char_length: 48
+  - word_length: 12
+  - token_length: 12
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 11:
+Câu hỏi: Giá trị văn hóa dân gian nào sau đây thuộc các dân tộc sống ở khu vực Trường Sơn và Tây Nguyên
+Features câu hỏi:
+  - char_length: 94
+  - word_length: 22
+  - token_length: 22
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 12:
+Câu hỏi: Giá trị văn hóa nào dưới đây được UNESCO công nhận là di sản văn hóa phi vật thể
+Features câu hỏi:
+  - char_length: 80
+  - word_length: 19
+  - token_length: 19
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 13:
+Câu hỏi: Trang phục truyền thống của người Kinh ở khu vực đồng bằng Nam Bộ là
+Features câu hỏi:
+  - char_length: 68
+  - word_length: 15
+  - token_length: 15
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 14:
+Câu hỏi: Sản phẩm thủ công nổi bật nào sau đây là của người Thái Dao Mông
+Features câu hỏi:
+  - char_length: 64
+  - word_length: 15
+  - token_length: 15
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 15:
+Câu hỏi: Biện pháp để củng cố an ninh quốc phòng vùng biên giới là gì
+Features câu hỏi:
+  - char_length: 60
+  - word_length: 14
+  - token_length: 14
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 16:
+Câu hỏi: Việt Nam là một quốc gia có nhiều dân tộc có tất cả
+Features câu hỏi:
+  - char_length: 51
+  - word_length: 13
+  - token_length: 13
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 17:
+Câu hỏi: Dân tộc Kinh chiếm khoảng bao nhiêu dân số nước ta
+Features câu hỏi:
+  - char_length: 50
+  - word_length: 11
+  - token_length: 11
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 18:
+Câu hỏi: Các dân tộc ít người có số dân trên một triệu người ở nước ta gồm
+Features câu hỏi:
+  - char_length: 65
+  - word_length: 16
+  - token_length: 16
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 19:
+Câu hỏi: Sự phân bố của các dân tộc chủ yếu do
+Features câu hỏi:
+  - char_length: 37
+  - word_length: 10
+  - token_length: 10
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 20:
+Câu hỏi: Các dân tộc ít người chủ yếu sống tập trung ở
+Features câu hỏi:
+  - char_length: 45
+  - word_length: 11
+  - token_length: 11
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 21:
+Câu hỏi: Người Việt Kinh phân bố chủ yếu ở khu vực nào sau đây
+Features câu hỏi:
+  - char_length: 53
+  - word_length: 13
+  - token_length: 13
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 22:
+Câu hỏi: Trung du niền núi Bắc Bộ là địa bàn cư trú của các dân tộc
+Features câu hỏi:
+  - char_length: 58
+  - word_length: 15
+  - token_length: 15
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 23:
+Câu hỏi: Duyên hải Nam Trung bộ và Nam bộ là địa bàn cư trú của các dân tộc
+Features câu hỏi:
+  - char_length: 66
+  - word_length: 17
+  - token_length: 17
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 24:
+Câu hỏi: Ở vùng thấp từ hữu ngạn sông Hồng đến sông Cả là địa bàn cư trú chủ yếu của
+Features câu hỏi:
+  - char_length: 75
+  - word_length: 19
+  - token_length: 19
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 25:
+Câu hỏi: Trên các vùng núi cao ở Trung du miền núi Bắc Bộ là địa bàn cư trú của dân tộc
+Features câu hỏi:
+  - char_length: 78
+  - word_length: 20
+  - token_length: 20
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 26:
+Câu hỏi: Giá trị văn hóa dân gian nào sau đây thuộc về các dân tộc sống ở khu vực Tây Nguyên
+Features câu hỏi:
+  - char_length: 83
+  - word_length: 20
+  - token_length: 20
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 27:
+Câu hỏi: Giá trị văn hóa nào dưới đây được UNESCO công nhận là di sản văn hóa phi vật thể
+Features câu hỏi:
+  - char_length: 80
+  - word_length: 19
+  - token_length: 19
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 28:
+Câu hỏi: Trang phục truyền thống của người Kinh ở khu vực đồng bằng Nam Bộ là
+Features câu hỏi:
+  - char_length: 68
+  - word_length: 15
+  - token_length: 15
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 29:
+Câu hỏi: Áo tứ thân là trang phục truyền thống của dân tộc nào
+Features câu hỏi:
+  - char_length: 53
+  - word_length: 12
+  - token_length: 12
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 30:
+Câu hỏi: Đâu không phải là nét văn hóa đặc trưng của các dân tộc ít người ở nước ta
+Features câu hỏi:
+  - char_length: 74
+  - word_length: 18
+  - token_length: 18
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 31:
+Câu hỏi: Đâu là sản phẩm thủ công nổi bật của người Thái Dao Mông
+Features câu hỏi:
+  - char_length: 56
+  - word_length: 13
+  - token_length: 13
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 32:
+Câu hỏi: Đâu không phải là vai trò của việc đẩy mạnh phát triển kinh tế xã hội đối với các dân tộc ở miền núi nước ta
+Features câu hỏi:
+  - char_length: 108
+  - word_length: 26
+  - token_length: 26
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 33:
+Câu hỏi: Biện pháp nào sau đây để củng cố an ninh quốc phòng vùng biên giới
+Features câu hỏi:
+  - char_length: 66
+  - word_length: 15
+  - token_length: 15
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 34:
+Câu hỏi: Nhận định nào sau đây không đúng với ý nghĩa của chính sách phân bố lại dân cưlao động của Đảng và Nhà nước
+Features câu hỏi:
+  - char_length: 107
+  - word_length: 24
+  - token_length: 24
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 35:
+Câu hỏi: Đâu không phải nguyên nhân làm cho cuộc sống của các dân tộc ít người gặp nhiều khó khăn dù khu vực miền núi có nhiều tài nguyên thiên nhiên
+Features câu hỏi:
+  - char_length: 140
+  - word_length: 30
+  - token_length: 30
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 36:
+Câu hỏi: Hiện tượng bùng nổ dân số ở nước ta bắt đầu và kết thúc vào thời gian nào
+Features câu hỏi:
+  - char_length: 73
+  - word_length: 18
+  - token_length: 18
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 37:
+Câu hỏi: Hiện nay dân số nước ta đứng thứ bao nhiêu trên thế giới
+Features câu hỏi:
+  - char_length: 56
+  - word_length: 13
+  - token_length: 13
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 38:
+Câu hỏi: Tỉ lệ gia tăng tự nhiên của dân số nước ta có xu hướng giảm chủ yếu là nhờ
+Features câu hỏi:
+  - char_length: 74
+  - word_length: 19
+  - token_length: 19
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 39:
+Câu hỏi: Tỉ số giới tính của nước ta có đặc điểm gì
+Features câu hỏi:
+  - char_length: 42
+  - word_length: 11
+  - token_length: 11
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 40:
+Câu hỏi: Biểu hiện của cơ cấu dân số trẻ là
+Features câu hỏi:
+  - char_length: 34
+  - word_length: 9
+  - token_length: 9
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 41:
+Câu hỏi: Cơ cấu dân số theo tuổi ở nước ta đang có sự thay đổi theo hướng
+Features câu hỏi:
+  - char_length: 64
+  - word_length: 16
+  - token_length: 16
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 42:
+Câu hỏi: Cơ cấu dân số theo tuổi ở nước ta đang thay đổi theo hướng
+Features câu hỏi:
+  - char_length: 58
+  - word_length: 14
+  - token_length: 14
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 43:
+Câu hỏi: Hiện nay nhân tố nào tác động mạnh đến tỉ số giới tính ở vùng Đồng bằng sông Hồng và Tây Nguyên
+Features câu hỏi:
+  - char_length: 95
+  - word_length: 22
+  - token_length: 22
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 44:
+Câu hỏi: Lợi ích của việc giảm tỉ lệ gia tăng dân số tự nhiên ở nước ta là
+Features câu hỏi:
+  - char_length: 65
+  - word_length: 17
+  - token_length: 17
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 45:
+Câu hỏi: Tỉ số giới tính cao sẽ gây ra hậu quả gì trong tương lai
+Features câu hỏi:
+  - char_length: 56
+  - word_length: 14
+  - token_length: 14
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 46:
+Câu hỏi: Tỉ lệ gia tăng tự nhiên của nước ta có xu hướng giảm và tương đối thấp nhưng dân số nước ta vẫn tăng thêm mỗi năm khoảng 1 triệu người nguyên nhân là do
+Features câu hỏi:
+  - char_length: 152
+  - word_length: 35
+  - token_length: 35
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 47:
+Câu hỏi: Tại sao tỉ lệ gia tăng tự nhiên của nước ta giảm nhưng dân số vẫn tăng lên
+Features câu hỏi:
+  - char_length: 74
+  - word_length: 18
+  - token_length: 18
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 48:
+Câu hỏi: Cho bảng số liệu Số dân và tỉ lệ gia tăng dân số tự nhiên của nước ta qua các năm Biểu đồ nào sau đây thích hợp để thể hiện tổng số dân và tỉ lệ gia tăng dân số tự nhiên nước ta giai đoạn 2000 2015
+Features câu hỏi:
+  - char_length: 197
+  - word_length: 49
+  - token_length: 49
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 49:
+Câu hỏi: Năm 2019 dân số nước ta là 9648 triệu người trong đó số dân thành thị là 3381 triệu người Tỉ lệ dân thành thị của nước ta năm 2019 là
+Features câu hỏi:
+  - char_length: 133
+  - word_length: 31
+  - token_length: 31
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 50:
+Câu hỏi: Cho bảng số liệu Số dân và tỉ lệ gia tăng dân số tự nhiên của nước ta qua các năm Nhận định nào sau đây không đúng về tình hình dân số nước ta
+Features câu hỏi:
+  - char_length: 142
+  - word_length: 35
+  - token_length: 35
+Features câu trả lời:
+
+--------------------------------------------------
+

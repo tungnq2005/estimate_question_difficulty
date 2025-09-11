@@ -1,0 +1,553 @@
+Features độ dài cho môn sử
+--------------------------------------------------
+
+Câu 1:
+Câu hỏi: Công cuộc khôi phục kinh tế lần thứ 4 của Liên Xô diễn ra trong khoảng thời gian nào
+Features câu hỏi:
+  - char_length: 84
+  - word_length: 19
+  - token_length: 19
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 2:
+Câu hỏi: Chiến lược phát triển kinh tế của Liên Xô sau chiến tranh thế giới thứ 2 là
+Features câu hỏi:
+  - char_length: 75
+  - word_length: 17
+  - token_length: 17
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 3:
+Câu hỏi: Trong những năm 5060 của thế kỉ XX nền kinh tế Kiên Xô phát triển mạnh
+Features câu hỏi:
+  - char_length: 70
+  - word_length: 16
+  - token_length: 16
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 4:
+Câu hỏi: Trong những năm 1945 1973 Liên Xô đã đạt được nhiều thành tựu rực rỡ trong lĩnh vực khoa học kĩ thuật tiêu biểu như
+Features câu hỏi:
+  - char_length: 115
+  - word_length: 25
+  - token_length: 25
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 5:
+Câu hỏi: Trước chiến tranh thế giới thứ hai các nước Đông Âu
+Features câu hỏi:
+  - char_length: 51
+  - word_length: 11
+  - token_length: 11
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 6:
+Câu hỏi: Trong thời kì chiến tranh th ế giới thứ hai các nước Đông Âu bị nước nào chiếm đóng
+Features câu hỏi:
+  - char_length: 83
+  - word_length: 19
+  - token_length: 19
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 7:
+Câu hỏi: Một trong những mục tiêu của hội đồng tương trợ kinh tế SEV khi thành lập là
+Features câu hỏi:
+  - char_length: 76
+  - word_length: 17
+  - token_length: 17
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 8:
+Câu hỏi: Các nhà nước dân chủ nhân dân ở Đông Âu ra đời
+Features câu hỏi:
+  - char_length: 46
+  - word_length: 12
+  - token_length: 12
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 9:
+Câu hỏi: Bước ra khỏi cuộc chiến tranh thế giới thứ 2 Liên Xô bắt tay vào khôi phục kinh tế và xây dựng XHCN trong hoàn cảnh đất nước như thế nào
+Features câu hỏi:
+  - char_length: 136
+  - word_length: 31
+  - token_length: 31
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 10:
+Câu hỏi: Việc Liên Xô chế tạo thành công bom nguyên tử mang lại ý nghĩa như thế nào
+Features câu hỏi:
+  - char_length: 74
+  - word_length: 17
+  - token_length: 17
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 11:
+Câu hỏi: Liên Xô phải t hực hiện khôi phục kinh tế sau chiến tranh thế giới thứ 2 vì
+Features câu hỏi:
+  - char_length: 75
+  - word_length: 18
+  - token_length: 18
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 12:
+Câu hỏi: Yếu tố nào quyết định đến sự thành công của Liên Xô trong việc thực hiện kế hoạch 5 năm 1946 1950
+Features câu hỏi:
+  - char_length: 97
+  - word_length: 22
+  - token_length: 22
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 13:
+Câu hỏi: Cơ sở của sự hợp tác giữa Liên Xô và các nước Đông Âu là các nước này cùng chung mục tiêu xây dựng chủ nghĩa xã hội dưới sự lãnh đạo của
+Features câu hỏi:
+  - char_length: 136
+  - word_length: 33
+  - token_length: 33
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 14:
+Câu hỏi: Thành tựu nổi bật trong công cuộc xây dựng chủ nghĩa xã hội của các nước Đông Âu giai đoạn 19501970 là
+Features câu hỏi:
+  - char_length: 102
+  - word_length: 22
+  - token_length: 22
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 15:
+Câu hỏi: Từ năm 1950 đến năm 1975 Liên Xô đã đề ra và thực hiện nhiều kế hoạch dài hạn với mục đích gì
+Features câu hỏi:
+  - char_length: 93
+  - word_length: 23
+  - token_length: 23
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 16:
+Câu hỏi: Đâu không phải là kết quả của công cuộc xây dựng cơ sở vật chất kĩ thuật của CNXH ở Liên Xô giai đoạn 1950 1973
+Features câu hỏi:
+  - char_length: 111
+  - word_length: 26
+  - token_length: 26
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 17:
+Câu hỏi: B iểu hiện chứng tỏ Liên Xô là thành trì của cách mạng thế giới từ năm 1950 đến nửa đầu những năm 70 của thế kỷ XX là
+Features câu hỏi:
+  - char_length: 117
+  - word_length: 29
+  - token_length: 29
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 18:
+Câu hỏi: Từ vũ trụ tôi không còn nhìn thấy biên giới các quốc gia Trái đất xanh một màu xanh vĩnh cửu là câu nói nổi tiếng của nhân vật lịch sử nào
+Features câu hỏi:
+  - char_length: 138
+  - word_length: 32
+  - token_length: 32
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 19:
+Câu hỏi: Đầu những năm 80 của thế kỉ XX tình hình kinh tế của Liên Xô có điểm gì nổi bật
+Features câu hỏi:
+  - char_length: 79
+  - word_length: 20
+  - token_length: 20
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 20:
+Câu hỏi: Tháng 31985 ở Liên Xô đã diễn ra sự kiện gì quan trọng
+Features câu hỏi:
+  - char_length: 54
+  - word_length: 13
+  - token_length: 13
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 21:
+Câu hỏi: Cuối những năm 80 đầu những năm 90 của thế kỉ XX trước áp lực đấu tranh đòi đa nguyên đa đảng của nhân dân b an lãnh đạo các nước Đông Âu đã chấp nhận từ bỏ quyền lãnh đạo của
+Features câu hỏi:
+  - char_length: 175
+  - word_length: 42
+  - token_length: 42
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 22:
+Câu hỏi: Công cuộc cải tổ ở Liên Xô 1985 diễn ra đầu tiên trong lĩnh vực nào
+Features câu hỏi:
+  - char_length: 67
+  - word_length: 16
+  - token_length: 16
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 23:
+Câu hỏi: Tổng thống đầu tiên và cũng là Tổng thống duy nhất của Liên Xô là
+Features câu hỏi:
+  - char_length: 65
+  - word_length: 15
+  - token_length: 15
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 24:
+Câu hỏi: Sự kiện nào là mốc đánh dấu chế độ Xã hội chủ nghĩa ở Liên Xô sụp đổ
+Features câu hỏi:
+  - char_length: 68
+  - word_length: 18
+  - token_length: 18
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 25:
+Câu hỏi: Các nước Đông Âu lâm vào tình trạng khủng hoảng vào khoảng thời gian nào
+Features câu hỏi:
+  - char_length: 72
+  - word_length: 15
+  - token_length: 15
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 26:
+Câu hỏi: Hội đồng tương trợ kinh tế SEV quyết định chấm dứt tổ chức Hiệp ước Vacsava giải thể đã đánh dấu
+Features câu hỏi:
+  - char_length: 96
+  - word_length: 21
+  - token_length: 21
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 27:
+Câu hỏi: Công cuộc cải tổ ở Liên Xô bắt đầu được thực hiện từ năm 1985 nhằm mục đích gì
+Features câu hỏi:
+  - char_length: 78
+  - word_length: 19
+  - token_length: 19
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 28:
+Câu hỏi: Cuộc khủng hoảng dầu mỏ năm 1973 đã đặt ra yêu cầu gì cho các quốc gia trên thế giới
+Features câu hỏi:
+  - char_length: 84
+  - word_length: 20
+  - token_length: 20
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 29:
+Câu hỏi: Hội đồng tương trợ kinh tế SEV lại giải thể do
+Features câu hỏi:
+  - char_length: 46
+  - word_length: 11
+  - token_length: 11
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 30:
+Câu hỏi: Nguyên nhân nào là cơ bản nhất khiến cho chủ nghĩa xã hội ở Liên Xô và Đông Âu sụp đổ
+Features câu hỏi:
+  - char_length: 85
+  - word_length: 21
+  - token_length: 21
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 31:
+Câu hỏi: Công cuộc xây dựng chủ nghĩa xã hội của các nước Đông Âu đã mắc phải sai lầm nghiêm trọng nào
+Features câu hỏi:
+  - char_length: 93
+  - word_length: 21
+  - token_length: 21
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 32:
+Câu hỏi: Công cuộc cải tổ của Goócbachốp thất bại do
+Features câu hỏi:
+  - char_length: 43
+  - word_length: 9
+  - token_length: 9
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 33:
+Câu hỏi: Nội dung nào sau đây không phải là hậu quả của cuộc đảo chính ngày 1981991
+Features câu hỏi:
+  - char_length: 74
+  - word_length: 16
+  - token_length: 16
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 34:
+Câu hỏi: Sự sụp đổ của Liên Xô có tác động như thế nào đến tình hình quan hệ quốc tế giai đoạn này
+Features câu hỏi:
+  - char_length: 89
+  - word_length: 22
+  - token_length: 22
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 35:
+Câu hỏi: Sự sụp đổ của chủ nghĩa xã hội ở Liên Xô có phải là sự sụp đổ của chủ nghĩa xã hội trên phạm vi toàn thế giới hay không Vì sao
+Features câu hỏi:
+  - char_length: 126
+  - word_length: 32
+  - token_length: 32
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 36:
+Câu hỏi: Đâu không phải là bài học kinh nghiệm từ sự thất bại của công cuộc cải tổ Liên Xô đối với công cuộc đổi mới ở Việt Nam hiện nay
+Features câu hỏi:
+  - char_length: 127
+  - word_length: 30
+  - token_length: 30
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 37:
+Câu hỏi: Sự sụp đổ của chủ nghĩa xã hội ở Liên Xô và Đông Âu là
+Features câu hỏi:
+  - char_length: 54
+  - word_length: 15
+  - token_length: 15
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 38:
+Câu hỏi: Hệ thống thuộc địa của chủ nghĩa đế quốc thực dân cơ bản sụp đổ vào khoảng thời gian nào
+Features câu hỏi:
+  - char_length: 88
+  - word_length: 20
+  - token_length: 20
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 39:
+Câu hỏi: Ngay sau khi Chiến tranh thế giới thứ hai kết thúc những nước nào ở khu vực Đông Nam Á giành được độc lập sớm nhất
+Features câu hỏi:
+  - char_length: 114
+  - word_length: 26
+  - token_length: 26
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 40:
+Câu hỏi: Năm 1960 ở châu Phi đã diễn ra sự kiện lịch sử gì quan trọng
+Features câu hỏi:
+  - char_length: 60
+  - word_length: 15
+  - token_length: 15
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 41:
+Câu hỏi: Năm 1975 Ănggôla Môdămbích giành lại nền độc lập từ tay của
+Features câu hỏi:
+  - char_length: 59
+  - word_length: 12
+  - token_length: 12
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 42:
+Câu hỏi: Từ cuối những năm 70 của thế kỉ XX chủ nghĩa thực dân chỉ còn tồn tại dưới hình thức cuối cùng của nó
+Features câu hỏi:
+  - char_length: 101
+  - word_length: 24
+  - token_length: 24
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 43:
+Câu hỏi: Sự kiện nào đánh dấu chủ nghĩa thực dân đế quốc đã sụp đổ đến tận gốc rễ
+Features câu hỏi:
+  - char_length: 72
+  - word_length: 18
+  - token_length: 18
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 44:
+Câu hỏi: Tháng 91974 Bồ Đào Nha đã tuyên bố trao trả độc lập cho
+Features câu hỏi:
+  - char_length: 55
+  - word_length: 13
+  - token_length: 13
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 45:
+Câu hỏi: Từ cuối những năm 70 của thế kỉ XX ở châu Phi chế độ phân biệt chủng tộc tập trung ở các quốc gia nào
+Features câu hỏi:
+  - char_length: 101
+  - word_length: 25
+  - token_length: 25
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 46:
+Câu hỏi: Sau Chiến tranh thế giới thứ hai nhân dân các nước Mỹ Latinh phải đối mặt với khó khăn nào
+Features câu hỏi:
+  - char_length: 90
+  - word_length: 20
+  - token_length: 20
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 47:
+Câu hỏi: Quốc gia nào dưới đây được coi lá cờ đầu trong phong trào giải phóng dân tộc ở Mĩ Latinh sau Chiến tranh thế giới thứ hai
+Features câu hỏi:
+  - char_length: 121
+  - word_length: 27
+  - token_length: 27
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 48:
+Câu hỏi: Nhiệm vụ nào được đặt ra cho các nước Á Phi Mĩ Latinh sau khi giành độc lập
+Features câu hỏi:
+  - char_length: 75
+  - word_length: 18
+  - token_length: 18
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 49:
+Câu hỏi: Yếu tố nào quyết định sự phát triển của phong trào giải phóng dân tộc ở các nước Á Phi Mĩ Latinh sau Chiến tranh thế giới thứ hai
+Features câu hỏi:
+  - char_length: 129
+  - word_length: 29
+  - token_length: 29
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 50:
+Câu hỏi: Sau chiến tranh thế giới thứ 2 điều kiện khách quan nào có lợi cho phong trào giải phóng dân tộc ở các nước Á Phi Mĩ Latinh
+Features câu hỏi:
+  - char_length: 123
+  - word_length: 28
+  - token_length: 28
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 51:
+Câu hỏi: Một trong những tác động của phong trào giải phóng dân tộc với quan hệ quốc tế sau chiến tranh thế giới thứ hai là
+Features câu hỏi:
+  - char_length: 114
+  - word_length: 25
+  - token_length: 25
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 52:
+Câu hỏi: Đâu không phải là điều kiện khách quan thuận lợi để phong trào giải phóng dân tộc bùng nổ và phát triển mạnh sau chiến tranh thế giới thứ hai
+Features câu hỏi:
+  - char_length: 141
+  - word_length: 30
+  - token_length: 30
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 53:
+Câu hỏi: Hãy sắp xếp các dữ kiện sau theo trình tự thời gian 1 Nhân dân Lào Việt Nam Inđônêxia tuyên bố độc lập 2 Bồ Đào Nha tuyên bố trao trả độc lập cho Ghinêbítxao Môdămbích Ănggôla 3 Chế độ phân biệt chủng tộc được xóa bỏ ở Nam Phi 4 17 nước Châu Phi tuyên bố độc lập
+Features câu hỏi:
+  - char_length: 262
+  - word_length: 59
+  - token_length: 59
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 54:
+Câu hỏi: Điểm khác biệt lớn nhất của phong trào giải phóng dân tộc sau chiến tranh thế giới thứ hai so với giai đoạn trước là
+Features câu hỏi:
+  - char_length: 116
+  - word_length: 25
+  - token_length: 25
+Features câu trả lời:
+
+--------------------------------------------------
+
+Câu 55:
+Câu hỏi: Nhận xét nào dưới đây không phù hợp với phong trào giải phóng dân tộc từ sau chiến tranh thế giới thứ 2
+Features câu hỏi:
+  - char_length: 103
+  - word_length: 23
+  - token_length: 23
+Features câu trả lời:
+
+--------------------------------------------------
+
