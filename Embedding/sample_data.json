@@ -1,0 +1,25 @@
+[
+    {
+        "id": 1886,
+        "subject": "Văn_học",
+        "question": "Đọc đoạn trích sau và trả_lời câu hỏi dưới đây: Hồi chưa vào nghề những đêm bầu_trời đen_kịt nhìn kĩ mới thấy một ngôi_sao xa cháu cũng nghĩ ngay ngôi_sao kia lẻ_loi một_mình... Xác_định phương_thức biểu_đạt chính được sử_dụng trong đoạn trích trên Các đáp_án :",
+        "options": [
+            "A. Tự_sự",
+            "B. Miêu_tả",
+            "C. Biểu_cảm",
+            "D. Thuyết_minh"
+        ],
+        "answer": "C. Biểu_cảm"
+    },
+    {
+        "id": 1887,
+        "subject": "Lịch_sử",
+        "question": "Sự_kiện nào KHÔNG phải là nguyên_nhân dẫn đến Chiến_tranh thế_giới thứ nhất?",
+        "options": [
+            "A. Mâu_thuẫn về thuộc_địa",
+            "B. Sự_kiện Sarajevo",
+            "C. Chủ_nghĩa đế_quốc trỗi dậy"
+        ],
+        "answer": "B. Sự_kiện Sarajevo"
+    }
+]
