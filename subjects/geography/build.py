@@ -1,16 +1,14 @@
 """Build Geography 9 ontology."""
 
-import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
-sys.path.insert(0, str(ROOT.parent / "shared"))
 
 ns: dict = {"__file__": str(ROOT / "build_data.py")}
 with open(ROOT / "build_data.py", "r", encoding="utf-8") as f:
     exec(f.read(), ns)
 
-from ttl_builder import build_ttl, quote
+from shared.ttl_builder import build_ttl, quote
 
 
 def emit_region(row):

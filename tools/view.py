@@ -1,6 +1,7 @@
 import sys
 import json
 import re
+from pathlib import Path
 from owlready2 import *
 
 # ==========================================
@@ -9,12 +10,14 @@ from owlready2 import *
 # Sửa lỗi hiển thị tiếng Việt trên Windows
 sys.stdout.reconfigure(encoding='utf-8')
 
-PATH_TO_OWL = "output/su9.owl"
+# Đồ thị Lịch sử được sinh ra tại subjects/history/ontology/su9.owl
+REPO_ROOT = Path(__file__).resolve().parents[1]
+PATH_TO_OWL = REPO_ROOT / "subjects" / "history" / "ontology" / "su9.owl"
 try:
-    onto = get_ontology(PATH_TO_OWL).load()
+    onto = get_ontology(PATH_TO_OWL.as_uri()).load()
 except Exception as e:
     print(f"[LỖI] Không thể load file OWL: {e}")
-    print("Hãy chạy lệnh 'python build_main.py' trước để tạo file dữ liệu!")
+    print("Hãy chạy 'python subjects/history/build.py' trước để tạo file dữ liệu!")
     sys.exit()
 
 # Hàm chuẩn hóa lỗi gõ dấu tiếng Việt (VD: òa -> oà)

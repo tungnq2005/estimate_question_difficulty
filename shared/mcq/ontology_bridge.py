@@ -29,7 +29,7 @@ from typing import Dict, List, Optional, Set, Tuple
 
 import networkx as nx
 import numpy as np
-from rdflib import Graph, Namespace, RDF, RDFS, URIRef, Literal
+from rdflib import Graph, Namespace, OWL, RDF, RDFS, URIRef, Literal
 
 SU9 = Namespace("http://su9.edu.vn/ontology#")
 
@@ -83,18 +83,36 @@ class OntologyEngine:
       - Lấy weights từ weightsJson
     """
 
-    def __init__(self, ttl_path: str | Path, embed_cache_path: Optional[str | Path] = None):
+    def __init__(self, ttl_path: str | Path,
+                 embed_cache_path: Optional[str | Path] = None,
+                 config: "SubjectConfig" = None):
         """
         Args:
             ttl_path: Đường dẫn file .ttl ontology
             embed_cache_path: Đường dẫn lưu embedding cache (.pkl).
                               Nếu None, mặc định là ttl_path + '.embeddings.pkl'
+            config: SubjectConfig (namespace + entity classes + edge props).
+                    None => dùng cấu hình History (su9) mặc định — giữ nguyên
+                    hành vi như trước khi refactor.
         """
         self.graph = Graph()
         # Windows path fix: rdflib không handle D:\ prefix, convert sang file URI
         ttl_path_p = Path(ttl_path).resolve()
         ttl_uri = ttl_path_p.as_uri()
         self.graph.parse(ttl_uri, format="turtle")
+
+        # --- Cấu hình theo môn học (namespace + lớp thực thể + cạnh ngữ nghĩa) ---
+        self.config = config
+        if config is None:
+            self.NS = SU9
+            self._entity_classes = set(ENTITY_CLASSES)
+            self._edge_props = set(SEMANTIC_EDGE_PROPS)
+        else:
+            self.NS = Namespace(config.namespace)
+            self._entity_classes = ({self.NS[c] for c in config.entity_classes}
+                                    if config.entity_classes else self._discover_classes())
+            self._edge_props = ({self.NS[p] for p in config.edge_props}
+                                if config.edge_props else self._discover_edge_props())
 
         # Embedding cache path
         if embed_cache_path is None:
@@ -119,12 +137,42 @@ class OntologyEngine:
         self._precompute_metrics()
         self._init_kad()
 
+    @classmethod
+    def for_subject(cls, subject: str, **kwargs) -> "OntologyEngine":
+        """Construct an engine for a named subject via the shared registry.
+
+        e.g. ``OntologyEngine.for_subject("history")`` /
+             ``OntologyEngine.for_subject("physics")``.
+        """
+        from ..subjects import get_config
+        cfg = get_config(subject)
+        return cls(cfg.ttl_path, config=cfg, **kwargs)
+
+    def _discover_classes(self) -> set:
+        """Entity classes = owl:Class in this subject's namespace (minus scaffolding)."""
+        from ..subjects import NON_ENTITY_CLASSES
+        out = set()
+        for c in self.graph.subjects(RDF.type, OWL.Class):
+            if isinstance(c, URIRef) and str(c).startswith(str(self.NS)):
+                if str(c).split("#")[-1] not in NON_ENTITY_CLASSES:
+                    out.add(c)
+        return out
+
+    def _discover_edge_props(self) -> set:
+        """Semantic edges = owl:ObjectProperty in namespace (minus curriculum links)."""
+        from ..subjects import NON_SEMANTIC_EDGES
+        out = set()
+        for p in self.graph.subjects(RDF.type, OWL.ObjectProperty):
+            if isinstance(p, URIRef) and str(p).startswith(str(self.NS)):
+                if str(p).split("#")[-1] not in NON_SEMANTIC_EDGES:
+                    out.add(p)
+        return out
 
     # ------------------------------------------------------------------
     # LOADING
     # ------------------------------------------------------------------
     def _load_entities(self) -> None:
-        for cls in ENTITY_CLASSES:
+        for cls in self._entity_classes:
             for s in self.graph.subjects(RDF.type, cls):
                 uri = str(s)
                 ent = Entity(
@@ -133,11 +181,11 @@ class OntologyEngine:
                     cls=str(cls).split("#")[-1],
                 )
                 ent.aliases = self._get_aliases(s)
-                ent.abstractness = self._get_int(s, SU9.abstractness)
-                ent.bloom_level = self._get_int(s, SU9.bloomLevel)
-                ent.frequency_in_textbook = self._get_int(s, SU9.frequencyInTextbook)
-                ent.start_year = self._get_int(s, SU9.startYear)
-                ent.end_year = self._get_int(s, SU9.endYear)
+                ent.abstractness = self._get_int(s, self.NS.abstractness)
+                ent.bloom_level = self._get_int(s, self.NS.bloomLevel)
+                ent.frequency_in_textbook = self._get_int(s, self.NS.frequencyInTextbook)
+                ent.start_year = self._get_int(s, self.NS.startYear)
+                ent.end_year = self._get_int(s, self.NS.endYear)
                 ent.weights = self._get_weights(s)
 
                 self.entities[uri] = ent
@@ -156,7 +204,7 @@ class OntologyEngine:
 
     def _get_aliases(self, s) -> List[str]:
         out: List[str] = []
-        for o in self.graph.objects(s, SU9.aliases):
+        for o in self.graph.objects(s, self.NS.aliases):
             for part in str(o).split("|"):
                 part = part.strip()
                 if part:
@@ -173,7 +221,7 @@ class OntologyEngine:
 
     def _get_weights(self, s) -> Dict[str, int]:
         """Parse weightsJson từ ontology."""
-        for o in self.graph.objects(s, SU9.weightsJson):
+        for o in self.graph.objects(s, self.NS.weightsJson):
             try:
                 return json.loads(str(o))
             except (json.JSONDecodeError, TypeError):
@@ -190,12 +238,12 @@ class OntologyEngine:
 
         # Thêm cạnh từ Object Properties
         for s, p, o in self.graph:
-            if p in SEMANTIC_EDGE_PROPS and isinstance(o, URIRef):
+            if p in self._edge_props and isinstance(o, URIRef):
                 s_str, o_str = str(s), str(o)
                 if s_str in self.entities and o_str in self.entities:
                     g.add_edge(s_str, o_str, prop=str(p).split("#")[-1])
                     # Undirected-style cho similar/contrast
-                    if p in {SU9.similarTo, SU9.contrastsWith}:
+                    if p in {self.NS.similarTo, self.NS.contrastsWith}:
                         g.add_edge(o_str, s_str, prop=str(p).split("#")[-1])
 
         self._nx = g
@@ -273,7 +321,7 @@ class OntologyEngine:
         """
         if self._embedding_cache is None:
             try:
-                from embedding_cache import EntityEmbeddingCache
+                from .embedding_cache import EntityEmbeddingCache
                 self._embedding_cache = EntityEmbeddingCache()
                 
                 # Thử load từ disk trước
@@ -507,8 +555,9 @@ def _normalize_preserve_offsets(text: str) -> str:
 if __name__ == "__main__":
     import sys
     sys.stdout.reconfigure(encoding='utf-8')
-    here = Path(__file__).resolve().parent.parent
-    engine = OntologyEngine(here / "output" / "su9.ttl")
+    # Self-test — run via:  python -m shared.mcq.ontology_bridge
+    repo_root = Path(__file__).resolve().parents[2]
+    engine = OntologyEngine(repo_root / "subjects" / "history" / "ontology" / "su9.ttl")
     print(f"Loaded {len(engine)} entities")
     print(f"Graph diameter: {engine._graph_diameter}")
 

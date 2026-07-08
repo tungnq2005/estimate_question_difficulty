@@ -1,0 +1,9 @@
+# Normalize line endings: store LF in the repo, check out native on each OS.
+* text=auto eol=lf
+
+# Ontology / data files are text.
+*.ttl text
+*.owl text
+*.py  text
+*.md  text
+*.json text

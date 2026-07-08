@@ -1,13 +1,19 @@
 # -*- coding: utf-8 -*-
-import sys
-sys.path.insert(0, 'd:/CS/CS_Major/NCKH/package/su9_ontology/mcq_pipeline')
-sys.stdout.reconfigure(encoding='utf-8')
+"""Print ontology statistics (class / edge / annotation distribution) for a subject.
 
-from ontology_bridge import OntologyEngine
-from pathlib import Path
+Usage:
+    python tools/stats.py            # history (default)
+    python tools/stats.py physics    # any registered subject
+"""
+import sys
 from collections import Counter
 
-engine = OntologyEngine(Path('d:/CS/CS_Major/NCKH/package/su9_ontology/output/su9.ttl'))
+sys.stdout.reconfigure(encoding="utf-8")
+
+from shared.mcq.ontology_bridge import OntologyEngine
+
+subject = sys.argv[1] if len(sys.argv) > 1 else "history"
+engine = OntologyEngine.for_subject(subject)
 
 # Class distribution
 cls_count = Counter()
@@ -20,7 +26,7 @@ for u, v, d in g.edges(data=True):
     edge_props[d.get('prop', 'unknown')] += 1
 
 print("#" * 60)
-print("# THONG KE ONTOLOGY LICH SU 9")
+print(f"# THONG KE ONTOLOGY: {subject.upper()}")
 print("#" * 60)
 print(f"Total entities: {len(engine.entities)}")
 print(f"Total nodes: {g.number_of_nodes()}")

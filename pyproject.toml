@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nckh-qde"
+version = "0.4.1"
+description = "Knowledge-graph ontologies for Vietnamese grade-9 subjects + cold-start MCQ question-difficulty estimation"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "rdflib>=7.0",
+    "networkx>=3.0",
+    "numpy>=1.24",
+    "scipy>=1.10",
+    "pandas>=2.0",
+    "scikit-learn>=1.3",
+    "xgboost>=2.0",
+    "owlready2>=0.45",
+]
+
+[project.optional-dependencies]
+# Block B (KAD entropy) + Block C (PhoBERT embedding) features.
+# Without these the pipeline still runs; those 9 features degrade to 0.0.
+ml = [
+    "torch>=2.0",
+    "transformers>=4.30",
+]
+# Optional Vietnamese NER for the legacy free-text linker (ontology-gap discovery).
+ner = [
+    "underthesea>=6.0",
+]
+
+[tool.setuptools]
+# Only `shared/` is importable code; subjects/, tools/, docs/ are data/scripts.
+packages = ["shared", "shared.mcq"]

@@ -307,8 +307,8 @@ def main() -> None:
     for p, e, rel in PARTICIPATES: out.append(f"su9:{p} su9:{rel} su9:{e} .")
 
     # Ghi ra file .ttl
-    ttl_path = ROOT / "output" / "su9.ttl"
-    ttl_path.parent.mkdir(exist_ok=True) # Tạo folder output nếu chưa có
+    ttl_path = ROOT / "ontology" / "su9.ttl"
+    ttl_path.parent.mkdir(exist_ok=True) # Tạo folder ontology nếu chưa có
     ttl_path.write_text("\n".join(out) + "\n", encoding="utf-8")
     print(f"\n[OK] Đã ghi thành công file Turtle: {ttl_path}")
 
@@ -317,7 +317,7 @@ def main() -> None:
         from rdflib import Graph
         g = Graph()
         g.parse(str(ttl_path), format="turtle")
-        owl_path = ROOT / "output" / "su9.owl"
+        owl_path = ROOT / "ontology" / "su9.owl"
         g.serialize(destination=str(owl_path), format="xml")
         print(f"[OK] Đã xuất thành công file OWL cho Protégé: {owl_path}  ({len(g)} triples)")
     except ImportError:

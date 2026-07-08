@@ -1,0 +1,9 @@
+# Optional ML stack for Block B (KAD Knowledge Entropy) + Block C (PhoBERT embeddings).
+# Without these, the pipeline runs but those 9 features fall back to 0.0.
+#
+# Install (CPU-only torch — smaller, no GPU needed):
+#   pip install -r requirements-ml.txt --extra-index-url https://download.pytorch.org/whl/cpu
+#
+# Optional Vietnamese NER (legacy free-text linker only):  pip install underthesea
+torch>=2.0
+transformers>=4.30

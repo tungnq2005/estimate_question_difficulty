@@ -7,19 +7,19 @@ Pipeline đầy đủ với 33 features (3 blocks):
   Block C (Embedding): 6 features - PhoBERT cosine similarities 🆕
 
 Usage:
-  python mcq_pipeline/demo.py
+  python tools/demo_mcq.py               # history (default)
+  python tools/demo_mcq.py --subject history
 """
 
+import argparse
 import json
 import sys
 from pathlib import Path
 
-# Add parent to path
-sys.path.insert(0, str(Path(__file__).resolve().parent))
-
-from ontology_bridge import OntologyEngine
-from features import MCQ, extract_single_mcq_features, batch_extract_features
-from rsi import analyze_rsi_decomposition
+from shared.mcq.ontology_bridge import OntologyEngine
+from shared.mcq.features import MCQ, extract_single_mcq_features, batch_extract_features
+from shared.mcq.rsi import analyze_rsi_decomposition
+from shared.subjects import get_config
 
 
 def load_mcqs(json_path: str) -> list:
@@ -142,36 +142,36 @@ def display_report(mcq: MCQ, engine: OntologyEngine):
     print()
 
 
-def main():
-    import sys
+def main(subject: str = "history"):
     sys.stdout.reconfigure(encoding='utf-8')
-    here = Path(__file__).resolve().parent.parent
-    
+    cfg = get_config(subject)
+
     print("=" * 80)
     print("  MCQ DIFFICULTY ESTIMATION PIPELINE v4.1")
     print("  Sử dụng Knowledge Graph + Knowledge Entropy + Embedding")
-    print("  33 features | 3 blocks | Unified Pipeline")
+    print(f"  Môn: {subject}  |  33 features | 3 blocks | Unified Pipeline")
     print("=" * 80)
-    
+
     # Bước 1: Load Ontology
     print("\n[1/4] Đang load Ontology...")
-    ttl_path = here / "output" / "su9.ttl"
+    ttl_path = cfg.ttl_path
     if not ttl_path.exists():
         print(f"  ❌ Không tìm thấy file {ttl_path}")
-        print("  Hãy chạy 'python build_main.py' trước.")
+        print(f"  Hãy chạy 'python subjects/{subject}/build.py' trước.")
         return
-    
-    engine = OntologyEngine(ttl_path)
+
+    engine = OntologyEngine.for_subject(subject)
     print(f"  ✅ Đã load {len(engine)} entities từ Ontology")
     print(f"  ✅ Đã pre-compute {len(engine.entity_label_list)} entity labels")
     print(f"  ✅ Đã pre-compute all-pairs shortest paths (diameter={engine._graph_diameter})")
-    
+
     # Bước 2: Load MCQs
     print("\n[2/4] Đang load MCQ samples...")
-    json_path = here / "mcq_pipeline" / "mcq_samples.json"
+    json_path = cfg.dir / "samples" / "mcq_samples.json"
     if not json_path.exists():
-        json_path = here / "mcq_samples.json"
-    
+        print(f"  ❌ Không tìm thấy MCQ samples: {json_path}")
+        return
+
     mcqs = load_mcqs(json_path)
     print(f"  ✅ Đã load {len(mcqs)} câu hỏi trắc nghiệm")
     
@@ -223,4 +223,8 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    ap = argparse.ArgumentParser(description="MCQ difficulty estimation demo")
+    ap.add_argument("--subject", default="history",
+                    help="subject to run (default: history)")
+    args = ap.parse_args()
+    main(args.subject)

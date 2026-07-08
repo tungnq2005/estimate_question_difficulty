@@ -27,7 +27,7 @@ import math
 import re
 from typing import Dict, List, Optional, Tuple
 
-from ontology_bridge import Entity, OntologyEngine
+from .ontology_bridge import Entity, OntologyEngine
 
 
 # Trọng số mặc định cho 4 thành phần
@@ -366,9 +366,9 @@ if __name__ == "__main__":
     import sys
     sys.stdout.reconfigure(encoding='utf-8')
     from pathlib import Path
-    here = Path(__file__).resolve().parent.parent
-    engine = OntologyEngine(here / "output" / "su9.ttl")
-    
+    repo_root = Path(__file__).resolve().parents[2]
+    engine = OntologyEngine(repo_root / "subjects" / "history" / "ontology" / "su9.ttl")
+
     # Test RSI
     stem_text = "Nguyên nhân sâu xa dẫn đến bùng nổ Chiến tranh thế giới thứ hai"
     correct_text = "Sự phát triển không đều của chủ nghĩa tư bản"

@@ -28,9 +28,9 @@ from typing import Dict, List, Optional, Tuple
 
 import numpy as np
 
-from ontology_bridge import Entity, OntologyEngine
-from jaccard import compute_jaccard_features
-from rsi import compute_rsi_features
+from .ontology_bridge import Entity, OntologyEngine
+from .jaccard import compute_jaccard_features
+from .rsi import compute_rsi_features
 
 
 @dataclass
@@ -558,9 +558,9 @@ def train_xgboost(
 if __name__ == "__main__":
     import sys
     sys.stdout.reconfigure(encoding='utf-8')
-    here = Path(__file__).resolve().parent.parent
-    engine = OntologyEngine(here / "output" / "su9.ttl")
-    
+    repo_root = Path(__file__).resolve().parents[2]
+    engine = OntologyEngine(repo_root / "subjects" / "history" / "ontology" / "su9.ttl")
+
     # Test với 1 MCQ
     mcq = MCQ(
         id="test_001",
