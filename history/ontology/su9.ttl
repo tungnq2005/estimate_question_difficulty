@@ -1,0 +1,3365 @@
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix su9:  <http://su9.edu.vn/ontology#> .
+
+<http://su9.edu.vn/ontology> a owl:Ontology ;
+    rdfs:label "Ontology Lich su 9 - Cold-start Question Difficulty Estimation (v0.2)"@vi ;
+    rdfs:comment "Expanded domain ontology for 9th-grade History, multi-textbook-aware."@en ;
+    owl:versionInfo "0.2.0" .
+
+#################################################################
+#   CLASSES
+#################################################################
+
+su9:HistoricalEntity a owl:Class ; rdfs:label "Thuc the lich su"@vi .
+su9:Event a owl:Class ; rdfs:subClassOf su9:HistoricalEntity ; rdfs:label "Su kien"@vi .
+su9:Person a owl:Class ; rdfs:subClassOf su9:HistoricalEntity ; rdfs:label "Nhan vat"@vi .
+su9:Location a owl:Class ; rdfs:subClassOf su9:HistoricalEntity ; rdfs:label "Dia diem"@vi .
+su9:Period a owl:Class ; rdfs:subClassOf su9:HistoricalEntity ; rdfs:label "Thoi ky"@vi .
+su9:Organization a owl:Class ; rdfs:subClassOf su9:HistoricalEntity ; rdfs:label "To chuc"@vi .
+su9:Movement a owl:Class ; rdfs:subClassOf su9:HistoricalEntity ; rdfs:label "Phong trao"@vi .
+su9:Document a owl:Class ; rdfs:subClassOf su9:HistoricalEntity ; rdfs:label "Van kien / Hiep dinh"@vi .
+su9:Concept a owl:Class ; rdfs:subClassOf su9:HistoricalEntity ; rdfs:label "Khai niem lich su"@vi .
+su9:LessonUnit a owl:Class ; rdfs:label "Bai hoc trong SGK"@vi .
+su9:Textbook a owl:Class ; rdfs:label "Bo sach giao khoa"@vi .
+
+#################################################################
+#   OBJECT PROPERTIES
+#################################################################
+
+su9:occursAt a owl:ObjectProperty ; rdfs:domain su9:Event ; rdfs:range su9:Location ; rdfs:label "dien ra tai"@vi .
+su9:occursDuring a owl:ObjectProperty ; rdfs:domain su9:Event ; rdfs:range su9:Period ; rdfs:label "dien ra trong thoi ky"@vi .
+su9:participatesIn a owl:ObjectProperty ; rdfs:domain su9:Person ; rdfs:range su9:Event ; rdfs:label "tham gia"@vi .
+su9:leads a owl:ObjectProperty ; rdfs:subPropertyOf su9:participatesIn ; rdfs:label "lanh dao"@vi .
+su9:causes a owl:ObjectProperty ; rdfs:label "la nguyen nhan cua"@vi .
+su9:directCause a owl:ObjectProperty ; rdfs:subPropertyOf su9:causes ; rdfs:label "nguyen nhan truc tiep"@vi .
+su9:deepCause a owl:ObjectProperty ; rdfs:subPropertyOf su9:causes ; rdfs:label "nguyen nhan sau xa"@vi .
+su9:resultsFrom a owl:ObjectProperty ; owl:inverseOf su9:causes ; rdfs:label "la ket qua cua"@vi .
+su9:prerequisiteOf a owl:ObjectProperty , owl:TransitiveProperty ; rdfs:label "la tien de cua"@vi .
+su9:similarTo a owl:ObjectProperty , owl:SymmetricProperty ; rdfs:label "tuong dong voi"@vi .
+su9:contrastsWith a owl:ObjectProperty , owl:SymmetricProperty ; rdfs:label "doi lap voi"@vi .
+su9:belongsToLesson a owl:ObjectProperty ; rdfs:range su9:LessonUnit ; rdfs:label "thuoc bai"@vi .
+su9:appearsInLesson a owl:ObjectProperty ; rdfs:range su9:LessonUnit ; rdfs:label "xuat hien trong bai"@vi ;
+    rdfs:comment "Many-to-many, one entity can appear in multiple lessons across textbooks."@en .
+su9:partOfTextbook a owl:ObjectProperty ; rdfs:range su9:Textbook ; rdfs:label "thuoc bo SGK"@vi .
+su9:derivesFrom a owl:ObjectProperty , owl:TransitiveProperty ; rdfs:label "ke thua tu"@vi .
+su9:signed a owl:ObjectProperty ; rdfs:domain su9:Person ; rdfs:range su9:Document ; rdfs:label "ky ket"@vi .
+su9:locatedIn a owl:ObjectProperty , owl:TransitiveProperty ; rdfs:domain su9:Location ; rdfs:range su9:Location ; rdfs:label "nam trong"@vi .
+su9:memberOf a owl:ObjectProperty ; rdfs:domain su9:Person ; rdfs:range su9:Organization ; rdfs:label "thanh vien cua"@vi .
+su9:involvedConcept a owl:ObjectProperty ; rdfs:label "lien quan den khai niem"@vi .
+
+#################################################################
+#   DATA PROPERTIES
+#################################################################
+
+su9:bloomLevel a owl:DatatypeProperty ; rdfs:range xsd:integer ; rdfs:label "muc do Bloom"@vi ;
+    rdfs:comment "1=Biet, 2=Hieu, 3=Van dung, 4=Van dung cao."@vi .
+su9:abstractness a owl:DatatypeProperty ; rdfs:range xsd:integer ; rdfs:label "do truu tuong 1-5"@vi .
+su9:frequencyInTextbook a owl:DatatypeProperty ; rdfs:range xsd:integer ; rdfs:label "tan suat SGK (estimate)"@vi .
+su9:curriculumPosition a owl:DatatypeProperty ; rdfs:range xsd:integer ; rdfs:label "vi tri chuong trinh"@vi .
+su9:startYear a owl:DatatypeProperty ; rdfs:range xsd:integer ; rdfs:label "nam bat dau"@vi .
+su9:endYear a owl:DatatypeProperty ; rdfs:range xsd:integer ; rdfs:label "nam ket thuc"@vi .
+su9:aliases a owl:DatatypeProperty ; rdfs:range xsd:string ; rdfs:label "ten goi khac (cach nhau |)"@vi .
+su9:confidence a owl:DatatypeProperty ; rdfs:range xsd:integer ; rdfs:label "do tin cay 1-3"@vi ;
+    rdfs:comment "3=chac chan, 2=hop ly, 1=can giao vien kiem tra."@vi .
+
+#################################################################
+#   TEXTBOOKS (Bo SGK)
+#################################################################
+
+su9:TB_Old a su9:Textbook ;
+    rdfs:label "SGK Lich su 9 (bo cu, truoc 2021)"@vi ;
+    su9:aliases "Bo cu|SGK 2002" ;
+    su9:confidence 3 .
+
+su9:TB_KNTT a su9:Textbook ;
+    rdfs:label "SGK Lich su va Dia li 9 - Ket noi tri thuc (2024)"@vi ;
+    su9:aliases "KNTT|Ket noi tri thuc" ;
+    su9:confidence 3 .
+
+su9:TB_CTST a su9:Textbook ;
+    rdfs:label "SGK Lich su va Dia li 9 - Chan troi sang tao (2024)"@vi ;
+    su9:aliases "CTST|Chan troi sang tao" ;
+    su9:confidence 3 .
+
+su9:TB_CD a su9:Textbook ;
+    rdfs:label "SGK Lich su va Dia li 9 - Canh Dieu (2024)"@vi ;
+    su9:aliases "CD|Canh Dieu" ;
+    su9:confidence 3 .
+
+
+#################################################################
+#   PERIODS
+#################################################################
+
+su9:P_WWII a su9:Period ;
+    rdfs:label "Chien tranh the gioi thu hai 1939-1945"@vi ;
+    su9:aliases "CTTG II|WWII" ;
+    su9:startYear 1939 ; su9:endYear 1945 ;
+    su9:abstractness 2 ;
+    su9:confidence 3 .
+
+su9:P_1919_1930 a su9:Period ;
+    rdfs:label "Viet Nam 1919-1930"@vi ;
+    su9:startYear 1919 ; su9:endYear 1930 ;
+    su9:abstractness 3 ;
+    su9:confidence 3 .
+
+su9:P_1930_1945 a su9:Period ;
+    rdfs:label "Viet Nam 1930-1945"@vi ;
+    su9:startYear 1930 ; su9:endYear 1945 ;
+    su9:abstractness 3 ;
+    su9:confidence 3 .
+
+su9:P_1945_1946 a su9:Period ;
+    rdfs:label "VN nam dau sau CMT8 1945-1946"@vi ;
+    su9:startYear 1945 ; su9:endYear 1946 ;
+    su9:abstractness 3 ;
+    su9:confidence 3 .
+
+su9:P_1946_1954 a su9:Period ;
+    rdfs:label "Khang chien chong Phap 1946-1954"@vi ;
+    su9:startYear 1946 ; su9:endYear 1954 ;
+    su9:abstractness 3 ;
+    su9:confidence 3 .
+
+su9:P_1954_1960 a su9:Period ;
+    rdfs:label "VN sau Geneva 1954-1960"@vi ;
+    su9:startYear 1954 ; su9:endYear 1960 ;
+    su9:abstractness 3 ;
+    su9:confidence 3 .
+
+su9:P_1961_1965 a su9:Period ;
+    rdfs:label "Chien tranh dac biet 1961-1965"@vi ;
+    su9:startYear 1961 ; su9:endYear 1965 ;
+    su9:abstractness 3 ;
+    su9:confidence 3 .
+
+su9:P_1965_1968 a su9:Period ;
+    rdfs:label "Chien tranh cuc bo 1965-1968"@vi ;
+    su9:startYear 1965 ; su9:endYear 1968 ;
+    su9:abstractness 3 ;
+    su9:confidence 3 .
+
+su9:P_1969_1973 a su9:Period ;
+    rdfs:label "VN hoa chien tranh 1969-1973"@vi ;
+    su9:startYear 1969 ; su9:endYear 1973 ;
+    su9:abstractness 3 ;
+    su9:confidence 3 .
+
+su9:P_1973_1975 a su9:Period ;
+    rdfs:label "Giai phong mien Nam 1973-1975"@vi ;
+    su9:startYear 1973 ; su9:endYear 1975 ;
+    su9:abstractness 3 ;
+    su9:confidence 3 .
+
+su9:P_1975_1986 a su9:Period ;
+    rdfs:label "VN truoc Doi moi 1975-1986"@vi ;
+    su9:startYear 1975 ; su9:endYear 1986 ;
+    su9:abstractness 3 ;
+    su9:confidence 3 .
+
+su9:P_1986_2000 a su9:Period ;
+    rdfs:label "VN thoi ky Doi moi 1986-2000"@vi ;
+    su9:startYear 1986 ; su9:endYear 2000 ;
+    su9:abstractness 3 ;
+    su9:confidence 3 .
+
+su9:P_ColdWar a su9:Period ;
+    rdfs:label "Chien tranh Lanh 1947-1991"@vi ;
+    su9:aliases "Cold War" ;
+    su9:startYear 1947 ; su9:endYear 1991 ;
+    su9:abstractness 4 ;
+    su9:confidence 3 .
+
+su9:P_Post1991 a su9:Period ;
+    rdfs:label "The gioi sau Chien tranh Lanh"@vi ;
+    su9:startYear 1991 ; su9:endYear 2000 ;
+    su9:abstractness 4 ;
+    su9:confidence 3 .
+
+su9:P_1945_1954 a su9:Period ;
+    rdfs:label "Khang chien chong Phap 1945-1954"@vi ;
+    su9:startYear 1945 ; su9:endYear 1954 ;
+    su9:abstractness 3 ;
+    su9:confidence 3 .
+
+su9:P_1954_1975 a su9:Period ;
+    rdfs:label "Khang chien chong My 1954-1975"@vi ;
+    su9:startYear 1954 ; su9:endYear 1975 ;
+    su9:abstractness 3 ;
+    su9:confidence 3 .
+
+su9:P_1975_2000 a su9:Period ;
+    rdfs:label "VN 1975-2000"@vi ;
+    su9:startYear 1975 ; su9:endYear 2000 ;
+    su9:abstractness 3 ;
+    su9:confidence 3 .
+
+
+#################################################################
+#   LOCATIONS
+#################################################################
+
+su9:L_VietNam a su9:Location ;
+    rdfs:label "Viet Nam"@vi ;
+    su9:abstractness 1 ;
+    su9:confidence 3 .
+
+su9:L_HaNoi a su9:Location ;
+    rdfs:label "Ha Noi"@vi ;
+    su9:locatedIn su9:L_VietNam ;
+    su9:abstractness 1 ;
+    su9:confidence 3 .
+
+su9:L_SaiGon a su9:Location ;
+    rdfs:label "Sai Gon"@vi ;
+    su9:aliases "TP Ho Chi Minh|TP HCM|Gia Dinh" ;
+    su9:locatedIn su9:L_VietNam ;
+    su9:abstractness 1 ;
+    su9:confidence 3 .
+
+su9:L_Hue a su9:Location ;
+    rdfs:label "Hue"@vi ;
+    su9:locatedIn su9:L_VietNam ;
+    su9:abstractness 1 ;
+    su9:confidence 3 .
+
+su9:L_DaNang a su9:Location ;
+    rdfs:label "Da Nang"@vi ;
+    su9:locatedIn su9:L_VietNam ;
+    su9:abstractness 1 ;
+    su9:confidence 3 .
+
+su9:L_HaiPhong a su9:Location ;
+    rdfs:label "Hai Phong"@vi ;
+    su9:locatedIn su9:L_VietNam ;
+    su9:abstractness 1 ;
+    su9:confidence 3 .
+
+su9:L_DienBienPhu a su9:Location ;
+    rdfs:label "Dien Bien Phu"@vi ;
+    su9:locatedIn su9:L_VietNam ;
+    su9:abstractness 1 ;
+    su9:confidence 3 .
+
+su9:L_VietBac a su9:Location ;
+    rdfs:label "Viet Bac"@vi ;
+    su9:aliases "Can cu dia Viet Bac" ;
+    su9:locatedIn su9:L_VietNam ;
+    su9:abstractness 2 ;
+    su9:confidence 3 .
+
+su9:L_TanTrao a su9:Location ;
+    rdfs:label "Tan Trao"@vi ;
+    su9:locatedIn su9:L_VietNam ;
+    su9:abstractness 1 ;
+    su9:confidence 3 .
+
+su9:L_PacBo a su9:Location ;
+    rdfs:label "Pac Bo"@vi ;
+    su9:locatedIn su9:L_VietNam ;
+    su9:abstractness 1 ;
+    su9:confidence 3 .
+
+su9:L_BaDinh a su9:Location ;
+    rdfs:label "Quang truong Ba Dinh"@vi ;
+    su9:locatedIn su9:L_HaNoi ;
+    su9:abstractness 1 ;
+    su9:confidence 3 .
+
+su9:L_MienBac a su9:Location ;
+    rdfs:label "Mien Bac Viet Nam"@vi ;
+    su9:locatedIn su9:L_VietNam ;
+    su9:abstractness 2 ;
+    su9:confidence 3 .
+
+su9:L_MienNam a su9:Location ;
+    rdfs:label "Mien Nam Viet Nam"@vi ;
+    su9:locatedIn su9:L_VietNam ;
+    su9:abstractness 2 ;
+    su9:confidence 3 .
+
+su9:L_NgheTinh a su9:Location ;
+    rdfs:label "Nghe Tinh"@vi ;
+    su9:aliases "Nghe An|Ha Tinh" ;
+    su9:locatedIn su9:L_VietNam ;
+    su9:abstractness 1 ;
+    su9:confidence 3 .
+
+su9:L_QuangTri a su9:Location ;
+    rdfs:label "Quang Tri"@vi ;
+    su9:locatedIn su9:L_VietNam ;
+    su9:abstractness 1 ;
+    su9:confidence 3 .
+
+su9:L_BuonMaThuot a su9:Location ;
+    rdfs:label "Buon Ma Thuot"@vi ;
+    su9:locatedIn su9:L_VietNam ;
+    su9:abstractness 1 ;
+    su9:confidence 3 .
+
+su9:L_TrungBo a su9:Location ;
+    rdfs:label "Trung Bo"@vi ;
+    su9:aliases "Mien Trung" ;
+    su9:locatedIn su9:L_VietNam ;
+    su9:abstractness 2 ;
+    su9:confidence 3 .
+
+su9:L_NamBo a su9:Location ;
+    rdfs:label "Nam Bo"@vi ;
+    su9:locatedIn su9:L_VietNam ;
+    su9:abstractness 2 ;
+    su9:confidence 3 .
+
+su9:L_BacBo a su9:Location ;
+    rdfs:label "Bac Bo"@vi ;
+    su9:locatedIn su9:L_VietNam ;
+    su9:abstractness 2 ;
+    su9:confidence 3 .
+
+su9:L_LienXo a su9:Location ;
+    rdfs:label "Lien Xo"@vi ;
+    su9:aliases "Soviet Union|USSR|Lien bang Xo Viet" ;
+    su9:abstractness 2 ;
+    su9:confidence 3 .
+
+su9:L_Nga a su9:Location ;
+    rdfs:label "Nga"@vi ;
+    su9:aliases "Russia|Lien bang Nga" ;
+    su9:abstractness 1 ;
+    su9:confidence 3 .
+
+su9:L_Moskva a su9:Location ;
+    rdfs:label "Moskva"@vi ;
+    su9:aliases "Moscow|Mat-xco-va" ;
+    su9:locatedIn su9:L_LienXo ;
+    su9:abstractness 1 ;
+    su9:confidence 3 .
+
+su9:L_TayAu a su9:Location ;
+    rdfs:label "Tay Au"@vi ;
+    su9:abstractness 2 ;
+    su9:confidence 3 .
+
+su9:L_DongAu a su9:Location ;
+    rdfs:label "Dong Au"@vi ;
+    su9:abstractness 2 ;
+    su9:confidence 3 .
+
+su9:L_Phap a su9:Location ;
+    rdfs:label "Phap"@vi ;
+    su9:locatedIn su9:L_TayAu ;
+    su9:abstractness 1 ;
+    su9:confidence 3 .
+
+su9:L_Paris a su9:Location ;
+    rdfs:label "Paris"@vi ;
+    su9:aliases "Pa-ri" ;
+    su9:locatedIn su9:L_Phap ;
+    su9:abstractness 1 ;
+    su9:confidence 3 .
+
+su9:L_Anh a su9:Location ;
+    rdfs:label "Anh"@vi ;
+    su9:aliases "United Kingdom|UK" ;
+    su9:locatedIn su9:L_TayAu ;
+    su9:abstractness 1 ;
+    su9:confidence 3 .
+
+su9:L_Duc a su9:Location ;
+    rdfs:label "Duc"@vi ;
+    su9:aliases "Germany|Germany" ;
+    su9:locatedIn su9:L_TayAu ;
+    su9:abstractness 1 ;
+    su9:confidence 3 .
+
+su9:L_Berlin a su9:Location ;
+    rdfs:label "Berlin"@vi ;
+    su9:aliases "Bec-lin" ;
+    su9:locatedIn su9:L_Duc ;
+    su9:abstractness 1 ;
+    su9:confidence 3 .
+
+su9:L_DongDuc a su9:Location ;
+    rdfs:label "Cong hoa Dan chu Duc"@vi ;
+    su9:aliases "CHDC Duc|Dong Duc" ;
+    su9:abstractness 2 ;
+    su9:confidence 3 .
+
+su9:L_TayDuc a su9:Location ;
+    rdfs:label "Cong hoa Lien bang Duc"@vi ;
+    su9:aliases "CHLB Duc|Tay Duc" ;
+    su9:abstractness 2 ;
+    su9:confidence 3 .
+
+su9:L_Italia a su9:Location ;
+    rdfs:label "Italia"@vi ;
+    su9:aliases "Italy|Y" ;
+    su9:locatedIn su9:L_TayAu ;
+    su9:abstractness 1 ;
+    su9:confidence 3 .
+
+su9:L_BaLan a su9:Location ;
+    rdfs:label "Ba Lan"@vi ;
+    su9:aliases "Poland" ;
+    su9:locatedIn su9:L_DongAu ;
+    su9:abstractness 1 ;
+    su9:confidence 3 .
+
+su9:L_Hungary a su9:Location ;
+    rdfs:label "Hungary"@vi ;
+    su9:aliases "Hung-ga-ri" ;
+    su9:locatedIn su9:L_DongAu ;
+    su9:abstractness 1 ;
+    su9:confidence 3 .
+
+su9:L_Tiep a su9:Location ;
+    rdfs:label "Tiep Khac"@vi ;
+    su9:aliases "Czechoslovakia" ;
+    su9:locatedIn su9:L_DongAu ;
+    su9:abstractness 1 ;
+    su9:confidence 3 .
+
+su9:L_Geneva a su9:Location ;
+    rdfs:label "Geneva"@vi ;
+    su9:aliases "Gio-ne-vo|Geneve" ;
+    su9:abstractness 1 ;
+    su9:confidence 3 .
+
+su9:L_My a su9:Location ;
+    rdfs:label "Nuoc My"@vi ;
+    su9:aliases "Hoa Ky|USA" ;
+    su9:abstractness 1 ;
+    su9:confidence 3 .
+
+su9:L_Washington a su9:Location ;
+    rdfs:label "Washington"@vi ;
+    su9:locatedIn su9:L_My ;
+    su9:abstractness 1 ;
+    su9:confidence 3 .
+
+su9:L_Cuba a su9:Location ;
+    rdfs:label "Cuba"@vi ;
+    su9:abstractness 1 ;
+    su9:confidence 3 .
+
+su9:L_MyLatinh a su9:Location ;
+    rdfs:label "My Latinh"@vi ;
+    su9:abstractness 2 ;
+    su9:confidence 3 .
+
+su9:L_Chile a su9:Location ;
+    rdfs:label "Chile"@vi ;
+    su9:aliases "Chi-le" ;
+    su9:locatedIn su9:L_MyLatinh ;
+    su9:abstractness 1 ;
+    su9:confidence 3 .
+
+su9:L_Brazil a su9:Location ;
+    rdfs:label "Brazil"@vi ;
+    su9:aliases "Bra-xin" ;
+    su9:locatedIn su9:L_MyLatinh ;
+    su9:abstractness 1 ;
+    su9:confidence 3 .
+
+su9:L_TrungQuoc a su9:Location ;
+    rdfs:label "Trung Quoc"@vi ;
+    su9:aliases "China" ;
+    su9:abstractness 1 ;
+    su9:confidence 3 .
+
+su9:L_BacKinh a su9:Location ;
+    rdfs:label "Bac Kinh"@vi ;
+    su9:aliases "Beijing" ;
+    su9:locatedIn su9:L_TrungQuoc ;
+    su9:abstractness 1 ;
+    su9:confidence 3 .
+
+su9:L_NhatBan a su9:Location ;
+    rdfs:label "Nhat Ban"@vi ;
+    su9:aliases "Japan" ;
+    su9:abstractness 1 ;
+    su9:confidence 3 .
+
+su9:L_Tokyo a su9:Location ;
+    rdfs:label "Tokyo"@vi ;
+    su9:aliases "To-ky-o" ;
+    su9:locatedIn su9:L_NhatBan ;
+    su9:abstractness 1 ;
+    su9:confidence 3 .
+
+su9:L_Hiroshima a su9:Location ;
+    rdfs:label "Hiroshima"@vi ;
+    su9:aliases "Hi-ro-si-ma" ;
+    su9:locatedIn su9:L_NhatBan ;
+    su9:abstractness 1 ;
+    su9:confidence 3 .
+
+su9:L_TrieuTien a su9:Location ;
+    rdfs:label "Trieu Tien"@vi ;
+    su9:aliases "Korea|Ban dao Trieu Tien" ;
+    su9:abstractness 1 ;
+    su9:confidence 3 .
+
+su9:L_BacTrieuTien a su9:Location ;
+    rdfs:label "CHDCND Trieu Tien"@vi ;
+    su9:aliases "Bac Trieu Tien|North Korea" ;
+    su9:abstractness 2 ;
+    su9:confidence 3 .
+
+su9:L_NamTrieuTien a su9:Location ;
+    rdfs:label "Han Quoc"@vi ;
+    su9:aliases "Nam Trieu Tien|South Korea" ;
+    su9:abstractness 2 ;
+    su9:confidence 3 .
+
+su9:L_AnDo a su9:Location ;
+    rdfs:label "An Do"@vi ;
+    su9:aliases "India" ;
+    su9:abstractness 1 ;
+    su9:confidence 3 .
+
+su9:L_DongNamA a su9:Location ;
+    rdfs:label "Dong Nam A"@vi ;
+    su9:aliases "Southeast Asia" ;
+    su9:abstractness 2 ;
+    su9:confidence 3 .
+
+su9:L_Lao a su9:Location ;
+    rdfs:label "Lao"@vi ;
+    su9:locatedIn su9:L_DongNamA ;
+    su9:abstractness 1 ;
+    su9:confidence 3 .
+
+su9:L_Campuchia a su9:Location ;
+    rdfs:label "Cam-pu-chia"@vi ;
+    su9:aliases "Kampuchea|Cambodia" ;
+    su9:locatedIn su9:L_DongNamA ;
+    su9:abstractness 1 ;
+    su9:confidence 3 .
+
+su9:L_Indonesia a su9:Location ;
+    rdfs:label "In-do-ne-xi-a"@vi ;
+    su9:aliases "Indonesia" ;
+    su9:locatedIn su9:L_DongNamA ;
+    su9:abstractness 1 ;
+    su9:confidence 3 .
+
+su9:L_Thailand a su9:Location ;
+    rdfs:label "Thai Lan"@vi ;
+    su9:aliases "Thailand" ;
+    su9:locatedIn su9:L_DongNamA ;
+    su9:abstractness 1 ;
+    su9:confidence 3 .
+
+su9:L_Malaysia a su9:Location ;
+    rdfs:label "Ma-lai-xi-a"@vi ;
+    su9:aliases "Malaysia" ;
+    su9:locatedIn su9:L_DongNamA ;
+    su9:abstractness 1 ;
+    su9:confidence 3 .
+
+su9:L_Singapore a su9:Location ;
+    rdfs:label "Xinh-ga-po"@vi ;
+    su9:aliases "Singapore" ;
+    su9:locatedIn su9:L_DongNamA ;
+    su9:abstractness 1 ;
+    su9:confidence 3 .
+
+su9:L_Philippines a su9:Location ;
+    rdfs:label "Phi-lip-pin"@vi ;
+    su9:aliases "Philippines" ;
+    su9:locatedIn su9:L_DongNamA ;
+    su9:abstractness 1 ;
+    su9:confidence 3 .
+
+su9:L_Myanmar a su9:Location ;
+    rdfs:label "My-an-ma"@vi ;
+    su9:aliases "Myanmar|Burma" ;
+    su9:locatedIn su9:L_DongNamA ;
+    su9:abstractness 1 ;
+    su9:confidence 3 .
+
+su9:L_ChauPhi a su9:Location ;
+    rdfs:label "Chau Phi"@vi ;
+    su9:aliases "Africa" ;
+    su9:abstractness 2 ;
+    su9:confidence 3 .
+
+su9:L_AiCap a su9:Location ;
+    rdfs:label "Ai Cap"@vi ;
+    su9:aliases "Egypt" ;
+    su9:locatedIn su9:L_ChauPhi ;
+    su9:abstractness 1 ;
+    su9:confidence 3 .
+
+su9:L_Angieri a su9:Location ;
+    rdfs:label "An-gie-ri"@vi ;
+    su9:aliases "Algeria" ;
+    su9:locatedIn su9:L_ChauPhi ;
+    su9:abstractness 1 ;
+    su9:confidence 3 .
+
+su9:L_NamPhi a su9:Location ;
+    rdfs:label "Nam Phi"@vi ;
+    su9:aliases "South Africa" ;
+    su9:locatedIn su9:L_ChauPhi ;
+    su9:abstractness 1 ;
+    su9:confidence 3 .
+
+
+#################################################################
+#   PERSONS
+#################################################################
+
+su9:Pe_HoChiMinh a su9:Person ;
+    rdfs:label "Ho Chi Minh"@vi ;
+    su9:aliases "Nguyen Ai Quoc|NAQ|Nguyen Tat Thanh|Bac Ho" ;
+    su9:frequencyInTextbook 80 ;
+    su9:abstractness 1 ;
+    su9:confidence 3 .
+
+su9:Pe_VoNguyenGiap a su9:Person ;
+    rdfs:label "Vo Nguyen Giap"@vi ;
+    su9:aliases "Dai tuong Vo Nguyen Giap" ;
+    su9:frequencyInTextbook 15 ;
+    su9:abstractness 1 ;
+    su9:confidence 3 .
+
+su9:Pe_TranPhu a su9:Person ;
+    rdfs:label "Tran Phu"@vi ;
+    su9:aliases "Tong Bi thu Tran Phu" ;
+    su9:frequencyInTextbook 6 ;
+    su9:abstractness 1 ;
+    su9:confidence 3 .
+
+su9:Pe_LeHongPhong a su9:Person ;
+    rdfs:label "Le Hong Phong"@vi ;
+    su9:frequencyInTextbook 4 ;
+    su9:abstractness 1 ;
+    su9:confidence 3 .
+
+su9:Pe_NguyenVanCu a su9:Person ;
+    rdfs:label "Nguyen Van Cu"@vi ;
+    su9:aliases "Tong Bi thu Nguyen Van Cu" ;
+    su9:frequencyInTextbook 4 ;
+    su9:abstractness 1 ;
+    su9:confidence 3 .
+
+su9:Pe_HaHuyTap a su9:Person ;
+    rdfs:label "Ha Huy Tap"@vi ;
+    su9:frequencyInTextbook 3 ;
+    su9:abstractness 1 ;
+    su9:confidence 3 .
+
+su9:Pe_TruongChinh a su9:Person ;
+    rdfs:label "Truong Chinh"@vi ;
+    su9:aliases "Dang Xuan Khu" ;
+    su9:frequencyInTextbook 6 ;
+    su9:abstractness 1 ;
+    su9:confidence 3 .
+
+su9:Pe_LeDuan a su9:Person ;
+    rdfs:label "Le Duan"@vi ;
+    su9:aliases "Tong Bi thu Le Duan" ;
+    su9:frequencyInTextbook 8 ;
+    su9:abstractness 1 ;
+    su9:confidence 3 .
+
+su9:Pe_PhamVanDong a su9:Person ;
+    rdfs:label "Pham Van Dong"@vi ;
+    su9:aliases "Thu tuong Pham Van Dong" ;
+    su9:frequencyInTextbook 5 ;
+    su9:abstractness 1 ;
+    su9:confidence 3 .
+
+su9:Pe_NguyenChiThanh a su9:Person ;
+    rdfs:label "Nguyen Chi Thanh"@vi ;
+    su9:aliases "Dai tuong Nguyen Chi Thanh" ;
+    su9:frequencyInTextbook 3 ;
+    su9:abstractness 1 ;
+    su9:confidence 2 .
+
+su9:Pe_VanTienDung a su9:Person ;
+    rdfs:label "Van Tien Dung"@vi ;
+    su9:aliases "Dai tuong Van Tien Dung" ;
+    su9:frequencyInTextbook 3 ;
+    su9:abstractness 1 ;
+    su9:confidence 2 .
+
+su9:Pe_PhanBoiChau a su9:Person ;
+    rdfs:label "Phan Boi Chau"@vi ;
+    su9:frequencyInTextbook 5 ;
+    su9:abstractness 1 ;
+    su9:confidence 3 .
+
+su9:Pe_PhanChauTrinh a su9:Person ;
+    rdfs:label "Phan Chau Trinh"@vi ;
+    su9:aliases "Phan Chu Trinh" ;
+    su9:frequencyInTextbook 5 ;
+    su9:abstractness 1 ;
+    su9:confidence 3 .
+
+su9:Pe_NguyenThaiHoc a su9:Person ;
+    rdfs:label "Nguyen Thai Hoc"@vi ;
+    su9:frequencyInTextbook 4 ;
+    su9:abstractness 1 ;
+    su9:confidence 3 .
+
+su9:Pe_LyTuTrong a su9:Person ;
+    rdfs:label "Ly Tu Trong"@vi ;
+    su9:frequencyInTextbook 3 ;
+    su9:abstractness 1 ;
+    su9:confidence 3 .
+
+su9:Pe_TonDucThang a su9:Person ;
+    rdfs:label "Ton Duc Thang"@vi ;
+    su9:aliases "Bac Ton" ;
+    su9:frequencyInTextbook 3 ;
+    su9:abstractness 1 ;
+    su9:confidence 3 .
+
+su9:Pe_Lenin a su9:Person ;
+    rdfs:label "Lenin"@vi ;
+    su9:aliases "V.I. Lenin|Vla-di-mia Le-nin" ;
+    su9:frequencyInTextbook 8 ;
+    su9:abstractness 1 ;
+    su9:confidence 3 .
+
+su9:Pe_Stalin a su9:Person ;
+    rdfs:label "Stalin"@vi ;
+    su9:aliases "I.V. Stalin|I-o-sif Sta-lin" ;
+    su9:frequencyInTextbook 5 ;
+    su9:abstractness 1 ;
+    su9:confidence 3 .
+
+su9:Pe_Khrushchev a su9:Person ;
+    rdfs:label "Khrushchev"@vi ;
+    su9:aliases "Khơ-rut-sốp" ;
+    su9:frequencyInTextbook 3 ;
+    su9:abstractness 1 ;
+    su9:confidence 2 .
+
+su9:Pe_Brezhnev a su9:Person ;
+    rdfs:label "Brezhnev"@vi ;
+    su9:aliases "Brê-giơ-nhép" ;
+    su9:frequencyInTextbook 2 ;
+    su9:abstractness 1 ;
+    su9:confidence 2 .
+
+su9:Pe_Gorbachev a su9:Person ;
+    rdfs:label "Gorbachev"@vi ;
+    su9:aliases "Gooc-ba-chop|M. Gorbachev" ;
+    su9:frequencyInTextbook 6 ;
+    su9:abstractness 1 ;
+    su9:confidence 3 .
+
+su9:Pe_Yeltsin a su9:Person ;
+    rdfs:label "Yeltsin"@vi ;
+    su9:aliases "En-xin|B. Yeltsin" ;
+    su9:frequencyInTextbook 2 ;
+    su9:abstractness 1 ;
+    su9:confidence 2 .
+
+su9:Pe_Putin a su9:Person ;
+    rdfs:label "Putin"@vi ;
+    su9:aliases "V. Putin|Pu-tin" ;
+    su9:frequencyInTextbook 3 ;
+    su9:abstractness 1 ;
+    su9:confidence 2 .
+
+su9:Pe_MaoTrachDong a su9:Person ;
+    rdfs:label "Mao Trach Dong"@vi ;
+    su9:aliases "Mao Zedong" ;
+    su9:frequencyInTextbook 5 ;
+    su9:abstractness 1 ;
+    su9:confidence 3 .
+
+su9:Pe_DangTieuBinh a su9:Person ;
+    rdfs:label "Dang Tieu Binh"@vi ;
+    su9:aliases "Deng Xiaoping|Đặng Tiểu Bình" ;
+    su9:frequencyInTextbook 4 ;
+    su9:abstractness 1 ;
+    su9:confidence 3 .
+
+su9:Pe_Nehru a su9:Person ;
+    rdfs:label "Nehru"@vi ;
+    su9:aliases "Jawaharlal Nehru|Ne-ru" ;
+    su9:frequencyInTextbook 3 ;
+    su9:abstractness 1 ;
+    su9:confidence 3 .
+
+su9:Pe_Gandhi a su9:Person ;
+    rdfs:label "Gandhi"@vi ;
+    su9:aliases "Mahatma Gandhi|Găng-đi" ;
+    su9:frequencyInTextbook 3 ;
+    su9:abstractness 1 ;
+    su9:confidence 3 .
+
+su9:Pe_Sukarno a su9:Person ;
+    rdfs:label "Sukarno"@vi ;
+    su9:aliases "Xu-các-nô" ;
+    su9:frequencyInTextbook 2 ;
+    su9:abstractness 1 ;
+    su9:confidence 2 .
+
+su9:Pe_Roosevelt a su9:Person ;
+    rdfs:label "Roosevelt"@vi ;
+    su9:aliases "F.D. Roosevelt|Ru-dơ-ven" ;
+    su9:frequencyInTextbook 3 ;
+    su9:abstractness 1 ;
+    su9:confidence 3 .
+
+su9:Pe_Truman a su9:Person ;
+    rdfs:label "Truman"@vi ;
+    su9:aliases "Harry Truman|Tru-man" ;
+    su9:frequencyInTextbook 3 ;
+    su9:abstractness 1 ;
+    su9:confidence 3 .
+
+su9:Pe_Eisenhower a su9:Person ;
+    rdfs:label "Eisenhower"@vi ;
+    su9:aliases "Dwight Eisenhower|Ai-xen-hao" ;
+    su9:frequencyInTextbook 2 ;
+    su9:abstractness 1 ;
+    su9:confidence 2 .
+
+su9:Pe_Kennedy a su9:Person ;
+    rdfs:label "Kennedy"@vi ;
+    su9:aliases "J.F. Kennedy|Ken-nơ-đi" ;
+    su9:frequencyInTextbook 3 ;
+    su9:abstractness 1 ;
+    su9:confidence 3 .
+
+su9:Pe_Johnson a su9:Person ;
+    rdfs:label "Johnson"@vi ;
+    su9:aliases "Lyndon Johnson|Giôn-xơn" ;
+    su9:frequencyInTextbook 3 ;
+    su9:abstractness 1 ;
+    su9:confidence 2 .
+
+su9:Pe_Nixon a su9:Person ;
+    rdfs:label "Nixon"@vi ;
+    su9:aliases "Richard Nixon|Ních-xơn" ;
+    su9:frequencyInTextbook 4 ;
+    su9:abstractness 1 ;
+    su9:confidence 3 .
+
+su9:Pe_Churchill a su9:Person ;
+    rdfs:label "Churchill"@vi ;
+    su9:aliases "Winston Churchill|Sớc-sin" ;
+    su9:frequencyInTextbook 2 ;
+    su9:abstractness 1 ;
+    su9:confidence 3 .
+
+su9:Pe_DeGaulle a su9:Person ;
+    rdfs:label "De Gaulle"@vi ;
+    su9:aliases "Sac-lơ Đờ-gôn|Charles de Gaulle" ;
+    su9:frequencyInTextbook 2 ;
+    su9:abstractness 1 ;
+    su9:confidence 2 .
+
+su9:Pe_FidelCastro a su9:Person ;
+    rdfs:label "Phi-den Cat-xto-ro"@vi ;
+    su9:aliases "Fidel Castro" ;
+    su9:frequencyInTextbook 5 ;
+    su9:abstractness 1 ;
+    su9:confidence 3 .
+
+su9:Pe_CheGuevara a su9:Person ;
+    rdfs:label "Che Guevara"@vi ;
+    su9:aliases "Che Ghê-va-ra" ;
+    su9:frequencyInTextbook 2 ;
+    su9:abstractness 1 ;
+    su9:confidence 2 .
+
+su9:Pe_NelsonMandela a su9:Person ;
+    rdfs:label "Nelson Mandela"@vi ;
+    su9:aliases "N. Man-de-la" ;
+    su9:frequencyInTextbook 3 ;
+    su9:abstractness 1 ;
+    su9:confidence 3 .
+
+su9:Pe_Nasser a su9:Person ;
+    rdfs:label "Nasser"@vi ;
+    su9:aliases "Na-xe|Gamal Abdel Nasser" ;
+    su9:frequencyInTextbook 2 ;
+    su9:abstractness 1 ;
+    su9:confidence 2 .
+
+su9:Pe_KimNhatThanh a su9:Person ;
+    rdfs:label "Kim Nhat Thanh"@vi ;
+    su9:aliases "Kim Il-sung" ;
+    su9:frequencyInTextbook 2 ;
+    su9:abstractness 1 ;
+    su9:confidence 2 .
+
+su9:Pe_Ngothrungdiem a su9:Person ;
+    rdfs:label "Ngo Dinh Diem"@vi ;
+    su9:frequencyInTextbook 4 ;
+    su9:abstractness 1 ;
+    su9:confidence 3 .
+
+su9:Pe_NguyenVanThieu a su9:Person ;
+    rdfs:label "Nguyen Van Thieu"@vi ;
+    su9:frequencyInTextbook 3 ;
+    su9:abstractness 1 ;
+    su9:confidence 3 .
+
+su9:Pe_DuongVanMinh a su9:Person ;
+    rdfs:label "Duong Van Minh"@vi ;
+    su9:frequencyInTextbook 3 ;
+    su9:abstractness 1 ;
+    su9:confidence 3 .
+
+su9:Pe_AngSan a su9:Person ;
+    rdfs:label "Aung San"@vi ;
+    su9:aliases "Ong-xan" ;
+    su9:frequencyInTextbook 1 ;
+    su9:abstractness 1 ;
+    su9:confidence 2 .
+
+
+#################################################################
+#   ORGANIZATIONS
+#################################################################
+
+su9:O_DangCongSanVN a su9:Organization ;
+    rdfs:label "Dang Cong san Viet Nam"@vi ;
+    su9:aliases "DCSVN|Dang Cong san Dong Duong|Dang" ;
+    su9:frequencyInTextbook 50 ;
+    su9:abstractness 2 ;
+    su9:confidence 3 .
+
+su9:O_VietMinh a su9:Organization ;
+    rdfs:label "Mat tran Viet Minh"@vi ;
+    su9:aliases "Viet Minh|VN Doc lap Dong minh" ;
+    su9:frequencyInTextbook 25 ;
+    su9:abstractness 2 ;
+    su9:confidence 3 .
+
+su9:O_LienVietMatTran a su9:Organization ;
+    rdfs:label "Mat tran Lien Viet"@vi ;
+    su9:aliases "Lien Viet" ;
+    su9:frequencyInTextbook 6 ;
+    su9:abstractness 2 ;
+    su9:confidence 3 .
+
+su9:O_VNDCCH a su9:Organization ;
+    rdfs:label "Nuoc Viet Nam Dan chu Cong hoa"@vi ;
+    su9:aliases "VNDCCH|VN Dan chu Cong hoa" ;
+    su9:frequencyInTextbook 30 ;
+    su9:abstractness 2 ;
+    su9:confidence 3 .
+
+su9:O_CHXHCN_VN a su9:Organization ;
+    rdfs:label "Cong hoa Xa hoi chu nghia Viet Nam"@vi ;
+    su9:aliases "CHXHCN VN" ;
+    su9:frequencyInTextbook 10 ;
+    su9:abstractness 2 ;
+    su9:confidence 3 .
+
+su9:O_MTDTGP a su9:Organization ;
+    rdfs:label "Mat tran Dan toc Giai phong mien Nam VN"@vi ;
+    su9:aliases "MTDTGP MNVN|MTDTGP" ;
+    su9:frequencyInTextbook 8 ;
+    su9:abstractness 2 ;
+    su9:confidence 3 .
+
+su9:O_CPCMLT a su9:Organization ;
+    rdfs:label "Chinh phu Cach mang Lam thoi CHMN VN"@vi ;
+    su9:aliases "CPCMLT|CPCM Lam thoi" ;
+    su9:frequencyInTextbook 5 ;
+    su9:abstractness 2 ;
+    su9:confidence 3 .
+
+su9:O_VNCH a su9:Organization ;
+    rdfs:label "Viet Nam Cong hoa"@vi ;
+    su9:aliases "Chinh quyen Sai Gon|VNCH" ;
+    su9:frequencyInTextbook 8 ;
+    su9:abstractness 2 ;
+    su9:confidence 3 .
+
+su9:O_VNQDD a su9:Organization ;
+    rdfs:label "Viet Nam Quoc dan Dang"@vi ;
+    su9:aliases "VNQDD" ;
+    su9:frequencyInTextbook 4 ;
+    su9:abstractness 2 ;
+    su9:confidence 3 .
+
+su9:O_TanViet a su9:Organization ;
+    rdfs:label "Tan Viet Cach mang Dang"@vi ;
+    su9:aliases "Tan Viet" ;
+    su9:frequencyInTextbook 3 ;
+    su9:abstractness 2 ;
+    su9:confidence 3 .
+
+su9:O_DongDuongCSD a su9:Organization ;
+    rdfs:label "Dong Duong Cong san Dang"@vi ;
+    su9:frequencyInTextbook 3 ;
+    su9:abstractness 2 ;
+    su9:confidence 3 .
+
+su9:O_AnNamCSD a su9:Organization ;
+    rdfs:label "An Nam Cong san Dang"@vi ;
+    su9:frequencyInTextbook 3 ;
+    su9:abstractness 2 ;
+    su9:confidence 3 .
+
+su9:O_DongDuongCSLien a su9:Organization ;
+    rdfs:label "Dong Duong Cong san Lien doan"@vi ;
+    su9:frequencyInTextbook 2 ;
+    su9:abstractness 2 ;
+    su9:confidence 3 .
+
+su9:O_HoiVNCMThanhNien a su9:Organization ;
+    rdfs:label "Hoi Viet Nam Cach mang Thanh nien"@vi ;
+    su9:aliases "Hoi VNCMTN" ;
+    su9:frequencyInTextbook 6 ;
+    su9:abstractness 2 ;
+    su9:confidence 3 .
+
+su9:O_VNGiaiPhongQuan a su9:Organization ;
+    rdfs:label "Viet Nam Giai phong quan"@vi ;
+    su9:aliases "VNGPQ" ;
+    su9:frequencyInTextbook 4 ;
+    su9:abstractness 2 ;
+    su9:confidence 3 .
+
+su9:O_QuanDoiNhanDanVN a su9:Organization ;
+    rdfs:label "Quan doi Nhan dan Viet Nam"@vi ;
+    su9:aliases "QDND VN" ;
+    su9:frequencyInTextbook 15 ;
+    su9:abstractness 2 ;
+    su9:confidence 3 .
+
+su9:O_QuocTeCongSan a su9:Organization ;
+    rdfs:label "Quoc te Cong san"@vi ;
+    su9:aliases "Quoc te III|Comintern" ;
+    su9:frequencyInTextbook 5 ;
+    su9:abstractness 3 ;
+    su9:confidence 3 .
+
+su9:O_LHQ a su9:Organization ;
+    rdfs:label "Lien Hop Quoc"@vi ;
+    su9:aliases "UN|LHQ" ;
+    su9:frequencyInTextbook 12 ;
+    su9:abstractness 2 ;
+    su9:confidence 3 .
+
+su9:O_HoiDongBaoAn a su9:Organization ;
+    rdfs:label "Hoi dong Bao an LHQ"@vi ;
+    su9:frequencyInTextbook 3 ;
+    su9:abstractness 3 ;
+    su9:confidence 3 .
+
+su9:O_ASEAN a su9:Organization ;
+    rdfs:label "ASEAN"@vi ;
+    su9:aliases "Hiep hoi cac quoc gia Dong Nam A" ;
+    su9:frequencyInTextbook 15 ;
+    su9:abstractness 3 ;
+    su9:confidence 3 .
+
+su9:O_NATO a su9:Organization ;
+    rdfs:label "Khoi NATO"@vi ;
+    su9:aliases "NATO|Khoi Bac Dai Tay Duong" ;
+    su9:frequencyInTextbook 7 ;
+    su9:abstractness 3 ;
+    su9:confidence 3 .
+
+su9:O_Warsaw a su9:Organization ;
+    rdfs:label "Khoi Vacsava"@vi ;
+    su9:aliases "Warsaw Pact|Hiep uoc Vacsava" ;
+    su9:frequencyInTextbook 6 ;
+    su9:abstractness 3 ;
+    su9:confidence 3 .
+
+su9:O_SEV a su9:Organization ;
+    rdfs:label "Hoi dong Tuong tro Kinh te SEV"@vi ;
+    su9:aliases "SEV|COMECON" ;
+    su9:frequencyInTextbook 5 ;
+    su9:abstractness 3 ;
+    su9:confidence 3 .
+
+su9:O_EU a su9:Organization ;
+    rdfs:label "Lien minh chau Au"@vi ;
+    su9:aliases "EU|Lien minh Chau Au" ;
+    su9:frequencyInTextbook 8 ;
+    su9:abstractness 3 ;
+    su9:confidence 3 .
+
+su9:O_EEC a su9:Organization ;
+    rdfs:label "Cong dong Kinh te chau Au"@vi ;
+    su9:aliases "EEC|Khoi Thi truong chung chau Au" ;
+    su9:frequencyInTextbook 5 ;
+    su9:abstractness 3 ;
+    su9:confidence 3 .
+
+su9:O_G7 a su9:Organization ;
+    rdfs:label "Nhom G7"@vi ;
+    su9:aliases "G7|Nhom 7 nuoc cong nghiep phat trien" ;
+    su9:frequencyInTextbook 3 ;
+    su9:abstractness 3 ;
+    su9:confidence 3 .
+
+su9:O_WTO a su9:Organization ;
+    rdfs:label "To chuc Thuong mai The gioi"@vi ;
+    su9:aliases "WTO" ;
+    su9:frequencyInTextbook 4 ;
+    su9:abstractness 3 ;
+    su9:confidence 3 .
+
+su9:O_APEC a su9:Organization ;
+    rdfs:label "Dien dan Hop tac Kinh te chau A-Thai Binh Duong"@vi ;
+    su9:aliases "APEC" ;
+    su9:frequencyInTextbook 3 ;
+    su9:abstractness 3 ;
+    su9:confidence 3 .
+
+su9:O_IMF a su9:Organization ;
+    rdfs:label "Quy Tien te Quoc te"@vi ;
+    su9:aliases "IMF" ;
+    su9:frequencyInTextbook 2 ;
+    su9:abstractness 3 ;
+    su9:confidence 2 .
+
+su9:O_WB a su9:Organization ;
+    rdfs:label "Ngan hang The gioi"@vi ;
+    su9:aliases "World Bank|WB" ;
+    su9:frequencyInTextbook 2 ;
+    su9:abstractness 3 ;
+    su9:confidence 2 .
+
+su9:O_AU a su9:Organization ;
+    rdfs:label "Lien minh chau Phi"@vi ;
+    su9:aliases "AU|Lien minh Chau Phi" ;
+    su9:frequencyInTextbook 2 ;
+    su9:abstractness 3 ;
+    su9:confidence 2 .
+
+su9:O_OAU a su9:Organization ;
+    rdfs:label "To chuc Thong nhat chau Phi"@vi ;
+    su9:aliases "OAU" ;
+    su9:frequencyInTextbook 2 ;
+    su9:abstractness 3 ;
+    su9:confidence 2 .
+
+su9:O_NAM a su9:Organization ;
+    rdfs:label "Phong trao Khong lien ket"@vi ;
+    su9:aliases "NAM|Khong lien ket" ;
+    su9:frequencyInTextbook 3 ;
+    su9:abstractness 4 ;
+    su9:confidence 3 .
+
+su9:O_Quocdan_Dang_TQ a su9:Organization ;
+    rdfs:label "Quoc dan Dang Trung Quoc"@vi ;
+    su9:aliases "Kuomintang|KMT" ;
+    su9:frequencyInTextbook 2 ;
+    su9:abstractness 2 ;
+    su9:confidence 3 .
+
+su9:O_DCS_TQ a su9:Organization ;
+    rdfs:label "Dang Cong san Trung Quoc"@vi ;
+    su9:aliases "Communist Party of China" ;
+    su9:frequencyInTextbook 5 ;
+    su9:abstractness 2 ;
+    su9:confidence 3 .
+
+
+#################################################################
+#   MOVEMENTS
+#################################################################
+
+su9:M_DongDu a su9:Movement ;
+    rdfs:label "Phong trao Dong Du"@vi ;
+    su9:frequencyInTextbook 4 ;
+    su9:abstractness 3 ;
+    su9:confidence 3 .
+
+su9:M_CanVuong a su9:Movement ;
+    rdfs:label "Phong trao Can Vuong"@vi ;
+    su9:frequencyInTextbook 3 ;
+    su9:abstractness 3 ;
+    su9:confidence 3 .
+
+su9:M_DuyTan a su9:Movement ;
+    rdfs:label "Phong trao Duy Tan"@vi ;
+    su9:frequencyInTextbook 3 ;
+    su9:abstractness 3 ;
+    su9:confidence 3 .
+
+su9:M_CM_19_25 a su9:Movement ;
+    rdfs:label "Phong trao cach mang VN 1919-1925"@vi ;
+    su9:frequencyInTextbook 6 ;
+    su9:abstractness 3 ;
+    su9:confidence 3 .
+
+su9:M_CM_30_31 a su9:Movement ;
+    rdfs:label "Phong trao cach mang 1930-1931"@vi ;
+    su9:aliases "Xo Viet Nghe Tinh" ;
+    su9:frequencyInTextbook 10 ;
+    su9:abstractness 3 ;
+    su9:confidence 3 .
+
+su9:M_DanChu_36_39 a su9:Movement ;
+    rdfs:label "Phong trao dan chu 1936-1939"@vi ;
+    su9:aliases "Cuoc van dong dan chu" ;
+    su9:frequencyInTextbook 10 ;
+    su9:abstractness 3 ;
+    su9:confidence 3 .
+
+su9:M_KhangNhat a su9:Movement ;
+    rdfs:label "Phong trao khang Nhat cuu nuoc"@vi ;
+    su9:frequencyInTextbook 5 ;
+    su9:abstractness 3 ;
+    su9:confidence 3 .
+
+su9:M_DongKhoi a su9:Movement ;
+    rdfs:label "Phong trao Dong Khoi"@vi ;
+    su9:aliases "Cao trao Dong Khoi 1959-1960" ;
+    su9:frequencyInTextbook 7 ;
+    su9:abstractness 3 ;
+    su9:confidence 3 .
+
+su9:M_GPDT_ChauA a su9:Movement ;
+    rdfs:label "Phong trao GPDT chau A sau 1945"@vi ;
+    su9:frequencyInTextbook 8 ;
+    su9:abstractness 4 ;
+    su9:confidence 3 .
+
+su9:M_GPDT_ChauPhi a su9:Movement ;
+    rdfs:label "Phong trao GPDT chau Phi"@vi ;
+    su9:frequencyInTextbook 5 ;
+    su9:abstractness 4 ;
+    su9:confidence 3 .
+
+su9:M_GPDT_MyLatinh a su9:Movement ;
+    rdfs:label "Phong trao GPDT My Latinh"@vi ;
+    su9:frequencyInTextbook 5 ;
+    su9:abstractness 4 ;
+    su9:confidence 3 .
+
+su9:M_KhongLienKet a su9:Movement ;
+    rdfs:label "Phong trao Khong lien ket"@vi ;
+    su9:aliases "NAM" ;
+    su9:frequencyInTextbook 4 ;
+    su9:abstractness 4 ;
+    su9:confidence 3 .
+
+su9:M_CongNhan_VN_Post1918 a su9:Movement ;
+    rdfs:label "Phong trao cong nhan VN sau 1918"@vi ;
+    su9:frequencyInTextbook 5 ;
+    su9:abstractness 3 ;
+    su9:confidence 3 .
+
+su9:M_ChongMy_MienNam a su9:Movement ;
+    rdfs:label "Phong trao chong My o mien Nam"@vi ;
+    su9:frequencyInTextbook 10 ;
+    su9:abstractness 3 ;
+    su9:confidence 3 .
+
+su9:M_ThiDuaYeuNuoc a su9:Movement ;
+    rdfs:label "Phong trao thi dua yeu nuoc"@vi ;
+    su9:frequencyInTextbook 4 ;
+    su9:abstractness 3 ;
+    su9:confidence 2 .
+
+
+#################################################################
+#   DOCUMENTS
+#################################################################
+
+su9:D_CuongLinh1930 a su9:Document ;
+    rdfs:label "Cuong linh chinh tri dau tien 1930"@vi ;
+    su9:aliases "Chanh cuong van tat" ;
+    su9:frequencyInTextbook 7 ;
+    su9:abstractness 4 ;
+    su9:confidence 3 .
+
+su9:D_SachLuoc1930 a su9:Document ;
+    rdfs:label "Sach luoc van tat 1930"@vi ;
+    su9:frequencyInTextbook 4 ;
+    su9:abstractness 4 ;
+    su9:confidence 3 .
+
+su9:D_LuanCuong1030 a su9:Document ;
+    rdfs:label "Luan cuong chinh tri 10/1930"@vi ;
+    su9:frequencyInTextbook 6 ;
+    su9:abstractness 4 ;
+    su9:confidence 3 .
+
+su9:D_TuyenNgonDocLap a su9:Document ;
+    rdfs:label "Tuyen ngon Doc lap 2/9/1945"@vi ;
+    su9:frequencyInTextbook 10 ;
+    su9:abstractness 3 ;
+    su9:confidence 3 .
+
+su9:D_HienPhap1946 a su9:Document ;
+    rdfs:label "Hien phap 1946"@vi ;
+    su9:frequencyInTextbook 4 ;
+    su9:abstractness 3 ;
+    su9:confidence 3 .
+
+su9:D_HiepDinhSoBo a su9:Document ;
+    rdfs:label "Hiep dinh So bo 6/3/1946"@vi ;
+    su9:frequencyInTextbook 5 ;
+    su9:abstractness 3 ;
+    su9:confidence 3 .
+
+su9:D_TamUocPaxtiNo a su9:Document ;
+    rdfs:label "Tam uoc 14/9/1946"@vi ;
+    su9:aliases "Tam uoc Pa-ri" ;
+    su9:frequencyInTextbook 3 ;
+    su9:abstractness 3 ;
+    su9:confidence 3 .
+
+su9:D_LoiKeuGoiKCTQ a su9:Document ;
+    rdfs:label "Loi keu goi toan quoc khang chien 12/1946"@vi ;
+    su9:frequencyInTextbook 5 ;
+    su9:abstractness 3 ;
+    su9:confidence 3 .
+
+su9:D_KhangChienTruongKi a su9:Document ;
+    rdfs:label "Tac pham Khang chien nhat dinh thang loi"@vi ;
+    su9:frequencyInTextbook 3 ;
+    su9:abstractness 3 ;
+    su9:confidence 2 .
+
+su9:D_HiepDinhGeneva1954 a su9:Document ;
+    rdfs:label "Hiep dinh Geneva 1954"@vi ;
+    su9:aliases "Hiep dinh Gio-ne-vo|Hiep dinh Geneve" ;
+    su9:frequencyInTextbook 12 ;
+    su9:abstractness 3 ;
+    su9:confidence 3 .
+
+su9:D_HiepDinhParis1973 a su9:Document ;
+    rdfs:label "Hiep dinh Paris 1973"@vi ;
+    su9:aliases "Hiep dinh Pa-ri" ;
+    su9:frequencyInTextbook 10 ;
+    su9:abstractness 3 ;
+    su9:confidence 3 .
+
+su9:D_HienPhap1959 a su9:Document ;
+    rdfs:label "Hien phap 1959"@vi ;
+    su9:frequencyInTextbook 3 ;
+    su9:abstractness 3 ;
+    su9:confidence 3 .
+
+su9:D_HienPhap1980 a su9:Document ;
+    rdfs:label "Hien phap 1980"@vi ;
+    su9:frequencyInTextbook 3 ;
+    su9:abstractness 3 ;
+    su9:confidence 3 .
+
+su9:D_HienPhap1992 a su9:Document ;
+    rdfs:label "Hien phap 1992"@vi ;
+    su9:frequencyInTextbook 3 ;
+    su9:abstractness 3 ;
+    su9:confidence 3 .
+
+su9:D_DiChucHCM a su9:Document ;
+    rdfs:label "Di chuc Ho Chi Minh"@vi ;
+    su9:frequencyInTextbook 4 ;
+    su9:abstractness 3 ;
+    su9:confidence 3 .
+
+su9:D_NghiQuyet15 a su9:Document ;
+    rdfs:label "Nghi quyet 15 (1/1959)"@vi ;
+    su9:frequencyInTextbook 4 ;
+    su9:abstractness 4 ;
+    su9:confidence 3 .
+
+su9:D_HienChuongLHQ a su9:Document ;
+    rdfs:label "Hien chuong Lien Hop Quoc"@vi ;
+    su9:frequencyInTextbook 3 ;
+    su9:abstractness 3 ;
+    su9:confidence 3 .
+
+su9:D_HocThuyetTruman a su9:Document ;
+    rdfs:label "Hoc thuyet Truman 1947"@vi ;
+    su9:frequencyInTextbook 4 ;
+    su9:abstractness 4 ;
+    su9:confidence 3 .
+
+su9:D_KeHoachMarshall a su9:Document ;
+    rdfs:label "Ke hoach Marshall"@vi ;
+    su9:frequencyInTextbook 3 ;
+    su9:abstractness 3 ;
+    su9:confidence 3 .
+
+su9:D_HiepDinhHelsinki a su9:Document ;
+    rdfs:label "Hiep dinh Helsinki 1975"@vi ;
+    su9:frequencyInTextbook 2 ;
+    su9:abstractness 3 ;
+    su9:confidence 2 .
+
+
+#################################################################
+#   CONCEPTS
+#################################################################
+
+su9:C_ChuNghiaThucDan a su9:Concept ;
+    rdfs:label "Chu nghia thuc dan"@vi ;
+    su9:aliases "CN thuc dan" ;
+    su9:frequencyInTextbook 25 ;
+    su9:abstractness 5 ;
+    su9:bloomLevel 2 ;
+    su9:confidence 3 .
+
+su9:C_ChuNghiaDeQuoc a su9:Concept ;
+    rdfs:label "Chu nghia de quoc"@vi ;
+    su9:aliases "CN de quoc" ;
+    su9:frequencyInTextbook 18 ;
+    su9:abstractness 5 ;
+    su9:bloomLevel 2 ;
+    su9:confidence 3 .
+
+su9:C_ChuNghiaTuBan a su9:Concept ;
+    rdfs:label "Chu nghia tu ban"@vi ;
+    su9:aliases "CNTB" ;
+    su9:frequencyInTextbook 20 ;
+    su9:abstractness 5 ;
+    su9:bloomLevel 2 ;
+    su9:confidence 3 .
+
+su9:C_ChuNghiaXaHoi a su9:Concept ;
+    rdfs:label "Chu nghia xa hoi"@vi ;
+    su9:aliases "CNXH" ;
+    su9:frequencyInTextbook 30 ;
+    su9:abstractness 5 ;
+    su9:bloomLevel 2 ;
+    su9:confidence 3 .
+
+su9:C_ChuNghiaCongSan a su9:Concept ;
+    rdfs:label "Chu nghia cong san"@vi ;
+    su9:frequencyInTextbook 10 ;
+    su9:abstractness 5 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 .
+
+su9:C_CNMacLenin a su9:Concept ;
+    rdfs:label "Chu nghia Mac-Lenin"@vi ;
+    su9:aliases "Chu nghia Mac Lenin" ;
+    su9:frequencyInTextbook 12 ;
+    su9:abstractness 5 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 .
+
+su9:C_TuTuongHCM a su9:Concept ;
+    rdfs:label "Tu tuong Ho Chi Minh"@vi ;
+    su9:frequencyInTextbook 8 ;
+    su9:abstractness 5 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 .
+
+su9:C_CachMangVoSan a su9:Concept ;
+    rdfs:label "Cach mang vo san"@vi ;
+    su9:frequencyInTextbook 12 ;
+    su9:abstractness 5 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 .
+
+su9:C_CachMangTuSan a su9:Concept ;
+    rdfs:label "Cach mang tu san"@vi ;
+    su9:aliases "CMTB" ;
+    su9:frequencyInTextbook 8 ;
+    su9:abstractness 5 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 .
+
+su9:C_CachMangDanToc a su9:Concept ;
+    rdfs:label "Cach mang dan toc dan chu nhan dan"@vi ;
+    su9:aliases "CM DTDCND" ;
+    su9:frequencyInTextbook 15 ;
+    su9:abstractness 5 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 .
+
+su9:C_CachMangXHCN a su9:Concept ;
+    rdfs:label "Cach mang xa hoi chu nghia"@vi ;
+    su9:aliases "CM XHCN" ;
+    su9:frequencyInTextbook 10 ;
+    su9:abstractness 5 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 .
+
+su9:C_GiaiCapCongNhan a su9:Concept ;
+    rdfs:label "Giai cap cong nhan"@vi ;
+    su9:frequencyInTextbook 8 ;
+    su9:abstractness 4 ;
+    su9:bloomLevel 2 ;
+    su9:confidence 3 .
+
+su9:C_GiaiCapNongDan a su9:Concept ;
+    rdfs:label "Giai cap nong dan"@vi ;
+    su9:frequencyInTextbook 6 ;
+    su9:abstractness 4 ;
+    su9:bloomLevel 2 ;
+    su9:confidence 3 .
+
+su9:C_GiaiCapTuSan a su9:Concept ;
+    rdfs:label "Giai cap tu san"@vi ;
+    su9:frequencyInTextbook 5 ;
+    su9:abstractness 4 ;
+    su9:bloomLevel 2 ;
+    su9:confidence 3 .
+
+su9:C_MatTranDanToc a su9:Concept ;
+    rdfs:label "Mat tran dan toc thong nhat"@vi ;
+    su9:frequencyInTextbook 8 ;
+    su9:abstractness 4 ;
+    su9:bloomLevel 2 ;
+    su9:confidence 3 .
+
+su9:C_DoiMoi a su9:Concept ;
+    rdfs:label "Duong loi Doi moi"@vi ;
+    su9:aliases "Cong cuoc Doi moi" ;
+    su9:frequencyInTextbook 12 ;
+    su9:abstractness 3 ;
+    su9:bloomLevel 2 ;
+    su9:confidence 3 .
+
+su9:C_KinhTeThiTruong a su9:Concept ;
+    rdfs:label "Kinh te thi truong dinh huong XHCN"@vi ;
+    su9:frequencyInTextbook 6 ;
+    su9:abstractness 5 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 .
+
+su9:C_KinhTeKeHoachHoa a su9:Concept ;
+    rdfs:label "Kinh te ke hoach hoa tap trung"@vi ;
+    su9:aliases "Co che quan li bao cap" ;
+    su9:frequencyInTextbook 5 ;
+    su9:abstractness 5 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 .
+
+su9:C_CongNghiepHoa a su9:Concept ;
+    rdfs:label "Cong nghiep hoa hien dai hoa"@vi ;
+    su9:aliases "CNH HDH" ;
+    su9:frequencyInTextbook 5 ;
+    su9:abstractness 4 ;
+    su9:bloomLevel 2 ;
+    su9:confidence 3 .
+
+su9:C_HopTacHoa a su9:Concept ;
+    rdfs:label "Hop tac hoa nong nghiep"@vi ;
+    su9:frequencyInTextbook 4 ;
+    su9:abstractness 4 ;
+    su9:bloomLevel 2 ;
+    su9:confidence 3 .
+
+su9:C_CaiCachRuongDat a su9:Concept ;
+    rdfs:label "Cai cach ruong dat"@vi ;
+    su9:frequencyInTextbook 6 ;
+    su9:abstractness 3 ;
+    su9:bloomLevel 2 ;
+    su9:confidence 3 .
+
+su9:C_ChienTranhLanh a su9:Concept ;
+    rdfs:label "Chien tranh Lanh"@vi ;
+    su9:aliases "Cold War" ;
+    su9:frequencyInTextbook 15 ;
+    su9:abstractness 4 ;
+    su9:bloomLevel 2 ;
+    su9:confidence 3 .
+
+su9:C_TratTuHaiCuc a su9:Concept ;
+    rdfs:label "Trat tu hai cuc Ianta"@vi ;
+    su9:aliases "Trat tu hai cuc|Hai cuc I-an-ta" ;
+    su9:frequencyInTextbook 10 ;
+    su9:abstractness 5 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 .
+
+su9:C_DaCucDaTrungTam a su9:Concept ;
+    rdfs:label "Da cuc da trung tam"@vi ;
+    su9:aliases "Trat tu the gioi moi|Da cuc" ;
+    su9:frequencyInTextbook 5 ;
+    su9:abstractness 5 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 .
+
+su9:C_ToanCauHoa a su9:Concept ;
+    rdfs:label "Toan cau hoa"@vi ;
+    su9:aliases "Globalization" ;
+    su9:frequencyInTextbook 8 ;
+    su9:abstractness 5 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 .
+
+su9:C_CMKHKT a su9:Concept ;
+    rdfs:label "Cach mang khoa hoc - ky thuat"@vi ;
+    su9:aliases "CM KHKT" ;
+    su9:frequencyInTextbook 10 ;
+    su9:abstractness 3 ;
+    su9:bloomLevel 2 ;
+    su9:confidence 3 .
+
+su9:C_CachMangCongNghiep4 a su9:Concept ;
+    rdfs:label "Cach mang cong nghe 4.0"@vi ;
+    su9:aliases "CMCN 4.0" ;
+    su9:frequencyInTextbook 4 ;
+    su9:abstractness 4 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 2 .
+
+su9:C_PhiThucDanHoa a su9:Concept ;
+    rdfs:label "Phi thuc dan hoa"@vi ;
+    su9:aliases "Giai phong dan toc|GPDT" ;
+    su9:frequencyInTextbook 12 ;
+    su9:abstractness 4 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 .
+
+su9:C_HeThongThuocDia a su9:Concept ;
+    rdfs:label "He thong thuoc dia"@vi ;
+    su9:frequencyInTextbook 6 ;
+    su9:abstractness 4 ;
+    su9:bloomLevel 2 ;
+    su9:confidence 3 .
+
+su9:C_DongMinhChongPhatXit a su9:Concept ;
+    rdfs:label "Dong minh chong phat xit"@vi ;
+    su9:frequencyInTextbook 5 ;
+    su9:abstractness 3 ;
+    su9:bloomLevel 2 ;
+    su9:confidence 3 .
+
+su9:C_PhatXit a su9:Concept ;
+    rdfs:label "Chu nghia phat xit"@vi ;
+    su9:aliases "CN phat xit" ;
+    su9:frequencyInTextbook 5 ;
+    su9:abstractness 4 ;
+    su9:bloomLevel 2 ;
+    su9:confidence 3 .
+
+su9:C_ChienTranhCucBo a su9:Concept ;
+    rdfs:label "Chien tranh cuc bo"@vi ;
+    su9:frequencyInTextbook 6 ;
+    su9:abstractness 3 ;
+    su9:bloomLevel 2 ;
+    su9:confidence 3 .
+
+su9:C_ChienTranhDacBiet a su9:Concept ;
+    rdfs:label "Chien tranh dac biet"@vi ;
+    su9:frequencyInTextbook 6 ;
+    su9:abstractness 3 ;
+    su9:bloomLevel 2 ;
+    su9:confidence 3 .
+
+su9:C_VNHoaChienTranh a su9:Concept ;
+    rdfs:label "Viet Nam hoa chien tranh"@vi ;
+    su9:frequencyInTextbook 6 ;
+    su9:abstractness 3 ;
+    su9:bloomLevel 2 ;
+    su9:confidence 3 .
+
+su9:C_ChienLuoc3Mui a su9:Concept ;
+    rdfs:label "Chien luoc 3 mui giap cong"@vi ;
+    su9:frequencyInTextbook 3 ;
+    su9:abstractness 4 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 2 .
+
+su9:C_BaoVaChongBao a su9:Concept ;
+    rdfs:label "Bao vay va chong bao vay kinh te"@vi ;
+    su9:frequencyInTextbook 3 ;
+    su9:abstractness 4 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 2 .
+
+su9:C_HoiNhapQuocTe a su9:Concept ;
+    rdfs:label "Hoi nhap quoc te"@vi ;
+    su9:frequencyInTextbook 5 ;
+    su9:abstractness 4 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 2 .
+
+su9:C_KhuVucHoa a su9:Concept ;
+    rdfs:label "Khu vuc hoa"@vi ;
+    su9:frequencyInTextbook 3 ;
+    su9:abstractness 4 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 2 .
+
+su9:C_CMXanh a su9:Concept ;
+    rdfs:label "Cach mang xanh"@vi ;
+    su9:frequencyInTextbook 3 ;
+    su9:abstractness 3 ;
+    su9:bloomLevel 2 ;
+    su9:confidence 2 .
+
+su9:C_ChienTranhNhanDan a su9:Concept ;
+    rdfs:label "Chien tranh nhan dan"@vi ;
+    su9:frequencyInTextbook 5 ;
+    su9:abstractness 4 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 .
+
+
+#################################################################
+#   LESSON UNITS (per textbook)
+#################################################################
+
+su9:TB_Old_B01 a su9:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 1: Lien Xo va Dong Au 1945-1970s"@vi ;
+    su9:partOfTextbook su9:TB_Old ;
+    su9:curriculumPosition 1 .
+su9:TB_Old_B02 a su9:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 2: Lien Xo va Dong Au 1970s-1990s"@vi ;
+    su9:partOfTextbook su9:TB_Old ;
+    su9:curriculumPosition 2 .
+su9:TB_Old_B03 a su9:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 3: Qua trinh phat trien phong trao GPDT"@vi ;
+    su9:partOfTextbook su9:TB_Old ;
+    su9:curriculumPosition 3 .
+su9:TB_Old_B04 a su9:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 4: Cac nuoc chau A"@vi ;
+    su9:partOfTextbook su9:TB_Old ;
+    su9:curriculumPosition 4 .
+su9:TB_Old_B05 a su9:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 5: Cac nuoc Dong Nam A"@vi ;
+    su9:partOfTextbook su9:TB_Old ;
+    su9:curriculumPosition 5 .
+su9:TB_Old_B06 a su9:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 6: Cac nuoc chau Phi"@vi ;
+    su9:partOfTextbook su9:TB_Old ;
+    su9:curriculumPosition 6 .
+su9:TB_Old_B07 a su9:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 7: Cac nuoc My Latinh"@vi ;
+    su9:partOfTextbook su9:TB_Old ;
+    su9:curriculumPosition 7 .
+su9:TB_Old_B08 a su9:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 8: Nuoc My"@vi ;
+    su9:partOfTextbook su9:TB_Old ;
+    su9:curriculumPosition 8 .
+su9:TB_Old_B09 a su9:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 9: Nhat Ban"@vi ;
+    su9:partOfTextbook su9:TB_Old ;
+    su9:curriculumPosition 9 .
+su9:TB_Old_B10 a su9:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 10: Cac nuoc Tay Au"@vi ;
+    su9:partOfTextbook su9:TB_Old ;
+    su9:curriculumPosition 10 .
+su9:TB_Old_B11 a su9:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 11: Trat tu the gioi moi sau CTTG II"@vi ;
+    su9:partOfTextbook su9:TB_Old ;
+    su9:curriculumPosition 11 .
+su9:TB_Old_B12 a su9:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 12: Cach mang khoa hoc - ky thuat"@vi ;
+    su9:partOfTextbook su9:TB_Old ;
+    su9:curriculumPosition 12 .
+su9:TB_Old_B13 a su9:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 13: Tong ket LSTG hien dai 1945-nay"@vi ;
+    su9:partOfTextbook su9:TB_Old ;
+    su9:curriculumPosition 13 .
+su9:TB_Old_B14 a su9:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 14: VN sau CTTG I"@vi ;
+    su9:partOfTextbook su9:TB_Old ;
+    su9:curriculumPosition 14 .
+su9:TB_Old_B15 a su9:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 15: Phong trao CM VN sau CTTG I"@vi ;
+    su9:partOfTextbook su9:TB_Old ;
+    su9:curriculumPosition 15 .
+su9:TB_Old_B16 a su9:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 16: Hoat dong cua NAQ o nuoc ngoai 1919-1925"@vi ;
+    su9:partOfTextbook su9:TB_Old ;
+    su9:curriculumPosition 16 .
+su9:TB_Old_B17 a su9:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 17: CM VN truoc khi Dang ra doi"@vi ;
+    su9:partOfTextbook su9:TB_Old ;
+    su9:curriculumPosition 17 .
+su9:TB_Old_B18 a su9:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 18: Dang Cong san VN ra doi"@vi ;
+    su9:partOfTextbook su9:TB_Old ;
+    su9:curriculumPosition 18 .
+su9:TB_Old_B19 a su9:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 19: Phong trao CM 1930-1935"@vi ;
+    su9:partOfTextbook su9:TB_Old ;
+    su9:curriculumPosition 19 .
+su9:TB_Old_B20 a su9:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 20: Cuoc van dong dan chu 1936-1939"@vi ;
+    su9:partOfTextbook su9:TB_Old ;
+    su9:curriculumPosition 20 .
+su9:TB_Old_B21 a su9:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 21: VN trong 1939-1945"@vi ;
+    su9:partOfTextbook su9:TB_Old ;
+    su9:curriculumPosition 21 .
+su9:TB_Old_B22 a su9:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 22: Cao trao CM tien toi Tong khoi nghia 1945"@vi ;
+    su9:partOfTextbook su9:TB_Old ;
+    su9:curriculumPosition 22 .
+su9:TB_Old_B23 a su9:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 23: Tong khoi nghia thang Tam 1945"@vi ;
+    su9:partOfTextbook su9:TB_Old ;
+    su9:curriculumPosition 23 .
+su9:TB_Old_B24 a su9:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 24: Bao ve chinh quyen 1945-1946"@vi ;
+    su9:partOfTextbook su9:TB_Old ;
+    su9:curriculumPosition 24 .
+su9:TB_Old_B25 a su9:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 25: Khang chien toan quoc 1946-1950"@vi ;
+    su9:partOfTextbook su9:TB_Old ;
+    su9:curriculumPosition 25 .
+su9:TB_Old_B26 a su9:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 26: Buoc phat trien khang chien 1950-1953"@vi ;
+    su9:partOfTextbook su9:TB_Old ;
+    su9:curriculumPosition 26 .
+su9:TB_Old_B27 a su9:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 27: Khang chien chong Phap ket thuc 1953-1954"@vi ;
+    su9:partOfTextbook su9:TB_Old ;
+    su9:curriculumPosition 27 .
+su9:TB_Old_B28 a su9:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 28: CNXH mien Bac, chong My mien Nam 1954-1965"@vi ;
+    su9:partOfTextbook su9:TB_Old ;
+    su9:curriculumPosition 28 .
+su9:TB_Old_B29 a su9:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 29: Ca nuoc chong My 1965-1973"@vi ;
+    su9:partOfTextbook su9:TB_Old ;
+    su9:curriculumPosition 29 .
+su9:TB_Old_B30 a su9:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 30: Giai phong mien Nam 1973-1975"@vi ;
+    su9:partOfTextbook su9:TB_Old ;
+    su9:curriculumPosition 30 .
+su9:TB_Old_B31 a su9:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 31: VN nam dau sau 1975"@vi ;
+    su9:partOfTextbook su9:TB_Old ;
+    su9:curriculumPosition 31 .
+su9:TB_Old_B32 a su9:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 32: Xay dung va bao ve To quoc 1976-1985"@vi ;
+    su9:partOfTextbook su9:TB_Old ;
+    su9:curriculumPosition 32 .
+su9:TB_Old_B33 a su9:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 33: Doi moi 1986-2000"@vi ;
+    su9:partOfTextbook su9:TB_Old ;
+    su9:curriculumPosition 33 .
+su9:TB_Old_B34 a su9:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 34: Tong ket LSVN 1919-2000"@vi ;
+    su9:partOfTextbook su9:TB_Old ;
+    su9:curriculumPosition 34 .
+su9:TB_KNTT_B01 a su9:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 1: The gioi tu 1918 den 1945"@vi ;
+    su9:partOfTextbook su9:TB_KNTT ;
+    su9:curriculumPosition 1 .
+su9:TB_KNTT_B02 a su9:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 2: Chau Au va nuoc My giua hai cuoc CTTG"@vi ;
+    su9:partOfTextbook su9:TB_KNTT ;
+    su9:curriculumPosition 2 .
+su9:TB_KNTT_B03 a su9:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 3: Chau A tu 1918 den 1945"@vi ;
+    su9:partOfTextbook su9:TB_KNTT ;
+    su9:curriculumPosition 3 .
+su9:TB_KNTT_B04 a su9:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 4: Chien tranh the gioi thu hai 1939-1945"@vi ;
+    su9:partOfTextbook su9:TB_KNTT ;
+    su9:curriculumPosition 4 .
+su9:TB_KNTT_B05 a su9:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 5: VN tu 1918 den 1930"@vi ;
+    su9:partOfTextbook su9:TB_KNTT ;
+    su9:curriculumPosition 5 .
+su9:TB_KNTT_B06 a su9:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 6: Hoat dong cua Nguyen Ai Quoc, Dang CSVN ra doi"@vi ;
+    su9:partOfTextbook su9:TB_KNTT ;
+    su9:curriculumPosition 6 .
+su9:TB_KNTT_B07 a su9:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 7: Phong trao CM VN 1930-1939"@vi ;
+    su9:partOfTextbook su9:TB_KNTT ;
+    su9:curriculumPosition 7 .
+su9:TB_KNTT_B08 a su9:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 8: CMT8 1945 va su ra doi cua VNDCCH"@vi ;
+    su9:partOfTextbook su9:TB_KNTT ;
+    su9:curriculumPosition 8 .
+su9:TB_KNTT_B09 a su9:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 9: VN tu 1945 den 1954"@vi ;
+    su9:partOfTextbook su9:TB_KNTT ;
+    su9:curriculumPosition 9 .
+su9:TB_KNTT_B10 a su9:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 10: Khang chien chong Phap ket thuc 1953-1954"@vi ;
+    su9:partOfTextbook su9:TB_KNTT ;
+    su9:curriculumPosition 10 .
+su9:TB_KNTT_B11 a su9:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 11: VN tu 1954 den 1965"@vi ;
+    su9:partOfTextbook su9:TB_KNTT ;
+    su9:curriculumPosition 11 .
+su9:TB_KNTT_B12 a su9:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 12: VN tu 1965 den 1975"@vi ;
+    su9:partOfTextbook su9:TB_KNTT ;
+    su9:curriculumPosition 12 .
+su9:TB_KNTT_B13 a su9:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 13: VN sau 1975 - truoc Doi moi 1976-1985"@vi ;
+    su9:partOfTextbook su9:TB_KNTT ;
+    su9:curriculumPosition 13 .
+su9:TB_KNTT_B14 a su9:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 14: Cong cuoc Doi moi 1986 - nay"@vi ;
+    su9:partOfTextbook su9:TB_KNTT ;
+    su9:curriculumPosition 14 .
+su9:TB_KNTT_B15 a su9:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 15: LX, Dong Au va Lien bang Nga 1945-2022"@vi ;
+    su9:partOfTextbook su9:TB_KNTT ;
+    su9:curriculumPosition 15 .
+su9:TB_KNTT_B16 a su9:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 16: My, Tay Au, Nhat Ban 1945-2022"@vi ;
+    su9:partOfTextbook su9:TB_KNTT ;
+    su9:curriculumPosition 16 .
+su9:TB_KNTT_B17 a su9:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 17: Chau A, chau Phi, My Latinh 1945-2022"@vi ;
+    su9:partOfTextbook su9:TB_KNTT ;
+    su9:curriculumPosition 17 .
+su9:TB_KNTT_B18 a su9:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 18: Cach mang KHKT va xu the toan cau"@vi ;
+    su9:partOfTextbook su9:TB_KNTT ;
+    su9:curriculumPosition 18 .
+su9:TB_KNTT_B19 a su9:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 19: Trat tu the gioi moi tu 1991"@vi ;
+    su9:partOfTextbook su9:TB_KNTT ;
+    su9:curriculumPosition 19 .
+su9:TB_KNTT_B20 a su9:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 20: VN tu 1991 den nay"@vi ;
+    su9:partOfTextbook su9:TB_KNTT ;
+    su9:curriculumPosition 20 .
+su9:TB_CTST_B01 a su9:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 1: The gioi giua hai cuoc CTTG 1918-1945"@vi ;
+    su9:partOfTextbook su9:TB_CTST ;
+    su9:curriculumPosition 1 .
+su9:TB_CTST_B02 a su9:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 2: CTTG II va hau qua"@vi ;
+    su9:partOfTextbook su9:TB_CTST ;
+    su9:curriculumPosition 2 .
+su9:TB_CTST_B03 a su9:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 3: VN 1918-1930"@vi ;
+    su9:partOfTextbook su9:TB_CTST ;
+    su9:curriculumPosition 3 .
+su9:TB_CTST_B04 a su9:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 4: Dang CSVN ra doi va phong trao CM 1930-1939"@vi ;
+    su9:partOfTextbook su9:TB_CTST ;
+    su9:curriculumPosition 4 .
+su9:TB_CTST_B05 a su9:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 5: CMT8 1945"@vi ;
+    su9:partOfTextbook su9:TB_CTST ;
+    su9:curriculumPosition 5 .
+su9:TB_CTST_B06 a su9:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 6: VN 1945-1954"@vi ;
+    su9:partOfTextbook su9:TB_CTST ;
+    su9:curriculumPosition 6 .
+su9:TB_CTST_B07 a su9:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 7: VN 1954-1975"@vi ;
+    su9:partOfTextbook su9:TB_CTST ;
+    su9:curriculumPosition 7 .
+su9:TB_CTST_B08 a su9:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 8: VN 1975-1986"@vi ;
+    su9:partOfTextbook su9:TB_CTST ;
+    su9:curriculumPosition 8 .
+su9:TB_CTST_B09 a su9:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 9: VN thoi ky Doi moi"@vi ;
+    su9:partOfTextbook su9:TB_CTST ;
+    su9:curriculumPosition 9 .
+su9:TB_CTST_B10 a su9:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 10: Lien Xo va Dong Au sau 1945"@vi ;
+    su9:partOfTextbook su9:TB_CTST ;
+    su9:curriculumPosition 10 .
+su9:TB_CTST_B11 a su9:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 11: My, Tay Au, Nhat sau 1945"@vi ;
+    su9:partOfTextbook su9:TB_CTST ;
+    su9:curriculumPosition 11 .
+su9:TB_CTST_B12 a su9:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 12: Phong trao GPDT A, Phi, My Latinh"@vi ;
+    su9:partOfTextbook su9:TB_CTST ;
+    su9:curriculumPosition 12 .
+su9:TB_CTST_B13 a su9:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 13: Chien tranh Lanh va quan he quoc te"@vi ;
+    su9:partOfTextbook su9:TB_CTST ;
+    su9:curriculumPosition 13 .
+su9:TB_CTST_B14 a su9:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 14: CM KHKT va toan cau hoa"@vi ;
+    su9:partOfTextbook su9:TB_CTST ;
+    su9:curriculumPosition 14 .
+su9:TB_CTST_B15 a su9:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 15: The gioi tu sau 1991"@vi ;
+    su9:partOfTextbook su9:TB_CTST ;
+    su9:curriculumPosition 15 .
+su9:TB_CD_B01 a su9:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 1: Chau Au va nuoc My giua hai cuoc CTTG"@vi ;
+    su9:partOfTextbook su9:TB_CD ;
+    su9:curriculumPosition 1 .
+su9:TB_CD_B02 a su9:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 2: Chau A giua hai cuoc CTTG"@vi ;
+    su9:partOfTextbook su9:TB_CD ;
+    su9:curriculumPosition 2 .
+su9:TB_CD_B03 a su9:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 3: CTTG II 1939-1945"@vi ;
+    su9:partOfTextbook su9:TB_CD ;
+    su9:curriculumPosition 3 .
+su9:TB_CD_B04 a su9:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 4: VN sau CTTG I den 1930"@vi ;
+    su9:partOfTextbook su9:TB_CD ;
+    su9:curriculumPosition 4 .
+su9:TB_CD_B05 a su9:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 5: Dang CSVN ra doi"@vi ;
+    su9:partOfTextbook su9:TB_CD ;
+    su9:curriculumPosition 5 .
+su9:TB_CD_B06 a su9:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 6: Phong trao CM VN 1930-1945"@vi ;
+    su9:partOfTextbook su9:TB_CD ;
+    su9:curriculumPosition 6 .
+su9:TB_CD_B07 a su9:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 7: CMT8 1945 va VNDCCH"@vi ;
+    su9:partOfTextbook su9:TB_CD ;
+    su9:curriculumPosition 7 .
+su9:TB_CD_B08 a su9:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 8: Khang chien chong Phap 1945-1954"@vi ;
+    su9:partOfTextbook su9:TB_CD ;
+    su9:curriculumPosition 8 .
+su9:TB_CD_B09 a su9:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 9: VN 1954-1975"@vi ;
+    su9:partOfTextbook su9:TB_CD ;
+    su9:curriculumPosition 9 .
+su9:TB_CD_B10 a su9:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 10: VN tu 1975 den nay"@vi ;
+    su9:partOfTextbook su9:TB_CD ;
+    su9:curriculumPosition 10 .
+su9:TB_CD_B11 a su9:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 11: LX, Dong Au, Nga sau 1945"@vi ;
+    su9:partOfTextbook su9:TB_CD ;
+    su9:curriculumPosition 11 .
+su9:TB_CD_B12 a su9:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 12: My, Tay Au, Nhat sau 1945"@vi ;
+    su9:partOfTextbook su9:TB_CD ;
+    su9:curriculumPosition 12 .
+su9:TB_CD_B13 a su9:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 13: Chau A, Phi, My Latinh sau 1945"@vi ;
+    su9:partOfTextbook su9:TB_CD ;
+    su9:curriculumPosition 13 .
+su9:TB_CD_B14 a su9:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 14: Chien tranh Lanh, quan he quoc te"@vi ;
+    su9:partOfTextbook su9:TB_CD ;
+    su9:curriculumPosition 14 .
+su9:TB_CD_B15 a su9:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 15: CM KHKT - cong nghe, toan cau hoa"@vi ;
+    su9:partOfTextbook su9:TB_CD ;
+    su9:curriculumPosition 15 .
+
+
+#################################################################
+#   EVENTS
+#################################################################
+
+su9:E_CongNhanBaSon1925 a su9:Event ;
+    rdfs:label "Cuoc bai cong cua cong nhan Ba Son 8/1925"@vi ;
+    su9:aliases "Bai cong Ba Son" ;
+    su9:occursAt su9:L_SaiGon ;
+    su9:occursDuring su9:P_1919_1930 ;
+    su9:bloomLevel 2 ;
+    su9:abstractness 2 ;
+    su9:frequencyInTextbook 5 ;
+    su9:appearsInLesson su9:TB_Old_B15 ;
+    su9:appearsInLesson su9:TB_KNTT_B05 ;
+    su9:appearsInLesson su9:TB_CTST_B03 ;
+    su9:appearsInLesson su9:TB_CD_B04 ;
+    su9:confidence 3 .
+
+su9:E_TieuNguTongDoc a su9:Event ;
+    rdfs:label "Tieng bom Sa Dien - Pham Hong Thai 1924"@vi ;
+    su9:occursAt su9:L_HaNoi ;
+    su9:occursDuring su9:P_1919_1930 ;
+    su9:bloomLevel 2 ;
+    su9:abstractness 2 ;
+    su9:frequencyInTextbook 3 ;
+    su9:appearsInLesson su9:TB_Old_B15 ;
+    su9:appearsInLesson su9:TB_KNTT_B05 ;
+    su9:appearsInLesson su9:TB_CTST_B03 ;
+    su9:appearsInLesson su9:TB_CD_B04 ;
+    su9:confidence 3 .
+
+su9:E_NAQTimDuongCuuNuoc a su9:Event ;
+    rdfs:label "NAQ ra di tim duong cuu nuoc 5/6/1911"@vi ;
+    su9:occursAt su9:L_SaiGon ;
+    su9:occursDuring su9:P_1919_1930 ;
+    su9:bloomLevel 1 ;
+    su9:abstractness 1 ;
+    su9:frequencyInTextbook 8 ;
+    su9:appearsInLesson su9:TB_Old_B16 ;
+    su9:appearsInLesson su9:TB_KNTT_B06 ;
+    su9:appearsInLesson su9:TB_CTST_B03 ;
+    su9:appearsInLesson su9:TB_CD_B04 ;
+    su9:confidence 3 .
+
+su9:E_NAQGuiYeuSach1919 a su9:Event ;
+    rdfs:label "NAQ gui Yeu sach cua nhan dan An Nam 1919"@vi ;
+    su9:aliases "Ban yeu sach 8 diem" ;
+    su9:occursAt su9:L_Paris ;
+    su9:occursDuring su9:P_1919_1930 ;
+    su9:bloomLevel 2 ;
+    su9:abstractness 2 ;
+    su9:frequencyInTextbook 5 ;
+    su9:appearsInLesson su9:TB_Old_B16 ;
+    su9:appearsInLesson su9:TB_KNTT_B06 ;
+    su9:appearsInLesson su9:TB_CTST_B03 ;
+    su9:appearsInLesson su9:TB_CD_B04 ;
+    su9:confidence 3 .
+
+su9:E_NAQDocLuanCuongLenin a su9:Event ;
+    rdfs:label "NAQ doc So thao Luan cuong cua Lenin 7/1920"@vi ;
+    su9:occursAt su9:L_Paris ;
+    su9:occursDuring su9:P_1919_1930 ;
+    su9:bloomLevel 2 ;
+    su9:abstractness 3 ;
+    su9:frequencyInTextbook 6 ;
+    su9:appearsInLesson su9:TB_Old_B16 ;
+    su9:appearsInLesson su9:TB_KNTT_B06 ;
+    su9:appearsInLesson su9:TB_CTST_B03 ;
+    su9:appearsInLesson su9:TB_CD_B04 ;
+    su9:confidence 3 .
+
+su9:E_NAQTuHoTuanBan1920 a su9:Event ;
+    rdfs:label "NAQ tham gia sang lap DCS Phap 12/1920"@vi ;
+    su9:occursAt su9:L_Paris ;
+    su9:occursDuring su9:P_1919_1930 ;
+    su9:bloomLevel 2 ;
+    su9:abstractness 2 ;
+    su9:frequencyInTextbook 5 ;
+    su9:appearsInLesson su9:TB_Old_B16 ;
+    su9:appearsInLesson su9:TB_KNTT_B06 ;
+    su9:appearsInLesson su9:TB_CTST_B03 ;
+    su9:appearsInLesson su9:TB_CD_B04 ;
+    su9:confidence 3 .
+
+su9:E_ThanhLapHoiVNCMThanhNien a su9:Event ;
+    rdfs:label "Thanh lap Hoi VN Cach mang Thanh nien 6/1925"@vi ;
+    su9:occursAt su9:L_TrungQuoc ;
+    su9:occursDuring su9:P_1919_1930 ;
+    su9:bloomLevel 2 ;
+    su9:abstractness 2 ;
+    su9:frequencyInTextbook 6 ;
+    su9:appearsInLesson su9:TB_Old_B16 ;
+    su9:appearsInLesson su9:TB_KNTT_B06 ;
+    su9:appearsInLesson su9:TB_CTST_B03 ;
+    su9:appearsInLesson su9:TB_CD_B04 ;
+    su9:confidence 3 .
+
+su9:E_BaoThanhNien a su9:Event ;
+    rdfs:label "Xuat ban bao Thanh Nien 1925"@vi ;
+    su9:occursAt su9:L_TrungQuoc ;
+    su9:occursDuring su9:P_1919_1930 ;
+    su9:bloomLevel 1 ;
+    su9:abstractness 2 ;
+    su9:frequencyInTextbook 3 ;
+    su9:appearsInLesson su9:TB_Old_B16 ;
+    su9:appearsInLesson su9:TB_KNTT_B06 ;
+    su9:appearsInLesson su9:TB_CTST_B03 ;
+    su9:appearsInLesson su9:TB_CD_B04 ;
+    su9:confidence 3 .
+
+su9:E_DuongKachMenh a su9:Event ;
+    rdfs:label "Xuat ban Duong Kach Menh 1927"@vi ;
+    su9:occursDuring su9:P_1919_1930 ;
+    su9:bloomLevel 2 ;
+    su9:abstractness 3 ;
+    su9:frequencyInTextbook 4 ;
+    su9:appearsInLesson su9:TB_Old_B16 ;
+    su9:appearsInLesson su9:TB_KNTT_B06 ;
+    su9:appearsInLesson su9:TB_CTST_B03 ;
+    su9:appearsInLesson su9:TB_CD_B04 ;
+    su9:confidence 3 .
+
+su9:E_DD_CSD_TL a su9:Event ;
+    rdfs:label "Dong Duong Cong san Dang thanh lap 6/1929"@vi ;
+    su9:occursAt su9:L_BacBo ;
+    su9:occursDuring su9:P_1919_1930 ;
+    su9:bloomLevel 2 ;
+    su9:abstractness 2 ;
+    su9:frequencyInTextbook 4 ;
+    su9:appearsInLesson su9:TB_Old_B17 ;
+    su9:appearsInLesson su9:TB_KNTT_B06 ;
+    su9:appearsInLesson su9:TB_CTST_B04 ;
+    su9:appearsInLesson su9:TB_CD_B05 ;
+    su9:confidence 3 .
+
+su9:E_AN_CSD_TL a su9:Event ;
+    rdfs:label "An Nam Cong san Dang thanh lap 7/1929"@vi ;
+    su9:occursAt su9:L_NamBo ;
+    su9:occursDuring su9:P_1919_1930 ;
+    su9:bloomLevel 2 ;
+    su9:abstractness 2 ;
+    su9:frequencyInTextbook 4 ;
+    su9:appearsInLesson su9:TB_Old_B17 ;
+    su9:appearsInLesson su9:TB_KNTT_B06 ;
+    su9:appearsInLesson su9:TB_CTST_B04 ;
+    su9:appearsInLesson su9:TB_CD_B05 ;
+    su9:confidence 3 .
+
+su9:E_DD_CSLien_TL a su9:Event ;
+    rdfs:label "Dong Duong Cong san Lien doan thanh lap 9/1929"@vi ;
+    su9:occursAt su9:L_TrungBo ;
+    su9:occursDuring su9:P_1919_1930 ;
+    su9:bloomLevel 2 ;
+    su9:abstractness 2 ;
+    su9:frequencyInTextbook 3 ;
+    su9:appearsInLesson su9:TB_Old_B17 ;
+    su9:appearsInLesson su9:TB_KNTT_B06 ;
+    su9:appearsInLesson su9:TB_CTST_B04 ;
+    su9:appearsInLesson su9:TB_CD_B05 ;
+    su9:confidence 3 .
+
+su9:E_HoiNghiThanhLapDang a su9:Event ;
+    rdfs:label "Hoi nghi thanh lap Dang CSVN 3/2/1930"@vi ;
+    su9:aliases "Hoi nghi hop nhat 3 to chuc CS" ;
+    su9:occursAt su9:L_TrungQuoc ;
+    su9:occursDuring su9:P_1919_1930 ;
+    su9:bloomLevel 2 ;
+    su9:abstractness 2 ;
+    su9:frequencyInTextbook 12 ;
+    su9:appearsInLesson su9:TB_Old_B18 ;
+    su9:appearsInLesson su9:TB_KNTT_B06 ;
+    su9:appearsInLesson su9:TB_CTST_B04 ;
+    su9:appearsInLesson su9:TB_CD_B05 ;
+    su9:confidence 3 .
+
+su9:E_KhoiNghiaYenBai a su9:Event ;
+    rdfs:label "Khoi nghia Yen Bai 9/2/1930"@vi ;
+    su9:occursAt su9:L_VietNam ;
+    su9:occursDuring su9:P_1919_1930 ;
+    su9:bloomLevel 2 ;
+    su9:abstractness 2 ;
+    su9:frequencyInTextbook 4 ;
+    su9:appearsInLesson su9:TB_Old_B17 ;
+    su9:appearsInLesson su9:TB_KNTT_B06 ;
+    su9:appearsInLesson su9:TB_CTST_B04 ;
+    su9:appearsInLesson su9:TB_CD_B05 ;
+    su9:confidence 3 .
+
+su9:E_XoVietNgheTinh a su9:Event ;
+    rdfs:label "Phong trao Xo Viet Nghe Tinh 1930-1931"@vi ;
+    su9:aliases "Xo Viet Nghe-Tinh" ;
+    su9:occursAt su9:L_NgheTinh ;
+    su9:occursDuring su9:P_1930_1945 ;
+    su9:bloomLevel 2 ;
+    su9:abstractness 3 ;
+    su9:frequencyInTextbook 10 ;
+    su9:appearsInLesson su9:TB_Old_B19 ;
+    su9:appearsInLesson su9:TB_KNTT_B07 ;
+    su9:appearsInLesson su9:TB_CTST_B04 ;
+    su9:appearsInLesson su9:TB_CD_B06 ;
+    su9:confidence 3 .
+
+su9:E_DaiHoi1_1935 a su9:Event ;
+    rdfs:label "Dai hoi Dang lan I 3/1935 Ma Cao"@vi ;
+    su9:occursDuring su9:P_1930_1945 ;
+    su9:bloomLevel 2 ;
+    su9:abstractness 3 ;
+    su9:frequencyInTextbook 3 ;
+    su9:appearsInLesson su9:TB_Old_B19 ;
+    su9:appearsInLesson su9:TB_KNTT_B07 ;
+    su9:appearsInLesson su9:TB_CTST_B04 ;
+    su9:appearsInLesson su9:TB_CD_B06 ;
+    su9:confidence 3 .
+
+su9:E_PhongTraoDanChu a su9:Event ;
+    rdfs:label "Phong trao dan chu 1936-1939"@vi ;
+    su9:aliases "Cuoc van dong dan chu" ;
+    su9:occursAt su9:L_VietNam ;
+    su9:occursDuring su9:P_1930_1945 ;
+    su9:bloomLevel 2 ;
+    su9:abstractness 3 ;
+    su9:frequencyInTextbook 8 ;
+    su9:appearsInLesson su9:TB_Old_B20 ;
+    su9:appearsInLesson su9:TB_KNTT_B07 ;
+    su9:appearsInLesson su9:TB_CTST_B04 ;
+    su9:appearsInLesson su9:TB_CD_B06 ;
+    su9:confidence 3 .
+
+su9:E_HoiNghi6_1939 a su9:Event ;
+    rdfs:label "Hoi nghi TW 6 (11/1939)"@vi ;
+    su9:aliases "Hoi nghi Ban CHTU khoa I lan 6" ;
+    su9:occursDuring su9:P_1930_1945 ;
+    su9:bloomLevel 3 ;
+    su9:abstractness 3 ;
+    su9:frequencyInTextbook 4 ;
+    su9:appearsInLesson su9:TB_Old_B21 ;
+    su9:appearsInLesson su9:TB_KNTT_B07 ;
+    su9:appearsInLesson su9:TB_CTST_B04 ;
+    su9:appearsInLesson su9:TB_CD_B06 ;
+    su9:confidence 3 .
+
+su9:E_KhoiNghiaBacSon a su9:Event ;
+    rdfs:label "Khoi nghia Bac Son 9/1940"@vi ;
+    su9:occursAt su9:L_VietNam ;
+    su9:occursDuring su9:P_1930_1945 ;
+    su9:bloomLevel 2 ;
+    su9:abstractness 2 ;
+    su9:frequencyInTextbook 4 ;
+    su9:appearsInLesson su9:TB_Old_B21 ;
+    su9:appearsInLesson su9:TB_KNTT_B07 ;
+    su9:appearsInLesson su9:TB_CTST_B04 ;
+    su9:appearsInLesson su9:TB_CD_B06 ;
+    su9:confidence 3 .
+
+su9:E_KhoiNghiaNamKi a su9:Event ;
+    rdfs:label "Khoi nghia Nam Ki 11/1940"@vi ;
+    su9:occursAt su9:L_NamBo ;
+    su9:occursDuring su9:P_1930_1945 ;
+    su9:bloomLevel 2 ;
+    su9:abstractness 2 ;
+    su9:frequencyInTextbook 4 ;
+    su9:appearsInLesson su9:TB_Old_B21 ;
+    su9:appearsInLesson su9:TB_KNTT_B07 ;
+    su9:appearsInLesson su9:TB_CTST_B04 ;
+    su9:appearsInLesson su9:TB_CD_B06 ;
+    su9:confidence 3 .
+
+su9:E_HoiNghi8_1941 a su9:Event ;
+    rdfs:label "Hoi nghi TW 8 (5/1941)"@vi ;
+    su9:aliases "Hoi nghi BCHTU lan 8" ;
+    su9:occursAt su9:L_PacBo ;
+    su9:occursDuring su9:P_1930_1945 ;
+    su9:bloomLevel 3 ;
+    su9:abstractness 3 ;
+    su9:frequencyInTextbook 8 ;
+    su9:appearsInLesson su9:TB_Old_B22 ;
+    su9:appearsInLesson su9:TB_KNTT_B07 ;
+    su9:appearsInLesson su9:TB_CTST_B04 ;
+    su9:appearsInLesson su9:TB_CD_B06 ;
+    su9:confidence 3 .
+
+su9:E_ThanhLapVietMinh a su9:Event ;
+    rdfs:label "Thanh lap Mat tran Viet Minh 19/5/1941"@vi ;
+    su9:aliases "Thanh lap Viet Minh" ;
+    su9:occursAt su9:L_PacBo ;
+    su9:occursDuring su9:P_1930_1945 ;
+    su9:bloomLevel 2 ;
+    su9:abstractness 2 ;
+    su9:frequencyInTextbook 8 ;
+    su9:appearsInLesson su9:TB_Old_B22 ;
+    su9:appearsInLesson su9:TB_KNTT_B07 ;
+    su9:appearsInLesson su9:TB_CTST_B04 ;
+    su9:appearsInLesson su9:TB_CD_B06 ;
+    su9:confidence 3 .
+
+su9:E_ThanhLapVNTuyenTruyenGPQ a su9:Event ;
+    rdfs:label "Thanh lap Doi VN Tuyen truyen Giai phong quan 22/12/1944"@vi ;
+    su9:occursAt su9:L_VietBac ;
+    su9:occursDuring su9:P_1930_1945 ;
+    su9:bloomLevel 2 ;
+    su9:abstractness 2 ;
+    su9:frequencyInTextbook 5 ;
+    su9:appearsInLesson su9:TB_Old_B22 ;
+    su9:appearsInLesson su9:TB_KNTT_B07 ;
+    su9:appearsInLesson su9:TB_CTST_B04 ;
+    su9:appearsInLesson su9:TB_CD_B06 ;
+    su9:confidence 3 .
+
+su9:E_NhatDaoChinhPhap1945 a su9:Event ;
+    rdfs:label "Nhat dao chinh Phap 9/3/1945"@vi ;
+    su9:occursAt su9:L_VietNam ;
+    su9:occursDuring su9:P_1930_1945 ;
+    su9:bloomLevel 2 ;
+    su9:abstractness 2 ;
+    su9:frequencyInTextbook 5 ;
+    su9:appearsInLesson su9:TB_Old_B22 ;
+    su9:appearsInLesson su9:TB_KNTT_B07 ;
+    su9:appearsInLesson su9:TB_CTST_B04 ;
+    su9:appearsInLesson su9:TB_CD_B06 ;
+    su9:confidence 3 .
+
+su9:E_CaoTraoKhangNhat a su9:Event ;
+    rdfs:label "Cao trao khang Nhat cuu nuoc"@vi ;
+    su9:occursAt su9:L_VietNam ;
+    su9:occursDuring su9:P_1930_1945 ;
+    su9:bloomLevel 3 ;
+    su9:abstractness 3 ;
+    su9:frequencyInTextbook 5 ;
+    su9:appearsInLesson su9:TB_Old_B22 ;
+    su9:appearsInLesson su9:TB_KNTT_B07 ;
+    su9:appearsInLesson su9:TB_CTST_B04 ;
+    su9:appearsInLesson su9:TB_CD_B06 ;
+    su9:confidence 3 .
+
+su9:E_HoiNghiTanTrao a su9:Event ;
+    rdfs:label "Hoi nghi Tan Trao 8/1945"@vi ;
+    su9:aliases "Quoc dan Dai hoi Tan Trao" ;
+    su9:occursAt su9:L_TanTrao ;
+    su9:occursDuring su9:P_1930_1945 ;
+    su9:bloomLevel 2 ;
+    su9:abstractness 2 ;
+    su9:frequencyInTextbook 5 ;
+    su9:appearsInLesson su9:TB_Old_B22 ;
+    su9:appearsInLesson su9:TB_KNTT_B07 ;
+    su9:appearsInLesson su9:TB_CTST_B04 ;
+    su9:appearsInLesson su9:TB_CD_B06 ;
+    su9:confidence 3 .
+
+su9:E_CachMangThangTam a su9:Event ;
+    rdfs:label "Cach mang thang Tam 1945"@vi ;
+    su9:aliases "CMT8|Tong khoi nghia thang Tam|Cach mang thang Tam" ;
+    su9:occursAt su9:L_VietNam ;
+    su9:occursDuring su9:P_1930_1945 ;
+    su9:bloomLevel 2 ;
+    su9:abstractness 2 ;
+    su9:frequencyInTextbook 25 ;
+    su9:appearsInLesson su9:TB_Old_B23 ;
+    su9:appearsInLesson su9:TB_KNTT_B08 ;
+    su9:appearsInLesson su9:TB_CTST_B05 ;
+    su9:appearsInLesson su9:TB_CD_B07 ;
+    su9:confidence 3 .
+
+su9:E_KhoiNghiaHaNoi_1945 a su9:Event ;
+    rdfs:label "Khoi nghia gianh chinh quyen Ha Noi 19/8/1945"@vi ;
+    su9:occursAt su9:L_HaNoi ;
+    su9:occursDuring su9:P_1930_1945 ;
+    su9:bloomLevel 2 ;
+    su9:abstractness 2 ;
+    su9:frequencyInTextbook 6 ;
+    su9:appearsInLesson su9:TB_Old_B23 ;
+    su9:appearsInLesson su9:TB_KNTT_B08 ;
+    su9:appearsInLesson su9:TB_CTST_B05 ;
+    su9:appearsInLesson su9:TB_CD_B07 ;
+    su9:confidence 3 .
+
+su9:E_KhoiNghiaHue_1945 a su9:Event ;
+    rdfs:label "Khoi nghia Hue 23/8/1945"@vi ;
+    su9:occursAt su9:L_Hue ;
+    su9:occursDuring su9:P_1930_1945 ;
+    su9:bloomLevel 2 ;
+    su9:abstractness 2 ;
+    su9:frequencyInTextbook 4 ;
+    su9:appearsInLesson su9:TB_Old_B23 ;
+    su9:appearsInLesson su9:TB_KNTT_B08 ;
+    su9:appearsInLesson su9:TB_CTST_B05 ;
+    su9:appearsInLesson su9:TB_CD_B07 ;
+    su9:confidence 3 .
+
+su9:E_KhoiNghiaSaiGon_1945 a su9:Event ;
+    rdfs:label "Khoi nghia Sai Gon 25/8/1945"@vi ;
+    su9:occursAt su9:L_SaiGon ;
+    su9:occursDuring su9:P_1930_1945 ;
+    su9:bloomLevel 2 ;
+    su9:abstractness 2 ;
+    su9:frequencyInTextbook 4 ;
+    su9:appearsInLesson su9:TB_Old_B23 ;
+    su9:appearsInLesson su9:TB_KNTT_B08 ;
+    su9:appearsInLesson su9:TB_CTST_B05 ;
+    su9:appearsInLesson su9:TB_CD_B07 ;
+    su9:confidence 3 .
+
+su9:E_TuyenNgonDocLap a su9:Event ;
+    rdfs:label "Bac Ho doc Tuyen ngon Doc lap 2/9/1945"@vi ;
+    su9:occursAt su9:L_BaDinh ;
+    su9:occursDuring su9:P_1930_1945 ;
+    su9:bloomLevel 1 ;
+    su9:abstractness 1 ;
+    su9:frequencyInTextbook 15 ;
+    su9:appearsInLesson su9:TB_Old_B23 ;
+    su9:appearsInLesson su9:TB_KNTT_B08 ;
+    su9:appearsInLesson su9:TB_CTST_B05 ;
+    su9:appearsInLesson su9:TB_CD_B07 ;
+    su9:confidence 3 .
+
+su9:E_DoiDauVoiThuTrongGiac a su9:Event ;
+    rdfs:label "Xu li giac ngoai xam va noi phan 1945-1946"@vi ;
+    su9:occursAt su9:L_VietNam ;
+    su9:occursDuring su9:P_1945_1946 ;
+    su9:bloomLevel 3 ;
+    su9:abstractness 3 ;
+    su9:frequencyInTextbook 5 ;
+    su9:appearsInLesson su9:TB_Old_B24 ;
+    su9:appearsInLesson su9:TB_KNTT_B09 ;
+    su9:appearsInLesson su9:TB_CTST_B06 ;
+    su9:appearsInLesson su9:TB_CD_B08 ;
+    su9:confidence 3 .
+
+su9:E_BauCuQuocHoi1946 a su9:Event ;
+    rdfs:label "Tong tuyen cu bau QH khoa I 6/1/1946"@vi ;
+    su9:occursAt su9:L_VietNam ;
+    su9:occursDuring su9:P_1945_1946 ;
+    su9:bloomLevel 2 ;
+    su9:abstractness 2 ;
+    su9:frequencyInTextbook 5 ;
+    su9:appearsInLesson su9:TB_Old_B24 ;
+    su9:appearsInLesson su9:TB_KNTT_B09 ;
+    su9:appearsInLesson su9:TB_CTST_B06 ;
+    su9:appearsInLesson su9:TB_CD_B08 ;
+    su9:confidence 3 .
+
+su9:E_HiepDinhSoBo_SK a su9:Event ;
+    rdfs:label "Ky Hiep dinh So bo 6/3/1946"@vi ;
+    su9:occursAt su9:L_HaNoi ;
+    su9:occursDuring su9:P_1945_1946 ;
+    su9:bloomLevel 2 ;
+    su9:abstractness 3 ;
+    su9:frequencyInTextbook 4 ;
+    su9:appearsInLesson su9:TB_Old_B24 ;
+    su9:appearsInLesson su9:TB_KNTT_B09 ;
+    su9:appearsInLesson su9:TB_CTST_B06 ;
+    su9:appearsInLesson su9:TB_CD_B08 ;
+    su9:confidence 3 .
+
+su9:E_KCToanQuoc1946 a su9:Event ;
+    rdfs:label "Khang chien toan quoc bung no 19/12/1946"@vi ;
+    su9:occursAt su9:L_HaNoi ;
+    su9:occursDuring su9:P_1946_1954 ;
+    su9:bloomLevel 2 ;
+    su9:abstractness 2 ;
+    su9:frequencyInTextbook 8 ;
+    su9:appearsInLesson su9:TB_Old_B25 ;
+    su9:appearsInLesson su9:TB_KNTT_B09 ;
+    su9:appearsInLesson su9:TB_CTST_B06 ;
+    su9:appearsInLesson su9:TB_CD_B08 ;
+    su9:confidence 3 .
+
+su9:E_ChienDichVietBac1947 a su9:Event ;
+    rdfs:label "Chien dich Viet Bac Thu Dong 1947"@vi ;
+    su9:occursAt su9:L_VietBac ;
+    su9:occursDuring su9:P_1946_1954 ;
+    su9:bloomLevel 2 ;
+    su9:abstractness 2 ;
+    su9:frequencyInTextbook 7 ;
+    su9:appearsInLesson su9:TB_Old_B25 ;
+    su9:appearsInLesson su9:TB_KNTT_B09 ;
+    su9:appearsInLesson su9:TB_CTST_B06 ;
+    su9:appearsInLesson su9:TB_CD_B08 ;
+    su9:confidence 3 .
+
+su9:E_ChienDichBienGioi1950 a su9:Event ;
+    rdfs:label "Chien dich Bien Gioi Thu Dong 1950"@vi ;
+    su9:occursAt su9:L_VietBac ;
+    su9:occursDuring su9:P_1946_1954 ;
+    su9:bloomLevel 2 ;
+    su9:abstractness 2 ;
+    su9:frequencyInTextbook 7 ;
+    su9:appearsInLesson su9:TB_Old_B26 ;
+    su9:appearsInLesson su9:TB_KNTT_B09 ;
+    su9:appearsInLesson su9:TB_CTST_B06 ;
+    su9:appearsInLesson su9:TB_CD_B08 ;
+    su9:confidence 3 .
+
+su9:E_DaiHoi2_1951 a su9:Event ;
+    rdfs:label "Dai hoi Dang lan II 2/1951"@vi ;
+    su9:occursAt su9:L_VietBac ;
+    su9:occursDuring su9:P_1946_1954 ;
+    su9:bloomLevel 2 ;
+    su9:abstractness 3 ;
+    su9:frequencyInTextbook 5 ;
+    su9:appearsInLesson su9:TB_Old_B26 ;
+    su9:appearsInLesson su9:TB_KNTT_B09 ;
+    su9:appearsInLesson su9:TB_CTST_B06 ;
+    su9:appearsInLesson su9:TB_CD_B08 ;
+    su9:confidence 3 .
+
+su9:E_ChienDichHoaBinh a su9:Event ;
+    rdfs:label "Chien dich Hoa Binh 1951-1952"@vi ;
+    su9:occursAt su9:L_VietNam ;
+    su9:occursDuring su9:P_1946_1954 ;
+    su9:bloomLevel 2 ;
+    su9:abstractness 2 ;
+    su9:frequencyInTextbook 3 ;
+    su9:appearsInLesson su9:TB_Old_B26 ;
+    su9:appearsInLesson su9:TB_KNTT_B09 ;
+    su9:appearsInLesson su9:TB_CTST_B06 ;
+    su9:appearsInLesson su9:TB_CD_B08 ;
+    su9:confidence 3 .
+
+su9:E_ChienDichTayBac a su9:Event ;
+    rdfs:label "Chien dich Tay Bac 1952"@vi ;
+    su9:occursAt su9:L_VietNam ;
+    su9:occursDuring su9:P_1946_1954 ;
+    su9:bloomLevel 2 ;
+    su9:abstractness 2 ;
+    su9:frequencyInTextbook 3 ;
+    su9:appearsInLesson su9:TB_Old_B26 ;
+    su9:appearsInLesson su9:TB_KNTT_B09 ;
+    su9:appearsInLesson su9:TB_CTST_B06 ;
+    su9:appearsInLesson su9:TB_CD_B08 ;
+    su9:confidence 3 .
+
+su9:E_DienBienPhu1954 a su9:Event ;
+    rdfs:label "Chien dich Dien Bien Phu 1954"@vi ;
+    su9:aliases "Chien thang Dien Bien Phu|DBP" ;
+    su9:occursAt su9:L_DienBienPhu ;
+    su9:occursDuring su9:P_1946_1954 ;
+    su9:bloomLevel 2 ;
+    su9:abstractness 2 ;
+    su9:frequencyInTextbook 20 ;
+    su9:appearsInLesson su9:TB_Old_B27 ;
+    su9:appearsInLesson su9:TB_KNTT_B10 ;
+    su9:appearsInLesson su9:TB_CTST_B06 ;
+    su9:appearsInLesson su9:TB_CD_B08 ;
+    su9:confidence 3 .
+
+su9:E_HiepDinhGeneva_SK a su9:Event ;
+    rdfs:label "Ky Hiep dinh Geneva 21/7/1954"@vi ;
+    su9:aliases "Ky Hiep dinh Gio-ne-vo" ;
+    su9:occursAt su9:L_Geneva ;
+    su9:occursDuring su9:P_1946_1954 ;
+    su9:bloomLevel 2 ;
+    su9:abstractness 3 ;
+    su9:frequencyInTextbook 10 ;
+    su9:appearsInLesson su9:TB_Old_B27 ;
+    su9:appearsInLesson su9:TB_KNTT_B10 ;
+    su9:appearsInLesson su9:TB_CTST_B06 ;
+    su9:appearsInLesson su9:TB_CD_B08 ;
+    su9:confidence 3 .
+
+su9:E_PhongTraoDongKhoi a su9:Event ;
+    rdfs:label "Phong trao Dong Khoi 1959-1960"@vi ;
+    su9:occursAt su9:L_MienNam ;
+    su9:occursDuring su9:P_1954_1960 ;
+    su9:bloomLevel 2 ;
+    su9:abstractness 2 ;
+    su9:frequencyInTextbook 8 ;
+    su9:appearsInLesson su9:TB_Old_B28 ;
+    su9:appearsInLesson su9:TB_KNTT_B11 ;
+    su9:appearsInLesson su9:TB_CTST_B07 ;
+    su9:appearsInLesson su9:TB_CD_B09 ;
+    su9:confidence 3 .
+
+su9:E_MTDTGP_TL a su9:Event ;
+    rdfs:label "Thanh lap MTDTGP MN VN 20/12/1960"@vi ;
+    su9:occursAt su9:L_MienNam ;
+    su9:occursDuring su9:P_1954_1960 ;
+    su9:bloomLevel 2 ;
+    su9:abstractness 2 ;
+    su9:frequencyInTextbook 5 ;
+    su9:appearsInLesson su9:TB_Old_B28 ;
+    su9:appearsInLesson su9:TB_KNTT_B11 ;
+    su9:appearsInLesson su9:TB_CTST_B07 ;
+    su9:appearsInLesson su9:TB_CD_B09 ;
+    su9:confidence 3 .
+
+su9:E_DaiHoi3_1960 a su9:Event ;
+    rdfs:label "Dai hoi Dang lan III 9/1960"@vi ;
+    su9:occursAt su9:L_HaNoi ;
+    su9:occursDuring su9:P_1954_1960 ;
+    su9:bloomLevel 2 ;
+    su9:abstractness 3 ;
+    su9:frequencyInTextbook 5 ;
+    su9:appearsInLesson su9:TB_Old_B28 ;
+    su9:appearsInLesson su9:TB_KNTT_B11 ;
+    su9:appearsInLesson su9:TB_CTST_B07 ;
+    su9:appearsInLesson su9:TB_CD_B09 ;
+    su9:confidence 3 .
+
+su9:E_ApBac1963 a su9:Event ;
+    rdfs:label "Chien thang Ap Bac 2/1/1963"@vi ;
+    su9:occursAt su9:L_MienNam ;
+    su9:occursDuring su9:P_1961_1965 ;
+    su9:bloomLevel 2 ;
+    su9:abstractness 2 ;
+    su9:frequencyInTextbook 4 ;
+    su9:appearsInLesson su9:TB_Old_B28 ;
+    su9:appearsInLesson su9:TB_KNTT_B11 ;
+    su9:appearsInLesson su9:TB_CTST_B07 ;
+    su9:appearsInLesson su9:TB_CD_B09 ;
+    su9:confidence 3 .
+
+su9:E_VanQuyetLiet65 a su9:Event ;
+    rdfs:label "Chien thang Van Tuong 8/1965"@vi ;
+    su9:occursAt su9:L_MienNam ;
+    su9:occursDuring su9:P_1965_1968 ;
+    su9:bloomLevel 2 ;
+    su9:abstractness 2 ;
+    su9:frequencyInTextbook 3 ;
+    su9:appearsInLesson su9:TB_Old_B29 ;
+    su9:appearsInLesson su9:TB_KNTT_B12 ;
+    su9:appearsInLesson su9:TB_CTST_B07 ;
+    su9:appearsInLesson su9:TB_CD_B09 ;
+    su9:confidence 3 .
+
+su9:E_MauThan1968 a su9:Event ;
+    rdfs:label "Tong tien cong va noi day Xuan Mau Than 1968"@vi ;
+    su9:occursAt su9:L_MienNam ;
+    su9:occursDuring su9:P_1965_1968 ;
+    su9:bloomLevel 2 ;
+    su9:abstractness 2 ;
+    su9:frequencyInTextbook 10 ;
+    su9:appearsInLesson su9:TB_Old_B29 ;
+    su9:appearsInLesson su9:TB_KNTT_B12 ;
+    su9:appearsInLesson su9:TB_CTST_B07 ;
+    su9:appearsInLesson su9:TB_CD_B09 ;
+    su9:confidence 3 .
+
+su9:E_DienBienPhuTrenKhong a su9:Event ;
+    rdfs:label "Dien Bien Phu tren khong 12/1972"@vi ;
+    su9:aliases "Chien dich 12 ngay dem" ;
+    su9:occursAt su9:L_HaNoi ;
+    su9:occursDuring su9:P_1969_1973 ;
+    su9:bloomLevel 2 ;
+    su9:abstractness 3 ;
+    su9:frequencyInTextbook 7 ;
+    su9:appearsInLesson su9:TB_Old_B29 ;
+    su9:appearsInLesson su9:TB_KNTT_B12 ;
+    su9:appearsInLesson su9:TB_CTST_B07 ;
+    su9:appearsInLesson su9:TB_CD_B09 ;
+    su9:confidence 3 .
+
+su9:E_HiepDinhParis_SK a su9:Event ;
+    rdfs:label "Ky Hiep dinh Paris 27/1/1973"@vi ;
+    su9:aliases "Ky Hiep dinh Pa-ri" ;
+    su9:occursAt su9:L_Paris ;
+    su9:occursDuring su9:P_1969_1973 ;
+    su9:bloomLevel 2 ;
+    su9:abstractness 3 ;
+    su9:frequencyInTextbook 9 ;
+    su9:appearsInLesson su9:TB_Old_B29 ;
+    su9:appearsInLesson su9:TB_KNTT_B12 ;
+    su9:appearsInLesson su9:TB_CTST_B07 ;
+    su9:appearsInLesson su9:TB_CD_B09 ;
+    su9:confidence 3 .
+
+su9:E_ChienDichTayNguyen a su9:Event ;
+    rdfs:label "Chien dich Tay Nguyen 3/1975"@vi ;
+    su9:occursAt su9:L_VietNam ;
+    su9:occursDuring su9:P_1973_1975 ;
+    su9:bloomLevel 2 ;
+    su9:abstractness 2 ;
+    su9:frequencyInTextbook 5 ;
+    su9:appearsInLesson su9:TB_Old_B30 ;
+    su9:appearsInLesson su9:TB_KNTT_B12 ;
+    su9:appearsInLesson su9:TB_CTST_B07 ;
+    su9:appearsInLesson su9:TB_CD_B09 ;
+    su9:confidence 3 .
+
+su9:E_ChienDichHue_DaNang a su9:Event ;
+    rdfs:label "Chien dich Hue - Da Nang 3/1975"@vi ;
+    su9:occursAt su9:L_Hue ;
+    su9:occursDuring su9:P_1973_1975 ;
+    su9:bloomLevel 2 ;
+    su9:abstractness 2 ;
+    su9:frequencyInTextbook 4 ;
+    su9:appearsInLesson su9:TB_Old_B30 ;
+    su9:appearsInLesson su9:TB_KNTT_B12 ;
+    su9:appearsInLesson su9:TB_CTST_B07 ;
+    su9:appearsInLesson su9:TB_CD_B09 ;
+    su9:confidence 3 .
+
+su9:E_GPMienNam1975 a su9:Event ;
+    rdfs:label "Chien dich Ho Chi Minh 30/4/1975"@vi ;
+    su9:aliases "Chien dich HCM|Giai phong MN" ;
+    su9:occursAt su9:L_SaiGon ;
+    su9:occursDuring su9:P_1973_1975 ;
+    su9:bloomLevel 2 ;
+    su9:abstractness 2 ;
+    su9:frequencyInTextbook 15 ;
+    su9:appearsInLesson su9:TB_Old_B30 ;
+    su9:appearsInLesson su9:TB_KNTT_B12 ;
+    su9:appearsInLesson su9:TB_CTST_B07 ;
+    su9:appearsInLesson su9:TB_CD_B09 ;
+    su9:confidence 3 .
+
+su9:E_TongTuyenCu_1976 a su9:Event ;
+    rdfs:label "Tong tuyen cu ca nuoc 25/4/1976"@vi ;
+    su9:occursAt su9:L_VietNam ;
+    su9:occursDuring su9:P_1975_1986 ;
+    su9:bloomLevel 2 ;
+    su9:abstractness 2 ;
+    su9:frequencyInTextbook 4 ;
+    su9:appearsInLesson su9:TB_Old_B31 ;
+    su9:appearsInLesson su9:TB_KNTT_B13 ;
+    su9:appearsInLesson su9:TB_CTST_B08 ;
+    su9:appearsInLesson su9:TB_CD_B10 ;
+    su9:confidence 3 .
+
+su9:E_DoiTen_CHXHCN a su9:Event ;
+    rdfs:label "Doi ten thanh CHXHCN Viet Nam 7/1976"@vi ;
+    su9:occursAt su9:L_VietNam ;
+    su9:occursDuring su9:P_1975_1986 ;
+    su9:bloomLevel 1 ;
+    su9:abstractness 2 ;
+    su9:frequencyInTextbook 3 ;
+    su9:appearsInLesson su9:TB_Old_B31 ;
+    su9:appearsInLesson su9:TB_KNTT_B13 ;
+    su9:appearsInLesson su9:TB_CTST_B08 ;
+    su9:appearsInLesson su9:TB_CD_B10 ;
+    su9:confidence 3 .
+
+su9:E_ChienTranhBienGioiTN a su9:Event ;
+    rdfs:label "Chien tranh bao ve bien gioi Tay Nam 1975-1979"@vi ;
+    su9:occursAt su9:L_VietNam ;
+    su9:occursDuring su9:P_1975_1986 ;
+    su9:bloomLevel 2 ;
+    su9:abstractness 2 ;
+    su9:frequencyInTextbook 4 ;
+    su9:appearsInLesson su9:TB_Old_B32 ;
+    su9:appearsInLesson su9:TB_KNTT_B13 ;
+    su9:appearsInLesson su9:TB_CTST_B08 ;
+    su9:appearsInLesson su9:TB_CD_B10 ;
+    su9:confidence 3 .
+
+su9:E_ChienTranhBienGioiBac a su9:Event ;
+    rdfs:label "Chien tranh bao ve bien gioi phia Bac 1979"@vi ;
+    su9:occursAt su9:L_VietNam ;
+    su9:occursDuring su9:P_1975_1986 ;
+    su9:bloomLevel 2 ;
+    su9:abstractness 2 ;
+    su9:frequencyInTextbook 4 ;
+    su9:appearsInLesson su9:TB_Old_B32 ;
+    su9:appearsInLesson su9:TB_KNTT_B13 ;
+    su9:appearsInLesson su9:TB_CTST_B08 ;
+    su9:appearsInLesson su9:TB_CD_B10 ;
+    su9:confidence 3 .
+
+su9:E_DaiHoi6_1986 a su9:Event ;
+    rdfs:label "Dai hoi Dang VI - Doi moi 12/1986"@vi ;
+    su9:aliases "DH VI|Doi moi" ;
+    su9:occursAt su9:L_HaNoi ;
+    su9:occursDuring su9:P_1986_2000 ;
+    su9:bloomLevel 3 ;
+    su9:abstractness 3 ;
+    su9:frequencyInTextbook 10 ;
+    su9:appearsInLesson su9:TB_Old_B33 ;
+    su9:appearsInLesson su9:TB_KNTT_B14 ;
+    su9:appearsInLesson su9:TB_CTST_B09 ;
+    su9:appearsInLesson su9:TB_CD_B10 ;
+    su9:confidence 3 .
+
+su9:E_VNGiaNhapLHQ a su9:Event ;
+    rdfs:label "VN gia nhap LHQ 9/1977"@vi ;
+    su9:occursDuring su9:P_1975_1986 ;
+    su9:bloomLevel 1 ;
+    su9:abstractness 2 ;
+    su9:frequencyInTextbook 3 ;
+    su9:appearsInLesson su9:TB_Old_B31 ;
+    su9:appearsInLesson su9:TB_KNTT_B13 ;
+    su9:appearsInLesson su9:TB_CTST_B08 ;
+    su9:appearsInLesson su9:TB_CD_B10 ;
+    su9:confidence 3 .
+
+su9:E_VNGiaNhapASEAN_SK a su9:Event ;
+    rdfs:label "VN gia nhap ASEAN 28/7/1995"@vi ;
+    su9:occursDuring su9:P_1986_2000 ;
+    su9:bloomLevel 1 ;
+    su9:abstractness 2 ;
+    su9:frequencyInTextbook 4 ;
+    su9:appearsInLesson su9:TB_Old_B33 ;
+    su9:appearsInLesson su9:TB_KNTT_B20 ;
+    su9:appearsInLesson su9:TB_CTST_B09 ;
+    su9:appearsInLesson su9:TB_CD_B10 ;
+    su9:confidence 3 .
+
+su9:E_VNGiaNhapWTO a su9:Event ;
+    rdfs:label "VN gia nhap WTO 2007"@vi ;
+    su9:occursDuring su9:P_Post1991 ;
+    su9:bloomLevel 1 ;
+    su9:abstractness 2 ;
+    su9:frequencyInTextbook 3 ;
+    su9:appearsInLesson su9:TB_KNTT_B20 ;
+    su9:appearsInLesson su9:TB_CTST_B09 ;
+    su9:appearsInLesson su9:TB_CD_B10 ;
+    su9:confidence 2 .
+
+su9:E_CTTG2_BungNo a su9:Event ;
+    rdfs:label "CTTG II bung no 1/9/1939"@vi ;
+    su9:occursDuring su9:P_WWII ;
+    su9:bloomLevel 1 ;
+    su9:abstractness 2 ;
+    su9:frequencyInTextbook 4 ;
+    su9:appearsInLesson su9:TB_KNTT_B04 ;
+    su9:appearsInLesson su9:TB_CTST_B02 ;
+    su9:appearsInLesson su9:TB_CD_B03 ;
+    su9:confidence 3 .
+
+su9:E_CTTG2_KetThuc a su9:Event ;
+    rdfs:label "CTTG II ket thuc 8/1945"@vi ;
+    su9:occursDuring su9:P_WWII ;
+    su9:bloomLevel 1 ;
+    su9:abstractness 2 ;
+    su9:frequencyInTextbook 5 ;
+    su9:appearsInLesson su9:TB_KNTT_B04 ;
+    su9:appearsInLesson su9:TB_CTST_B02 ;
+    su9:appearsInLesson su9:TB_CD_B03 ;
+    su9:confidence 3 .
+
+su9:E_NgaySamChauAu a su9:Event ;
+    rdfs:label "D-Day - Noi dau mat tran chau Au 6/6/1944"@vi ;
+    su9:occursDuring su9:P_WWII ;
+    su9:bloomLevel 1 ;
+    su9:abstractness 2 ;
+    su9:frequencyInTextbook 2 ;
+    su9:appearsInLesson su9:TB_KNTT_B04 ;
+    su9:appearsInLesson su9:TB_CTST_B02 ;
+    su9:appearsInLesson su9:TB_CD_B03 ;
+    su9:confidence 2 .
+
+su9:E_TranHiroshima a su9:Event ;
+    rdfs:label "Nem bom nguyen tu Hiroshima 8/1945"@vi ;
+    su9:occursAt su9:L_Hiroshima ;
+    su9:occursDuring su9:P_WWII ;
+    su9:bloomLevel 1 ;
+    su9:abstractness 2 ;
+    su9:frequencyInTextbook 4 ;
+    su9:appearsInLesson su9:TB_KNTT_B04 ;
+    su9:appearsInLesson su9:TB_CTST_B02 ;
+    su9:appearsInLesson su9:TB_CD_B03 ;
+    su9:confidence 3 .
+
+su9:E_HoiNghiIanta a su9:Event ;
+    rdfs:label "Hoi nghi Ianta 2/1945"@vi ;
+    su9:aliases "Hoi nghi Yalta" ;
+    su9:occursDuring su9:P_WWII ;
+    su9:bloomLevel 2 ;
+    su9:abstractness 3 ;
+    su9:frequencyInTextbook 7 ;
+    su9:appearsInLesson su9:TB_Old_B11 ;
+    su9:appearsInLesson su9:TB_KNTT_B19 ;
+    su9:appearsInLesson su9:TB_CTST_B13 ;
+    su9:appearsInLesson su9:TB_CD_B14 ;
+    su9:confidence 3 .
+
+su9:E_ThanhLapLHQ a su9:Event ;
+    rdfs:label "Thanh lap LHQ 24/10/1945"@vi ;
+    su9:occursDuring su9:P_ColdWar ;
+    su9:bloomLevel 1 ;
+    su9:abstractness 2 ;
+    su9:frequencyInTextbook 5 ;
+    su9:appearsInLesson su9:TB_Old_B11 ;
+    su9:appearsInLesson su9:TB_KNTT_B19 ;
+    su9:appearsInLesson su9:TB_CTST_B13 ;
+    su9:appearsInLesson su9:TB_CD_B14 ;
+    su9:confidence 3 .
+
+su9:E_KeHoachMarshallSK a su9:Event ;
+    rdfs:label "Thong qua Ke hoach Marshall 1947"@vi ;
+    su9:occursDuring su9:P_ColdWar ;
+    su9:bloomLevel 2 ;
+    su9:abstractness 3 ;
+    su9:frequencyInTextbook 3 ;
+    su9:appearsInLesson su9:TB_Old_B11 ;
+    su9:appearsInLesson su9:TB_KNTT_B19 ;
+    su9:appearsInLesson su9:TB_CTST_B13 ;
+    su9:appearsInLesson su9:TB_CD_B14 ;
+    su9:confidence 3 .
+
+su9:E_LienXoBomHN_1949 a su9:Event ;
+    rdfs:label "Lien Xo che tao thanh cong bom nguyen tu 1949"@vi ;
+    su9:occursAt su9:L_LienXo ;
+    su9:occursDuring su9:P_ColdWar ;
+    su9:bloomLevel 1 ;
+    su9:abstractness 2 ;
+    su9:frequencyInTextbook 3 ;
+    su9:appearsInLesson su9:TB_Old_B01 ;
+    su9:appearsInLesson su9:TB_KNTT_B15 ;
+    su9:appearsInLesson su9:TB_CTST_B10 ;
+    su9:appearsInLesson su9:TB_CD_B11 ;
+    su9:confidence 2 .
+
+su9:E_SEV_TL a su9:Event ;
+    rdfs:label "Thanh lap SEV 1/1949"@vi ;
+    su9:occursDuring su9:P_ColdWar ;
+    su9:bloomLevel 1 ;
+    su9:abstractness 2 ;
+    su9:frequencyInTextbook 3 ;
+    su9:appearsInLesson su9:TB_Old_B01 ;
+    su9:appearsInLesson su9:TB_KNTT_B15 ;
+    su9:appearsInLesson su9:TB_CTST_B10 ;
+    su9:appearsInLesson su9:TB_CD_B11 ;
+    su9:confidence 3 .
+
+su9:E_NATO_TL a su9:Event ;
+    rdfs:label "Thanh lap NATO 4/1949"@vi ;
+    su9:occursDuring su9:P_ColdWar ;
+    su9:bloomLevel 1 ;
+    su9:abstractness 2 ;
+    su9:frequencyInTextbook 3 ;
+    su9:appearsInLesson su9:TB_Old_B11 ;
+    su9:appearsInLesson su9:TB_KNTT_B19 ;
+    su9:appearsInLesson su9:TB_CTST_B13 ;
+    su9:appearsInLesson su9:TB_CD_B14 ;
+    su9:confidence 3 .
+
+su9:E_Warsaw_TL a su9:Event ;
+    rdfs:label "Thanh lap Khoi Vacsava 5/1955"@vi ;
+    su9:occursDuring su9:P_ColdWar ;
+    su9:bloomLevel 1 ;
+    su9:abstractness 2 ;
+    su9:frequencyInTextbook 3 ;
+    su9:appearsInLesson su9:TB_Old_B11 ;
+    su9:appearsInLesson su9:TB_KNTT_B19 ;
+    su9:appearsInLesson su9:TB_CTST_B13 ;
+    su9:appearsInLesson su9:TB_CD_B14 ;
+    su9:confidence 3 .
+
+su9:E_CaiToGorbachev a su9:Event ;
+    rdfs:label "Cong cuoc cai to Lien Xo 1985"@vi ;
+    su9:occursAt su9:L_LienXo ;
+    su9:occursDuring su9:P_ColdWar ;
+    su9:bloomLevel 3 ;
+    su9:abstractness 3 ;
+    su9:frequencyInTextbook 4 ;
+    su9:appearsInLesson su9:TB_Old_B02 ;
+    su9:appearsInLesson su9:TB_KNTT_B15 ;
+    su9:appearsInLesson su9:TB_CTST_B10 ;
+    su9:appearsInLesson su9:TB_CD_B11 ;
+    su9:confidence 3 .
+
+su9:E_LienXoTanRa a su9:Event ;
+    rdfs:label "Lien Xo tan ra 25/12/1991"@vi ;
+    su9:occursAt su9:L_LienXo ;
+    su9:occursDuring su9:P_Post1991 ;
+    su9:bloomLevel 3 ;
+    su9:abstractness 3 ;
+    su9:frequencyInTextbook 7 ;
+    su9:appearsInLesson su9:TB_Old_B02 ;
+    su9:appearsInLesson su9:TB_KNTT_B15 ;
+    su9:appearsInLesson su9:TB_CTST_B10 ;
+    su9:appearsInLesson su9:TB_CD_B11 ;
+    su9:confidence 3 .
+
+su9:E_BerlinWallFall a su9:Event ;
+    rdfs:label "Buc tuong Berlin sup do 9/11/1989"@vi ;
+    su9:occursAt su9:L_Berlin ;
+    su9:occursDuring su9:P_ColdWar ;
+    su9:bloomLevel 2 ;
+    su9:abstractness 3 ;
+    su9:frequencyInTextbook 3 ;
+    su9:appearsInLesson su9:TB_Old_B02 ;
+    su9:appearsInLesson su9:TB_KNTT_B15 ;
+    su9:appearsInLesson su9:TB_CTST_B10 ;
+    su9:appearsInLesson su9:TB_CD_B11 ;
+    su9:confidence 3 .
+
+su9:E_CHND_TQ_TL a su9:Event ;
+    rdfs:label "Thanh lap nuoc CHND Trung Hoa 1/10/1949"@vi ;
+    su9:occursAt su9:L_BacKinh ;
+    su9:occursDuring su9:P_ColdWar ;
+    su9:bloomLevel 1 ;
+    su9:abstractness 2 ;
+    su9:frequencyInTextbook 5 ;
+    su9:appearsInLesson su9:TB_Old_B04 ;
+    su9:appearsInLesson su9:TB_KNTT_B17 ;
+    su9:appearsInLesson su9:TB_CTST_B12 ;
+    su9:appearsInLesson su9:TB_CD_B13 ;
+    su9:confidence 3 .
+
+su9:E_CaiCachTQ1978 a su9:Event ;
+    rdfs:label "Trung Quoc cai cach mo cua 1978"@vi ;
+    su9:occursAt su9:L_TrungQuoc ;
+    su9:occursDuring su9:P_ColdWar ;
+    su9:bloomLevel 2 ;
+    su9:abstractness 3 ;
+    su9:frequencyInTextbook 4 ;
+    su9:appearsInLesson su9:TB_Old_B04 ;
+    su9:appearsInLesson su9:TB_KNTT_B17 ;
+    su9:appearsInLesson su9:TB_CTST_B12 ;
+    su9:appearsInLesson su9:TB_CD_B13 ;
+    su9:confidence 3 .
+
+su9:E_ThanhLapASEAN a su9:Event ;
+    rdfs:label "Thanh lap ASEAN 8/8/1967"@vi ;
+    su9:occursAt su9:L_DongNamA ;
+    su9:occursDuring su9:P_ColdWar ;
+    su9:bloomLevel 1 ;
+    su9:abstractness 2 ;
+    su9:frequencyInTextbook 6 ;
+    su9:appearsInLesson su9:TB_Old_B05 ;
+    su9:appearsInLesson su9:TB_KNTT_B17 ;
+    su9:appearsInLesson su9:TB_CTST_B12 ;
+    su9:appearsInLesson su9:TB_CD_B13 ;
+    su9:confidence 3 .
+
+su9:E_CMCuba1959 a su9:Event ;
+    rdfs:label "Cach mang Cuba 1/1/1959"@vi ;
+    su9:occursAt su9:L_Cuba ;
+    su9:occursDuring su9:P_ColdWar ;
+    su9:bloomLevel 2 ;
+    su9:abstractness 2 ;
+    su9:frequencyInTextbook 5 ;
+    su9:appearsInLesson su9:TB_Old_B07 ;
+    su9:appearsInLesson su9:TB_KNTT_B17 ;
+    su9:appearsInLesson su9:TB_CTST_B12 ;
+    su9:appearsInLesson su9:TB_CD_B13 ;
+    su9:confidence 3 .
+
+su9:E_NamChauPhi1960 a su9:Event ;
+    rdfs:label "Nam chau Phi 1960"@vi ;
+    su9:occursAt su9:L_ChauPhi ;
+    su9:occursDuring su9:P_ColdWar ;
+    su9:bloomLevel 1 ;
+    su9:abstractness 2 ;
+    su9:frequencyInTextbook 3 ;
+    su9:appearsInLesson su9:TB_Old_B06 ;
+    su9:appearsInLesson su9:TB_KNTT_B17 ;
+    su9:appearsInLesson su9:TB_CTST_B12 ;
+    su9:appearsInLesson su9:TB_CD_B13 ;
+    su9:confidence 3 .
+
+su9:E_XoaBoApartheid a su9:Event ;
+    rdfs:label "Xoa bo che do Apartheid o Nam Phi 1994"@vi ;
+    su9:occursAt su9:L_NamPhi ;
+    su9:occursDuring su9:P_Post1991 ;
+    su9:bloomLevel 2 ;
+    su9:abstractness 3 ;
+    su9:frequencyInTextbook 3 ;
+    su9:appearsInLesson su9:TB_Old_B06 ;
+    su9:appearsInLesson su9:TB_KNTT_B17 ;
+    su9:appearsInLesson su9:TB_CTST_B12 ;
+    su9:appearsInLesson su9:TB_CD_B13 ;
+    su9:confidence 3 .
+
+su9:E_NhatThanKy a su9:Event ;
+    rdfs:label "Nhat Ban phat trien than ki 1952-1973"@vi ;
+    su9:occursAt su9:L_NhatBan ;
+    su9:occursDuring su9:P_ColdWar ;
+    su9:bloomLevel 2 ;
+    su9:abstractness 3 ;
+    su9:frequencyInTextbook 4 ;
+    su9:appearsInLesson su9:TB_Old_B09 ;
+    su9:appearsInLesson su9:TB_KNTT_B16 ;
+    su9:appearsInLesson su9:TB_CTST_B11 ;
+    su9:appearsInLesson su9:TB_CD_B12 ;
+    su9:confidence 3 .
+
+su9:E_CMKHKT_BungNo a su9:Event ;
+    rdfs:label "CM KHKT bung no tu giua TK XX"@vi ;
+    su9:occursDuring su9:P_ColdWar ;
+    su9:bloomLevel 2 ;
+    su9:abstractness 3 ;
+    su9:frequencyInTextbook 5 ;
+    su9:appearsInLesson su9:TB_Old_B12 ;
+    su9:appearsInLesson su9:TB_KNTT_B18 ;
+    su9:appearsInLesson su9:TB_CTST_B14 ;
+    su9:appearsInLesson su9:TB_CD_B15 ;
+    su9:confidence 3 .
+
+
+#################################################################
+#   PREREQUISITES (la tien de cua)
+#################################################################
+
+su9:E_NAQTimDuongCuuNuoc su9:prerequisiteOf su9:E_NAQGuiYeuSach1919 .
+su9:E_NAQGuiYeuSach1919 su9:prerequisiteOf su9:E_NAQDocLuanCuongLenin .
+su9:E_NAQDocLuanCuongLenin su9:prerequisiteOf su9:E_NAQTuHoTuanBan1920 .
+su9:E_NAQTuHoTuanBan1920 su9:prerequisiteOf su9:E_ThanhLapHoiVNCMThanhNien .
+su9:E_ThanhLapHoiVNCMThanhNien su9:prerequisiteOf su9:E_BaoThanhNien .
+su9:E_BaoThanhNien su9:prerequisiteOf su9:E_DuongKachMenh .
+su9:E_DuongKachMenh su9:prerequisiteOf su9:E_DD_CSD_TL .
+su9:E_ThanhLapHoiVNCMThanhNien su9:prerequisiteOf su9:E_AN_CSD_TL .
+su9:E_ThanhLapHoiVNCMThanhNien su9:prerequisiteOf su9:E_DD_CSLien_TL .
+su9:E_DD_CSD_TL su9:prerequisiteOf su9:E_HoiNghiThanhLapDang .
+su9:E_AN_CSD_TL su9:prerequisiteOf su9:E_HoiNghiThanhLapDang .
+su9:E_DD_CSLien_TL su9:prerequisiteOf su9:E_HoiNghiThanhLapDang .
+su9:E_HoiNghiThanhLapDang su9:prerequisiteOf su9:E_XoVietNgheTinh .
+su9:E_XoVietNgheTinh su9:prerequisiteOf su9:E_DaiHoi1_1935 .
+su9:E_HoiNghiThanhLapDang su9:prerequisiteOf su9:E_PhongTraoDanChu .
+su9:E_PhongTraoDanChu su9:prerequisiteOf su9:E_HoiNghi6_1939 .
+su9:E_HoiNghi6_1939 su9:prerequisiteOf su9:E_KhoiNghiaBacSon .
+su9:E_HoiNghi6_1939 su9:prerequisiteOf su9:E_KhoiNghiaNamKi .
+su9:E_KhoiNghiaBacSon su9:prerequisiteOf su9:E_HoiNghi8_1941 .
+su9:E_KhoiNghiaNamKi su9:prerequisiteOf su9:E_HoiNghi8_1941 .
+su9:E_HoiNghi8_1941 su9:prerequisiteOf su9:E_ThanhLapVietMinh .
+su9:E_ThanhLapVietMinh su9:prerequisiteOf su9:E_ThanhLapVNTuyenTruyenGPQ .
+su9:E_NhatDaoChinhPhap1945 su9:prerequisiteOf su9:E_CaoTraoKhangNhat .
+su9:E_ThanhLapVNTuyenTruyenGPQ su9:prerequisiteOf su9:E_CaoTraoKhangNhat .
+su9:E_CaoTraoKhangNhat su9:prerequisiteOf su9:E_HoiNghiTanTrao .
+su9:E_HoiNghiTanTrao su9:prerequisiteOf su9:E_CachMangThangTam .
+su9:E_CachMangThangTam su9:prerequisiteOf su9:E_KhoiNghiaHaNoi_1945 .
+su9:E_CachMangThangTam su9:prerequisiteOf su9:E_KhoiNghiaHue_1945 .
+su9:E_CachMangThangTam su9:prerequisiteOf su9:E_KhoiNghiaSaiGon_1945 .
+su9:E_KhoiNghiaHaNoi_1945 su9:prerequisiteOf su9:E_TuyenNgonDocLap .
+su9:E_TuyenNgonDocLap su9:prerequisiteOf su9:E_DoiDauVoiThuTrongGiac .
+su9:E_DoiDauVoiThuTrongGiac su9:prerequisiteOf su9:E_BauCuQuocHoi1946 .
+su9:E_DoiDauVoiThuTrongGiac su9:prerequisiteOf su9:E_HiepDinhSoBo_SK .
+su9:E_HiepDinhSoBo_SK su9:prerequisiteOf su9:E_KCToanQuoc1946 .
+su9:E_KCToanQuoc1946 su9:prerequisiteOf su9:E_ChienDichVietBac1947 .
+su9:E_ChienDichVietBac1947 su9:prerequisiteOf su9:E_ChienDichBienGioi1950 .
+su9:E_ChienDichBienGioi1950 su9:prerequisiteOf su9:E_DaiHoi2_1951 .
+su9:E_ChienDichBienGioi1950 su9:prerequisiteOf su9:E_ChienDichHoaBinh .
+su9:E_ChienDichHoaBinh su9:prerequisiteOf su9:E_ChienDichTayBac .
+su9:E_ChienDichTayBac su9:prerequisiteOf su9:E_DienBienPhu1954 .
+su9:E_DienBienPhu1954 su9:prerequisiteOf su9:E_HiepDinhGeneva_SK .
+su9:E_HiepDinhGeneva_SK su9:prerequisiteOf su9:E_PhongTraoDongKhoi .
+su9:E_PhongTraoDongKhoi su9:prerequisiteOf su9:E_MTDTGP_TL .
+su9:E_PhongTraoDongKhoi su9:prerequisiteOf su9:E_DaiHoi3_1960 .
+su9:E_MTDTGP_TL su9:prerequisiteOf su9:E_ApBac1963 .
+su9:E_ApBac1963 su9:prerequisiteOf su9:E_VanQuyetLiet65 .
+su9:E_VanQuyetLiet65 su9:prerequisiteOf su9:E_MauThan1968 .
+su9:E_MauThan1968 su9:prerequisiteOf su9:E_DienBienPhuTrenKhong .
+su9:E_DienBienPhuTrenKhong su9:prerequisiteOf su9:E_HiepDinhParis_SK .
+su9:E_HiepDinhParis_SK su9:prerequisiteOf su9:E_ChienDichTayNguyen .
+su9:E_ChienDichTayNguyen su9:prerequisiteOf su9:E_ChienDichHue_DaNang .
+su9:E_ChienDichHue_DaNang su9:prerequisiteOf su9:E_GPMienNam1975 .
+su9:E_GPMienNam1975 su9:prerequisiteOf su9:E_TongTuyenCu_1976 .
+su9:E_TongTuyenCu_1976 su9:prerequisiteOf su9:E_DoiTen_CHXHCN .
+su9:E_DoiTen_CHXHCN su9:prerequisiteOf su9:E_ChienTranhBienGioiTN .
+su9:E_ChienTranhBienGioiTN su9:prerequisiteOf su9:E_ChienTranhBienGioiBac .
+su9:E_ChienTranhBienGioiBac su9:prerequisiteOf su9:E_DaiHoi6_1986 .
+su9:E_DaiHoi6_1986 su9:prerequisiteOf su9:E_VNGiaNhapASEAN_SK .
+su9:E_VNGiaNhapASEAN_SK su9:prerequisiteOf su9:E_VNGiaNhapWTO .
+su9:E_CTTG2_KetThuc su9:prerequisiteOf su9:E_HoiNghiIanta .
+su9:E_HoiNghiIanta su9:prerequisiteOf su9:C_TratTuHaiCuc .
+su9:E_HoiNghiIanta su9:prerequisiteOf su9:E_ThanhLapLHQ .
+su9:E_KeHoachMarshallSK su9:prerequisiteOf su9:E_NATO_TL .
+su9:C_TratTuHaiCuc su9:prerequisiteOf su9:E_NATO_TL .
+su9:E_SEV_TL su9:prerequisiteOf su9:E_Warsaw_TL .
+su9:E_NATO_TL su9:prerequisiteOf su9:E_Warsaw_TL .
+su9:C_TratTuHaiCuc su9:prerequisiteOf su9:C_ChienTranhLanh .
+su9:E_LienXoBomHN_1949 su9:prerequisiteOf su9:C_ChienTranhLanh .
+su9:C_ChienTranhLanh su9:prerequisiteOf su9:E_CaiToGorbachev .
+su9:E_CaiToGorbachev su9:prerequisiteOf su9:E_BerlinWallFall .
+su9:E_BerlinWallFall su9:prerequisiteOf su9:E_LienXoTanRa .
+su9:E_LienXoTanRa su9:prerequisiteOf su9:C_DaCucDaTrungTam .
+su9:E_CTTG2_KetThuc su9:prerequisiteOf su9:E_CHND_TQ_TL .
+su9:E_CHND_TQ_TL su9:prerequisiteOf su9:E_CaiCachTQ1978 .
+su9:E_ThanhLapASEAN su9:prerequisiteOf su9:E_VNGiaNhapASEAN_SK .
+su9:E_CMCuba1959 su9:prerequisiteOf su9:M_GPDT_MyLatinh .
+su9:E_NamChauPhi1960 su9:prerequisiteOf su9:M_GPDT_ChauPhi .
+su9:E_CTTG2_BungNo su9:prerequisiteOf su9:E_NgaySamChauAu .
+su9:E_NgaySamChauAu su9:prerequisiteOf su9:E_TranHiroshima .
+su9:E_TranHiroshima su9:prerequisiteOf su9:E_CTTG2_KetThuc .
+su9:C_ChuNghiaTuBan su9:prerequisiteOf su9:C_ChuNghiaDeQuoc .
+su9:C_ChuNghiaDeQuoc su9:prerequisiteOf su9:C_ChuNghiaThucDan .
+su9:C_ChuNghiaThucDan su9:prerequisiteOf su9:C_HeThongThuocDia .
+su9:C_HeThongThuocDia su9:prerequisiteOf su9:C_PhiThucDanHoa .
+su9:C_CachMangVoSan su9:prerequisiteOf su9:C_CachMangDanToc .
+su9:C_CachMangDanToc su9:prerequisiteOf su9:C_CachMangXHCN .
+su9:C_CNMacLenin su9:prerequisiteOf su9:C_CachMangVoSan .
+su9:C_CNMacLenin su9:prerequisiteOf su9:C_TuTuongHCM .
+su9:C_KinhTeKeHoachHoa su9:prerequisiteOf su9:C_DoiMoi .
+su9:C_DoiMoi su9:prerequisiteOf su9:C_KinhTeThiTruong .
+su9:C_KinhTeThiTruong su9:prerequisiteOf su9:C_HoiNhapQuocTe .
+su9:C_CMKHKT su9:prerequisiteOf su9:C_ToanCauHoa .
+su9:C_ToanCauHoa su9:prerequisiteOf su9:C_KhuVucHoa .
+su9:C_ChienTranhDacBiet su9:prerequisiteOf su9:C_ChienTranhCucBo .
+su9:C_ChienTranhCucBo su9:prerequisiteOf su9:C_VNHoaChienTranh .
+su9:C_PhatXit su9:prerequisiteOf su9:C_DongMinhChongPhatXit .
+
+
+#################################################################
+#   CAUSAL - DIRECT
+#################################################################
+
+su9:E_DienBienPhu1954 su9:directCause su9:E_HiepDinhGeneva_SK .
+su9:E_DienBienPhuTrenKhong su9:directCause su9:E_HiepDinhParis_SK .
+su9:E_HiepDinhParis_SK su9:directCause su9:E_GPMienNam1975 .
+su9:E_GPMienNam1975 su9:directCause su9:E_TongTuyenCu_1976 .
+su9:E_NhatDaoChinhPhap1945 su9:directCause su9:E_CaoTraoKhangNhat .
+su9:E_CTTG2_KetThuc su9:directCause su9:E_CachMangThangTam .
+su9:E_CachMangThangTam su9:directCause su9:E_TuyenNgonDocLap .
+su9:E_DaiHoi6_1986 su9:directCause su9:C_DoiMoi .
+su9:E_CaiToGorbachev su9:directCause su9:E_LienXoTanRa .
+su9:E_BerlinWallFall su9:directCause su9:E_LienXoTanRa .
+su9:E_TranHiroshima su9:directCause su9:E_CTTG2_KetThuc .
+su9:E_HoiNghiIanta su9:directCause su9:E_ThanhLapLHQ .
+su9:E_KeHoachMarshallSK su9:directCause su9:E_NATO_TL .
+su9:E_NATO_TL su9:directCause su9:E_Warsaw_TL .
+
+
+#################################################################
+#   CAUSAL - DEEP
+#################################################################
+
+su9:C_ChuNghiaThucDan su9:deepCause su9:E_NAQTimDuongCuuNuoc .
+su9:C_CNMacLenin su9:deepCause su9:E_HoiNghiThanhLapDang .
+su9:E_CTTG2_BungNo su9:deepCause su9:E_HoiNghi6_1939 .
+su9:E_HoiNghi8_1941 su9:deepCause su9:E_CachMangThangTam .
+su9:E_HoiNghiIanta su9:deepCause su9:C_ChienTranhLanh .
+su9:C_ChienTranhLanh su9:deepCause su9:E_LienXoTanRa .
+su9:C_KinhTeKeHoachHoa su9:deepCause su9:E_DaiHoi6_1986 .
+su9:C_PhatXit su9:deepCause su9:E_CTTG2_BungNo .
+su9:M_DanChu_36_39 su9:deepCause su9:E_CachMangThangTam .
+su9:M_CM_30_31 su9:deepCause su9:M_DanChu_36_39 .
+su9:C_HeThongThuocDia su9:deepCause su9:M_GPDT_ChauA .
+su9:C_HeThongThuocDia su9:deepCause su9:M_GPDT_ChauPhi .
+su9:C_HeThongThuocDia su9:deepCause su9:M_GPDT_MyLatinh .
+
+
+#################################################################
+#   SIMILARITIES
+#################################################################
+
+su9:E_ChienDichVietBac1947 su9:similarTo su9:E_ChienDichBienGioi1950 .
+su9:E_ChienDichBienGioi1950 su9:similarTo su9:E_DienBienPhu1954 .
+su9:E_DienBienPhu1954 su9:similarTo su9:E_DienBienPhuTrenKhong .
+su9:E_HiepDinhGeneva_SK su9:similarTo su9:E_HiepDinhParis_SK .
+su9:D_HiepDinhGeneva1954 su9:similarTo su9:D_HiepDinhParis1973 .
+su9:E_CachMangThangTam su9:similarTo su9:E_CMCuba1959 .
+su9:E_CachMangThangTam su9:similarTo su9:E_CHND_TQ_TL .
+su9:C_ChienTranhDacBiet su9:similarTo su9:C_ChienTranhCucBo .
+su9:C_ChienTranhCucBo su9:similarTo su9:C_VNHoaChienTranh .
+su9:O_SEV su9:similarTo su9:O_EEC .
+su9:O_NATO su9:similarTo su9:O_Warsaw .
+su9:E_KhoiNghiaBacSon su9:similarTo su9:E_KhoiNghiaNamKi .
+
+
+#################################################################
+#   CONTRASTS
+#################################################################
+
+su9:C_ChuNghiaTuBan su9:contrastsWith su9:C_ChuNghiaXaHoi .
+su9:C_CachMangTuSan su9:contrastsWith su9:C_CachMangVoSan .
+su9:O_NATO su9:contrastsWith su9:O_Warsaw .
+su9:L_BacTrieuTien su9:contrastsWith su9:L_NamTrieuTien .
+su9:L_DongDuc su9:contrastsWith su9:L_TayDuc .
+su9:C_KinhTeKeHoachHoa su9:contrastsWith su9:C_KinhTeThiTruong .
+su9:O_VNDCCH su9:contrastsWith su9:O_VNCH .
+
+
+#################################################################
+#   PARTICIPATION
+#################################################################
+
+su9:Pe_HoChiMinh su9:leads su9:E_NAQTimDuongCuuNuoc .
+su9:Pe_HoChiMinh su9:leads su9:E_NAQGuiYeuSach1919 .
+su9:Pe_HoChiMinh su9:leads su9:E_NAQDocLuanCuongLenin .
+su9:Pe_HoChiMinh su9:leads su9:E_NAQTuHoTuanBan1920 .
+su9:Pe_HoChiMinh su9:leads su9:E_ThanhLapHoiVNCMThanhNien .
+su9:Pe_HoChiMinh su9:leads su9:E_BaoThanhNien .
+su9:Pe_HoChiMinh su9:leads su9:E_DuongKachMenh .
+su9:Pe_HoChiMinh su9:leads su9:E_HoiNghiThanhLapDang .
+su9:Pe_HoChiMinh su9:leads su9:E_HoiNghi8_1941 .
+su9:Pe_HoChiMinh su9:leads su9:E_ThanhLapVietMinh .
+su9:Pe_HoChiMinh su9:leads su9:E_HoiNghiTanTrao .
+su9:Pe_HoChiMinh su9:leads su9:E_CachMangThangTam .
+su9:Pe_HoChiMinh su9:leads su9:E_TuyenNgonDocLap .
+su9:Pe_HoChiMinh su9:leads su9:E_KCToanQuoc1946 .
+su9:Pe_HoChiMinh su9:leads su9:E_DaiHoi2_1951 .
+su9:Pe_VoNguyenGiap su9:leads su9:E_ThanhLapVNTuyenTruyenGPQ .
+su9:Pe_VoNguyenGiap su9:leads su9:E_ChienDichVietBac1947 .
+su9:Pe_VoNguyenGiap su9:leads su9:E_ChienDichBienGioi1950 .
+su9:Pe_VoNguyenGiap su9:leads su9:E_DienBienPhu1954 .
+su9:Pe_TranPhu su9:participatesIn su9:E_HoiNghiThanhLapDang .
+su9:Pe_LeDuan su9:leads su9:E_DaiHoi3_1960 .
+su9:Pe_LeDuan su9:participatesIn su9:E_DaiHoi6_1986 .
+su9:Pe_TruongChinh su9:leads su9:E_DaiHoi6_1986 .
+su9:Pe_VanTienDung su9:leads su9:E_GPMienNam1975 .
+su9:Pe_PhanBoiChau su9:leads su9:M_DongDu .
+su9:Pe_PhanChauTrinh su9:leads su9:M_DuyTan .
+su9:Pe_NguyenThaiHoc su9:leads su9:E_KhoiNghiaYenBai .
+su9:Pe_Stalin su9:participatesIn su9:E_HoiNghiIanta .
+su9:Pe_Roosevelt su9:participatesIn su9:E_HoiNghiIanta .
+su9:Pe_Churchill su9:participatesIn su9:E_HoiNghiIanta .
+su9:Pe_Truman su9:participatesIn su9:E_TranHiroshima .
+su9:Pe_Gorbachev su9:leads su9:E_CaiToGorbachev .
+su9:Pe_Gorbachev su9:participatesIn su9:E_LienXoTanRa .
+su9:Pe_MaoTrachDong su9:leads su9:E_CHND_TQ_TL .
+su9:Pe_DangTieuBinh su9:leads su9:E_CaiCachTQ1978 .
+su9:Pe_FidelCastro su9:leads su9:E_CMCuba1959 .
+su9:Pe_NelsonMandela su9:leads su9:E_XoaBoApartheid .
+su9:Pe_Nixon su9:participatesIn su9:E_DienBienPhuTrenKhong .
+
+
+#################################################################
+#   INVOLVED CONCEPTS
+#################################################################
+
+su9:E_HoiNghiThanhLapDang su9:involvedConcept su9:C_CNMacLenin .
+su9:E_HoiNghiThanhLapDang su9:involvedConcept su9:C_CachMangVoSan .
+su9:E_HoiNghiThanhLapDang su9:involvedConcept su9:C_CachMangDanToc .
+su9:E_TuyenNgonDocLap su9:involvedConcept su9:C_CachMangDanToc .
+su9:E_CachMangThangTam su9:involvedConcept su9:C_CachMangDanToc .
+su9:E_DaiHoi6_1986 su9:involvedConcept su9:C_DoiMoi .
+su9:E_DaiHoi6_1986 su9:involvedConcept su9:C_KinhTeThiTruong .
+su9:E_MauThan1968 su9:involvedConcept su9:C_ChienTranhCucBo .
+su9:E_ApBac1963 su9:involvedConcept su9:C_ChienTranhDacBiet .
+su9:E_DienBienPhuTrenKhong su9:involvedConcept su9:C_VNHoaChienTranh .
+su9:E_HoiNghiIanta su9:involvedConcept su9:C_TratTuHaiCuc .
+su9:E_NATO_TL su9:involvedConcept su9:C_ChienTranhLanh .
+su9:E_Warsaw_TL su9:involvedConcept su9:C_ChienTranhLanh .
+su9:E_LienXoTanRa su9:involvedConcept su9:C_DaCucDaTrungTam .
+su9:E_CMKHKT_BungNo su9:involvedConcept su9:C_CMKHKT .
+su9:E_CMKHKT_BungNo su9:involvedConcept su9:C_ToanCauHoa .
+su9:M_DongDu su9:involvedConcept su9:C_CachMangTuSan .
+su9:M_CM_30_31 su9:involvedConcept su9:C_CachMangVoSan .
+su9:M_KhongLienKet su9:involvedConcept su9:C_ChienTranhLanh .
+su9:E_XoVietNgheTinh su9:involvedConcept su9:C_CachMangVoSan .

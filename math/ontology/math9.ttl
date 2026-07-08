@@ -1,0 +1,1853 @@
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix math: <http://edu.vn/math9/ontology#> .
+
+<http://edu.vn/math9/ontology> a owl:Ontology ;
+    rdfs:label "Ontology Toan 9 - Cold-start Question Difficulty Estimation"@vi ;
+    owl:versionInfo "0.1.0" .
+
+#################################################################
+#   CLASSES
+#################################################################
+
+math:MathEntity a owl:Class ; rdfs:label "Thuc the Toan hoc"@vi .
+math:Definition a owl:Class ; rdfs:subClassOf math:MathEntity ; rdfs:label "Dinh nghia"@vi .
+math:Theorem    a owl:Class ; rdfs:subClassOf math:MathEntity ; rdfs:label "Dinh li"@vi .
+math:Formula    a owl:Class ; rdfs:subClassOf math:MathEntity ; rdfs:label "Cong thuc"@vi .
+math:Concept    a owl:Class ; rdfs:subClassOf math:MathEntity ; rdfs:label "Khai niem"@vi .
+math:ProblemType a owl:Class ; rdfs:subClassOf math:MathEntity ; rdfs:label "Dang toan"@vi .
+math:Method     a owl:Class ; rdfs:subClassOf math:MathEntity ; rdfs:label "Phuong phap"@vi .
+math:Object     a owl:Class ; rdfs:subClassOf math:MathEntity ; rdfs:label "Doi tuong"@vi .
+math:LessonUnit a owl:Class ; rdfs:label "Bai hoc SGK"@vi .
+math:Textbook   a owl:Class ; rdfs:label "Bo SGK"@vi .
+
+#################################################################
+#   OBJECT PROPERTIES
+#################################################################
+
+# Logical prerequisite - "to understand X you must know Y"
+math:prerequisiteOf a owl:ObjectProperty , owl:TransitiveProperty ;
+    rdfs:label "la tien de cua"@vi .
+
+# Theorem uses/depends on other theorems or definitions
+math:uses a owl:ObjectProperty ; rdfs:label "su dung"@vi .
+math:provedUsing a owl:ObjectProperty ; rdfs:subPropertyOf math:uses ; rdfs:label "chung minh bang"@vi .
+
+# Method solves ProblemType
+math:solves a owl:ObjectProperty ;
+    rdfs:domain math:Method ; rdfs:range math:ProblemType ;
+    rdfs:label "giai duoc dang"@vi .
+
+# Formula computes a quantity of an Object
+math:appliesTo a owl:ObjectProperty ;
+    rdfs:domain math:Formula ; rdfs:range math:Object ;
+    rdfs:label "ap dung cho"@vi .
+
+# Generalization / specialization
+math:generalizes a owl:ObjectProperty ; rdfs:label "tong quat hoa"@vi .
+math:specialCaseOf a owl:ObjectProperty ; owl:inverseOf math:generalizes ; rdfs:label "truong hop dac biet cua"@vi .
+
+# Curriculum
+math:appearsInLesson a owl:ObjectProperty ; rdfs:range math:LessonUnit ; rdfs:label "xuat hien trong bai"@vi .
+math:partOfTextbook a owl:ObjectProperty ; rdfs:range math:Textbook ; rdfs:label "thuoc bo SGK"@vi .
+
+# Similarity for comparison questions
+math:similarTo a owl:ObjectProperty , owl:SymmetricProperty ; rdfs:label "tuong tu"@vi .
+math:contrastsWith a owl:ObjectProperty , owl:SymmetricProperty ; rdfs:label "doi lap"@vi .
+
+#################################################################
+#   DATA PROPERTIES
+#################################################################
+
+math:abstractness a owl:DatatypeProperty ; rdfs:range xsd:integer ;
+    rdfs:comment "1=cu the (so cu the, hinh ve), 5=rat truu tuong (bat ki, tong quat)"@vi .
+math:bloomLevel a owl:DatatypeProperty ; rdfs:range xsd:integer .
+math:symbolicDensity a owl:DatatypeProperty ; rdfs:range xsd:integer ;
+    rdfs:comment "So luong ky hieu / bien / thong so trong cong thuc (1-5)"@vi .
+math:applicationSteps a owl:DatatypeProperty ; rdfs:range xsd:integer ;
+    rdfs:comment "So buoc trung binh de ap dung cong thuc/phuong phap (1-5)"@vi .
+math:reasoningType a owl:DatatypeProperty ; rdfs:range xsd:string ;
+    rdfs:comment "compute | prove | construct | counterexample | analyze"@vi .
+math:frequencyInTextbook a owl:DatatypeProperty ; rdfs:range xsd:integer .
+math:curriculumPosition a owl:DatatypeProperty ; rdfs:range xsd:integer .
+math:aliases a owl:DatatypeProperty ; rdfs:range xsd:string .
+math:confidence a owl:DatatypeProperty ; rdfs:range xsd:integer .
+
+#################################################################
+#   TEXTBOOKS
+#################################################################
+
+math:TB_Old a math:Textbook ; rdfs:label "SGK Toan 9 (bo cu)"@vi ; math:confidence 3 .
+math:TB_KNTT a math:Textbook ; rdfs:label "SGK Toan 9 - Ket noi tri thuc"@vi ; math:confidence 3 .
+math:TB_CTST a math:Textbook ; rdfs:label "SGK Toan 9 - Chan troi sang tao"@vi ; math:confidence 3 .
+math:TB_CD a math:Textbook ; rdfs:label "SGK Toan 9 - Canh Dieu"@vi ; math:confidence 3 .
+
+
+#################################################################
+#   DEFINITIONS
+#################################################################
+
+math:D_CanBacHai a math:Definition ;
+    rdfs:label "Can bac hai cua so khong am"@vi ;
+    math:aliases "Can bac 2" ;
+    math:abstractness 3 ;
+    math:confidence 3 .
+
+math:D_CanBacHaiSoHoc a math:Definition ;
+    rdfs:label "Can bac hai so hoc"@vi ;
+    math:abstractness 3 ;
+    math:confidence 3 .
+
+math:D_HamSoBacNhat a math:Definition ;
+    rdfs:label "Ham so bac nhat y=ax+b"@vi ;
+    math:abstractness 3 ;
+    math:confidence 3 .
+
+math:D_HamSoBac2 a math:Definition ;
+    rdfs:label "Ham so bac hai y=ax^2 (a khac 0)"@vi ;
+    math:abstractness 3 ;
+    math:confidence 3 .
+
+math:D_HeSoGoc a math:Definition ;
+    rdfs:label "He so goc cua duong thang"@vi ;
+    math:abstractness 3 ;
+    math:confidence 3 .
+
+math:D_PhuongTrinhBac2 a math:Definition ;
+    rdfs:label "Phuong trinh bac hai mot an"@vi ;
+    math:aliases "PT bac 2" ;
+    math:abstractness 3 ;
+    math:confidence 3 .
+
+math:D_HePhuongTrinh a math:Definition ;
+    rdfs:label "He hai phuong trinh bac nhat hai an"@vi ;
+    math:abstractness 3 ;
+    math:confidence 3 .
+
+math:D_Parabol a math:Definition ;
+    rdfs:label "Parabol y=ax^2"@vi ;
+    math:abstractness 3 ;
+    math:confidence 3 .
+
+math:D_DuongTron a math:Definition ;
+    rdfs:label "Duong tron"@vi ;
+    math:abstractness 2 ;
+    math:confidence 3 .
+
+math:D_TiepTuyen a math:Definition ;
+    rdfs:label "Tiep tuyen cua duong tron"@vi ;
+    math:abstractness 3 ;
+    math:confidence 3 .
+
+math:D_CungTron a math:Definition ;
+    rdfs:label "Cung tron"@vi ;
+    math:abstractness 2 ;
+    math:confidence 3 .
+
+math:D_DayCung a math:Definition ;
+    rdfs:label "Day cung cua duong tron"@vi ;
+    math:abstractness 2 ;
+    math:confidence 3 .
+
+math:D_GocNoiTiep a math:Definition ;
+    rdfs:label "Goc noi tiep"@vi ;
+    math:abstractness 3 ;
+    math:confidence 3 .
+
+math:D_GocOTam a math:Definition ;
+    rdfs:label "Goc o tam"@vi ;
+    math:abstractness 3 ;
+    math:confidence 3 .
+
+math:D_TuGiacNoiTiep a math:Definition ;
+    rdfs:label "Tu giac noi tiep"@vi ;
+    math:abstractness 3 ;
+    math:confidence 3 .
+
+math:D_HinhTru a math:Definition ;
+    rdfs:label "Hinh tru"@vi ;
+    math:abstractness 2 ;
+    math:confidence 3 .
+
+math:D_HinhNon a math:Definition ;
+    rdfs:label "Hinh non"@vi ;
+    math:abstractness 2 ;
+    math:confidence 3 .
+
+math:D_HinhCau a math:Definition ;
+    rdfs:label "Hinh cau"@vi ;
+    math:abstractness 2 ;
+    math:confidence 3 .
+
+math:D_CungChuong a math:Definition ;
+    rdfs:label "Cung chuong"@vi ;
+    math:abstractness 3 ;
+    math:confidence 3 .
+
+math:D_Biet_PTB2 a math:Definition ;
+    rdfs:label "Biet thuc delta cua PT bac 2"@vi ;
+    math:aliases "Delta" ;
+    math:abstractness 3 ;
+    math:confidence 3 .
+
+
+#################################################################
+#   THEOREMS
+#################################################################
+
+math:T_Pythagoras a math:Theorem ;
+    rdfs:label "Dinh li Pythagoras (toan 8, nhac lai)"@vi ;
+    math:aliases "Pi-ta-go" ;
+    math:abstractness 3 ;
+    math:bloomLevel 2 ;
+    math:reasoningType "prove" ;
+    math:confidence 3 .
+
+math:T_Thales a math:Theorem ;
+    rdfs:label "Dinh li Ta-let"@vi ;
+    math:aliases "Thales" ;
+    math:abstractness 3 ;
+    math:bloomLevel 2 ;
+    math:reasoningType "prove" ;
+    math:confidence 3 .
+
+math:T_ThalesDaoNguoc a math:Theorem ;
+    rdfs:label "Dinh li Ta-let dao nguoc"@vi ;
+    math:abstractness 3 ;
+    math:bloomLevel 3 ;
+    math:reasoningType "prove" ;
+    math:confidence 3 .
+
+math:T_VietaQuan a math:Theorem ;
+    rdfs:label "Dinh li Vi-et"@vi ;
+    math:aliases "Vi-et thuan" ;
+    math:abstractness 4 ;
+    math:bloomLevel 3 ;
+    math:reasoningType "prove" ;
+    math:confidence 3 .
+
+math:T_VietaDao a math:Theorem ;
+    rdfs:label "Dinh li Vi-et dao"@vi ;
+    math:abstractness 4 ;
+    math:bloomLevel 3 ;
+    math:reasoningType "prove" ;
+    math:confidence 3 .
+
+math:T_TTHamSoBacNhat a math:Theorem ;
+    rdfs:label "Tinh chat ham so bac nhat"@vi ;
+    math:abstractness 3 ;
+    math:bloomLevel 2 ;
+    math:reasoningType "prove" ;
+    math:confidence 3 .
+
+math:T_TTHamSoBac2 a math:Theorem ;
+    rdfs:label "Tinh chat ham so bac 2"@vi ;
+    math:abstractness 3 ;
+    math:bloomLevel 2 ;
+    math:reasoningType "prove" ;
+    math:confidence 3 .
+
+math:T_HeThucLuong a math:Theorem ;
+    rdfs:label "He thuc luong trong tam giac vuong"@vi ;
+    math:aliases "HSL" ;
+    math:abstractness 4 ;
+    math:bloomLevel 3 ;
+    math:reasoningType "prove" ;
+    math:confidence 3 .
+
+math:T_TTTiepTuyen a math:Theorem ;
+    rdfs:label "Tinh chat hai tiep tuyen cat nhau"@vi ;
+    math:abstractness 3 ;
+    math:bloomLevel 2 ;
+    math:reasoningType "prove" ;
+    math:confidence 3 .
+
+math:T_LienHeCungVaDay a math:Theorem ;
+    rdfs:label "Lien he giua cung va day"@vi ;
+    math:abstractness 3 ;
+    math:bloomLevel 2 ;
+    math:reasoningType "prove" ;
+    math:confidence 3 .
+
+math:T_GocNoiTiep_TT a math:Theorem ;
+    rdfs:label "Dinh li goc noi tiep"@vi ;
+    math:abstractness 4 ;
+    math:bloomLevel 3 ;
+    math:reasoningType "prove" ;
+    math:confidence 3 .
+
+math:T_GocTaoBoiTTVaDay a math:Theorem ;
+    rdfs:label "Goc tao boi tiep tuyen va day cung"@vi ;
+    math:abstractness 4 ;
+    math:bloomLevel 3 ;
+    math:reasoningType "prove" ;
+    math:confidence 3 .
+
+math:T_GocCoDinhONgoaiHinhTron a math:Theorem ;
+    rdfs:label "Goc co dinh ngoai duong tron"@vi ;
+    math:abstractness 4 ;
+    math:bloomLevel 3 ;
+    math:reasoningType "prove" ;
+    math:confidence 2 .
+
+math:T_TuGiacNoiTiepDK a math:Theorem ;
+    rdfs:label "Dieu kien tu giac noi tiep"@vi ;
+    math:abstractness 4 ;
+    math:bloomLevel 3 ;
+    math:reasoningType "prove" ;
+    math:confidence 3 .
+
+math:T_DuongTronNoiTiep a math:Theorem ;
+    rdfs:label "Dinh li duong tron noi tiep da giac deu"@vi ;
+    math:abstractness 3 ;
+    math:bloomLevel 2 ;
+    math:reasoningType "prove" ;
+    math:confidence 3 .
+
+math:T_DiaLuongCan a math:Theorem ;
+    rdfs:label "Quy tac nhan/chia can bac hai"@vi ;
+    math:abstractness 3 ;
+    math:bloomLevel 2 ;
+    math:reasoningType "prove" ;
+    math:confidence 3 .
+
+math:T_Lien_HamSo_Parabol a math:Theorem ;
+    rdfs:label "Vi tri tuong doi duong thang - parabol"@vi ;
+    math:abstractness 4 ;
+    math:bloomLevel 3 ;
+    math:reasoningType "prove" ;
+    math:confidence 3 .
+
+math:T_DK_PTB2_CoNghiem a math:Theorem ;
+    rdfs:label "Dieu kien co nghiem cua PT bac 2"@vi ;
+    math:aliases "delta >= 0" ;
+    math:abstractness 3 ;
+    math:bloomLevel 2 ;
+    math:reasoningType "prove" ;
+    math:confidence 3 .
+
+
+#################################################################
+#   FORMULAS
+#################################################################
+
+math:F_Delta a math:Formula ;
+    rdfs:label "Delta = b^2 - 4ac"@vi ;
+    math:symbolicDensity 3 ;
+    math:applicationSteps 1 ;
+    math:abstractness 3 ;
+    math:reasoningType "compute" ;
+    math:confidence 3 .
+
+math:F_NghiemPTB2 a math:Formula ;
+    rdfs:label "Nghiem x = (-b ± sqrt(Delta)) / 2a"@vi ;
+    math:symbolicDensity 4 ;
+    math:applicationSteps 2 ;
+    math:abstractness 3 ;
+    math:reasoningType "compute" ;
+    math:confidence 3 .
+
+math:F_VietaTong a math:Formula ;
+    rdfs:label "Tong nghiem S = -b/a"@vi ;
+    math:aliases "Vi-et tong" ;
+    math:symbolicDensity 2 ;
+    math:applicationSteps 1 ;
+    math:abstractness 3 ;
+    math:reasoningType "compute" ;
+    math:confidence 3 .
+
+math:F_VietaTich a math:Formula ;
+    rdfs:label "Tich nghiem P = c/a"@vi ;
+    math:aliases "Vi-et tich" ;
+    math:symbolicDensity 2 ;
+    math:applicationSteps 1 ;
+    math:abstractness 3 ;
+    math:reasoningType "compute" ;
+    math:confidence 3 .
+
+math:F_DoDaiCung a math:Formula ;
+    rdfs:label "Do dai cung l = pi*R*n/180"@vi ;
+    math:symbolicDensity 4 ;
+    math:applicationSteps 2 ;
+    math:abstractness 3 ;
+    math:reasoningType "compute" ;
+    math:confidence 3 .
+
+math:F_DienTichHinhQuat a math:Formula ;
+    rdfs:label "Dien tich hinh quat S = pi*R^2*n/360"@vi ;
+    math:symbolicDensity 4 ;
+    math:applicationSteps 2 ;
+    math:abstractness 3 ;
+    math:reasoningType "compute" ;
+    math:confidence 3 .
+
+math:F_ChuViDuongTron a math:Formula ;
+    rdfs:label "Chu vi duong tron C = 2*pi*R"@vi ;
+    math:symbolicDensity 2 ;
+    math:applicationSteps 1 ;
+    math:abstractness 2 ;
+    math:reasoningType "compute" ;
+    math:confidence 3 .
+
+math:F_DienTichHinhTron a math:Formula ;
+    rdfs:label "Dien tich hinh tron S = pi*R^2"@vi ;
+    math:symbolicDensity 2 ;
+    math:applicationSteps 1 ;
+    math:abstractness 2 ;
+    math:reasoningType "compute" ;
+    math:confidence 3 .
+
+math:F_DTXQHinhTru a math:Formula ;
+    rdfs:label "Dien tich xung quanh hinh tru S_xq = 2*pi*R*h"@vi ;
+    math:symbolicDensity 3 ;
+    math:applicationSteps 1 ;
+    math:abstractness 3 ;
+    math:reasoningType "compute" ;
+    math:confidence 3 .
+
+math:F_TheTichHinhTru a math:Formula ;
+    rdfs:label "The tich hinh tru V = pi*R^2*h"@vi ;
+    math:symbolicDensity 3 ;
+    math:applicationSteps 1 ;
+    math:abstractness 3 ;
+    math:reasoningType "compute" ;
+    math:confidence 3 .
+
+math:F_DTXQHinhNon a math:Formula ;
+    rdfs:label "Dien tich xung quanh hinh non S_xq = pi*R*l"@vi ;
+    math:symbolicDensity 3 ;
+    math:applicationSteps 1 ;
+    math:abstractness 3 ;
+    math:reasoningType "compute" ;
+    math:confidence 3 .
+
+math:F_TheTichHinhNon a math:Formula ;
+    rdfs:label "The tich hinh non V = (1/3)*pi*R^2*h"@vi ;
+    math:symbolicDensity 4 ;
+    math:applicationSteps 1 ;
+    math:abstractness 3 ;
+    math:reasoningType "compute" ;
+    math:confidence 3 .
+
+math:F_DienTichHinhCau a math:Formula ;
+    rdfs:label "Dien tich mat cau S = 4*pi*R^2"@vi ;
+    math:symbolicDensity 3 ;
+    math:applicationSteps 1 ;
+    math:abstractness 3 ;
+    math:reasoningType "compute" ;
+    math:confidence 3 .
+
+math:F_TheTichHinhCau a math:Formula ;
+    rdfs:label "The tich hinh cau V = (4/3)*pi*R^3"@vi ;
+    math:symbolicDensity 4 ;
+    math:applicationSteps 1 ;
+    math:abstractness 3 ;
+    math:reasoningType "compute" ;
+    math:confidence 3 .
+
+math:F_HSL_BinhPhuong_TGV a math:Formula ;
+    rdfs:label "b^2 = a*b', c^2 = a*c' (HSL trong TGV)"@vi ;
+    math:symbolicDensity 3 ;
+    math:applicationSteps 2 ;
+    math:abstractness 3 ;
+    math:reasoningType "compute" ;
+    math:confidence 3 .
+
+math:F_HSL_DuongCao_TGV a math:Formula ;
+    rdfs:label "h^2 = b'*c' (HSL trong TGV)"@vi ;
+    math:symbolicDensity 3 ;
+    math:applicationSteps 2 ;
+    math:abstractness 3 ;
+    math:reasoningType "compute" ;
+    math:confidence 3 .
+
+math:F_HamSoBacNhat a math:Formula ;
+    rdfs:label "y = ax + b"@vi ;
+    math:symbolicDensity 2 ;
+    math:applicationSteps 1 ;
+    math:abstractness 3 ;
+    math:reasoningType "compute" ;
+    math:confidence 3 .
+
+math:F_HamSoBac2_DonGian a math:Formula ;
+    rdfs:label "y = ax^2"@vi ;
+    math:symbolicDensity 2 ;
+    math:applicationSteps 1 ;
+    math:abstractness 3 ;
+    math:reasoningType "compute" ;
+    math:confidence 3 .
+
+math:F_KhoangCach2Diem a math:Formula ;
+    rdfs:label "d = sqrt((x1-x2)^2 + (y1-y2)^2)"@vi ;
+    math:symbolicDensity 4 ;
+    math:applicationSteps 2 ;
+    math:abstractness 3 ;
+    math:reasoningType "compute" ;
+    math:confidence 3 .
+
+
+#################################################################
+#   CONCEPTS
+#################################################################
+
+math:C_SoThuc a math:Concept ;
+    rdfs:label "So thuc"@vi ;
+    math:abstractness 3 ;
+    math:bloomLevel 1 ;
+    math:confidence 3 .
+
+math:C_SoVoTi a math:Concept ;
+    rdfs:label "So vo ti"@vi ;
+    math:abstractness 4 ;
+    math:bloomLevel 2 ;
+    math:confidence 3 .
+
+math:C_HamSo a math:Concept ;
+    rdfs:label "Ham so"@vi ;
+    math:abstractness 4 ;
+    math:bloomLevel 2 ;
+    math:confidence 3 .
+
+math:C_DoThiHamSo a math:Concept ;
+    rdfs:label "Do thi ham so"@vi ;
+    math:abstractness 3 ;
+    math:bloomLevel 2 ;
+    math:confidence 3 .
+
+math:C_HamSoDongBien a math:Concept ;
+    rdfs:label "Ham so dong bien"@vi ;
+    math:abstractness 3 ;
+    math:bloomLevel 2 ;
+    math:confidence 3 .
+
+math:C_HamSoNghichBien a math:Concept ;
+    rdfs:label "Ham so nghich bien"@vi ;
+    math:abstractness 3 ;
+    math:bloomLevel 2 ;
+    math:confidence 3 .
+
+math:C_HeTrucToaDo a math:Concept ;
+    rdfs:label "He truc toa do Oxy"@vi ;
+    math:abstractness 2 ;
+    math:bloomLevel 2 ;
+    math:confidence 3 .
+
+math:C_NghiemPT a math:Concept ;
+    rdfs:label "Nghiem cua phuong trinh"@vi ;
+    math:abstractness 3 ;
+    math:bloomLevel 2 ;
+    math:confidence 3 .
+
+math:C_DongQui a math:Concept ;
+    rdfs:label "Ba duong thang dong qui"@vi ;
+    math:abstractness 3 ;
+    math:bloomLevel 3 ;
+    math:confidence 2 .
+
+math:C_CanhGocQuanHe_TGV a math:Concept ;
+    rdfs:label "Quan he canh-goc trong TGV"@vi ;
+    math:abstractness 3 ;
+    math:bloomLevel 2 ;
+    math:confidence 3 .
+
+math:C_DuongCao_TGV a math:Concept ;
+    rdfs:label "Duong cao trong tam giac vuong"@vi ;
+    math:abstractness 2 ;
+    math:bloomLevel 2 ;
+    math:confidence 3 .
+
+math:C_VTDT_VoiDuongTron a math:Concept ;
+    rdfs:label "Vi tri tuong doi cua duong thang va duong tron"@vi ;
+    math:aliases "VTDT-DT" ;
+    math:abstractness 3 ;
+    math:bloomLevel 2 ;
+    math:confidence 3 .
+
+math:C_VT2DuongTron a math:Concept ;
+    rdfs:label "Vi tri tuong doi cua hai duong tron"@vi ;
+    math:abstractness 3 ;
+    math:bloomLevel 2 ;
+    math:confidence 3 .
+
+math:C_DuongTronNoiTiep_DaGiac a math:Concept ;
+    rdfs:label "Duong tron noi/ngoai tiep da giac"@vi ;
+    math:abstractness 3 ;
+    math:bloomLevel 3 ;
+    math:confidence 3 .
+
+math:C_TamGiacNoiTiep a math:Concept ;
+    rdfs:label "Tam giac noi tiep duong tron"@vi ;
+    math:abstractness 3 ;
+    math:bloomLevel 3 ;
+    math:confidence 3 .
+
+math:C_DaGiacDeu a math:Concept ;
+    rdfs:label "Da giac deu"@vi ;
+    math:abstractness 3 ;
+    math:bloomLevel 2 ;
+    math:confidence 3 .
+
+math:C_HinhLangTru a math:Concept ;
+    rdfs:label "Hinh lang tru dung (nhac lai)"@vi ;
+    math:abstractness 2 ;
+    math:bloomLevel 2 ;
+    math:confidence 3 .
+
+math:C_ThetichKhoi_TronXoay a math:Concept ;
+    rdfs:label "The tich khoi tron xoay"@vi ;
+    math:abstractness 4 ;
+    math:bloomLevel 3 ;
+    math:confidence 2 .
+
+
+#################################################################
+#   METHODS
+#################################################################
+
+math:M_KhaiCan a math:Method ;
+    rdfs:label "Khai phuong tich, thuong"@vi ;
+    math:applicationSteps 2 ;
+    math:abstractness 3 ;
+    math:bloomLevel 2 ;
+    math:confidence 3 .
+
+math:M_TrucCanMau a math:Method ;
+    rdfs:label "Truc can thuc o mau"@vi ;
+    math:applicationSteps 3 ;
+    math:abstractness 3 ;
+    math:bloomLevel 2 ;
+    math:confidence 3 .
+
+math:M_HeThePPThe a math:Method ;
+    rdfs:label "Phuong phap the (giai he PT)"@vi ;
+    math:aliases "PP the" ;
+    math:applicationSteps 3 ;
+    math:abstractness 3 ;
+    math:bloomLevel 3 ;
+    math:confidence 3 .
+
+math:M_HeThePPCong a math:Method ;
+    rdfs:label "Phuong phap cong dai so (giai he PT)"@vi ;
+    math:aliases "PP cong" ;
+    math:applicationSteps 3 ;
+    math:abstractness 3 ;
+    math:bloomLevel 3 ;
+    math:confidence 3 .
+
+math:M_DatAnPhu a math:Method ;
+    rdfs:label "Dat an phu"@vi ;
+    math:applicationSteps 4 ;
+    math:abstractness 4 ;
+    math:bloomLevel 3 ;
+    math:confidence 3 .
+
+math:M_VietaNhamNghiem a math:Method ;
+    rdfs:label "Nham nghiem bang Vi-et"@vi ;
+    math:applicationSteps 3 ;
+    math:abstractness 3 ;
+    math:bloomLevel 3 ;
+    math:confidence 3 .
+
+math:M_VeDoThiParabol a math:Method ;
+    rdfs:label "Ve do thi parabol"@vi ;
+    math:applicationSteps 3 ;
+    math:abstractness 3 ;
+    math:bloomLevel 2 ;
+    math:confidence 3 .
+
+math:M_VeDoThiDTB1 a math:Method ;
+    rdfs:label "Ve do thi ham so bac nhat"@vi ;
+    math:applicationSteps 2 ;
+    math:abstractness 3 ;
+    math:bloomLevel 2 ;
+    math:confidence 3 .
+
+math:M_TimDieuKienDinhTH a math:Method ;
+    rdfs:label "Tim dieu kien co nghiem/nghiem chung"@vi ;
+    math:applicationSteps 4 ;
+    math:abstractness 4 ;
+    math:bloomLevel 3 ;
+    math:confidence 3 .
+
+math:M_ChungMinhTiepTuyen a math:Method ;
+    rdfs:label "Chung minh duong thang la tiep tuyen"@vi ;
+    math:applicationSteps 3 ;
+    math:abstractness 3 ;
+    math:bloomLevel 3 ;
+    math:confidence 3 .
+
+math:M_ChungMinhTuGiacNoiTiep a math:Method ;
+    rdfs:label "Chung minh tu giac noi tiep"@vi ;
+    math:applicationSteps 4 ;
+    math:abstractness 4 ;
+    math:bloomLevel 3 ;
+    math:confidence 3 .
+
+math:M_ChungMinhDongQui a math:Method ;
+    rdfs:label "Chung minh 3 diem thang hang / 3 duong dong qui"@vi ;
+    math:applicationSteps 4 ;
+    math:abstractness 4 ;
+    math:bloomLevel 4 ;
+    math:confidence 3 .
+
+math:M_TinhGoc_DuongTron a math:Method ;
+    rdfs:label "Tinh goc lien quan duong tron"@vi ;
+    math:applicationSteps 3 ;
+    math:abstractness 3 ;
+    math:bloomLevel 3 ;
+    math:confidence 3 .
+
+math:M_TinhDienTich_HinhKhongGian a math:Method ;
+    rdfs:label "Tinh dien tich/the tich hinh khong gian"@vi ;
+    math:applicationSteps 3 ;
+    math:abstractness 3 ;
+    math:bloomLevel 2 ;
+    math:confidence 3 .
+
+math:M_GiaiToanThucTe a math:Method ;
+    rdfs:label "Giai bai toan thuc te bang PT/HPT"@vi ;
+    math:applicationSteps 4 ;
+    math:abstractness 3 ;
+    math:bloomLevel 3 ;
+    math:confidence 3 .
+
+
+#################################################################
+#   PROBLEM TYPES
+#################################################################
+
+math:PT_RutGonBieuThucCan a math:ProblemType ;
+    rdfs:label "Rut gon bieu thuc chua can"@vi ;
+    math:abstractness 3 ;
+    math:bloomLevel 3 ;
+    math:confidence 3 .
+
+math:PT_GiaiPTVoCan a math:ProblemType ;
+    rdfs:label "Giai phuong trinh vo ti (co can)"@vi ;
+    math:aliases "PT chua can" ;
+    math:abstractness 4 ;
+    math:bloomLevel 3 ;
+    math:confidence 3 .
+
+math:PT_GiaiHPTBac1_2An a math:ProblemType ;
+    rdfs:label "Giai he phuong trinh bac nhat 2 an"@vi ;
+    math:aliases "HPT bac 1" ;
+    math:abstractness 3 ;
+    math:bloomLevel 2 ;
+    math:confidence 3 .
+
+math:PT_GiaiPTBac2 a math:ProblemType ;
+    rdfs:label "Giai phuong trinh bac hai"@vi ;
+    math:abstractness 3 ;
+    math:bloomLevel 2 ;
+    math:confidence 3 .
+
+math:PT_TrungGianQuaPhuongTrinhBac2 a math:ProblemType ;
+    rdfs:label "Dua ve PT bac 2 (trung gian)"@vi ;
+    math:abstractness 4 ;
+    math:bloomLevel 3 ;
+    math:confidence 3 .
+
+math:PT_BieuDienDoThi a math:ProblemType ;
+    rdfs:label "Ve do thi va xac dinh vi tri tuong doi"@vi ;
+    math:abstractness 3 ;
+    math:bloomLevel 3 ;
+    math:confidence 3 .
+
+math:PT_TimCucTriBang_BieuThuc a math:ProblemType ;
+    rdfs:label "Tim GTLN-GTNN cua bieu thuc"@vi ;
+    math:aliases "GTLN GTNN" ;
+    math:abstractness 5 ;
+    math:bloomLevel 4 ;
+    math:confidence 3 .
+
+math:PT_DinhLyHamSoBacNhat a math:ProblemType ;
+    rdfs:label "Bai toan ve ham so bac nhat"@vi ;
+    math:abstractness 3 ;
+    math:bloomLevel 3 ;
+    math:confidence 3 .
+
+math:PT_DinhLyHamSoBac2 a math:ProblemType ;
+    rdfs:label "Bai toan ve ham so bac hai va parabol"@vi ;
+    math:abstractness 4 ;
+    math:bloomLevel 3 ;
+    math:confidence 3 .
+
+math:PT_DinhLyTimThamSo a math:ProblemType ;
+    rdfs:label "Tim tham so de PT thoa dieu kien"@vi ;
+    math:abstractness 5 ;
+    math:bloomLevel 4 ;
+    math:confidence 3 .
+
+math:PT_BaiToanThucTe a math:ProblemType ;
+    rdfs:label "Giai bai toan bang cach lap PT/HPT"@vi ;
+    math:abstractness 4 ;
+    math:bloomLevel 3 ;
+    math:confidence 3 .
+
+math:PT_ChungMinhHinhHoc_DuongTron a math:ProblemType ;
+    rdfs:label "Chung minh hinh hoc lien quan duong tron"@vi ;
+    math:abstractness 4 ;
+    math:bloomLevel 3 ;
+    math:confidence 3 .
+
+math:PT_TinhGoc_TamGiac_DuongTron a math:ProblemType ;
+    rdfs:label "Tinh goc/do dai trong tam giac va duong tron"@vi ;
+    math:abstractness 3 ;
+    math:bloomLevel 3 ;
+    math:confidence 3 .
+
+math:PT_TinhHinhKhongGian a math:ProblemType ;
+    rdfs:label "Tinh dai luong hinh tru, non, cau"@vi ;
+    math:abstractness 3 ;
+    math:bloomLevel 2 ;
+    math:confidence 3 .
+
+math:PT_ChungMinh_TQNoi a math:ProblemType ;
+    rdfs:label "Chung minh tu giac noi tiep duong tron"@vi ;
+    math:abstractness 4 ;
+    math:bloomLevel 3 ;
+    math:confidence 3 .
+
+
+#################################################################
+#   OBJECTS
+#################################################################
+
+math:O_TamGiacVuong a math:Object ;
+    rdfs:label "Tam giac vuong"@vi ;
+    math:aliases "TGV" ;
+    math:abstractness 2 ;
+    math:confidence 3 .
+
+math:O_DuongTron_DT a math:Object ;
+    rdfs:label "Duong tron cu the"@vi ;
+    math:abstractness 2 ;
+    math:confidence 3 .
+
+math:O_HinhTron a math:Object ;
+    rdfs:label "Hinh tron"@vi ;
+    math:abstractness 2 ;
+    math:confidence 3 .
+
+math:O_DuongThang_2D a math:Object ;
+    rdfs:label "Duong thang trong mat phang"@vi ;
+    math:abstractness 2 ;
+    math:confidence 3 .
+
+math:O_Parabol_DT a math:Object ;
+    rdfs:label "Parabol cu the"@vi ;
+    math:abstractness 3 ;
+    math:confidence 3 .
+
+math:O_TuGiac a math:Object ;
+    rdfs:label "Tu giac"@vi ;
+    math:abstractness 2 ;
+    math:confidence 3 .
+
+math:O_HinhTru_DT a math:Object ;
+    rdfs:label "Hinh tru cu the"@vi ;
+    math:abstractness 2 ;
+    math:confidence 3 .
+
+math:O_HinhNon_DT a math:Object ;
+    rdfs:label "Hinh non cu the"@vi ;
+    math:abstractness 2 ;
+    math:confidence 3 .
+
+math:O_HinhCau_DT a math:Object ;
+    rdfs:label "Hinh cau cu the"@vi ;
+    math:abstractness 2 ;
+    math:confidence 3 .
+
+math:O_BieuThucCan a math:Object ;
+    rdfs:label "Bieu thuc chua can"@vi ;
+    math:abstractness 3 ;
+    math:confidence 3 .
+
+
+#################################################################
+#   LESSON UNITS
+#################################################################
+
+math:TB_Old_B01 a math:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 1: Can bac hai"@vi ;
+    math:partOfTextbook math:TB_Old ;
+    math:curriculumPosition 1 .
+
+math:TB_Old_B02 a math:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 2: Can thuc bac hai va hang dang thuc"@vi ;
+    math:partOfTextbook math:TB_Old ;
+    math:curriculumPosition 2 .
+
+math:TB_Old_B03 a math:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 3: Lien he phep nhan - phep khai phuong"@vi ;
+    math:partOfTextbook math:TB_Old ;
+    math:curriculumPosition 3 .
+
+math:TB_Old_B04 a math:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 4: Lien he phep chia - phep khai phuong"@vi ;
+    math:partOfTextbook math:TB_Old ;
+    math:curriculumPosition 4 .
+
+math:TB_Old_B05 a math:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 5: Bien doi don gian bieu thuc chua can"@vi ;
+    math:partOfTextbook math:TB_Old ;
+    math:curriculumPosition 5 .
+
+math:TB_Old_B06 a math:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 6: Rut gon bieu thuc chua can thuc bac hai"@vi ;
+    math:partOfTextbook math:TB_Old ;
+    math:curriculumPosition 6 .
+
+math:TB_Old_B07 a math:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 7: Nhac lai, bo sung khai niem ham so"@vi ;
+    math:partOfTextbook math:TB_Old ;
+    math:curriculumPosition 7 .
+
+math:TB_Old_B08 a math:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 8: Ham so bac nhat"@vi ;
+    math:partOfTextbook math:TB_Old ;
+    math:curriculumPosition 8 .
+
+math:TB_Old_B09 a math:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 9: Do thi ham so y=ax+b"@vi ;
+    math:partOfTextbook math:TB_Old ;
+    math:curriculumPosition 9 .
+
+math:TB_Old_B10 a math:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 10: Duong thang song song, duong thang cat nhau"@vi ;
+    math:partOfTextbook math:TB_Old ;
+    math:curriculumPosition 10 .
+
+math:TB_Old_B11 a math:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 11: He so goc cua duong thang y=ax+b"@vi ;
+    math:partOfTextbook math:TB_Old ;
+    math:curriculumPosition 11 .
+
+math:TB_Old_B12 a math:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 12: Phuong trinh bac nhat hai an"@vi ;
+    math:partOfTextbook math:TB_Old ;
+    math:curriculumPosition 12 .
+
+math:TB_Old_B13 a math:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 13: He hai PT bac nhat hai an"@vi ;
+    math:partOfTextbook math:TB_Old ;
+    math:curriculumPosition 13 .
+
+math:TB_Old_B14 a math:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 14: Giai he PT bang pp the"@vi ;
+    math:partOfTextbook math:TB_Old ;
+    math:curriculumPosition 14 .
+
+math:TB_Old_B15 a math:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 15: Giai he PT bang pp cong dai so"@vi ;
+    math:partOfTextbook math:TB_Old ;
+    math:curriculumPosition 15 .
+
+math:TB_Old_B16 a math:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 16: Giai bai toan bang cach lap he PT"@vi ;
+    math:partOfTextbook math:TB_Old ;
+    math:curriculumPosition 16 .
+
+math:TB_Old_B17 a math:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 17: Ham so y=ax^2 (a khac 0)"@vi ;
+    math:partOfTextbook math:TB_Old ;
+    math:curriculumPosition 17 .
+
+math:TB_Old_B18 a math:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 18: Do thi ham so y=ax^2"@vi ;
+    math:partOfTextbook math:TB_Old ;
+    math:curriculumPosition 18 .
+
+math:TB_Old_B19 a math:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 19: Phuong trinh bac 2 mot an"@vi ;
+    math:partOfTextbook math:TB_Old ;
+    math:curriculumPosition 19 .
+
+math:TB_Old_B20 a math:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 20: Cong thuc nghiem cua PT bac 2"@vi ;
+    math:partOfTextbook math:TB_Old ;
+    math:curriculumPosition 20 .
+
+math:TB_Old_B21 a math:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 21: He thuc Vi-et va ung dung"@vi ;
+    math:partOfTextbook math:TB_Old ;
+    math:curriculumPosition 21 .
+
+math:TB_Old_B22 a math:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 22: PT qui ve PT bac 2"@vi ;
+    math:partOfTextbook math:TB_Old ;
+    math:curriculumPosition 22 .
+
+math:TB_Old_B23 a math:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 23: Giai bai toan bang cach lap PT"@vi ;
+    math:partOfTextbook math:TB_Old ;
+    math:curriculumPosition 23 .
+
+math:TB_Old_B24 a math:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 24: He thuc luong trong tam giac vuong"@vi ;
+    math:partOfTextbook math:TB_Old ;
+    math:curriculumPosition 24 .
+
+math:TB_Old_B25 a math:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 25: Ty so luong giac goc nhon"@vi ;
+    math:partOfTextbook math:TB_Old ;
+    math:curriculumPosition 25 .
+
+math:TB_Old_B26 a math:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 26: Su xac dinh duong tron"@vi ;
+    math:partOfTextbook math:TB_Old ;
+    math:curriculumPosition 26 .
+
+math:TB_Old_B27 a math:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 27: Duong kinh va day cua duong tron"@vi ;
+    math:partOfTextbook math:TB_Old ;
+    math:curriculumPosition 27 .
+
+math:TB_Old_B28 a math:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 28: Lien he day va khoang cach den tam"@vi ;
+    math:partOfTextbook math:TB_Old ;
+    math:curriculumPosition 28 .
+
+math:TB_Old_B29 a math:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 29: Vi tri tuong doi cua duong thang va duong tron"@vi ;
+    math:partOfTextbook math:TB_Old ;
+    math:curriculumPosition 29 .
+
+math:TB_Old_B30 a math:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 30: Dau hieu nhan biet tiep tuyen"@vi ;
+    math:partOfTextbook math:TB_Old ;
+    math:curriculumPosition 30 .
+
+math:TB_Old_B31 a math:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 31: Tinh chat hai tiep tuyen cat nhau"@vi ;
+    math:partOfTextbook math:TB_Old ;
+    math:curriculumPosition 31 .
+
+math:TB_Old_B32 a math:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 32: Vi tri tuong doi cua hai duong tron"@vi ;
+    math:partOfTextbook math:TB_Old ;
+    math:curriculumPosition 32 .
+
+math:TB_Old_B33 a math:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 33: Goc o tam, so do cung"@vi ;
+    math:partOfTextbook math:TB_Old ;
+    math:curriculumPosition 33 .
+
+math:TB_Old_B34 a math:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 34: Lien he cung va day"@vi ;
+    math:partOfTextbook math:TB_Old ;
+    math:curriculumPosition 34 .
+
+math:TB_Old_B35 a math:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 35: Goc noi tiep"@vi ;
+    math:partOfTextbook math:TB_Old ;
+    math:curriculumPosition 35 .
+
+math:TB_Old_B36 a math:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 36: Goc tao boi tia tiep tuyen va day cung"@vi ;
+    math:partOfTextbook math:TB_Old ;
+    math:curriculumPosition 36 .
+
+math:TB_Old_B37 a math:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 37: Goc co dinh ben trong/ngoai duong tron"@vi ;
+    math:partOfTextbook math:TB_Old ;
+    math:curriculumPosition 37 .
+
+math:TB_Old_B38 a math:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 38: Cung chua goc"@vi ;
+    math:partOfTextbook math:TB_Old ;
+    math:curriculumPosition 38 .
+
+math:TB_Old_B39 a math:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 39: Tu giac noi tiep"@vi ;
+    math:partOfTextbook math:TB_Old ;
+    math:curriculumPosition 39 .
+
+math:TB_Old_B40 a math:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 40: Duong tron ngoai/noi tiep da giac deu"@vi ;
+    math:partOfTextbook math:TB_Old ;
+    math:curriculumPosition 40 .
+
+math:TB_Old_B41 a math:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 41: Do dai duong tron, cung tron"@vi ;
+    math:partOfTextbook math:TB_Old ;
+    math:curriculumPosition 41 .
+
+math:TB_Old_B42 a math:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 42: Dien tich hinh tron, hinh quat"@vi ;
+    math:partOfTextbook math:TB_Old ;
+    math:curriculumPosition 42 .
+
+math:TB_Old_B43 a math:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 43: Hinh tru, dien tich xung quanh, the tich"@vi ;
+    math:partOfTextbook math:TB_Old ;
+    math:curriculumPosition 43 .
+
+math:TB_Old_B44 a math:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 44: Hinh non, hinh non cut"@vi ;
+    math:partOfTextbook math:TB_Old ;
+    math:curriculumPosition 44 .
+
+math:TB_Old_B45 a math:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 45: Hinh cau, dien tich mat cau, the tich"@vi ;
+    math:partOfTextbook math:TB_Old ;
+    math:curriculumPosition 45 .
+
+math:TB_KNTT_B01 a math:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 1: KNTT Bai 1"@vi ;
+    math:partOfTextbook math:TB_KNTT ;
+    math:curriculumPosition 1 .
+
+math:TB_KNTT_B02 a math:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 2: KNTT Bai 2"@vi ;
+    math:partOfTextbook math:TB_KNTT ;
+    math:curriculumPosition 2 .
+
+math:TB_KNTT_B03 a math:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 3: KNTT Bai 3"@vi ;
+    math:partOfTextbook math:TB_KNTT ;
+    math:curriculumPosition 3 .
+
+math:TB_KNTT_B04 a math:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 4: KNTT Bai 4"@vi ;
+    math:partOfTextbook math:TB_KNTT ;
+    math:curriculumPosition 4 .
+
+math:TB_KNTT_B05 a math:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 5: KNTT Bai 5"@vi ;
+    math:partOfTextbook math:TB_KNTT ;
+    math:curriculumPosition 5 .
+
+math:TB_KNTT_B06 a math:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 6: KNTT Bai 6"@vi ;
+    math:partOfTextbook math:TB_KNTT ;
+    math:curriculumPosition 6 .
+
+math:TB_KNTT_B07 a math:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 7: KNTT Bai 7"@vi ;
+    math:partOfTextbook math:TB_KNTT ;
+    math:curriculumPosition 7 .
+
+math:TB_KNTT_B08 a math:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 8: KNTT Bai 8"@vi ;
+    math:partOfTextbook math:TB_KNTT ;
+    math:curriculumPosition 8 .
+
+math:TB_KNTT_B09 a math:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 9: KNTT Bai 9"@vi ;
+    math:partOfTextbook math:TB_KNTT ;
+    math:curriculumPosition 9 .
+
+math:TB_KNTT_B10 a math:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 10: KNTT Bai 10"@vi ;
+    math:partOfTextbook math:TB_KNTT ;
+    math:curriculumPosition 10 .
+
+math:TB_KNTT_B11 a math:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 11: KNTT Bai 11"@vi ;
+    math:partOfTextbook math:TB_KNTT ;
+    math:curriculumPosition 11 .
+
+math:TB_KNTT_B12 a math:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 12: KNTT Bai 12"@vi ;
+    math:partOfTextbook math:TB_KNTT ;
+    math:curriculumPosition 12 .
+
+math:TB_KNTT_B13 a math:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 13: KNTT Bai 13"@vi ;
+    math:partOfTextbook math:TB_KNTT ;
+    math:curriculumPosition 13 .
+
+math:TB_KNTT_B14 a math:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 14: KNTT Bai 14"@vi ;
+    math:partOfTextbook math:TB_KNTT ;
+    math:curriculumPosition 14 .
+
+math:TB_KNTT_B15 a math:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 15: KNTT Bai 15"@vi ;
+    math:partOfTextbook math:TB_KNTT ;
+    math:curriculumPosition 15 .
+
+math:TB_KNTT_B16 a math:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 16: KNTT Bai 16"@vi ;
+    math:partOfTextbook math:TB_KNTT ;
+    math:curriculumPosition 16 .
+
+math:TB_KNTT_B17 a math:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 17: KNTT Bai 17"@vi ;
+    math:partOfTextbook math:TB_KNTT ;
+    math:curriculumPosition 17 .
+
+math:TB_KNTT_B18 a math:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 18: KNTT Bai 18"@vi ;
+    math:partOfTextbook math:TB_KNTT ;
+    math:curriculumPosition 18 .
+
+math:TB_KNTT_B19 a math:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 19: KNTT Bai 19"@vi ;
+    math:partOfTextbook math:TB_KNTT ;
+    math:curriculumPosition 19 .
+
+math:TB_KNTT_B20 a math:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 20: KNTT Bai 20"@vi ;
+    math:partOfTextbook math:TB_KNTT ;
+    math:curriculumPosition 20 .
+
+math:TB_KNTT_B21 a math:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 21: KNTT Bai 21"@vi ;
+    math:partOfTextbook math:TB_KNTT ;
+    math:curriculumPosition 21 .
+
+math:TB_KNTT_B22 a math:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 22: KNTT Bai 22"@vi ;
+    math:partOfTextbook math:TB_KNTT ;
+    math:curriculumPosition 22 .
+
+math:TB_KNTT_B23 a math:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 23: KNTT Bai 23"@vi ;
+    math:partOfTextbook math:TB_KNTT ;
+    math:curriculumPosition 23 .
+
+math:TB_KNTT_B24 a math:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 24: KNTT Bai 24"@vi ;
+    math:partOfTextbook math:TB_KNTT ;
+    math:curriculumPosition 24 .
+
+math:TB_KNTT_B25 a math:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 25: KNTT Bai 25"@vi ;
+    math:partOfTextbook math:TB_KNTT ;
+    math:curriculumPosition 25 .
+
+math:TB_KNTT_B26 a math:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 26: KNTT Bai 26"@vi ;
+    math:partOfTextbook math:TB_KNTT ;
+    math:curriculumPosition 26 .
+
+math:TB_KNTT_B27 a math:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 27: KNTT Bai 27"@vi ;
+    math:partOfTextbook math:TB_KNTT ;
+    math:curriculumPosition 27 .
+
+math:TB_KNTT_B28 a math:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 28: KNTT Bai 28"@vi ;
+    math:partOfTextbook math:TB_KNTT ;
+    math:curriculumPosition 28 .
+
+math:TB_KNTT_B29 a math:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 29: KNTT Bai 29"@vi ;
+    math:partOfTextbook math:TB_KNTT ;
+    math:curriculumPosition 29 .
+
+math:TB_KNTT_B30 a math:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 30: KNTT Bai 30"@vi ;
+    math:partOfTextbook math:TB_KNTT ;
+    math:curriculumPosition 30 .
+
+math:TB_KNTT_B31 a math:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 31: KNTT Bai 31"@vi ;
+    math:partOfTextbook math:TB_KNTT ;
+    math:curriculumPosition 31 .
+
+math:TB_KNTT_B32 a math:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 32: KNTT Bai 32"@vi ;
+    math:partOfTextbook math:TB_KNTT ;
+    math:curriculumPosition 32 .
+
+math:TB_KNTT_B33 a math:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 33: KNTT Bai 33"@vi ;
+    math:partOfTextbook math:TB_KNTT ;
+    math:curriculumPosition 33 .
+
+math:TB_KNTT_B34 a math:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 34: KNTT Bai 34"@vi ;
+    math:partOfTextbook math:TB_KNTT ;
+    math:curriculumPosition 34 .
+
+math:TB_KNTT_B35 a math:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 35: KNTT Bai 35"@vi ;
+    math:partOfTextbook math:TB_KNTT ;
+    math:curriculumPosition 35 .
+
+math:TB_CTST_B01 a math:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 1: CTST Bai 1"@vi ;
+    math:partOfTextbook math:TB_CTST ;
+    math:curriculumPosition 1 .
+
+math:TB_CTST_B02 a math:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 2: CTST Bai 2"@vi ;
+    math:partOfTextbook math:TB_CTST ;
+    math:curriculumPosition 2 .
+
+math:TB_CTST_B03 a math:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 3: CTST Bai 3"@vi ;
+    math:partOfTextbook math:TB_CTST ;
+    math:curriculumPosition 3 .
+
+math:TB_CTST_B04 a math:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 4: CTST Bai 4"@vi ;
+    math:partOfTextbook math:TB_CTST ;
+    math:curriculumPosition 4 .
+
+math:TB_CTST_B05 a math:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 5: CTST Bai 5"@vi ;
+    math:partOfTextbook math:TB_CTST ;
+    math:curriculumPosition 5 .
+
+math:TB_CTST_B06 a math:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 6: CTST Bai 6"@vi ;
+    math:partOfTextbook math:TB_CTST ;
+    math:curriculumPosition 6 .
+
+math:TB_CTST_B07 a math:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 7: CTST Bai 7"@vi ;
+    math:partOfTextbook math:TB_CTST ;
+    math:curriculumPosition 7 .
+
+math:TB_CTST_B08 a math:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 8: CTST Bai 8"@vi ;
+    math:partOfTextbook math:TB_CTST ;
+    math:curriculumPosition 8 .
+
+math:TB_CTST_B09 a math:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 9: CTST Bai 9"@vi ;
+    math:partOfTextbook math:TB_CTST ;
+    math:curriculumPosition 9 .
+
+math:TB_CTST_B10 a math:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 10: CTST Bai 10"@vi ;
+    math:partOfTextbook math:TB_CTST ;
+    math:curriculumPosition 10 .
+
+math:TB_CTST_B11 a math:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 11: CTST Bai 11"@vi ;
+    math:partOfTextbook math:TB_CTST ;
+    math:curriculumPosition 11 .
+
+math:TB_CTST_B12 a math:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 12: CTST Bai 12"@vi ;
+    math:partOfTextbook math:TB_CTST ;
+    math:curriculumPosition 12 .
+
+math:TB_CTST_B13 a math:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 13: CTST Bai 13"@vi ;
+    math:partOfTextbook math:TB_CTST ;
+    math:curriculumPosition 13 .
+
+math:TB_CTST_B14 a math:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 14: CTST Bai 14"@vi ;
+    math:partOfTextbook math:TB_CTST ;
+    math:curriculumPosition 14 .
+
+math:TB_CTST_B15 a math:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 15: CTST Bai 15"@vi ;
+    math:partOfTextbook math:TB_CTST ;
+    math:curriculumPosition 15 .
+
+math:TB_CTST_B16 a math:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 16: CTST Bai 16"@vi ;
+    math:partOfTextbook math:TB_CTST ;
+    math:curriculumPosition 16 .
+
+math:TB_CTST_B17 a math:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 17: CTST Bai 17"@vi ;
+    math:partOfTextbook math:TB_CTST ;
+    math:curriculumPosition 17 .
+
+math:TB_CTST_B18 a math:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 18: CTST Bai 18"@vi ;
+    math:partOfTextbook math:TB_CTST ;
+    math:curriculumPosition 18 .
+
+math:TB_CTST_B19 a math:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 19: CTST Bai 19"@vi ;
+    math:partOfTextbook math:TB_CTST ;
+    math:curriculumPosition 19 .
+
+math:TB_CTST_B20 a math:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 20: CTST Bai 20"@vi ;
+    math:partOfTextbook math:TB_CTST ;
+    math:curriculumPosition 20 .
+
+math:TB_CTST_B21 a math:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 21: CTST Bai 21"@vi ;
+    math:partOfTextbook math:TB_CTST ;
+    math:curriculumPosition 21 .
+
+math:TB_CTST_B22 a math:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 22: CTST Bai 22"@vi ;
+    math:partOfTextbook math:TB_CTST ;
+    math:curriculumPosition 22 .
+
+math:TB_CTST_B23 a math:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 23: CTST Bai 23"@vi ;
+    math:partOfTextbook math:TB_CTST ;
+    math:curriculumPosition 23 .
+
+math:TB_CTST_B24 a math:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 24: CTST Bai 24"@vi ;
+    math:partOfTextbook math:TB_CTST ;
+    math:curriculumPosition 24 .
+
+math:TB_CTST_B25 a math:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 25: CTST Bai 25"@vi ;
+    math:partOfTextbook math:TB_CTST ;
+    math:curriculumPosition 25 .
+
+math:TB_CTST_B26 a math:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 26: CTST Bai 26"@vi ;
+    math:partOfTextbook math:TB_CTST ;
+    math:curriculumPosition 26 .
+
+math:TB_CTST_B27 a math:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 27: CTST Bai 27"@vi ;
+    math:partOfTextbook math:TB_CTST ;
+    math:curriculumPosition 27 .
+
+math:TB_CTST_B28 a math:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 28: CTST Bai 28"@vi ;
+    math:partOfTextbook math:TB_CTST ;
+    math:curriculumPosition 28 .
+
+math:TB_CTST_B29 a math:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 29: CTST Bai 29"@vi ;
+    math:partOfTextbook math:TB_CTST ;
+    math:curriculumPosition 29 .
+
+math:TB_CTST_B30 a math:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 30: CTST Bai 30"@vi ;
+    math:partOfTextbook math:TB_CTST ;
+    math:curriculumPosition 30 .
+
+math:TB_CTST_B31 a math:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 31: CTST Bai 31"@vi ;
+    math:partOfTextbook math:TB_CTST ;
+    math:curriculumPosition 31 .
+
+math:TB_CTST_B32 a math:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 32: CTST Bai 32"@vi ;
+    math:partOfTextbook math:TB_CTST ;
+    math:curriculumPosition 32 .
+
+math:TB_CTST_B33 a math:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 33: CTST Bai 33"@vi ;
+    math:partOfTextbook math:TB_CTST ;
+    math:curriculumPosition 33 .
+
+math:TB_CTST_B34 a math:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 34: CTST Bai 34"@vi ;
+    math:partOfTextbook math:TB_CTST ;
+    math:curriculumPosition 34 .
+
+math:TB_CTST_B35 a math:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 35: CTST Bai 35"@vi ;
+    math:partOfTextbook math:TB_CTST ;
+    math:curriculumPosition 35 .
+
+math:TB_CD_B01 a math:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 1: CD Bai 1"@vi ;
+    math:partOfTextbook math:TB_CD ;
+    math:curriculumPosition 1 .
+
+math:TB_CD_B02 a math:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 2: CD Bai 2"@vi ;
+    math:partOfTextbook math:TB_CD ;
+    math:curriculumPosition 2 .
+
+math:TB_CD_B03 a math:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 3: CD Bai 3"@vi ;
+    math:partOfTextbook math:TB_CD ;
+    math:curriculumPosition 3 .
+
+math:TB_CD_B04 a math:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 4: CD Bai 4"@vi ;
+    math:partOfTextbook math:TB_CD ;
+    math:curriculumPosition 4 .
+
+math:TB_CD_B05 a math:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 5: CD Bai 5"@vi ;
+    math:partOfTextbook math:TB_CD ;
+    math:curriculumPosition 5 .
+
+math:TB_CD_B06 a math:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 6: CD Bai 6"@vi ;
+    math:partOfTextbook math:TB_CD ;
+    math:curriculumPosition 6 .
+
+math:TB_CD_B07 a math:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 7: CD Bai 7"@vi ;
+    math:partOfTextbook math:TB_CD ;
+    math:curriculumPosition 7 .
+
+math:TB_CD_B08 a math:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 8: CD Bai 8"@vi ;
+    math:partOfTextbook math:TB_CD ;
+    math:curriculumPosition 8 .
+
+math:TB_CD_B09 a math:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 9: CD Bai 9"@vi ;
+    math:partOfTextbook math:TB_CD ;
+    math:curriculumPosition 9 .
+
+math:TB_CD_B10 a math:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 10: CD Bai 10"@vi ;
+    math:partOfTextbook math:TB_CD ;
+    math:curriculumPosition 10 .
+
+math:TB_CD_B11 a math:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 11: CD Bai 11"@vi ;
+    math:partOfTextbook math:TB_CD ;
+    math:curriculumPosition 11 .
+
+math:TB_CD_B12 a math:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 12: CD Bai 12"@vi ;
+    math:partOfTextbook math:TB_CD ;
+    math:curriculumPosition 12 .
+
+math:TB_CD_B13 a math:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 13: CD Bai 13"@vi ;
+    math:partOfTextbook math:TB_CD ;
+    math:curriculumPosition 13 .
+
+math:TB_CD_B14 a math:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 14: CD Bai 14"@vi ;
+    math:partOfTextbook math:TB_CD ;
+    math:curriculumPosition 14 .
+
+math:TB_CD_B15 a math:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 15: CD Bai 15"@vi ;
+    math:partOfTextbook math:TB_CD ;
+    math:curriculumPosition 15 .
+
+math:TB_CD_B16 a math:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 16: CD Bai 16"@vi ;
+    math:partOfTextbook math:TB_CD ;
+    math:curriculumPosition 16 .
+
+math:TB_CD_B17 a math:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 17: CD Bai 17"@vi ;
+    math:partOfTextbook math:TB_CD ;
+    math:curriculumPosition 17 .
+
+math:TB_CD_B18 a math:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 18: CD Bai 18"@vi ;
+    math:partOfTextbook math:TB_CD ;
+    math:curriculumPosition 18 .
+
+math:TB_CD_B19 a math:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 19: CD Bai 19"@vi ;
+    math:partOfTextbook math:TB_CD ;
+    math:curriculumPosition 19 .
+
+math:TB_CD_B20 a math:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 20: CD Bai 20"@vi ;
+    math:partOfTextbook math:TB_CD ;
+    math:curriculumPosition 20 .
+
+math:TB_CD_B21 a math:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 21: CD Bai 21"@vi ;
+    math:partOfTextbook math:TB_CD ;
+    math:curriculumPosition 21 .
+
+math:TB_CD_B22 a math:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 22: CD Bai 22"@vi ;
+    math:partOfTextbook math:TB_CD ;
+    math:curriculumPosition 22 .
+
+math:TB_CD_B23 a math:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 23: CD Bai 23"@vi ;
+    math:partOfTextbook math:TB_CD ;
+    math:curriculumPosition 23 .
+
+math:TB_CD_B24 a math:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 24: CD Bai 24"@vi ;
+    math:partOfTextbook math:TB_CD ;
+    math:curriculumPosition 24 .
+
+math:TB_CD_B25 a math:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 25: CD Bai 25"@vi ;
+    math:partOfTextbook math:TB_CD ;
+    math:curriculumPosition 25 .
+
+math:TB_CD_B26 a math:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 26: CD Bai 26"@vi ;
+    math:partOfTextbook math:TB_CD ;
+    math:curriculumPosition 26 .
+
+math:TB_CD_B27 a math:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 27: CD Bai 27"@vi ;
+    math:partOfTextbook math:TB_CD ;
+    math:curriculumPosition 27 .
+
+math:TB_CD_B28 a math:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 28: CD Bai 28"@vi ;
+    math:partOfTextbook math:TB_CD ;
+    math:curriculumPosition 28 .
+
+math:TB_CD_B29 a math:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 29: CD Bai 29"@vi ;
+    math:partOfTextbook math:TB_CD ;
+    math:curriculumPosition 29 .
+
+math:TB_CD_B30 a math:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 30: CD Bai 30"@vi ;
+    math:partOfTextbook math:TB_CD ;
+    math:curriculumPosition 30 .
+
+math:TB_CD_B31 a math:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 31: CD Bai 31"@vi ;
+    math:partOfTextbook math:TB_CD ;
+    math:curriculumPosition 31 .
+
+math:TB_CD_B32 a math:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 32: CD Bai 32"@vi ;
+    math:partOfTextbook math:TB_CD ;
+    math:curriculumPosition 32 .
+
+math:TB_CD_B33 a math:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 33: CD Bai 33"@vi ;
+    math:partOfTextbook math:TB_CD ;
+    math:curriculumPosition 33 .
+
+math:TB_CD_B34 a math:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 34: CD Bai 34"@vi ;
+    math:partOfTextbook math:TB_CD ;
+    math:curriculumPosition 34 .
+
+math:TB_CD_B35 a math:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 35: CD Bai 35"@vi ;
+    math:partOfTextbook math:TB_CD ;
+    math:curriculumPosition 35 .
+
+
+#################################################################
+#   RELATIONSHIPS
+#################################################################
+
+math:D_CanBacHai math:prerequisiteOf math:D_CanBacHaiSoHoc .
+
+math:D_CanBacHaiSoHoc math:prerequisiteOf math:T_DiaLuongCan .
+
+math:T_DiaLuongCan math:prerequisiteOf math:M_KhaiCan .
+
+math:M_KhaiCan math:prerequisiteOf math:M_TrucCanMau .
+
+math:M_TrucCanMau math:prerequisiteOf math:PT_RutGonBieuThucCan .
+
+math:PT_RutGonBieuThucCan math:prerequisiteOf math:PT_GiaiPTVoCan .
+
+math:C_HamSo math:prerequisiteOf math:D_HamSoBacNhat .
+
+math:D_HamSoBacNhat math:prerequisiteOf math:T_TTHamSoBacNhat .
+
+math:T_TTHamSoBacNhat math:prerequisiteOf math:D_HeSoGoc .
+
+math:D_HamSoBacNhat math:prerequisiteOf math:F_HamSoBacNhat .
+
+math:F_HamSoBacNhat math:prerequisiteOf math:M_VeDoThiDTB1 .
+
+math:M_VeDoThiDTB1 math:prerequisiteOf math:PT_DinhLyHamSoBacNhat .
+
+math:D_HamSoBacNhat math:prerequisiteOf math:D_HePhuongTrinh .
+
+math:D_HePhuongTrinh math:prerequisiteOf math:M_HeThePPThe .
+
+math:D_HePhuongTrinh math:prerequisiteOf math:M_HeThePPCong .
+
+math:M_HeThePPThe math:prerequisiteOf math:PT_GiaiHPTBac1_2An .
+
+math:M_HeThePPCong math:prerequisiteOf math:PT_GiaiHPTBac1_2An .
+
+math:PT_GiaiHPTBac1_2An math:prerequisiteOf math:PT_BaiToanThucTe .
+
+math:D_HamSoBac2 math:prerequisiteOf math:D_Parabol .
+
+math:D_Parabol math:prerequisiteOf math:F_HamSoBac2_DonGian .
+
+math:F_HamSoBac2_DonGian math:prerequisiteOf math:M_VeDoThiParabol .
+
+math:M_VeDoThiParabol math:prerequisiteOf math:T_Lien_HamSo_Parabol .
+
+math:D_HamSoBac2 math:prerequisiteOf math:D_PhuongTrinhBac2 .
+
+math:D_PhuongTrinhBac2 math:prerequisiteOf math:D_Biet_PTB2 .
+
+math:D_Biet_PTB2 math:prerequisiteOf math:F_Delta .
+
+math:F_Delta math:prerequisiteOf math:F_NghiemPTB2 .
+
+math:F_NghiemPTB2 math:prerequisiteOf math:PT_GiaiPTBac2 .
+
+math:F_NghiemPTB2 math:prerequisiteOf math:T_DK_PTB2_CoNghiem .
+
+math:T_DK_PTB2_CoNghiem math:prerequisiteOf math:PT_DinhLyTimThamSo .
+
+math:PT_GiaiPTBac2 math:prerequisiteOf math:PT_TrungGianQuaPhuongTrinhBac2 .
+
+math:T_VietaQuan math:prerequisiteOf math:F_VietaTong .
+
+math:T_VietaQuan math:prerequisiteOf math:F_VietaTich .
+
+math:F_VietaTong math:prerequisiteOf math:M_VietaNhamNghiem .
+
+math:F_VietaTich math:prerequisiteOf math:M_VietaNhamNghiem .
+
+math:M_VietaNhamNghiem math:prerequisiteOf math:PT_DinhLyTimThamSo .
+
+math:T_Lien_HamSo_Parabol math:prerequisiteOf math:PT_DinhLyHamSoBac2 .
+
+math:T_Pythagoras math:prerequisiteOf math:T_HeThucLuong .
+
+math:T_HeThucLuong math:prerequisiteOf math:F_HSL_BinhPhuong_TGV .
+
+math:T_HeThucLuong math:prerequisiteOf math:F_HSL_DuongCao_TGV .
+
+math:D_DuongTron math:prerequisiteOf math:D_CungTron .
+
+math:D_DuongTron math:prerequisiteOf math:D_DayCung .
+
+math:D_DayCung math:prerequisiteOf math:T_LienHeCungVaDay .
+
+math:D_DuongTron math:prerequisiteOf math:D_TiepTuyen .
+
+math:D_TiepTuyen math:prerequisiteOf math:T_TTTiepTuyen .
+
+math:T_TTTiepTuyen math:prerequisiteOf math:M_ChungMinhTiepTuyen .
+
+math:D_DuongTron math:prerequisiteOf math:C_VTDT_VoiDuongTron .
+
+math:C_VTDT_VoiDuongTron math:prerequisiteOf math:M_ChungMinhTiepTuyen .
+
+math:D_DuongTron math:prerequisiteOf math:C_VT2DuongTron .
+
+math:D_CungTron math:prerequisiteOf math:D_GocOTam .
+
+math:D_GocOTam math:prerequisiteOf math:D_GocNoiTiep .
+
+math:D_GocNoiTiep math:prerequisiteOf math:T_GocNoiTiep_TT .
+
+math:T_GocNoiTiep_TT math:prerequisiteOf math:T_GocTaoBoiTTVaDay .
+
+math:T_GocNoiTiep_TT math:prerequisiteOf math:M_TinhGoc_DuongTron .
+
+math:M_TinhGoc_DuongTron math:prerequisiteOf math:PT_TinhGoc_TamGiac_DuongTron .
+
+math:D_TuGiacNoiTiep math:prerequisiteOf math:T_TuGiacNoiTiepDK .
+
+math:T_TuGiacNoiTiepDK math:prerequisiteOf math:M_ChungMinhTuGiacNoiTiep .
+
+math:M_ChungMinhTuGiacNoiTiep math:prerequisiteOf math:PT_ChungMinh_TQNoi .
+
+math:T_GocNoiTiep_TT math:prerequisiteOf math:M_ChungMinhTuGiacNoiTiep .
+
+math:D_HinhTru math:prerequisiteOf math:F_DTXQHinhTru .
+
+math:D_HinhTru math:prerequisiteOf math:F_TheTichHinhTru .
+
+math:D_HinhNon math:prerequisiteOf math:F_DTXQHinhNon .
+
+math:D_HinhNon math:prerequisiteOf math:F_TheTichHinhNon .
+
+math:D_HinhCau math:prerequisiteOf math:F_DienTichHinhCau .
+
+math:D_HinhCau math:prerequisiteOf math:F_TheTichHinhCau .
+
+math:F_TheTichHinhTru math:prerequisiteOf math:M_TinhDienTich_HinhKhongGian .
+
+math:M_TinhDienTich_HinhKhongGian math:prerequisiteOf math:PT_TinhHinhKhongGian .
+
+math:D_DuongTron math:prerequisiteOf math:F_ChuViDuongTron .
+
+math:D_DuongTron math:prerequisiteOf math:F_DienTichHinhTron .
+
+math:F_ChuViDuongTron math:prerequisiteOf math:F_DoDaiCung .
+
+math:F_DienTichHinhTron math:prerequisiteOf math:F_DienTichHinhQuat .
+
+math:M_GiaiToanThucTe math:prerequisiteOf math:PT_BaiToanThucTe .
+
+math:T_VietaDao math:uses math:T_VietaQuan .
+
+math:T_HeThucLuong math:uses math:T_Pythagoras .
+
+math:T_GocTaoBoiTTVaDay math:uses math:T_GocNoiTiep_TT .
+
+math:F_NghiemPTB2 math:uses math:F_Delta .
+
+math:F_VietaTong math:uses math:F_NghiemPTB2 .
+
+math:F_VietaTich math:uses math:F_NghiemPTB2 .
+
+math:T_TTTiepTuyen math:uses math:D_TiepTuyen .
+
+math:M_HeThePPThe math:solves math:PT_GiaiHPTBac1_2An .
+
+math:M_HeThePPCong math:solves math:PT_GiaiHPTBac1_2An .
+
+math:M_DatAnPhu math:solves math:PT_TrungGianQuaPhuongTrinhBac2 .
+
+math:M_DatAnPhu math:solves math:PT_GiaiPTVoCan .
+
+math:M_VietaNhamNghiem math:solves math:PT_GiaiPTBac2 .
+
+math:M_VietaNhamNghiem math:solves math:PT_DinhLyTimThamSo .
+
+math:M_TrucCanMau math:solves math:PT_RutGonBieuThucCan .
+
+math:M_VeDoThiParabol math:solves math:PT_DinhLyHamSoBac2 .
+
+math:M_VeDoThiDTB1 math:solves math:PT_DinhLyHamSoBacNhat .
+
+math:M_ChungMinhTiepTuyen math:solves math:PT_ChungMinhHinhHoc_DuongTron .
+
+math:M_ChungMinhTuGiacNoiTiep math:solves math:PT_ChungMinh_TQNoi .
+
+math:M_TinhGoc_DuongTron math:solves math:PT_TinhGoc_TamGiac_DuongTron .
+
+math:M_TinhDienTich_HinhKhongGian math:solves math:PT_TinhHinhKhongGian .
+
+math:M_GiaiToanThucTe math:solves math:PT_BaiToanThucTe .
+
+math:F_HSL_BinhPhuong_TGV math:appliesTo math:O_TamGiacVuong .
+
+math:F_HSL_DuongCao_TGV math:appliesTo math:O_TamGiacVuong .
+
+math:F_ChuViDuongTron math:appliesTo math:O_DuongTron_DT .
+
+math:F_DienTichHinhTron math:appliesTo math:O_HinhTron .
+
+math:F_DoDaiCung math:appliesTo math:O_DuongTron_DT .
+
+math:F_DienTichHinhQuat math:appliesTo math:O_HinhTron .
+
+math:F_DTXQHinhTru math:appliesTo math:O_HinhTru_DT .
+
+math:F_TheTichHinhTru math:appliesTo math:O_HinhTru_DT .
+
+math:F_DTXQHinhNon math:appliesTo math:O_HinhNon_DT .
+
+math:F_TheTichHinhNon math:appliesTo math:O_HinhNon_DT .
+
+math:F_DienTichHinhCau math:appliesTo math:O_HinhCau_DT .
+
+math:F_TheTichHinhCau math:appliesTo math:O_HinhCau_DT .
+
+math:F_HamSoBacNhat math:appliesTo math:O_DuongThang_2D .
+
+math:F_HamSoBac2_DonGian math:appliesTo math:O_Parabol_DT .
+
+math:M_HeThePPThe math:similarTo math:M_HeThePPCong .
+
+math:F_VietaTong math:similarTo math:F_VietaTich .
+
+math:D_HinhTru math:similarTo math:D_HinhNon .
+
+math:T_Thales math:similarTo math:T_ThalesDaoNguoc .
+
+math:C_HamSoDongBien math:contrastsWith math:C_HamSoNghichBien .
+
+math:M_HeThePPThe math:contrastsWith math:M_HeThePPCong .
+

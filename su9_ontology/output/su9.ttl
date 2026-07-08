@@ -1,0 +1,3782 @@
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix su9:  <http://su9.edu.vn/ontology#> .
+
+<http://su9.edu.vn/ontology> a owl:Ontology .
+
+
+# --- Khai báo Classes ---
+su9:Tri_thuc_Lich_su a owl:Class .
+su9:Period a owl:Class ; rdfs:subClassOf su9:Tri_thuc_Lich_su .
+su9:Location a owl:Class ; rdfs:subClassOf su9:Tri_thuc_Lich_su .
+su9:Person a owl:Class ; rdfs:subClassOf su9:Tri_thuc_Lich_su .
+su9:Organization a owl:Class ; rdfs:subClassOf su9:Tri_thuc_Lich_su .
+su9:Concept a owl:Class ; rdfs:subClassOf su9:Tri_thuc_Lich_su .
+su9:Event a owl:Class ; rdfs:subClassOf su9:Tri_thuc_Lich_su .
+su9:Document a owl:Class ; rdfs:subClassOf su9:Tri_thuc_Lich_su .
+su9:Movement a owl:Class ; rdfs:subClassOf su9:Tri_thuc_Lich_su .
+
+# --- Khai báo Object Properties (Cạnh nối thực thể - thực thể) ---
+su9:occursAt a owl:ObjectProperty .
+su9:occursDuring a owl:ObjectProperty .
+su9:hasPerson a owl:ObjectProperty .
+su9:hasOrganization a owl:ObjectProperty .
+su9:involvedConcept a owl:ObjectProperty .
+su9:prerequisiteOf a owl:ObjectProperty .
+su9:directCause a owl:ObjectProperty .
+su9:deepCause a owl:ObjectProperty .
+su9:similarTo a owl:ObjectProperty .
+su9:contrastsWith a owl:ObjectProperty .
+su9:locatedIn a owl:ObjectProperty .
+su9:leads a owl:ObjectProperty .
+su9:participatesIn a owl:ObjectProperty .
+su9:memberOf a owl:ObjectProperty .
+
+# --- Khai báo Datatype Properties (Thuộc tính văn bản/số) ---
+su9:hasContext a owl:DatatypeProperty .
+su9:hasCause a owl:DatatypeProperty .
+su9:hasCauseDeep a owl:DatatypeProperty .
+su9:hasCauseDirect a owl:DatatypeProperty .
+su9:hasContent a owl:DatatypeProperty .
+su9:hasResult a owl:DatatypeProperty .
+su9:hasAchievements a owl:DatatypeProperty .
+su9:hasLimitations a owl:DatatypeProperty .
+su9:weightsJson a owl:DatatypeProperty .
+su9:aliases a owl:DatatypeProperty .
+su9:status a owl:DatatypeProperty .
+su9:startYear a owl:DatatypeProperty .
+su9:endYear a owl:DatatypeProperty .
+su9:abstractness a owl:DatatypeProperty .
+su9:bloomLevel a owl:DatatypeProperty .
+su9:frequencyInTextbook a owl:DatatypeProperty .
+su9:confidence a owl:DatatypeProperty .
+
+
+### PERIODS ###
+su9:P_1922_1945 a su9:Period ;
+    rdfs:label "Giai đoạn 1922 - 1945"@vi ;
+    su9:aliases "1922-1945" ;
+    su9:startYear 1922 ;
+    su9:endYear 1945 ;
+    su9:abstractness 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:P_1918_1923 a su9:Period ;
+    rdfs:label "Cao trào cách mạng thế giới 1918-1923"@vi ;
+    su9:startYear 1918 ;
+    su9:endYear 1923 ;
+    su9:abstractness 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:P_1924_1929 a su9:Period ;
+    rdfs:label "Thời kỳ ổn định và phồn vinh của CNTB"@vi ;
+    su9:startYear 1924 ;
+    su9:endYear 1929 ;
+    su9:abstractness 4 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:P_1929_1933 a su9:Period ;
+    rdfs:label "Khủng hoảng kinh tế thế giới 1929-1933"@vi ;
+    su9:aliases "Những năm 30 của thế kỷ 20|Đại suy thoái|Những năm 30 của thế kỉ XX|Đầu những năm 30" ;
+    su9:startYear 1929 ;
+    su9:endYear 1933 ;
+    su9:abstractness 4 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:P_1933_1939 a su9:Period ;
+    rdfs:label "Thời kỳ cận chiến (1933-1939)"@vi ;
+    su9:aliases "Những năm 30 của thế kỉ XX|Trước thềm WWII|Những năm 30 của thế kỷ 20|Thập niên 30" ;
+    su9:startYear 1933 ;
+    su9:endYear 1939 ;
+    su9:abstractness 4 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:P_WWII_GiaiDoan1 a su9:Period ;
+    rdfs:label "CTTG 2: Bùng nổ và lan rộng (1939-1941)"@vi ;
+    su9:startYear 1939 ;
+    su9:endYear 1941 ;
+    su9:abstractness 5 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:P_WWII_GiaiDoan2 a su9:Period ;
+    rdfs:label "CTTG 2: Đồng minh phản công (1942-1945)"@vi ;
+    su9:startYear 1942 ;
+    su9:endYear 1945 ;
+    su9:abstractness 5 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:P_1918_1930 a su9:Period ;
+    rdfs:label "Giai đoạn 1918 - 1930"@vi ;
+    su9:aliases "1918-1930" ;
+    su9:startYear 1918 ;
+    su9:endYear 1930 ;
+    su9:abstractness 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:P_1919_1925 a su9:Period ;
+    rdfs:label "Phong trào công nhân lẻ tẻ (1919-1925)"@vi ;
+    su9:aliases "1919-1925" ;
+    su9:startYear 1919 ;
+    su9:endYear 1925 ;
+    su9:abstractness 4 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:P_1925_1930 a su9:Period ;
+    rdfs:label "Phong trào công nhân tự giác (1925-1930)"@vi ;
+    su9:aliases "1925-1930" ;
+    su9:startYear 1925 ;
+    su9:endYear 1930 ;
+    su9:abstractness 4 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:P_1930 a su9:Period ;
+    rdfs:label "Năm 1930"@vi ;
+    su9:aliases "Đầu năm 1930|Tháng 2 năm 1930" ;
+    su9:startYear 1930 ;
+    su9:endYear 1930 ;
+    su9:abstractness 2 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:P_1930_1931 a su9:Period ;
+    rdfs:label "Giai đoạn 1930 - 1931"@vi ;
+    su9:aliases "1930-1931|Năm 1930-1931" ;
+    su9:startYear 1930 ;
+    su9:endYear 1931 ;
+    su9:abstractness 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:P_1936_1939 a su9:Period ;
+    rdfs:label "Giai đoạn 1936 - 1939"@vi ;
+    su9:aliases "1936-1939|Năm 1936-1939" ;
+    su9:startYear 1936 ;
+    su9:endYear 1939 ;
+    su9:abstractness 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:P_1939_1945 a su9:Period ;
+    rdfs:label "Giai đoạn 1939 - 1945"@vi ;
+    su9:aliases "1939-1945" ;
+    su9:startYear 1939 ;
+    su9:endYear 1945 ;
+    su9:abstractness 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:P_Mar_Aug_1945 a su9:Period ;
+    rdfs:label "Tiền khởi nghĩa (Tháng 3 - Tháng 8/1945)"@vi ;
+    su9:aliases "Tiền khởi nghĩa|Từ tháng 3 đến giữa tháng 8-1945" ;
+    su9:startYear 1945 ;
+    su9:endYear 1945 ;
+    su9:abstractness 2 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:P_Aug_1945 a su9:Period ;
+    rdfs:label "Tháng 8 năm 1945"@vi ;
+    su9:aliases "Tổng khởi nghĩa tháng Tám" ;
+    su9:startYear 1945 ;
+    su9:endYear 1945 ;
+    su9:abstractness 2 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:P_Sep_1945 a su9:Period ;
+    rdfs:label "Tháng 9 năm 1945"@vi ;
+    su9:aliases "2/9/1945" ;
+    su9:startYear 1945 ;
+    su9:endYear 1945 ;
+    su9:abstractness 1 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:P_1947_1989 a su9:Period ;
+    rdfs:label "Thời kì Chiến tranh lạnh (1947-1989)"@vi ;
+    su9:aliases "1947-1989|Hơn 40 năm" ;
+    su9:startYear 1947 ;
+    su9:endYear 1989 ;
+    su9:abstractness 4 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:P_1945_1991 a su9:Period ;
+    rdfs:label "Giai đoạn 1945 - 1991"@vi ;
+    su9:aliases "1945-1991" ;
+    su9:startYear 1945 ;
+    su9:endYear 1991 ;
+    su9:abstractness 4 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:P_1946_1950 a su9:Period ;
+    rdfs:label "Giai đoạn 1946 - 1950"@vi ;
+    su9:aliases "1946-1950|Phục hồi kinh tế" ;
+    su9:startYear 1946 ;
+    su9:endYear 1950 ;
+    su9:abstractness 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:P_1950_1975 a su9:Period ;
+    rdfs:label "Giai đoạn 1950 - 1975"@vi ;
+    su9:aliases "1950-1975|Giữa những năm 70" ;
+    su9:startYear 1950 ;
+    su9:endYear 1975 ;
+    su9:abstractness 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:P_1985_1991 a su9:Period ;
+    rdfs:label "Giai đoạn 1985 - 1991"@vi ;
+    su9:aliases "1985-1991|Nửa sau thập niên 80" ;
+    su9:startYear 1985 ;
+    su9:endYear 1991 ;
+    su9:abstractness 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:P_1945_1973 a su9:Period ;
+    rdfs:label "Giai đoạn hoàng kim của Tư bản chủ nghĩa (1945-1973)"@vi ;
+    su9:aliases "1945-1973" ;
+    su9:startYear 1945 ;
+    su9:endYear 1973 ;
+    su9:abstractness 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:P_1973_1991 a su9:Period ;
+    rdfs:label "Giai đoạn khủng hoảng và phục hồi (1973-1991)"@vi ;
+    su9:aliases "1973-1991" ;
+    su9:startYear 1973 ;
+    su9:endYear 1991 ;
+    su9:abstractness 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:P_1952_1959 a su9:Period ;
+    rdfs:label "Giai đoạn 1952 - 1959"@vi ;
+    su9:aliases "Thập niên 50|Thời kỳ cách mạng Cu-ba" ;
+    su9:startYear 1952 ;
+    su9:endYear 1959 ;
+    su9:abstractness 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:P_Tu1961 a su9:Period ;
+    rdfs:label "Từ năm 1961"@vi ;
+    su9:aliases "Giai đoạn xây dựng CNXH ở Cu-ba" ;
+    su9:startYear 1961 ;
+    su9:endYear 1991 ;
+    su9:abstractness 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:P_1946_1949 a su9:Period ;
+    rdfs:label "Giai đoạn Nội chiến Trung Quốc (1946-1949)"@vi ;
+    su9:aliases "1946-1949" ;
+    su9:startYear 1946 ;
+    su9:endYear 1949 ;
+    su9:abstractness 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:P_1978_nay a su9:Period ;
+    rdfs:label "Thời kỳ Cải cách mở cửa (Từ 1978)"@vi ;
+    su9:aliases "Từ năm 1978" ;
+    su9:startYear 1978 ;
+    su9:endYear 2026 ;
+    su9:abstractness 4 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:P_1960s a su9:Period ;
+    rdfs:label "Thập niên 60 của thế kỷ XX"@vi ;
+    su9:aliases "Những năm 60" ;
+    su9:startYear 1960 ;
+    su9:endYear 1969 ;
+    su9:abstractness 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:P_1945_1946 a su9:Period ;
+    rdfs:label "Giai đoạn 1945 - 1946"@vi ;
+    su9:aliases "Sau Cách mạng tháng Tám|Năm đầu sau độc lập" ;
+    su9:startYear 1945 ;
+    su9:endYear 1946 ;
+    su9:abstractness 5 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:P_1946_1950 a su9:Period ;
+    rdfs:label "Những năm đầu kháng chiến chống Pháp (1946-1950)"@vi ;
+    su9:aliases "1946-1950" ;
+    su9:startYear 1946 ;
+    su9:endYear 1950 ;
+    su9:abstractness 4 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:P_ThuDong1947 a su9:Period ;
+    rdfs:label "Thu - Đông năm 1947"@vi ;
+    su9:aliases "Cuối năm 1947" ;
+    su9:startYear 1947 ;
+    su9:endYear 1947 ;
+    su9:abstractness 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:P_ThuDong1950 a su9:Period ;
+    rdfs:label "Thu - Đông năm 1950"@vi ;
+    su9:aliases "Cuối năm 1950" ;
+    su9:startYear 1950 ;
+    su9:endYear 1950 ;
+    su9:abstractness 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:P_1951_1954 a su9:Period ;
+    rdfs:label "Giai đoạn kết thúc kháng chiến (1951-1954)"@vi ;
+    su9:aliases "1951-1954" ;
+    su9:startYear 1951 ;
+    su9:endYear 1954 ;
+    su9:abstractness 4 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:P_DongXuan_53_54 a su9:Period ;
+    rdfs:label "Đông - Xuân 1953-1954"@vi ;
+    su9:aliases "Cuối 1953 đầu 1954" ;
+    su9:startYear 1953 ;
+    su9:endYear 1954 ;
+    su9:abstractness 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:P_DienBienPhu a su9:Period ;
+    rdfs:label "Chiến dịch Điện Biên Phủ (3/1954 - 5/1954)"@vi ;
+    su9:aliases "Mùa hè 1954" ;
+    su9:startYear 1954 ;
+    su9:endYear 1954 ;
+    su9:abstractness 2 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:P_1954_1965 a su9:Period ;
+    rdfs:label "Việt Nam giai đoạn 1954 - 1965"@vi ;
+    su9:aliases "1954-1965" ;
+    su9:startYear 1954 ;
+    su9:endYear 1965 ;
+    su9:abstractness 4 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:P_1959_1960 a su9:Period ;
+    rdfs:label "Giai đoạn Đồng khởi"@vi ;
+    su9:aliases "1959-1960" ;
+    su9:startYear 1959 ;
+    su9:endYear 1960 ;
+    su9:abstractness 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:P_1961_1965 a su9:Period ;
+    rdfs:label "Giai đoạn chống Chiến tranh đặc biệt"@vi ;
+    su9:aliases "1961-1965" ;
+    su9:startYear 1961 ;
+    su9:endYear 1965 ;
+    su9:abstractness 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:P_1965_1968 a su9:Period ;
+    rdfs:label "Giai đoạn Chiến tranh cục bộ (1965-1968)"@vi ;
+    su9:aliases "1965-1968" ;
+    su9:startYear 1965 ;
+    su9:endYear 1968 ;
+    su9:abstractness 4 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:P_1969_1973 a su9:Period ;
+    rdfs:label "Giai đoạn Việt Nam hóa chiến tranh (1969-1973)"@vi ;
+    su9:aliases "1969-1973" ;
+    su9:startYear 1969 ;
+    su9:endYear 1973 ;
+    su9:abstractness 4 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:P_1973_1975 a su9:Period ;
+    rdfs:label "Giai đoạn giải phóng miền Nam (1973-1975)"@vi ;
+    su9:aliases "Xuân 1975" ;
+    su9:startYear 1973 ;
+    su9:endYear 1975 ;
+    su9:abstractness 4 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:P_1976_1985 a su9:Period ;
+    rdfs:label "Thời kỳ trước Đổi mới (Bao cấp)"@vi ;
+    su9:aliases "1976-1985|Thời bao cấp" ;
+    su9:startYear 1976 ;
+    su9:endYear 1985 ;
+    su9:abstractness 4 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:P_1986_1991 a su9:Period ;
+    rdfs:label "Bước đầu công cuộc Đổi mới"@vi ;
+    su9:aliases "Từ 1986|1986-1991" ;
+    su9:startYear 1986 ;
+    su9:endYear 1991 ;
+    su9:abstractness 4 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:P_1991_2000 a su9:Period ;
+    rdfs:label "Thập niên 90 của thế kỷ XX"@vi ;
+    su9:aliases "1991-2000|Cuối thế kỷ XX" ;
+    su9:startYear 1991 ;
+    su9:endYear 2000 ;
+    su9:abstractness 4 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:P_Tu2001 a su9:Period ;
+    rdfs:label "Đầu thế kỷ XXI đến nay"@vi ;
+    su9:aliases "Thế kỷ XXI|Từ 2001" ;
+    su9:startYear 2001 ;
+    su9:endYear 2026 ;
+    su9:abstractness 4 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+
+### LOCATIONS ###
+su9:L_Global a su9:Location ;
+    rdfs:label "Thế giới"@vi ;
+    su9:aliases "Toàn cầu|Quốc tế" ;
+    su9:abstractness 4 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:L_Europe a su9:Location ;
+    rdfs:label "Châu Âu"@vi ;
+    su9:aliases "Europe" ;
+    su9:abstractness 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:L_Asia a su9:Location ;
+    rdfs:label "Châu Á"@vi ;
+    su9:aliases "Asia" ;
+    su9:abstractness 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:L_BacPhi a su9:Location ;
+    rdfs:label "Bắc Phi"@vi ;
+    su9:aliases "North Africa" ;
+    su9:abstractness 2 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:L_DongNamA a su9:Location ;
+    rdfs:label "Đông Nam Á"@vi ;
+    su9:aliases "Southeast Asia" ;
+    su9:locatedIn su9:L_Asia ;
+    su9:abstractness 2 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:L_DongDuong a su9:Location ;
+    rdfs:label "Đông Dương"@vi ;
+    su9:aliases "Bán đảo Đông Dương" ;
+    su9:locatedIn su9:L_Asia ;
+    su9:abstractness 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:L_LienXo a su9:Location ;
+    rdfs:label "Liên Xô"@vi ;
+    su9:aliases "USSR|Liên bang Xô viết" ;
+    su9:abstractness 2 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:L_Nga a su9:Location ;
+    rdfs:label "Nước Nga Xô viết"@vi ;
+    su9:aliases "Nga" ;
+    su9:locatedIn su9:L_LienXo ;
+    su9:abstractness 1 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:L_My a su9:Location ;
+    rdfs:label "Mỹ"@vi ;
+    su9:aliases "Hoa Kỳ|USA" ;
+    su9:abstractness 1 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:L_Duc a su9:Location ;
+    rdfs:label "Đức"@vi ;
+    su9:aliases "Germany" ;
+    su9:locatedIn su9:L_Europe ;
+    su9:abstractness 1 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:L_Italia a su9:Location ;
+    rdfs:label "I-ta-li-a"@vi ;
+    su9:aliases "Ý" ;
+    su9:locatedIn su9:L_Europe ;
+    su9:abstractness 1 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:L_NhatBan a su9:Location ;
+    rdfs:label "Nhật Bản"@vi ;
+    su9:aliases "Japan" ;
+    su9:locatedIn su9:L_Asia ;
+    su9:abstractness 1 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:L_TrungQuoc a su9:Location ;
+    rdfs:label "Trung Quốc"@vi ;
+    su9:aliases "Nước Cộng hoà Nhân dân Trung Hoa|PRC|China" ;
+    su9:locatedIn su9:L_Asia ;
+    su9:abstractness 1 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:L_AnDo a su9:Location ;
+    rdfs:label "Ấn Độ"@vi ;
+    su9:aliases "India" ;
+    su9:locatedIn su9:L_Asia ;
+    su9:abstractness 1 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:L_VietNam a su9:Location ;
+    rdfs:label "Việt Nam"@vi ;
+    su9:locatedIn su9:L_DongNamA ;
+    su9:abstractness 1 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:L_Indonesia a su9:Location ;
+    rdfs:label "In-đô-nê-xi-a"@vi ;
+    su9:locatedIn su9:L_DongNamA ;
+    su9:abstractness 1 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:L_BaLan a su9:Location ;
+    rdfs:label "Ba Lan"@vi ;
+    su9:aliases "Poland" ;
+    su9:locatedIn su9:L_Europe ;
+    su9:abstractness 1 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:L_Phap a su9:Location ;
+    rdfs:label "Pháp"@vi ;
+    su9:aliases "France|Nước Pháp" ;
+    su9:locatedIn su9:L_Europe ;
+    su9:abstractness 1 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:L_Anh a su9:Location ;
+    rdfs:label "Anh"@vi ;
+    su9:aliases "UK" ;
+    su9:locatedIn su9:L_Europe ;
+    su9:abstractness 1 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:L_BacKy a su9:Location ;
+    rdfs:label "Bắc Kỳ"@vi ;
+    su9:aliases "Bắc Kì" ;
+    su9:locatedIn su9:L_VietNam ;
+    su9:abstractness 2 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:L_TrungKy a su9:Location ;
+    rdfs:label "Trung Kỳ"@vi ;
+    su9:aliases "Trung Kì" ;
+    su9:locatedIn su9:L_VietNam ;
+    su9:abstractness 2 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:L_NamKy a su9:Location ;
+    rdfs:label "Nam Kỳ"@vi ;
+    su9:aliases "Nam Kì" ;
+    su9:locatedIn su9:L_VietNam ;
+    su9:abstractness 2 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:L_VietBac a su9:Location ;
+    rdfs:label "Khu giải phóng Việt Bắc"@vi ;
+    su9:aliases "Căn cứ địa Việt Bắc|Cao-Bắc-Lạng" ;
+    su9:locatedIn su9:L_BacKy ;
+    su9:abstractness 2 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:L_NgheTinh a su9:Location ;
+    rdfs:label "Nghệ An - Hà Tĩnh"@vi ;
+    su9:aliases "Nghệ Tĩnh|Nghệ An và Hà Tĩnh" ;
+    su9:locatedIn su9:L_TrungKy ;
+    su9:abstractness 1 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:L_Moscow a su9:Location ;
+    rdfs:label "Mát-xcơ-va"@vi ;
+    su9:aliases "Moscow" ;
+    su9:locatedIn su9:L_LienXo ;
+    su9:abstractness 1 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:L_Stalingrad a su9:Location ;
+    rdfs:label "Xta-lin-grát"@vi ;
+    su9:aliases "Stalingrad" ;
+    su9:locatedIn su9:L_LienXo ;
+    su9:abstractness 1 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:L_Leningrad a su9:Location ;
+    rdfs:label "Lê-nin-grát"@vi ;
+    su9:aliases "Leningrad" ;
+    su9:locatedIn su9:L_LienXo ;
+    su9:abstractness 1 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:L_PearlHarbor a su9:Location ;
+    rdfs:label "Trân Châu Cảng"@vi ;
+    su9:aliases "Hawaii" ;
+    su9:locatedIn su9:L_My ;
+    su9:abstractness 1 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:L_Washington a su9:Location ;
+    rdfs:label "Oa-sinh-tơn"@vi ;
+    su9:aliases "Washington" ;
+    su9:locatedIn su9:L_My ;
+    su9:abstractness 1 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:L_Normandy a su9:Location ;
+    rdfs:label "Noóc-măng-đi"@vi ;
+    su9:aliases "Normandy" ;
+    su9:locatedIn su9:L_Phap ;
+    su9:abstractness 1 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:L_Berlin a su9:Location ;
+    rdfs:label "Béc-lin"@vi ;
+    su9:aliases "Berlin" ;
+    su9:locatedIn su9:L_Duc ;
+    su9:abstractness 1 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:L_Hiroshima_Nagasaki a su9:Location ;
+    rdfs:label "Hi-rô-si-ma & Na-ga-xa-ki"@vi ;
+    su9:locatedIn su9:L_NhatBan ;
+    su9:abstractness 1 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:L_BacKinh a su9:Location ;
+    rdfs:label "Bắc Kinh"@vi ;
+    su9:aliases "Beijing" ;
+    su9:locatedIn su9:L_TrungQuoc ;
+    su9:abstractness 1 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:L_ManChau a su9:Location ;
+    rdfs:label "Mãn Châu"@vi ;
+    su9:aliases "Đông Bắc Trung Quốc" ;
+    su9:locatedIn su9:L_TrungQuoc ;
+    su9:abstractness 1 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:L_Versailles a su9:Location ;
+    rdfs:label "Véc-xai"@vi ;
+    su9:aliases "Hội nghị Véc-xai" ;
+    su9:locatedIn su9:L_Phap ;
+    su9:abstractness 1 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:L_Tours a su9:Location ;
+    rdfs:label "Tua"@vi ;
+    su9:aliases "Đại hội Tua" ;
+    su9:locatedIn su9:L_Phap ;
+    su9:abstractness 1 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:L_HongKong a su9:Location ;
+    rdfs:label "Hương Cảng"@vi ;
+    su9:aliases "Hương Cảng (Trung Quốc)|Trung Quốc" ;
+    su9:locatedIn su9:L_Asia ;
+    su9:abstractness 1 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:L_SaiGon a su9:Location ;
+    rdfs:label "Sài Gòn"@vi ;
+    su9:aliases "Cảng Sài Gòn|Ba Son" ;
+    su9:locatedIn su9:L_NamKy ;
+    su9:abstractness 1 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:L_HaNoi a su9:Location ;
+    rdfs:label "Hà Nội"@vi ;
+    su9:aliases "Xưởng A-vi-a|Nhà máy rượu Hà Nội" ;
+    su9:locatedIn su9:L_VietNam ;
+    su9:abstractness 1 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:L_NamDinh a su9:Location ;
+    rdfs:label "Nam Định"@vi ;
+    su9:aliases "Nhà máy dệt Nam Định" ;
+    su9:locatedIn su9:L_VietNam ;
+    su9:abstractness 1 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:L_QuangNinh a su9:Location ;
+    rdfs:label "Quảng Ninh"@vi ;
+    su9:aliases "Mỏ than Cẩm Phả" ;
+    su9:locatedIn su9:L_VietNam ;
+    su9:abstractness 1 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:L_BinhPhuoc a su9:Location ;
+    rdfs:label "Bình Phước"@vi ;
+    su9:aliases "Phú Riềng" ;
+    su9:locatedIn su9:L_NamKy ;
+    su9:abstractness 1 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:L_YenBai a su9:Location ;
+    rdfs:label "Yên Bái"@vi ;
+    su9:locatedIn su9:L_VietNam ;
+    su9:abstractness 1 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:L_VinhBenThuy a su9:Location ;
+    rdfs:label "Vinh - Bến Thủy"@vi ;
+    su9:aliases "Vinh-Bến Thuỷ|Trường Thi" ;
+    su9:locatedIn su9:L_NgheTinh ;
+    su9:abstractness 1 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:L_LangSon a su9:Location ;
+    rdfs:label "Lạng Sơn"@vi ;
+    su9:aliases "Bắc Sơn" ;
+    su9:locatedIn su9:L_VietNam ;
+    su9:abstractness 1 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:L_DoLuong a su9:Location ;
+    rdfs:label "Đô Lương (Nghệ An)"@vi ;
+    su9:aliases "Đô Lương" ;
+    su9:locatedIn su9:L_NgheTinh ;
+    su9:abstractness 1 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:L_HocMon a su9:Location ;
+    rdfs:label "Bà Điểm (Hóc Môn)"@vi ;
+    su9:aliases "Bà Điểm|Gia Định" ;
+    su9:locatedIn su9:L_SaiGon ;
+    su9:abstractness 1 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:L_CaoBang a su9:Location ;
+    rdfs:label "Cao Bằng"@vi ;
+    su9:aliases "Pác Bó|Phay Khắt|Nà Ngần" ;
+    su9:locatedIn su9:L_VietNam ;
+    su9:abstractness 1 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:L_TuyenQuang a su9:Location ;
+    rdfs:label "Tuyên Quang"@vi ;
+    su9:aliases "Tân Trào" ;
+    su9:locatedIn su9:L_VietNam ;
+    su9:abstractness 1 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:L_ThaiNguyen a su9:Location ;
+    rdfs:label "Thái Nguyên"@vi ;
+    su9:aliases "Thị xã Thái Nguyên" ;
+    su9:locatedIn su9:L_BacKy ;
+    su9:abstractness 1 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:L_Hue a su9:Location ;
+    rdfs:label "Huế"@vi ;
+    su9:aliases "Cố đô Huế" ;
+    su9:locatedIn su9:L_TrungKy ;
+    su9:abstractness 1 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:L_BaDinh a su9:Location ;
+    rdfs:label "Quảng trường Ba Đình"@vi ;
+    su9:aliases "Ba Đình" ;
+    su9:locatedIn su9:L_HaNoi ;
+    su9:abstractness 1 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:L_DongAu a su9:Location ;
+    rdfs:label "Đông Âu"@vi ;
+    su9:aliases "Các nước Đông Âu" ;
+    su9:locatedIn su9:L_Europe ;
+    su9:abstractness 2 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:L_TayAu a su9:Location ;
+    rdfs:label "Tây Âu"@vi ;
+    su9:aliases "Các nước Tây Âu|16 nước Tây Âu" ;
+    su9:locatedIn su9:L_Europe ;
+    su9:abstractness 2 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:L_DongDuc a su9:Location ;
+    rdfs:label "Đông Đức"@vi ;
+    su9:aliases "Cộng hoà Dân chủ Đức" ;
+    su9:locatedIn su9:L_DongAu ;
+    su9:abstractness 1 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:L_TiepKhac a su9:Location ;
+    rdfs:label "Tiệp Khắc"@vi ;
+    su9:locatedIn su9:L_DongAu ;
+    su9:abstractness 1 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:L_MyLaTinh a su9:Location ;
+    rdfs:label "Mỹ La-tinh"@vi ;
+    su9:aliases "Khu vực Mỹ La-tinh|Lục địa bùng cháy" ;
+    su9:locatedIn su9:L_Global ;
+    su9:abstractness 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:L_Cuba a su9:Location ;
+    rdfs:label "Cu-ba"@vi ;
+    su9:aliases "Cộng hòa Cu-ba|Cuba" ;
+    su9:locatedIn su9:L_MyLaTinh ;
+    su9:abstractness 1 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:L_AnDo a su9:Location ;
+    rdfs:label "Ấn Độ"@vi ;
+    su9:aliases "Cộng hòa Ấn Độ|India" ;
+    su9:locatedIn su9:L_Asia ;
+    su9:abstractness 1 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:L_DongNamA a su9:Location ;
+    rdfs:label "Đông Nam Á"@vi ;
+    su9:aliases "Khu vực Đông Nam Á|SEA" ;
+    su9:locatedIn su9:L_Asia ;
+    su9:abstractness 2 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:L_Pakistan a su9:Location ;
+    rdfs:label "Pa-ki-xtan"@vi ;
+    su9:aliases "Pakistan" ;
+    su9:locatedIn su9:L_Asia ;
+    su9:abstractness 1 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:L_ViTuyen16_Bac a su9:Location ;
+    rdfs:label "Từ vĩ tuyến 16 trở ra Bắc"@vi ;
+    su9:aliases "Miền Bắc|Bắc vĩ tuyến 16" ;
+    su9:locatedIn su9:L_VietNam ;
+    su9:abstractness 1 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:L_ViTuyen16_Nam a su9:Location ;
+    rdfs:label "Từ vĩ tuyến 16 trở vào Nam"@vi ;
+    su9:aliases "Miền Nam|Nam vĩ tuyến 16|Nam Bộ" ;
+    su9:locatedIn su9:L_VietNam ;
+    su9:abstractness 1 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:L_SaiGonChoLon a su9:Location ;
+    rdfs:label "Sài Gòn - Chợ Lớn"@vi ;
+    su9:aliases "Sài Gòn" ;
+    su9:locatedIn su9:L_ViTuyen16_Nam ;
+    su9:abstractness 1 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:L_VietBac a su9:Location ;
+    rdfs:label "Căn cứ địa Việt Bắc"@vi ;
+    su9:aliases "Chiến khu Việt Bắc|Thủ đô kháng chiến" ;
+    su9:locatedIn su9:L_ViTuyen16_Bac ;
+    su9:abstractness 2 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:L_DuongSo4 a su9:Location ;
+    rdfs:label "Đường số 4"@vi ;
+    su9:aliases "Hệ thống phòng ngự Đường số 4" ;
+    su9:locatedIn su9:L_ViTuyen16_Bac ;
+    su9:abstractness 1 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:L_DongKhe a su9:Location ;
+    rdfs:label "Đông Khê"@vi ;
+    su9:aliases "Cứ điểm Đông Khê" ;
+    su9:locatedIn su9:L_DuongSo4 ;
+    su9:abstractness 1 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:L_DienBienPhu a su9:Location ;
+    rdfs:label "Điện Biên Phủ"@vi ;
+    su9:aliases "Tập đoàn cứ điểm Điện Biên Phủ|Lòng chảo Điện Biên" ;
+    su9:locatedIn su9:L_ViTuyen16_Bac ;
+    su9:abstractness 1 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:L_Geneva a su9:Location ;
+    rdfs:label "Giơ-ne-vơ (Thụy Sĩ)"@vi ;
+    su9:aliases "Geneva" ;
+    su9:locatedIn su9:L_Global ;
+    su9:abstractness 1 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:L_ViTuyen17 a su9:Location ;
+    rdfs:label "Vĩ tuyến 17"@vi ;
+    su9:aliases "Sông Bến Hải" ;
+    su9:locatedIn su9:L_VietNam ;
+    su9:abstractness 1 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:L_MienBac a su9:Location ;
+    rdfs:label "Miền Bắc Việt Nam"@vi ;
+    su9:aliases "Miền Bắc|Bắc vĩ tuyến 17" ;
+    su9:locatedIn su9:L_VietNam ;
+    su9:abstractness 1 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:L_MienNam a su9:Location ;
+    rdfs:label "Miền Nam Việt Nam"@vi ;
+    su9:aliases "Miền Nam|Nam vĩ tuyến 17" ;
+    su9:locatedIn su9:L_VietNam ;
+    su9:abstractness 1 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:L_BenTre a su9:Location ;
+    rdfs:label "Bến Tre"@vi ;
+    su9:aliases "Tỉnh Bến Tre|Xứ Dừa" ;
+    su9:locatedIn su9:L_MienNam ;
+    su9:abstractness 1 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:L_TruongSon a su9:Location ;
+    rdfs:label "Đường Trường Sơn"@vi ;
+    su9:aliases "Tuyến đường Hồ Chí Minh" ;
+    su9:locatedIn su9:L_VietNam ;
+    su9:abstractness 2 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:L_VanTuong a su9:Location ;
+    rdfs:label "Vạn Tường (Quảng Ngãi)"@vi ;
+    su9:aliases "Vạn Tường" ;
+    su9:locatedIn su9:L_MienNam ;
+    su9:abstractness 1 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:L_TayNguyen a su9:Location ;
+    rdfs:label "Tây Nguyên"@vi ;
+    su9:aliases "Địa bàn Tây Nguyên" ;
+    su9:locatedIn su9:L_MienNam ;
+    su9:abstractness 2 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:L_HueDaNang a su9:Location ;
+    rdfs:label "Huế - Đà Nẵng"@vi ;
+    su9:aliases "Trị - Thiên" ;
+    su9:locatedIn su9:L_MienNam ;
+    su9:abstractness 2 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:L_SaiGon a su9:Location ;
+    rdfs:label "Sài Gòn (Gia Định)"@vi ;
+    su9:aliases "Dinh Độc Lập" ;
+    su9:locatedIn su9:L_MienNam ;
+    su9:abstractness 1 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:L_HaNoiHaiPhong a su9:Location ;
+    rdfs:label "Hà Nội, Hải Phòng"@vi ;
+    su9:aliases "Bầu trời Hà Nội" ;
+    su9:locatedIn su9:L_MienBac ;
+    su9:abstractness 2 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:L_BienGioiTayNam a su9:Location ;
+    rdfs:label "Biên giới Tây Nam"@vi ;
+    su9:aliases "Tây Nam Bộ" ;
+    su9:locatedIn su9:L_VietNam ;
+    su9:abstractness 1 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:L_BienGioiPhiaBac a su9:Location ;
+    rdfs:label "Biên giới phía Bắc"@vi ;
+    su9:aliases "Các tỉnh phía Bắc" ;
+    su9:locatedIn su9:L_VietNam ;
+    su9:abstractness 1 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:L_TruongSa a su9:Location ;
+    rdfs:label "Quần đảo Trường Sa"@vi ;
+    su9:aliases "Đảo Gạc Ma|Trường Sa" ;
+    su9:locatedIn su9:L_VietNam ;
+    su9:abstractness 1 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:L_Nga a su9:Location ;
+    rdfs:label "Liên bang Nga"@vi ;
+    su9:aliases "Nga|Russia" ;
+    su9:locatedIn su9:L_Global ;
+    su9:abstractness 1 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:L_TrungDong a su9:Location ;
+    rdfs:label "Khu vực Trung Đông"@vi ;
+    su9:aliases "Afghanistan và Iraq" ;
+    su9:locatedIn su9:L_Global ;
+    su9:abstractness 2 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+
+### PERSONS & ORGS ###
+su9:Pe_Lenin a su9:Person ;
+    rdfs:label "V.I. Lê-nin"@vi ;
+    su9:aliases "Lenin" ;
+    su9:frequencyInTextbook 15 ;
+    su9:abstractness 1 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:Pe_Roosevelt a su9:Person ;
+    rdfs:label "P. Ru-dơ-ven"@vi ;
+    su9:aliases "F.D. Roosevelt" ;
+    su9:frequencyInTextbook 10 ;
+    su9:abstractness 1 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:Pe_Hitler a su9:Person ;
+    rdfs:label "A. Hít-le"@vi ;
+    su9:aliases "Adolf Hitler" ;
+    su9:frequencyInTextbook 15 ;
+    su9:abstractness 1 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:Pe_Mussolini a su9:Person ;
+    rdfs:label "B. Mút-xô-li-ni"@vi ;
+    su9:aliases "Mussolini" ;
+    su9:frequencyInTextbook 8 ;
+    su9:abstractness 1 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:Pe_Gandhi a su9:Person ;
+    rdfs:label "M. Gan-đi"@vi ;
+    su9:aliases "Mahatma Gandhi" ;
+    su9:frequencyInTextbook 8 ;
+    su9:abstractness 1 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:Pe_Sukarno a su9:Person ;
+    rdfs:label "Ác-mét Xu-các-nô"@vi ;
+    su9:aliases "Sukarno" ;
+    su9:frequencyInTextbook 5 ;
+    su9:abstractness 1 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:Pe_PhanBoiChau a su9:Person ;
+    rdfs:label "Phan Bội Châu"@vi ;
+    su9:aliases "Cụ Phan Bội Châu" ;
+    su9:frequencyInTextbook 10 ;
+    su9:abstractness 1 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:Pe_NguyenAnNinh a su9:Person ;
+    rdfs:label "Nguyễn An Ninh"@vi ;
+    su9:frequencyInTextbook 8 ;
+    su9:abstractness 1 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:Pe_PhanChauTrinh a su9:Person ;
+    rdfs:label "Phan Châu Trinh"@vi ;
+    su9:aliases "Cụ Phan Châu Trinh" ;
+    su9:frequencyInTextbook 10 ;
+    su9:abstractness 1 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:Pe_NguyenThaiHoc a su9:Person ;
+    rdfs:label "Nguyễn Thái Học"@vi ;
+    su9:frequencyInTextbook 8 ;
+    su9:abstractness 1 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:Pe_PhoDucChinh a su9:Person ;
+    rdfs:label "Phó Đức Chính"@vi ;
+    su9:frequencyInTextbook 5 ;
+    su9:abstractness 1 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:Pe_HoChiMinh a su9:Person ;
+    rdfs:label "Hồ Chí Minh"@vi ;
+    su9:aliases "Nguyễn Ái Quốc|Nguyễn Tất Thành|Văn Ba|Bác Hồ" ;
+    su9:frequencyInTextbook 20 ;
+    su9:abstractness 1 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:Pe_TruongChinh a su9:Person ;
+    rdfs:label "Trường Chinh"@vi ;
+    su9:aliases "Qua Ninh" ;
+    su9:frequencyInTextbook 10 ;
+    su9:abstractness 1 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:Pe_VoNguyenGiap a su9:Person ;
+    rdfs:label "Võ Nguyên Giáp"@vi ;
+    su9:aliases "Vân Đình" ;
+    su9:frequencyInTextbook 15 ;
+    su9:abstractness 1 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:Pe_NguyenVanCu a su9:Person ;
+    rdfs:label "Nguyễn Văn Cừ"@vi ;
+    su9:aliases "Tổng Bí thư Nguyễn Văn Cừ" ;
+    su9:frequencyInTextbook 10 ;
+    su9:abstractness 1 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:Pe_BaoDai a su9:Person ;
+    rdfs:label "Bảo Đại"@vi ;
+    su9:aliases "Vua Bảo Đại" ;
+    su9:frequencyInTextbook 10 ;
+    su9:abstractness 1 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:Pe_TranTrongKim a su9:Person ;
+    rdfs:label "Trần Trọng Kim"@vi ;
+    su9:aliases "Chính phủ Trần Trọng Kim" ;
+    su9:frequencyInTextbook 5 ;
+    su9:abstractness 1 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:Pe_Truman a su9:Person ;
+    rdfs:label "H. Tru-man"@vi ;
+    su9:aliases "Harry S. Truman|Tổng thống Tru-man" ;
+    su9:frequencyInTextbook 10 ;
+    su9:abstractness 1 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:Pe_Zhdanov a su9:Person ;
+    rdfs:label "A. Giơ-đa-nốp"@vi ;
+    su9:aliases "Zhdanov" ;
+    su9:frequencyInTextbook 8 ;
+    su9:abstractness 1 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:Pe_Gorbachev a su9:Person ;
+    rdfs:label "M. Goóc-ba-chốp"@vi ;
+    su9:aliases "Mikhail Gorbachev|Goóc-ba-chốp" ;
+    su9:frequencyInTextbook 10 ;
+    su9:abstractness 1 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:Pe_FidelCastro a su9:Person ;
+    rdfs:label "Phi-đen Cát-xtơ-rô"@vi ;
+    su9:aliases "Fidel Castro|Lãnh tụ Phi-đen" ;
+    su9:frequencyInTextbook 10 ;
+    su9:abstractness 1 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:Pe_Batista a su9:Person ;
+    rdfs:label "Ba-ti-xta"@vi ;
+    su9:aliases "Tướng Ba-ti-xta|Độc tài Ba-ti-xta" ;
+    su9:frequencyInTextbook 8 ;
+    su9:abstractness 1 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:Pe_MaoTrachDong a su9:Person ;
+    rdfs:label "Mao Trạch Đông"@vi ;
+    su9:aliases "Chủ tịch Mao" ;
+    su9:frequencyInTextbook 10 ;
+    su9:abstractness 1 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:Pe_DangTieuBinh a su9:Person ;
+    rdfs:label "Đặng Tiểu Bình"@vi ;
+    su9:aliases "Deng Xiaoping" ;
+    su9:frequencyInTextbook 10 ;
+    su9:abstractness 1 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:Pe_TruongChinh a su9:Person ;
+    rdfs:label "Trường Chinh"@vi ;
+    su9:aliases "Tổng Bí thư Trường Chinh" ;
+    su9:frequencyInTextbook 10 ;
+    su9:abstractness 1 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:O_Bolshevik a su9:Organization ;
+    rdfs:label "Đảng Bôn-sê-vích Nga"@vi ;
+    su9:frequencyInTextbook 10 ;
+    su9:abstractness 2 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:O_Comintern a su9:Organization ;
+    rdfs:label "Quốc tế Cộng sản"@vi ;
+    su9:aliases "Quốc tế thứ ba" ;
+    su9:frequencyInTextbook 12 ;
+    su9:abstractness 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:O_DangQuocXa a su9:Organization ;
+    rdfs:label "Đảng Quốc xã"@vi ;
+    su9:aliases "Nazi" ;
+    su9:frequencyInTextbook 10 ;
+    su9:abstractness 2 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:O_DangQuocGiaPhatXit a su9:Organization ;
+    rdfs:label "Đảng Quốc gia phát xít (Italia)"@vi ;
+    su9:frequencyInTextbook 5 ;
+    su9:abstractness 2 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:O_PhePhatXit a su9:Organization ;
+    rdfs:label "Phe Phát xít"@vi ;
+    su9:aliases "Trục Đức-Ý-Nhật" ;
+    su9:frequencyInTextbook 15 ;
+    su9:abstractness 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:O_LienHopQuoc_WW2 a su9:Organization ;
+    rdfs:label "Khối Đồng minh chống phát xít"@vi ;
+    su9:aliases "Phe Đồng minh|Quân Đồng minh|Mặt trận Đồng minh|Đồng minh" ;
+    su9:frequencyInTextbook 15 ;
+    su9:abstractness 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:O_DangCongSan_NhatBan a su9:Organization ;
+    rdfs:label "Đảng Cộng sản Nhật Bản"@vi ;
+    su9:frequencyInTextbook 5 ;
+    su9:abstractness 2 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:O_QuocDanDang_TQ a su9:Organization ;
+    rdfs:label "Quốc dân Đảng (Trung Quốc)"@vi ;
+    su9:frequencyInTextbook 8 ;
+    su9:abstractness 2 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:O_DangCongSan_TQ a su9:Organization ;
+    rdfs:label "Đảng Cộng sản Trung Quốc"@vi ;
+    su9:frequencyInTextbook 8 ;
+    su9:abstractness 2 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:O_DangQuocDai a su9:Organization ;
+    rdfs:label "Đảng Quốc đại (Ấn Độ)"@vi ;
+    su9:frequencyInTextbook 7 ;
+    su9:abstractness 2 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:O_DangCongSan_AnDo a su9:Organization ;
+    rdfs:label "Đảng Cộng sản Ấn Độ"@vi ;
+    su9:frequencyInTextbook 5 ;
+    su9:abstractness 2 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:O_DangDanToc_Indonesia a su9:Organization ;
+    rdfs:label "Đảng Dân tộc In-đô-nê-xi-a"@vi ;
+    su9:frequencyInTextbook 5 ;
+    su9:abstractness 2 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:O_VNQDD a su9:Organization ;
+    rdfs:label "Việt Nam Quốc dân đảng"@vi ;
+    su9:aliases "VNQDĐ" ;
+    su9:frequencyInTextbook 6 ;
+    su9:abstractness 2 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:O_TuSanVN a su9:Organization ;
+    rdfs:label "Giai cấp tư sản Việt Nam"@vi ;
+    su9:aliases "Tư sản dân tộc|Tư sản yêu nước" ;
+    su9:frequencyInTextbook 10 ;
+    su9:abstractness 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:O_TieuTuSan a su9:Organization ;
+    rdfs:label "Tầng lớp tiểu tư sản"@vi ;
+    su9:aliases "Tiểu tư sản|Trí thức trẻ|Học sinh, sinh viên" ;
+    su9:frequencyInTextbook 10 ;
+    su9:abstractness 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:O_CongNhanVN a su9:Organization ;
+    rdfs:label "Giai cấp công nhân Việt Nam"@vi ;
+    su9:aliases "Công nhân" ;
+    su9:frequencyInTextbook 15 ;
+    su9:abstractness 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:O_NamDongThuXa a su9:Organization ;
+    rdfs:label "Nam Đồng thư xã"@vi ;
+    su9:aliases "Nhà xuất bản Nam Đồng" ;
+    su9:frequencyInTextbook 5 ;
+    su9:abstractness 2 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:O_HoiPhucViet a su9:Organization ;
+    rdfs:label "Hội Phục Việt"@vi ;
+    su9:frequencyInTextbook 5 ;
+    su9:abstractness 2 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:O_VNQDD a su9:Organization ;
+    rdfs:label "Việt Nam Quốc dân Đảng"@vi ;
+    su9:aliases "VNQDĐ|VN Quốc dân Đảng" ;
+    su9:frequencyInTextbook 12 ;
+    su9:abstractness 2 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:O_TanViet a su9:Organization ;
+    rdfs:label "Tân Việt Cách mạng đảng"@vi ;
+    su9:aliases "Đảng Tân Việt" ;
+    su9:frequencyInTextbook 10 ;
+    su9:abstractness 2 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:O_HVNCMTN a su9:Organization ;
+    rdfs:label "Hội Việt Nam Cách mạng Thanh niên"@vi ;
+    su9:aliases "Hội VN Cách mạng Thanh niên" ;
+    su9:frequencyInTextbook 15 ;
+    su9:abstractness 2 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:O_CongHoi a su9:Organization ;
+    rdfs:label "Công hội"@vi ;
+    su9:aliases "Công hội đỏ" ;
+    su9:frequencyInTextbook 8 ;
+    su9:abstractness 2 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:O_DangXaHoiPhap a su9:Organization ;
+    rdfs:label "Đảng Xã hội Pháp"@vi ;
+    su9:frequencyInTextbook 5 ;
+    su9:abstractness 2 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:O_DangCongSanPhap a su9:Organization ;
+    rdfs:label "Đảng Cộng sản Pháp"@vi ;
+    su9:frequencyInTextbook 5 ;
+    su9:abstractness 2 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:O_QuocTeCongSan a su9:Organization ;
+    rdfs:label "Quốc tế Cộng sản"@vi ;
+    su9:aliases "Quốc tế 3|Comintern|Đại hội V" ;
+    su9:frequencyInTextbook 15 ;
+    su9:abstractness 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:O_HoiLienHiepThuocDia a su9:Organization ;
+    rdfs:label "Hội Liên hiệp thuộc địa"@vi ;
+    su9:frequencyInTextbook 5 ;
+    su9:abstractness 2 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:O_HoiNongDanQuocTe a su9:Organization ;
+    rdfs:label "Hội đồng Quốc tế Nông dân"@vi ;
+    su9:frequencyInTextbook 5 ;
+    su9:abstractness 2 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:O_DDCSD a su9:Organization ;
+    rdfs:label "Đông Dương Cộng sản Đảng"@vi ;
+    su9:frequencyInTextbook 10 ;
+    su9:abstractness 2 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:O_ANCSD a su9:Organization ;
+    rdfs:label "An Nam Cộng sản Đảng"@vi ;
+    su9:frequencyInTextbook 10 ;
+    su9:abstractness 2 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:O_DDCSLD a su9:Organization ;
+    rdfs:label "Đông Dương Cộng sản Liên đoàn"@vi ;
+    su9:frequencyInTextbook 10 ;
+    su9:abstractness 2 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:O_DangCongSanVN a su9:Organization ;
+    rdfs:label "Đảng Cộng sản Việt Nam"@vi ;
+    su9:aliases "Đảng CSVN|Đảng duy nhất|Đội tiền phong" ;
+    su9:frequencyInTextbook 20 ;
+    su9:abstractness 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:O_ChinhQuyenXoViet a su9:Organization ;
+    rdfs:label "Chính quyền Xô viết"@vi ;
+    su9:aliases "Xô viết|Các xô viết" ;
+    su9:frequencyInTextbook 10 ;
+    su9:abstractness 2 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:O_MatTranNhanDanPhap a su9:Organization ;
+    rdfs:label "Mặt trận Nhân dân Pháp"@vi ;
+    su9:frequencyInTextbook 8 ;
+    su9:abstractness 2 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:O_MatTranDanChuDongDuong a su9:Organization ;
+    rdfs:label "Mặt trận Dân chủ Đông Dương"@vi ;
+    su9:aliases "Mặt trận Nhân dân phản đế Đông Dương|Mặt trận Dân chủ" ;
+    su9:frequencyInTextbook 12 ;
+    su9:abstractness 2 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:O_ThucDanPhap a su9:Organization ;
+    rdfs:label "Thực dân Pháp"@vi ;
+    su9:aliases "Đế quốc Pháp|Pháp" ;
+    su9:frequencyInTextbook 20 ;
+    su9:abstractness 2 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:O_QuanPhietNhat a su9:Organization ;
+    rdfs:label "Quân phiệt Nhật Bản"@vi ;
+    su9:aliases "Phát xít Nhật|Nhật Bản|Nhật" ;
+    su9:frequencyInTextbook 20 ;
+    su9:abstractness 2 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:O_VietMinh a su9:Organization ;
+    rdfs:label "Mặt trận Việt Minh"@vi ;
+    su9:aliases "Mặt trận Việt Nam độc lập đồng minh|Hội Cứu quốc" ;
+    su9:frequencyInTextbook 20 ;
+    su9:abstractness 2 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:O_VNTTGPQ a su9:Organization ;
+    rdfs:label "Đội Việt Nam Tuyên truyền Giải phóng quân"@vi ;
+    su9:aliases "Việt Nam Tuyên truyền Giải phóng quân" ;
+    su9:frequencyInTextbook 15 ;
+    su9:abstractness 2 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:O_CuuQuocQuan a su9:Organization ;
+    rdfs:label "Cứu quốc quân"@vi ;
+    su9:frequencyInTextbook 10 ;
+    su9:abstractness 2 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:O_VN_GiaiPhongQuan a su9:Organization ;
+    rdfs:label "Việt Nam Giải phóng quân"@vi ;
+    su9:frequencyInTextbook 15 ;
+    su9:abstractness 2 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:O_UyBanKhoiNghia a su9:Organization ;
+    rdfs:label "Ủy ban Khởi nghĩa toàn quốc"@vi ;
+    su9:frequencyInTextbook 10 ;
+    su9:abstractness 2 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:O_ChinhPhuLamThoi a su9:Organization ;
+    rdfs:label "Chính phủ lâm thời"@vi ;
+    su9:aliases "Ủy ban Dân tộc giải phóng Việt Nam|Chính phủ VNDCCH" ;
+    su9:frequencyInTextbook 15 ;
+    su9:abstractness 2 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:O_PheTBCN a su9:Organization ;
+    rdfs:label "Phe Tư bản chủ nghĩa"@vi ;
+    su9:aliases "Tư bản chủ nghĩa|Đế quốc chủ nghĩa" ;
+    su9:frequencyInTextbook 20 ;
+    su9:abstractness 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:O_PheXHCN a su9:Organization ;
+    rdfs:label "Phe Xã hội chủ nghĩa"@vi ;
+    su9:aliases "Xã hội chủ nghĩa" ;
+    su9:frequencyInTextbook 20 ;
+    su9:abstractness 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:O_SEV a su9:Organization ;
+    rdfs:label "Hội đồng Tương trợ Kinh tế (SEV)"@vi ;
+    su9:aliases "SEV" ;
+    su9:frequencyInTextbook 15 ;
+    su9:abstractness 2 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:O_NATO a su9:Organization ;
+    rdfs:label "Tổ chức Hiệp ước Bắc Đại Tây Dương (NATO)"@vi ;
+    su9:aliases "NATO" ;
+    su9:frequencyInTextbook 15 ;
+    su9:abstractness 2 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:O_Warsaw a su9:Organization ;
+    rdfs:label "Tổ chức Hiệp ước Vác-sa-va"@vi ;
+    su9:aliases "Vác-sa-va|Warsaw" ;
+    su9:frequencyInTextbook 15 ;
+    su9:abstractness 2 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:O_DangCSLienXo a su9:Organization ;
+    rdfs:label "Đảng Cộng sản Liên Xô"@vi ;
+    su9:frequencyInTextbook 15 ;
+    su9:abstractness 2 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:O_SNG a su9:Organization ;
+    rdfs:label "Cộng đồng các quốc gia độc lập (SNG)"@vi ;
+    su9:aliases "SNG|Cộng đồng SNG" ;
+    su9:frequencyInTextbook 12 ;
+    su9:abstractness 2 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:O_DangDanChu_My a su9:Organization ;
+    rdfs:label "Đảng Dân chủ Mỹ"@vi ;
+    su9:aliases "Đảng Dân chủ|Democratic Party" ;
+    su9:frequencyInTextbook 10 ;
+    su9:abstractness 2 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:O_DangCongHoa_My a su9:Organization ;
+    rdfs:label "Đảng Cộng hòa Mỹ"@vi ;
+    su9:aliases "Đảng Cộng hòa|Republican Party" ;
+    su9:frequencyInTextbook 10 ;
+    su9:abstractness 2 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:O_EEC a su9:Organization ;
+    rdfs:label "Cộng đồng Kinh tế châu Âu (EEC)"@vi ;
+    su9:aliases "Thị trường chung châu Âu" ;
+    su9:frequencyInTextbook 15 ;
+    su9:abstractness 2 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:O_EU a su9:Organization ;
+    rdfs:label "Liên minh châu Âu (EU)"@vi ;
+    su9:aliases "Liên minh EU|European Union" ;
+    su9:frequencyInTextbook 20 ;
+    su9:abstractness 2 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:O_PhongTrao26_7 a su9:Organization ;
+    rdfs:label "Phong trào 26-7"@vi ;
+    su9:aliases "Tổ chức cách mạng 26-7" ;
+    su9:frequencyInTextbook 10 ;
+    su9:abstractness 2 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:O_CheDoBatista a su9:Organization ;
+    rdfs:label "Chế độ độc tài Ba-ti-xta"@vi ;
+    su9:aliases "Chính quyền tay sai Mỹ" ;
+    su9:frequencyInTextbook 9 ;
+    su9:abstractness 2 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:O_SCAP a su9:Organization ;
+    rdfs:label "Bộ chỉ huy tối cao lực lượng Đồng minh (SCAP)"@vi ;
+    su9:aliases "Lực lượng SCAP" ;
+    su9:frequencyInTextbook 8 ;
+    su9:abstractness 2 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:O_ASEAN a su9:Organization ;
+    rdfs:label "Hiệp hội các quốc gia Đông Nam Á (ASEAN)"@vi ;
+    su9:aliases "ASEAN|Khối ASEAN" ;
+    su9:frequencyInTextbook 15 ;
+    su9:abstractness 2 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:O_DangQuocDai a su9:Organization ;
+    rdfs:label "Đảng Quốc đại Ấn Độ"@vi ;
+    su9:aliases "Đảng Quốc đại" ;
+    su9:frequencyInTextbook 10 ;
+    su9:abstractness 2 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:O_VNDCCH a su9:Organization ;
+    rdfs:label "Nước Việt Nam Dân chủ Cộng hòa"@vi ;
+    su9:aliases "Chính phủ Việt Nam|Chính quyền cách mạng" ;
+    su9:frequencyInTextbook 20 ;
+    su9:abstractness 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:O_THDQ a su9:Organization ;
+    rdfs:label "Quân Trung Hoa Dân quốc"@vi ;
+    su9:aliases "Quân Tưởng|Tưởng Giới Thạch" ;
+    su9:frequencyInTextbook 10 ;
+    su9:abstractness 2 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:O_ThucDanPhap a su9:Organization ;
+    rdfs:label "Thực dân Pháp"@vi ;
+    su9:aliases "Quân Pháp|Pháp" ;
+    su9:frequencyInTextbook 15 ;
+    su9:abstractness 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:O_QuanAnh a su9:Organization ;
+    rdfs:label "Quân Anh"@vi ;
+    su9:aliases "Đế quốc Anh" ;
+    su9:frequencyInTextbook 8 ;
+    su9:abstractness 2 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:O_VietQuocVietCach a su9:Organization ;
+    rdfs:label "Việt Quốc, Việt Cách"@vi ;
+    su9:aliases "Đảng phái tay sai|Bọn phản động" ;
+    su9:frequencyInTextbook 5 ;
+    su9:abstractness 2 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:O_QuocHoiKhoa1 a su9:Organization ;
+    rdfs:label "Quốc hội khóa I"@vi ;
+    su9:aliases "Quốc hội đầu tiên" ;
+    su9:frequencyInTextbook 10 ;
+    su9:abstractness 2 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:O_NhaBinhDanHocVu a su9:Organization ;
+    rdfs:label "Nha Bình dân học vụ"@vi ;
+    su9:aliases "Bình dân học vụ" ;
+    su9:frequencyInTextbook 10 ;
+    su9:abstractness 2 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:O_DangLaoDongVN a su9:Organization ;
+    rdfs:label "Đảng Lao động Việt Nam"@vi ;
+    su9:aliases "Đảng Cộng sản Đông Dương" ;
+    su9:frequencyInTextbook 20 ;
+    su9:abstractness 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:O_MatTranLienViet a su9:Organization ;
+    rdfs:label "Mặt trận Liên Việt"@vi ;
+    su9:aliases "Mặt trận Liên hiệp quốc dân Việt Nam" ;
+    su9:frequencyInTextbook 15 ;
+    su9:abstractness 2 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:O_LienMinhVietMienLao a su9:Organization ;
+    rdfs:label "Liên minh nhân dân Việt - Miên - Lào"@vi ;
+    su9:aliases "Liên minh Đông Dương" ;
+    su9:frequencyInTextbook 10 ;
+    su9:abstractness 2 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:O_ChinhQuyenDiem a su9:Organization ;
+    rdfs:label "Chính quyền Ngô Đình Diệm"@vi ;
+    su9:aliases "Mỹ - Diệm|Ngụy quyền Sài Gòn" ;
+    su9:frequencyInTextbook 15 ;
+    su9:abstractness 2 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:O_MTDTGPMNVN a su9:Organization ;
+    rdfs:label "Mặt trận Dân tộc giải phóng miền Nam Việt Nam"@vi ;
+    su9:aliases "Mặt trận Giải phóng" ;
+    su9:frequencyInTextbook 20 ;
+    su9:abstractness 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:O_DoiQuanTocDai a su9:Organization ;
+    rdfs:label "Đội quân tóc dài"@vi ;
+    su9:aliases "Lực lượng nữ đấu tranh chính trị" ;
+    su9:frequencyInTextbook 10 ;
+    su9:abstractness 2 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:O_CPCM_LamThoi a su9:Organization ;
+    rdfs:label "Chính phủ Cách mạng lâm thời Cộng hòa miền Nam VN"@vi ;
+    su9:aliases "Chính phủ Cách mạng lâm thời" ;
+    su9:frequencyInTextbook 15 ;
+    su9:abstractness 2 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:O_QuanMy a su9:Organization ;
+    rdfs:label "Quân đội Viễn chinh Mỹ"@vi ;
+    su9:aliases "Quân Mỹ|Lính Mỹ" ;
+    su9:frequencyInTextbook 15 ;
+    su9:abstractness 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:O_QuanSaiGon a su9:Organization ;
+    rdfs:label "Quân đội Sài Gòn"@vi ;
+    su9:aliases "Quân Ngụy|Lực lượng tay sai" ;
+    su9:frequencyInTextbook 15 ;
+    su9:abstractness 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:O_QuocHoiKhoa6 a su9:Organization ;
+    rdfs:label "Quốc hội khóa VI"@vi ;
+    su9:aliases "Quốc hội thống nhất" ;
+    su9:frequencyInTextbook 15 ;
+    su9:abstractness 2 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:O_KhmerDo a su9:Organization ;
+    rdfs:label "Chính quyền Pôn Pốt"@vi ;
+    su9:aliases "Khmer Đỏ|Campuchia dân chủ" ;
+    su9:frequencyInTextbook 10 ;
+    su9:abstractness 2 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:O_LienHopQuoc a su9:Organization ;
+    rdfs:label "Tổ chức Liên hợp quốc (UN)"@vi ;
+    su9:aliases "Liên hợp quốc|UN" ;
+    su9:frequencyInTextbook 20 ;
+    su9:abstractness 2 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:O_DangCS_VN a su9:Organization ;
+    rdfs:label "Đảng Cộng sản Việt Nam"@vi ;
+    su9:aliases "Đảng" ;
+    su9:frequencyInTextbook 20 ;
+    su9:abstractness 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:O_AlQaeda a su9:Organization ;
+    rdfs:label "Tổ chức khủng bố Al-Qaeda"@vi ;
+    su9:aliases "Al-Qaeda" ;
+    su9:frequencyInTextbook 5 ;
+    su9:abstractness 2 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+
+### CONCEPTS ###
+su9:C_KhungHoangKinhTe a su9:Concept ;
+    rdfs:label "Khủng hoảng kinh tế"@vi ;
+    su9:aliases "Khủng hoảng thừa" ;
+    su9:frequencyInTextbook 15 ;
+    su9:abstractness 4 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:C_ChuNghiaPhatXit a su9:Concept ;
+    rdfs:label "Chủ nghĩa phát xít"@vi ;
+    su9:aliases "Phát xít" ;
+    su9:frequencyInTextbook 18 ;
+    su9:abstractness 5 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:C_KinhTeThiTruong a su9:Concept ;
+    rdfs:label "Kinh tế thị trường"@vi ;
+    su9:aliases "Tự do buôn bán" ;
+    su9:frequencyInTextbook 10 ;
+    su9:abstractness 5 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:C_SuCanThiepCuaNhaNuoc a su9:Concept ;
+    rdfs:label "Sự can thiệp của nhà nước"@vi ;
+    su9:aliases "Kinh tế vĩ mô" ;
+    su9:frequencyInTextbook 8 ;
+    su9:abstractness 4 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:C_KhuynhHuongVoSan a su9:Concept ;
+    rdfs:label "Khuynh hướng vô sản"@vi ;
+    su9:aliases "Cách mạng vô sản" ;
+    su9:frequencyInTextbook 12 ;
+    su9:abstractness 5 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:C_KhuynhHuongTuSan a su9:Concept ;
+    rdfs:label "Khuynh hướng tư sản"@vi ;
+    su9:aliases "Cách mạng tư sản" ;
+    su9:frequencyInTextbook 10 ;
+    su9:abstractness 5 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:C_ChinhSachThoaHiep a su9:Concept ;
+    rdfs:label "Chính sách thỏa hiệp nhượng bộ"@vi ;
+    su9:aliases "Dung túng phát xít" ;
+    su9:frequencyInTextbook 8 ;
+    su9:abstractness 5 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:C_GiaiPhongDanToc a su9:Concept ;
+    rdfs:label "Giải phóng dân tộc"@vi ;
+    su9:aliases "Độc lập dân tộc" ;
+    su9:frequencyInTextbook 15 ;
+    su9:abstractness 5 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:C_HeThongVersaillesWashington a su9:Concept ;
+    rdfs:label "Hệ thống Véc-xai - Oa-sinh-tơn"@vi ;
+    su9:frequencyInTextbook 12 ;
+    su9:abstractness 5 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:C_ChienTranhChinhNghia a su9:Concept ;
+    rdfs:label "Chiến tranh chính nghĩa"@vi ;
+    su9:aliases "Chính nghĩa" ;
+    su9:frequencyInTextbook 10 ;
+    su9:abstractness 5 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:C_ChienTranhPhiNghia a su9:Concept ;
+    rdfs:label "Chiến tranh phi nghĩa"@vi ;
+    su9:aliases "Phi nghĩa" ;
+    su9:frequencyInTextbook 10 ;
+    su9:abstractness 5 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:C_PhatXitHoa a su9:Concept ;
+    rdfs:label "Quá trình phát xít hóa"@vi ;
+    su9:aliases "Chạy đua vũ trang" ;
+    su9:frequencyInTextbook 15 ;
+    su9:abstractness 5 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:C_ChanHungNoiHoa a su9:Concept ;
+    rdfs:label "Chấn hưng nội hóa, bài trừ ngoại hóa"@vi ;
+    su9:aliases "Bài trừ ngoại hóa" ;
+    su9:frequencyInTextbook 8 ;
+    su9:abstractness 4 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:C_KhuynhHuongTuSan a su9:Concept ;
+    rdfs:label "Khuynh hướng dân chủ tư sản"@vi ;
+    su9:aliases "Cách mạng dân chủ tư sản|Dân chủ tư sản" ;
+    su9:frequencyInTextbook 15 ;
+    su9:abstractness 5 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:C_KhuynhHuongVoSan a su9:Concept ;
+    rdfs:label "Khuynh hướng vô sản"@vi ;
+    su9:aliases "Cách mạng vô sản|Vô sản" ;
+    su9:frequencyInTextbook 15 ;
+    su9:abstractness 5 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:C_BaoDongAmSat a su9:Concept ;
+    rdfs:label "Bạo động, ám sát cá nhân"@vi ;
+    su9:aliases "Khủng bố cá nhân" ;
+    su9:frequencyInTextbook 7 ;
+    su9:abstractness 4 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:C_BaiCong a su9:Concept ;
+    rdfs:label "Bãi công"@vi ;
+    su9:aliases "Đình công|Lãn công|Phá hợp đồng" ;
+    su9:status "Active" .
+su9:C_ChuNghiaMacLenin a su9:Concept ;
+    rdfs:label "Chủ nghĩa Mác-Lê-nin"@vi ;
+    su9:aliases "Mác-Lê-nin|Mác - Lênin" ;
+    su9:frequencyInTextbook 15 ;
+    su9:abstractness 5 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:C_CachMangVoSan a su9:Concept ;
+    rdfs:label "Cách mạng vô sản"@vi ;
+    su9:aliases "Con đường cách mạng vô sản" ;
+    su9:frequencyInTextbook 15 ;
+    su9:abstractness 5 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:C_CachMangTuSanDanQuyen a su9:Concept ;
+    rdfs:label "Tư sản dân quyền cách mạng"@vi ;
+    su9:aliases "Cách mạng tư sản dân quyền" ;
+    su9:frequencyInTextbook 12 ;
+    su9:abstractness 5 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:C_ThoDiaCachMang a su9:Concept ;
+    rdfs:label "Thổ địa cách mạng"@vi ;
+    su9:aliases "Cách mạng ruộng đất" ;
+    su9:frequencyInTextbook 10 ;
+    su9:abstractness 5 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:C_LienMinhCongNong a su9:Concept ;
+    rdfs:label "Liên minh công - nông"@vi ;
+    su9:aliases "Khối liên minh công-nông" ;
+    su9:frequencyInTextbook 12 ;
+    su9:abstractness 4 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:C_DanSinhDanChu a su9:Concept ;
+    rdfs:label "Dân sinh, dân chủ"@vi ;
+    su9:aliases "Tự do, dân sinh, dân chủ, cơm áo, hòa bình" ;
+    su9:frequencyInTextbook 10 ;
+    su9:abstractness 4 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:C_DauTranhNghiTruong a su9:Concept ;
+    rdfs:label "Đấu tranh nghị trường"@vi ;
+    su9:aliases "Nghị trường" ;
+    su9:frequencyInTextbook 9 ;
+    su9:abstractness 4 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:C_DauTranhBaoChi a su9:Concept ;
+    rdfs:label "Đấu tranh báo chí"@vi ;
+    su9:aliases "Lĩnh vực báo chí|Đấu tranh công khai" ;
+    su9:frequencyInTextbook 9 ;
+    su9:abstractness 4 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:C_TapDuotCachMang a su9:Concept ;
+    rdfs:label "Cuộc tập dượt cho Cách mạng"@vi ;
+    su9:aliases "Cuộc diễn tập|Bài học kinh nghiệm" ;
+    su9:frequencyInTextbook 15 ;
+    su9:abstractness 5 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:C_KinhTeChiHuy a su9:Concept ;
+    rdfs:label "Kinh tế chỉ huy"@vi ;
+    su9:aliases "Chính sách kinh tế chỉ huy" ;
+    su9:frequencyInTextbook 8 ;
+    su9:abstractness 4 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:C_NanDoi1945 a su9:Concept ;
+    rdfs:label "Nạn đói năm 1945"@vi ;
+    su9:aliases "Nạn đói nghiêm trọng|Nhổ lúa trồng đay" ;
+    su9:status "Active" .
+su9:C_KhoiNghiaVuTrang a su9:Concept ;
+    rdfs:label "Khởi nghĩa vũ trang"@vi ;
+    su9:aliases "Đấu tranh vũ trang" ;
+    su9:frequencyInTextbook 15 ;
+    su9:abstractness 5 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:C_KhoiNghiaTungPhan a su9:Concept ;
+    rdfs:label "Khởi nghĩa từng phần"@vi ;
+    su9:frequencyInTextbook 10 ;
+    su9:abstractness 5 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:C_TongKhoiNghia a su9:Concept ;
+    rdfs:label "Tổng khởi nghĩa"@vi ;
+    su9:aliases "Tổng khởi nghĩa giành chính quyền" ;
+    su9:frequencyInTextbook 15 ;
+    su9:abstractness 5 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:C_PhaKhoThoc a su9:Concept ;
+    rdfs:label "Phá kho thóc, giải quyết nạn đói"@vi ;
+    su9:aliases "Phá kho thóc" ;
+    su9:frequencyInTextbook 12 ;
+    su9:abstractness 4 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:C_ThoiCoCachMang a su9:Concept ;
+    rdfs:label "Thời cơ cách mạng"@vi ;
+    su9:aliases "Thời cơ tổng khởi nghĩa" ;
+    su9:frequencyInTextbook 15 ;
+    su9:abstractness 4 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:C_DocLapTuDo a su9:Concept ;
+    rdfs:label "Kỷ nguyên độc lập, tự do"@vi ;
+    su9:aliases "Độc lập, tự do" ;
+    su9:frequencyInTextbook 15 ;
+    su9:abstractness 5 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:C_DangCamQuyen a su9:Concept ;
+    rdfs:label "Đảng cầm quyền"@vi ;
+    su9:aliases "Đảng lãnh đạo chính quyền" ;
+    su9:frequencyInTextbook 12 ;
+    su9:abstractness 5 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:C_ChienTranhLanh a su9:Concept ;
+    rdfs:label "Chiến tranh lạnh"@vi ;
+    su9:aliases "Tình trạng Chiến tranh lạnh" ;
+    su9:frequencyInTextbook 20 ;
+    su9:abstractness 5 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:C_DoiDauHaiCuc a su9:Concept ;
+    rdfs:label "Đối đầu hai cực"@vi ;
+    su9:aliases "Thế giới hai cực|Chia thành hai phe" ;
+    su9:frequencyInTextbook 15 ;
+    su9:abstractness 5 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:C_ChayDuaVuTrang a su9:Concept ;
+    rdfs:label "Chạy đua vũ trang"@vi ;
+    su9:aliases "Chạy đua vũ trang hạt nhân" ;
+    su9:frequencyInTextbook 15 ;
+    su9:abstractness 4 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:C_ChienTranhCucBo a su9:Concept ;
+    rdfs:label "Chiến tranh cục bộ"@vi ;
+    su9:aliases "Các cuộc chiến tranh cục bộ" ;
+    su9:frequencyInTextbook 12 ;
+    su9:abstractness 4 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:C_CaiTo a su9:Concept ;
+    rdfs:label "Công cuộc cải tổ"@vi ;
+    su9:aliases "Cải tổ toàn diện|Perestroika" ;
+    su9:frequencyInTextbook 15 ;
+    su9:abstractness 4 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:C_DaNguyenChinhTri a su9:Concept ;
+    rdfs:label "Đa nguyên chính trị"@vi ;
+    su9:aliases "Đa đảng" ;
+    su9:frequencyInTextbook 10 ;
+    su9:abstractness 5 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:C_KhungHoangToanDien a su9:Concept ;
+    rdfs:label "Khủng hoảng toàn diện"@vi ;
+    su9:aliases "Khủng hoảng kinh tế - xã hội" ;
+    su9:frequencyInTextbook 15 ;
+    su9:abstractness 5 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:C_CheDoXHCNTansRa a su9:Concept ;
+    rdfs:label "Chế độ XHCN sụp đổ"@vi ;
+    su9:aliases "Chế độ XHCN tan rã" ;
+    su9:frequencyInTextbook 20 ;
+    su9:abstractness 5 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:C_ChienLuocToanCau a su9:Concept ;
+    rdfs:label "Chiến lược toàn cầu"@vi ;
+    su9:aliases "Mưu đồ bá chủ thế giới" ;
+    su9:frequencyInTextbook 18 ;
+    su9:abstractness 5 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:C_NhatTheHoa a su9:Concept ;
+    rdfs:label "Nhất thể hóa châu Âu"@vi ;
+    su9:aliases "Liên kết khu vực" ;
+    su9:frequencyInTextbook 15 ;
+    su9:abstractness 4 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:C_KhungHoangNangLuong a su9:Concept ;
+    rdfs:label "Khủng hoảng năng lượng 1973"@vi ;
+    su9:aliases "Khủng hoảng dầu mỏ" ;
+    su9:frequencyInTextbook 15 ;
+    su9:abstractness 4 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:C_ChuNghiaTuBan a su9:Concept ;
+    rdfs:label "Chủ nghĩa Tư bản hiện đại"@vi ;
+    su9:aliases "CNTB" ;
+    su9:frequencyInTextbook 20 ;
+    su9:abstractness 5 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:C_LucDiaBungChay a su9:Concept ;
+    rdfs:label "Lục địa bùng cháy"@vi ;
+    su9:aliases "Phong trào GPDT Mỹ La-tinh" ;
+    su9:frequencyInTextbook 18 ;
+    su9:abstractness 5 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:C_CheDoDocTaiQuanSu a su9:Concept ;
+    rdfs:label "Chế độ độc tài quân sự"@vi ;
+    su9:aliases "Chủ nghĩa thực dân mới" ;
+    su9:frequencyInTextbook 15 ;
+    su9:abstractness 5 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:C_PhatTrienThanKi a su9:Concept ;
+    rdfs:label "Sự phát triển thần kì"@vi ;
+    su9:aliases "Phép màu kinh tế" ;
+    su9:frequencyInTextbook 15 ;
+    su9:abstractness 4 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:C_CNXH_DacSacTrungQuoc a su9:Concept ;
+    rdfs:label "CNXH đặc sắc Trung Quốc"@vi ;
+    su9:aliases "Chủ nghĩa xã hội mang màu sắc Trung Quốc" ;
+    su9:frequencyInTextbook 15 ;
+    su9:abstractness 4 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:C_CachMangXanh a su9:Concept ;
+    rdfs:label "Cách mạng xanh"@vi ;
+    su9:aliases "Cách mạng nông nghiệp Ấn Độ" ;
+    su9:frequencyInTextbook 12 ;
+    su9:abstractness 4 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:C_NganCanTreoSoiToc a su9:Concept ;
+    rdfs:label "Tình thế ngàn cân treo sợi tóc"@vi ;
+    su9:aliases "Muôn vàn khó khăn|Giặc đói, giặc dốt, giặc ngoại xâm" ;
+    su9:frequencyInTextbook 20 ;
+    su9:abstractness 5 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:C_HoaDeTien a su9:Concept ;
+    rdfs:label "Sách lược Hòa để tiến"@vi ;
+    su9:aliases "Nhân nhượng có nguyên tắc|Mềm dẻo ngoại giao" ;
+    su9:frequencyInTextbook 18 ;
+    su9:abstractness 5 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:C_ChinhQuyenDanChu a su9:Concept ;
+    rdfs:label "Chính quyền dân chủ nhân dân"@vi ;
+    su9:aliases "Chính quyền hợp pháp" ;
+    su9:frequencyInTextbook 15 ;
+    su9:abstractness 4 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:C_DuongLoiKhangChien a su9:Concept ;
+    rdfs:label "Đường lối kháng chiến chống Pháp"@vi ;
+    su9:aliases "Toàn dân, toàn diện, trường kì, tự lực cánh sinh" ;
+    su9:frequencyInTextbook 20 ;
+    su9:abstractness 5 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:C_DanhNhanhThangNhanh a su9:Concept ;
+    rdfs:label "Chiến lược Đánh nhanh thắng nhanh"@vi ;
+    su9:aliases "Đánh chớp nhoáng" ;
+    su9:frequencyInTextbook 15 ;
+    su9:abstractness 4 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:C_DanhLauDai a su9:Concept ;
+    rdfs:label "Chiến lược Đánh trường kì"@vi ;
+    su9:aliases "Đánh lâu dài" ;
+    su9:frequencyInTextbook 15 ;
+    su9:abstractness 4 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:C_TheChuDong a su9:Concept ;
+    rdfs:label "Thế chủ động trên chiến trường"@vi ;
+    su9:aliases "Chủ động tiến công" ;
+    su9:frequencyInTextbook 18 ;
+    su9:abstractness 5 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:C_KhangChienToanDien a su9:Concept ;
+    rdfs:label "Kháng chiến toàn diện"@vi ;
+    su9:aliases "Chính trị, kinh tế, văn hóa, giáo dục" ;
+    su9:frequencyInTextbook 15 ;
+    su9:abstractness 4 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:C_DanhChacTienChac a su9:Concept ;
+    rdfs:label "Đánh chắc, tiến chắc"@vi ;
+    su9:aliases "Phương châm tác chiến Điện Biên Phủ" ;
+    su9:frequencyInTextbook 20 ;
+    su9:abstractness 5 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:C_PhanTanLucLuong a su9:Concept ;
+    rdfs:label "Phân tán lực lượng địch"@vi ;
+    su9:aliases "Điều địch để đánh địch" ;
+    su9:frequencyInTextbook 18 ;
+    su9:abstractness 5 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:C_HauPhuongTienTuyen a su9:Concept ;
+    rdfs:label "Quan hệ Hậu phương - Tiền tuyến"@vi ;
+    su9:aliases "Miền Bắc chi viện miền Nam" ;
+    su9:frequencyInTextbook 20 ;
+    su9:abstractness 5 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:C_BaoLucCachMang a su9:Concept ;
+    rdfs:label "Bạo lực cách mạng"@vi ;
+    su9:aliases "Đấu tranh chính trị kết hợp vũ trang" ;
+    su9:frequencyInTextbook 18 ;
+    su9:abstractness 5 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:C_ChienTranhDacBiet a su9:Concept ;
+    rdfs:label "Chiến tranh đặc biệt"@vi ;
+    su9:aliases "Dùng người Việt đánh người Việt" ;
+    su9:frequencyInTextbook 18 ;
+    su9:abstractness 5 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:C_ApChienLuoc a su9:Concept ;
+    rdfs:label "Ấp chiến lược"@vi ;
+    su9:aliases "Quốc sách bình định của Mỹ" ;
+    su9:frequencyInTextbook 15 ;
+    su9:abstractness 4 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:C_ChienTranhCucBo a su9:Concept ;
+    rdfs:label "Chiến lược Chiến tranh cục bộ"@vi ;
+    su9:aliases "Tiến hành bằng quân Mỹ là chủ yếu" ;
+    su9:frequencyInTextbook 20 ;
+    su9:abstractness 5 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:C_VietNamHoaChienTranh a su9:Concept ;
+    rdfs:label "Chiến lược Việt Nam hóa chiến tranh"@vi ;
+    su9:aliases "Tiến hành bằng quân Sài Gòn là chủ yếu" ;
+    su9:frequencyInTextbook 20 ;
+    su9:abstractness 5 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:C_DienBienPhuTrenKhong a su9:Concept ;
+    rdfs:label "Điện Biên Phủ trên không"@vi ;
+    su9:aliases "Đánh bại B-52" ;
+    su9:frequencyInTextbook 18 ;
+    su9:abstractness 5 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:C_TongTienCong a su9:Concept ;
+    rdfs:label "Tổng tiến công và nổi dậy"@vi ;
+    su9:aliases "Tiến công quân sự kết hợp nổi dậy của quần chúng" ;
+    su9:frequencyInTextbook 20 ;
+    su9:abstractness 5 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:C_ThongNhatNhaNuoc a su9:Concept ;
+    rdfs:label "Thống nhất đất nước về mặt Nhà nước"@vi ;
+    su9:aliases "Thống nhất Nhà nước" ;
+    su9:frequencyInTextbook 15 ;
+    su9:abstractness 5 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:C_BaoCap a su9:Concept ;
+    rdfs:label "Cơ chế tập trung quan liêu, bao cấp"@vi ;
+    su9:aliases "Kinh tế chỉ huy|Bao cấp" ;
+    su9:frequencyInTextbook 18 ;
+    su9:abstractness 5 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:C_DoiMoiKinhTe a su9:Concept ;
+    rdfs:label "Kinh tế hàng hóa nhiều thành phần"@vi ;
+    su9:aliases "Kinh tế thị trường định hướng XHCN" ;
+    su9:frequencyInTextbook 20 ;
+    su9:abstractness 5 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:C_BaChuongTrinhKinhTe a su9:Concept ;
+    rdfs:label "Ba chương trình kinh tế lớn"@vi ;
+    su9:aliases "Lương thực thực phẩm, Hàng tiêu dùng, Hàng xuất khẩu" ;
+    su9:frequencyInTextbook 18 ;
+    su9:abstractness 5 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:C_KinhTeThiTruong_XHCN a su9:Concept ;
+    rdfs:label "Kinh tế hàng hóa nhiều thành phần"@vi ;
+    su9:aliases "Cơ chế thị trường có sự quản lí của Nhà nước" ;
+    su9:frequencyInTextbook 20 ;
+    su9:abstractness 5 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:C_KhungHoangDongAu a su9:Concept ;
+    rdfs:label "Khủng hoảng ở Liên Xô và Đông Âu"@vi ;
+    su9:aliases "Khủng hoảng XHCN" ;
+    su9:frequencyInTextbook 15 ;
+    su9:abstractness 4 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:C_TratTuDonCuc a su9:Concept ;
+    rdfs:label "Trật tự thế giới đơn cực"@vi ;
+    su9:aliases "Mỹ là siêu cường duy nhất" ;
+    su9:frequencyInTextbook 20 ;
+    su9:abstractness 5 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:C_TratTuDaCuc a su9:Concept ;
+    rdfs:label "Trật tự thế giới đa cực"@vi ;
+    su9:aliases "Nhiều trung tâm cạnh tranh quyền lực" ;
+    su9:frequencyInTextbook 20 ;
+    su9:abstractness 5 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:C_VanhDaiConDuong a su9:Concept ;
+    rdfs:label "Chiến lược Vành đai, Con đường"@vi ;
+    su9:aliases "Hệ thống kinh tế lấy Trung Quốc làm trung tâm" ;
+    su9:frequencyInTextbook 15 ;
+    su9:abstractness 4 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+
+### MOVEMENTS ###
+su9:M_CachMang_ChauAu_1918_1923 a su9:Movement ;
+    rdfs:label "Phong trào cách mạng ở châu Âu (1918-1923)"@vi ;
+    su9:aliases "Cách mạng châu Âu|Phong trào cách mạng 1918-1923|Cách mạng 1918-1923|Phong trào cách mạng ở các nước tư bản châu Âu" ;
+    su9:occursAt su9:L_Europe ;
+    su9:occursDuring su9:P_1918_1923 ;
+    su9:hasCause "Do hậu quả nặng nề của Chiến tranh thế giới thứ nhất và tác động của Cách mạng tháng Mười Nga năm 1917, vào những năm 1918-1923, một phong trào cách mạng đã bùng nổ ở hầu khắp các nước tư bản châu Âu." ;
+    su9:hasContent "Nhân dân Béc-lin lật đổ quân chủ (11/1918). Bãi công lớn ở Anh, Pháp." ;
+    su9:hasResult "Dẫn đến sự thành lập hàng loạt Đảng Cộng sản (Đức, Pháp, Anh, Italia)." ;
+    su9:involvedConcept su9:C_KhuynhHuongVoSan ;
+    su9:weightsJson "{\"C_KhuynhHuongVoSan\": 10}" .
+su9:M_NguTu_1919 a su9:Movement ;
+    rdfs:label "Phong trào Ngũ Tứ"@vi ;
+    su9:aliases "Ngũ Tứ|Phong trào mùng 4 tháng 5|Cách mạng Ngũ Tứ" ;
+    su9:occursAt su9:L_BacKinh ;
+    su9:occursDuring su9:P_1918_1923 ;
+    su9:hasCause "Chống lại âm mưu xâu xé Trung Quốc của các đế quốc." ;
+    su9:hasContent "Bùng nổ 4/5/1919, lôi cuốn công nhân, trí thức tham gia." ;
+    su9:hasResult "Lan rộng cả nước, thúc đẩy sự ra đời của Đảng Cộng sản Trung Quốc (1921)." ;
+    su9:involvedConcept su9:C_KhuynhHuongVoSan ;
+    su9:weightsJson "{\"C_KhuynhHuongVoSan\": 8}" .
+su9:M_DauTranh_AnDo_Interwar a su9:Movement ;
+    rdfs:label "Phong trào đấu tranh giành độc lập ở Ấn Độ"@vi ;
+    su9:aliases "Cách mạng Ấn Độ|Phong trào giải phóng dân tộc Ấn Độ|Đấu tranh giành độc lập Ấn Độ" ;
+    su9:occursAt su9:L_AnDo ;
+    su9:occursDuring su9:P_1918_1939 ;
+    su9:hasContent "Dưới sự lãnh đạo của Gan-đi, nhân dân đấu tranh đòi độc lập, tẩy chay hàng hoá của Anh." ;
+    su9:hasPerson su9:Pe_Gandhi ;
+    su9:hasOrganization su9:O_DangQuocDai ;
+    su9:hasOrganization su9:O_DangCongSan_AnDo ;
+    su9:involvedConcept su9:C_KhuynhHuongTuSan ;
+    su9:involvedConcept su9:C_GiaiPhongDanToc ;
+    su9:weightsJson "{\"Pe_Gandhi\": 10, \"O_DangQuocDai\": 9, \"O_DangCongSan_AnDo\": 7, \"C_KhuynhHuongTuSan\": 8, \"C_GiaiPhongDanToc\": 10}" .
+su9:M_GiaiPhongDanToc_DongNamA_1918_1945 a su9:Movement ;
+    rdfs:label "Phong trào GPDT Đông Nam Á"@vi ;
+    su9:aliases "Giải phóng dân tộc Đông Nam Á|Cách mạng Đông Nam Á|Phong trào đấu tranh Đông Nam |Phong trào giải phóng dân tộc ở Đông Nam Á" ;
+    su9:occursAt su9:L_DongNamA ;
+    su9:occursDuring su9:P_1918_1945 ;
+    su9:hasCause "Ách thống trị bóc lột của chủ nghĩa thực dân phương Tây." ;
+    su9:hasContent "Phát triển theo 2 khuynh hướng (vô sản và tư sản). Lập mặt trận chống Nhật trong WWII." ;
+    su9:hasResult "Chớp thời cơ Nhật đầu hàng, Indonesia và Việt Nam giành độc lập (8/1945)." ;
+    su9:hasPerson su9:Pe_Sukarno ;
+    su9:hasOrganization su9:O_DangDanToc_Indonesia ;
+    su9:hasOrganization su9:O_VNQDD ;
+    su9:involvedConcept su9:C_GiaiPhongDanToc ;
+    su9:involvedConcept su9:C_KhuynhHuongVoSan ;
+    su9:involvedConcept su9:C_KhuynhHuongTuSan ;
+    su9:weightsJson "{\"Pe_Sukarno\": 8, \"O_DangDanToc_Indonesia\": 8, \"O_VNQDD\": 6, \"C_GiaiPhongDanToc\": 10, \"C_KhuynhHuongVoSan\": 8, \"C_KhuynhHuongTuSan\": 8}" .
+su9:M_CH2_DauTranhTuSan_1919_1923 a su9:Movement ;
+    rdfs:label "Phong trào đấu tranh của giai cấp tư sản (1919-1923)"@vi ;
+    su9:aliases "Chấn hưng nội hoá|Chống độc quyền cảng Sài Gòn|Phong trào tư sản" ;
+    su9:occursAt su9:L_SaiGon ;
+    su9:occursDuring su9:P_1918_1930 ;
+    su9:hasContent "Đi đầu trong phong trào 'chấn hưng nội hoá, bài trừ ngoại hoá' (1919). Đấu tranh chống tư bản Pháp độc quyền cảng Sài Gòn và xuất cảng lúa gạo ở Nam Kỳ (1923)." ;
+    su9:hasOrganization su9:O_TuSanVN ;
+    su9:involvedConcept su9:C_ChanHungNoiHoa ;
+    su9:weightsJson "{\"O_TuSanVN\": 10, \"C_ChanHungNoiHoa\": 10}" .
+su9:M_CH2_DauTranhTieuTuSan_1925_1926 a su9:Movement ;
+    rdfs:label "Phong trào đấu tranh của tiểu tư sản (1925-1926)"@vi ;
+    su9:aliases "Đòi thả Phan Bội Châu|Truy điệu Phan Châu Trinh|Tiểu tư sản đấu tranh" ;
+    su9:occursAt su9:L_VietNam ;
+    su9:occursDuring su9:P_1918_1930 ;
+    su9:hasContent "Lập nhà xuất bản tiến bộ (Cường học thư xã, Nam Đồng thư xã), ra báo (Chuông rè, An Nam trẻ). Tổ chức đòi thả Phan Bội Châu (1925), Nguyễn An Ninh (1926), đám tang Phan Châu Trinh (1926)." ;
+    su9:hasPerson su9:Pe_PhanBoiChau ;
+    su9:hasPerson su9:Pe_NguyenAnNinh ;
+    su9:hasPerson su9:Pe_PhanChauTrinh ;
+    su9:hasOrganization su9:O_TieuTuSan ;
+    su9:hasOrganization su9:O_NamDongThuXa ;
+    su9:hasOrganization su9:O_HoiPhucViet ;
+    su9:weightsJson "{\"Pe_PhanBoiChau\": 9, \"Pe_NguyenAnNinh\": 8, \"Pe_PhanChauTrinh\": 9, \"O_TieuTuSan\": 10, \"O_NamDongThuXa\": 7, \"O_HoiPhucViet\": 7}" .
+su9:M_CH2_CongNhan_1919_1925 a su9:Movement ;
+    rdfs:label "Phong trào công nhân (1919-1925)"@vi ;
+    su9:aliases "Công nhân 1919-1925|Công nhân Nam Định|Công nhân Cẩm Phả" ;
+    su9:occursAt su9:L_VietNam ;
+    su9:occursDuring su9:P_1919_1925 ;
+    su9:hasContent "Diễn ra lẻ tẻ. Chủ yếu phá hợp đồng, bỏ trốn, lãn công đòi quyền lợi kinh tế tại Nam Định, Cẩm Phả, Hà Nội." ;
+    su9:hasLimitations "Chưa có tổ chức và lãnh đạo thống nhất, mang tính tự phát." ;
+    su9:hasOrganization su9:O_CongNhanVN ;
+    su9:weightsJson "{\"O_CongNhanVN\": 10}" .
+su9:M_CH2_CongNhan_1925_1930 a su9:Movement ;
+    rdfs:label "Phong trào công nhân (1925-1930)"@vi ;
+    su9:aliases "Bãi công Ba Son|Công nhân Phú Riềng|Công nhân 1925-1930" ;
+    su9:occursAt su9:L_VietNam ;
+    su9:occursDuring su9:P_1925_1930 ;
+    su9:hasContent "Nổ ra nhiều nơi, có tổ chức và lãnh đạo (Công hội). Mục đích kết hợp đòi quyền lợi kinh tế và mục đích chính trị rõ ràng. Tiêu biểu: Ba Son (Sài Gòn), Phú Riềng (Bình Phước), A-vi-a (Hà Nội)." ;
+    su9:hasOrganization su9:O_CongNhanVN ;
+    su9:hasOrganization su9:O_CongHoi ;
+    su9:involvedConcept su9:C_BaiCong ;
+    su9:weightsJson "{\"O_CongNhanVN\": 10, \"O_CongHoi\": 9, \"C_BaiCong\": 10}" .
+su9:M_CH2_PhongTrao_1930_1931 a su9:Movement ;
+    rdfs:label "Phong trào cách mạng 1930-1931"@vi ;
+    su9:aliases "Phong trào 1930-1931|Cách mạng 1930-1931" ;
+    su9:occursAt su9:L_VietNam ;
+    su9:occursDuring su9:P_1930_1931 ;
+    su9:hasCause "Ảnh hưởng khủng hoảng 1929-1933; Mâu thuẫn dân tộc và giai cấp sâu sắc; Đảng Cộng sản vừa ra đời đã kịp thời lãnh đạo." ;
+    su9:hasContent "Bùng nổ từ đầu năm 1930. Từ tháng 5/1930, phát triển mạnh mẽ cả nước. Đỉnh cao tháng 9, 10/1930 ở Nghệ An và Hà Tĩnh." ;
+    su9:hasAchievements "Khẳng định vai trò lãnh đạo của Đảng; Hình thành khối liên minh công-nông." ;
+    su9:hasLimitations "Bị thực dân Pháp khủng bố tàn bạo, phong trào tạm thời lắng xuống từ đầu năm 1931." ;
+    su9:hasOrganization su9:O_DangCongSanVN ;
+    su9:hasOrganization su9:O_CongNhanVN ;
+    su9:involvedConcept su9:C_LienMinhCongNong ;
+    su9:involvedConcept su9:C_TapDuotCachMang ;
+    su9:weightsJson "{\"O_DangCongSanVN\": 10, \"O_CongNhanVN\": 9, \"C_LienMinhCongNong\": 10, \"C_TapDuotCachMang\": 9}" .
+su9:M_CH2_PhongTraoDanChu_1936_1939 a su9:Movement ;
+    rdfs:label "Phong trào dân chủ 1936-1939"@vi ;
+    su9:aliases "Phong trào dân chủ 1936-1939|Phong trào 1936-1939|Phong trào dân chủ" ;
+    su9:occursAt su9:L_VietNam ;
+    su9:occursDuring su9:P_1936_1939 ;
+    su9:hasCause "Quốc tế Cộng sản chủ trương lập Mặt trận Nhân dân chống phát xít. Ở Pháp, Mặt trận Nhân dân lên cầm quyền thi hành chính sách tiến bộ." ;
+    su9:hasContent "Diễn ra sôi nổi với các hình thức: Phong trào Đông Dương đại hội (mít tinh, đón Gô-đa), Đấu tranh nghị trường, Đấu tranh báo chí." ;
+    su9:hasResult "Buộc chính quyền thực dân nhượng bộ một số yêu sách dân sinh, dân chủ. Chấm dứt khi CTTG 2 bùng nổ (9/1939)." ;
+    su9:hasAchievements "Là phong trào quần chúng rộng lớn, buộc Pháp nhượng bộ. Đảng tích lũy kinh nghiệm đấu tranh công khai, hợp pháp." ;
+    su9:hasOrganization su9:O_DangCongSanVN ;
+    su9:hasOrganization su9:O_MatTranDanChuDongDuong ;
+    su9:involvedConcept su9:C_DanSinhDanChu ;
+    su9:involvedConcept su9:C_DauTranhNghiTruong ;
+    su9:involvedConcept su9:C_DauTranhBaoChi ;
+    su9:involvedConcept su9:C_TapDuotCachMang ;
+    su9:weightsJson "{\"O_DangCongSanVN\": 10, \"O_MatTranDanChuDongDuong\": 10, \"C_DanSinhDanChu\": 10, \"C_DauTranhNghiTruong\": 8, \"C_DauTranhBaoChi\": 8, \"C_TapDuotCachMang\": 10}" .
+su9:M_CH2_CacCuocNoiDay_1940_1941 a su9:Movement ;
+    rdfs:label "Các cuộc nổi dậy đầu tiên (1940-1941)"@vi ;
+    su9:aliases "Khởi nghĩa Bắc Sơn|Khởi nghĩa Nam Kì|Binh biến Đô Lương" ;
+    su9:occursAt su9:L_VietNam ;
+    su9:occursDuring su9:P_1939_1945 ;
+    su9:hasCause "Chính sách thống trị tàn bạo của Pháp-Nhật làm mâu thuẫn dân tộc gay gắt." ;
+    su9:hasContent "Bao gồm khởi nghĩa Bắc Sơn (9/1940), Nam Kì (11/1940) và binh biến Đô Lương (1/1941)." ;
+    su9:hasResult "Báo hiệu thời kì đấu tranh vũ trang, khởi nghĩa vũ trang giành chính quyền." .
+su9:M_CH2_CaoTraoKhangNhat a su9:Movement ;
+    rdfs:label "Cao trào Kháng Nhật cứu nước"@vi ;
+    su9:aliases "Cao trào Kháng Nhật cứu nước|Kháng Nhật cứu nước|Tiền khởi nghĩa" ;
+    su9:occursAt su9:L_VietNam ;
+    su9:occursDuring su9:P_Mar_Aug_1945 ;
+    su9:hasContent "Phát triển mạnh mẽ. Ở Việt Bắc: giải phóng hàng loạt xã, châu. Ở Bắc Kì và Bắc Trung Kì: dấy lên phong trào 'Phá kho thóc, giải quyết nạn đói'." ;
+    su9:hasAchievements "Là cuộc tập dượt lần thứ ba của Đảng và quần chúng cho Cách mạng tháng Tám." ;
+    su9:hasOrganization su9:O_DangCongSanVN ;
+    su9:hasOrganization su9:O_VietMinh ;
+    su9:hasOrganization su9:O_VNTTGPQ ;
+    su9:involvedConcept su9:C_PhaKhoThoc ;
+    su9:involvedConcept su9:C_TapDuotCachMang ;
+    su9:weightsJson "{\"O_DangCongSanVN\": 10, \"O_VietMinh\": 9, \"O_VNTTGPQ\": 8, \"C_PhaKhoThoc\": 10, \"C_TapDuotCachMang\": 10}" .
+su9:M_CH2_TongKhoiNghiaThangTam a su9:Movement ;
+    rdfs:label "Tổng khởi nghĩa tháng Tám năm 1945"@vi ;
+    su9:aliases "Cách mạng tháng Tám|Tổng khởi nghĩa" ;
+    su9:occursAt su9:L_VietNam ;
+    su9:occursDuring su9:P_Aug_1945 ;
+    su9:hasCause "Khách quan: Nhật đầu hàng Đồng minh tạo thời cơ. Chủ quan: Sự lãnh đạo của Đảng, chuẩn bị chu đáo 15 năm và sự đồng lòng của toàn dân." ;
+    su9:hasContent "Bắt đầu chiều 16/8 tại Thái Nguyên. Các mốc thắng lợi: Bắc Giang, Hải Dương, Hà Tĩnh, Quảng Nam (18/8), Hà Nội (19/8), Huế (23/8), Sài Gòn (25/8). Đồng Nai Thượng, Hà Tiên giành cq cuối cùng (28/8)." ;
+    su9:hasResult "Góp phần chiến thắng chủ nghĩa phát xít. Cổ vũ mạnh mẽ phong trào giải phóng dân tộc thế giới, nhất là Lào và Campuchia." ;
+    su9:hasAchievements "Phá tan xiềng xích nô lệ Pháp - Nhật, lật nhào ngai vàng phong kiến. Lập nước Việt Nam Dân chủ Cộng hòa. Đảng trở thành Đảng cầm quyền." ;
+    su9:hasPerson su9:Pe_HoChiMinh ;
+    su9:hasPerson su9:Pe_VoNguyenGiap ;
+    su9:hasOrganization su9:O_DangCongSanVN ;
+    su9:hasOrganization su9:O_VietMinh ;
+    su9:hasOrganization su9:O_VN_GiaiPhongQuan ;
+    su9:involvedConcept su9:C_ThoiCoCachMang ;
+    su9:involvedConcept su9:C_DocLapTuDo ;
+    su9:involvedConcept su9:C_DangCamQuyen ;
+    su9:weightsJson "{\"Pe_HoChiMinh\": 10, \"Pe_VoNguyenGiap\": 9, \"O_DangCongSanVN\": 10, \"O_VietMinh\": 10, \"O_VN_GiaiPhongQuan\": 9, \"C_ThoiCoCachMang\": 10, \"C_DocLapTuDo\": 10, \"C_DangCamQuyen\": 10}" .
+su9:M_CH3_MyLaTinh_ChongDocTai a su9:Movement ;
+    rdfs:label "Phong trào đấu tranh chống chế độ độc tài ở Mỹ La-tinh"@vi ;
+    su9:aliases "Lục địa bùng cháy" ;
+    su9:occursAt su9:L_MyLaTinh ;
+    su9:occursDuring su9:P_1945_1991 ;
+    su9:hasContent "Cuộc đấu tranh chống chế độ độc tài quân sự và sự can thiệp của Mỹ nổ ra mạnh mẽ sau 1959." ;
+    su9:hasAchievements "Lật đổ chính quyền độc tài ở nhiều nước, thành lập chính quyền dân chủ tiến bộ." ;
+    su9:involvedConcept su9:C_LucDiaBungChay ;
+    su9:involvedConcept su9:C_CheDoDocTaiQuanSu ;
+    su9:weightsJson "{\"C_LucDiaBungChay\": 10, \"C_CheDoDocTaiQuanSu\": 10}" .
+su9:M_CH5_DongKhoi a su9:Movement ;
+    rdfs:label "Phong trào Đồng khởi (1959-1960)"@vi ;
+    su9:aliases "Đồng khởi|Đồng khởi Bến Tre" ;
+    su9:occursAt su9:L_BenTre ;
+    su9:occursDuring su9:P_1959_1960 ;
+    su9:hasCauseDirect "Sự soi sáng của Nghị quyết 15 trước ách kìm kẹp tàn bạo của Luật 10/59." ;
+    su9:hasContent "Từ Bến Tre lan ra khắp Nam Bộ, Tây Nguyên. Quần chúng nổi dậy phá thế kìm kẹp." ;
+    su9:hasResult "Làm lung lay tận gốc chính quyền Diệm. Đánh dấu cách mạng chuyển từ thế giữ gìn lực lượng sang thế tiến công." .
+
+### DOCUMENTS ###
+su9:D_NEP_1921 a su9:Document ;
+    rdfs:label "Chính sách kinh tế mới 1921 (NEP)"@vi ;
+    su9:aliases "Chính sách kinh tế mới|NEP|Chính sách NEP|Kinh tế mới|Chế độ thuế lương thực" ;
+    su9:occursAt su9:L_Nga ;
+    su9:occursDuring su9:P_1918_1923 ;
+    su9:hasContext "Sau CM tháng Mười (1917), Nga Xô viết dùng 'Cộng sản thời chiến' để chống thù trong giặc ngoài." ;
+    su9:hasCause "Chiến tranh kết thúc. Chính sách 'Cộng sản thời chiến' kìm hãm kinh tế, gây khủng hoảng." ;
+    su9:hasContent "Thay trưng thu bằng thuế lương thực; tự do buôn bán; tư nhân mở xí nghiệp nhỏ; gọi vốn nước ngoài." ;
+    su9:hasResult "Nước Nga Xô viết phục hồi kinh tế, đời sống nhân dân cải thiện." ;
+    su9:hasPerson su9:Pe_Lenin ;
+    su9:hasOrganization su9:O_Bolshevik ;
+    su9:involvedConcept su9:C_KinhTeThiTruong ;
+    su9:weightsJson "{\"Pe_Lenin\": 10, \"O_Bolshevik\": 9, \"C_KinhTeThiTruong\": 10}" .
+su9:D_NewDeal_1932 a su9:Document ;
+    rdfs:label "Chính sách mới (New Deal)"@vi ;
+    su9:aliases "Chính sách mới|New Deal|Thỏa thuận mới|Chính sách của Ru-dơ-ven" ;
+    su9:occursAt su9:L_My ;
+    su9:occursDuring su9:P_1929_1933 ;
+    su9:hasContext "Nước Mỹ lâm vào Đại suy thoái kinh tế 1929-1933." ;
+    su9:hasCause "Khủng hoảng tàn phá nền kinh tế, hàng triệu người thất nghiệp, nguy cơ sụp đổ tư bản chủ nghĩa." ;
+    su9:hasContent "Nhà nước can thiệp mạnh vào kinh tế, ban hành các đạo luật phục hồi sản xuất, giải quyết thất nghiệp." ;
+    su9:hasResult "Cứu vãn nền kinh tế, duy trì chế độ dân chủ tư sản, không bị phát xít hóa." ;
+    su9:hasPerson su9:Pe_Roosevelt ;
+    su9:involvedConcept su9:C_KhungHoangKinhTe ;
+    su9:involvedConcept su9:C_SuCanThiepCuaNhaNuoc ;
+    su9:weightsJson "{\"Pe_Roosevelt\": 10, \"C_KhungHoangKinhTe\": 8, \"C_SuCanThiepCuaNhaNuoc\": 10}" .
+su9:D_TuyenNgonLienHopQuoc_1942 a su9:Document ;
+    rdfs:label "Tuyên ngôn Liên hợp quốc chống phát xít"@vi ;
+    su9:aliases "Tuyên ngôn Liên hợp quốc|Tuyên ngôn chống phát xít|Tuyên ngôn 1/1/1942" ;
+    su9:occursAt su9:L_Washington ;
+    su9:occursDuring su9:P_WWII_GiaiDoan2 ;
+    su9:hasContext "Phe phát xít bành trướng mạnh mẽ trên toàn cầu." ;
+    su9:hasCause "Cần tập hợp lực lượng của các quốc gia để tiêu diệt chủ nghĩa phát xít." ;
+    su9:hasContent "Ký ngày 1/1/1942 bởi 26 quốc gia (đứng đầu là Liên Xô, Mỹ, Anh)." ;
+    su9:hasResult "Khối Đồng minh chính thức ra đời, tạo sức mạnh tổng hợp phản công." ;
+    su9:hasOrganization su9:O_LienHopQuoc_WW2 ;
+    su9:involvedConcept su9:C_ChienTranhChinhNghia ;
+    su9:weightsJson "{\"O_LienHopQuoc_WW2\": 10, \"C_ChienTranhChinhNghia\": 10}" .
+su9:D_CH2_YeuSachAnNam a su9:Document ;
+    rdfs:label "Yêu sách của nhân dân An Nam (1919)"@vi ;
+    su9:aliases "Bản Yêu sách của nhân dân An Nam|Yêu sách 8 điểm" ;
+    su9:occursAt su9:L_Versailles ;
+    su9:occursDuring su9:P_1918_1930 ;
+    su9:hasContent "Tháng 6/1919, Nguyễn Ái Quốc gửi bản Yêu sách tới Hội nghị Véc-xai đòi các quyền tự do, dân chủ, bình đẳng cho nhân dân An Nam." ;
+    su9:hasPerson su9:Pe_HoChiMinh ;
+    su9:weightsJson "{\"Pe_HoChiMinh\": 10}" .
+su9:D_CH2_BaoNguoiCungKho a su9:Document ;
+    rdfs:label "Báo Người cùng khổ (1922)"@vi ;
+    su9:aliases "Người cùng khổ|Le Paria" ;
+    su9:occursAt su9:L_Phap ;
+    su9:occursDuring su9:P_1918_1930 ;
+    su9:hasContent "Nguyễn Ái Quốc làm Chủ nhiệm kiêm chủ bút, xuất bản năm 1922 để vạch trần tội ác của chủ nghĩa đế quốc." ;
+    su9:hasPerson su9:Pe_HoChiMinh ;
+    su9:weightsJson "{\"Pe_HoChiMinh\": 10}" .
+su9:D_CH2_DuongKachMenh a su9:Document ;
+    rdfs:label "Tác phẩm Đường Kách mệnh (1927)"@vi ;
+    su9:aliases "Đường Kách mệnh|Sách Đường Kách mệnh" ;
+    su9:occursAt su9:L_HongKong ;
+    su9:occursDuring su9:P_1918_1930 ;
+    su9:hasContent "Tập hợp các bài giảng của Nguyễn Ái Quốc trong các lớp đào tạo cán bộ tại Quảng Châu. Là tài liệu lí luận nền tảng cho cách mạng Việt Nam." ;
+    su9:hasPerson su9:Pe_HoChiMinh ;
+    su9:hasOrganization su9:O_HVNCMTN ;
+    su9:weightsJson "{\"Pe_HoChiMinh\": 10, \"O_HVNCMTN\": 9}" .
+su9:D_CH2_CuongLinhChinhTri_1930 a su9:Document ;
+    rdfs:label "Cương lĩnh chính trị đầu tiên của Đảng"@vi ;
+    su9:aliases "Cương lĩnh chính trị đầu tiên|Chính cương vắn tắt|Sách lược vắn tắt|Điều lệ vắn tắt" ;
+    su9:occursAt su9:L_HongKong ;
+    su9:occursDuring su9:P_1930 ;
+    su9:hasContent "Xác định đường lối: làm tư sản dân quyền và thổ địa cách mạng để tiến tới xã hội cộng sản. Nhiệm vụ: Đánh đổ Pháp, phong kiến, giành độc lập, lập chính phủ công-nông-binh." ;
+    su9:hasPerson su9:Pe_HoChiMinh ;
+    su9:involvedConcept su9:C_CachMangTuSanDanQuyen ;
+    su9:involvedConcept su9:C_ThoDiaCachMang ;
+    su9:involvedConcept su9:C_CachMangVoSan ;
+    su9:weightsJson "{\"Pe_HoChiMinh\": 10, \"C_CachMangTuSanDanQuyen\": 10, \"C_ThoDiaCachMang\": 10, \"C_CachMangVoSan\": 9}" .
+su9:D_CH2_VanDeDanCay a su9:Document ;
+    rdfs:label "Cuốn sách Vấn đề dân cày (1938)"@vi ;
+    su9:aliases "Vấn đề dân cày" ;
+    su9:occursAt su9:L_VietNam ;
+    su9:occursDuring su9:P_1936_1939 ;
+    su9:hasContent "Giới thiệu chủ nghĩa Mác-Lê-nin và chính sách của Đảng, được lưu hành rộng rãi trong thời kì đấu tranh báo chí công khai." ;
+    su9:hasPerson su9:Pe_TruongChinh ;
+    su9:hasPerson su9:Pe_VoNguyenGiap ;
+    su9:weightsJson "{\"Pe_TruongChinh\": 10, \"Pe_VoNguyenGiap\": 10}" .
+su9:D_CH3_ChiThiNhatPhap a su9:Document ;
+    rdfs:label "Chỉ thị Nhật - Pháp bắn nhau và hành động của chúng ta"@vi ;
+    su9:aliases "Nhật-Pháp bắn nhau và hành động của chúng ta" ;
+    su9:occursAt su9:L_VietNam ;
+    su9:occursDuring su9:P_Mar_Aug_1945 ;
+    su9:hasCause "Tối 9/3/1945, Nhật đảo chính Pháp độc chiếm Đông Dương." ;
+    su9:hasContent "Phát động cao trào 'Kháng Nhật cứu nước' làm tiền đề cho cuộc tổng khởi nghĩa." ;
+    su9:hasOrganization su9:O_DangCongSanVN ;
+    su9:involvedConcept su9:C_KhoiNghiaTungPhan ;
+    su9:weightsJson "{\"O_DangCongSanVN\": 10, \"C_KhoiNghiaTungPhan\": 10}" .
+su9:D_CH2_QuanLenhSo1 a su9:Document ;
+    rdfs:label "Quân lệnh số 1"@vi ;
+    su9:aliases "Lệnh Tổng khởi nghĩa" ;
+    su9:occursAt su9:L_VietNam ;
+    su9:occursDuring su9:P_Aug_1945 ;
+    su9:hasContent "Ban bố ngày 13/8/1945 bởi Uỷ ban Khởi nghĩa toàn quốc, chính thức phát lệnh Tổng khởi nghĩa trong cả nước." ;
+    su9:hasOrganization su9:O_UyBanKhoiNghia ;
+    su9:weightsJson "{\"O_UyBanKhoiNghia\": 10}" .
+su9:D_CH2_TuyenNgonDocLap a su9:Document ;
+    rdfs:label "Tuyên ngôn Độc lập (1945)"@vi ;
+    su9:aliases "Bản Tuyên ngôn Độc lập" ;
+    su9:occursAt su9:L_BaDinh ;
+    su9:occursDuring su9:P_Sep_1945 ;
+    su9:hasContent "Được Chủ tịch Hồ Chí Minh soạn thảo và đọc tại Quảng trường Ba Đình ngày 2/9/1945, khai sinh ra nước Việt Nam Dân chủ Cộng hoà." ;
+    su9:hasPerson su9:Pe_HoChiMinh ;
+    su9:hasOrganization su9:O_ChinhPhuLamThoi ;
+    su9:involvedConcept su9:C_DocLapTuDo ;
+    su9:weightsJson "{\"Pe_HoChiMinh\": 10, \"O_ChinhPhuLamThoi\": 10, \"C_DocLapTuDo\": 10}" .
+su9:D_CH3_HocThuyetTruman a su9:Document ;
+    rdfs:label "Học thuyết Tru-man (3/1947)"@vi ;
+    su9:aliases "Học thuyết Tru-man|Học thuyết Truman" ;
+    su9:occursAt su9:L_My ;
+    su9:occursDuring su9:P_1947_1989 ;
+    su9:hasCause "Sự bất đồng giữa Mỹ và Liên Xô trong việc giải quyết hậu quả WWII (vấn đề Đông Âu và chia cắt Đức)." ;
+    su9:hasContent "Tổng thống Mỹ Tru-man công bố quan điểm chống lại chủ nghĩa cộng sản." ;
+    su9:hasResult "Đánh dấu sự chuyển hướng sang chính sách đối đầu với Liên Xô của Mỹ, khởi đầu Chiến tranh lạnh." ;
+    su9:hasPerson su9:Pe_Truman ;
+    su9:hasOrganization su9:O_PheTBCN ;
+    su9:involvedConcept su9:C_ChienTranhLanh ;
+    su9:weightsJson "{\"Pe_Truman\": 10, \"O_PheTBCN\": 10, \"C_ChienTranhLanh\": 10}" .
+su9:D_CH3_KeHoachMarshall a su9:Document ;
+    rdfs:label "Kế hoạch Mác-san (1947)"@vi ;
+    su9:aliases "Kế hoạch Mác-san|Kế hoạch Marshall" ;
+    su9:occursAt su9:L_TayAu ;
+    su9:occursDuring su9:P_1947_1989 ;
+    su9:hasContent "Mỹ đầu tư khoảng 13 tỉ USD cho 16 nước Tây Âu phục hồi kinh tế nhằm lôi kéo đồng minh." ;
+    su9:hasOrganization su9:O_PheTBCN ;
+    su9:involvedConcept su9:C_DoiDauHaiCuc ;
+    su9:weightsJson "{\"O_PheTBCN\": 10, \"C_DoiDauHaiCuc\": 8}" .
+su9:D_CH3_BaoCaoZhdanov a su9:Document ;
+    rdfs:label "Bản báo cáo của Giơ-đa-nốp (9/1947)"@vi ;
+    su9:aliases "Bản báo cáo của Giơ-đa-nốp|Zhdanov" ;
+    su9:occursAt su9:L_BaLan ;
+    su9:occursDuring su9:P_1947_1989 ;
+    su9:hasContent "Đại diện Liên Xô tuyên bố thế giới đã chia thành hai phe: phe đế quốc (Mỹ lãnh đạo) và phe XHCN (Liên Xô làm trụ cột)." ;
+    su9:hasPerson su9:Pe_Zhdanov ;
+    su9:hasOrganization su9:O_PheXHCN ;
+    su9:involvedConcept su9:C_DoiDauHaiCuc ;
+    su9:weightsJson "{\"Pe_Zhdanov\": 10, \"O_PheXHCN\": 10, \"C_DoiDauHaiCuc\": 10}" .
+su9:D_CH3_ChienLuocToanCau a su9:Document ;
+    rdfs:label "Chiến lược toàn cầu của Mỹ"@vi ;
+    su9:aliases "Học thuyết toàn cầu|Bá chủ thế giới" ;
+    su9:occursAt su9:L_My ;
+    su9:occursDuring su9:P_1945_1991 ;
+    su9:hasContent "Mục tiêu: Chống phá phe XHCN, đàn áp phong trào GPDT, làm bá chủ thế giới." ;
+    su9:hasOrganization su9:O_PheTBCN ;
+    su9:weightsJson "{\"O_PheTBCN\": 10}" .
+su9:D_CH3_ThoaThuanMaastricht a su9:Document ;
+    rdfs:label "Thỏa thuận thành lập Liên minh châu Âu (1991)"@vi ;
+    su9:aliases "Thành lập EU|Hiệp ước Maastricht" ;
+    su9:occursAt su9:L_TayAu ;
+    su9:occursDuring su9:P_1973_1991 ;
+    su9:hasContent "Quyết định xây dựng thị trường tiền tệ (đồng Euro) và nhất thể hóa chính trị Tây Âu." ;
+    su9:hasResult "Đặt nền móng cho quá trình nhất thể hóa châu Âu toàn diện." ;
+    su9:hasOrganization su9:O_EU ;
+    su9:weightsJson "{\"O_EU\": 10}" .
+su9:D_CH3_HiepUocAnNinhMyNhat a su9:Document ;
+    rdfs:label "Hiệp ước an ninh Mỹ - Nhật (1951)"@vi ;
+    su9:aliases "Hiệp ước an ninh Mỹ-Nhật" ;
+    su9:occursAt su9:L_NhatBan ;
+    su9:occursDuring su9:P_1945_1973 ;
+    su9:hasContent "Cho phép Mỹ đặt căn cứ quân sự. Nhật Bản được bảo hộ hạt nhân để tập trung phát triển kinh tế." ;
+    su9:hasOrganization su9:O_PheTBCN ;
+    su9:weightsJson "{\"O_PheTBCN\": 10}" .
+su9:D_CH3_KeHoachMountbatten a su9:Document ;
+    rdfs:label "Kế hoạch Mao-bát-tơn (1947)"@vi ;
+    su9:aliases "Kế hoạch Mountbatten|Chia cắt Ấn Độ" ;
+    su9:occursAt su9:L_AnDo ;
+    su9:occursDuring su9:P_1945_1950 ;
+    su9:hasContent "Chia Ấn Độ thành 2 quốc gia tự trị dựa trên tôn giáo: Ấn Độ (Ấn Độ giáo) và Pa-ki-xtan (Hồi giáo)." .
+su9:D_CH3_HiepUocBali a su9:Document ;
+    rdfs:label "Hiệp ước Ba-li (2/1976)"@vi ;
+    su9:aliases "Hiệp ước thân thiện và hợp tác Đông Nam Á" ;
+    su9:occursAt su9:L_DongNamA ;
+    su9:occursDuring su9:P_1973_1991 ;
+    su9:hasContent "Xác định những nguyên tắc cơ bản trong quan hệ giữa các nước ASEAN." ;
+    su9:hasResult "Đánh dấu sự khởi sắc của ASEAN, chuyển từ hợp tác lỏng lẻo sang chặt chẽ." ;
+    su9:hasOrganization su9:O_ASEAN ;
+    su9:weightsJson "{\"O_ASEAN\": 10}" .
+su9:D_CH4_HienPhap1946 a su9:Document ;
+    rdfs:label "Bản Hiến pháp đầu tiên (9/11/1946)"@vi ;
+    su9:aliases "Hiến pháp 1946" ;
+    su9:occursAt su9:L_VietNam ;
+    su9:occursDuring su9:P_1945_1946 ;
+    su9:hasContent "Bản Hiến pháp đầu tiên của nước VNDCCH được Quốc hội thông qua." ;
+    su9:hasResult "Khẳng định tính hợp pháp của chính quyền mới." ;
+    su9:hasOrganization su9:O_QuocHoiKhoa1 ;
+    su9:weightsJson "{\"O_QuocHoiKhoa1\": 10}" .
+su9:D_CH4_HiepUocHoaPhap a su9:Document ;
+    rdfs:label "Hiệp ước Hoa - Pháp (28/2/1946)"@vi ;
+    su9:aliases "Hiệp ước Hoa-Pháp|Pháp bắt tay với Tưởng" ;
+    su9:occursAt su9:L_Global ;
+    su9:occursDuring su9:P_1945_1946 ;
+    su9:hasContent "Pháp nhượng cho Tưởng một số quyền lợi ở Trung Quốc để đổi lấy quyền đưa quân ra Bắc Việt Nam thay Tưởng giải giáp quân Nhật." ;
+    su9:hasResult "Đặt nhân dân ta trước hai con đường: đánh Pháp ngay hoặc hòa hoãn để đẩy quân Tưởng về nước." ;
+    su9:hasOrganization su9:O_THDQ ;
+    su9:hasOrganization su9:O_ThucDanPhap ;
+    su9:weightsJson "{\"O_THDQ\": 10, \"O_ThucDanPhap\": 10}" .
+su9:D_CH4_HiepDinhSoBo a su9:Document ;
+    rdfs:label "Hiệp định Sơ bộ (6/3/1946)"@vi ;
+    su9:aliases "Mùng 6 tháng 3" ;
+    su9:occursAt su9:L_VietNam ;
+    su9:occursDuring su9:P_1945_1946 ;
+    su9:hasCauseDirect "Sự ra đời của Hiệp ước Hoa - Pháp buộc ta phải chọn sách lược 'Hòa để tiến'." ;
+    su9:hasContent "Pháp công nhận VN là quốc gia tự do. VN đồng ý cho 15.000 quân Pháp ra Bắc thay Tưởng và rút dần trong 5 năm." ;
+    su9:hasResult "Đẩy được 20 vạn quân Tưởng về nước, tranh thủ thời gian chuẩn bị lực lượng." ;
+    su9:hasOrganization su9:O_VNDCCH ;
+    su9:hasOrganization su9:O_ThucDanPhap ;
+    su9:weightsJson "{\"O_VNDCCH\": 10, \"O_ThucDanPhap\": 10}" .
+su9:D_CH4_TamUoc14_9 a su9:Document ;
+    rdfs:label "Bản Tạm ước (14/9/1946)"@vi ;
+    su9:aliases "Tạm ước 14/9" ;
+    su9:occursAt su9:L_Global ;
+    su9:occursDuring su9:P_1945_1946 ;
+    su9:hasCauseDirect "Cuộc đàm phán chính thức tại Phông-ten-nơ-blô thất bại do Pháp ngoan cố." ;
+    su9:hasContent "Chủ tịch Hồ Chí Minh ký với Pháp bản Tạm ước, tiếp tục nhượng cho Pháp một số quyền lợi kinh tế, văn hóa." ;
+    su9:hasResult "Kéo dài thêm thời gian hòa hoãn để xây dựng lực lượng." ;
+    su9:hasOrganization su9:O_VNDCCH ;
+    su9:hasOrganization su9:O_ThucDanPhap ;
+    su9:weightsJson "{\"O_VNDCCH\": 10, \"O_ThucDanPhap\": 10}" .
+su9:D_CH4_LoiKeuGoiTQKC a su9:Document ;
+    rdfs:label "Lời kêu gọi toàn quốc kháng chiến (19/12/1946)"@vi ;
+    su9:aliases "Lời kêu gọi của Hồ Chủ tịch" ;
+    su9:occursAt su9:L_VietNam ;
+    su9:occursDuring su9:P_1946_1950 ;
+    su9:hasCauseDirect "Pháp gửi tối hậu thư (17/12/1946) đòi tước vũ khí tự vệ và kiểm soát Hà Nội." ;
+    su9:hasContent "Phát động toàn quốc kháng chiến chống thực dân Pháp xâm lược." ;
+    su9:hasPerson su9:Pe_HoChiMinh ;
+    su9:weightsJson "{\"Pe_HoChiMinh\": 10}" .
+su9:D_CH4_KhangChienNhatDinhThangLoi a su9:Document ;
+    rdfs:label "Tác phẩm Kháng chiến nhất định thắng lợi (9/1947)"@vi ;
+    su9:occursAt su9:L_VietNam ;
+    su9:occursDuring su9:P_1946_1950 ;
+    su9:hasContent "Giải thích rõ nội dung cơ bản của đường lối kháng chiến: toàn dân, toàn diện, trường kì, tự lực cánh sinh." ;
+    su9:hasPerson su9:Pe_TruongChinh ;
+    su9:weightsJson "{\"Pe_TruongChinh\": 10}" .
+su9:D_CH4_KeHoachRevers a su9:Document ;
+    rdfs:label "Kế hoạch Rơ-ve (1949)"@vi ;
+    su9:aliases "Kế hoạch Revers" ;
+    su9:occursAt su9:L_VietNam ;
+    su9:occursDuring su9:P_1946_1950 ;
+    su9:hasContent "Tăng cường phòng thủ Đường số 4, lập hành lang Đông - Tây nhằm khóa chặt biên giới Việt - Trung, chuẩn bị tiến công Việt Bắc lần 2." ;
+    su9:hasResult "Bị phá sản hoàn toàn sau Chiến dịch Biên giới thu - đông 1950." ;
+    su9:hasOrganization su9:O_ThucDanPhap ;
+    su9:hasOrganization su9:L_My ;
+    su9:weightsJson "{\"O_ThucDanPhap\": 10, \"L_My\": 8}" .
+su9:D_CH4_KeHoachNavarre a su9:Document ;
+    rdfs:label "Kế hoạch Na-va (1953)"@vi ;
+    su9:aliases "Kế hoạch Navarre" ;
+    su9:occursAt su9:L_VietNam ;
+    su9:occursDuring su9:P_1951_1954 ;
+    su9:hasContent "Pháp và Mỹ hi vọng giành thắng lợi quyết định trong 18 tháng. Điểm mấu chốt là tập trung quân cơ động chiến lược ở đồng bằng Bắc Bộ (44 tiểu đoàn)." ;
+    su9:hasResult "Bị phân tán bởi Tiến công Đông - Xuân và bị đập tan hoàn toàn tại Điện Biên Phủ." ;
+    su9:hasOrganization su9:O_ThucDanPhap ;
+    su9:hasOrganization su9:L_My ;
+    su9:weightsJson "{\"O_ThucDanPhap\": 10, \"L_My\": 9}" .
+su9:D_CH4_HiepDinhGeneva a su9:Document ;
+    rdfs:label "Hiệp định Giơ-ne-vơ (21/7/1954)"@vi ;
+    su9:aliases "Hiệp định Geneva" ;
+    su9:occursAt su9:L_Geneva ;
+    su9:occursDuring su9:P_1951_1954 ;
+    su9:hasCauseDirect "Thắng lợi quyết định tại Điện Biên Phủ tạo thế mạnh trên bàn đàm phán." ;
+    su9:hasContent "Pháp công nhận độc lập, chủ quyền, toàn vẹn lãnh thổ VN. Vĩ tuyến 17 là giới tuyến quân sự tạm thời. Tổng tuyển cử vào tháng 7/1956." ;
+    su9:hasAchievements "Chấm dứt chiến tranh xâm lược của Pháp, Mỹ thất bại trong âm mưu quốc tế hóa chiến tranh Đông Dương." ;
+    su9:hasOrganization su9:O_VNDCCH ;
+    su9:hasOrganization su9:O_ThucDanPhap ;
+    su9:weightsJson "{\"O_VNDCCH\": 10, \"O_ThucDanPhap\": 10}" .
+su9:D_CH5_Luat1059 a su9:Document ;
+    rdfs:label "Luật 10/59"@vi ;
+    su9:occursAt su9:L_MienNam ;
+    su9:occursDuring su9:P_1954_1965 ;
+    su9:hasContent "Thiết lập máy chém khắp miền Nam, giết hại vô số người vô tội, đẩy mâu thuẫn lên tột đỉnh." ;
+    su9:hasOrganization su9:O_ChinhQuyenDiem ;
+    su9:weightsJson "{\"O_ChinhQuyenDiem\": 10}" .
+su9:D_CH5_NghiQuyet15 a su9:Document ;
+    rdfs:label "Nghị quyết Trung ương 15 (Đầu 1959)"@vi ;
+    su9:aliases "Hội nghị Ban Chấp hành Trung ương Đảng lần thứ 15" ;
+    su9:occursAt su9:L_VietNam ;
+    su9:occursDuring su9:P_1954_1965 ;
+    su9:hasContent "Xác định con đường cơ bản: sử dụng bạo lực cách mạng đánh đổ chính quyền Mỹ - Diệm." .
+su9:D_CH5_HiepDinhParis1973 a su9:Document ;
+    rdfs:label "Hiệp định Pa-ri (1973)"@vi ;
+    su9:aliases "Hiệp định Paris" ;
+    su9:occursAt su9:L_Global ;
+    su9:occursDuring su9:P_1969_1973 ;
+    su9:hasCauseDirect "Mỹ thất bại nặng nề tại trận Điện Biên Phủ trên không (12/1972)." ;
+    su9:hasContent "Mỹ buộc phải chấm dứt chiến tranh, rút hết quân viễn chinh và quân chư hầu về nước." ;
+    su9:hasAchievements "Làm thay đổi căn bản so sánh lực lượng ở miền Nam có lợi cho cách mạng (Mỹ cút, mở đường cho ngụy nhào)." .
+su9:D_CH6_KyHopThuNhat_QH6 a su9:Document ;
+    rdfs:label "Kỳ họp thứ nhất Quốc hội khóa VI (6-7/1976)"@vi ;
+    su9:occursAt su9:L_VietNam ;
+    su9:occursDuring su9:P_1976_1985 ;
+    su9:hasContent "Quyết định tên nước là CHXHCN Việt Nam, Quốc kì, Quốc ca, đổi tên Sài Gòn thành TP. Hồ Chí Minh." ;
+    su9:hasAchievements "Hoàn thành quá trình thống nhất đất nước về mặt nhà nước." ;
+    su9:hasOrganization su9:O_QuocHoiKhoa6 ;
+    su9:weightsJson "{\"O_QuocHoiKhoa6\": 10}" .
+su9:D_CH6_DaiHoiDang6 a su9:Document ;
+    rdfs:label "Đại hội đại biểu toàn quốc lần thứ VI (12/1986)"@vi ;
+    su9:aliases "Đại hội VI|Đại hội Đổi mới" ;
+    su9:occursAt su9:L_VietNam ;
+    su9:occursDuring su9:P_1986_1991 ;
+    su9:hasCauseDeep "Đất nước khủng hoảng kinh tế xã hội trầm trọng. Thế giới có nhiều thay đổi lớn." ;
+    su9:hasContent "Đề ra đường lối Đổi mới toàn diện, trọng tâm là đổi mới kinh tế (xóa bao cấp, phát triển kinh tế hàng hóa nhiều thành phần)." .
+su9:D_CH6_HienPhap1980 a su9:Document ;
+    rdfs:label "Hiến pháp năm 1980"@vi ;
+    su9:occursAt su9:L_VietNam ;
+    su9:occursDuring su9:P_1976_1985 ;
+    su9:hasContent "Hiến pháp mới của nước CHXHCN Việt Nam được thông qua (tháng 12/1980), thể chế hóa đường lối xây dựng CNXH trong cả nước." ;
+    su9:hasOrganization su9:O_DangCS_VN ;
+    su9:weightsJson "{\"O_DangCS_VN\": 10}" .
+su9:D_CH6_DaiHoiDang6_ChiTiet a su9:Document ;
+    rdfs:label "Đường lối Đổi mới tại Đại hội VI (12/1986)"@vi ;
+    su9:aliases "Nội dung đường lối Đổi mới" ;
+    su9:occursAt su9:L_VietNam ;
+    su9:occursDuring su9:P_1986_1991 ;
+    su9:hasCauseDeep "Nguyên nhân khách quan: Khủng hoảng ở Liên Xô/Đông Âu, CM KH-KT, xu thế toàn cầu hóa. Nguyên nhân chủ quan: Sai lầm trong kế hoạch 5 năm (1976-1985) gây khủng hoảng trầm trọng." ;
+    su9:hasContent "+ Quan điểm: Đổi mới toàn diện, đồng bộ, TRỌNG TÂM LÀ KINH TẾ. Đổi mới không phải là thay đổi mục tiêu CNXH mà là đổi mới hình thức, biện pháp.\n        + Kinh tế: Xóa bỏ bao cấp; Xây dựng kinh tế hàng hóa nhiều thành phần (cơ chế thị trường); Kêu gọi đầu tư nước ngoài.\n        + Chính trị: Xây dựng Nhà nước pháp quyền XHCN." ;
+    su9:involvedConcept su9:C_KinhTeThiTruong_XHCN ;
+    su9:weightsJson "{\"C_KinhTeThiTruong_XHCN\": 10}" .
+
+### EVENTS ###
+su9:E_XayDungCNXH_LienXo_1922_1945 a su9:Event ;
+    rdfs:label "Liên Xô xây dựng CNXH (1922-1945)"@vi ;
+    su9:aliases "Thành tựu Liên Xô|Xây dựng chủ nghĩa xã hội ở Liên Xô|Liên Xô 1922-1945" ;
+    su9:occursAt su9:L_LienXo ;
+    su9:occursDuring su9:P_1922_1945 ;
+    su9:hasContext "Tháng 12/1922, Liên bang Cộng hòa XHCN Xô viết (Liên Xô) chính thức thành lập." ;
+    su9:hasAchievements "\n        + Về kinh tế: Năm 1937, Liên Xô đã trở thành cường quốc công nghiệp đứng đầu châu Âu và thứ 2 thế giới.\n        + Về xã hội: Các giai cấp bóc lột bị xoá bỏ, chỉ còn công nhân, nông dân tập thể và trí thức.\n        + Về văn hóa-giáo dục: xoá nạn mù chữ, hoàn thành phổ cập THCS ở thành phố." ;
+    su9:hasLimitations "\n        - Chưa chú trọng đúng mức đến nông nghiệp và công nghiệp nhẹ.\n        - Vi phạm nguyên tắc tự nguyện trong tập thể hóa." .
+su9:E_ThanhLapQuocTeCongSan a su9:Event ;
+    rdfs:label "Sự thành lập Quốc tế Cộng sản"@vi ;
+    su9:aliases "Quốc tế Cộng sản|Quốc tế thứ ba|Comintern|Thành lập Quốc tế thứ 3" ;
+    su9:occursAt su9:L_Moscow ;
+    su9:occursDuring su9:P_1918_1923 ;
+    su9:hasCause "Phong trào cách mạng thế giới dâng cao, cần tổ chức quốc tế thống nhất để lãnh đạo." ;
+    su9:hasContent "Thành lập 3/1919 tại Mát-xcơ-va. Đề ra đường lối cho cách mạng thế giới." ;
+    su9:hasResult "Trở thành bộ tham mưu của phong trào công nhân toàn cầu. Tự giải tán năm 1943." ;
+    su9:hasPerson su9:Pe_Lenin ;
+    su9:hasOrganization su9:O_Comintern ;
+    su9:hasOrganization su9:O_Bolshevik ;
+    su9:weightsJson "{\"Pe_Lenin\": 10, \"O_Comintern\": 10, \"O_Bolshevik\": 8}" .
+su9:E_KhungHoangKinhTe_1929_1933 a su9:Event ;
+    rdfs:label "Đại suy thoái kinh tế 1929-1933"@vi ;
+    su9:aliases "Đại suy thoái|Khủng hoảng kinh tế 1929-1933|Khủng hoảng thừa 1929-1933|Khủng hoảng kinh tế thế giới" ;
+    su9:occursAt su9:L_My ;
+    su9:occursDuring su9:P_1929_1933 ;
+    su9:hasContext "Giai đoạn 1924-1929, kinh tế tư bản phát triển phồn vinh, sản xuất ồ ạt." ;
+    su9:hasCause "Sản xuất ồ ạt, sức mua không tăng tương ứng -> Khủng hoảng thừa." ;
+    su9:hasContent "Bùng nổ 10/1929 ở Mỹ rồi lan ra toàn thế giới tư bản. Đình đốn công nghiệp, tài chính." ;
+    su9:hasResult "Hàng triệu người thất nghiệp. Dẫn đến sự xuất hiện của chủ nghĩa phát xít ở Đức, Italia, Nhật." ;
+    su9:involvedConcept su9:C_KhungHoangKinhTe ;
+    su9:weightsJson "{\"C_KhungHoangKinhTe\": 10}" .
+su9:E_PhatXitHoa_ChauAu_1929_1933 a su9:Event ;
+    rdfs:label "Châu Âu hình thành chủ nghĩa phát xít"@vi ;
+    su9:aliases "Phát xít hóa châu Âu|Chủ nghĩa phát xít ở châu Âu|Sự hình thành phe Phát xít" ;
+    su9:occursAt su9:L_Europe ;
+    su9:occursDuring su9:P_1929_1933 ;
+    su9:hasCause "Khủng hoảng 1929-1933. Các nước thiếu thuộc địa (Đức, Ý) muốn dùng vũ lực chia lại thế giới." ;
+    su9:hasContent "Ý: Mussolini lập độc tài (1925). Đức: Hitler làm Quốc trưởng (1934), tái vũ trang." ;
+    su9:hasResult "Hình thành liên minh phát xít Đức-Ý (1936), đẩy nhân loại đến bờ vực chiến tranh." ;
+    su9:hasPerson su9:Pe_Hitler ;
+    su9:hasPerson su9:Pe_Mussolini ;
+    su9:hasOrganization su9:O_DangQuocXa ;
+    su9:hasOrganization su9:O_PhePhatXit ;
+    su9:involvedConcept su9:C_ChuNghiaPhatXit ;
+    su9:involvedConcept su9:C_PhatXitHoa ;
+    su9:weightsJson "{\"Pe_Hitler\": 10, \"Pe_Mussolini\": 9, \"O_DangQuocXa\": 10, \"O_PhePhatXit\": 9, \"C_ChuNghiaPhatXit\": 10, \"C_PhatXitHoa\": 10}" .
+su9:E_NhatBan_PhatXitHoa_1933_1945 a su9:Event ;
+    rdfs:label "Nhật Bản phát xít hóa và bành trướng"@vi ;
+    su9:aliases "Phát xít Nhật|Nhật Bản phát xít hóa|Quân phiệt Nhật|Nhật Bản xâm lược" ;
+    su9:occursAt su9:L_NhatBan ;
+    su9:occursDuring su9:P_1933_1939 ;
+    su9:hasCause "Khủng hoảng 1929-1933. Giới quân phiệt muốn mở rộng lãnh thổ." ;
+    su9:hasContent "Quân phiệt hóa bộ máy nhà nước. Xâm chiếm Mãn Châu (1931), mở rộng xâm lược Trung Quốc (1937)." ;
+    su9:hasResult "Trở thành lò lửa chiến tranh ở châu Á - Thái Bình Dương." ;
+    su9:involvedConcept su9:C_PhatXitHoa ;
+    su9:involvedConcept su9:C_ChuNghiaPhatXit ;
+    su9:involvedConcept su9:C_ChienTranhPhiNghia ;
+    su9:weightsJson "{\"C_PhatXitHoa\": 10, \"C_ChuNghiaPhatXit\": 10, \"C_ChienTranhPhiNghia\": 9}" .
+su9:E_WWII_NguyenNhan_TongQuat a su9:Event ;
+    rdfs:label "Nguyên nhân bùng nổ CTTG 2"@vi ;
+    su9:aliases "Chiến tranh thế giới lần thứ 2|Nguyên nhân Chiến tranh thế giới thứ hai|Nguyên nhân CTTG 2|Tại sao CTTG 2 bùng nổ" ;
+    su9:occursAt su9:L_Europe ;
+    su9:occursDuring su9:P_1933_1939 ;
+    su9:hasCauseDeep "Kinh tế tư bản phát triển không đều. Khủng hoảng 1929-1933 tạo điều kiện cho phát xít nắm quyền." ;
+    su9:hasCauseDirect "Chính sách thỏa hiệp, nhượng bộ của phương Tây nhằm chĩa mũi nhọn vào Liên Xô đã dung túng phát xít." ;
+    su9:involvedConcept su9:C_HeThongVersaillesWashington ;
+    su9:involvedConcept su9:C_ChinhSachThoaHiep ;
+    su9:involvedConcept su9:C_ChuNghiaPhatXit ;
+    su9:weightsJson "{\"C_HeThongVersaillesWashington\": 9, \"C_ChinhSachThoaHiep\": 10, \"C_ChuNghiaPhatXit\": 10}" .
+su9:E_WWII_GiaiDoan1_1939_1941 a su9:Event ;
+    rdfs:label "CTTG 2 bùng nổ và lan rộng (1939-1941)"@vi ;
+    su9:aliases "Chiến tranh thế giới lần thứ 2|Giai đoạn 1 CTTG 2|Chiến tranh thế giới thứ hai 1939-1941|CTTG 2 bùng nổ|Giai đoạn 1 Chiến tranh thế giới thứ 2" ;
+    su9:occursAt su9:L_Europe ;
+    su9:occursDuring su9:P_WWII_GiaiDoan1 ;
+    su9:hasContent "9/1939: Đức đánh Ba Lan. 5/1940: Đánh Tây Âu. 6/1941: Tấn công Liên Xô. 12/1941: Nhật tấn công Trân Châu Cảng." ;
+    su9:hasResult "Chiến tranh lan rộng toàn thế giới. Phát xít tạm thời chiếm ưu thế." ;
+    su9:hasOrganization su9:O_PhePhatXit ;
+    su9:hasOrganization su9:O_QuanPhietNhat ;
+    su9:weightsJson "{\"O_PhePhatXit\": 10, \"O_QuanPhietNhat\": 9}" .
+su9:E_WWII_GiaiDoan2_1942_1945 a su9:Event ;
+    rdfs:label "Đồng minh phản công và kết thúc chiến tranh trong Chiến tranh Thế giới lần thứ 2"@vi ;
+    su9:aliases "Chiến tranh thế giới lần thứ 2|Giai đoạn 2 CTTG 2|Đồng minh phản công|Chiến tranh kết thúc|CTTG 2 kết thúc|Giai đoạn 2 Chiến tranh Thế Giới lần thứ 2" ;
+    su9:occursAt su9:L_Europe ;
+    su9:occursDuring su9:P_WWII_GiaiDoan2 ;
+    su9:hasContent "Trận Xta-lin-grát (11/1942-2/1943) tạo bước ngoặt. Đổ bộ Noóc-măng-đi (6/1944). Chiến dịch Béc-lin (5/1945). Mỹ ném bom nguyên tử (8/1945)." ;
+    su9:hasResult "Đức, Ý, Nhật đầu hàng không điều kiện. Chiến tranh kết thúc 15/8/1945." ;
+    su9:hasOrganization su9:O_LienHopQuoc_WW2 ;
+    su9:hasOrganization su9:O_PhePhatXit ;
+    su9:hasOrganization su9:O_QuanPhietNhat ;
+    su9:weightsJson "{\"O_LienHopQuoc_WW2\": 10, \"O_PhePhatXit\": 10, \"O_QuanPhietNhat\": 10}" .
+su9:E_WWII_HauQua_YNGhia a su9:Event ;
+    rdfs:label "Hậu quả và Ý nghĩa lịch sử của CTTG 2"@vi ;
+    su9:aliases "Chiến tranh thế giới lần thứ 2|Hậu quả CTTG 2|Ý nghĩa Chiến tranh thế giới thứ hai|Hậu quả chiến tranh thế giới thứ hai" ;
+    su9:occursAt su9:L_Europe ;
+    su9:occursDuring su9:P_WWII_GiaiDoan2 ;
+    su9:hasResult "Làm thay đổi tương quan lực lượng tư bản, tạo điều kiện cho hệ thống XHCN ra đời và phong trào GPDT phát triển." ;
+    su9:hasAchievements "Tính chính nghĩa của Đồng minh đánh bại phát xít. Cứu nhân loại khỏi thảm họa diệt vong." ;
+    su9:hasLimitations "Hậu quả tàn khốc: 60 triệu người chết, 90 triệu người bị thương, thiệt hại 4000 tỉ USD." ;
+    su9:involvedConcept su9:C_ChienTranhPhiNghia ;
+    su9:involvedConcept su9:C_ChienTranhChinhNghia ;
+    su9:weightsJson "{\"C_ChienTranhPhiNghia\": 8, \"C_ChienTranhChinhNghia\": 8}" .
+su9:E_CH2_ThanhLapVNQDD a su9:Event ;
+    rdfs:label "Việt Nam Quốc dân Đảng (1927-1930)"@vi ;
+    su9:aliases "Thành lập Việt Nam Quốc dân Đảng|VNQDĐ ra đời|Khởi nghĩa Yên Bái" ;
+    su9:occursAt su9:L_VietNam ;
+    su9:occursDuring su9:P_1918_1930 ;
+    su9:hasContext "Thành lập tháng 12/1927 trên cơ sở hạt nhân là Nam Đồng thư xã." ;
+    su9:hasCause "Theo khuynh hướng cách mạng dân chủ tư sản. Mục tiêu đánh đuổi giặc Pháp, thiết lập dân quyền." ;
+    su9:hasContent "Sử dụng phương pháp bạo động, ám sát cá nhân. Tổ chức cuộc khởi nghĩa Yên Bái (tháng 2/1930)." ;
+    su9:hasResult "Thất bại, đảng tan rã. Chứng tỏ khuynh hướng dân chủ tư sản đã hoàn toàn bất lực trước nhiệm vụ cứu nước." ;
+    su9:hasPerson su9:Pe_NguyenThaiHoc ;
+    su9:hasPerson su9:Pe_PhoDucChinh ;
+    su9:hasOrganization su9:O_VNQDD ;
+    su9:hasOrganization su9:O_NamDongThuXa ;
+    su9:hasOrganization su9:O_TuSanVN ;
+    su9:involvedConcept su9:C_KhuynhHuongTuSan ;
+    su9:involvedConcept su9:C_BaoDongAmSat ;
+    su9:weightsJson "{\"Pe_NguyenThaiHoc\": 10, \"Pe_PhoDucChinh\": 8, \"O_VNQDD\": 10, \"O_NamDongThuXa\": 8, \"O_TuSanVN\": 7, \"C_KhuynhHuongTuSan\": 10, \"C_BaoDongAmSat\": 9}" .
+su9:E_CH2_ThanhLapTanViet a su9:Event ;
+    rdfs:label "Tân Việt Cách mạng đảng (1928)"@vi ;
+    su9:aliases "Đảng Tân Việt|Tân Việt Cách mạng đảng|Hội Phục Việt đổi tên" ;
+    su9:occursAt su9:L_TrungKy ;
+    su9:occursDuring su9:P_1918_1930 ;
+    su9:hasContext "Tháng 7/1928, Hội Phục Việt đổi tên thành Tân Việt Cách mạng đảng, hoạt động chủ yếu ở Trung Kì." ;
+    su9:hasContent "Giới thiệu sách báo tiến bộ, truyền bá chủ nghĩa Mác-Lê-nin. Cử đảng viên dự huấn luyện của Hội VN Cách mạng Thanh niên." ;
+    su9:hasResult "Từ khuynh hướng dân chủ tư sản ban đầu chuyển dần sang khuynh hướng vô sản." ;
+    su9:hasOrganization su9:O_TanViet ;
+    su9:hasOrganization su9:O_HoiPhucViet ;
+    su9:hasOrganization su9:O_HVNCMTN ;
+    su9:hasOrganization su9:O_TieuTuSan ;
+    su9:involvedConcept su9:C_KhuynhHuongVoSan ;
+    su9:involvedConcept su9:C_KhuynhHuongTuSan ;
+    su9:weightsJson "{\"O_TanViet\": 10, \"O_HoiPhucViet\": 8, \"O_HVNCMTN\": 9, \"O_TieuTuSan\": 8, \"C_KhuynhHuongVoSan\": 9, \"C_KhuynhHuongTuSan\": 5}" .
+su9:E_CH2_DaiHoiTours_1920 a su9:Event ;
+    rdfs:label "Nguyễn Ái Quốc dự Đại hội Tua (1920)"@vi ;
+    su9:aliases "Đại hội Tua|Bỏ phiếu tán thành Quốc tế Cộng sản" ;
+    su9:occursAt su9:L_Tours ;
+    su9:occursDuring su9:P_1918_1930 ;
+    su9:hasContent "Tháng 12/1920, bỏ phiếu tán thành gia nhập Quốc tế Cộng sản và tham gia lập Đảng CS Pháp." ;
+    su9:hasResult "Bước ngoặt: Nguyễn Ái Quốc chuyển từ chủ nghĩa yêu nước đến chủ nghĩa Mác-Lênin, đi theo cách mạng vô sản." ;
+    su9:hasPerson su9:Pe_HoChiMinh ;
+    su9:hasOrganization su9:O_DangXaHoiPhap ;
+    su9:hasOrganization su9:O_DangCongSanPhap ;
+    su9:hasOrganization su9:O_QuocTeCongSan ;
+    su9:involvedConcept su9:C_ChuNghiaMacLenin ;
+    su9:involvedConcept su9:C_CachMangVoSan ;
+    su9:weightsJson "{\"Pe_HoChiMinh\": 10, \"O_DangXaHoiPhap\": 8, \"O_DangCongSanPhap\": 9, \"O_QuocTeCongSan\": 9, \"C_ChuNghiaMacLenin\": 10, \"C_CachMangVoSan\": 10}" .
+su9:E_CH2_BaToChucCongSan_1929 a su9:Event ;
+    rdfs:label "Sự ra đời ba tổ chức cộng sản (1929)"@vi ;
+    su9:aliases "Ba tổ chức cộng sản|Ba tổ chức cộng sản ra đời" ;
+    su9:occursAt su9:L_VietNam ;
+    su9:occursDuring su9:P_1918_1930 ;
+    su9:hasContext "Năm 1928-1929, phong trào cách mạng phát triển mạnh, đòi hỏi phải có Đảng Cộng sản lãnh đạo." ;
+    su9:hasContent "Tháng 6/1929: Đông Dương CSĐ (Bắc Kì). Tháng 8/1929: An Nam CSĐ (Nam Kì). Tháng 9/1929: Đông Dương CS Liên đoàn (Sài Gòn)." ;
+    su9:hasResult "Chứng tỏ sự trưởng thành của giai cấp công nhân. Tuy nhiên hoạt động riêng rẽ gây nguy cơ chia rẽ lớn." ;
+    su9:hasOrganization su9:O_DDCSD ;
+    su9:hasOrganization su9:O_ANCSD ;
+    su9:hasOrganization su9:O_DDCSLD ;
+    su9:hasOrganization su9:O_HVNCMTN ;
+    su9:hasOrganization su9:O_TanViet ;
+    su9:weightsJson "{\"O_DDCSD\": 10, \"O_ANCSD\": 10, \"O_DDCSLD\": 10, \"O_HVNCMTN\": 8, \"O_TanViet\": 8}" .
+su9:E_CH2_HoiNghiThanhLapDang_1930 a su9:Event ;
+    rdfs:label "Hội nghị thành lập Đảng Cộng sản Việt Nam"@vi ;
+    su9:aliases "Thành lập Đảng Cộng sản Việt Nam|Đảng Cộng sản Việt Nam ra đời|Hội nghị hợp nhất" ;
+    su9:occursAt su9:L_HongKong ;
+    su9:occursDuring su9:P_1930 ;
+    su9:hasCauseDirect "Sự chia rẽ của 3 tổ chức cộng sản đòi hỏi phải hợp nhất." ;
+    su9:hasContent "Đầu năm 1930 tại Hương Cảng, Nguyễn Ái Quốc chủ trì hội nghị hợp nhất thành Đảng Cộng sản Việt Nam và thông qua Cương lĩnh chính trị đầu tiên." ;
+    su9:hasResult "Là bước chuẩn bị tất yếu đầu tiên cho những bước phát triển nhảy vọt về sau của cách mạng Việt Nam." ;
+    su9:hasAchievements "Chấm dứt khủng hoảng về đường lối cứu nước và giai cấp lãnh đạo." ;
+    su9:hasPerson su9:Pe_HoChiMinh ;
+    su9:hasOrganization su9:O_DangCongSanVN ;
+    su9:hasOrganization su9:O_QuocTeCongSan ;
+    su9:weightsJson "{\"Pe_HoChiMinh\": 10, \"O_DangCongSanVN\": 10, \"O_QuocTeCongSan\": 9}" .
+su9:E_CH2_XoVietNgheTinh a su9:Event ;
+    rdfs:label "Đỉnh cao Xô viết Nghệ-Tĩnh"@vi ;
+    su9:aliases "Xô viết Nghệ-Tĩnh|Xô viết Nghệ Tĩnh|Chính quyền Xô viết" ;
+    su9:occursAt su9:L_NgheTinh ;
+    su9:occursDuring su9:P_1930_1931 ;
+    su9:hasContext "Thuộc phong trào cách mạng 1930-1931. Biểu tình của nông dân làm bộ máy tay sai tê liệt." ;
+    su9:hasContent "Chính quyền nhân dân lập ra dưới hình thức xô viết. Chính trị: ban bố quyền tự do. Kinh tế: chia ruộng đất, bãi bỏ thuế vô lí. Văn hóa: dạy chữ Quốc ngữ." ;
+    su9:hasResult "Là đỉnh cao của phong trào, chứng tỏ sức mạnh của quần chúng khi có Đảng lãnh đạo." ;
+    su9:hasOrganization su9:O_ChinhQuyenXoViet ;
+    su9:weightsJson "{\"O_ChinhQuyenXoViet\": 10}" .
+su9:E_CH2_HoiNghiTW_7_1936 a su9:Event ;
+    rdfs:label "Hội nghị Trung ương Đảng (7/1936)"@vi ;
+    su9:aliases "Hội nghị tháng 7/1936|Chủ trương đấu tranh 1936-1939" ;
+    su9:occursAt su9:L_VietNam ;
+    su9:occursDuring su9:P_1936_1939 ;
+    su9:hasCause "Tình hình thế giới thay đổi (nguy cơ phát xít) và phong trào trong nước dần phục hồi." ;
+    su9:hasContent "Xác định nhiệm vụ trước mắt là chống chế độ phản động thuộc địa, chống phát xít. Đòi dân sinh, dân chủ, hòa bình. Thành lập Mặt trận Dân chủ Đông Dương." ;
+    su9:hasOrganization su9:O_DangCongSanVN ;
+    su9:hasOrganization su9:O_MatTranDanChuDongDuong ;
+    su9:involvedConcept su9:C_DanSinhDanChu ;
+    su9:weightsJson "{\"O_DangCongSanVN\": 10, \"O_MatTranDanChuDongDuong\": 9, \"C_DanSinhDanChu\": 10}" .
+su9:E_CH2_PhapNhatBocLot a su9:Event ;
+    rdfs:label "Tình hình Việt Nam dưới ách Pháp - Nhật"@vi ;
+    su9:aliases "Kinh tế chỉ huy|Nhổ lúa trồng đay|Ách thống trị của Pháp-Nhật" ;
+    su9:occursAt su9:L_VietNam ;
+    su9:occursDuring su9:P_1939_1945 ;
+    su9:hasContent "Pháp thực thi 'Kinh tế chỉ huy', Nhật bắt 'nhổ lúa trồng đay', thủ tiêu dân chủ, phát xít hóa bộ máy." ;
+    su9:hasResult "Gây ra nạn đói nghiêm trọng cuối 1944 đầu 1945, làm mâu thuẫn dân tộc lên đến đỉnh điểm." ;
+    su9:hasOrganization su9:O_ThucDanPhap ;
+    su9:hasOrganization su9:O_QuanPhietNhat ;
+    su9:involvedConcept su9:C_KinhTeChiHuy ;
+    su9:involvedConcept su9:C_NanDoi1945 ;
+    su9:weightsJson "{\"O_ThucDanPhap\": 10, \"O_QuanPhietNhat\": 10, \"C_KinhTeChiHuy\": 10, \"C_NanDoi1945\": 10}" .
+su9:E_CH2_HoiNghiTW_11_1939 a su9:Event ;
+    rdfs:label "Hội nghị Ban Chấp hành Trung ương Đảng (11/1939)"@vi ;
+    su9:aliases "Hội nghị tháng 11/1939|Hội nghị Bà Điểm" ;
+    su9:occursAt su9:L_HocMon ;
+    su9:occursDuring su9:P_1939_1945 ;
+    su9:hasContent "Xác định nhiệm vụ của cách mạng lúc này là giải phóng dân tộc, đánh đổ Pháp và tay sai để giành độc lập." ;
+    su9:hasPerson su9:Pe_NguyenVanCu ;
+    su9:hasOrganization su9:O_DangCongSanVN ;
+    su9:weightsJson "{\"Pe_NguyenVanCu\": 10, \"O_DangCongSanVN\": 10}" .
+su9:E_CH2_HoiNghiTW_8_1941 a su9:Event ;
+    rdfs:label "Hội nghị Trung ương Đảng lần thứ 8 (5/1941)"@vi ;
+    su9:aliases "Hội nghị tháng 5/1941|Hội nghị Pác Bó|Hội nghị TW 8" ;
+    su9:occursAt su9:L_CaoBang ;
+    su9:occursDuring su9:P_1939_1945 ;
+    su9:hasContent "Giải quyết vấn đề dân tộc trong từng nước Đông Dương. Chuẩn bị khởi nghĩa vũ trang là nhiệm vụ trung tâm. Hình thái: từ khởi nghĩa từng phần lên tổng khởi nghĩa." ;
+    su9:hasAchievements "Hoàn chỉnh chuyển hướng chiến lược cách mạng, đưa nhiệm vụ giải phóng dân tộc lên hàng đầu." ;
+    su9:hasPerson su9:Pe_HoChiMinh ;
+    su9:hasOrganization su9:O_DangCongSanVN ;
+    su9:involvedConcept su9:C_KhoiNghiaVuTrang ;
+    su9:involvedConcept su9:C_KhoiNghiaTungPhan ;
+    su9:involvedConcept su9:C_TongKhoiNghia ;
+    su9:weightsJson "{\"Pe_HoChiMinh\": 10, \"O_DangCongSanVN\": 10, \"C_KhoiNghiaVuTrang\": 10, \"C_KhoiNghiaTungPhan\": 10, \"C_TongKhoiNghia\": 10}" .
+su9:E_CH2_ThanhLapVietMinh_1941 a su9:Event ;
+    rdfs:label "Thành lập Mặt trận Việt Minh (19/5/1941)"@vi ;
+    su9:aliases "Mặt trận Việt Minh ra đời" ;
+    su9:occursAt su9:L_CaoBang ;
+    su9:occursDuring su9:P_1939_1945 ;
+    su9:hasContent "Thành lập nhằm tập hợp đông đảo nhân dân. Các tổ chức quần chúng gọi là Hội Cứu quốc. Thu hút đông đảo quần chúng tham gia chuẩn bị tổng khởi nghĩa." ;
+    su9:hasOrganization su9:O_VietMinh ;
+    su9:hasOrganization su9:O_DangCongSanVN ;
+    su9:weightsJson "{\"O_VietMinh\": 10, \"O_DangCongSanVN\": 9}" .
+su9:E_CH2_ThanhLapVNTTGPQ_1944 a su9:Event ;
+    rdfs:label "Thành lập Đội VN Tuyên truyền Giải phóng quân"@vi ;
+    su9:aliases "Thành lập Việt Nam Tuyên truyền Giải phóng quân|22/12/1944" ;
+    su9:occursAt su9:L_CaoBang ;
+    su9:occursDuring su9:P_1939_1945 ;
+    su9:hasContent "Thành lập ngày 22/12/1944 theo chỉ thị của Hồ Chí Minh. Ngay sau đó đánh thắng 2 trận Phay Khắt và Nà Ngần." ;
+    su9:hasPerson su9:Pe_HoChiMinh ;
+    su9:hasOrganization su9:O_VNTTGPQ ;
+    su9:weightsJson "{\"Pe_HoChiMinh\": 10, \"O_VNTTGPQ\": 10}" .
+su9:E_CH2_NhatDaoChinhPhap_1945 a su9:Event ;
+    rdfs:label "Nhật đảo chính Pháp (9/3/1945)"@vi ;
+    su9:aliases "Nhật đảo chính Pháp|9/3/1945" ;
+    su9:occursAt su9:L_VietNam ;
+    su9:occursDuring su9:P_1939_1945 ;
+    su9:hasCause "Chiến tranh thế giới 2 sắp kết thúc, Pháp ráo riết chờ cơ hội phản công Nhật." ;
+    su9:hasContent "Tối 9/3/1945, Nhật tiến hành đảo chính Pháp trên toàn Đông Dương, Pháp đầu hàng." ;
+    su9:hasOrganization su9:O_QuanPhietNhat ;
+    su9:hasOrganization su9:O_ThucDanPhap ;
+    su9:weightsJson "{\"O_QuanPhietNhat\": 10, \"O_ThucDanPhap\": 10}" .
+su9:E_CH2_HoiNghiQuanSuBacKi a su9:Event ;
+    rdfs:label "Hội nghị Quân sự Bắc Kì (4/1945)"@vi ;
+    su9:aliases "Hội nghị Quân sự Bắc Kì" ;
+    su9:occursAt su9:L_BacKy ;
+    su9:occursDuring su9:P_Mar_Aug_1945 ;
+    su9:hasContent "Quyết định thống nhất Cứu quốc quân và VNTT Giải phóng quân thành Việt Nam Giải phóng quân, xây dựng căn cứ địa kháng Nhật." ;
+    su9:hasOrganization su9:O_VN_GiaiPhongQuan ;
+    su9:hasOrganization su9:O_CuuQuocQuan ;
+    su9:hasOrganization su9:O_VNTTGPQ ;
+    su9:weightsJson "{\"O_VN_GiaiPhongQuan\": 10, \"O_CuuQuocQuan\": 8, \"O_VNTTGPQ\": 8}" .
+su9:E_CH2_ThanhLapKhuGiaiPhong a su9:Event ;
+    rdfs:label "Thành lập Khu giải phóng Việt Bắc (5/1945)"@vi ;
+    su9:aliases "Khu giải phóng Việt Bắc|Tân Trào" ;
+    su9:occursAt su9:L_VietBac ;
+    su9:occursDuring su9:P_Mar_Aug_1945 ;
+    su9:hasContent "Tháng 5/1945, Hồ Chí Minh về Tân Trào. Khu giải phóng Việt Bắc được thành lập, trở thành căn cứ địa chính của cách mạng cả nước." ;
+    su9:hasPerson su9:Pe_HoChiMinh ;
+    su9:weightsJson "{\"Pe_HoChiMinh\": 10}" .
+su9:E_CH2_NhatDauHangDongMinh a su9:Event ;
+    rdfs:label "Nhật Bản đầu hàng Đồng minh (15/8/1945)"@vi ;
+    su9:aliases "Phát xít Nhật đầu hàng|15/8/1945" ;
+    su9:occursAt su9:L_Global ;
+    su9:occursDuring su9:P_Aug_1945 ;
+    su9:hasContent "Quân Nhật ở Đông Dương rệu rã, Chính phủ thân Nhật hoang mang cực độ, trong khi Đồng minh chưa vào." ;
+    su9:hasResult "Tạo ra thời cơ 'ngàn năm có một' để tổng khởi nghĩa giành chính quyền." ;
+    su9:hasPerson su9:Pe_TranTrongKim ;
+    su9:hasOrganization su9:O_QuanPhietNhat ;
+    su9:hasOrganization su9:O_LienHopQuoc_WW2 ;
+    su9:involvedConcept su9:C_ThoiCoCachMang ;
+    su9:weightsJson "{\"Pe_TranTrongKim\": 8, \"O_QuanPhietNhat\": 10, \"O_LienHopQuoc_WW2\": 10, \"C_ThoiCoCachMang\": 10}" .
+su9:E_CH2_HoiNghiTanTrao_8_1945 a su9:Event ;
+    rdfs:label "Hội nghị toàn quốc của Đảng (14-15/8/1945)"@vi ;
+    su9:aliases "Hội nghị Tân Trào|Hội nghị toàn quốc" ;
+    su9:occursAt su9:L_TuyenQuang ;
+    su9:occursDuring su9:P_Aug_1945 ;
+    su9:hasContent "Thông qua kế hoạch lãnh đạo toàn dân tổng khởi nghĩa, quyết định chính sách đối nội, đối ngoại sau khi giành chính quyền." ;
+    su9:hasOrganization su9:O_DangCongSanVN ;
+    su9:weightsJson "{\"O_DangCongSanVN\": 10}" .
+su9:E_CH2_QuocDanDaiHoiTanTrao a su9:Event ;
+    rdfs:label "Đại hội Quốc dân Tân Trào (16-17/8/1945)"@vi ;
+    su9:aliases "Đại hội Quốc dân" ;
+    su9:occursAt su9:L_TuyenQuang ;
+    su9:occursDuring su9:P_Aug_1945 ;
+    su9:hasContent "Tán thành chủ trương Tổng khởi nghĩa, thông qua 10 chính sách Việt Minh, cử ra Uỷ ban Dân tộc giải phóng Việt Nam do Hồ Chí Minh làm Chủ tịch." ;
+    su9:hasPerson su9:Pe_HoChiMinh ;
+    su9:hasOrganization su9:O_VietMinh ;
+    su9:hasOrganization su9:O_ChinhPhuLamThoi ;
+    su9:weightsJson "{\"Pe_HoChiMinh\": 10, \"O_VietMinh\": 10, \"O_ChinhPhuLamThoi\": 10}" .
+su9:E_CH2_BaoDaiThoaiVi a su9:Event ;
+    rdfs:label "Vua Bảo Đại thoái vị (30/8/1945)"@vi ;
+    su9:aliases "Bảo Đại thoái vị" ;
+    su9:occursAt su9:L_Hue ;
+    su9:occursDuring su9:P_Aug_1945 ;
+    su9:hasContent "Ngày 30/8/1945, vua Bảo Đại tuyên bố thoái vị và trao ấn kiếm cho đại diện chính quyền cách mạng." ;
+    su9:hasResult "Đánh dấu chế độ phong kiến Việt Nam hoàn toàn sụp đổ." ;
+    su9:hasPerson su9:Pe_BaoDai ;
+    su9:weightsJson "{\"Pe_BaoDai\": 10}" .
+su9:E_CH2_QuocKhanh2_9 a su9:Event ;
+    rdfs:label "Lễ Độc lập ngày 2/9/1945"@vi ;
+    su9:aliases "Ngày 2/9|Nước Việt Nam Dân chủ Cộng hoà ra đời" ;
+    su9:occursAt su9:L_BaDinh ;
+    su9:occursDuring su9:P_Sep_1945 ;
+    su9:hasContent "Hồ Chí Minh đọc Tuyên ngôn Độc lập, chính thức khai sinh nước Việt Nam Dân chủ Cộng hòa." ;
+    su9:hasPerson su9:Pe_HoChiMinh ;
+    su9:hasOrganization su9:O_ChinhPhuLamThoi ;
+    su9:involvedConcept su9:C_DocLapTuDo ;
+    su9:weightsJson "{\"Pe_HoChiMinh\": 10, \"O_ChinhPhuLamThoi\": 10, \"C_DocLapTuDo\": 10}" .
+su9:E_CH3_NguyenNhan_ChienTranhLanh a su9:Event ;
+    rdfs:label "Nguyên nhân bùng nổ Chiến tranh lạnh"@vi ;
+    su9:aliases "Chiến tranh lạnh|Nguyên nhân Chiến tranh lạnh|Học thuyết Tru-man|Báo cáo Giơ-đa-nốp" ;
+    su9:occursAt su9:L_Global ;
+    su9:occursDuring su9:P_1947_1989 ;
+    su9:hasCauseDeep "Sự đối lập về hệ tư tưởng và mục tiêu chiến lược giữa Mỹ (TBCN) và Liên Xô (XHCN)." ;
+    su9:hasCauseDirect "Bất đồng sâu sắc trong việc giải quyết hậu quả WWII (vấn đề Đông Âu và chia cắt nước Đức)." ;
+    su9:hasContent "+ Tháng 3/1947: Tổng thống Mỹ Tru-man công khai chống chủ nghĩa cộng sản, khởi xướng Chiến tranh lạnh.\n      + Tháng 9/1947: Đại diện Liên Xô (Giơ-đa-nốp) tuyên bố thế giới đã chia thành 2 phe đối lập." ;
+    su9:hasResult "Mỹ tiến hành chính sách thù địch về mọi mặt chống Liên Xô, mở màn Chiến tranh lạnh kéo dài hơn 40 năm." ;
+    su9:hasPerson su9:Pe_Truman ;
+    su9:hasPerson su9:Pe_Zhdanov ;
+    su9:hasOrganization su9:O_PheTBCN ;
+    su9:hasOrganization su9:O_PheXHCN ;
+    su9:involvedConcept su9:C_ChienTranhLanh ;
+    su9:involvedConcept su9:C_DoiDauHaiCuc ;
+    su9:weightsJson "{\"Pe_Truman\": 10, \"Pe_Zhdanov\": 9, \"O_PheTBCN\": 10, \"O_PheXHCN\": 10, \"C_ChienTranhLanh\": 10, \"C_DoiDauHaiCuc\": 10}" .
+su9:E_CH3_DoiDauKinhTe_ChinhTri a su9:Event ;
+    rdfs:label "Sự đối đầu về Kinh tế và Chính trị - Quân sự"@vi ;
+    su9:aliases "Chiến tranh lạnh|Thành lập NATO|Thành lập SEV|Thành lập Vác-sa-va|Kế hoạch Mác-san" ;
+    su9:occursAt su9:L_Global ;
+    su9:occursDuring su9:P_1947_1989 ;
+    su9:hasContent "+ Kinh tế: Mỹ thực hiện Kế hoạch Mác-san (1947) viện trợ Tây Âu. Liên Xô lập Hội đồng Tương trợ kinh tế - SEV (1949).\n      + Chính trị-quân sự: Mỹ lập Tổ chức Hiệp ước Bắc Đại Tây Dương - NATO (1949). Liên Xô lập Hiệp ước Vác-sa-va (1955)." ;
+    su9:hasResult "Xác lập cục diện hai cực, hai phe đối đầu gay gắt trên mọi lĩnh vực." ;
+    su9:hasOrganization su9:O_PheTBCN ;
+    su9:hasOrganization su9:O_PheXHCN ;
+    su9:hasOrganization su9:O_NATO ;
+    su9:hasOrganization su9:O_SEV ;
+    su9:hasOrganization su9:O_Warsaw ;
+    su9:involvedConcept su9:C_DoiDauHaiCuc ;
+    su9:involvedConcept su9:C_ChienTranhLanh ;
+    su9:weightsJson "{\"O_PheTBCN\": 10, \"O_PheXHCN\": 10, \"O_NATO\": 9, \"O_SEV\": 9, \"O_Warsaw\": 9, \"C_DoiDauHaiCuc\": 10, \"C_ChienTranhLanh\": 10}" .
+su9:E_CH3_ChayDuaVuTrang_KhongGian a su9:Event ;
+    rdfs:label "Chạy đua vũ trang và Khoa học công nghệ"@vi ;
+    su9:aliases "Chiến tranh lạnh|Chế tạo bom nguyên tử|Phóng vệ tinh nhân tạo|Chạy đua vũ trang" ;
+    su9:occursAt su9:L_Global ;
+    su9:occursDuring su9:P_1947_1989 ;
+    su9:hasContent "+ Mỹ: Chế tạo thành công bom nguyên tử (1945), phóng vệ tinh nhân tạo (1958).\n      + Liên Xô: Chế tạo thành công bom nguyên tử (1949), phóng vệ tinh nhân tạo (1957)." ;
+    su9:hasLimitations "Dồn nguồn lực khổng lồ cho quốc phòng, tạo nguy cơ bùng nổ chiến tranh hạt nhân hủy diệt toàn cầu." ;
+    su9:hasOrganization su9:O_PheTBCN ;
+    su9:hasOrganization su9:O_PheXHCN ;
+    su9:involvedConcept su9:C_ChayDuaVuTrang ;
+    su9:involvedConcept su9:C_ChienTranhLanh ;
+    su9:weightsJson "{\"O_PheTBCN\": 10, \"O_PheXHCN\": 10, \"C_ChayDuaVuTrang\": 10, \"C_ChienTranhLanh\": 10}" .
+su9:E_CH3_HauQua_ChienTranhLanh a su9:Event ;
+    rdfs:label "Hậu quả của Chiến tranh lạnh"@vi ;
+    su9:aliases "Chiến tranh lạnh|Hậu quả Chiến tranh lạnh|Chấm dứt Chiến tranh lạnh" ;
+    su9:occursAt su9:L_Global ;
+    su9:occursDuring su9:P_1947_1989 ;
+    su9:hasCauseDeep "Sự đối đầu căng thẳng kéo dài hơn 40 năm giữa hai siêu cường Mỹ và Liên Xô." ;
+    su9:hasContent "Thế giới luôn trong tình trạng căng thẳng; Chi phí quốc phòng tăng cao kìm hãm kinh tế; Gây ra các cuộc chiến tranh cục bộ đẫm máu (Đông Nam Á, Đông Bắc Á, Trung Đông)." ;
+    su9:hasResult "Năm 1989, Chiến tranh lạnh chính thức chấm dứt. Thế giới chuyển dần sang xu thế hòa hoãn." ;
+    su9:involvedConcept su9:C_ChienTranhCucBo ;
+    su9:involvedConcept su9:C_ChienTranhLanh ;
+    su9:weightsJson "{\"C_ChienTranhCucBo\": 10, \"C_ChienTranhLanh\": 10}" .
+su9:E_CH3_LienXo_PhatTrien_1945_1975 a su9:Event ;
+    rdfs:label "Liên Xô xây dựng và phát triển CNXH (1945-1975)"@vi ;
+    su9:aliases "Thành tựu của Liên Xô|Phóng vệ tinh nhân tạo|Tàu vũ trụ" ;
+    su9:occursAt su9:L_LienXo ;
+    su9:occursDuring su9:P_1950_1975 ;
+    su9:hasContext "Từ 1946-1950, Liên Xô hoàn thành khôi phục kinh tế. Từ 1950-1975 tiến hành xây dựng cơ sở vật chất cho CNXH." ;
+    su9:hasAchievements "+ Kinh tế: Cường quốc công nghiệp thứ 2 thế giới (sau Mỹ).\n        + Khoa học: Nước đầu tiên phóng vệ tinh nhân tạo (1957) và tàu vũ trụ có người lái (1961).\n        + Xã hội: Xây dựng hệ thống phúc lợi, y tế, giáo dục phát triển cao.\n        + Đối ngoại: Là trụ cột của phe XHCN, bảo vệ hòa bình thế giới." ;
+    su9:hasOrganization su9:O_DangCSLienXo ;
+    su9:involvedConcept su9:C_DoiDauHaiCuc ;
+    su9:weightsJson "{\"O_DangCSLienXo\": 10, \"C_DoiDauHaiCuc\": 8}" .
+su9:E_CH3_LienXo_CaiTo_1985 a su9:Event ;
+    rdfs:label "Công cuộc cải tổ của Goóc-ba-chốp (1985)"@vi ;
+    su9:aliases "Cải tổ ở Liên Xô" ;
+    su9:occursAt su9:L_LienXo ;
+    su9:occursDuring su9:P_1985_1991 ;
+    su9:hasCause "+ Phát triển không đồng bộ (quá tập trung công nghiệp nặng).\n        + Nông nghiệp thiếu hụt.\n        + Giá dầu thế giới sụt giảm mạnh đẩy kinh tế vào khủng hoảng." ;
+    su9:hasContent "Năm 1985, M. Goóc-ba-chốp thực hiện cải tổ toàn diện về kinh tế và chính trị." ;
+    su9:hasResult "Thiếu đồng bộ và hiệu quả, đẩy Liên Xô lún sâu vào khủng hoảng, rối loạn." ;
+    su9:hasPerson su9:Pe_Gorbachev ;
+    su9:involvedConcept su9:C_CaiTo ;
+    su9:involvedConcept su9:C_KhungHoangToanDien ;
+    su9:weightsJson "{\"Pe_Gorbachev\": 10, \"C_CaiTo\": 10, \"C_KhungHoangToanDien\": 10}" .
+su9:E_CH3_LienXo_TanRa_1991 a su9:Event ;
+    rdfs:label "Sự tan rã của Liên bang Xô viết (1991)"@vi ;
+    su9:aliases "Liên Xô sụp đổ|Chấm dứt chế độ XHCN ở Liên Xô|Cộng đồng SNG" ;
+    su9:occursAt su9:L_LienXo ;
+    su9:occursDuring su9:P_1985_1991 ;
+    su9:hasCauseDirect "Cuộc đảo chính lật đổ Goóc-ba-chốp (8/1991) thất bại gây hậu quả nghiêm trọng." ;
+    su9:hasContent "+ Đảng Cộng sản Liên Xô bị đình chỉ hoạt động.\n        + Ngày 21/12/1991: Kí Hiệp định giải tán Liên bang, lập Cộng đồng SNG.\n        + Ngày 25/12/1991: Goóc-ba-chốp từ chức Tổng thống." ;
+    su9:hasResult "Chế độ XHCN chấm dứt tại Liên Xô." ;
+    su9:hasPerson su9:Pe_Gorbachev ;
+    su9:hasOrganization su9:O_DangCSLienXo ;
+    su9:hasOrganization su9:O_SNG ;
+    su9:involvedConcept su9:C_CheDoXHCNTansRa ;
+    su9:weightsJson "{\"Pe_Gorbachev\": 10, \"O_DangCSLienXo\": 10, \"O_SNG\": 10, \"C_CheDoXHCNTansRa\": 10}" .
+su9:E_CH3_DongAu_PhatTrien_1945_1975 a su9:Event ;
+    rdfs:label "Đông Âu xây dựng CNXH (1945-1975)"@vi ;
+    su9:aliases "Thành tựu của Đông Âu|Nhà nước dân chủ nhân dân" ;
+    su9:occursAt su9:L_DongAu ;
+    su9:occursDuring su9:P_1950_1975 ;
+    su9:hasContext "Từ 1944-1946, lập các nhà nước dân chủ nhân dân. Đông Đức lập nước năm 1949." ;
+    su9:hasResult "Đạt nhiều thành tựu lớn, tăng trưởng khá nhanh với sự giúp đỡ của Liên Xô (SEV)." ;
+    su9:hasAchievements "+ Kinh tế: Nông nghiệp cơ giới hóa; công nghiệp phát triển (đặc biệt là Tiệp Khắc, Đông Đức).\n        + Xã hội: Xóa bỏ giai cấp bóc lột, y tế miễn phí, giáo dục phát triển.\n        + Đối ngoại: Thuộc phe XHCN, thiết lập quan hệ chặt chẽ với Liên Xô." ;
+    su9:hasOrganization su9:O_SEV ;
+    su9:weightsJson "{\"O_SEV\": 9}" .
+su9:E_CH3_DongAu_TanRa_1989 a su9:Event ;
+    rdfs:label "Sự sụp đổ của chế độ XHCN ở Đông Âu (1989)"@vi ;
+    su9:aliases "Đông Âu sụp đổ" ;
+    su9:occursAt su9:L_DongAu ;
+    su9:occursDuring su9:P_1985_1991 ;
+    su9:hasCause "Tình hình chính trị phức tạp, khủng hoảng lây lan từ Liên Xô." ;
+    su9:hasContent "Ban lãnh đạo Đông Âu phải thực hiện đa nguyên chính trị, tổ chức tuyển cử tự do." ;
+    su9:hasResult "Các thế lực chống CNXH thắng cử, chế độ XHCN bị xóa bỏ ở Đông Âu." ;
+    su9:involvedConcept su9:C_DaNguyenChinhTri ;
+    su9:involvedConcept su9:C_CheDoXHCNTansRa ;
+    su9:weightsJson "{\"C_DaNguyenChinhTri\": 10, \"C_CheDoXHCNTansRa\": 10}" .
+su9:E_CH3_KinhTeMy_HoangKim a su9:Event ;
+    rdfs:label "Thời kì hoàng kim của kinh tế Mỹ (1945-1973)"@vi ;
+    su9:aliases "Kinh tế Mỹ sau WWII" ;
+    su9:occursAt su9:L_My ;
+    su9:occursDuring su9:P_1945_1973 ;
+    su9:hasCause "Thu lợi nhuận từ chiến tranh, ít tổn thất, áp dụng KH-KT." ;
+    su9:hasContent "Nước Mỹ trở thành trung tâm kinh tế - tài chính duy nhất và lớn nhất thế giới." ;
+    su9:hasResult "Tạo tiềm lực để Mỹ triển khai Chiến lược toàn cầu." ;
+    su9:involvedConcept su9:C_ChuNghiaTuBan ;
+    su9:weightsJson "{\"C_ChuNghiaTuBan\": 10}" .
+su9:E_CH3_My_KetThucChienTranhLanh a su9:Event ;
+    rdfs:label "Mỹ tuyên bố chấm dứt Chiến tranh lạnh (1989)"@vi ;
+    su9:aliases "Gặp gỡ Malta" ;
+    su9:occursAt su9:L_Global ;
+    su9:occursDuring su9:P_1973_1991 ;
+    su9:hasContent "Mỹ và Liên Xô cùng tuyên bố chấm dứt đối đầu, chuyển sang đối thoại." ;
+    su9:hasResult "Trật tự hai cực I-an-ta bắt đầu tan rã." ;
+    su9:hasPerson su9:Pe_Gorbachev ;
+    su9:involvedConcept su9:C_ChienTranhLanh ;
+    su9:weightsJson "{\"Pe_Gorbachev\": 9, \"C_ChienTranhLanh\": 10}" .
+su9:E_CH3_TayAu_LienKetKhuVuc a su9:Event ;
+    rdfs:label "Quá trình liên kết khu vực ở Tây Âu"@vi ;
+    su9:aliases "Thành lập EEC|Liên kết châu Âu" ;
+    su9:occursAt su9:L_TayAu ;
+    su9:occursDuring su9:P_1950_1973 ;
+    su9:hasContent "+ 1951: Cộng đồng Than - Thép châu Âu.\n        + 1957: Cộng đồng Kinh tế châu Âu (EEC).\n        + 1991: Liên minh châu Âu (EU)." ;
+    su9:hasResult "Tây Âu trở thành một trong ba trung tâm kinh tế - tài chính của thế giới." ;
+    su9:hasOrganization su9:O_EEC ;
+    su9:hasOrganization su9:O_EU ;
+    su9:involvedConcept su9:C_NhatTheHoa ;
+    su9:weightsJson "{\"O_EEC\": 10, \"O_EU\": 10, \"C_NhatTheHoa\": 10}" .
+su9:E_CH3_TayAu_QuanHeVoiMy a su9:Event ;
+    rdfs:label "Sự thay đổi trong quan hệ Tây Âu - Mỹ"@vi ;
+    su9:aliases "Lệ thuộc Mỹ|Thoát ly Mỹ" ;
+    su9:occursAt su9:L_TayAu ;
+    su9:occursDuring su9:P_1945_1991 ;
+    su9:hasContent "+ 1945-1950: Liên minh chặt chẽ, lệ thuộc Mỹ (Kế hoạch Mác-san, NATO).\n        + 1950-1973: Anh tiếp tục liên minh, Pháp tìm cách giảm lệ thuộc vào Mỹ." ;
+    su9:hasResult "Khẳng định xu hướng đa cực trong thế giới tư bản." .
+su9:E_CH3_CachMangCuba_DienBien a su9:Event ;
+    rdfs:label "Cách mạng Cu-ba (1952-1959)"@vi ;
+    su9:aliases "Lá cờ đầu Mỹ La-tinh" ;
+    su9:occursAt su9:L_Cuba ;
+    su9:occursDuring su9:P_1952_1959 ;
+    su9:hasCauseDirect "3/1952, Ba-ti-xta thiết lập chế độ độc tài quân sự tay sai Mỹ." ;
+    su9:hasContent "+ 26/7/1953: Tấn công pháo đài Môn-ca-đa.\n        + 11/1956: Đổ bộ tàu Gran-ma, lập căn cứ địa.\n        + 1/1/1959: Giải phóng La Ha-ba-na, cách mạng thắng lợi." ;
+    su9:hasResult "Lật đổ độc tài, xác lập chủ quyền dân tộc, cổ vũ 'Lục địa bùng cháy'." ;
+    su9:hasPerson su9:Pe_FidelCastro ;
+    su9:hasPerson su9:Pe_Batista ;
+    su9:hasOrganization su9:O_PhongTrao26_7 ;
+    su9:hasOrganization su9:O_CheDoBatista ;
+    su9:involvedConcept su9:C_LucDiaBungChay ;
+    su9:weightsJson "{\"Pe_FidelCastro\": 10, \"Pe_Batista\": 9, \"O_PhongTrao26_7\": 10, \"O_CheDoBatista\": 10, \"C_LucDiaBungChay\": 9}" .
+su9:E_CH3_Cuba_XayDungCNXH a su9:Event ;
+    rdfs:label "Thành tựu xây dựng Chủ nghĩa xã hội ở Cu-ba"@vi ;
+    su9:aliases "Cu-ba sau 1961" ;
+    su9:occursAt su9:L_Cuba ;
+    su9:occursDuring su9:P_Tu1961 ;
+    su9:hasAchievements "+ Kinh tế: Đa dạng hóa nông nghiệp, cơ giới hóa, phát triển công nghiệp chế tạo.\n        + Xã hội: Giáo dục, y tế phát triển hàng đầu khu vực." ;
+    su9:involvedConcept su9:C_ChuNghiaXaHoi ;
+    su9:weightsJson "{\"C_ChuNghiaXaHoi\": 10}" .
+su9:E_CH3_NhatBan_CaiCach a su9:Event ;
+    rdfs:label "Cải cách dân chủ ở Nhật Bản (1945-1952)"@vi ;
+    su9:occursAt su9:L_NhatBan ;
+    su9:occursDuring su9:P_1945_1952 ;
+    su9:hasContent "SCAP thủ tiêu chủ nghĩa quân phiệt, thiết lập dân chủ tư sản đại nghị, khôi phục kinh tế." ;
+    su9:hasOrganization su9:O_SCAP ;
+    su9:weightsJson "{\"O_SCAP\": 10}" .
+su9:E_CH3_NhatBan_KinhTeThanKi a su9:Event ;
+    rdfs:label "Sự phát triển kinh tế thần kì của Nhật Bản"@vi ;
+    su9:aliases "Kinh tế Nhật Bản thập niên 60" ;
+    su9:occursAt su9:L_NhatBan ;
+    su9:occursDuring su9:P_1960s ;
+    su9:hasCauseDeep "Coi KH-CN là đòn bẩy, tập trung ứng dụng dân dụng (mua bằng sáng chế)." ;
+    su9:hasContent "Kinh tế tăng trưởng vượt Tây Âu, vươn lên thứ 2 thế giới. Đầu 1970s trở thành một trong 3 trung tâm kinh tế - tài chính toàn cầu." ;
+    su9:involvedConcept su9:C_PhatTrienThanKi ;
+    su9:weightsJson "{\"C_PhatTrienThanKi\": 10}" .
+su9:E_CH3_TrungQuoc_LapQuoc a su9:Event ;
+    rdfs:label "Sự ra đời của nước CHND Trung Hoa (1949)"@vi ;
+    su9:occursAt su9:L_TrungQuoc ;
+    su9:occursDuring su9:P_1946_1949 ;
+    su9:hasContent "Sau nội chiến (1946-1949), Đảng Cộng sản thắng lợi. Ngày 1/10/1949, nước CHND Trung Hoa ra đời." ;
+    su9:hasPerson su9:Pe_MaoTrachDong ;
+    su9:weightsJson "{\"Pe_MaoTrachDong\": 10}" .
+su9:E_CH3_TrungQuoc_KhungHoang a su9:Event ;
+    rdfs:label "Giai đoạn đường lối sai lầm của Trung Quốc (1958-1976)"@vi ;
+    su9:aliases "Đại nhảy vọt|Đại cách mạng văn hóa vô sản|Ba ngọn cờ hồng" ;
+    su9:occursAt su9:L_TrungQuoc ;
+    su9:occursDuring su9:P_1958_1976 ;
+    su9:hasContent "Thực hiện 'Ba ngọn cờ hồng' và 'Cách mạng văn hóa' nhằm đẩy nhanh tiến lên CNXH và triệt tiêu tàn dư tư bản." ;
+    su9:hasLimitations "Gây thảm họa, đất nước bị tàn phá nặng nề, kinh tế đình đốn." ;
+    su9:hasPerson su9:Pe_MaoTrachDong ;
+    su9:weightsJson "{\"Pe_MaoTrachDong\": 10}" .
+su9:E_CH3_TrungQuoc_CaiCachMoCua a su9:Event ;
+    rdfs:label "Công cuộc Cải cách - Mở cửa ở Trung Quốc (Từ 1978)"@vi ;
+    su9:occursAt su9:L_TrungQuoc ;
+    su9:occursDuring su9:P_1978_nay ;
+    su9:hasContent "Lấy phát triển kinh tế làm trọng tâm, xây dựng đất nước giàu mạnh." ;
+    su9:hasResult "Tình hình ổn định, kinh tế phát triển mạnh mẽ." ;
+    su9:hasPerson su9:Pe_DangTieuBinh ;
+    su9:involvedConcept su9:C_CNXH_DacSacTrungQuoc ;
+    su9:weightsJson "{\"Pe_DangTieuBinh\": 10, \"C_CNXH_DacSacTrungQuoc\": 10}" .
+su9:E_CH3_AnDo_PhatTrien a su9:Event ;
+    rdfs:label "Thành tựu xây dựng đất nước của Ấn Độ (1950-1991)"@vi ;
+    su9:occursAt su9:L_AnDo ;
+    su9:occursDuring su9:P_1950_1991 ;
+    su9:hasContent "+ Kinh tế: Cách mạng xanh (tự túc và xuất khẩu lương thực). CN nặng lọt top 10 thế giới.\n        + KH-CN: Chế tạo bom nguyên tử (1974), phóng vệ tinh (1975).\n        + Đối ngoại: Trung lập, hòa bình." ;
+    su9:involvedConcept su9:C_CachMangXanh ;
+    su9:weightsJson "{\"C_CachMangXanh\": 10}" .
+su9:E_CH3_ASEAN_ThanhLap a su9:Event ;
+    rdfs:label "Sự ra đời của ASEAN (1967)"@vi ;
+    su9:aliases "Thành lập ASEAN" ;
+    su9:occursAt su9:L_DongNamA ;
+    su9:occursDuring su9:P_1960s ;
+    su9:hasCauseDirect "Nhu cầu hợp tác phát triển kinh tế và hạn chế ảnh hưởng của các cường quốc bên ngoài." ;
+    su9:hasContent "Ngày 8/8/1967 tại Băng Cốc (Thái Lan), 5 nước (In-đô, Mã Lai, Phi, Xin, Thái) thành lập ASEAN." ;
+    su9:hasOrganization su9:O_ASEAN ;
+    su9:weightsJson "{\"O_ASEAN\": 10}" .
+su9:E_CH4_TongTuyenCu a su9:Event ;
+    rdfs:label "Tổng tuyển cử bầu Quốc hội khóa I (6/1/1946)"@vi ;
+    su9:aliases "Bầu cử Quốc hội đầu tiên" ;
+    su9:occursAt su9:L_VietNam ;
+    su9:occursDuring su9:P_1945_1946 ;
+    su9:hasContent "Hơn 300 đại biểu được bầu vào Quốc hội. Thành lập Chính phủ liên hiệp kháng chiến." ;
+    su9:involvedConcept su9:C_ChinhQuyenDanChu ;
+    su9:weightsJson "{\"C_ChinhQuyenDanChu\": 10}" .
+su9:E_CH4_DietGiacDoi a su9:Event ;
+    rdfs:label "Giải quyết nạn đói"@vi ;
+    su9:aliases "Diệt giặc đói|Hũ gạo cứu đói|Ngày đồng tâm" ;
+    su9:occursAt su9:L_VietNam ;
+    su9:occursDuring su9:P_1945_1946 ;
+    su9:hasContent "Trước mắt: Nhường cơm sẻ áo, lập hũ gạo cứu đói. Lâu dài: Tăng gia sản xuất." .
+su9:E_CH4_DietGiacDot a su9:Event ;
+    rdfs:label "Xóa nạn mù chữ"@vi ;
+    su9:aliases "Diệt giặc dốt|Bình dân học vụ" ;
+    su9:occursAt su9:L_VietNam ;
+    su9:occursDuring su9:P_1945_1946 ;
+    su9:hasContent "Hơn 90% dân số mù chữ. Ngày 8/9/1945, lập Nha Bình dân học vụ." ;
+    su9:hasOrganization su9:O_NhaBinhDanHocVu ;
+    su9:weightsJson "{\"O_NhaBinhDanHocVu\": 10}" .
+su9:E_CH4_GiaiQuyetTaiChinh a su9:Event ;
+    rdfs:label "Giải quyết khó khăn tài chính"@vi ;
+    su9:aliases "Tuần lễ vàng|Quỹ độc lập|Tiền Việt Nam" ;
+    su9:occursAt su9:L_VietNam ;
+    su9:occursDuring su9:P_1945_1946 ;
+    su9:hasContent "Phát động 'Quỹ độc lập', 'Tuần lễ vàng'. Tháng 11/1946, lưu hành tiền Việt Nam." .
+su9:E_CH4_PhapXamLuocNamBo a su9:Event ;
+    rdfs:label "Pháp trở lại xâm lược Nam Bộ (23/9/1945)"@vi ;
+    su9:aliases "Pháp đánh Nam Bộ|Kháng chiến Nam Bộ" ;
+    su9:occursAt su9:L_SaiGonChoLon ;
+    su9:occursDuring su9:P_1945_1946 ;
+    su9:hasContent "Được quân Anh giúp sức, Pháp đánh úp trụ sở UB Hành chính Nam Bộ. Nhân dân Nam Bộ anh dũng kháng chiến." ;
+    su9:hasResult "Giam chân quân Pháp tại miền Nam trong nhiều tháng." ;
+    su9:hasOrganization su9:O_ThucDanPhap ;
+    su9:hasOrganization su9:O_QuanAnh ;
+    su9:weightsJson "{\"O_ThucDanPhap\": 10, \"O_QuanAnh\": 8}" .
+su9:E_CH4_ChienDauDoThi a su9:Event ;
+    rdfs:label "Cuộc chiến đấu ở các đô thị phía Bắc vĩ tuyến 16 (1946-1947)"@vi ;
+    su9:aliases "Chiến đấu ở Hà Nội|Toàn quốc kháng chiến bùng nổ" ;
+    su9:occursAt su9:L_ViTuyen16_Bac ;
+    su9:occursDuring su9:P_1946_1950 ;
+    su9:hasContent "Quân dân ta chủ động tiến công, giam chân địch trong thành phố suốt gần 3 tháng." ;
+    su9:hasResult "Tiêu hao sinh lực địch, bảo vệ cơ quan đầu não và quân chủ lực rút lên Việt Bắc an toàn." ;
+    su9:hasOrganization su9:O_VNDCCH ;
+    su9:hasOrganization su9:O_ThucDanPhap ;
+    su9:weightsJson "{\"O_VNDCCH\": 10, \"O_ThucDanPhap\": 10}" .
+su9:E_CH4_VietBac1947 a su9:Event ;
+    rdfs:label "Chiến dịch Việt Bắc thu - đông năm 1947"@vi ;
+    su9:aliases "Chiến dịch Việt Bắc 1947" ;
+    su9:occursAt su9:L_VietBac ;
+    su9:occursDuring su9:P_ThuDong1947 ;
+    su9:hasCauseDirect "Pháp huy động 12.000 quân tiến công Việt Bắc nhằm tiêu diệt đầu não kháng chiến, kết thúc nhanh chiến tranh." ;
+    su9:hasContent "Ta phục kích chặn đánh địch trên Đường số 4 (Bản Sao, đèo Bông Lau) và trên sông Lô (Đoan Hùng, Khe Lau)." ;
+    su9:hasResult "Bảo vệ an toàn cơ quan đầu não. Bộ đội chủ lực ngày càng trưởng thành." ;
+    su9:hasAchievements "Làm thất bại hoàn toàn chiến lược 'Đánh nhanh thắng nhanh' của Pháp." ;
+    su9:hasOrganization su9:O_VNDCCH ;
+    su9:hasOrganization su9:O_ThucDanPhap ;
+    su9:involvedConcept su9:C_DanhLauDai ;
+    su9:weightsJson "{\"O_VNDCCH\": 10, \"O_ThucDanPhap\": 10, \"C_DanhLauDai\": 10}" .
+su9:E_CH4_BienGioi1950 a su9:Event ;
+    rdfs:label "Chiến dịch Biên giới thu - đông năm 1950"@vi ;
+    su9:aliases "Chiến dịch Biên giới 1950" ;
+    su9:occursAt su9:L_DuongSo4 ;
+    su9:occursDuring su9:P_ThuDong1950 ;
+    su9:hasCauseDeep "Sự lớn mạnh của phe XHCN tạo chỗ dựa cho ta. Mỹ can thiệp sâu giúp Pháp đẻ ra Kế hoạch Rơ-ve." ;
+    su9:hasContent "Đảng chủ trương mở chiến dịch. Trận mở màn đánh vào Đông Khê (9/1950). Sau 1 tháng, Pháp rút khỏi toàn bộ Đường số 4 (Cao Bằng, Thất Khê...)." ;
+    su9:hasResult "Quân đội ta giành được thế chủ động trên chiến trường chính Bắc Bộ, mở ra bước phát triển mới của cuộc kháng chiến." ;
+    su9:hasAchievements "Giải phóng vùng biên giới rộng lớn. Chọc thủng hành lang Đông-Tây, làm phá sản Kế hoạch Rơ-ve." ;
+    su9:hasOrganization su9:O_VNDCCH ;
+    su9:hasOrganization su9:O_ThucDanPhap ;
+    su9:involvedConcept su9:C_TheChuDong ;
+    su9:weightsJson "{\"O_VNDCCH\": 10, \"O_ThucDanPhap\": 10, \"C_TheChuDong\": 10}" .
+su9:E_CH4_DaiHoiDang2 a su9:Event ;
+    rdfs:label "Đại hội đại biểu lần thứ II của Đảng (2/1951)"@vi ;
+    su9:aliases "Đại hội II|Đại hội kháng chiến thắng lợi" ;
+    su9:occursAt su9:L_VietNam ;
+    su9:occursDuring su9:P_1951_1954 ;
+    su9:hasContent "Khẳng định đường lối kháng chiến, đổi tên thành Đảng Lao động Việt Nam. Đánh dấu bước trưởng thành của Đảng." ;
+    su9:hasOrganization su9:O_DangLaoDongVN ;
+    su9:involvedConcept su9:C_KhangChienToanDien ;
+    su9:weightsJson "{\"O_DangLaoDongVN\": 10, \"C_KhangChienToanDien\": 10}" .
+su9:E_CH4_DongXuan_53_54 a su9:Event ;
+    rdfs:label "Cuộc Tiến công chiến lược Đông - Xuân 1953-1954"@vi ;
+    su9:aliases "Đông Xuân 1953-1954" ;
+    su9:occursAt su9:L_VietNam ;
+    su9:occursDuring su9:P_DongXuan_53_54 ;
+    su9:hasCauseDirect "Bộ Chính trị chủ trương tiến công những hướng địch tương đối yếu để buộc chúng phải phân tán lực lượng." ;
+    su9:hasContent "Tấn công Lai Châu, Trung Lào, Thượng Lào, Tây Nguyên. Buộc Pháp chia thành 5 nơi tập trung quân (ĐB Bắc Bộ, ĐBP, Xê-nô, Luông Pha-bang, Plây-ku)." ;
+    su9:hasResult "Bước đầu làm phá sản kế hoạch Na-va." ;
+    su9:involvedConcept su9:C_PhanTanLucLuong ;
+    su9:weightsJson "{\"C_PhanTanLucLuong\": 10}" .
+su9:E_CH4_DienBienPhu a su9:Event ;
+    rdfs:label "Chiến dịch lịch sử Điện Biên Phủ (1954)"@vi ;
+    su9:aliases "Chiến dịch Điện Biên Phủ|56 ngày đêm" ;
+    su9:occursAt su9:L_DienBienPhu ;
+    su9:occursDuring su9:P_DienBienPhu ;
+    su9:hasContent "+ Phương châm: Chuyển từ 'đánh nhanh thắng nhanh' sang 'đánh chắc, tiến chắc'.\n        + Đợt 1: Tiêu diệt Him Lam và phân khu Bắc.\n        + Đợt 2: Tấn công cứ điểm phía đông phân khu Trung tâm.\n        + Đợt 3: Tiêu diệt khu Trung tâm và phân khu Nam. Ngày 7/5/1954 địch đầu hàng." ;
+    su9:hasAchievements "Đập tan hoàn toàn Kế hoạch Na-va, xoay chuyển cục diện chiến tranh, tạo điều kiện thuận lợi cho ngoại giao." ;
+    su9:hasOrganization su9:O_VNDCCH ;
+    su9:hasOrganization su9:O_ThucDanPhap ;
+    su9:involvedConcept su9:C_DanhChacTienChac ;
+    su9:weightsJson "{\"O_VNDCCH\": 10, \"O_ThucDanPhap\": 10, \"C_DanhChacTienChac\": 10}" .
+su9:E_CH5_CaiCachRuongDat a su9:Event ;
+    rdfs:label "Hoàn thành Cải cách ruộng đất (1954-1957)"@vi ;
+    su9:occursAt su9:L_MienBac ;
+    su9:occursDuring su9:P_1954_1965 ;
+    su9:hasContent "Tịch thu ruộng đất chia cho dân nghèo. Thực hiện khẩu hiệu 'Người cày có ruộng'. Giai cấp địa chủ bị xóa bỏ." .
+su9:E_CH5_ChiVienMienNam a su9:Event ;
+    rdfs:label "Miền Bắc chi viện cho miền Nam"@vi ;
+    su9:aliases "Mở đường Trường Sơn|Nghĩa vụ hậu phương" ;
+    su9:occursAt su9:L_TruongSon ;
+    su9:occursDuring su9:P_1954_1965 ;
+    su9:hasContent "Mở tuyến đường Trường Sơn (1959). Cung cấp hàng vạn cán bộ, vũ khí, lương thực cho tiền tuyến." ;
+    su9:involvedConcept su9:C_HauPhuongTienTuyen ;
+    su9:weightsJson "{\"C_HauPhuongTienTuyen\": 10}" .
+su9:E_CH5_ApBac a su9:Event ;
+    rdfs:label "Chiến thắng Ấp Bắc (2/1/1963)"@vi ;
+    su9:occursAt su9:L_MienNam ;
+    su9:occursDuring su9:P_1961_1965 ;
+    su9:hasAchievements "Chứng tỏ quân dân miền Nam hoàn toàn có khả năng đánh bại chiến lược 'Chiến tranh đặc biệt'." ;
+    su9:hasOrganization su9:O_MTDTGPMNVN ;
+    su9:weightsJson "{\"O_MTDTGPMNVN\": 10}" .
+su9:E_CH5_BinhGia a su9:Event ;
+    rdfs:label "Chiến thắng Bình Giã (12/1964)"@vi ;
+    su9:occursAt su9:L_MienNam ;
+    su9:occursDuring su9:P_1961_1965 ;
+    su9:hasAchievements "Làm phá sản VỀ CƠ BẢN chiến lược 'Chiến tranh đặc biệt' của Mỹ." .
+su9:E_CH5_PhaApChienLuoc a su9:Event ;
+    rdfs:label "Phong trào phá Ấp chiến lược"@vi ;
+    su9:aliases "Chống phá bình định" ;
+    su9:occursAt su9:L_MienNam ;
+    su9:occursDuring su9:P_1961_1965 ;
+    su9:hasContent "Quần chúng kiên quyết bám đất giữ làng, phá vỡ 'xương sống' của Chiến tranh đặc biệt." .
+su9:E_CH5_VanTuong1965 a su9:Event ;
+    rdfs:label "Trận Vạn Tường (8/1965)"@vi ;
+    su9:occursAt su9:L_VanTuong ;
+    su9:occursDuring su9:P_1965_1968 ;
+    su9:hasAchievements "Mở đầu cao trào 'Tìm Mỹ mà đánh, lùng ngụy mà diệt', chứng tỏ ta có thể đánh thắng quân viễn chinh Mỹ." ;
+    su9:hasOrganization su9:O_MTDTGPMNVN ;
+    su9:hasOrganization su9:O_QuanMy ;
+    su9:weightsJson "{\"O_MTDTGPMNVN\": 10, \"O_QuanMy\": 10}" .
+su9:E_CH5_MauThan1968 a su9:Event ;
+    rdfs:label "Tổng tiến công và nổi dậy Xuân Mậu Thân (1968)"@vi ;
+    su9:aliases "Mậu Thân 1968" ;
+    su9:occursAt su9:L_MienNam ;
+    su9:occursDuring su9:P_1965_1968 ;
+    su9:hasContent "Đánh bất ngờ vào đêm giao thừa, nhằm vào các cơ quan đầu não của địch ở các đô thị." ;
+    su9:hasResult "Buộc Mỹ phải tuyên bố 'phi Mỹ hóa' chiến tranh, ngừng ném bom miền Bắc và ngồi vào bàn đàm phán Paris." .
+su9:E_CH5_TienCong1972 a su9:Event ;
+    rdfs:label "Tiến công chiến lược năm 1972"@vi ;
+    su9:aliases "Mùa hè đỏ lửa 1972" ;
+    su9:occursAt su9:L_MienNam ;
+    su9:occursDuring su9:P_1969_1973 ;
+    su9:hasAchievements "Giáng đòn nặng nề vào chiến lược VN hóa chiến tranh, buộc Mỹ phải tuyên bố 'Mỹ hóa' trở lại." .
+su9:E_CH5_DienBienPhuTrenKhong a su9:Event ;
+    rdfs:label "Trận Điện Biên Phủ trên không (12/1972)"@vi ;
+    su9:aliases "12 ngày đêm" ;
+    su9:occursAt su9:L_HaNoiHaiPhong ;
+    su9:occursDuring su9:P_1969_1973 ;
+    su9:hasContent "Bắn rơi nhiều máy bay B52 của Mỹ tập kích vào Hà Nội, Hải Phòng." ;
+    su9:hasResult "Buộc Mỹ phải trở lại bàn hội nghị và ký Hiệp định Pa-ri." ;
+    su9:involvedConcept su9:C_DienBienPhuTrenKhong ;
+    su9:weightsJson "{\"C_DienBienPhuTrenKhong\": 10}" .
+su9:E_CH5_PhuocLong1975 a su9:Event ;
+    rdfs:label "Chiến thắng Phước Long (1/1975)"@vi ;
+    su9:occursAt su9:L_MienNam ;
+    su9:occursDuring su9:P_1973_1975 ;
+    su9:hasAchievements "Trận trinh sát chiến lược, giúp Bộ Chính trị củng cố quyết tâm giải phóng miền Nam trong năm 1975." .
+su9:E_CH5_ChienDichTayNguyen a su9:Event ;
+    rdfs:label "Chiến dịch Tây Nguyên (3/1975)"@vi ;
+    su9:occursAt su9:L_TayNguyen ;
+    su9:occursDuring su9:P_1973_1975 ;
+    su9:hasContent "Đánh đòn điểm huyệt ở Buôn Ma Thuột. Quân địch hoảng loạn rút chạy." ;
+    su9:hasAchievements "Chuyển cuộc kháng chiến từ thế tiến công chiến lược sang Tổng tiến công chiến lược trên toàn miền Nam." .
+su9:E_CH5_ChienDichHoChiMinh a su9:Event ;
+    rdfs:label "Chiến dịch Hồ Chí Minh (4/1975)"@vi ;
+    su9:occursAt su9:L_SaiGon ;
+    su9:occursDuring su9:P_1973_1975 ;
+    su9:hasContent "11h30 ngày 30/4, xe tăng tiến vào Dinh Độc Lập, bắt toàn bộ nội các chính quyền Sài Gòn." ;
+    su9:hasAchievements "Kết thúc thắng lợi cuộc kháng chiến chống Mỹ cứu nước." .
+su9:E_CH6_BaoVeTayNam a su9:Event ;
+    rdfs:label "Bảo vệ biên giới Tây Nam (1978-1979)"@vi ;
+    su9:occursAt su9:L_BienGioiTayNam ;
+    su9:occursDuring su9:P_1976_1985 ;
+    su9:hasContent "Quân đội VN tổng phản công đánh bại quân Pôn Pốt xâm lược." ;
+    su9:hasAchievements "Giữ vững chủ quyền, tạo thời cơ cho cách mạng Campuchia." ;
+    su9:hasOrganization su9:O_KhmerDo ;
+    su9:weightsJson "{\"O_KhmerDo\": 10}" .
+su9:E_CH6_BaoVePhiaBac a su9:Event ;
+    rdfs:label "Bảo vệ biên giới phía Bắc (1979)"@vi ;
+    su9:occursAt su9:L_BienGioiPhiaBac ;
+    su9:occursDuring su9:P_1976_1985 ;
+    su9:hasContent "Quân dân các tỉnh biên giới phía Bắc kiên cường chiến đấu chống 60 vạn quân Trung Quốc tấn công." .
+su9:E_CH6_HaiChienGacMa a su9:Event ;
+    rdfs:label "Bảo vệ chủ quyền tại đảo Gạc Ma (3/1988)"@vi ;
+    su9:occursAt su9:L_TruongSa ;
+    su9:occursDuring su9:P_1986_1991 ;
+    su9:hasContent "Chiến sĩ Hải quân Việt Nam anh dũng hi sinh chiến đấu chống quân đội Trung Quốc tấn công bãi ngầm Gạc Ma." .
+su9:E_CH6_KhungHoangKinhTe a su9:Event ;
+    rdfs:label "Khủng hoảng kinh tế - xã hội (Trước 1986)"@vi ;
+    su9:occursAt su9:L_VietNam ;
+    su9:occursDuring su9:P_1976_1985 ;
+    su9:hasCauseDirect "Duy trì quá lâu cơ chế tập trung quan liêu, bao cấp." ;
+    su9:hasContent "Lạm phát tăng phi mã (774%), thiếu thốn lương thực, thực phẩm trầm trọng." .
+su9:E_CH6_GiaNhapLHQ a su9:Event ;
+    rdfs:label "Việt Nam gia nhập Liên hợp quốc (1977)"@vi ;
+    su9:occursAt su9:L_Global ;
+    su9:occursDuring su9:P_1976_1985 ;
+    su9:hasAchievements "Phát triển quan hệ ngoại giao, nâng cao vị thế của Việt Nam trên trường quốc tế sau ngày thống nhất." ;
+    su9:hasOrganization su9:O_LienHopQuoc ;
+    su9:weightsJson "{\"O_LienHopQuoc\": 10}" .
+su9:E_CH6_ThucHienDoiMoi_86_91 a su9:Event ;
+    rdfs:label "Kết quả bước đầu công cuộc Đổi mới (1986-1991)"@vi ;
+    su9:occursAt su9:L_VietNam ;
+    su9:occursDuring su9:P_1986_1991 ;
+    su9:hasContent "Thực hiện tốt 'Ba chương trình kinh tế' (Lương thực, Hàng tiêu dùng, Hàng xuất khẩu). Tăng cường quyền làm chủ của nhân dân, mở rộng đối ngoại." ;
+    su9:hasAchievements "Khẳng định sự lãnh đạo đúng đắn của Đảng, phục hồi sản xuất, kiềm chế lạm phát." ;
+    su9:hasLimitations "Đất nước chưa ra khỏi khủng hoảng, lạm phát còn cao, phân hóa giàu nghèo gia tăng." ;
+    su9:involvedConcept su9:C_BaChuongTrinhKinhTe ;
+    su9:weightsJson "{\"C_BaChuongTrinhKinhTe\": 10}" .
+su9:E_CH5_DonCuc_HinhThanh a su9:Event ;
+    rdfs:label "Xu hướng đơn cực cuối thế kỷ XX"@vi ;
+    su9:occursAt su9:L_Global ;
+    su9:occursDuring su9:P_1991_2000 ;
+    su9:hasCauseDirect "Sự sụp đổ của Liên Xô và trật tự hai cực I-an-ta." ;
+    su9:hasContent "Thế giới định hình theo xu hướng đơn cực, Mỹ là siêu cường duy nhất. Các cường quốc khác chưa phát sinh bất đồng gay gắt." ;
+    su9:hasOrganization su9:L_My ;
+    su9:involvedConcept su9:C_TratTuDonCuc ;
+    su9:weightsJson "{\"L_My\": 10, \"C_TratTuDonCuc\": 10}" .
+su9:E_CH5_KhungBo11_9 a su9:Event ;
+    rdfs:label "Sự kiện khủng bố 11/9/2001"@vi ;
+    su9:aliases "Sự kiện 11/9" ;
+    su9:occursAt su9:L_My ;
+    su9:occursDuring su9:P_Tu2001 ;
+    su9:hasContent "Al-Qaeda tấn công tháp đôi Thương mại và Bộ Quốc phòng Mỹ, gây thiệt hại nặng nề." ;
+    su9:hasResult "Mỹ lấy cớ chống khủng bố để phát động chiến tranh can thiệp vào Afghanistan và Iraq, phản ánh tham vọng thiết lập trật tự đơn cực." ;
+    su9:hasOrganization su9:O_AlQaeda ;
+    su9:weightsJson "{\"O_AlQaeda\": 10}" .
+su9:E_CH5_KhungHoangTaiChinh2008 a su9:Event ;
+    rdfs:label "Khủng hoảng tài chính 2008-2009"@vi ;
+    su9:occursAt su9:L_Global ;
+    su9:occursDuring su9:P_Tu2001 ;
+    su9:hasContent "Khủng hoảng kinh tế toàn cầu bùng nổ." ;
+    su9:hasResult "Làm suy giảm đáng kể sức mạnh kinh tế - quân sự của Mỹ, thúc đẩy sự cáo chung của xu hướng đơn cực." ;
+    su9:hasOrganization su9:L_My ;
+    su9:weightsJson "{\"L_My\": 10}" .
+su9:E_CH5_DaCuc_HinhThanh a su9:Event ;
+    rdfs:label "Xu hướng đa cực đầu thế kỷ XXI"@vi ;
+    su9:occursAt su9:L_Global ;
+    su9:occursDuring su9:P_Tu2001 ;
+    su9:hasContent "+ Trung Quốc: Trỗi dậy mạnh mẽ, thực hiện chiến lược 'Vành đai, con đường'.\n+ Nga: Khôi phục vị thế, chống lại sự mở rộng về phía Đông của NATO.\n+ EU, Nhật Bản, Ấn Độ: Tham gia vào quá trình cạnh tranh quyền lực." ;
+    su9:hasAchievements "Xu hướng đa cực dần được thể hiện rõ với nhiều trung tâm cạnh tranh, chấm dứt thời kỳ Mỹ 'một mình một ngựa'." ;
+    su9:involvedConcept su9:C_TratTuDaCuc ;
+    su9:involvedConcept su9:C_VanhDaiConDuong ;
+    su9:weightsJson "{\"C_TratTuDaCuc\": 10, \"C_VanhDaiConDuong\": 8}" .
+
+### PREREQUISITES ###
+su9:M_CachMang_ChauAu_1918_1923 su9:prerequisiteOf su9:E_ThanhLapQuocTeCongSan .
+su9:M_CachMang_ChauAu_1918_1923 su9:prerequisiteOf su9:D_NEP_1921 .
+su9:E_KhungHoangKinhTe_1929_1933 su9:prerequisiteOf su9:D_NewDeal_1932 .
+su9:E_KhungHoangKinhTe_1929_1933 su9:prerequisiteOf su9:E_PhatXitHoa_ChauAu_1929_1933 .
+su9:E_KhungHoangKinhTe_1929_1933 su9:prerequisiteOf su9:E_NhatBan_PhatXitHoa_1933_1945 .
+su9:E_PhatXitHoa_ChauAu_1929_1933 su9:prerequisiteOf su9:E_WWII_NguyenNhan_TongQuat .
+su9:E_NhatBan_PhatXitHoa_1933_1945 su9:prerequisiteOf su9:E_WWII_NguyenNhan_TongQuat .
+su9:E_WWII_NguyenNhan_TongQuat su9:prerequisiteOf su9:E_WWII_GiaiDoan1_1939_1941 .
+su9:E_WWII_GiaiDoan1_1939_1941 su9:prerequisiteOf su9:D_TuyenNgonLienHopQuoc_1942 .
+su9:D_TuyenNgonLienHopQuoc_1942 su9:prerequisiteOf su9:E_WWII_GiaiDoan2_1942_1945 .
+su9:E_WWII_GiaiDoan2_1942_1945 su9:prerequisiteOf su9:E_WWII_HauQua_YNGhia .
+su9:M_NguTu_1919 su9:prerequisiteOf su9:M_GiaiPhongDanToc_DongNamA_1918_1945 .
+su9:E_WWII_GiaiDoan2_1942_1945 su9:prerequisiteOf su9:E_GiaiPhong_DongNamA_1945 .
+su9:O_NamDongThuXa su9:prerequisiteOf su9:E_CH2_ThanhLapVNQDD .
+su9:O_HoiPhucViet su9:prerequisiteOf su9:E_CH2_ThanhLapTanViet .
+su9:M_CH2_CongNhan_1919_1925 su9:prerequisiteOf su9:M_CH2_CongNhan_1925_1930 .
+su9:E_CH2_DaiHoiTours_1920 su9:prerequisiteOf su9:C_ChuNghiaMacLenin .
+su9:D_CH2_DuongKachMenh su9:prerequisiteOf su9:E_CH2_BaToChucCongSan_1929 .
+su9:E_CH2_BaToChucCongSan_1929 su9:prerequisiteOf su9:E_CH2_HoiNghiThanhLapDang_1930 .
+su9:M_CH2_PhongTrao_1930_1931 su9:prerequisiteOf su9:E_CH2_XoVietNgheTinh .
+su9:O_QuocTeCongSan su9:prerequisiteOf su9:E_CH2_HoiNghiTW_7_1936 .
+su9:E_CH2_HoiNghiTW_7_1936 su9:prerequisiteOf su9:M_CH2_PhongTraoDanChu_1936_1939 .
+su9:M_CH2_PhongTrao_1930_1931 su9:prerequisiteOf su9:C_TapDuotCachMang .
+su9:M_CH2_PhongTraoDanChu_1936_1939 su9:prerequisiteOf su9:C_TapDuotCachMang .
+su9:E_CH2_HoiNghiTW_11_1939 su9:prerequisiteOf su9:E_CH2_HoiNghiTW_8_1941 .
+su9:E_CH2_HoiNghiTW_8_1941 su9:prerequisiteOf su9:E_CH2_ThanhLapVietMinh_1941 .
+su9:E_CH2_ThanhLapVNTTGPQ_1944 su9:prerequisiteOf su9:E_CH2_HoiNghiQuanSuBacKi .
+su9:E_CH2_NhatDaoChinhPhap_1945 su9:prerequisiteOf su9:D_CH2_ChiThiNhatPhapBanNhau .
+su9:D_CH2_ChiThiNhatPhapBanNhau su9:prerequisiteOf su9:M_CH2_CaoTraoKhangNhat .
+su9:D_CH3_HocThuyetTruman su9:prerequisiteOf su9:D_CH3_KeHoachMarshall .
+su9:D_CH3_KeHoachMarshall su9:prerequisiteOf su9:E_CH3_DoiDauKinhTe_ChinhTri .
+su9:D_CH3_BaoCaoZhdanov su9:prerequisiteOf su9:E_CH3_DoiDauKinhTe_ChinhTri .
+su9:E_CH3_LienXo_CaiTo_1985 su9:prerequisiteOf su9:E_CH3_LienXo_TanRa_1991 .
+su9:E_CH3_LienXo_CaiTo_1985 su9:prerequisiteOf su9:E_CH3_DongAu_TanRa_1989 .
+su9:D_CH3_KeHoachMarshall su9:prerequisiteOf su9:E_CH3_TayAu_QuanHeVoiMy .
+su9:E_CH3_KinhTeMy_HoangKim su9:prerequisiteOf su9:D_CH3_ChienLuocToanCau .
+su9:C_KhungHoangNangLuong su9:prerequisiteOf su9:P_1973_1991 .
+su9:O_EEC su9:prerequisiteOf su9:O_EU .
+su9:E_CH3_CachMangCuba_DienBien su9:prerequisiteOf su9:M_CH3_MyLaTinh_ChongDocTai .
+su9:O_CheDoBatista su9:prerequisiteOf su9:E_CH3_CachMangCuba_DienBien .
+su9:O_PhongTrao26_7 su9:prerequisiteOf su9:E_CH3_CachMangCuba_DienBien .
+su9:D_CH3_HiepUocAnNinhMyNhat su9:prerequisiteOf su9:E_CH3_NhatBan_KinhTeThanKi .
+su9:D_CH3_KeHoachMountbatten su9:prerequisiteOf su9:L_Pakistan .
+su9:E_CH3_ASEAN_ThanhLap su9:prerequisiteOf su9:D_CH3_HiepUocBali .
+su9:E_CH4_TongTuyenCu su9:prerequisiteOf su9:O_QuocHoiKhoa1 .
+su9:O_QuocHoiKhoa1 su9:prerequisiteOf su9:D_CH4_HienPhap1946 .
+su9:D_CH4_HiepUocHoaPhap su9:prerequisiteOf su9:D_CH4_HiepDinhSoBo .
+su9:D_CH4_HiepDinhSoBo su9:prerequisiteOf su9:D_CH4_TamUoc14_9 .
+su9:E_CH4_ChienDauDoThi su9:prerequisiteOf su9:L_VietBac .
+su9:E_CH4_VietBac1947 su9:prerequisiteOf su9:C_DanhLauDai .
+su9:D_CH4_KeHoachRevers su9:prerequisiteOf su9:E_CH4_BienGioi1950 .
+su9:E_CH4_BienGioi1950 su9:prerequisiteOf su9:C_TheChuDong .
+su9:D_CH4_KeHoachNavarre su9:prerequisiteOf su9:E_CH4_DongXuan_53_54 .
+su9:E_CH4_DongXuan_53_54 su9:prerequisiteOf su9:E_CH4_DienBienPhu .
+su9:E_CH4_DienBienPhu su9:prerequisiteOf su9:D_CH4_HiepDinhGeneva .
+su9:D_CH5_Luat1059 su9:prerequisiteOf su9:D_CH5_NghiQuyet15 .
+su9:D_CH5_NghiQuyet15 su9:prerequisiteOf su9:M_CH5_DongKhoi .
+su9:M_CH5_DongKhoi su9:prerequisiteOf su9:O_MTDTGPMNVN .
+su9:M_CH5_DongKhoi su9:prerequisiteOf su9:C_ChienTranhDacBiet .
+su9:E_CH5_ApBac su9:prerequisiteOf su9:E_CH5_BinhGia .
+su9:E_CH5_MauThan1968 su9:prerequisiteOf su9:P_1969_1973 .
+su9:E_CH5_DienBienPhuTrenKhong su9:prerequisiteOf su9:D_CH5_HiepDinhParis1973 .
+su9:D_CH5_HiepDinhParis1973 su9:prerequisiteOf su9:E_CH5_PhuocLong1975 .
+su9:E_CH5_PhuocLong1975 su9:prerequisiteOf su9:E_CH5_ChienDichTayNguyen .
+su9:E_CH5_ChienDichTayNguyen su9:prerequisiteOf su9:L_HueDaNang .
+su9:L_HueDaNang su9:prerequisiteOf su9:E_CH5_ChienDichHoChiMinh .
+su9:E_CH6_KhungHoangKinhTe su9:prerequisiteOf su9:D_CH6_DaiHoiDang6 .
+su9:C_ThongNhatNhaNuoc su9:prerequisiteOf su9:E_CH6_KhungHoangKinhTe .
+su9:C_KhungHoangDongAu su9:prerequisiteOf su9:D_CH6_DaiHoiDang6_ChiTiet .
+su9:D_CH6_DaiHoiDang6_ChiTiet su9:prerequisiteOf su9:E_CH6_ThucHienDoiMoi_86_91 .
+su9:C_BaChuongTrinhKinhTe su9:prerequisiteOf su9:E_CH6_ThucHienDoiMoi_86_91 .
+su9:E_CH5_KhungBo11_9 su9:prerequisiteOf su9:L_TrungDong .
+su9:E_CH5_KhungHoangTaiChinh2008 su9:prerequisiteOf su9:E_CH5_DaCuc_HinhThanh .
+
+### CAUSAL EDGES ###
+su9:E_KhungHoangKinhTe_1929_1933 su9:directCause su9:D_NewDeal_1932 .
+su9:E_KhungHoangKinhTe_1929_1933 su9:directCause su9:E_PhatXitHoa_ChauAu_1929_1933 .
+su9:E_KhungHoangKinhTe_1929_1933 su9:directCause su9:E_NhatBan_PhatXitHoa_1933_1945 .
+su9:C_ChinhSachThoaHiep su9:directCause su9:E_WWII_GiaiDoan1_1939_1941 .
+su9:D_TuyenNgonLienHopQuoc_1942 su9:directCause su9:E_WWII_GiaiDoan2_1942_1945 .
+su9:O_HVNCMTN su9:directCause su9:E_CH2_ThanhLapTanViet .
+su9:E_CH2_ThanhLapVNQDD su9:directCause su9:C_BaoDongAmSat .
+su9:O_QuocTeCongSan su9:directCause su9:E_CH2_HoiNghiThanhLapDang_1930 .
+su9:E_CH2_PhapNhatBocLot su9:directCause su9:C_NanDoi1945 .
+su9:M_CH2_CaoTraoKhangNhat su9:directCause su9:C_TapDuotCachMang .
+su9:D_CH3_HocThuyetTruman su9:directCause su9:C_ChienTranhLanh .
+su9:C_DaNguyenChinhTri su9:directCause su9:E_CH3_DongAu_TanRa_1989 .
+su9:C_HeThongVersaillesWashington su9:deepCause su9:E_WWII_NguyenNhan_TongQuat .
+su9:C_KhungHoangKinhTe su9:deepCause su9:E_WWII_NguyenNhan_TongQuat .
+su9:E_ThanhLapQuocTeCongSan su9:deepCause su9:M_GiaiPhongDanToc_DongNamA_1918_1945 .
+su9:C_KhungHoangKinhTe su9:deepCause su9:M_CH2_PhongTrao_1930_1931 .
+
+### SIMILARITIES & CONTRASTS ###
+su9:D_NEP_1921 su9:similarTo su9:D_NewDeal_1932 .
+su9:E_PhatXitHoa_ChauAu_1929_1933 su9:similarTo su9:E_NhatBan_PhatXitHoa_1933_1945 .
+su9:C_KhuynhHuongVoSan su9:similarTo su9:C_KhuynhHuongTuSan .
+su9:E_CH3_LienXo_TanRa_1991 su9:similarTo su9:E_CH3_DongAu_TanRa_1989 .
+su9:O_LienHopQuoc_WW2 su9:contrastsWith su9:O_PhePhatXit .
+su9:C_ChienTranhChinhNghia su9:contrastsWith su9:C_ChienTranhPhiNghia .
+su9:E_CH2_ThanhLapVNQDD su9:contrastsWith su9:E_CH2_ThanhLapTanViet .
+su9:O_PheTBCN su9:contrastsWith su9:O_PheXHCN .
+su9:D_CH3_KeHoachMarshall su9:contrastsWith su9:O_SEV .
+su9:O_NATO su9:contrastsWith su9:O_Warsaw .
+su9:Pe_Truman su9:contrastsWith su9:Pe_Zhdanov .
+su9:O_NATO su9:contrastsWith su9:O_Warsaw .
+su9:O_DangDanChu_My su9:contrastsWith su9:O_DangCongHoa_My .
+su9:L_My su9:contrastsWith su9:O_EU .
+su9:Pe_FidelCastro su9:contrastsWith su9:Pe_Batista .
+su9:O_PhongTrao26_7 su9:contrastsWith su9:O_CheDoBatista .
+su9:L_My su9:contrastsWith su9:L_Cuba .
+su9:E_CH3_TrungQuoc_KhungHoang su9:contrastsWith su9:E_CH3_TrungQuoc_CaiCachMoCua .
+su9:Pe_MaoTrachDong su9:contrastsWith su9:Pe_DangTieuBinh .
+su9:O_THDQ su9:contrastsWith su9:L_ViTuyen16_Nam .
+su9:O_QuanAnh su9:contrastsWith su9:L_ViTuyen16_Bac .
+su9:D_CH4_HiepDinhSoBo su9:contrastsWith su9:O_THDQ .
+su9:C_DanhNhanhThangNhanh su9:contrastsWith su9:C_DanhLauDai .
+su9:E_CH4_VietBac1947 su9:contrastsWith su9:E_CH4_BienGioi1950 .
+su9:D_CH4_KeHoachNavarre su9:contrastsWith su9:C_PhanTanLucLuong .
+su9:C_DanhNhanhThangNhanh su9:contrastsWith su9:C_DanhChacTienChac .
+su9:L_MienBac su9:contrastsWith su9:L_MienNam .
+su9:C_ChienTranhCucBo su9:contrastsWith su9:C_VietNamHoaChienTranh .
+su9:O_QuanMy su9:contrastsWith su9:O_QuanSaiGon .
+su9:E_CH5_MauThan1968 su9:contrastsWith su9:E_CH5_TienCong1972 .
+su9:C_BaoCap su9:contrastsWith su9:C_DoiMoiKinhTe .
+su9:E_CH5_ChienDichHoChiMinh su9:contrastsWith su9:C_ThongNhatNhaNuoc .
+su9:D_CH6_DaiHoiDang6_ChiTiet su9:contrastsWith su9:C_BaoCap .
+su9:C_TratTuDonCuc su9:contrastsWith su9:C_TratTuDaCuc .
+su9:P_1991_2000 su9:contrastsWith su9:C_TratTuDaCuc .
+su9:L_Nga su9:contrastsWith su9:O_NATO .
+
+### PARTICIPATES (Static mappings) ###
+su9:Pe_Lenin su9:leads su9:D_NEP_1921 .
+su9:Pe_Lenin su9:leads su9:E_ThanhLapQuocTeCongSan .
+su9:Pe_Roosevelt su9:leads su9:D_NewDeal_1932 .
+su9:Pe_Hitler su9:leads su9:E_PhatXitHoa_ChauAu_1929_1933 .
+su9:Pe_Hitler su9:leads su9:E_WWII_NguyenNhan_TongQuat .
+su9:Pe_Mussolini su9:leads su9:E_PhatXitHoa_ChauAu_1929_1933 .
+su9:Pe_Gandhi su9:leads su9:M_DauTranh_AnDo_Interwar .
+su9:Pe_Sukarno su9:leads su9:E_GiaiPhong_DongNamA_1945 .

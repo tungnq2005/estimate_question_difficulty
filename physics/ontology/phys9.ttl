@@ -1,0 +1,2125 @@
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix phys: <http://edu.vn/phys9/ontology#> .
+
+<http://edu.vn/phys9/ontology> a owl:Ontology ;
+    rdfs:label "Ontology Ly 9 - Cold-start Question Difficulty Estimation"@vi ;
+    owl:versionInfo "0.1.0" .
+
+#################################################################
+#   CLASSES
+#################################################################
+
+phys:PhysEntity      a owl:Class ; rdfs:label "Thuc the Vat li"@vi .
+phys:Law             a owl:Class ; rdfs:subClassOf phys:PhysEntity ; rdfs:label "Dinh luat"@vi .
+phys:Formula         a owl:Class ; rdfs:subClassOf phys:PhysEntity ; rdfs:label "Cong thuc"@vi .
+phys:Quantity        a owl:Class ; rdfs:subClassOf phys:PhysEntity ; rdfs:label "Dai luong"@vi .
+phys:Unit            a owl:Class ; rdfs:subClassOf phys:PhysEntity ; rdfs:label "Don vi"@vi .
+phys:Phenomenon      a owl:Class ; rdfs:subClassOf phys:PhysEntity ; rdfs:label "Hien tuong"@vi .
+phys:Concept         a owl:Class ; rdfs:subClassOf phys:PhysEntity ; rdfs:label "Khai niem"@vi .
+phys:Device          a owl:Class ; rdfs:subClassOf phys:PhysEntity ; rdfs:label "Dung cu / Thiet bi"@vi .
+phys:Method          a owl:Class ; rdfs:subClassOf phys:PhysEntity ; rdfs:label "Phuong phap"@vi .
+phys:ProblemType     a owl:Class ; rdfs:subClassOf phys:PhysEntity ; rdfs:label "Dang toan"@vi .
+phys:ExperimentSetup a owl:Class ; rdfs:subClassOf phys:PhysEntity ; rdfs:label "Bo thi nghiem"@vi .
+phys:LessonUnit      a owl:Class ; rdfs:label "Bai hoc SGK"@vi .
+phys:Textbook        a owl:Class ; rdfs:label "Bo SGK"@vi .
+
+#################################################################
+#   OBJECT PROPERTIES
+#################################################################
+
+phys:prerequisiteOf a owl:ObjectProperty , owl:TransitiveProperty ; rdfs:label "la tien de cua"@vi .
+phys:uses a owl:ObjectProperty ; rdfs:label "su dung"@vi .
+
+phys:measures a owl:ObjectProperty ;
+    rdfs:domain phys:Device ; rdfs:range phys:Quantity ;
+    rdfs:label "do dai luong"@vi .
+
+phys:hasUnit a owl:ObjectProperty ;
+    rdfs:domain phys:Quantity ; rdfs:range phys:Unit ;
+    rdfs:label "co don vi"@vi .
+
+phys:relatesQuantities a owl:ObjectProperty ;
+    rdfs:domain phys:Formula ; rdfs:range phys:Quantity ;
+    rdfs:label "lien he cac dai luong"@vi .
+
+phys:derivedFrom a owl:ObjectProperty ;
+    rdfs:domain phys:Formula ; rdfs:range phys:Law ;
+    rdfs:label "suy ra tu"@vi .
+
+phys:explainedBy a owl:ObjectProperty ;
+    rdfs:domain phys:Phenomenon ; rdfs:range phys:Law ;
+    rdfs:label "giai thich boi"@vi .
+
+phys:solves a owl:ObjectProperty ;
+    rdfs:domain phys:Method ; rdfs:range phys:ProblemType ;
+    rdfs:label "giai duoc dang"@vi .
+
+phys:usedIn a owl:ObjectProperty ;
+    rdfs:domain phys:Device ; rdfs:range phys:ExperimentSetup ;
+    rdfs:label "duoc dung trong"@vi .
+
+phys:appearsInLesson a owl:ObjectProperty ; rdfs:range phys:LessonUnit ; rdfs:label "xuat hien trong bai"@vi .
+phys:partOfTextbook a owl:ObjectProperty ; rdfs:range phys:Textbook ; rdfs:label "thuoc bo SGK"@vi .
+
+phys:similarTo a owl:ObjectProperty , owl:SymmetricProperty ; rdfs:label "tuong tu"@vi .
+phys:contrastsWith a owl:ObjectProperty , owl:SymmetricProperty ; rdfs:label "doi lap"@vi .
+
+#################################################################
+#   DATA PROPERTIES
+#################################################################
+
+phys:abstractness a owl:DatatypeProperty ; rdfs:range xsd:integer .
+phys:bloomLevel a owl:DatatypeProperty ; rdfs:range xsd:integer .
+phys:symbolicDensity a owl:DatatypeProperty ; rdfs:range xsd:integer .
+phys:applicationSteps a owl:DatatypeProperty ; rdfs:range xsd:integer .
+phys:requiresVectorReasoning a owl:DatatypeProperty ; rdfs:range xsd:boolean ;
+    rdfs:comment "Doi hoi suy luan vector (phuong, chieu)?"@vi .
+phys:symbol a owl:DatatypeProperty ; rdfs:range xsd:string .
+phys:frequencyInTextbook a owl:DatatypeProperty ; rdfs:range xsd:integer .
+phys:curriculumPosition a owl:DatatypeProperty ; rdfs:range xsd:integer .
+phys:aliases a owl:DatatypeProperty ; rdfs:range xsd:string .
+phys:confidence a owl:DatatypeProperty ; rdfs:range xsd:integer .
+
+#################################################################
+#   TEXTBOOKS
+#################################################################
+
+phys:TB_Old a phys:Textbook ; rdfs:label "SGK Vat li 9 (bo cu)"@vi ; phys:confidence 3 .
+phys:TB_KNTT a phys:Textbook ; rdfs:label "SGK KHTN 9 - Ket noi tri thuc"@vi ; phys:confidence 3 .
+phys:TB_CTST a phys:Textbook ; rdfs:label "SGK KHTN 9 - Chan troi sang tao"@vi ; phys:confidence 3 .
+phys:TB_CD a phys:Textbook ; rdfs:label "SGK KHTN 9 - Canh Dieu"@vi ; phys:confidence 3 .
+
+
+#################################################################
+#   LAWS
+#################################################################
+
+phys:L_Ohm a phys:Law ;
+    rdfs:label "Dinh luat Om (Ohm)"@vi ;
+    phys:aliases "Dinh luat Om" ;
+    phys:abstractness 3 ;
+    phys:bloomLevel 2 ;
+    phys:confidence 3 .
+
+phys:L_JunLenxo a phys:Law ;
+    rdfs:label "Dinh luat Jun-Lenxo"@vi ;
+    phys:aliases "Jun-Len-xo" ;
+    phys:abstractness 3 ;
+    phys:bloomLevel 2 ;
+    phys:confidence 3 .
+
+phys:L_BaoToanNL a phys:Law ;
+    rdfs:label "Dinh luat bao toan va chuyen hoa nang luong"@vi ;
+    phys:aliases "BTNL|Bao toan nang luong" ;
+    phys:abstractness 4 ;
+    phys:bloomLevel 3 ;
+    phys:confidence 3 .
+
+phys:L_KhucXaAnhSang a phys:Law ;
+    rdfs:label "Dinh luat khuc xa anh sang"@vi ;
+    phys:abstractness 3 ;
+    phys:bloomLevel 2 ;
+    phys:confidence 3 .
+
+phys:L_CamUngDienTu a phys:Law ;
+    rdfs:label "Hien tuong cam ung dien tu (Faraday)"@vi ;
+    phys:aliases "Faraday" ;
+    phys:abstractness 3 ;
+    phys:bloomLevel 3 ;
+    phys:confidence 3 .
+
+phys:L_NhiemTu a phys:Law ;
+    rdfs:label "Quy tac nhiem tu cua dong dien (ban tay phai)"@vi ;
+    phys:aliases "Quy tac ban tay phai" ;
+    phys:abstractness 3 ;
+    phys:bloomLevel 3 ;
+    phys:confidence 3 .
+
+phys:L_BanTayTrai a phys:Law ;
+    rdfs:label "Quy tac ban tay trai (luc tu)"@vi ;
+    phys:aliases "Ban tay trai" ;
+    phys:abstractness 3 ;
+    phys:bloomLevel 3 ;
+    phys:confidence 3 .
+
+phys:L_TruyenThangAS a phys:Law ;
+    rdfs:label "Dinh luat truyen thang anh sang (on tap)"@vi ;
+    phys:abstractness 2 ;
+    phys:bloomLevel 2 ;
+    phys:confidence 3 .
+
+phys:L_PhanXaAS a phys:Law ;
+    rdfs:label "Dinh luat phan xa anh sang (on tap)"@vi ;
+    phys:abstractness 2 ;
+    phys:bloomLevel 2 ;
+    phys:confidence 3 .
+
+phys:L_MayBienThe a phys:Law ;
+    rdfs:label "Cong thuc may bien the U1/U2 = N1/N2"@vi ;
+    phys:abstractness 3 ;
+    phys:bloomLevel 2 ;
+    phys:confidence 3 .
+
+
+#################################################################
+#   FORMULAS
+#################################################################
+
+phys:F_Ohm a phys:Formula ;
+    rdfs:label "U = I.R (Dinh luat Om)"@vi ;
+    phys:symbolicDensity 3 ;
+    phys:applicationSteps 1 ;
+    phys:abstractness 3 ;
+    phys:confidence 3 .
+
+phys:F_R_U_I a phys:Formula ;
+    rdfs:label "R = U / I"@vi ;
+    phys:symbolicDensity 2 ;
+    phys:applicationSteps 1 ;
+    phys:abstractness 3 ;
+    phys:confidence 3 .
+
+phys:F_NoiTiep_R a phys:Formula ;
+    rdfs:label "R_td = R1 + R2 (mach noi tiep)"@vi ;
+    phys:symbolicDensity 3 ;
+    phys:applicationSteps 1 ;
+    phys:abstractness 3 ;
+    phys:confidence 3 .
+
+phys:F_SongSong_R a phys:Formula ;
+    rdfs:label "1/R_td = 1/R1 + 1/R2 (mach song song)"@vi ;
+    phys:symbolicDensity 4 ;
+    phys:applicationSteps 2 ;
+    phys:abstractness 3 ;
+    phys:confidence 3 .
+
+phys:F_NoiTiep_U a phys:Formula ;
+    rdfs:label "U = U1 + U2 (mach noi tiep)"@vi ;
+    phys:symbolicDensity 2 ;
+    phys:applicationSteps 1 ;
+    phys:abstractness 3 ;
+    phys:confidence 3 .
+
+phys:F_NoiTiep_I a phys:Formula ;
+    rdfs:label "I = I1 = I2 (mach noi tiep)"@vi ;
+    phys:symbolicDensity 2 ;
+    phys:applicationSteps 1 ;
+    phys:abstractness 2 ;
+    phys:confidence 3 .
+
+phys:F_SongSong_U a phys:Formula ;
+    rdfs:label "U = U1 = U2 (mach song song)"@vi ;
+    phys:symbolicDensity 2 ;
+    phys:applicationSteps 1 ;
+    phys:abstractness 2 ;
+    phys:confidence 3 .
+
+phys:F_SongSong_I a phys:Formula ;
+    rdfs:label "I = I1 + I2 (mach song song)"@vi ;
+    phys:symbolicDensity 2 ;
+    phys:applicationSteps 1 ;
+    phys:abstractness 3 ;
+    phys:confidence 3 .
+
+phys:F_R_DayDan a phys:Formula ;
+    rdfs:label "R = rho.L / S (dien tro day dan)"@vi ;
+    phys:symbolicDensity 4 ;
+    phys:applicationSteps 2 ;
+    phys:abstractness 4 ;
+    phys:confidence 3 .
+
+phys:F_CongSuat a phys:Formula ;
+    rdfs:label "P = U.I"@vi ;
+    phys:symbolicDensity 2 ;
+    phys:applicationSteps 1 ;
+    phys:abstractness 3 ;
+    phys:confidence 3 .
+
+phys:F_CongSuat_2 a phys:Formula ;
+    rdfs:label "P = I^2.R = U^2/R"@vi ;
+    phys:symbolicDensity 3 ;
+    phys:applicationSteps 2 ;
+    phys:abstractness 3 ;
+    phys:confidence 3 .
+
+phys:F_DienNang a phys:Formula ;
+    rdfs:label "A = P.t = U.I.t"@vi ;
+    phys:symbolicDensity 3 ;
+    phys:applicationSteps 2 ;
+    phys:abstractness 3 ;
+    phys:confidence 3 .
+
+phys:F_JunLenxo a phys:Formula ;
+    rdfs:label "Q = I^2.R.t (toa nhiet)"@vi ;
+    phys:symbolicDensity 3 ;
+    phys:applicationSteps 2 ;
+    phys:abstractness 3 ;
+    phys:confidence 3 .
+
+phys:F_MayBT a phys:Formula ;
+    rdfs:label "U1/U2 = N1/N2 (may bien the)"@vi ;
+    phys:symbolicDensity 3 ;
+    phys:applicationSteps 1 ;
+    phys:abstractness 3 ;
+    phys:confidence 3 .
+
+phys:F_ThauKinh_HoiTu a phys:Formula ;
+    rdfs:label "1/f = 1/d + 1/d' (thau kinh hoi tu)"@vi ;
+    phys:symbolicDensity 4 ;
+    phys:applicationSteps 2 ;
+    phys:abstractness 4 ;
+    phys:confidence 3 .
+
+phys:F_DoBoi_AnhThau a phys:Formula ;
+    rdfs:label "h'/h = d'/d (do phong dai)"@vi ;
+    phys:symbolicDensity 3 ;
+    phys:applicationSteps 2 ;
+    phys:abstractness 3 ;
+    phys:confidence 3 .
+
+phys:F_KhucXa_Sin a phys:Formula ;
+    rdfs:label "Quan he goc toi va goc khuc xa (dinh tinh)"@vi ;
+    phys:symbolicDensity 3 ;
+    phys:applicationSteps 2 ;
+    phys:abstractness 3 ;
+    phys:confidence 3 .
+
+
+#################################################################
+#   QUANTITIES
+#################################################################
+
+phys:Q_CuongDoDongDien a phys:Quantity ;
+    rdfs:label "Cuong do dong dien"@vi ;
+    phys:symbol "I" ;
+    phys:abstractness 2 ;
+    phys:confidence 3 .
+
+phys:Q_HieuDienThe a phys:Quantity ;
+    rdfs:label "Hieu dien the"@vi ;
+    phys:symbol "U" ;
+    phys:abstractness 2 ;
+    phys:confidence 3 .
+
+phys:Q_DienTro a phys:Quantity ;
+    rdfs:label "Dien tro"@vi ;
+    phys:symbol "R" ;
+    phys:abstractness 2 ;
+    phys:confidence 3 .
+
+phys:Q_DienTroSuat a phys:Quantity ;
+    rdfs:label "Dien tro suat"@vi ;
+    phys:symbol "rho" ;
+    phys:abstractness 3 ;
+    phys:confidence 3 .
+
+phys:Q_CongSuatDien a phys:Quantity ;
+    rdfs:label "Cong suat dien"@vi ;
+    phys:symbol "P" ;
+    phys:abstractness 2 ;
+    phys:confidence 3 .
+
+phys:Q_DienNang a phys:Quantity ;
+    rdfs:label "Dien nang (cong dong dien)"@vi ;
+    phys:symbol "A" ;
+    phys:abstractness 2 ;
+    phys:confidence 3 .
+
+phys:Q_NhietLuong a phys:Quantity ;
+    rdfs:label "Nhiet luong"@vi ;
+    phys:symbol "Q" ;
+    phys:abstractness 2 ;
+    phys:confidence 3 .
+
+phys:Q_ChieuDaiDay a phys:Quantity ;
+    rdfs:label "Chieu dai day dan"@vi ;
+    phys:symbol "L" ;
+    phys:abstractness 1 ;
+    phys:confidence 3 .
+
+phys:Q_TietDienDay a phys:Quantity ;
+    rdfs:label "Tiet dien day"@vi ;
+    phys:symbol "S" ;
+    phys:abstractness 2 ;
+    phys:confidence 3 .
+
+phys:Q_ThoiGian a phys:Quantity ;
+    rdfs:label "Thoi gian"@vi ;
+    phys:symbol "t" ;
+    phys:abstractness 1 ;
+    phys:confidence 3 .
+
+phys:Q_TieuCu a phys:Quantity ;
+    rdfs:label "Tieu cu"@vi ;
+    phys:symbol "f" ;
+    phys:abstractness 2 ;
+    phys:confidence 3 .
+
+phys:Q_KhoangCachVat a phys:Quantity ;
+    rdfs:label "Khoang cach tu vat den thau kinh"@vi ;
+    phys:symbol "d" ;
+    phys:abstractness 2 ;
+    phys:confidence 3 .
+
+phys:Q_KhoangCachAnh a phys:Quantity ;
+    rdfs:label "Khoang cach tu anh den thau kinh"@vi ;
+    phys:symbol "d'" ;
+    phys:abstractness 2 ;
+    phys:confidence 3 .
+
+phys:Q_SoVongDay a phys:Quantity ;
+    rdfs:label "So vong day cuon so cap / thu cap"@vi ;
+    phys:symbol "N" ;
+    phys:abstractness 2 ;
+    phys:confidence 3 .
+
+phys:Q_NhietDung a phys:Quantity ;
+    rdfs:label "Nhiet dung rieng"@vi ;
+    phys:symbol "c" ;
+    phys:abstractness 3 ;
+    phys:confidence 2 .
+
+
+#################################################################
+#   UNITS
+#################################################################
+
+phys:U_Ampe a phys:Unit ;
+    rdfs:label "Ampe (A)"@vi ;
+    phys:symbol "A" ;
+    phys:confidence 3 .
+
+phys:U_Von a phys:Unit ;
+    rdfs:label "Von (V)"@vi ;
+    phys:symbol "V" ;
+    phys:confidence 3 .
+
+phys:U_Ohm a phys:Unit ;
+    rdfs:label "Om (Ohm)"@vi ;
+    phys:symbol "Ohm" ;
+    phys:confidence 3 .
+
+phys:U_OhmMet a phys:Unit ;
+    rdfs:label "Om.met (Ohm.m)"@vi ;
+    phys:symbol "Ohm.m" ;
+    phys:confidence 3 .
+
+phys:U_Oat a phys:Unit ;
+    rdfs:label "Oat (W)"@vi ;
+    phys:symbol "W" ;
+    phys:confidence 3 .
+
+phys:U_Jun a phys:Unit ;
+    rdfs:label "Jun (J)"@vi ;
+    phys:symbol "J" ;
+    phys:confidence 3 .
+
+phys:U_KilowattGio a phys:Unit ;
+    rdfs:label "Kilowatt gio (kWh)"@vi ;
+    phys:symbol "kWh" ;
+    phys:confidence 3 .
+
+phys:U_Met a phys:Unit ;
+    rdfs:label "Met (m)"@vi ;
+    phys:symbol "m" ;
+    phys:confidence 3 .
+
+phys:U_MetVuong a phys:Unit ;
+    rdfs:label "Met vuong (m^2)"@vi ;
+    phys:symbol "m^2" ;
+    phys:confidence 3 .
+
+phys:U_Giay a phys:Unit ;
+    rdfs:label "Giay (s)"@vi ;
+    phys:symbol "s" ;
+    phys:confidence 3 .
+
+phys:U_JouleKgK a phys:Unit ;
+    rdfs:label "J/(kg.K)"@vi ;
+    phys:symbol "J/(kg.K)" ;
+    phys:confidence 2 .
+
+
+#################################################################
+#   PHENOMENA
+#################################################################
+
+phys:PH_KhucXa a phys:Phenomenon ;
+    rdfs:label "Khuc xa anh sang"@vi ;
+    phys:abstractness 3 ;
+    phys:bloomLevel 3 ;
+    phys:confidence 3 .
+
+phys:PH_PhanXa a phys:Phenomenon ;
+    rdfs:label "Phan xa anh sang (on tap)"@vi ;
+    phys:abstractness 2 ;
+    phys:bloomLevel 2 ;
+    phys:confidence 3 .
+
+phys:PH_TanSac a phys:Phenomenon ;
+    rdfs:label "Tan sac anh sang"@vi ;
+    phys:abstractness 3 ;
+    phys:bloomLevel 3 ;
+    phys:confidence 3 .
+
+phys:PH_TrongThay a phys:Phenomenon ;
+    rdfs:label "Trong thay anh cua vat qua thau kinh"@vi ;
+    phys:abstractness 3 ;
+    phys:bloomLevel 3 ;
+    phys:confidence 3 .
+
+phys:PH_CamUngDienTu_PH a phys:Phenomenon ;
+    rdfs:label "Cam ung dien tu"@vi ;
+    phys:abstractness 4 ;
+    phys:bloomLevel 3 ;
+    phys:confidence 3 .
+
+phys:PH_TuTruongCuaDongDien a phys:Phenomenon ;
+    rdfs:label "Tu truong cua dong dien"@vi ;
+    phys:abstractness 3 ;
+    phys:bloomLevel 3 ;
+    phys:confidence 3 .
+
+phys:PH_TacDungTuCuaDongDien a phys:Phenomenon ;
+    rdfs:label "Tac dung tu cua dong dien"@vi ;
+    phys:abstractness 3 ;
+    phys:bloomLevel 3 ;
+    phys:confidence 3 .
+
+phys:PH_LucDienTu a phys:Phenomenon ;
+    rdfs:label "Luc dien tu tac dung len day dan"@vi ;
+    phys:abstractness 3 ;
+    phys:bloomLevel 3 ;
+    phys:confidence 3 .
+
+phys:PH_TruyenTaiDienNang a phys:Phenomenon ;
+    rdfs:label "Hao phi khi truyen tai dien nang xa"@vi ;
+    phys:abstractness 4 ;
+    phys:bloomLevel 3 ;
+    phys:confidence 3 .
+
+phys:PH_DoanMachHoTai a phys:Phenomenon ;
+    rdfs:label "Doan mach ngan gay qua tai"@vi ;
+    phys:abstractness 3 ;
+    phys:bloomLevel 3 ;
+    phys:confidence 3 .
+
+phys:PH_MatCan_MatLao a phys:Phenomenon ;
+    rdfs:label "Mat can, mat lao"@vi ;
+    phys:aliases "Tat cua mat" ;
+    phys:abstractness 3 ;
+    phys:bloomLevel 3 ;
+    phys:confidence 3 .
+
+phys:PH_AnhSangMau a phys:Phenomenon ;
+    rdfs:label "Tong hop va phan tich anh sang mau"@vi ;
+    phys:abstractness 3 ;
+    phys:bloomLevel 3 ;
+    phys:confidence 3 .
+
+phys:PH_TacDungNhietAS a phys:Phenomenon ;
+    rdfs:label "Tac dung nhiet, quang, sinh cua anh sang"@vi ;
+    phys:abstractness 3 ;
+    phys:bloomLevel 2 ;
+    phys:confidence 3 .
+
+
+#################################################################
+#   DEVICES
+#################################################################
+
+phys:DV_AmpeKe a phys:Device ;
+    rdfs:label "Ampe ke"@vi ;
+    phys:abstractness 1 ;
+    phys:confidence 3 .
+
+phys:DV_VonKe a phys:Device ;
+    rdfs:label "Von ke"@vi ;
+    phys:abstractness 1 ;
+    phys:confidence 3 .
+
+phys:DV_DienTro a phys:Device ;
+    rdfs:label "Dien tro"@vi ;
+    phys:abstractness 1 ;
+    phys:confidence 3 .
+
+phys:DV_BienTro a phys:Device ;
+    rdfs:label "Bien tro (con chay)"@vi ;
+    phys:abstractness 2 ;
+    phys:confidence 3 .
+
+phys:DV_BongDen a phys:Device ;
+    rdfs:label "Bong den day toc"@vi ;
+    phys:abstractness 1 ;
+    phys:confidence 3 .
+
+phys:DV_Pin a phys:Device ;
+    rdfs:label "Pin / nguon dien"@vi ;
+    phys:abstractness 1 ;
+    phys:confidence 3 .
+
+phys:DV_ThauKinhHT a phys:Device ;
+    rdfs:label "Thau kinh hoi tu"@vi ;
+    phys:aliases "TKHT" ;
+    phys:abstractness 2 ;
+    phys:confidence 3 .
+
+phys:DV_ThauKinhPK a phys:Device ;
+    rdfs:label "Thau kinh phan ki"@vi ;
+    phys:aliases "TKPK" ;
+    phys:abstractness 2 ;
+    phys:confidence 3 .
+
+phys:DV_GuongPhang a phys:Device ;
+    rdfs:label "Guong phang (on tap)"@vi ;
+    phys:abstractness 1 ;
+    phys:confidence 3 .
+
+phys:DV_MayAnh a phys:Device ;
+    rdfs:label "May anh"@vi ;
+    phys:abstractness 2 ;
+    phys:confidence 3 .
+
+phys:DV_KinhLup a phys:Device ;
+    rdfs:label "Kinh lup"@vi ;
+    phys:abstractness 2 ;
+    phys:confidence 3 .
+
+phys:DV_NamCham a phys:Device ;
+    rdfs:label "Nam cham"@vi ;
+    phys:abstractness 1 ;
+    phys:confidence 3 .
+
+phys:DV_DongCoDien1C a phys:Device ;
+    rdfs:label "Dong co dien mot chieu"@vi ;
+    phys:abstractness 3 ;
+    phys:confidence 3 .
+
+phys:DV_MayPhatDien a phys:Device ;
+    rdfs:label "May phat dien xoay chieu"@vi ;
+    phys:abstractness 3 ;
+    phys:confidence 3 .
+
+phys:DV_MayBienThe a phys:Device ;
+    rdfs:label "May bien the"@vi ;
+    phys:aliases "May bien ap" ;
+    phys:abstractness 3 ;
+    phys:confidence 3 .
+
+phys:DV_DongHoDoDien a phys:Device ;
+    rdfs:label "Dong ho do dien (cong to)"@vi ;
+    phys:aliases "Cong to dien" ;
+    phys:abstractness 2 ;
+    phys:confidence 3 .
+
+phys:DV_LangKinh a phys:Device ;
+    rdfs:label "Lang kinh (tan sac)"@vi ;
+    phys:abstractness 2 ;
+    phys:confidence 3 .
+
+phys:DV_MatNguoi a phys:Device ;
+    rdfs:label "Mat nguoi (cau tao quang hoc)"@vi ;
+    phys:abstractness 2 ;
+    phys:confidence 3 .
+
+
+#################################################################
+#   CONCEPTS
+#################################################################
+
+phys:C_MachNoiTiep a phys:Concept ;
+    rdfs:label "Doan mach noi tiep"@vi ;
+    phys:abstractness 2 ;
+    phys:bloomLevel 2 ;
+    phys:confidence 3 .
+
+phys:C_MachSongSong a phys:Concept ;
+    rdfs:label "Doan mach song song"@vi ;
+    phys:abstractness 2 ;
+    phys:bloomLevel 2 ;
+    phys:confidence 3 .
+
+phys:C_MachHonHop a phys:Concept ;
+    rdfs:label "Doan mach hon hop"@vi ;
+    phys:abstractness 3 ;
+    phys:bloomLevel 3 ;
+    phys:confidence 3 .
+
+phys:C_TuTruong a phys:Concept ;
+    rdfs:label "Tu truong"@vi ;
+    phys:abstractness 4 ;
+    phys:bloomLevel 3 ;
+    phys:confidence 3 .
+
+phys:C_DuongSucTu a phys:Concept ;
+    rdfs:label "Duong suc tu"@vi ;
+    phys:abstractness 3 ;
+    phys:bloomLevel 3 ;
+    phys:confidence 3 .
+
+phys:C_TuPhoDongDien a phys:Concept ;
+    rdfs:label "Tu pho cua dong dien"@vi ;
+    phys:abstractness 3 ;
+    phys:bloomLevel 3 ;
+    phys:confidence 3 .
+
+phys:C_NhiemTu_KL a phys:Concept ;
+    rdfs:label "Su nhiem tu cua kim loai"@vi ;
+    phys:abstractness 3 ;
+    phys:bloomLevel 3 ;
+    phys:confidence 3 .
+
+phys:C_DongDienXoayChieu a phys:Concept ;
+    rdfs:label "Dong dien xoay chieu"@vi ;
+    phys:abstractness 3 ;
+    phys:bloomLevel 3 ;
+    phys:confidence 3 .
+
+phys:C_TieuDiem a phys:Concept ;
+    rdfs:label "Tieu diem cua thau kinh"@vi ;
+    phys:abstractness 3 ;
+    phys:bloomLevel 3 ;
+    phys:confidence 3 .
+
+phys:C_TrucChinh a phys:Concept ;
+    rdfs:label "Truc chinh cua thau kinh"@vi ;
+    phys:abstractness 2 ;
+    phys:bloomLevel 2 ;
+    phys:confidence 3 .
+
+phys:C_AnhThat a phys:Concept ;
+    rdfs:label "Anh that (qua thau kinh)"@vi ;
+    phys:abstractness 3 ;
+    phys:bloomLevel 3 ;
+    phys:confidence 3 .
+
+phys:C_AnhAo a phys:Concept ;
+    rdfs:label "Anh ao (qua thau kinh)"@vi ;
+    phys:abstractness 3 ;
+    phys:bloomLevel 3 ;
+    phys:confidence 3 .
+
+phys:C_CauToaAS a phys:Concept ;
+    rdfs:label "Cau tao anh sang trang"@vi ;
+    phys:abstractness 3 ;
+    phys:bloomLevel 3 ;
+    phys:confidence 3 .
+
+phys:C_NangLuong a phys:Concept ;
+    rdfs:label "Nang luong va cac dang nang luong"@vi ;
+    phys:abstractness 4 ;
+    phys:bloomLevel 3 ;
+    phys:confidence 3 .
+
+phys:C_ChuyenHoaNL a phys:Concept ;
+    rdfs:label "Su chuyen hoa nang luong"@vi ;
+    phys:abstractness 4 ;
+    phys:bloomLevel 3 ;
+    phys:confidence 3 .
+
+phys:C_CongDongDien_KN a phys:Concept ;
+    rdfs:label "Cong cua dong dien"@vi ;
+    phys:aliases "Dien nang tieu thu" ;
+    phys:abstractness 3 ;
+    phys:bloomLevel 2 ;
+    phys:confidence 3 .
+
+phys:C_AnToanDien a phys:Concept ;
+    rdfs:label "An toan khi su dung dien"@vi ;
+    phys:abstractness 2 ;
+    phys:bloomLevel 2 ;
+    phys:confidence 3 .
+
+phys:C_TietKiemDienNang a phys:Concept ;
+    rdfs:label "Tiet kiem dien nang"@vi ;
+    phys:abstractness 2 ;
+    phys:bloomLevel 2 ;
+    phys:confidence 3 .
+
+
+#################################################################
+#   METHODS
+#################################################################
+
+phys:M_GiaiMachNoiTiep a phys:Method ;
+    rdfs:label "Giai mach noi tiep (tinh I, U, R)"@vi ;
+    phys:applicationSteps 3 ;
+    phys:abstractness 3 ;
+    phys:bloomLevel 2 ;
+    phys:confidence 3 .
+
+phys:M_GiaiMachSongSong a phys:Method ;
+    rdfs:label "Giai mach song song"@vi ;
+    phys:applicationSteps 4 ;
+    phys:abstractness 3 ;
+    phys:bloomLevel 3 ;
+    phys:confidence 3 .
+
+phys:M_GiaiMachHonHop a phys:Method ;
+    rdfs:label "Giai mach hon hop"@vi ;
+    phys:applicationSteps 5 ;
+    phys:abstractness 4 ;
+    phys:bloomLevel 3 ;
+    phys:confidence 3 .
+
+phys:M_TinhDienNang_CSuat a phys:Method ;
+    rdfs:label "Tinh dien nang va cong suat tieu thu"@vi ;
+    phys:applicationSteps 3 ;
+    phys:abstractness 3 ;
+    phys:bloomLevel 2 ;
+    phys:confidence 3 .
+
+phys:M_TinhQ_JunLenxo a phys:Method ;
+    rdfs:label "Tinh nhiet luong toa ra theo Jun-Lenxo"@vi ;
+    phys:applicationSteps 3 ;
+    phys:abstractness 3 ;
+    phys:bloomLevel 2 ;
+    phys:confidence 3 .
+
+phys:M_QuyTacBanTayPhai a phys:Method ;
+    rdfs:label "Xac dinh chieu duong suc tu (quy tac ban tay phai)"@vi ;
+    phys:applicationSteps 3 ;
+    phys:abstractness 3 ;
+    phys:bloomLevel 3 ;
+    phys:confidence 3 .
+
+phys:M_QuyTacBanTayTrai a phys:Method ;
+    rdfs:label "Xac dinh chieu luc tu (ban tay trai)"@vi ;
+    phys:applicationSteps 4 ;
+    phys:abstractness 3 ;
+    phys:bloomLevel 3 ;
+    phys:confidence 3 .
+
+phys:M_VeAnhQuaTKHT a phys:Method ;
+    rdfs:label "Ve anh cua vat qua thau kinh hoi tu"@vi ;
+    phys:applicationSteps 3 ;
+    phys:abstractness 3 ;
+    phys:bloomLevel 3 ;
+    phys:confidence 3 .
+
+phys:M_VeAnhQuaTKPK a phys:Method ;
+    rdfs:label "Ve anh cua vat qua thau kinh phan ki"@vi ;
+    phys:applicationSteps 3 ;
+    phys:abstractness 3 ;
+    phys:bloomLevel 3 ;
+    phys:confidence 3 .
+
+phys:M_TinhAnhBangCongThuc a phys:Method ;
+    rdfs:label "Tinh vi tri va do cao cua anh bang cong thuc"@vi ;
+    phys:applicationSteps 4 ;
+    phys:abstractness 4 ;
+    phys:bloomLevel 3 ;
+    phys:confidence 3 .
+
+phys:M_TinhMayBienThe a phys:Method ;
+    rdfs:label "Tinh toan voi may bien the"@vi ;
+    phys:applicationSteps 3 ;
+    phys:abstractness 3 ;
+    phys:bloomLevel 2 ;
+    phys:confidence 3 .
+
+
+#################################################################
+#   PROBLEM TYPES
+#################################################################
+
+phys:PT_TinhR_Ohm a phys:ProblemType ;
+    rdfs:label "Tinh dien tro tu U, I (Om)"@vi ;
+    phys:abstractness 2 ;
+    phys:bloomLevel 2 ;
+    phys:confidence 3 .
+
+phys:PT_TinhU_TuongDuong a phys:ProblemType ;
+    rdfs:label "Tinh dien tro tuong duong cua mach"@vi ;
+    phys:abstractness 3 ;
+    phys:bloomLevel 3 ;
+    phys:confidence 3 .
+
+phys:PT_MachHonHop_IUR a phys:ProblemType ;
+    rdfs:label "Phan tich mach hon hop tim I, U, R"@vi ;
+    phys:abstractness 4 ;
+    phys:bloomLevel 4 ;
+    phys:confidence 3 .
+
+phys:PT_TinhCongSuat a phys:ProblemType ;
+    rdfs:label "Tinh cong suat thiet bi"@vi ;
+    phys:abstractness 2 ;
+    phys:bloomLevel 2 ;
+    phys:confidence 3 .
+
+phys:PT_TinhDienNangTieuThu a phys:ProblemType ;
+    rdfs:label "Tinh dien nang tieu thu trong thoi gian t"@vi ;
+    phys:abstractness 3 ;
+    phys:bloomLevel 3 ;
+    phys:confidence 3 .
+
+phys:PT_NhietLuongJun a phys:ProblemType ;
+    rdfs:label "Tinh nhiet luong toa ra (Jun-Lenxo)"@vi ;
+    phys:abstractness 3 ;
+    phys:bloomLevel 3 ;
+    phys:confidence 3 .
+
+phys:PT_XacDinhChieuLuc_BTT a phys:ProblemType ;
+    rdfs:label "Xac dinh chieu luc tu bang ban tay trai"@vi ;
+    phys:abstractness 3 ;
+    phys:bloomLevel 3 ;
+    phys:confidence 3 .
+
+phys:PT_ChieuDongDienCamUng a phys:ProblemType ;
+    rdfs:label "Xac dinh chieu dong dien cam ung"@vi ;
+    phys:abstractness 4 ;
+    phys:bloomLevel 4 ;
+    phys:confidence 3 .
+
+phys:PT_VeAnhQuaTK a phys:ProblemType ;
+    rdfs:label "Ve anh cua vat qua thau kinh"@vi ;
+    phys:abstractness 3 ;
+    phys:bloomLevel 3 ;
+    phys:confidence 3 .
+
+phys:PT_TinhViTriAnh a phys:ProblemType ;
+    rdfs:label "Tinh vi tri va do cao cua anh"@vi ;
+    phys:abstractness 4 ;
+    phys:bloomLevel 3 ;
+    phys:confidence 3 .
+
+phys:PT_MayBienThe_UN a phys:ProblemType ;
+    rdfs:label "Tinh toan may bien the (U, N)"@vi ;
+    phys:abstractness 3 ;
+    phys:bloomLevel 2 ;
+    phys:confidence 3 .
+
+phys:PT_HaoPhiTTDN a phys:ProblemType ;
+    rdfs:label "Tinh hao phi tren duong day truyen tai"@vi ;
+    phys:abstractness 4 ;
+    phys:bloomLevel 3 ;
+    phys:confidence 3 .
+
+
+#################################################################
+#   EXPERIMENTS
+#################################################################
+
+phys:E_DoDinhLuatOhm a phys:ExperimentSetup ;
+    rdfs:label "Do su phu thuoc I vao U (kiem chung Ohm)"@vi ;
+    phys:bloomLevel 3 ;
+    phys:confidence 3 .
+
+phys:E_DoRDayDan a phys:ExperimentSetup ;
+    rdfs:label "Do dien tro day dan theo L, S, vat lieu"@vi ;
+    phys:bloomLevel 3 ;
+    phys:confidence 3 .
+
+phys:E_JunLenxo a phys:ExperimentSetup ;
+    rdfs:label "Kiem chung dinh luat Jun-Lenxo"@vi ;
+    phys:bloomLevel 3 ;
+    phys:confidence 2 .
+
+phys:E_TuPho a phys:ExperimentSetup ;
+    rdfs:label "Quan sat tu pho nam cham va dong dien"@vi ;
+    phys:bloomLevel 2 ;
+    phys:confidence 3 .
+
+phys:E_CamUng a phys:ExperimentSetup ;
+    rdfs:label "Phat hien hien tuong cam ung dien tu"@vi ;
+    phys:bloomLevel 3 ;
+    phys:confidence 3 .
+
+phys:E_ThauKinh a phys:ExperimentSetup ;
+    rdfs:label "Kho sat anh qua thau kinh"@vi ;
+    phys:bloomLevel 3 ;
+    phys:confidence 3 .
+
+phys:E_TanSacAS a phys:ExperimentSetup ;
+    rdfs:label "Kiem chung su tan sac anh sang bang lang kinh"@vi ;
+    phys:bloomLevel 3 ;
+    phys:confidence 3 .
+
+
+#################################################################
+#   LESSON UNITS
+#################################################################
+
+phys:TB_Old_B01 a phys:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 1: Su phu thuoc cua cuong do dong dien vao hieu dien the"@vi ;
+    phys:partOfTextbook phys:TB_Old ;
+    phys:curriculumPosition 1 .
+
+phys:TB_Old_B02 a phys:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 2: Dien tro cua day dan - Dinh luat Om"@vi ;
+    phys:partOfTextbook phys:TB_Old ;
+    phys:curriculumPosition 2 .
+
+phys:TB_Old_B03 a phys:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 3: Thuc hanh: Xac dinh dien tro"@vi ;
+    phys:partOfTextbook phys:TB_Old ;
+    phys:curriculumPosition 3 .
+
+phys:TB_Old_B04 a phys:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 4: Doan mach noi tiep"@vi ;
+    phys:partOfTextbook phys:TB_Old ;
+    phys:curriculumPosition 4 .
+
+phys:TB_Old_B05 a phys:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 5: Doan mach song song"@vi ;
+    phys:partOfTextbook phys:TB_Old ;
+    phys:curriculumPosition 5 .
+
+phys:TB_Old_B06 a phys:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 6: Bai tap van dung dinh luat Om"@vi ;
+    phys:partOfTextbook phys:TB_Old ;
+    phys:curriculumPosition 6 .
+
+phys:TB_Old_B07 a phys:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 7: Su phu thuoc cua dien tro vao chieu dai day dan"@vi ;
+    phys:partOfTextbook phys:TB_Old ;
+    phys:curriculumPosition 7 .
+
+phys:TB_Old_B08 a phys:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 8: Su phu thuoc cua dien tro vao tiet dien day dan"@vi ;
+    phys:partOfTextbook phys:TB_Old ;
+    phys:curriculumPosition 8 .
+
+phys:TB_Old_B09 a phys:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 9: Su phu thuoc cua dien tro vao vat lieu lam day"@vi ;
+    phys:partOfTextbook phys:TB_Old ;
+    phys:curriculumPosition 9 .
+
+phys:TB_Old_B10 a phys:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 10: Bien tro - Dien tro dung trong ky thuat"@vi ;
+    phys:partOfTextbook phys:TB_Old ;
+    phys:curriculumPosition 10 .
+
+phys:TB_Old_B11 a phys:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 11: Cong suat dien"@vi ;
+    phys:partOfTextbook phys:TB_Old ;
+    phys:curriculumPosition 11 .
+
+phys:TB_Old_B12 a phys:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 12: Dien nang - Cong cua dong dien"@vi ;
+    phys:partOfTextbook phys:TB_Old ;
+    phys:curriculumPosition 12 .
+
+phys:TB_Old_B13 a phys:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 13: Bai tap cong suat va cong cua dong dien"@vi ;
+    phys:partOfTextbook phys:TB_Old ;
+    phys:curriculumPosition 13 .
+
+phys:TB_Old_B14 a phys:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 14: Thuc hanh: Xac dinh cong suat"@vi ;
+    phys:partOfTextbook phys:TB_Old ;
+    phys:curriculumPosition 14 .
+
+phys:TB_Old_B15 a phys:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 15: Dinh luat Jun - Lenxo"@vi ;
+    phys:partOfTextbook phys:TB_Old ;
+    phys:curriculumPosition 15 .
+
+phys:TB_Old_B16 a phys:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 16: Bai tap van dung Jun - Lenxo"@vi ;
+    phys:partOfTextbook phys:TB_Old ;
+    phys:curriculumPosition 16 .
+
+phys:TB_Old_B17 a phys:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 17: Thuc hanh: Kiem nghiem Jun-Lenxo"@vi ;
+    phys:partOfTextbook phys:TB_Old ;
+    phys:curriculumPosition 17 .
+
+phys:TB_Old_B18 a phys:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 18: Su dung an toan va tiet kiem dien"@vi ;
+    phys:partOfTextbook phys:TB_Old ;
+    phys:curriculumPosition 18 .
+
+phys:TB_Old_B19 a phys:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 19: Tong ket chuong I"@vi ;
+    phys:partOfTextbook phys:TB_Old ;
+    phys:curriculumPosition 19 .
+
+phys:TB_Old_B20 a phys:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 20: Nam cham vinh cuu"@vi ;
+    phys:partOfTextbook phys:TB_Old ;
+    phys:curriculumPosition 20 .
+
+phys:TB_Old_B21 a phys:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 21: Tac dung tu cua dong dien - Tu truong"@vi ;
+    phys:partOfTextbook phys:TB_Old ;
+    phys:curriculumPosition 21 .
+
+phys:TB_Old_B22 a phys:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 22: Tu pho - Duong suc tu"@vi ;
+    phys:partOfTextbook phys:TB_Old ;
+    phys:curriculumPosition 22 .
+
+phys:TB_Old_B23 a phys:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 23: Tu truong cua ong day co dong dien chay qua"@vi ;
+    phys:partOfTextbook phys:TB_Old ;
+    phys:curriculumPosition 23 .
+
+phys:TB_Old_B24 a phys:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 24: Su nhiem tu cua sat, thep - Nam cham dien"@vi ;
+    phys:partOfTextbook phys:TB_Old ;
+    phys:curriculumPosition 24 .
+
+phys:TB_Old_B25 a phys:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 25: Ung dung cua nam cham"@vi ;
+    phys:partOfTextbook phys:TB_Old ;
+    phys:curriculumPosition 25 .
+
+phys:TB_Old_B26 a phys:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 26: Luc dien tu"@vi ;
+    phys:partOfTextbook phys:TB_Old ;
+    phys:curriculumPosition 26 .
+
+phys:TB_Old_B27 a phys:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 27: Dong co dien mot chieu"@vi ;
+    phys:partOfTextbook phys:TB_Old ;
+    phys:curriculumPosition 27 .
+
+phys:TB_Old_B28 a phys:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 28: Thuc hanh"@vi ;
+    phys:partOfTextbook phys:TB_Old ;
+    phys:curriculumPosition 28 .
+
+phys:TB_Old_B29 a phys:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 29: Hien tuong cam ung dien tu"@vi ;
+    phys:partOfTextbook phys:TB_Old ;
+    phys:curriculumPosition 29 .
+
+phys:TB_Old_B30 a phys:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 30: Dieu kien xuat hien dong dien cam ung"@vi ;
+    phys:partOfTextbook phys:TB_Old ;
+    phys:curriculumPosition 30 .
+
+phys:TB_Old_B31 a phys:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 31: Dong dien xoay chieu"@vi ;
+    phys:partOfTextbook phys:TB_Old ;
+    phys:curriculumPosition 31 .
+
+phys:TB_Old_B32 a phys:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 32: May phat dien xoay chieu"@vi ;
+    phys:partOfTextbook phys:TB_Old ;
+    phys:curriculumPosition 32 .
+
+phys:TB_Old_B33 a phys:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 33: Cac tac dung cua dong dien xoay chieu - Do cuong do va hieu dien the xoay chieu"@vi ;
+    phys:partOfTextbook phys:TB_Old ;
+    phys:curriculumPosition 33 .
+
+phys:TB_Old_B34 a phys:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 34: Truyen tai dien nang di xa"@vi ;
+    phys:partOfTextbook phys:TB_Old ;
+    phys:curriculumPosition 34 .
+
+phys:TB_Old_B35 a phys:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 35: May bien the"@vi ;
+    phys:partOfTextbook phys:TB_Old ;
+    phys:curriculumPosition 35 .
+
+phys:TB_Old_B36 a phys:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 36: Thuc hanh: Van hanh may phat va may bien the"@vi ;
+    phys:partOfTextbook phys:TB_Old ;
+    phys:curriculumPosition 36 .
+
+phys:TB_Old_B37 a phys:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 37: Tong ket chuong II"@vi ;
+    phys:partOfTextbook phys:TB_Old ;
+    phys:curriculumPosition 37 .
+
+phys:TB_Old_B38 a phys:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 38: Hien tuong khuc xa anh sang"@vi ;
+    phys:partOfTextbook phys:TB_Old ;
+    phys:curriculumPosition 38 .
+
+phys:TB_Old_B39 a phys:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 39: Quan he giua goc toi va goc khuc xa"@vi ;
+    phys:partOfTextbook phys:TB_Old ;
+    phys:curriculumPosition 39 .
+
+phys:TB_Old_B40 a phys:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 40: Thau kinh hoi tu"@vi ;
+    phys:partOfTextbook phys:TB_Old ;
+    phys:curriculumPosition 40 .
+
+phys:TB_Old_B41 a phys:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 41: Anh cua mot vat tao boi thau kinh hoi tu"@vi ;
+    phys:partOfTextbook phys:TB_Old ;
+    phys:curriculumPosition 41 .
+
+phys:TB_Old_B42 a phys:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 42: Thau kinh phan ki"@vi ;
+    phys:partOfTextbook phys:TB_Old ;
+    phys:curriculumPosition 42 .
+
+phys:TB_Old_B43 a phys:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 43: Anh cua mot vat tao boi thau kinh phan ki"@vi ;
+    phys:partOfTextbook phys:TB_Old ;
+    phys:curriculumPosition 43 .
+
+phys:TB_Old_B44 a phys:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 44: Thuc hanh: Do tieu cu thau kinh hoi tu"@vi ;
+    phys:partOfTextbook phys:TB_Old ;
+    phys:curriculumPosition 44 .
+
+phys:TB_Old_B45 a phys:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 45: Su tao anh trong may anh"@vi ;
+    phys:partOfTextbook phys:TB_Old ;
+    phys:curriculumPosition 45 .
+
+phys:TB_Old_B46 a phys:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 46: Mat"@vi ;
+    phys:partOfTextbook phys:TB_Old ;
+    phys:curriculumPosition 46 .
+
+phys:TB_Old_B47 a phys:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 47: Mat can va mat lao"@vi ;
+    phys:partOfTextbook phys:TB_Old ;
+    phys:curriculumPosition 47 .
+
+phys:TB_Old_B48 a phys:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 48: Kinh lup"@vi ;
+    phys:partOfTextbook phys:TB_Old ;
+    phys:curriculumPosition 48 .
+
+phys:TB_Old_B49 a phys:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 49: Anh sang trang va anh sang mau"@vi ;
+    phys:partOfTextbook phys:TB_Old ;
+    phys:curriculumPosition 49 .
+
+phys:TB_Old_B50 a phys:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 50: Su phan tich anh sang trang"@vi ;
+    phys:partOfTextbook phys:TB_Old ;
+    phys:curriculumPosition 50 .
+
+phys:TB_Old_B51 a phys:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 51: Su tron cac anh sang mau"@vi ;
+    phys:partOfTextbook phys:TB_Old ;
+    phys:curriculumPosition 51 .
+
+phys:TB_Old_B52 a phys:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 52: Mau sac cac vat duoi anh sang trang va anh sang mau"@vi ;
+    phys:partOfTextbook phys:TB_Old ;
+    phys:curriculumPosition 52 .
+
+phys:TB_Old_B53 a phys:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 53: Cac tac dung cua anh sang"@vi ;
+    phys:partOfTextbook phys:TB_Old ;
+    phys:curriculumPosition 53 .
+
+phys:TB_Old_B54 a phys:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 54: Thuc hanh"@vi ;
+    phys:partOfTextbook phys:TB_Old ;
+    phys:curriculumPosition 54 .
+
+phys:TB_Old_B55 a phys:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 55: Tong ket chuong III"@vi ;
+    phys:partOfTextbook phys:TB_Old ;
+    phys:curriculumPosition 55 .
+
+phys:TB_Old_B56 a phys:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 56: Nang luong va su chuyen hoa nang luong"@vi ;
+    phys:partOfTextbook phys:TB_Old ;
+    phys:curriculumPosition 56 .
+
+phys:TB_Old_B57 a phys:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 57: Dinh luat bao toan nang luong"@vi ;
+    phys:partOfTextbook phys:TB_Old ;
+    phys:curriculumPosition 57 .
+
+phys:TB_Old_B58 a phys:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 58: San xuat dien nang - Nhiet dien va thuy dien"@vi ;
+    phys:partOfTextbook phys:TB_Old ;
+    phys:curriculumPosition 58 .
+
+phys:TB_Old_B59 a phys:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 59: Dien gio - Dien mat troi - Dien hat nhan"@vi ;
+    phys:partOfTextbook phys:TB_Old ;
+    phys:curriculumPosition 59 .
+
+phys:TB_Old_B60 a phys:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 60: Tong ket cuoi nam"@vi ;
+    phys:partOfTextbook phys:TB_Old ;
+    phys:curriculumPosition 60 .
+
+phys:TB_KNTT_B01 a phys:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 1: KNTT Bai 1"@vi ;
+    phys:partOfTextbook phys:TB_KNTT ;
+    phys:curriculumPosition 1 .
+
+phys:TB_KNTT_B02 a phys:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 2: KNTT Bai 2"@vi ;
+    phys:partOfTextbook phys:TB_KNTT ;
+    phys:curriculumPosition 2 .
+
+phys:TB_KNTT_B03 a phys:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 3: KNTT Bai 3"@vi ;
+    phys:partOfTextbook phys:TB_KNTT ;
+    phys:curriculumPosition 3 .
+
+phys:TB_KNTT_B04 a phys:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 4: KNTT Bai 4"@vi ;
+    phys:partOfTextbook phys:TB_KNTT ;
+    phys:curriculumPosition 4 .
+
+phys:TB_KNTT_B05 a phys:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 5: KNTT Bai 5"@vi ;
+    phys:partOfTextbook phys:TB_KNTT ;
+    phys:curriculumPosition 5 .
+
+phys:TB_KNTT_B06 a phys:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 6: KNTT Bai 6"@vi ;
+    phys:partOfTextbook phys:TB_KNTT ;
+    phys:curriculumPosition 6 .
+
+phys:TB_KNTT_B07 a phys:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 7: KNTT Bai 7"@vi ;
+    phys:partOfTextbook phys:TB_KNTT ;
+    phys:curriculumPosition 7 .
+
+phys:TB_KNTT_B08 a phys:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 8: KNTT Bai 8"@vi ;
+    phys:partOfTextbook phys:TB_KNTT ;
+    phys:curriculumPosition 8 .
+
+phys:TB_KNTT_B09 a phys:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 9: KNTT Bai 9"@vi ;
+    phys:partOfTextbook phys:TB_KNTT ;
+    phys:curriculumPosition 9 .
+
+phys:TB_KNTT_B10 a phys:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 10: KNTT Bai 10"@vi ;
+    phys:partOfTextbook phys:TB_KNTT ;
+    phys:curriculumPosition 10 .
+
+phys:TB_KNTT_B11 a phys:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 11: KNTT Bai 11"@vi ;
+    phys:partOfTextbook phys:TB_KNTT ;
+    phys:curriculumPosition 11 .
+
+phys:TB_KNTT_B12 a phys:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 12: KNTT Bai 12"@vi ;
+    phys:partOfTextbook phys:TB_KNTT ;
+    phys:curriculumPosition 12 .
+
+phys:TB_KNTT_B13 a phys:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 13: KNTT Bai 13"@vi ;
+    phys:partOfTextbook phys:TB_KNTT ;
+    phys:curriculumPosition 13 .
+
+phys:TB_KNTT_B14 a phys:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 14: KNTT Bai 14"@vi ;
+    phys:partOfTextbook phys:TB_KNTT ;
+    phys:curriculumPosition 14 .
+
+phys:TB_KNTT_B15 a phys:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 15: KNTT Bai 15"@vi ;
+    phys:partOfTextbook phys:TB_KNTT ;
+    phys:curriculumPosition 15 .
+
+phys:TB_KNTT_B16 a phys:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 16: KNTT Bai 16"@vi ;
+    phys:partOfTextbook phys:TB_KNTT ;
+    phys:curriculumPosition 16 .
+
+phys:TB_KNTT_B17 a phys:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 17: KNTT Bai 17"@vi ;
+    phys:partOfTextbook phys:TB_KNTT ;
+    phys:curriculumPosition 17 .
+
+phys:TB_KNTT_B18 a phys:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 18: KNTT Bai 18"@vi ;
+    phys:partOfTextbook phys:TB_KNTT ;
+    phys:curriculumPosition 18 .
+
+phys:TB_KNTT_B19 a phys:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 19: KNTT Bai 19"@vi ;
+    phys:partOfTextbook phys:TB_KNTT ;
+    phys:curriculumPosition 19 .
+
+phys:TB_KNTT_B20 a phys:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 20: KNTT Bai 20"@vi ;
+    phys:partOfTextbook phys:TB_KNTT ;
+    phys:curriculumPosition 20 .
+
+phys:TB_KNTT_B21 a phys:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 21: KNTT Bai 21"@vi ;
+    phys:partOfTextbook phys:TB_KNTT ;
+    phys:curriculumPosition 21 .
+
+phys:TB_KNTT_B22 a phys:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 22: KNTT Bai 22"@vi ;
+    phys:partOfTextbook phys:TB_KNTT ;
+    phys:curriculumPosition 22 .
+
+phys:TB_KNTT_B23 a phys:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 23: KNTT Bai 23"@vi ;
+    phys:partOfTextbook phys:TB_KNTT ;
+    phys:curriculumPosition 23 .
+
+phys:TB_KNTT_B24 a phys:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 24: KNTT Bai 24"@vi ;
+    phys:partOfTextbook phys:TB_KNTT ;
+    phys:curriculumPosition 24 .
+
+phys:TB_KNTT_B25 a phys:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 25: KNTT Bai 25"@vi ;
+    phys:partOfTextbook phys:TB_KNTT ;
+    phys:curriculumPosition 25 .
+
+phys:TB_KNTT_B26 a phys:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 26: KNTT Bai 26"@vi ;
+    phys:partOfTextbook phys:TB_KNTT ;
+    phys:curriculumPosition 26 .
+
+phys:TB_KNTT_B27 a phys:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 27: KNTT Bai 27"@vi ;
+    phys:partOfTextbook phys:TB_KNTT ;
+    phys:curriculumPosition 27 .
+
+phys:TB_KNTT_B28 a phys:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 28: KNTT Bai 28"@vi ;
+    phys:partOfTextbook phys:TB_KNTT ;
+    phys:curriculumPosition 28 .
+
+phys:TB_KNTT_B29 a phys:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 29: KNTT Bai 29"@vi ;
+    phys:partOfTextbook phys:TB_KNTT ;
+    phys:curriculumPosition 29 .
+
+phys:TB_KNTT_B30 a phys:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 30: KNTT Bai 30"@vi ;
+    phys:partOfTextbook phys:TB_KNTT ;
+    phys:curriculumPosition 30 .
+
+phys:TB_KNTT_B31 a phys:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 31: KNTT Bai 31"@vi ;
+    phys:partOfTextbook phys:TB_KNTT ;
+    phys:curriculumPosition 31 .
+
+phys:TB_KNTT_B32 a phys:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 32: KNTT Bai 32"@vi ;
+    phys:partOfTextbook phys:TB_KNTT ;
+    phys:curriculumPosition 32 .
+
+phys:TB_KNTT_B33 a phys:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 33: KNTT Bai 33"@vi ;
+    phys:partOfTextbook phys:TB_KNTT ;
+    phys:curriculumPosition 33 .
+
+phys:TB_KNTT_B34 a phys:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 34: KNTT Bai 34"@vi ;
+    phys:partOfTextbook phys:TB_KNTT ;
+    phys:curriculumPosition 34 .
+
+phys:TB_KNTT_B35 a phys:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 35: KNTT Bai 35"@vi ;
+    phys:partOfTextbook phys:TB_KNTT ;
+    phys:curriculumPosition 35 .
+
+phys:TB_CTST_B01 a phys:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 1: CTST Bai 1"@vi ;
+    phys:partOfTextbook phys:TB_CTST ;
+    phys:curriculumPosition 1 .
+
+phys:TB_CTST_B02 a phys:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 2: CTST Bai 2"@vi ;
+    phys:partOfTextbook phys:TB_CTST ;
+    phys:curriculumPosition 2 .
+
+phys:TB_CTST_B03 a phys:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 3: CTST Bai 3"@vi ;
+    phys:partOfTextbook phys:TB_CTST ;
+    phys:curriculumPosition 3 .
+
+phys:TB_CTST_B04 a phys:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 4: CTST Bai 4"@vi ;
+    phys:partOfTextbook phys:TB_CTST ;
+    phys:curriculumPosition 4 .
+
+phys:TB_CTST_B05 a phys:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 5: CTST Bai 5"@vi ;
+    phys:partOfTextbook phys:TB_CTST ;
+    phys:curriculumPosition 5 .
+
+phys:TB_CTST_B06 a phys:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 6: CTST Bai 6"@vi ;
+    phys:partOfTextbook phys:TB_CTST ;
+    phys:curriculumPosition 6 .
+
+phys:TB_CTST_B07 a phys:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 7: CTST Bai 7"@vi ;
+    phys:partOfTextbook phys:TB_CTST ;
+    phys:curriculumPosition 7 .
+
+phys:TB_CTST_B08 a phys:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 8: CTST Bai 8"@vi ;
+    phys:partOfTextbook phys:TB_CTST ;
+    phys:curriculumPosition 8 .
+
+phys:TB_CTST_B09 a phys:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 9: CTST Bai 9"@vi ;
+    phys:partOfTextbook phys:TB_CTST ;
+    phys:curriculumPosition 9 .
+
+phys:TB_CTST_B10 a phys:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 10: CTST Bai 10"@vi ;
+    phys:partOfTextbook phys:TB_CTST ;
+    phys:curriculumPosition 10 .
+
+phys:TB_CTST_B11 a phys:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 11: CTST Bai 11"@vi ;
+    phys:partOfTextbook phys:TB_CTST ;
+    phys:curriculumPosition 11 .
+
+phys:TB_CTST_B12 a phys:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 12: CTST Bai 12"@vi ;
+    phys:partOfTextbook phys:TB_CTST ;
+    phys:curriculumPosition 12 .
+
+phys:TB_CTST_B13 a phys:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 13: CTST Bai 13"@vi ;
+    phys:partOfTextbook phys:TB_CTST ;
+    phys:curriculumPosition 13 .
+
+phys:TB_CTST_B14 a phys:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 14: CTST Bai 14"@vi ;
+    phys:partOfTextbook phys:TB_CTST ;
+    phys:curriculumPosition 14 .
+
+phys:TB_CTST_B15 a phys:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 15: CTST Bai 15"@vi ;
+    phys:partOfTextbook phys:TB_CTST ;
+    phys:curriculumPosition 15 .
+
+phys:TB_CTST_B16 a phys:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 16: CTST Bai 16"@vi ;
+    phys:partOfTextbook phys:TB_CTST ;
+    phys:curriculumPosition 16 .
+
+phys:TB_CTST_B17 a phys:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 17: CTST Bai 17"@vi ;
+    phys:partOfTextbook phys:TB_CTST ;
+    phys:curriculumPosition 17 .
+
+phys:TB_CTST_B18 a phys:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 18: CTST Bai 18"@vi ;
+    phys:partOfTextbook phys:TB_CTST ;
+    phys:curriculumPosition 18 .
+
+phys:TB_CTST_B19 a phys:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 19: CTST Bai 19"@vi ;
+    phys:partOfTextbook phys:TB_CTST ;
+    phys:curriculumPosition 19 .
+
+phys:TB_CTST_B20 a phys:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 20: CTST Bai 20"@vi ;
+    phys:partOfTextbook phys:TB_CTST ;
+    phys:curriculumPosition 20 .
+
+phys:TB_CTST_B21 a phys:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 21: CTST Bai 21"@vi ;
+    phys:partOfTextbook phys:TB_CTST ;
+    phys:curriculumPosition 21 .
+
+phys:TB_CTST_B22 a phys:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 22: CTST Bai 22"@vi ;
+    phys:partOfTextbook phys:TB_CTST ;
+    phys:curriculumPosition 22 .
+
+phys:TB_CTST_B23 a phys:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 23: CTST Bai 23"@vi ;
+    phys:partOfTextbook phys:TB_CTST ;
+    phys:curriculumPosition 23 .
+
+phys:TB_CTST_B24 a phys:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 24: CTST Bai 24"@vi ;
+    phys:partOfTextbook phys:TB_CTST ;
+    phys:curriculumPosition 24 .
+
+phys:TB_CTST_B25 a phys:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 25: CTST Bai 25"@vi ;
+    phys:partOfTextbook phys:TB_CTST ;
+    phys:curriculumPosition 25 .
+
+phys:TB_CTST_B26 a phys:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 26: CTST Bai 26"@vi ;
+    phys:partOfTextbook phys:TB_CTST ;
+    phys:curriculumPosition 26 .
+
+phys:TB_CTST_B27 a phys:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 27: CTST Bai 27"@vi ;
+    phys:partOfTextbook phys:TB_CTST ;
+    phys:curriculumPosition 27 .
+
+phys:TB_CTST_B28 a phys:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 28: CTST Bai 28"@vi ;
+    phys:partOfTextbook phys:TB_CTST ;
+    phys:curriculumPosition 28 .
+
+phys:TB_CTST_B29 a phys:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 29: CTST Bai 29"@vi ;
+    phys:partOfTextbook phys:TB_CTST ;
+    phys:curriculumPosition 29 .
+
+phys:TB_CTST_B30 a phys:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 30: CTST Bai 30"@vi ;
+    phys:partOfTextbook phys:TB_CTST ;
+    phys:curriculumPosition 30 .
+
+phys:TB_CTST_B31 a phys:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 31: CTST Bai 31"@vi ;
+    phys:partOfTextbook phys:TB_CTST ;
+    phys:curriculumPosition 31 .
+
+phys:TB_CTST_B32 a phys:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 32: CTST Bai 32"@vi ;
+    phys:partOfTextbook phys:TB_CTST ;
+    phys:curriculumPosition 32 .
+
+phys:TB_CTST_B33 a phys:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 33: CTST Bai 33"@vi ;
+    phys:partOfTextbook phys:TB_CTST ;
+    phys:curriculumPosition 33 .
+
+phys:TB_CTST_B34 a phys:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 34: CTST Bai 34"@vi ;
+    phys:partOfTextbook phys:TB_CTST ;
+    phys:curriculumPosition 34 .
+
+phys:TB_CTST_B35 a phys:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 35: CTST Bai 35"@vi ;
+    phys:partOfTextbook phys:TB_CTST ;
+    phys:curriculumPosition 35 .
+
+phys:TB_CD_B01 a phys:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 1: CD Bai 1"@vi ;
+    phys:partOfTextbook phys:TB_CD ;
+    phys:curriculumPosition 1 .
+
+phys:TB_CD_B02 a phys:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 2: CD Bai 2"@vi ;
+    phys:partOfTextbook phys:TB_CD ;
+    phys:curriculumPosition 2 .
+
+phys:TB_CD_B03 a phys:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 3: CD Bai 3"@vi ;
+    phys:partOfTextbook phys:TB_CD ;
+    phys:curriculumPosition 3 .
+
+phys:TB_CD_B04 a phys:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 4: CD Bai 4"@vi ;
+    phys:partOfTextbook phys:TB_CD ;
+    phys:curriculumPosition 4 .
+
+phys:TB_CD_B05 a phys:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 5: CD Bai 5"@vi ;
+    phys:partOfTextbook phys:TB_CD ;
+    phys:curriculumPosition 5 .
+
+phys:TB_CD_B06 a phys:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 6: CD Bai 6"@vi ;
+    phys:partOfTextbook phys:TB_CD ;
+    phys:curriculumPosition 6 .
+
+phys:TB_CD_B07 a phys:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 7: CD Bai 7"@vi ;
+    phys:partOfTextbook phys:TB_CD ;
+    phys:curriculumPosition 7 .
+
+phys:TB_CD_B08 a phys:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 8: CD Bai 8"@vi ;
+    phys:partOfTextbook phys:TB_CD ;
+    phys:curriculumPosition 8 .
+
+phys:TB_CD_B09 a phys:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 9: CD Bai 9"@vi ;
+    phys:partOfTextbook phys:TB_CD ;
+    phys:curriculumPosition 9 .
+
+phys:TB_CD_B10 a phys:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 10: CD Bai 10"@vi ;
+    phys:partOfTextbook phys:TB_CD ;
+    phys:curriculumPosition 10 .
+
+phys:TB_CD_B11 a phys:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 11: CD Bai 11"@vi ;
+    phys:partOfTextbook phys:TB_CD ;
+    phys:curriculumPosition 11 .
+
+phys:TB_CD_B12 a phys:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 12: CD Bai 12"@vi ;
+    phys:partOfTextbook phys:TB_CD ;
+    phys:curriculumPosition 12 .
+
+phys:TB_CD_B13 a phys:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 13: CD Bai 13"@vi ;
+    phys:partOfTextbook phys:TB_CD ;
+    phys:curriculumPosition 13 .
+
+phys:TB_CD_B14 a phys:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 14: CD Bai 14"@vi ;
+    phys:partOfTextbook phys:TB_CD ;
+    phys:curriculumPosition 14 .
+
+phys:TB_CD_B15 a phys:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 15: CD Bai 15"@vi ;
+    phys:partOfTextbook phys:TB_CD ;
+    phys:curriculumPosition 15 .
+
+phys:TB_CD_B16 a phys:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 16: CD Bai 16"@vi ;
+    phys:partOfTextbook phys:TB_CD ;
+    phys:curriculumPosition 16 .
+
+phys:TB_CD_B17 a phys:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 17: CD Bai 17"@vi ;
+    phys:partOfTextbook phys:TB_CD ;
+    phys:curriculumPosition 17 .
+
+phys:TB_CD_B18 a phys:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 18: CD Bai 18"@vi ;
+    phys:partOfTextbook phys:TB_CD ;
+    phys:curriculumPosition 18 .
+
+phys:TB_CD_B19 a phys:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 19: CD Bai 19"@vi ;
+    phys:partOfTextbook phys:TB_CD ;
+    phys:curriculumPosition 19 .
+
+phys:TB_CD_B20 a phys:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 20: CD Bai 20"@vi ;
+    phys:partOfTextbook phys:TB_CD ;
+    phys:curriculumPosition 20 .
+
+phys:TB_CD_B21 a phys:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 21: CD Bai 21"@vi ;
+    phys:partOfTextbook phys:TB_CD ;
+    phys:curriculumPosition 21 .
+
+phys:TB_CD_B22 a phys:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 22: CD Bai 22"@vi ;
+    phys:partOfTextbook phys:TB_CD ;
+    phys:curriculumPosition 22 .
+
+phys:TB_CD_B23 a phys:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 23: CD Bai 23"@vi ;
+    phys:partOfTextbook phys:TB_CD ;
+    phys:curriculumPosition 23 .
+
+phys:TB_CD_B24 a phys:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 24: CD Bai 24"@vi ;
+    phys:partOfTextbook phys:TB_CD ;
+    phys:curriculumPosition 24 .
+
+phys:TB_CD_B25 a phys:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 25: CD Bai 25"@vi ;
+    phys:partOfTextbook phys:TB_CD ;
+    phys:curriculumPosition 25 .
+
+phys:TB_CD_B26 a phys:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 26: CD Bai 26"@vi ;
+    phys:partOfTextbook phys:TB_CD ;
+    phys:curriculumPosition 26 .
+
+phys:TB_CD_B27 a phys:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 27: CD Bai 27"@vi ;
+    phys:partOfTextbook phys:TB_CD ;
+    phys:curriculumPosition 27 .
+
+phys:TB_CD_B28 a phys:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 28: CD Bai 28"@vi ;
+    phys:partOfTextbook phys:TB_CD ;
+    phys:curriculumPosition 28 .
+
+phys:TB_CD_B29 a phys:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 29: CD Bai 29"@vi ;
+    phys:partOfTextbook phys:TB_CD ;
+    phys:curriculumPosition 29 .
+
+phys:TB_CD_B30 a phys:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 30: CD Bai 30"@vi ;
+    phys:partOfTextbook phys:TB_CD ;
+    phys:curriculumPosition 30 .
+
+phys:TB_CD_B31 a phys:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 31: CD Bai 31"@vi ;
+    phys:partOfTextbook phys:TB_CD ;
+    phys:curriculumPosition 31 .
+
+phys:TB_CD_B32 a phys:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 32: CD Bai 32"@vi ;
+    phys:partOfTextbook phys:TB_CD ;
+    phys:curriculumPosition 32 .
+
+phys:TB_CD_B33 a phys:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 33: CD Bai 33"@vi ;
+    phys:partOfTextbook phys:TB_CD ;
+    phys:curriculumPosition 33 .
+
+phys:TB_CD_B34 a phys:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 34: CD Bai 34"@vi ;
+    phys:partOfTextbook phys:TB_CD ;
+    phys:curriculumPosition 34 .
+
+phys:TB_CD_B35 a phys:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 35: CD Bai 35"@vi ;
+    phys:partOfTextbook phys:TB_CD ;
+    phys:curriculumPosition 35 .
+
+
+#################################################################
+#   RELATIONSHIPS
+#################################################################
+
+phys:Q_CuongDoDongDien phys:hasUnit phys:U_Ampe .
+
+phys:Q_HieuDienThe phys:hasUnit phys:U_Von .
+
+phys:Q_DienTro phys:hasUnit phys:U_Ohm .
+
+phys:Q_DienTroSuat phys:hasUnit phys:U_OhmMet .
+
+phys:Q_CongSuatDien phys:hasUnit phys:U_Oat .
+
+phys:Q_DienNang phys:hasUnit phys:U_Jun .
+
+phys:Q_NhietLuong phys:hasUnit phys:U_Jun .
+
+phys:Q_ChieuDaiDay phys:hasUnit phys:U_Met .
+
+phys:Q_TietDienDay phys:hasUnit phys:U_MetVuong .
+
+phys:Q_ThoiGian phys:hasUnit phys:U_Giay .
+
+phys:Q_TieuCu phys:hasUnit phys:U_Met .
+
+phys:Q_KhoangCachVat phys:hasUnit phys:U_Met .
+
+phys:Q_KhoangCachAnh phys:hasUnit phys:U_Met .
+
+phys:Q_NhietDung phys:hasUnit phys:U_JouleKgK .
+
+phys:DV_AmpeKe phys:measures phys:Q_CuongDoDongDien .
+
+phys:DV_VonKe phys:measures phys:Q_HieuDienThe .
+
+phys:DV_DongHoDoDien phys:measures phys:Q_DienNang .
+
+phys:F_Ohm phys:relatesQuantities phys:Q_CuongDoDongDien .
+
+phys:F_Ohm phys:relatesQuantities phys:Q_HieuDienThe .
+
+phys:F_Ohm phys:relatesQuantities phys:Q_DienTro .
+
+phys:F_R_U_I phys:relatesQuantities phys:Q_DienTro .
+
+phys:F_R_U_I phys:relatesQuantities phys:Q_HieuDienThe .
+
+phys:F_R_U_I phys:relatesQuantities phys:Q_CuongDoDongDien .
+
+phys:F_NoiTiep_R phys:relatesQuantities phys:Q_DienTro .
+
+phys:F_SongSong_R phys:relatesQuantities phys:Q_DienTro .
+
+phys:F_R_DayDan phys:relatesQuantities phys:Q_DienTro .
+
+phys:F_R_DayDan phys:relatesQuantities phys:Q_DienTroSuat .
+
+phys:F_R_DayDan phys:relatesQuantities phys:Q_ChieuDaiDay .
+
+phys:F_R_DayDan phys:relatesQuantities phys:Q_TietDienDay .
+
+phys:F_CongSuat phys:relatesQuantities phys:Q_CongSuatDien .
+
+phys:F_CongSuat phys:relatesQuantities phys:Q_HieuDienThe .
+
+phys:F_CongSuat phys:relatesQuantities phys:Q_CuongDoDongDien .
+
+phys:F_CongSuat_2 phys:relatesQuantities phys:Q_CongSuatDien .
+
+phys:F_CongSuat_2 phys:relatesQuantities phys:Q_CuongDoDongDien .
+
+phys:F_CongSuat_2 phys:relatesQuantities phys:Q_DienTro .
+
+phys:F_DienNang phys:relatesQuantities phys:Q_DienNang .
+
+phys:F_DienNang phys:relatesQuantities phys:Q_CongSuatDien .
+
+phys:F_DienNang phys:relatesQuantities phys:Q_ThoiGian .
+
+phys:F_JunLenxo phys:relatesQuantities phys:Q_NhietLuong .
+
+phys:F_JunLenxo phys:relatesQuantities phys:Q_CuongDoDongDien .
+
+phys:F_JunLenxo phys:relatesQuantities phys:Q_DienTro .
+
+phys:F_JunLenxo phys:relatesQuantities phys:Q_ThoiGian .
+
+phys:F_MayBT phys:relatesQuantities phys:Q_HieuDienThe .
+
+phys:F_MayBT phys:relatesQuantities phys:Q_SoVongDay .
+
+phys:F_ThauKinh_HoiTu phys:relatesQuantities phys:Q_TieuCu .
+
+phys:F_ThauKinh_HoiTu phys:relatesQuantities phys:Q_KhoangCachVat .
+
+phys:F_ThauKinh_HoiTu phys:relatesQuantities phys:Q_KhoangCachAnh .
+
+phys:F_DoBoi_AnhThau phys:relatesQuantities phys:Q_KhoangCachVat .
+
+phys:F_DoBoi_AnhThau phys:relatesQuantities phys:Q_KhoangCachAnh .
+
+phys:F_Ohm phys:derivedFrom phys:L_Ohm .
+
+phys:F_R_U_I phys:derivedFrom phys:L_Ohm .
+
+phys:F_CongSuat phys:derivedFrom phys:L_Ohm .
+
+phys:F_CongSuat_2 phys:derivedFrom phys:L_Ohm .
+
+phys:F_JunLenxo phys:derivedFrom phys:L_JunLenxo .
+
+phys:F_MayBT phys:derivedFrom phys:L_MayBienThe .
+
+phys:PH_KhucXa phys:explainedBy phys:L_KhucXaAnhSang .
+
+phys:PH_PhanXa phys:explainedBy phys:L_PhanXaAS .
+
+phys:PH_CamUngDienTu_PH phys:explainedBy phys:L_CamUngDienTu .
+
+phys:PH_TuTruongCuaDongDien phys:explainedBy phys:L_NhiemTu .
+
+phys:PH_LucDienTu phys:explainedBy phys:L_BanTayTrai .
+
+phys:PH_TruyenTaiDienNang phys:explainedBy phys:L_JunLenxo .
+
+phys:PH_MatCan_MatLao phys:explainedBy phys:L_KhucXaAnhSang .
+
+phys:DV_AmpeKe phys:usedIn phys:E_DoDinhLuatOhm .
+
+phys:DV_VonKe phys:usedIn phys:E_DoDinhLuatOhm .
+
+phys:DV_DienTro phys:usedIn phys:E_DoDinhLuatOhm .
+
+phys:DV_BienTro phys:usedIn phys:E_DoDinhLuatOhm .
+
+phys:DV_DienTro phys:usedIn phys:E_DoRDayDan .
+
+phys:DV_NamCham phys:usedIn phys:E_TuPho .
+
+phys:DV_NamCham phys:usedIn phys:E_CamUng .
+
+phys:DV_ThauKinhHT phys:usedIn phys:E_ThauKinh .
+
+phys:DV_ThauKinhPK phys:usedIn phys:E_ThauKinh .
+
+phys:DV_LangKinh phys:usedIn phys:E_TanSacAS .
+
+phys:M_GiaiMachNoiTiep phys:solves phys:PT_TinhU_TuongDuong .
+
+phys:M_GiaiMachSongSong phys:solves phys:PT_TinhU_TuongDuong .
+
+phys:M_GiaiMachHonHop phys:solves phys:PT_MachHonHop_IUR .
+
+phys:M_TinhDienNang_CSuat phys:solves phys:PT_TinhCongSuat .
+
+phys:M_TinhDienNang_CSuat phys:solves phys:PT_TinhDienNangTieuThu .
+
+phys:M_TinhQ_JunLenxo phys:solves phys:PT_NhietLuongJun .
+
+phys:M_QuyTacBanTayTrai phys:solves phys:PT_XacDinhChieuLuc_BTT .
+
+phys:M_QuyTacBanTayPhai phys:solves phys:PT_ChieuDongDienCamUng .
+
+phys:M_VeAnhQuaTKHT phys:solves phys:PT_VeAnhQuaTK .
+
+phys:M_VeAnhQuaTKPK phys:solves phys:PT_VeAnhQuaTK .
+
+phys:M_TinhAnhBangCongThuc phys:solves phys:PT_TinhViTriAnh .
+
+phys:M_TinhMayBienThe phys:solves phys:PT_MayBienThe_UN .
+
+phys:M_TinhDienNang_CSuat phys:solves phys:PT_HaoPhiTTDN .
+
+phys:F_CongSuat_2 phys:uses phys:F_Ohm .
+
+phys:F_JunLenxo phys:uses phys:L_JunLenxo .
+
+phys:F_MayBT phys:uses phys:L_MayBienThe .
+
+phys:M_GiaiMachHonHop phys:uses phys:M_GiaiMachNoiTiep .
+
+phys:M_GiaiMachHonHop phys:uses phys:M_GiaiMachSongSong .
+
+phys:Q_CuongDoDongDien phys:prerequisiteOf phys:Q_HieuDienThe .
+
+phys:Q_HieuDienThe phys:prerequisiteOf phys:Q_DienTro .
+
+phys:Q_DienTro phys:prerequisiteOf phys:L_Ohm .
+
+phys:L_Ohm phys:prerequisiteOf phys:F_Ohm .
+
+phys:F_Ohm phys:prerequisiteOf phys:F_R_U_I .
+
+phys:F_R_U_I phys:prerequisiteOf phys:M_GiaiMachNoiTiep .
+
+phys:F_R_U_I phys:prerequisiteOf phys:M_GiaiMachSongSong .
+
+phys:M_GiaiMachNoiTiep phys:prerequisiteOf phys:F_NoiTiep_R .
+
+phys:M_GiaiMachSongSong phys:prerequisiteOf phys:F_SongSong_R .
+
+phys:M_GiaiMachNoiTiep phys:prerequisiteOf phys:M_GiaiMachHonHop .
+
+phys:M_GiaiMachSongSong phys:prerequisiteOf phys:M_GiaiMachHonHop .
+
+phys:F_NoiTiep_R phys:prerequisiteOf phys:C_MachNoiTiep .
+
+phys:F_SongSong_R phys:prerequisiteOf phys:C_MachSongSong .
+
+phys:C_MachNoiTiep phys:prerequisiteOf phys:C_MachHonHop .
+
+phys:C_MachSongSong phys:prerequisiteOf phys:C_MachHonHop .
+
+phys:L_Ohm phys:prerequisiteOf phys:F_R_DayDan .
+
+phys:F_R_DayDan phys:prerequisiteOf phys:DV_BienTro .
+
+phys:L_Ohm phys:prerequisiteOf phys:F_CongSuat .
+
+phys:F_CongSuat phys:prerequisiteOf phys:F_CongSuat_2 .
+
+phys:F_CongSuat phys:prerequisiteOf phys:F_DienNang .
+
+phys:F_DienNang phys:prerequisiteOf phys:C_CongDongDien_KN .
+
+phys:C_CongDongDien_KN phys:prerequisiteOf phys:C_TietKiemDienNang .
+
+phys:F_CongSuat phys:prerequisiteOf phys:L_JunLenxo .
+
+phys:L_JunLenxo phys:prerequisiteOf phys:F_JunLenxo .
+
+phys:F_JunLenxo phys:prerequisiteOf phys:M_TinhQ_JunLenxo .
+
+phys:M_TinhQ_JunLenxo phys:prerequisiteOf phys:PT_NhietLuongJun .
+
+phys:L_JunLenxo phys:prerequisiteOf phys:C_AnToanDien .
+
+phys:DV_NamCham phys:prerequisiteOf phys:C_TuTruong .
+
+phys:C_TuTruong phys:prerequisiteOf phys:C_DuongSucTu .
+
+phys:C_DuongSucTu phys:prerequisiteOf phys:C_TuPhoDongDien .
+
+phys:PH_TacDungTuCuaDongDien phys:prerequisiteOf phys:L_NhiemTu .
+
+phys:L_NhiemTu phys:prerequisiteOf phys:C_NhiemTu_KL .
+
+phys:C_TuTruong phys:prerequisiteOf phys:PH_LucDienTu .
+
+phys:PH_LucDienTu phys:prerequisiteOf phys:L_BanTayTrai .
+
+phys:L_BanTayTrai phys:prerequisiteOf phys:M_QuyTacBanTayTrai .
+
+phys:M_QuyTacBanTayTrai phys:prerequisiteOf phys:PT_XacDinhChieuLuc_BTT .
+
+phys:L_BanTayTrai phys:prerequisiteOf phys:DV_DongCoDien1C .
+
+phys:PH_CamUngDienTu_PH phys:prerequisiteOf phys:L_CamUngDienTu .
+
+phys:L_CamUngDienTu phys:prerequisiteOf phys:M_QuyTacBanTayPhai .
+
+phys:M_QuyTacBanTayPhai phys:prerequisiteOf phys:PT_ChieuDongDienCamUng .
+
+phys:L_CamUngDienTu phys:prerequisiteOf phys:C_DongDienXoayChieu .
+
+phys:C_DongDienXoayChieu phys:prerequisiteOf phys:DV_MayPhatDien .
+
+phys:DV_MayPhatDien phys:prerequisiteOf phys:DV_MayBienThe .
+
+phys:DV_MayBienThe phys:prerequisiteOf phys:L_MayBienThe .
+
+phys:L_MayBienThe phys:prerequisiteOf phys:F_MayBT .
+
+phys:F_MayBT phys:prerequisiteOf phys:M_TinhMayBienThe .
+
+phys:M_TinhMayBienThe phys:prerequisiteOf phys:PT_MayBienThe_UN .
+
+phys:DV_MayBienThe phys:prerequisiteOf phys:PH_TruyenTaiDienNang .
+
+phys:PH_TruyenTaiDienNang phys:prerequisiteOf phys:PT_HaoPhiTTDN .
+
+phys:L_TruyenThangAS phys:prerequisiteOf phys:L_PhanXaAS .
+
+phys:L_PhanXaAS phys:prerequisiteOf phys:L_KhucXaAnhSang .
+
+phys:L_KhucXaAnhSang phys:prerequisiteOf phys:PH_KhucXa .
+
+phys:PH_KhucXa phys:prerequisiteOf phys:DV_ThauKinhHT .
+
+phys:DV_ThauKinhHT phys:prerequisiteOf phys:C_TieuDiem .
+
+phys:DV_ThauKinhHT phys:prerequisiteOf phys:C_TrucChinh .
+
+phys:C_TieuDiem phys:prerequisiteOf phys:Q_TieuCu .
+
+phys:DV_ThauKinhHT phys:prerequisiteOf phys:PH_TrongThay .
+
+phys:PH_TrongThay phys:prerequisiteOf phys:C_AnhThat .
+
+phys:PH_TrongThay phys:prerequisiteOf phys:C_AnhAo .
+
+phys:DV_ThauKinhHT phys:prerequisiteOf phys:M_VeAnhQuaTKHT .
+
+phys:M_VeAnhQuaTKHT phys:prerequisiteOf phys:PT_VeAnhQuaTK .
+
+phys:F_ThauKinh_HoiTu phys:prerequisiteOf phys:M_TinhAnhBangCongThuc .
+
+phys:M_TinhAnhBangCongThuc phys:prerequisiteOf phys:PT_TinhViTriAnh .
+
+phys:DV_ThauKinhHT phys:prerequisiteOf phys:DV_ThauKinhPK .
+
+phys:DV_ThauKinhPK phys:prerequisiteOf phys:M_VeAnhQuaTKPK .
+
+phys:DV_ThauKinhHT phys:prerequisiteOf phys:DV_MayAnh .
+
+phys:DV_ThauKinhHT phys:prerequisiteOf phys:DV_MatNguoi .
+
+phys:DV_MatNguoi phys:prerequisiteOf phys:PH_MatCan_MatLao .
+
+phys:DV_ThauKinhHT phys:prerequisiteOf phys:DV_KinhLup .
+
+phys:C_CauToaAS phys:prerequisiteOf phys:PH_TanSac .
+
+phys:PH_TanSac phys:prerequisiteOf phys:PH_AnhSangMau .
+
+phys:PH_AnhSangMau phys:prerequisiteOf phys:PH_TacDungNhietAS .
+
+phys:C_NangLuong phys:prerequisiteOf phys:C_ChuyenHoaNL .
+
+phys:C_ChuyenHoaNL phys:prerequisiteOf phys:L_BaoToanNL .
+
+phys:DV_ThauKinhHT phys:similarTo phys:DV_ThauKinhPK .
+
+phys:DV_MayPhatDien phys:similarTo phys:DV_DongCoDien1C .
+
+phys:PH_PhanXa phys:similarTo phys:PH_KhucXa .
+
+phys:C_MachNoiTiep phys:similarTo phys:C_MachSongSong .
+
+phys:F_JunLenxo phys:similarTo phys:F_CongSuat_2 .
+
+phys:DV_AmpeKe phys:similarTo phys:DV_VonKe .
+
+phys:C_MachNoiTiep phys:contrastsWith phys:C_MachSongSong .
+
+phys:DV_ThauKinhHT phys:contrastsWith phys:DV_ThauKinhPK .
+
+phys:C_AnhThat phys:contrastsWith phys:C_AnhAo .
+
+phys:PH_MatCan_MatLao phys:contrastsWith phys:DV_MatNguoi .
+
+phys:DV_MayPhatDien phys:contrastsWith phys:DV_DongCoDien1C .
+

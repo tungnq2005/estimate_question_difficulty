@@ -1,0 +1,1088 @@
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix eng:  <http://edu.vn/eng9/ontology#> .
+
+<http://edu.vn/eng9/ontology> a owl:Ontology ;
+    rdfs:label "Ontology Tieng Anh 9 - Cold-start Question Difficulty Estimation"@vi ;
+    owl:versionInfo "0.1.0" .
+
+#################################################################
+#   CLASSES
+#################################################################
+
+eng:EngEntity         a owl:Class ; rdfs:label "Thuc the Tieng Anh"@vi .
+eng:GrammarStructure  a owl:Class ; rdfs:subClassOf eng:EngEntity ; rdfs:label "Cau truc ngu phap"@vi .
+eng:VocabularyTopic   a owl:Class ; rdfs:subClassOf eng:EngEntity ; rdfs:label "Chu de tu vung"@vi .
+eng:LanguageFunction  a owl:Class ; rdfs:subClassOf eng:EngEntity ; rdfs:label "Chuc nang ngon ngu"@vi .
+eng:SkillType         a owl:Class ; rdfs:subClassOf eng:EngEntity ; rdfs:label "Ky nang"@vi .
+eng:TextType          a owl:Class ; rdfs:subClassOf eng:EngEntity ; rdfs:label "The loai van ban"@vi .
+eng:LessonUnit        a owl:Class ; rdfs:label "Bai hoc SGK"@vi .
+eng:Textbook          a owl:Class ; rdfs:label "Bo SGK"@vi .
+
+#################################################################
+#   OBJECT PROPERTIES
+#################################################################
+
+eng:prerequisiteOf a owl:ObjectProperty , owl:TransitiveProperty ; rdfs:label "la tien de cua"@vi .
+eng:specializesGrammar a owl:ObjectProperty ;
+    rdfs:domain eng:GrammarStructure ; rdfs:range eng:GrammarStructure ;
+    rdfs:label "la truong hop dac biet cua"@vi .
+
+eng:requires a owl:ObjectProperty ; rdfs:label "doi hoi"@vi .
+eng:expresses a owl:ObjectProperty ;
+    rdfs:domain eng:GrammarStructure ; rdfs:range eng:LanguageFunction ;
+    rdfs:label "dien dat chuc nang"@vi .
+
+eng:usesGrammar a owl:ObjectProperty ;
+    rdfs:domain eng:TextType ; rdfs:range eng:GrammarStructure ;
+    rdfs:label "su dung cau truc"@vi .
+
+eng:usesVocabulary a owl:ObjectProperty ;
+    rdfs:domain eng:TextType ; rdfs:range eng:VocabularyTopic ;
+    rdfs:label "su dung tu vung chu de"@vi .
+
+eng:relatedVocab a owl:ObjectProperty , owl:SymmetricProperty ;
+    rdfs:domain eng:VocabularyTopic ; rdfs:range eng:VocabularyTopic ;
+    rdfs:label "chu de tu vung lien quan"@vi .
+
+eng:appearsInLesson a owl:ObjectProperty ; rdfs:range eng:LessonUnit ; rdfs:label "xuat hien trong bai"@vi .
+eng:partOfTextbook a owl:ObjectProperty ; rdfs:range eng:Textbook ; rdfs:label "thuoc bo SGK"@vi .
+
+eng:similarTo a owl:ObjectProperty , owl:SymmetricProperty ; rdfs:label "tuong tu"@vi .
+eng:contrastsWith a owl:ObjectProperty , owl:SymmetricProperty ; rdfs:label "doi lap"@vi .
+
+#################################################################
+#   DATA PROPERTIES
+#################################################################
+
+eng:cefrLevel a owl:DatatypeProperty ; rdfs:range xsd:string ;
+    rdfs:comment "CEFR level: A1, A2, B1, B2 (most 9th-grade content is A2-B1)"@vi .
+eng:abstractness a owl:DatatypeProperty ; rdfs:range xsd:integer .
+eng:bloomLevel a owl:DatatypeProperty ; rdfs:range xsd:integer .
+eng:structuralComplexity a owl:DatatypeProperty ; rdfs:range xsd:integer ;
+    rdfs:comment "Do phuc tap cau truc: 1=don, 5=nhieu tang (embedded clauses)"@vi .
+eng:frequencyBand a owl:DatatypeProperty ; rdfs:range xsd:integer ;
+    rdfs:comment "Band tan suat tu vung: 1=high-freq (A1), 5=low-freq (B2+)"@vi .
+eng:frequencyInTextbook a owl:DatatypeProperty ; rdfs:range xsd:integer .
+eng:curriculumPosition a owl:DatatypeProperty ; rdfs:range xsd:integer .
+eng:aliases a owl:DatatypeProperty ; rdfs:range xsd:string .
+eng:confidence a owl:DatatypeProperty ; rdfs:range xsd:integer .
+
+#################################################################
+#   TEXTBOOKS
+#################################################################
+
+eng:TB_Old a eng:Textbook ; rdfs:label "SGK Tieng Anh 9 (bo cu, 7 nam)"@vi ; eng:confidence 3 .
+eng:TB_ThiDiem a eng:Textbook ; rdfs:label "SGK Tieng Anh 9 (thi diem, 10 nam)"@vi ; eng:confidence 3 .
+eng:TB_GlobalSuccess a eng:Textbook ; rdfs:label "Global Success 9"@vi ; eng:confidence 3 .
+eng:TB_Friends a eng:Textbook ; rdfs:label "iLearn Smart World / Friends Plus 9"@vi ; eng:confidence 2 .
+
+
+#################################################################
+#   GRAMMAR STRUCTURES
+#################################################################
+
+eng:GR_PresentSimple a eng:GrammarStructure ;
+    rdfs:label "Present Simple tense"@vi ;
+    eng:aliases "Hien tai don" ;
+    eng:cefrLevel "A1" ;
+    eng:structuralComplexity 1 ;
+    eng:abstractness 2 ;
+    eng:bloomLevel 2 ;
+    eng:confidence 3 .
+
+eng:GR_PresentContinuous a eng:GrammarStructure ;
+    rdfs:label "Present Continuous tense"@vi ;
+    eng:aliases "Hien tai tiep dien" ;
+    eng:cefrLevel "A1" ;
+    eng:structuralComplexity 2 ;
+    eng:abstractness 2 ;
+    eng:bloomLevel 2 ;
+    eng:confidence 3 .
+
+eng:GR_PresentPerfect a eng:GrammarStructure ;
+    rdfs:label "Present Perfect tense"@vi ;
+    eng:aliases "Hien tai hoan thanh" ;
+    eng:cefrLevel "A2" ;
+    eng:structuralComplexity 3 ;
+    eng:abstractness 3 ;
+    eng:bloomLevel 3 ;
+    eng:confidence 3 .
+
+eng:GR_PresentPerfectContinuous a eng:GrammarStructure ;
+    rdfs:label "Present Perfect Continuous tense"@vi ;
+    eng:aliases "HTHTTD" ;
+    eng:cefrLevel "B1" ;
+    eng:structuralComplexity 4 ;
+    eng:abstractness 3 ;
+    eng:bloomLevel 3 ;
+    eng:confidence 3 .
+
+eng:GR_PastSimple a eng:GrammarStructure ;
+    rdfs:label "Past Simple tense"@vi ;
+    eng:aliases "Qua khu don" ;
+    eng:cefrLevel "A1" ;
+    eng:structuralComplexity 2 ;
+    eng:abstractness 2 ;
+    eng:bloomLevel 2 ;
+    eng:confidence 3 .
+
+eng:GR_PastContinuous a eng:GrammarStructure ;
+    rdfs:label "Past Continuous tense"@vi ;
+    eng:aliases "Qua khu tiep dien" ;
+    eng:cefrLevel "A2" ;
+    eng:structuralComplexity 3 ;
+    eng:abstractness 3 ;
+    eng:bloomLevel 2 ;
+    eng:confidence 3 .
+
+eng:GR_PastPerfect a eng:GrammarStructure ;
+    rdfs:label "Past Perfect tense"@vi ;
+    eng:aliases "Qua khu hoan thanh" ;
+    eng:cefrLevel "B1" ;
+    eng:structuralComplexity 3 ;
+    eng:abstractness 3 ;
+    eng:bloomLevel 3 ;
+    eng:confidence 3 .
+
+eng:GR_FutureSimple a eng:GrammarStructure ;
+    rdfs:label "Future Simple (will / shall)"@vi ;
+    eng:aliases "Tuong lai don" ;
+    eng:cefrLevel "A1" ;
+    eng:structuralComplexity 2 ;
+    eng:abstractness 2 ;
+    eng:bloomLevel 2 ;
+    eng:confidence 3 .
+
+eng:GR_FutureGoingTo a eng:GrammarStructure ;
+    rdfs:label "Future with 'be going to'"@vi ;
+    eng:cefrLevel "A1" ;
+    eng:structuralComplexity 2 ;
+    eng:abstractness 2 ;
+    eng:bloomLevel 2 ;
+    eng:confidence 3 .
+
+eng:GR_Modals a eng:GrammarStructure ;
+    rdfs:label "Modal verbs (can/could/should/must/may)"@vi ;
+    eng:aliases "Dong tu khuyet thieu" ;
+    eng:cefrLevel "A2" ;
+    eng:structuralComplexity 3 ;
+    eng:abstractness 3 ;
+    eng:bloomLevel 3 ;
+    eng:confidence 3 .
+
+eng:GR_Passive a eng:GrammarStructure ;
+    rdfs:label "Passive voice (general)"@vi ;
+    eng:aliases "Cau bi dong" ;
+    eng:cefrLevel "A2" ;
+    eng:structuralComplexity 3 ;
+    eng:abstractness 3 ;
+    eng:bloomLevel 3 ;
+    eng:confidence 3 .
+
+eng:GR_Passive_Tenses a eng:GrammarStructure ;
+    rdfs:label "Passive in different tenses"@vi ;
+    eng:aliases "Bi dong cac thi" ;
+    eng:cefrLevel "B1" ;
+    eng:structuralComplexity 4 ;
+    eng:abstractness 3 ;
+    eng:bloomLevel 3 ;
+    eng:confidence 3 .
+
+eng:GR_Cond_0 a eng:GrammarStructure ;
+    rdfs:label "Zero conditional (if + present, present)"@vi ;
+    eng:aliases "Dieu kien loai 0" ;
+    eng:cefrLevel "A2" ;
+    eng:structuralComplexity 3 ;
+    eng:abstractness 3 ;
+    eng:bloomLevel 3 ;
+    eng:confidence 3 .
+
+eng:GR_Cond_1 a eng:GrammarStructure ;
+    rdfs:label "First conditional (if + present, will)"@vi ;
+    eng:aliases "Dieu kien loai 1" ;
+    eng:cefrLevel "A2" ;
+    eng:structuralComplexity 3 ;
+    eng:abstractness 3 ;
+    eng:bloomLevel 3 ;
+    eng:confidence 3 .
+
+eng:GR_Cond_2 a eng:GrammarStructure ;
+    rdfs:label "Second conditional (if + past, would)"@vi ;
+    eng:aliases "Dieu kien loai 2" ;
+    eng:cefrLevel "B1" ;
+    eng:structuralComplexity 4 ;
+    eng:abstractness 4 ;
+    eng:bloomLevel 3 ;
+    eng:confidence 3 .
+
+eng:GR_Cond_3 a eng:GrammarStructure ;
+    rdfs:label "Third conditional (if + past perfect, would have)"@vi ;
+    eng:aliases "Dieu kien loai 3" ;
+    eng:cefrLevel "B1" ;
+    eng:structuralComplexity 5 ;
+    eng:abstractness 4 ;
+    eng:bloomLevel 4 ;
+    eng:confidence 3 .
+
+eng:GR_Reported a eng:GrammarStructure ;
+    rdfs:label "Reported speech"@vi ;
+    eng:aliases "Cau tuong thuat" ;
+    eng:cefrLevel "B1" ;
+    eng:structuralComplexity 4 ;
+    eng:abstractness 4 ;
+    eng:bloomLevel 3 ;
+    eng:confidence 3 .
+
+eng:GR_Relative_Defining a eng:GrammarStructure ;
+    rdfs:label "Defining relative clauses (who/which/that)"@vi ;
+    eng:aliases "Menh de quan he xac dinh" ;
+    eng:cefrLevel "A2" ;
+    eng:structuralComplexity 3 ;
+    eng:abstractness 3 ;
+    eng:bloomLevel 3 ;
+    eng:confidence 3 .
+
+eng:GR_Relative_NonDef a eng:GrammarStructure ;
+    rdfs:label "Non-defining relative clauses"@vi ;
+    eng:aliases "Menh de quan he khong xac dinh" ;
+    eng:cefrLevel "B1" ;
+    eng:structuralComplexity 4 ;
+    eng:abstractness 3 ;
+    eng:bloomLevel 3 ;
+    eng:confidence 3 .
+
+eng:GR_Wishes a eng:GrammarStructure ;
+    rdfs:label "Wishes (I wish / If only)"@vi ;
+    eng:aliases "Cau uoc" ;
+    eng:cefrLevel "B1" ;
+    eng:structuralComplexity 4 ;
+    eng:abstractness 4 ;
+    eng:bloomLevel 3 ;
+    eng:confidence 3 .
+
+eng:GR_PhrasalVerbs a eng:GrammarStructure ;
+    rdfs:label "Phrasal verbs"@vi ;
+    eng:aliases "Cum dong tu" ;
+    eng:cefrLevel "B1" ;
+    eng:structuralComplexity 3 ;
+    eng:abstractness 3 ;
+    eng:bloomLevel 3 ;
+    eng:confidence 3 .
+
+eng:GR_Gerund_Inf a eng:GrammarStructure ;
+    rdfs:label "Gerund vs infinitive"@vi ;
+    eng:aliases "V-ing vs to-V" ;
+    eng:cefrLevel "A2" ;
+    eng:structuralComplexity 3 ;
+    eng:abstractness 3 ;
+    eng:bloomLevel 3 ;
+    eng:confidence 3 .
+
+eng:GR_Comparisons a eng:GrammarStructure ;
+    rdfs:label "Comparatives and superlatives"@vi ;
+    eng:aliases "So sanh hon va nhat" ;
+    eng:cefrLevel "A1" ;
+    eng:structuralComplexity 2 ;
+    eng:abstractness 2 ;
+    eng:bloomLevel 2 ;
+    eng:confidence 3 .
+
+eng:GR_ComparisonAs a eng:GrammarStructure ;
+    rdfs:label "Comparisons with 'as...as'"@vi ;
+    eng:aliases "So sanh bang" ;
+    eng:cefrLevel "A2" ;
+    eng:structuralComplexity 2 ;
+    eng:abstractness 2 ;
+    eng:bloomLevel 2 ;
+    eng:confidence 3 .
+
+eng:GR_Articles a eng:GrammarStructure ;
+    rdfs:label "Articles (a/an/the)"@vi ;
+    eng:aliases "Mao tu" ;
+    eng:cefrLevel "A1" ;
+    eng:structuralComplexity 2 ;
+    eng:abstractness 3 ;
+    eng:bloomLevel 2 ;
+    eng:confidence 3 .
+
+eng:GR_Prepositions a eng:GrammarStructure ;
+    rdfs:label "Prepositions (time, place, direction)"@vi ;
+    eng:aliases "Gioi tu" ;
+    eng:cefrLevel "A1" ;
+    eng:structuralComplexity 2 ;
+    eng:abstractness 2 ;
+    eng:bloomLevel 2 ;
+    eng:confidence 3 .
+
+eng:GR_Connectors a eng:GrammarStructure ;
+    rdfs:label "Connectors / Linking words (and/but/so/because/although)"@vi ;
+    eng:aliases "Tu noi" ;
+    eng:cefrLevel "A2" ;
+    eng:structuralComplexity 3 ;
+    eng:abstractness 3 ;
+    eng:bloomLevel 3 ;
+    eng:confidence 3 .
+
+eng:GR_Connectors_Adv a eng:GrammarStructure ;
+    rdfs:label "Advanced connectors (however, nevertheless, despite, in spite of)"@vi ;
+    eng:aliases "Tu noi nang cao" ;
+    eng:cefrLevel "B1" ;
+    eng:structuralComplexity 4 ;
+    eng:abstractness 3 ;
+    eng:bloomLevel 3 ;
+    eng:confidence 3 .
+
+eng:GR_Tag a eng:GrammarStructure ;
+    rdfs:label "Tag questions"@vi ;
+    eng:aliases "Cau hoi duoi" ;
+    eng:cefrLevel "A2" ;
+    eng:structuralComplexity 3 ;
+    eng:abstractness 3 ;
+    eng:bloomLevel 3 ;
+    eng:confidence 3 .
+
+
+#################################################################
+#   VOCABULARY TOPICS
+#################################################################
+
+eng:V_LocalEnvironment a eng:VocabularyTopic ;
+    rdfs:label "Local environment (tradition, craft, village)"@vi ;
+    eng:frequencyBand 3 ;
+    eng:frequencyInTextbook 8 ;
+    eng:abstractness 2 ;
+    eng:confidence 3 .
+
+eng:V_CityLife a eng:VocabularyTopic ;
+    rdfs:label "City life"@vi ;
+    eng:frequencyBand 2 ;
+    eng:frequencyInTextbook 7 ;
+    eng:abstractness 2 ;
+    eng:confidence 3 .
+
+eng:V_TeenLife a eng:VocabularyTopic ;
+    rdfs:label "Teen life / adolescents"@vi ;
+    eng:frequencyBand 3 ;
+    eng:frequencyInTextbook 7 ;
+    eng:abstractness 3 ;
+    eng:confidence 3 .
+
+eng:V_LearningLanguages a eng:VocabularyTopic ;
+    rdfs:label "Learning a foreign language"@vi ;
+    eng:frequencyBand 3 ;
+    eng:frequencyInTextbook 6 ;
+    eng:abstractness 3 ;
+    eng:confidence 3 .
+
+eng:V_VNWonders a eng:VocabularyTopic ;
+    rdfs:label "Wonders of Vietnam / World"@vi ;
+    eng:frequencyBand 3 ;
+    eng:frequencyInTextbook 6 ;
+    eng:abstractness 2 ;
+    eng:confidence 3 .
+
+eng:V_VNThenAndNow a eng:VocabularyTopic ;
+    rdfs:label "Vietnam then and now"@vi ;
+    eng:frequencyBand 3 ;
+    eng:frequencyInTextbook 6 ;
+    eng:abstractness 3 ;
+    eng:confidence 3 .
+
+eng:V_Food_Recipes a eng:VocabularyTopic ;
+    rdfs:label "Recipes and eating habits"@vi ;
+    eng:aliases "Food and drink" ;
+    eng:frequencyBand 2 ;
+    eng:frequencyInTextbook 6 ;
+    eng:abstractness 2 ;
+    eng:confidence 3 .
+
+eng:V_Tourism a eng:VocabularyTopic ;
+    rdfs:label "Tourism / travel"@vi ;
+    eng:frequencyBand 2 ;
+    eng:frequencyInTextbook 7 ;
+    eng:abstractness 2 ;
+    eng:confidence 3 .
+
+eng:V_EnglishInTheWorld a eng:VocabularyTopic ;
+    rdfs:label "English in the world"@vi ;
+    eng:frequencyBand 3 ;
+    eng:frequencyInTextbook 5 ;
+    eng:abstractness 3 ;
+    eng:confidence 3 .
+
+eng:V_SpaceTravel a eng:VocabularyTopic ;
+    rdfs:label "Space travel / exploration"@vi ;
+    eng:frequencyBand 4 ;
+    eng:frequencyInTextbook 5 ;
+    eng:abstractness 3 ;
+    eng:confidence 3 .
+
+eng:V_ChangingRoles a eng:VocabularyTopic ;
+    rdfs:label "Changing roles in society (gender, work)"@vi ;
+    eng:frequencyBand 4 ;
+    eng:frequencyInTextbook 5 ;
+    eng:abstractness 4 ;
+    eng:confidence 3 .
+
+eng:V_MyFutureCareer a eng:VocabularyTopic ;
+    rdfs:label "My future career / jobs"@vi ;
+    eng:frequencyBand 3 ;
+    eng:frequencyInTextbook 6 ;
+    eng:abstractness 3 ;
+    eng:confidence 3 .
+
+eng:V_Environment a eng:VocabularyTopic ;
+    rdfs:label "Environment and pollution"@vi ;
+    eng:frequencyBand 3 ;
+    eng:frequencyInTextbook 7 ;
+    eng:abstractness 3 ;
+    eng:confidence 3 .
+
+eng:V_Education a eng:VocabularyTopic ;
+    rdfs:label "Education"@vi ;
+    eng:frequencyBand 3 ;
+    eng:frequencyInTextbook 6 ;
+    eng:abstractness 3 ;
+    eng:confidence 3 .
+
+eng:V_Technology a eng:VocabularyTopic ;
+    rdfs:label "Technology / computers / communication"@vi ;
+    eng:frequencyBand 3 ;
+    eng:frequencyInTextbook 6 ;
+    eng:abstractness 3 ;
+    eng:confidence 3 .
+
+eng:V_Health a eng:VocabularyTopic ;
+    rdfs:label "Health and illness"@vi ;
+    eng:frequencyBand 3 ;
+    eng:frequencyInTextbook 5 ;
+    eng:abstractness 2 ;
+    eng:confidence 3 .
+
+eng:V_Entertainment a eng:VocabularyTopic ;
+    rdfs:label "Entertainment (films, music)"@vi ;
+    eng:frequencyBand 2 ;
+    eng:frequencyInTextbook 5 ;
+    eng:abstractness 2 ;
+    eng:confidence 3 .
+
+eng:V_CulturesCountries a eng:VocabularyTopic ;
+    rdfs:label "Cultures and countries"@vi ;
+    eng:frequencyBand 3 ;
+    eng:frequencyInTextbook 6 ;
+    eng:abstractness 3 ;
+    eng:confidence 3 .
+
+
+#################################################################
+#   LANGUAGE FUNCTIONS
+#################################################################
+
+eng:LF_Describing a eng:LanguageFunction ;
+    rdfs:label "Describing (people, places, things)"@vi ;
+    eng:abstractness 2 ;
+    eng:bloomLevel 2 ;
+    eng:confidence 3 .
+
+eng:LF_Comparing a eng:LanguageFunction ;
+    rdfs:label "Comparing / contrasting"@vi ;
+    eng:abstractness 2 ;
+    eng:bloomLevel 2 ;
+    eng:confidence 3 .
+
+eng:LF_GivingOpinion a eng:LanguageFunction ;
+    rdfs:label "Giving and justifying opinions"@vi ;
+    eng:abstractness 3 ;
+    eng:bloomLevel 3 ;
+    eng:confidence 3 .
+
+eng:LF_AgreeDisagree a eng:LanguageFunction ;
+    rdfs:label "Agreeing and disagreeing"@vi ;
+    eng:abstractness 3 ;
+    eng:bloomLevel 3 ;
+    eng:confidence 3 .
+
+eng:LF_Suggesting a eng:LanguageFunction ;
+    rdfs:label "Making suggestions / recommendations"@vi ;
+    eng:abstractness 3 ;
+    eng:bloomLevel 3 ;
+    eng:confidence 3 .
+
+eng:LF_Requesting a eng:LanguageFunction ;
+    rdfs:label "Making requests and offers"@vi ;
+    eng:abstractness 3 ;
+    eng:bloomLevel 3 ;
+    eng:confidence 3 .
+
+eng:LF_GivingAdvice a eng:LanguageFunction ;
+    rdfs:label "Giving advice"@vi ;
+    eng:abstractness 3 ;
+    eng:bloomLevel 3 ;
+    eng:confidence 3 .
+
+eng:LF_TalkingAboutPast a eng:LanguageFunction ;
+    rdfs:label "Talking about past experiences / events"@vi ;
+    eng:abstractness 3 ;
+    eng:bloomLevel 3 ;
+    eng:confidence 3 .
+
+eng:LF_TalkingAboutFuture a eng:LanguageFunction ;
+    rdfs:label "Talking about future plans / predictions"@vi ;
+    eng:abstractness 3 ;
+    eng:bloomLevel 3 ;
+    eng:confidence 3 .
+
+eng:LF_HypotheticalThinking a eng:LanguageFunction ;
+    rdfs:label "Hypothetical / imaginary thinking"@vi ;
+    eng:abstractness 4 ;
+    eng:bloomLevel 4 ;
+    eng:confidence 3 .
+
+eng:LF_Narrating a eng:LanguageFunction ;
+    rdfs:label "Narrating a story / sequence of events"@vi ;
+    eng:abstractness 3 ;
+    eng:bloomLevel 3 ;
+    eng:confidence 3 .
+
+eng:LF_Persuading a eng:LanguageFunction ;
+    rdfs:label "Persuading"@vi ;
+    eng:abstractness 4 ;
+    eng:bloomLevel 4 ;
+    eng:confidence 3 .
+
+
+#################################################################
+#   SKILL TYPES
+#################################################################
+
+eng:SK_Reading a eng:SkillType ;
+    rdfs:label "Reading comprehension"@vi ;
+    eng:abstractness 3 ;
+    eng:bloomLevel 2 ;
+    eng:confidence 3 .
+
+eng:SK_Listening a eng:SkillType ;
+    rdfs:label "Listening comprehension"@vi ;
+    eng:abstractness 3 ;
+    eng:bloomLevel 2 ;
+    eng:confidence 3 .
+
+eng:SK_Writing a eng:SkillType ;
+    rdfs:label "Writing"@vi ;
+    eng:abstractness 3 ;
+    eng:bloomLevel 3 ;
+    eng:confidence 3 .
+
+eng:SK_Speaking a eng:SkillType ;
+    rdfs:label "Speaking"@vi ;
+    eng:abstractness 3 ;
+    eng:bloomLevel 3 ;
+    eng:confidence 3 .
+
+eng:SK_GrammarVocabUse a eng:SkillType ;
+    rdfs:label "Use of English (grammar & vocabulary)"@vi ;
+    eng:aliases "Use of English" ;
+    eng:abstractness 3 ;
+    eng:bloomLevel 3 ;
+    eng:confidence 3 .
+
+
+#################################################################
+#   TEXT TYPES
+#################################################################
+
+eng:TT_FormalLetter a eng:TextType ;
+    rdfs:label "Formal letter / email"@vi ;
+    eng:abstractness 3 ;
+    eng:bloomLevel 3 ;
+    eng:confidence 3 .
+
+eng:TT_InformalLetter a eng:TextType ;
+    rdfs:label "Informal letter / email"@vi ;
+    eng:abstractness 2 ;
+    eng:bloomLevel 2 ;
+    eng:confidence 3 .
+
+eng:TT_Narrative a eng:TextType ;
+    rdfs:label "Narrative (story)"@vi ;
+    eng:abstractness 3 ;
+    eng:bloomLevel 3 ;
+    eng:confidence 3 .
+
+eng:TT_Descriptive a eng:TextType ;
+    rdfs:label "Descriptive text (person/place)"@vi ;
+    eng:abstractness 2 ;
+    eng:bloomLevel 2 ;
+    eng:confidence 3 .
+
+eng:TT_OpinionEssay a eng:TextType ;
+    rdfs:label "Opinion essay"@vi ;
+    eng:abstractness 4 ;
+    eng:bloomLevel 4 ;
+    eng:confidence 3 .
+
+eng:TT_ForAgainstEssay a eng:TextType ;
+    rdfs:label "For-and-against essay"@vi ;
+    eng:abstractness 4 ;
+    eng:bloomLevel 4 ;
+    eng:confidence 3 .
+
+eng:TT_Report a eng:TextType ;
+    rdfs:label "Report"@vi ;
+    eng:abstractness 3 ;
+    eng:bloomLevel 3 ;
+    eng:confidence 3 .
+
+eng:TT_Article a eng:TextType ;
+    rdfs:label "Article (newspaper/magazine)"@vi ;
+    eng:abstractness 3 ;
+    eng:bloomLevel 3 ;
+    eng:confidence 3 .
+
+eng:TT_Dialogue a eng:TextType ;
+    rdfs:label "Dialogue / conversation"@vi ;
+    eng:abstractness 2 ;
+    eng:bloomLevel 2 ;
+    eng:confidence 3 .
+
+eng:TT_Announcement a eng:TextType ;
+    rdfs:label "Announcement / notice"@vi ;
+    eng:abstractness 2 ;
+    eng:bloomLevel 2 ;
+    eng:confidence 3 .
+
+
+#################################################################
+#   LESSON UNITS
+#################################################################
+
+eng:TB_Old_B01 a eng:LessonUnit ;
+    rdfs:label "[TB_Old] Unit 1: A visit from a pen pal"@vi ;
+    eng:partOfTextbook eng:TB_Old ;
+    eng:curriculumPosition 1 .
+
+eng:TB_Old_B02 a eng:LessonUnit ;
+    rdfs:label "[TB_Old] Unit 2: Clothing"@vi ;
+    eng:partOfTextbook eng:TB_Old ;
+    eng:curriculumPosition 2 .
+
+eng:TB_Old_B03 a eng:LessonUnit ;
+    rdfs:label "[TB_Old] Unit 3: A trip to the countryside"@vi ;
+    eng:partOfTextbook eng:TB_Old ;
+    eng:curriculumPosition 3 .
+
+eng:TB_Old_B04 a eng:LessonUnit ;
+    rdfs:label "[TB_Old] Unit 4: Learning a foreign language"@vi ;
+    eng:partOfTextbook eng:TB_Old ;
+    eng:curriculumPosition 4 .
+
+eng:TB_Old_B05 a eng:LessonUnit ;
+    rdfs:label "[TB_Old] Unit 5: The media"@vi ;
+    eng:partOfTextbook eng:TB_Old ;
+    eng:curriculumPosition 5 .
+
+eng:TB_Old_B06 a eng:LessonUnit ;
+    rdfs:label "[TB_Old] Unit 6: The environment"@vi ;
+    eng:partOfTextbook eng:TB_Old ;
+    eng:curriculumPosition 6 .
+
+eng:TB_Old_B07 a eng:LessonUnit ;
+    rdfs:label "[TB_Old] Unit 7: Saving energy"@vi ;
+    eng:partOfTextbook eng:TB_Old ;
+    eng:curriculumPosition 7 .
+
+eng:TB_Old_B08 a eng:LessonUnit ;
+    rdfs:label "[TB_Old] Unit 8: Celebrations"@vi ;
+    eng:partOfTextbook eng:TB_Old ;
+    eng:curriculumPosition 8 .
+
+eng:TB_Old_B09 a eng:LessonUnit ;
+    rdfs:label "[TB_Old] Unit 9: Natural disasters"@vi ;
+    eng:partOfTextbook eng:TB_Old ;
+    eng:curriculumPosition 9 .
+
+eng:TB_Old_B10 a eng:LessonUnit ;
+    rdfs:label "[TB_Old] Unit 10: Life on other planets"@vi ;
+    eng:partOfTextbook eng:TB_Old ;
+    eng:curriculumPosition 10 .
+
+eng:TB_ThiDiem_B01 a eng:LessonUnit ;
+    rdfs:label "[TB_ThiDiem] Unit 1: Local environment"@vi ;
+    eng:partOfTextbook eng:TB_ThiDiem ;
+    eng:curriculumPosition 1 .
+
+eng:TB_ThiDiem_B02 a eng:LessonUnit ;
+    rdfs:label "[TB_ThiDiem] Unit 2: City life"@vi ;
+    eng:partOfTextbook eng:TB_ThiDiem ;
+    eng:curriculumPosition 2 .
+
+eng:TB_ThiDiem_B03 a eng:LessonUnit ;
+    rdfs:label "[TB_ThiDiem] Unit 3: Teen stress and pressure"@vi ;
+    eng:partOfTextbook eng:TB_ThiDiem ;
+    eng:curriculumPosition 3 .
+
+eng:TB_ThiDiem_B04 a eng:LessonUnit ;
+    rdfs:label "[TB_ThiDiem] Unit 4: Life in the past"@vi ;
+    eng:partOfTextbook eng:TB_ThiDiem ;
+    eng:curriculumPosition 4 .
+
+eng:TB_ThiDiem_B05 a eng:LessonUnit ;
+    rdfs:label "[TB_ThiDiem] Unit 5: Wonders of Vietnam"@vi ;
+    eng:partOfTextbook eng:TB_ThiDiem ;
+    eng:curriculumPosition 5 .
+
+eng:TB_ThiDiem_B06 a eng:LessonUnit ;
+    rdfs:label "[TB_ThiDiem] Unit 6: Vietnam then and now"@vi ;
+    eng:partOfTextbook eng:TB_ThiDiem ;
+    eng:curriculumPosition 6 .
+
+eng:TB_ThiDiem_B07 a eng:LessonUnit ;
+    rdfs:label "[TB_ThiDiem] Unit 7: Recipes and eating habits"@vi ;
+    eng:partOfTextbook eng:TB_ThiDiem ;
+    eng:curriculumPosition 7 .
+
+eng:TB_ThiDiem_B08 a eng:LessonUnit ;
+    rdfs:label "[TB_ThiDiem] Unit 8: Tourism"@vi ;
+    eng:partOfTextbook eng:TB_ThiDiem ;
+    eng:curriculumPosition 8 .
+
+eng:TB_ThiDiem_B09 a eng:LessonUnit ;
+    rdfs:label "[TB_ThiDiem] Unit 9: English in the world"@vi ;
+    eng:partOfTextbook eng:TB_ThiDiem ;
+    eng:curriculumPosition 9 .
+
+eng:TB_ThiDiem_B10 a eng:LessonUnit ;
+    rdfs:label "[TB_ThiDiem] Unit 10: Space travel"@vi ;
+    eng:partOfTextbook eng:TB_ThiDiem ;
+    eng:curriculumPosition 10 .
+
+eng:TB_ThiDiem_B11 a eng:LessonUnit ;
+    rdfs:label "[TB_ThiDiem] Unit 11: Changing roles in society"@vi ;
+    eng:partOfTextbook eng:TB_ThiDiem ;
+    eng:curriculumPosition 11 .
+
+eng:TB_ThiDiem_B12 a eng:LessonUnit ;
+    rdfs:label "[TB_ThiDiem] Unit 12: My future career"@vi ;
+    eng:partOfTextbook eng:TB_ThiDiem ;
+    eng:curriculumPosition 12 .
+
+eng:TB_GlobalSuccess_B01 a eng:LessonUnit ;
+    rdfs:label "[TB_GlobalSuccess] Unit 1: Global Success 9 Unit 1"@vi ;
+    eng:partOfTextbook eng:TB_GlobalSuccess ;
+    eng:curriculumPosition 1 .
+
+eng:TB_GlobalSuccess_B02 a eng:LessonUnit ;
+    rdfs:label "[TB_GlobalSuccess] Unit 2: Global Success 9 Unit 2"@vi ;
+    eng:partOfTextbook eng:TB_GlobalSuccess ;
+    eng:curriculumPosition 2 .
+
+eng:TB_GlobalSuccess_B03 a eng:LessonUnit ;
+    rdfs:label "[TB_GlobalSuccess] Unit 3: Global Success 9 Unit 3"@vi ;
+    eng:partOfTextbook eng:TB_GlobalSuccess ;
+    eng:curriculumPosition 3 .
+
+eng:TB_GlobalSuccess_B04 a eng:LessonUnit ;
+    rdfs:label "[TB_GlobalSuccess] Unit 4: Global Success 9 Unit 4"@vi ;
+    eng:partOfTextbook eng:TB_GlobalSuccess ;
+    eng:curriculumPosition 4 .
+
+eng:TB_GlobalSuccess_B05 a eng:LessonUnit ;
+    rdfs:label "[TB_GlobalSuccess] Unit 5: Global Success 9 Unit 5"@vi ;
+    eng:partOfTextbook eng:TB_GlobalSuccess ;
+    eng:curriculumPosition 5 .
+
+eng:TB_GlobalSuccess_B06 a eng:LessonUnit ;
+    rdfs:label "[TB_GlobalSuccess] Unit 6: Global Success 9 Unit 6"@vi ;
+    eng:partOfTextbook eng:TB_GlobalSuccess ;
+    eng:curriculumPosition 6 .
+
+eng:TB_GlobalSuccess_B07 a eng:LessonUnit ;
+    rdfs:label "[TB_GlobalSuccess] Unit 7: Global Success 9 Unit 7"@vi ;
+    eng:partOfTextbook eng:TB_GlobalSuccess ;
+    eng:curriculumPosition 7 .
+
+eng:TB_GlobalSuccess_B08 a eng:LessonUnit ;
+    rdfs:label "[TB_GlobalSuccess] Unit 8: Global Success 9 Unit 8"@vi ;
+    eng:partOfTextbook eng:TB_GlobalSuccess ;
+    eng:curriculumPosition 8 .
+
+eng:TB_GlobalSuccess_B09 a eng:LessonUnit ;
+    rdfs:label "[TB_GlobalSuccess] Unit 9: Global Success 9 Unit 9"@vi ;
+    eng:partOfTextbook eng:TB_GlobalSuccess ;
+    eng:curriculumPosition 9 .
+
+eng:TB_GlobalSuccess_B10 a eng:LessonUnit ;
+    rdfs:label "[TB_GlobalSuccess] Unit 10: Global Success 9 Unit 10"@vi ;
+    eng:partOfTextbook eng:TB_GlobalSuccess ;
+    eng:curriculumPosition 10 .
+
+eng:TB_GlobalSuccess_B11 a eng:LessonUnit ;
+    rdfs:label "[TB_GlobalSuccess] Unit 11: Global Success 9 Unit 11"@vi ;
+    eng:partOfTextbook eng:TB_GlobalSuccess ;
+    eng:curriculumPosition 11 .
+
+eng:TB_GlobalSuccess_B12 a eng:LessonUnit ;
+    rdfs:label "[TB_GlobalSuccess] Unit 12: Global Success 9 Unit 12"@vi ;
+    eng:partOfTextbook eng:TB_GlobalSuccess ;
+    eng:curriculumPosition 12 .
+
+eng:TB_Friends_B01 a eng:LessonUnit ;
+    rdfs:label "[TB_Friends] Unit 1: iLearn/Friends+ 9 Unit 1"@vi ;
+    eng:partOfTextbook eng:TB_Friends ;
+    eng:curriculumPosition 1 .
+
+eng:TB_Friends_B02 a eng:LessonUnit ;
+    rdfs:label "[TB_Friends] Unit 2: iLearn/Friends+ 9 Unit 2"@vi ;
+    eng:partOfTextbook eng:TB_Friends ;
+    eng:curriculumPosition 2 .
+
+eng:TB_Friends_B03 a eng:LessonUnit ;
+    rdfs:label "[TB_Friends] Unit 3: iLearn/Friends+ 9 Unit 3"@vi ;
+    eng:partOfTextbook eng:TB_Friends ;
+    eng:curriculumPosition 3 .
+
+eng:TB_Friends_B04 a eng:LessonUnit ;
+    rdfs:label "[TB_Friends] Unit 4: iLearn/Friends+ 9 Unit 4"@vi ;
+    eng:partOfTextbook eng:TB_Friends ;
+    eng:curriculumPosition 4 .
+
+eng:TB_Friends_B05 a eng:LessonUnit ;
+    rdfs:label "[TB_Friends] Unit 5: iLearn/Friends+ 9 Unit 5"@vi ;
+    eng:partOfTextbook eng:TB_Friends ;
+    eng:curriculumPosition 5 .
+
+eng:TB_Friends_B06 a eng:LessonUnit ;
+    rdfs:label "[TB_Friends] Unit 6: iLearn/Friends+ 9 Unit 6"@vi ;
+    eng:partOfTextbook eng:TB_Friends ;
+    eng:curriculumPosition 6 .
+
+eng:TB_Friends_B07 a eng:LessonUnit ;
+    rdfs:label "[TB_Friends] Unit 7: iLearn/Friends+ 9 Unit 7"@vi ;
+    eng:partOfTextbook eng:TB_Friends ;
+    eng:curriculumPosition 7 .
+
+eng:TB_Friends_B08 a eng:LessonUnit ;
+    rdfs:label "[TB_Friends] Unit 8: iLearn/Friends+ 9 Unit 8"@vi ;
+    eng:partOfTextbook eng:TB_Friends ;
+    eng:curriculumPosition 8 .
+
+eng:TB_Friends_B09 a eng:LessonUnit ;
+    rdfs:label "[TB_Friends] Unit 9: iLearn/Friends+ 9 Unit 9"@vi ;
+    eng:partOfTextbook eng:TB_Friends ;
+    eng:curriculumPosition 9 .
+
+eng:TB_Friends_B10 a eng:LessonUnit ;
+    rdfs:label "[TB_Friends] Unit 10: iLearn/Friends+ 9 Unit 10"@vi ;
+    eng:partOfTextbook eng:TB_Friends ;
+    eng:curriculumPosition 10 .
+
+eng:TB_Friends_B11 a eng:LessonUnit ;
+    rdfs:label "[TB_Friends] Unit 11: iLearn/Friends+ 9 Unit 11"@vi ;
+    eng:partOfTextbook eng:TB_Friends ;
+    eng:curriculumPosition 11 .
+
+eng:TB_Friends_B12 a eng:LessonUnit ;
+    rdfs:label "[TB_Friends] Unit 12: iLearn/Friends+ 9 Unit 12"@vi ;
+    eng:partOfTextbook eng:TB_Friends ;
+    eng:curriculumPosition 12 .
+
+
+#################################################################
+#   RELATIONSHIPS
+#################################################################
+
+eng:GR_PresentSimple eng:prerequisiteOf eng:GR_PresentContinuous .
+
+eng:GR_PresentSimple eng:prerequisiteOf eng:GR_PastSimple .
+
+eng:GR_PresentSimple eng:prerequisiteOf eng:GR_FutureSimple .
+
+eng:GR_PresentSimple eng:prerequisiteOf eng:GR_FutureGoingTo .
+
+eng:GR_PresentSimple eng:prerequisiteOf eng:GR_PresentPerfect .
+
+eng:GR_PresentPerfect eng:prerequisiteOf eng:GR_PresentPerfectContinuous .
+
+eng:GR_PastSimple eng:prerequisiteOf eng:GR_PastContinuous .
+
+eng:GR_PastSimple eng:prerequisiteOf eng:GR_PastPerfect .
+
+eng:GR_PastSimple eng:prerequisiteOf eng:GR_Passive .
+
+eng:GR_Passive eng:prerequisiteOf eng:GR_Passive_Tenses .
+
+eng:GR_PresentSimple eng:prerequisiteOf eng:GR_Cond_0 .
+
+eng:GR_Cond_0 eng:prerequisiteOf eng:GR_Cond_1 .
+
+eng:GR_PastSimple eng:prerequisiteOf eng:GR_Cond_2 .
+
+eng:GR_Cond_1 eng:prerequisiteOf eng:GR_Cond_2 .
+
+eng:GR_PastPerfect eng:prerequisiteOf eng:GR_Cond_3 .
+
+eng:GR_Cond_2 eng:prerequisiteOf eng:GR_Cond_3 .
+
+eng:GR_Cond_2 eng:prerequisiteOf eng:GR_Wishes .
+
+eng:GR_PastSimple eng:prerequisiteOf eng:GR_Reported .
+
+eng:GR_Modals eng:prerequisiteOf eng:GR_Reported .
+
+eng:GR_Relative_Defining eng:prerequisiteOf eng:GR_Relative_NonDef .
+
+eng:GR_Comparisons eng:prerequisiteOf eng:GR_ComparisonAs .
+
+eng:GR_Articles eng:prerequisiteOf eng:GR_PresentSimple .
+
+eng:GR_Prepositions eng:prerequisiteOf eng:GR_PresentSimple .
+
+eng:GR_Connectors eng:prerequisiteOf eng:GR_Connectors_Adv .
+
+eng:GR_Passive_Tenses eng:specializesGrammar eng:GR_Passive .
+
+eng:GR_Relative_NonDef eng:specializesGrammar eng:GR_Relative_Defining .
+
+eng:GR_PresentSimple eng:expresses eng:LF_Describing .
+
+eng:GR_PresentContinuous eng:expresses eng:LF_Describing .
+
+eng:GR_PastSimple eng:expresses eng:LF_Narrating .
+
+eng:GR_PastSimple eng:expresses eng:LF_TalkingAboutPast .
+
+eng:GR_PastContinuous eng:expresses eng:LF_Narrating .
+
+eng:GR_PresentPerfect eng:expresses eng:LF_TalkingAboutPast .
+
+eng:GR_FutureSimple eng:expresses eng:LF_TalkingAboutFuture .
+
+eng:GR_FutureGoingTo eng:expresses eng:LF_TalkingAboutFuture .
+
+eng:GR_Cond_1 eng:expresses eng:LF_TalkingAboutFuture .
+
+eng:GR_Cond_2 eng:expresses eng:LF_HypotheticalThinking .
+
+eng:GR_Cond_3 eng:expresses eng:LF_HypotheticalThinking .
+
+eng:GR_Wishes eng:expresses eng:LF_HypotheticalThinking .
+
+eng:GR_Modals eng:expresses eng:LF_GivingAdvice .
+
+eng:GR_Modals eng:expresses eng:LF_Requesting .
+
+eng:GR_Modals eng:expresses eng:LF_Suggesting .
+
+eng:GR_Comparisons eng:expresses eng:LF_Comparing .
+
+eng:GR_ComparisonAs eng:expresses eng:LF_Comparing .
+
+eng:GR_Reported eng:expresses eng:LF_Narrating .
+
+eng:TT_Narrative eng:usesGrammar eng:GR_PastSimple .
+
+eng:TT_Narrative eng:usesGrammar eng:GR_PastContinuous .
+
+eng:TT_Narrative eng:usesGrammar eng:GR_PastPerfect .
+
+eng:TT_Narrative eng:usesGrammar eng:GR_Connectors .
+
+eng:TT_Descriptive eng:usesGrammar eng:GR_PresentSimple .
+
+eng:TT_Descriptive eng:usesGrammar eng:GR_Relative_Defining .
+
+eng:TT_Descriptive eng:usesGrammar eng:GR_Comparisons .
+
+eng:TT_OpinionEssay eng:usesGrammar eng:GR_Modals .
+
+eng:TT_OpinionEssay eng:usesGrammar eng:GR_Connectors_Adv .
+
+eng:TT_OpinionEssay eng:usesGrammar eng:GR_Cond_2 .
+
+eng:TT_ForAgainstEssay eng:usesGrammar eng:GR_Connectors_Adv .
+
+eng:TT_ForAgainstEssay eng:usesGrammar eng:GR_Passive .
+
+eng:TT_FormalLetter eng:usesGrammar eng:GR_Modals .
+
+eng:TT_FormalLetter eng:usesGrammar eng:GR_Passive .
+
+eng:TT_InformalLetter eng:usesGrammar eng:GR_PresentPerfect .
+
+eng:TT_Report eng:usesGrammar eng:GR_Passive .
+
+eng:TT_Report eng:usesGrammar eng:GR_PresentSimple .
+
+eng:TT_Article eng:usesGrammar eng:GR_Relative_Defining .
+
+eng:TT_Article eng:usesGrammar eng:GR_Passive .
+
+eng:TT_Dialogue eng:usesGrammar eng:GR_Tag .
+
+eng:TT_Dialogue eng:usesGrammar eng:GR_Modals .
+
+eng:TT_Article eng:usesVocabulary eng:V_VNWonders .
+
+eng:TT_Article eng:usesVocabulary eng:V_Environment .
+
+eng:TT_Report eng:usesVocabulary eng:V_Environment .
+
+eng:TT_Report eng:usesVocabulary eng:V_Education .
+
+eng:TT_Narrative eng:usesVocabulary eng:V_TeenLife .
+
+eng:TT_OpinionEssay eng:usesVocabulary eng:V_ChangingRoles .
+
+eng:TT_OpinionEssay eng:usesVocabulary eng:V_Technology .
+
+eng:TT_FormalLetter eng:usesVocabulary eng:V_Tourism .
+
+eng:TT_FormalLetter eng:usesVocabulary eng:V_MyFutureCareer .
+
+eng:TT_Descriptive eng:usesVocabulary eng:V_LocalEnvironment .
+
+eng:TT_Descriptive eng:usesVocabulary eng:V_CityLife .
+
+eng:TT_Descriptive eng:usesVocabulary eng:V_VNWonders .
+
+eng:V_LocalEnvironment eng:relatedVocab eng:V_CityLife .
+
+eng:V_VNWonders eng:relatedVocab eng:V_Tourism .
+
+eng:V_VNThenAndNow eng:relatedVocab eng:V_VNWonders .
+
+eng:V_SpaceTravel eng:relatedVocab eng:V_Technology .
+
+eng:V_Health eng:relatedVocab eng:V_Food_Recipes .
+
+eng:V_Environment eng:relatedVocab eng:V_LocalEnvironment .
+
+eng:V_MyFutureCareer eng:relatedVocab eng:V_Education .
+
+eng:V_ChangingRoles eng:relatedVocab eng:V_TeenLife .
+
+eng:V_EnglishInTheWorld eng:relatedVocab eng:V_CulturesCountries .
+
+eng:GR_PresentSimple eng:similarTo eng:GR_PresentContinuous .
+
+eng:GR_PastSimple eng:similarTo eng:GR_PastContinuous .
+
+eng:GR_Cond_1 eng:similarTo eng:GR_Cond_2 .
+
+eng:GR_Cond_2 eng:similarTo eng:GR_Cond_3 .
+
+eng:GR_Relative_Defining eng:similarTo eng:GR_Relative_NonDef .
+
+eng:TT_FormalLetter eng:similarTo eng:TT_InformalLetter .
+
+eng:TT_OpinionEssay eng:similarTo eng:TT_ForAgainstEssay .
+
+eng:GR_PresentSimple eng:contrastsWith eng:GR_PresentContinuous .
+
+eng:GR_Cond_1 eng:contrastsWith eng:GR_Cond_2 .
+
+eng:TT_FormalLetter eng:contrastsWith eng:TT_InformalLetter .
+

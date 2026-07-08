@@ -1,0 +1,1738 @@
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix geo:  <http://edu.vn/geo9/ontology#> .
+
+<http://edu.vn/geo9/ontology> a owl:Ontology ;
+    rdfs:label "Ontology Dia 9 - Cold-start Question Difficulty Estimation"@vi ;
+    owl:versionInfo "0.1.0" .
+
+#################################################################
+#   CLASSES
+#################################################################
+
+geo:GeoEntity a owl:Class ; rdfs:label "Thuc the Dia ly"@vi .
+geo:Region         a owl:Class ; rdfs:subClassOf geo:GeoEntity ; rdfs:label "Vung dia ly"@vi .
+geo:NaturalFeature a owl:Class ; rdfs:subClassOf geo:GeoEntity ; rdfs:label "Dac diem tu nhien"@vi .
+geo:Phenomenon     a owl:Class ; rdfs:subClassOf geo:GeoEntity ; rdfs:label "Hien tuong"@vi .
+geo:Resource       a owl:Class ; rdfs:subClassOf geo:GeoEntity ; rdfs:label "Tai nguyen"@vi .
+geo:Industry       a owl:Class ; rdfs:subClassOf geo:GeoEntity ; rdfs:label "Nganh kinh te"@vi .
+geo:Crop           a owl:Class ; rdfs:subClassOf geo:GeoEntity ; rdfs:label "Loai cay trong"@vi .
+geo:Livestock      a owl:Class ; rdfs:subClassOf geo:GeoEntity ; rdfs:label "Vat nuoi"@vi .
+geo:Demographic    a owl:Class ; rdfs:subClassOf geo:GeoEntity ; rdfs:label "Dac diem dan cu"@vi .
+geo:Concept        a owl:Class ; rdfs:subClassOf geo:GeoEntity ; rdfs:label "Khai niem dia ly"@vi .
+geo:Process        a owl:Class ; rdfs:subClassOf geo:GeoEntity ; rdfs:label "Qua trinh"@vi .
+geo:LessonUnit     a owl:Class ; rdfs:label "Bai hoc SGK"@vi .
+geo:Textbook       a owl:Class ; rdfs:label "Bo SGK"@vi .
+
+#################################################################
+#   OBJECT PROPERTIES
+#################################################################
+
+geo:prerequisiteOf a owl:ObjectProperty , owl:TransitiveProperty ; rdfs:label "la tien de cua"@vi .
+
+geo:locatedIn a owl:ObjectProperty , owl:TransitiveProperty ;
+    rdfs:domain geo:GeoEntity ; rdfs:range geo:Region ;
+    rdfs:label "nam trong"@vi .
+
+geo:adjacentTo a owl:ObjectProperty , owl:SymmetricProperty ;
+    rdfs:domain geo:Region ; rdfs:range geo:Region ;
+    rdfs:label "giap voi"@vi .
+
+geo:occursIn a owl:ObjectProperty ;
+    rdfs:domain geo:Phenomenon ; rdfs:range geo:Region ;
+    rdfs:label "xay ra tai"@vi .
+
+geo:hasResource a owl:ObjectProperty ;
+    rdfs:domain geo:Region ; rdfs:range geo:Resource ;
+    rdfs:label "co tai nguyen"@vi .
+
+geo:specializesIn a owl:ObjectProperty ;
+    rdfs:domain geo:Region ; rdfs:range geo:Industry ;
+    rdfs:label "the manh nganh"@vi .
+
+geo:grownIn a owl:ObjectProperty ;
+    rdfs:domain geo:Crop ; rdfs:range geo:Region ;
+    rdfs:label "duoc trong tai"@vi .
+
+geo:raisedIn a owl:ObjectProperty ;
+    rdfs:domain geo:Livestock ; rdfs:range geo:Region ;
+    rdfs:label "duoc nuoi tai"@vi .
+
+geo:causes a owl:ObjectProperty ; rdfs:label "gay ra"@vi .
+geo:affectedBy a owl:ObjectProperty ; owl:inverseOf geo:causes ; rdfs:label "bi anh huong boi"@vi .
+
+geo:appearsInLesson a owl:ObjectProperty ; rdfs:range geo:LessonUnit ; rdfs:label "xuat hien trong bai"@vi .
+geo:partOfTextbook a owl:ObjectProperty ; rdfs:range geo:Textbook ; rdfs:label "thuoc bo SGK"@vi .
+
+geo:similarTo a owl:ObjectProperty , owl:SymmetricProperty ; rdfs:label "tuong tu"@vi .
+geo:contrastsWith a owl:ObjectProperty , owl:SymmetricProperty ; rdfs:label "khac biet"@vi .
+
+#################################################################
+#   DATA PROPERTIES
+#################################################################
+
+geo:abstractness a owl:DatatypeProperty ; rdfs:range xsd:integer .
+geo:bloomLevel a owl:DatatypeProperty ; rdfs:range xsd:integer .
+geo:frequencyInTextbook a owl:DatatypeProperty ; rdfs:range xsd:integer .
+geo:curriculumPosition a owl:DatatypeProperty ; rdfs:range xsd:integer .
+geo:spatialScope a owl:DatatypeProperty ; rdfs:range xsd:integer ;
+    rdfs:comment "1=dia phuong, 2=vung, 3=ca nuoc, 4=khu vuc, 5=toan cau"@vi .
+geo:explanatoryFactors a owl:DatatypeProperty ; rdfs:range xsd:integer ;
+    rdfs:comment "So nhan to can de giai thich hien tuong (1-5)"@vi .
+geo:aliases a owl:DatatypeProperty ; rdfs:range xsd:string .
+geo:confidence a owl:DatatypeProperty ; rdfs:range xsd:integer .
+
+#################################################################
+#   TEXTBOOKS
+#################################################################
+
+geo:TB_Old a geo:Textbook ; rdfs:label "SGK Dia 9 (bo cu)"@vi ; geo:confidence 3 .
+geo:TB_KNTT a geo:Textbook ; rdfs:label "SGK LS&DL 9 - Ket noi tri thuc"@vi ; geo:confidence 3 .
+geo:TB_CTST a geo:Textbook ; rdfs:label "SGK LS&DL 9 - Chan troi sang tao"@vi ; geo:confidence 3 .
+geo:TB_CD a geo:Textbook ; rdfs:label "SGK LS&DL 9 - Canh Dieu"@vi ; geo:confidence 3 .
+
+
+#################################################################
+#   REGIONS
+#################################################################
+
+geo:R_VietNam a geo:Region ;
+    rdfs:label "Viet Nam"@vi ;
+    geo:spatialScope 3 ;
+    geo:frequencyInTextbook 30 ;
+    geo:abstractness 1 ;
+    geo:confidence 3 .
+
+geo:R_TDMNBB a geo:Region ;
+    rdfs:label "Trung du va mien nui Bac Bo"@vi ;
+    geo:aliases "TDMNBB" ;
+    geo:spatialScope 2 ;
+    geo:frequencyInTextbook 20 ;
+    geo:abstractness 2 ;
+    geo:confidence 3 .
+
+geo:R_DBSH a geo:Region ;
+    rdfs:label "Dong bang song Hong"@vi ;
+    geo:aliases "DBSH" ;
+    geo:spatialScope 2 ;
+    geo:frequencyInTextbook 25 ;
+    geo:abstractness 2 ;
+    geo:confidence 3 .
+
+geo:R_BTB a geo:Region ;
+    rdfs:label "Bac Trung Bo"@vi ;
+    geo:aliases "BTB" ;
+    geo:spatialScope 2 ;
+    geo:frequencyInTextbook 20 ;
+    geo:abstractness 2 ;
+    geo:confidence 3 .
+
+geo:R_DHNTB a geo:Region ;
+    rdfs:label "Duyen hai Nam Trung Bo"@vi ;
+    geo:aliases "DHNTB" ;
+    geo:spatialScope 2 ;
+    geo:frequencyInTextbook 18 ;
+    geo:abstractness 2 ;
+    geo:confidence 3 .
+
+geo:R_TN a geo:Region ;
+    rdfs:label "Tay Nguyen"@vi ;
+    geo:spatialScope 2 ;
+    geo:frequencyInTextbook 20 ;
+    geo:abstractness 2 ;
+    geo:confidence 3 .
+
+geo:R_DNB a geo:Region ;
+    rdfs:label "Dong Nam Bo"@vi ;
+    geo:aliases "DNB" ;
+    geo:spatialScope 2 ;
+    geo:frequencyInTextbook 22 ;
+    geo:abstractness 2 ;
+    geo:confidence 3 .
+
+geo:R_DBSCL a geo:Region ;
+    rdfs:label "Dong bang song Cuu Long"@vi ;
+    geo:aliases "DBSCL|Tay Nam Bo" ;
+    geo:spatialScope 2 ;
+    geo:frequencyInTextbook 25 ;
+    geo:abstractness 2 ;
+    geo:confidence 3 .
+
+geo:R_DongBac a geo:Region ;
+    rdfs:label "Dong Bac (thuoc TDMNBB)"@vi ;
+    geo:spatialScope 1 ;
+    geo:frequencyInTextbook 6 ;
+    geo:abstractness 2 ;
+    geo:confidence 3 .
+
+geo:R_TayBac a geo:Region ;
+    rdfs:label "Tay Bac (thuoc TDMNBB)"@vi ;
+    geo:spatialScope 1 ;
+    geo:frequencyInTextbook 6 ;
+    geo:abstractness 2 ;
+    geo:confidence 3 .
+
+geo:R_HaNoi a geo:Region ;
+    rdfs:label "Ha Noi"@vi ;
+    geo:spatialScope 1 ;
+    geo:frequencyInTextbook 12 ;
+    geo:abstractness 1 ;
+    geo:confidence 3 .
+
+geo:R_HCM a geo:Region ;
+    rdfs:label "TP Ho Chi Minh"@vi ;
+    geo:aliases "TP HCM|Sai Gon" ;
+    geo:spatialScope 1 ;
+    geo:frequencyInTextbook 12 ;
+    geo:abstractness 1 ;
+    geo:confidence 3 .
+
+geo:R_HaiPhong a geo:Region ;
+    rdfs:label "Hai Phong"@vi ;
+    geo:spatialScope 1 ;
+    geo:frequencyInTextbook 6 ;
+    geo:abstractness 1 ;
+    geo:confidence 3 .
+
+geo:R_DaNang a geo:Region ;
+    rdfs:label "Da Nang"@vi ;
+    geo:spatialScope 1 ;
+    geo:frequencyInTextbook 6 ;
+    geo:abstractness 1 ;
+    geo:confidence 3 .
+
+geo:R_CanTho a geo:Region ;
+    rdfs:label "Can Tho"@vi ;
+    geo:spatialScope 1 ;
+    geo:frequencyInTextbook 5 ;
+    geo:abstractness 1 ;
+    geo:confidence 3 .
+
+geo:R_BienDong a geo:Region ;
+    rdfs:label "Bien Dong"@vi ;
+    geo:spatialScope 4 ;
+    geo:frequencyInTextbook 10 ;
+    geo:abstractness 2 ;
+    geo:confidence 3 .
+
+geo:R_DongNamA a geo:Region ;
+    rdfs:label "Dong Nam A"@vi ;
+    geo:spatialScope 4 ;
+    geo:frequencyInTextbook 8 ;
+    geo:abstractness 2 ;
+    geo:confidence 3 .
+
+geo:R_VinhBacBo a geo:Region ;
+    rdfs:label "Vinh Bac Bo"@vi ;
+    geo:spatialScope 3 ;
+    geo:frequencyInTextbook 4 ;
+    geo:abstractness 1 ;
+    geo:confidence 3 .
+
+geo:R_QuanDaoHoangSa a geo:Region ;
+    rdfs:label "Quan dao Hoang Sa"@vi ;
+    geo:spatialScope 3 ;
+    geo:frequencyInTextbook 4 ;
+    geo:abstractness 1 ;
+    geo:confidence 3 .
+
+geo:R_QuanDaoTruongSa a geo:Region ;
+    rdfs:label "Quan dao Truong Sa"@vi ;
+    geo:spatialScope 3 ;
+    geo:frequencyInTextbook 4 ;
+    geo:abstractness 1 ;
+    geo:confidence 3 .
+
+geo:R_PhuQuoc a geo:Region ;
+    rdfs:label "Phu Quoc"@vi ;
+    geo:spatialScope 2 ;
+    geo:frequencyInTextbook 3 ;
+    geo:abstractness 1 ;
+    geo:confidence 3 .
+
+
+#################################################################
+#   NATURAL FEATURES
+#################################################################
+
+geo:NF_HoangLienSon a geo:NaturalFeature ;
+    rdfs:label "Day Hoang Lien Son"@vi ;
+    geo:frequencyInTextbook 4 ;
+    geo:abstractness 2 ;
+    geo:confidence 3 .
+
+geo:NF_Phansipan a geo:NaturalFeature ;
+    rdfs:label "Phan-xi-pang"@vi ;
+    geo:aliases "Fansipan" ;
+    geo:frequencyInTextbook 3 ;
+    geo:abstractness 1 ;
+    geo:confidence 3 .
+
+geo:NF_TruongSon a geo:NaturalFeature ;
+    rdfs:label "Day Truong Son"@vi ;
+    geo:frequencyInTextbook 5 ;
+    geo:abstractness 2 ;
+    geo:confidence 3 .
+
+geo:NF_TaySonNguyen a geo:NaturalFeature ;
+    rdfs:label "Tay Nguyen (dia hinh)"@vi ;
+    geo:frequencyInTextbook 4 ;
+    geo:abstractness 2 ;
+    geo:confidence 3 .
+
+geo:NF_DBSH_Plain a geo:NaturalFeature ;
+    rdfs:label "Dong bang Bac Bo"@vi ;
+    geo:frequencyInTextbook 5 ;
+    geo:abstractness 2 ;
+    geo:confidence 3 .
+
+geo:NF_DBSCL_Plain a geo:NaturalFeature ;
+    rdfs:label "Dong bang Nam Bo"@vi ;
+    geo:frequencyInTextbook 5 ;
+    geo:abstractness 2 ;
+    geo:confidence 3 .
+
+geo:NF_SongHong a geo:NaturalFeature ;
+    rdfs:label "Song Hong"@vi ;
+    geo:frequencyInTextbook 6 ;
+    geo:abstractness 1 ;
+    geo:confidence 3 .
+
+geo:NF_SongMekong a geo:NaturalFeature ;
+    rdfs:label "Song Me Kong"@vi ;
+    geo:aliases "Song Cuu Long" ;
+    geo:frequencyInTextbook 8 ;
+    geo:abstractness 1 ;
+    geo:confidence 3 .
+
+geo:NF_SongDongNai a geo:NaturalFeature ;
+    rdfs:label "Song Dong Nai"@vi ;
+    geo:frequencyInTextbook 3 ;
+    geo:abstractness 1 ;
+    geo:confidence 3 .
+
+geo:NF_SongDa a geo:NaturalFeature ;
+    rdfs:label "Song Da"@vi ;
+    geo:frequencyInTextbook 3 ;
+    geo:abstractness 1 ;
+    geo:confidence 3 .
+
+geo:NF_BienDong_NF a geo:NaturalFeature ;
+    rdfs:label "Bien Dong (vi tri)"@vi ;
+    geo:frequencyInTextbook 6 ;
+    geo:abstractness 2 ;
+    geo:confidence 3 .
+
+geo:NF_BacHaiDuong a geo:NaturalFeature ;
+    rdfs:label "Bo bien Viet Nam"@vi ;
+    geo:aliases "Duong bo bien" ;
+    geo:frequencyInTextbook 6 ;
+    geo:abstractness 2 ;
+    geo:confidence 3 .
+
+geo:NF_KhiHauNhietDoi a geo:NaturalFeature ;
+    rdfs:label "Khi hau nhiet doi am gio mua"@vi ;
+    geo:aliases "Nhiet doi gio mua" ;
+    geo:frequencyInTextbook 8 ;
+    geo:abstractness 3 ;
+    geo:confidence 3 .
+
+
+#################################################################
+#   PHENOMENA
+#################################################################
+
+geo:PH_GioMua a geo:Phenomenon ;
+    rdfs:label "Gio mua"@vi ;
+    geo:spatialScope 3 ;
+    geo:explanatoryFactors 3 ;
+    geo:frequencyInTextbook 10 ;
+    geo:abstractness 3 ;
+    geo:bloomLevel 2 ;
+    geo:confidence 3 .
+
+geo:PH_Bao a geo:Phenomenon ;
+    rdfs:label "Bao"@vi ;
+    geo:spatialScope 3 ;
+    geo:explanatoryFactors 3 ;
+    geo:frequencyInTextbook 6 ;
+    geo:abstractness 2 ;
+    geo:bloomLevel 2 ;
+    geo:confidence 3 .
+
+geo:PH_Lu a geo:Phenomenon ;
+    rdfs:label "Lu, lu quet"@vi ;
+    geo:aliases "Lu lut" ;
+    geo:spatialScope 3 ;
+    geo:explanatoryFactors 3 ;
+    geo:frequencyInTextbook 6 ;
+    geo:abstractness 2 ;
+    geo:bloomLevel 2 ;
+    geo:confidence 3 .
+
+geo:PH_HanHan a geo:Phenomenon ;
+    rdfs:label "Han han"@vi ;
+    geo:spatialScope 3 ;
+    geo:explanatoryFactors 3 ;
+    geo:frequencyInTextbook 5 ;
+    geo:abstractness 2 ;
+    geo:bloomLevel 2 ;
+    geo:confidence 3 .
+
+geo:PH_XamNhapMan a geo:Phenomenon ;
+    rdfs:label "Xam nhap man"@vi ;
+    geo:spatialScope 3 ;
+    geo:explanatoryFactors 4 ;
+    geo:frequencyInTextbook 6 ;
+    geo:abstractness 3 ;
+    geo:bloomLevel 3 ;
+    geo:confidence 3 .
+
+geo:PH_BienDoiKhiHau a geo:Phenomenon ;
+    rdfs:label "Bien doi khi hau"@vi ;
+    geo:aliases "BDKH" ;
+    geo:spatialScope 5 ;
+    geo:explanatoryFactors 5 ;
+    geo:frequencyInTextbook 8 ;
+    geo:abstractness 4 ;
+    geo:bloomLevel 3 ;
+    geo:confidence 3 .
+
+geo:PH_MatDatCanhTac a geo:Phenomenon ;
+    rdfs:label "Mat dat canh tac"@vi ;
+    geo:spatialScope 3 ;
+    geo:explanatoryFactors 3 ;
+    geo:frequencyInTextbook 3 ;
+    geo:abstractness 3 ;
+    geo:bloomLevel 3 ;
+    geo:confidence 2 .
+
+geo:PH_OnhiemMoiTruong a geo:Phenomenon ;
+    rdfs:label "O nhiem moi truong"@vi ;
+    geo:spatialScope 3 ;
+    geo:explanatoryFactors 3 ;
+    geo:frequencyInTextbook 5 ;
+    geo:abstractness 3 ;
+    geo:bloomLevel 2 ;
+    geo:confidence 3 .
+
+geo:PH_ChuyenDichCoCauKT a geo:Phenomenon ;
+    rdfs:label "Chuyen dich co cau kinh te"@vi ;
+    geo:spatialScope 3 ;
+    geo:explanatoryFactors 4 ;
+    geo:frequencyInTextbook 10 ;
+    geo:abstractness 4 ;
+    geo:bloomLevel 3 ;
+    geo:confidence 3 .
+
+geo:PH_DoThiHoa a geo:Phenomenon ;
+    rdfs:label "Do thi hoa"@vi ;
+    geo:spatialScope 3 ;
+    geo:explanatoryFactors 3 ;
+    geo:frequencyInTextbook 6 ;
+    geo:abstractness 3 ;
+    geo:bloomLevel 2 ;
+    geo:confidence 3 .
+
+
+#################################################################
+#   RESOURCES
+#################################################################
+
+geo:RE_Than a geo:Resource ;
+    rdfs:label "Than da"@vi ;
+    geo:aliases "Than" ;
+    geo:spatialScope 2 ;
+    geo:frequencyInTextbook 6 ;
+    geo:abstractness 1 ;
+    geo:confidence 3 .
+
+geo:RE_DauKhi a geo:Resource ;
+    rdfs:label "Dau mo va khi dot"@vi ;
+    geo:aliases "Dau khi" ;
+    geo:spatialScope 2 ;
+    geo:frequencyInTextbook 8 ;
+    geo:abstractness 2 ;
+    geo:confidence 3 .
+
+geo:RE_Boxit a geo:Resource ;
+    rdfs:label "Bo xit"@vi ;
+    geo:spatialScope 2 ;
+    geo:frequencyInTextbook 5 ;
+    geo:abstractness 1 ;
+    geo:confidence 3 .
+
+geo:RE_Sat a geo:Resource ;
+    rdfs:label "Quang sat"@vi ;
+    geo:spatialScope 2 ;
+    geo:frequencyInTextbook 4 ;
+    geo:abstractness 1 ;
+    geo:confidence 3 .
+
+geo:RE_Apatit a geo:Resource ;
+    rdfs:label "A-pa-tit"@vi ;
+    geo:aliases "Apatit" ;
+    geo:spatialScope 1 ;
+    geo:frequencyInTextbook 3 ;
+    geo:abstractness 1 ;
+    geo:confidence 3 .
+
+geo:RE_DatBazan a geo:Resource ;
+    rdfs:label "Dat bazan"@vi ;
+    geo:spatialScope 2 ;
+    geo:frequencyInTextbook 6 ;
+    geo:abstractness 2 ;
+    geo:confidence 3 .
+
+geo:RE_DatPhuSa a geo:Resource ;
+    rdfs:label "Dat phu sa"@vi ;
+    geo:spatialScope 2 ;
+    geo:frequencyInTextbook 8 ;
+    geo:abstractness 2 ;
+    geo:confidence 3 .
+
+geo:RE_RungNhietDoi a geo:Resource ;
+    rdfs:label "Rung nhiet doi"@vi ;
+    geo:spatialScope 3 ;
+    geo:frequencyInTextbook 6 ;
+    geo:abstractness 2 ;
+    geo:confidence 3 .
+
+geo:RE_RungNganMan a geo:Resource ;
+    rdfs:label "Rung ngap man"@vi ;
+    geo:spatialScope 3 ;
+    geo:frequencyInTextbook 5 ;
+    geo:abstractness 2 ;
+    geo:confidence 3 .
+
+geo:RE_ThuySanBien a geo:Resource ;
+    rdfs:label "Thuy san bien"@vi ;
+    geo:spatialScope 3 ;
+    geo:frequencyInTextbook 8 ;
+    geo:abstractness 2 ;
+    geo:confidence 3 .
+
+geo:RE_ThuySanNuocNgot a geo:Resource ;
+    rdfs:label "Thuy san nuoc ngot"@vi ;
+    geo:spatialScope 3 ;
+    geo:frequencyInTextbook 4 ;
+    geo:abstractness 2 ;
+    geo:confidence 3 .
+
+geo:RE_TiemNangThuyDien a geo:Resource ;
+    rdfs:label "Tiem nang thuy dien"@vi ;
+    geo:aliases "Thuy nang" ;
+    geo:spatialScope 3 ;
+    geo:frequencyInTextbook 6 ;
+    geo:abstractness 3 ;
+    geo:confidence 3 .
+
+geo:RE_TiemNangDuLich a geo:Resource ;
+    rdfs:label "Tiem nang du lich"@vi ;
+    geo:spatialScope 3 ;
+    geo:frequencyInTextbook 5 ;
+    geo:abstractness 3 ;
+    geo:confidence 3 .
+
+
+#################################################################
+#   INDUSTRIES
+#################################################################
+
+geo:I_NongNghiep a geo:Industry ;
+    rdfs:label "Nong nghiep"@vi ;
+    geo:spatialScope 2 ;
+    geo:frequencyInTextbook 20 ;
+    geo:abstractness 2 ;
+    geo:confidence 3 .
+
+geo:I_TrongTrot a geo:Industry ;
+    rdfs:label "Trong trot"@vi ;
+    geo:spatialScope 2 ;
+    geo:frequencyInTextbook 15 ;
+    geo:abstractness 2 ;
+    geo:confidence 3 .
+
+geo:I_ChanNuoi a geo:Industry ;
+    rdfs:label "Chan nuoi"@vi ;
+    geo:spatialScope 2 ;
+    geo:frequencyInTextbook 8 ;
+    geo:abstractness 2 ;
+    geo:confidence 3 .
+
+geo:I_LamNghiep a geo:Industry ;
+    rdfs:label "Lam nghiep"@vi ;
+    geo:spatialScope 2 ;
+    geo:frequencyInTextbook 6 ;
+    geo:abstractness 2 ;
+    geo:confidence 3 .
+
+geo:I_ThuySan a geo:Industry ;
+    rdfs:label "Thuy san"@vi ;
+    geo:aliases "Nganh thuy san" ;
+    geo:spatialScope 2 ;
+    geo:frequencyInTextbook 8 ;
+    geo:abstractness 2 ;
+    geo:confidence 3 .
+
+geo:I_CongNghiep a geo:Industry ;
+    rdfs:label "Cong nghiep"@vi ;
+    geo:spatialScope 2 ;
+    geo:frequencyInTextbook 20 ;
+    geo:abstractness 2 ;
+    geo:confidence 3 .
+
+geo:I_CN_KhaiThac a geo:Industry ;
+    rdfs:label "Cong nghiep khai thac"@vi ;
+    geo:spatialScope 3 ;
+    geo:frequencyInTextbook 6 ;
+    geo:abstractness 2 ;
+    geo:confidence 3 .
+
+geo:I_CN_CheBien_LTTP a geo:Industry ;
+    rdfs:label "Che bien luong thuc thuc pham"@vi ;
+    geo:spatialScope 3 ;
+    geo:frequencyInTextbook 8 ;
+    geo:abstractness 2 ;
+    geo:confidence 3 .
+
+geo:I_CN_DetMay a geo:Industry ;
+    rdfs:label "Det may"@vi ;
+    geo:spatialScope 3 ;
+    geo:frequencyInTextbook 6 ;
+    geo:abstractness 2 ;
+    geo:confidence 3 .
+
+geo:I_CN_CoKhi a geo:Industry ;
+    rdfs:label "Co khi - dien tu"@vi ;
+    geo:spatialScope 3 ;
+    geo:frequencyInTextbook 4 ;
+    geo:abstractness 2 ;
+    geo:confidence 3 .
+
+geo:I_CN_HoaChat a geo:Industry ;
+    rdfs:label "Hoa chat, vat lieu xay dung"@vi ;
+    geo:spatialScope 3 ;
+    geo:frequencyInTextbook 5 ;
+    geo:abstractness 2 ;
+    geo:confidence 3 .
+
+geo:I_DichVu a geo:Industry ;
+    rdfs:label "Dich vu"@vi ;
+    geo:spatialScope 2 ;
+    geo:frequencyInTextbook 10 ;
+    geo:abstractness 2 ;
+    geo:confidence 3 .
+
+geo:I_GiaoThong a geo:Industry ;
+    rdfs:label "Giao thong van tai"@vi ;
+    geo:spatialScope 2 ;
+    geo:frequencyInTextbook 8 ;
+    geo:abstractness 2 ;
+    geo:confidence 3 .
+
+geo:I_BuuChinh a geo:Industry ;
+    rdfs:label "Buu chinh vien thong"@vi ;
+    geo:spatialScope 2 ;
+    geo:frequencyInTextbook 4 ;
+    geo:abstractness 2 ;
+    geo:confidence 3 .
+
+geo:I_DuLich a geo:Industry ;
+    rdfs:label "Du lich"@vi ;
+    geo:aliases "Nganh du lich" ;
+    geo:spatialScope 2 ;
+    geo:frequencyInTextbook 8 ;
+    geo:abstractness 2 ;
+    geo:confidence 3 .
+
+geo:I_ThuongMai a geo:Industry ;
+    rdfs:label "Thuong mai (noi thuong, ngoai thuong)"@vi ;
+    geo:spatialScope 2 ;
+    geo:frequencyInTextbook 8 ;
+    geo:abstractness 2 ;
+    geo:confidence 3 .
+
+
+#################################################################
+#   CROPS
+#################################################################
+
+geo:CR_Lua a geo:Crop ;
+    rdfs:label "Cay lua"@vi ;
+    geo:aliases "Lua nuoc" ;
+    geo:frequencyInTextbook 12 ;
+    geo:abstractness 1 ;
+    geo:confidence 3 .
+
+geo:CR_NgoKhoai a geo:Crop ;
+    rdfs:label "Cay ngo, khoai"@vi ;
+    geo:frequencyInTextbook 5 ;
+    geo:abstractness 1 ;
+    geo:confidence 3 .
+
+geo:CR_CaPhe a geo:Crop ;
+    rdfs:label "Ca phe"@vi ;
+    geo:frequencyInTextbook 8 ;
+    geo:abstractness 1 ;
+    geo:confidence 3 .
+
+geo:CR_CaoSu a geo:Crop ;
+    rdfs:label "Cao su"@vi ;
+    geo:frequencyInTextbook 8 ;
+    geo:abstractness 1 ;
+    geo:confidence 3 .
+
+geo:CR_Che a geo:Crop ;
+    rdfs:label "Che"@vi ;
+    geo:frequencyInTextbook 5 ;
+    geo:abstractness 1 ;
+    geo:confidence 3 .
+
+geo:CR_Dieu a geo:Crop ;
+    rdfs:label "Dieu"@vi ;
+    geo:frequencyInTextbook 4 ;
+    geo:abstractness 1 ;
+    geo:confidence 3 .
+
+geo:CR_HoTieu a geo:Crop ;
+    rdfs:label "Ho tieu"@vi ;
+    geo:frequencyInTextbook 4 ;
+    geo:abstractness 1 ;
+    geo:confidence 3 .
+
+geo:CR_CayAnQua a geo:Crop ;
+    rdfs:label "Cay an qua nhiet doi"@vi ;
+    geo:frequencyInTextbook 5 ;
+    geo:abstractness 2 ;
+    geo:confidence 3 .
+
+geo:CR_CayCongNghiep_NgayNgan a geo:Crop ;
+    rdfs:label "Cay cong nghiep ngan ngay (lac, mia, dau tuong)"@vi ;
+    geo:frequencyInTextbook 5 ;
+    geo:abstractness 2 ;
+    geo:confidence 3 .
+
+
+#################################################################
+#   LIVESTOCK
+#################################################################
+
+geo:LV_TrauBo a geo:Livestock ;
+    rdfs:label "Trau, bo"@vi ;
+    geo:frequencyInTextbook 6 ;
+    geo:abstractness 1 ;
+    geo:confidence 3 .
+
+geo:LV_Lon a geo:Livestock ;
+    rdfs:label "Lon"@vi ;
+    geo:frequencyInTextbook 6 ;
+    geo:abstractness 1 ;
+    geo:confidence 3 .
+
+geo:LV_GiaCam a geo:Livestock ;
+    rdfs:label "Gia cam (ga, vit)"@vi ;
+    geo:frequencyInTextbook 5 ;
+    geo:abstractness 1 ;
+    geo:confidence 3 .
+
+
+#################################################################
+#   DEMOGRAPHIC
+#################################################################
+
+geo:DM_MatDoDanSo a geo:Demographic ;
+    rdfs:label "Mat do dan so"@vi ;
+    geo:frequencyInTextbook 8 ;
+    geo:abstractness 3 ;
+    geo:bloomLevel 2 ;
+    geo:confidence 3 .
+
+geo:DM_TangTruongDanSo a geo:Demographic ;
+    rdfs:label "Tang truong dan so"@vi ;
+    geo:frequencyInTextbook 6 ;
+    geo:abstractness 3 ;
+    geo:bloomLevel 2 ;
+    geo:confidence 3 .
+
+geo:DM_CoCauDanSoTheoTuoi a geo:Demographic ;
+    rdfs:label "Co cau dan so theo tuoi"@vi ;
+    geo:frequencyInTextbook 5 ;
+    geo:abstractness 4 ;
+    geo:bloomLevel 3 ;
+    geo:confidence 3 .
+
+geo:DM_CoCauDanToc a geo:Demographic ;
+    rdfs:label "Co cau dan toc (54 dan toc)"@vi ;
+    geo:frequencyInTextbook 5 ;
+    geo:abstractness 3 ;
+    geo:bloomLevel 2 ;
+    geo:confidence 3 .
+
+geo:DM_ChatLuongCuocSong a geo:Demographic ;
+    rdfs:label "Chat luong cuoc song"@vi ;
+    geo:frequencyInTextbook 4 ;
+    geo:abstractness 4 ;
+    geo:bloomLevel 3 ;
+    geo:confidence 3 .
+
+geo:DM_PhanBoDanCu a geo:Demographic ;
+    rdfs:label "Phan bo dan cu"@vi ;
+    geo:frequencyInTextbook 8 ;
+    geo:abstractness 4 ;
+    geo:bloomLevel 3 ;
+    geo:confidence 3 .
+
+geo:DM_LaoDongVaViecLam a geo:Demographic ;
+    rdfs:label "Lao dong va viec lam"@vi ;
+    geo:frequencyInTextbook 6 ;
+    geo:abstractness 4 ;
+    geo:bloomLevel 3 ;
+    geo:confidence 3 .
+
+
+#################################################################
+#   CONCEPTS
+#################################################################
+
+geo:C_VT_DiaLyVN a geo:Concept ;
+    rdfs:label "Vi tri dia ly Viet Nam"@vi ;
+    geo:aliases "VTDL" ;
+    geo:frequencyInTextbook 8 ;
+    geo:abstractness 3 ;
+    geo:bloomLevel 2 ;
+    geo:confidence 3 .
+
+geo:C_LanhTho a geo:Concept ;
+    rdfs:label "Lanh tho Viet Nam"@vi ;
+    geo:frequencyInTextbook 5 ;
+    geo:abstractness 3 ;
+    geo:bloomLevel 2 ;
+    geo:confidence 3 .
+
+geo:C_KinhDoVoiDo a geo:Concept ;
+    rdfs:label "Kinh do - vi do"@vi ;
+    geo:frequencyInTextbook 4 ;
+    geo:abstractness 3 ;
+    geo:bloomLevel 2 ;
+    geo:confidence 3 .
+
+geo:C_BanDo a geo:Concept ;
+    rdfs:label "Ban do va he thong ky hieu"@vi ;
+    geo:frequencyInTextbook 3 ;
+    geo:abstractness 3 ;
+    geo:bloomLevel 2 ;
+    geo:confidence 3 .
+
+geo:C_GDP a geo:Concept ;
+    rdfs:label "Tong san pham trong nuoc GDP"@vi ;
+    geo:aliases "GDP" ;
+    geo:frequencyInTextbook 5 ;
+    geo:abstractness 4 ;
+    geo:bloomLevel 3 ;
+    geo:confidence 3 .
+
+geo:C_GDP_BinhQuan a geo:Concept ;
+    rdfs:label "GDP binh quan dau nguoi"@vi ;
+    geo:frequencyInTextbook 3 ;
+    geo:abstractness 4 ;
+    geo:bloomLevel 3 ;
+    geo:confidence 3 .
+
+geo:C_NenKinhTeNhieuThanhPhan a geo:Concept ;
+    rdfs:label "Nen kinh te nhieu thanh phan"@vi ;
+    geo:frequencyInTextbook 3 ;
+    geo:abstractness 4 ;
+    geo:bloomLevel 3 ;
+    geo:confidence 3 .
+
+geo:C_CNHDH a geo:Concept ;
+    rdfs:label "Cong nghiep hoa - hien dai hoa"@vi ;
+    geo:aliases "CNH-HDH" ;
+    geo:frequencyInTextbook 6 ;
+    geo:abstractness 4 ;
+    geo:bloomLevel 3 ;
+    geo:confidence 3 .
+
+geo:C_ChuyenDichCoCauLaoDong a geo:Concept ;
+    rdfs:label "Chuyen dich co cau lao dong"@vi ;
+    geo:frequencyInTextbook 4 ;
+    geo:abstractness 4 ;
+    geo:bloomLevel 3 ;
+    geo:confidence 3 .
+
+geo:C_HoiNhapKinhTeQT a geo:Concept ;
+    rdfs:label "Hoi nhap kinh te quoc te"@vi ;
+    geo:frequencyInTextbook 5 ;
+    geo:abstractness 4 ;
+    geo:bloomLevel 3 ;
+    geo:confidence 3 .
+
+geo:C_PTBenVung a geo:Concept ;
+    rdfs:label "Phat trien ben vung"@vi ;
+    geo:frequencyInTextbook 4 ;
+    geo:abstractness 5 ;
+    geo:bloomLevel 3 ;
+    geo:confidence 3 .
+
+
+#################################################################
+#   PROCESSES
+#################################################################
+
+geo:PR_CongNghiepHoa a geo:Process ;
+    rdfs:label "Qua trinh CNH-HDH"@vi ;
+    geo:frequencyInTextbook 8 ;
+    geo:abstractness 4 ;
+    geo:bloomLevel 3 ;
+    geo:confidence 3 .
+
+geo:PR_DoThiHoa a geo:Process ;
+    rdfs:label "Qua trinh do thi hoa"@vi ;
+    geo:frequencyInTextbook 6 ;
+    geo:abstractness 3 ;
+    geo:bloomLevel 3 ;
+    geo:confidence 3 .
+
+geo:PR_ChuyenDichCoCauKT a geo:Process ;
+    rdfs:label "Chuyen dich co cau kinh te"@vi ;
+    geo:frequencyInTextbook 8 ;
+    geo:abstractness 4 ;
+    geo:bloomLevel 3 ;
+    geo:confidence 3 .
+
+geo:PR_HoiNhapASEAN a geo:Process ;
+    rdfs:label "Hoi nhap ASEAN cua VN"@vi ;
+    geo:frequencyInTextbook 4 ;
+    geo:abstractness 4 ;
+    geo:bloomLevel 3 ;
+    geo:confidence 3 .
+
+geo:PR_HoiNhapQT a geo:Process ;
+    rdfs:label "Hoi nhap quoc te, gia nhap WTO"@vi ;
+    geo:frequencyInTextbook 4 ;
+    geo:abstractness 5 ;
+    geo:bloomLevel 3 ;
+    geo:confidence 3 .
+
+
+#################################################################
+#   LESSON UNITS
+#################################################################
+
+geo:TB_Old_B01 a geo:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 1: Cong dong cac dan toc Viet Nam"@vi ;
+    geo:partOfTextbook geo:TB_Old ;
+    geo:curriculumPosition 1 .
+
+geo:TB_Old_B02 a geo:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 2: Dan so va gia tang dan so"@vi ;
+    geo:partOfTextbook geo:TB_Old ;
+    geo:curriculumPosition 2 .
+
+geo:TB_Old_B03 a geo:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 3: Phan bo dan cu va cac loai hinh quan cu"@vi ;
+    geo:partOfTextbook geo:TB_Old ;
+    geo:curriculumPosition 3 .
+
+geo:TB_Old_B04 a geo:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 4: Lao dong va viec lam. Chat luong cuoc song"@vi ;
+    geo:partOfTextbook geo:TB_Old ;
+    geo:curriculumPosition 4 .
+
+geo:TB_Old_B05 a geo:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 5: Qua trinh phat trien kinh te"@vi ;
+    geo:partOfTextbook geo:TB_Old ;
+    geo:curriculumPosition 5 .
+
+geo:TB_Old_B06 a geo:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 6: Su phat trien nen kinh te Viet Nam"@vi ;
+    geo:partOfTextbook geo:TB_Old ;
+    geo:curriculumPosition 6 .
+
+geo:TB_Old_B07 a geo:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 7: Cac nhan to anh huong den su phat trien va phan bo nong nghiep"@vi ;
+    geo:partOfTextbook geo:TB_Old ;
+    geo:curriculumPosition 7 .
+
+geo:TB_Old_B08 a geo:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 8: Su phat trien va phan bo nong nghiep"@vi ;
+    geo:partOfTextbook geo:TB_Old ;
+    geo:curriculumPosition 8 .
+
+geo:TB_Old_B09 a geo:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 9: Su phat trien va phan bo lam nghiep, thuy san"@vi ;
+    geo:partOfTextbook geo:TB_Old ;
+    geo:curriculumPosition 9 .
+
+geo:TB_Old_B10 a geo:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 10: Cac nhan to anh huong den su phat trien va phan bo cong nghiep"@vi ;
+    geo:partOfTextbook geo:TB_Old ;
+    geo:curriculumPosition 10 .
+
+geo:TB_Old_B11 a geo:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 11: Su phat trien va phan bo cong nghiep"@vi ;
+    geo:partOfTextbook geo:TB_Old ;
+    geo:curriculumPosition 11 .
+
+geo:TB_Old_B12 a geo:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 12: Vai tro, dac diem phat trien va phan bo dich vu"@vi ;
+    geo:partOfTextbook geo:TB_Old ;
+    geo:curriculumPosition 12 .
+
+geo:TB_Old_B13 a geo:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 13: Giao thong van tai, buu chinh vien thong"@vi ;
+    geo:partOfTextbook geo:TB_Old ;
+    geo:curriculumPosition 13 .
+
+geo:TB_Old_B14 a geo:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 14: Thuong mai va du lich"@vi ;
+    geo:partOfTextbook geo:TB_Old ;
+    geo:curriculumPosition 14 .
+
+geo:TB_Old_B15 a geo:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 15: Vung TDMNBB (bai 17 SGK)"@vi ;
+    geo:partOfTextbook geo:TB_Old ;
+    geo:curriculumPosition 15 .
+
+geo:TB_Old_B16 a geo:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 16: Vung TDMNBB - kinh te"@vi ;
+    geo:partOfTextbook geo:TB_Old ;
+    geo:curriculumPosition 16 .
+
+geo:TB_Old_B17 a geo:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 17: Vung DBSH - tu nhien, dan cu"@vi ;
+    geo:partOfTextbook geo:TB_Old ;
+    geo:curriculumPosition 17 .
+
+geo:TB_Old_B18 a geo:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 18: Vung DBSH - kinh te"@vi ;
+    geo:partOfTextbook geo:TB_Old ;
+    geo:curriculumPosition 18 .
+
+geo:TB_Old_B19 a geo:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 19: Vung BTB - tu nhien, dan cu"@vi ;
+    geo:partOfTextbook geo:TB_Old ;
+    geo:curriculumPosition 19 .
+
+geo:TB_Old_B20 a geo:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 20: Vung BTB - kinh te"@vi ;
+    geo:partOfTextbook geo:TB_Old ;
+    geo:curriculumPosition 20 .
+
+geo:TB_Old_B21 a geo:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 21: Vung DHNTB - tu nhien, dan cu"@vi ;
+    geo:partOfTextbook geo:TB_Old ;
+    geo:curriculumPosition 21 .
+
+geo:TB_Old_B22 a geo:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 22: Vung DHNTB - kinh te"@vi ;
+    geo:partOfTextbook geo:TB_Old ;
+    geo:curriculumPosition 22 .
+
+geo:TB_Old_B23 a geo:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 23: Vung TN - tu nhien, dan cu"@vi ;
+    geo:partOfTextbook geo:TB_Old ;
+    geo:curriculumPosition 23 .
+
+geo:TB_Old_B24 a geo:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 24: Vung TN - kinh te"@vi ;
+    geo:partOfTextbook geo:TB_Old ;
+    geo:curriculumPosition 24 .
+
+geo:TB_Old_B25 a geo:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 25: Vung DNB - tu nhien, dan cu"@vi ;
+    geo:partOfTextbook geo:TB_Old ;
+    geo:curriculumPosition 25 .
+
+geo:TB_Old_B26 a geo:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 26: Vung DNB - kinh te (tiep)"@vi ;
+    geo:partOfTextbook geo:TB_Old ;
+    geo:curriculumPosition 26 .
+
+geo:TB_Old_B27 a geo:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 27: Vung DBSCL - tu nhien, dan cu"@vi ;
+    geo:partOfTextbook geo:TB_Old ;
+    geo:curriculumPosition 27 .
+
+geo:TB_Old_B28 a geo:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 28: Vung DBSCL - kinh te"@vi ;
+    geo:partOfTextbook geo:TB_Old ;
+    geo:curriculumPosition 28 .
+
+geo:TB_Old_B29 a geo:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 29: Phat trien tong hop kinh te va bao ve tai nguyen, moi truong bien dao"@vi ;
+    geo:partOfTextbook geo:TB_Old ;
+    geo:curriculumPosition 29 .
+
+geo:TB_Old_B30 a geo:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 30: Dia li dia phuong"@vi ;
+    geo:partOfTextbook geo:TB_Old ;
+    geo:curriculumPosition 30 .
+
+geo:TB_KNTT_B01 a geo:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 1: KNTT Bai 1"@vi ;
+    geo:partOfTextbook geo:TB_KNTT ;
+    geo:curriculumPosition 1 .
+
+geo:TB_KNTT_B02 a geo:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 2: KNTT Bai 2"@vi ;
+    geo:partOfTextbook geo:TB_KNTT ;
+    geo:curriculumPosition 2 .
+
+geo:TB_KNTT_B03 a geo:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 3: KNTT Bai 3"@vi ;
+    geo:partOfTextbook geo:TB_KNTT ;
+    geo:curriculumPosition 3 .
+
+geo:TB_KNTT_B04 a geo:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 4: KNTT Bai 4"@vi ;
+    geo:partOfTextbook geo:TB_KNTT ;
+    geo:curriculumPosition 4 .
+
+geo:TB_KNTT_B05 a geo:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 5: KNTT Bai 5"@vi ;
+    geo:partOfTextbook geo:TB_KNTT ;
+    geo:curriculumPosition 5 .
+
+geo:TB_KNTT_B06 a geo:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 6: KNTT Bai 6"@vi ;
+    geo:partOfTextbook geo:TB_KNTT ;
+    geo:curriculumPosition 6 .
+
+geo:TB_KNTT_B07 a geo:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 7: KNTT Bai 7"@vi ;
+    geo:partOfTextbook geo:TB_KNTT ;
+    geo:curriculumPosition 7 .
+
+geo:TB_KNTT_B08 a geo:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 8: KNTT Bai 8"@vi ;
+    geo:partOfTextbook geo:TB_KNTT ;
+    geo:curriculumPosition 8 .
+
+geo:TB_KNTT_B09 a geo:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 9: KNTT Bai 9"@vi ;
+    geo:partOfTextbook geo:TB_KNTT ;
+    geo:curriculumPosition 9 .
+
+geo:TB_KNTT_B10 a geo:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 10: KNTT Bai 10"@vi ;
+    geo:partOfTextbook geo:TB_KNTT ;
+    geo:curriculumPosition 10 .
+
+geo:TB_KNTT_B11 a geo:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 11: KNTT Bai 11"@vi ;
+    geo:partOfTextbook geo:TB_KNTT ;
+    geo:curriculumPosition 11 .
+
+geo:TB_KNTT_B12 a geo:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 12: KNTT Bai 12"@vi ;
+    geo:partOfTextbook geo:TB_KNTT ;
+    geo:curriculumPosition 12 .
+
+geo:TB_KNTT_B13 a geo:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 13: KNTT Bai 13"@vi ;
+    geo:partOfTextbook geo:TB_KNTT ;
+    geo:curriculumPosition 13 .
+
+geo:TB_KNTT_B14 a geo:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 14: KNTT Bai 14"@vi ;
+    geo:partOfTextbook geo:TB_KNTT ;
+    geo:curriculumPosition 14 .
+
+geo:TB_KNTT_B15 a geo:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 15: KNTT Bai 15"@vi ;
+    geo:partOfTextbook geo:TB_KNTT ;
+    geo:curriculumPosition 15 .
+
+geo:TB_KNTT_B16 a geo:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 16: KNTT Bai 16"@vi ;
+    geo:partOfTextbook geo:TB_KNTT ;
+    geo:curriculumPosition 16 .
+
+geo:TB_KNTT_B17 a geo:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 17: KNTT Bai 17"@vi ;
+    geo:partOfTextbook geo:TB_KNTT ;
+    geo:curriculumPosition 17 .
+
+geo:TB_KNTT_B18 a geo:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 18: KNTT Bai 18"@vi ;
+    geo:partOfTextbook geo:TB_KNTT ;
+    geo:curriculumPosition 18 .
+
+geo:TB_KNTT_B19 a geo:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 19: KNTT Bai 19"@vi ;
+    geo:partOfTextbook geo:TB_KNTT ;
+    geo:curriculumPosition 19 .
+
+geo:TB_KNTT_B20 a geo:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 20: KNTT Bai 20"@vi ;
+    geo:partOfTextbook geo:TB_KNTT ;
+    geo:curriculumPosition 20 .
+
+geo:TB_KNTT_B21 a geo:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 21: KNTT Bai 21"@vi ;
+    geo:partOfTextbook geo:TB_KNTT ;
+    geo:curriculumPosition 21 .
+
+geo:TB_KNTT_B22 a geo:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 22: KNTT Bai 22"@vi ;
+    geo:partOfTextbook geo:TB_KNTT ;
+    geo:curriculumPosition 22 .
+
+geo:TB_KNTT_B23 a geo:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 23: KNTT Bai 23"@vi ;
+    geo:partOfTextbook geo:TB_KNTT ;
+    geo:curriculumPosition 23 .
+
+geo:TB_KNTT_B24 a geo:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 24: KNTT Bai 24"@vi ;
+    geo:partOfTextbook geo:TB_KNTT ;
+    geo:curriculumPosition 24 .
+
+geo:TB_KNTT_B25 a geo:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 25: KNTT Bai 25"@vi ;
+    geo:partOfTextbook geo:TB_KNTT ;
+    geo:curriculumPosition 25 .
+
+geo:TB_CTST_B01 a geo:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 1: CTST Bai 1"@vi ;
+    geo:partOfTextbook geo:TB_CTST ;
+    geo:curriculumPosition 1 .
+
+geo:TB_CTST_B02 a geo:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 2: CTST Bai 2"@vi ;
+    geo:partOfTextbook geo:TB_CTST ;
+    geo:curriculumPosition 2 .
+
+geo:TB_CTST_B03 a geo:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 3: CTST Bai 3"@vi ;
+    geo:partOfTextbook geo:TB_CTST ;
+    geo:curriculumPosition 3 .
+
+geo:TB_CTST_B04 a geo:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 4: CTST Bai 4"@vi ;
+    geo:partOfTextbook geo:TB_CTST ;
+    geo:curriculumPosition 4 .
+
+geo:TB_CTST_B05 a geo:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 5: CTST Bai 5"@vi ;
+    geo:partOfTextbook geo:TB_CTST ;
+    geo:curriculumPosition 5 .
+
+geo:TB_CTST_B06 a geo:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 6: CTST Bai 6"@vi ;
+    geo:partOfTextbook geo:TB_CTST ;
+    geo:curriculumPosition 6 .
+
+geo:TB_CTST_B07 a geo:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 7: CTST Bai 7"@vi ;
+    geo:partOfTextbook geo:TB_CTST ;
+    geo:curriculumPosition 7 .
+
+geo:TB_CTST_B08 a geo:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 8: CTST Bai 8"@vi ;
+    geo:partOfTextbook geo:TB_CTST ;
+    geo:curriculumPosition 8 .
+
+geo:TB_CTST_B09 a geo:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 9: CTST Bai 9"@vi ;
+    geo:partOfTextbook geo:TB_CTST ;
+    geo:curriculumPosition 9 .
+
+geo:TB_CTST_B10 a geo:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 10: CTST Bai 10"@vi ;
+    geo:partOfTextbook geo:TB_CTST ;
+    geo:curriculumPosition 10 .
+
+geo:TB_CTST_B11 a geo:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 11: CTST Bai 11"@vi ;
+    geo:partOfTextbook geo:TB_CTST ;
+    geo:curriculumPosition 11 .
+
+geo:TB_CTST_B12 a geo:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 12: CTST Bai 12"@vi ;
+    geo:partOfTextbook geo:TB_CTST ;
+    geo:curriculumPosition 12 .
+
+geo:TB_CTST_B13 a geo:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 13: CTST Bai 13"@vi ;
+    geo:partOfTextbook geo:TB_CTST ;
+    geo:curriculumPosition 13 .
+
+geo:TB_CTST_B14 a geo:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 14: CTST Bai 14"@vi ;
+    geo:partOfTextbook geo:TB_CTST ;
+    geo:curriculumPosition 14 .
+
+geo:TB_CTST_B15 a geo:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 15: CTST Bai 15"@vi ;
+    geo:partOfTextbook geo:TB_CTST ;
+    geo:curriculumPosition 15 .
+
+geo:TB_CTST_B16 a geo:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 16: CTST Bai 16"@vi ;
+    geo:partOfTextbook geo:TB_CTST ;
+    geo:curriculumPosition 16 .
+
+geo:TB_CTST_B17 a geo:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 17: CTST Bai 17"@vi ;
+    geo:partOfTextbook geo:TB_CTST ;
+    geo:curriculumPosition 17 .
+
+geo:TB_CTST_B18 a geo:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 18: CTST Bai 18"@vi ;
+    geo:partOfTextbook geo:TB_CTST ;
+    geo:curriculumPosition 18 .
+
+geo:TB_CTST_B19 a geo:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 19: CTST Bai 19"@vi ;
+    geo:partOfTextbook geo:TB_CTST ;
+    geo:curriculumPosition 19 .
+
+geo:TB_CTST_B20 a geo:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 20: CTST Bai 20"@vi ;
+    geo:partOfTextbook geo:TB_CTST ;
+    geo:curriculumPosition 20 .
+
+geo:TB_CTST_B21 a geo:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 21: CTST Bai 21"@vi ;
+    geo:partOfTextbook geo:TB_CTST ;
+    geo:curriculumPosition 21 .
+
+geo:TB_CTST_B22 a geo:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 22: CTST Bai 22"@vi ;
+    geo:partOfTextbook geo:TB_CTST ;
+    geo:curriculumPosition 22 .
+
+geo:TB_CTST_B23 a geo:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 23: CTST Bai 23"@vi ;
+    geo:partOfTextbook geo:TB_CTST ;
+    geo:curriculumPosition 23 .
+
+geo:TB_CTST_B24 a geo:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 24: CTST Bai 24"@vi ;
+    geo:partOfTextbook geo:TB_CTST ;
+    geo:curriculumPosition 24 .
+
+geo:TB_CTST_B25 a geo:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 25: CTST Bai 25"@vi ;
+    geo:partOfTextbook geo:TB_CTST ;
+    geo:curriculumPosition 25 .
+
+geo:TB_CD_B01 a geo:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 1: CD Bai 1"@vi ;
+    geo:partOfTextbook geo:TB_CD ;
+    geo:curriculumPosition 1 .
+
+geo:TB_CD_B02 a geo:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 2: CD Bai 2"@vi ;
+    geo:partOfTextbook geo:TB_CD ;
+    geo:curriculumPosition 2 .
+
+geo:TB_CD_B03 a geo:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 3: CD Bai 3"@vi ;
+    geo:partOfTextbook geo:TB_CD ;
+    geo:curriculumPosition 3 .
+
+geo:TB_CD_B04 a geo:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 4: CD Bai 4"@vi ;
+    geo:partOfTextbook geo:TB_CD ;
+    geo:curriculumPosition 4 .
+
+geo:TB_CD_B05 a geo:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 5: CD Bai 5"@vi ;
+    geo:partOfTextbook geo:TB_CD ;
+    geo:curriculumPosition 5 .
+
+geo:TB_CD_B06 a geo:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 6: CD Bai 6"@vi ;
+    geo:partOfTextbook geo:TB_CD ;
+    geo:curriculumPosition 6 .
+
+geo:TB_CD_B07 a geo:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 7: CD Bai 7"@vi ;
+    geo:partOfTextbook geo:TB_CD ;
+    geo:curriculumPosition 7 .
+
+geo:TB_CD_B08 a geo:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 8: CD Bai 8"@vi ;
+    geo:partOfTextbook geo:TB_CD ;
+    geo:curriculumPosition 8 .
+
+geo:TB_CD_B09 a geo:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 9: CD Bai 9"@vi ;
+    geo:partOfTextbook geo:TB_CD ;
+    geo:curriculumPosition 9 .
+
+geo:TB_CD_B10 a geo:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 10: CD Bai 10"@vi ;
+    geo:partOfTextbook geo:TB_CD ;
+    geo:curriculumPosition 10 .
+
+geo:TB_CD_B11 a geo:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 11: CD Bai 11"@vi ;
+    geo:partOfTextbook geo:TB_CD ;
+    geo:curriculumPosition 11 .
+
+geo:TB_CD_B12 a geo:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 12: CD Bai 12"@vi ;
+    geo:partOfTextbook geo:TB_CD ;
+    geo:curriculumPosition 12 .
+
+geo:TB_CD_B13 a geo:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 13: CD Bai 13"@vi ;
+    geo:partOfTextbook geo:TB_CD ;
+    geo:curriculumPosition 13 .
+
+geo:TB_CD_B14 a geo:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 14: CD Bai 14"@vi ;
+    geo:partOfTextbook geo:TB_CD ;
+    geo:curriculumPosition 14 .
+
+geo:TB_CD_B15 a geo:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 15: CD Bai 15"@vi ;
+    geo:partOfTextbook geo:TB_CD ;
+    geo:curriculumPosition 15 .
+
+geo:TB_CD_B16 a geo:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 16: CD Bai 16"@vi ;
+    geo:partOfTextbook geo:TB_CD ;
+    geo:curriculumPosition 16 .
+
+geo:TB_CD_B17 a geo:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 17: CD Bai 17"@vi ;
+    geo:partOfTextbook geo:TB_CD ;
+    geo:curriculumPosition 17 .
+
+geo:TB_CD_B18 a geo:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 18: CD Bai 18"@vi ;
+    geo:partOfTextbook geo:TB_CD ;
+    geo:curriculumPosition 18 .
+
+geo:TB_CD_B19 a geo:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 19: CD Bai 19"@vi ;
+    geo:partOfTextbook geo:TB_CD ;
+    geo:curriculumPosition 19 .
+
+geo:TB_CD_B20 a geo:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 20: CD Bai 20"@vi ;
+    geo:partOfTextbook geo:TB_CD ;
+    geo:curriculumPosition 20 .
+
+geo:TB_CD_B21 a geo:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 21: CD Bai 21"@vi ;
+    geo:partOfTextbook geo:TB_CD ;
+    geo:curriculumPosition 21 .
+
+geo:TB_CD_B22 a geo:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 22: CD Bai 22"@vi ;
+    geo:partOfTextbook geo:TB_CD ;
+    geo:curriculumPosition 22 .
+
+geo:TB_CD_B23 a geo:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 23: CD Bai 23"@vi ;
+    geo:partOfTextbook geo:TB_CD ;
+    geo:curriculumPosition 23 .
+
+geo:TB_CD_B24 a geo:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 24: CD Bai 24"@vi ;
+    geo:partOfTextbook geo:TB_CD ;
+    geo:curriculumPosition 24 .
+
+geo:TB_CD_B25 a geo:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 25: CD Bai 25"@vi ;
+    geo:partOfTextbook geo:TB_CD ;
+    geo:curriculumPosition 25 .
+
+
+#################################################################
+#   RELATIONSHIPS
+#################################################################
+
+geo:R_DongBac geo:locatedIn geo:R_TDMNBB .
+
+geo:R_TayBac geo:locatedIn geo:R_TDMNBB .
+
+geo:R_HaNoi geo:locatedIn geo:R_DBSH .
+
+geo:R_HaiPhong geo:locatedIn geo:R_DBSH .
+
+geo:R_DaNang geo:locatedIn geo:R_DHNTB .
+
+geo:R_HCM geo:locatedIn geo:R_DNB .
+
+geo:R_CanTho geo:locatedIn geo:R_DBSCL .
+
+geo:R_TDMNBB geo:locatedIn geo:R_VietNam .
+
+geo:R_DBSH geo:locatedIn geo:R_VietNam .
+
+geo:R_BTB geo:locatedIn geo:R_VietNam .
+
+geo:R_DHNTB geo:locatedIn geo:R_VietNam .
+
+geo:R_TN geo:locatedIn geo:R_VietNam .
+
+geo:R_DNB geo:locatedIn geo:R_VietNam .
+
+geo:R_DBSCL geo:locatedIn geo:R_VietNam .
+
+geo:R_QuanDaoHoangSa geo:locatedIn geo:R_BienDong .
+
+geo:R_QuanDaoTruongSa geo:locatedIn geo:R_BienDong .
+
+geo:R_VinhBacBo geo:locatedIn geo:R_BienDong .
+
+geo:R_VietNam geo:locatedIn geo:R_DongNamA .
+
+geo:R_TDMNBB geo:adjacentTo geo:R_DBSH .
+
+geo:R_DBSH geo:adjacentTo geo:R_BTB .
+
+geo:R_BTB geo:adjacentTo geo:R_DHNTB .
+
+geo:R_DHNTB geo:adjacentTo geo:R_TN .
+
+geo:R_TN geo:adjacentTo geo:R_DNB .
+
+geo:R_DNB geo:adjacentTo geo:R_DBSCL .
+
+geo:R_TDMNBB geo:hasResource geo:RE_Than .
+
+geo:R_TDMNBB geo:hasResource geo:RE_Boxit .
+
+geo:R_TDMNBB geo:hasResource geo:RE_Apatit .
+
+geo:R_TDMNBB geo:hasResource geo:RE_Sat .
+
+geo:R_TDMNBB geo:hasResource geo:RE_TiemNangThuyDien .
+
+geo:R_DBSH geo:hasResource geo:RE_DatPhuSa .
+
+geo:R_TN geo:hasResource geo:RE_DatBazan .
+
+geo:R_TN geo:hasResource geo:RE_TiemNangThuyDien .
+
+geo:R_TN geo:hasResource geo:RE_RungNhietDoi .
+
+geo:R_DNB geo:hasResource geo:RE_DauKhi .
+
+geo:R_DNB geo:hasResource geo:RE_DatBazan .
+
+geo:R_DBSCL geo:hasResource geo:RE_DatPhuSa .
+
+geo:R_DBSCL geo:hasResource geo:RE_ThuySanNuocNgot .
+
+geo:R_DBSCL geo:hasResource geo:RE_RungNganMan .
+
+geo:R_BTB geo:hasResource geo:RE_ThuySanBien .
+
+geo:R_DHNTB geo:hasResource geo:RE_ThuySanBien .
+
+geo:R_DHNTB geo:hasResource geo:RE_TiemNangDuLich .
+
+geo:R_BienDong geo:hasResource geo:RE_ThuySanBien .
+
+geo:R_BienDong geo:hasResource geo:RE_DauKhi .
+
+geo:R_TDMNBB geo:specializesIn geo:I_CN_KhaiThac .
+
+geo:R_TDMNBB geo:specializesIn geo:I_LamNghiep .
+
+geo:R_DBSH geo:specializesIn geo:I_TrongTrot .
+
+geo:R_DBSH geo:specializesIn geo:I_CN_CheBien_LTTP .
+
+geo:R_DBSH geo:specializesIn geo:I_CN_CoKhi .
+
+geo:R_BTB geo:specializesIn geo:I_LamNghiep .
+
+geo:R_BTB geo:specializesIn geo:I_ThuySan .
+
+geo:R_DHNTB geo:specializesIn geo:I_ThuySan .
+
+geo:R_DHNTB geo:specializesIn geo:I_DuLich .
+
+geo:R_TN geo:specializesIn geo:I_TrongTrot .
+
+geo:R_TN geo:specializesIn geo:I_CongNghiep .
+
+geo:R_DNB geo:specializesIn geo:I_CongNghiep .
+
+geo:R_DNB geo:specializesIn geo:I_CN_CoKhi .
+
+geo:R_DNB geo:specializesIn geo:I_CN_HoaChat .
+
+geo:R_DNB geo:specializesIn geo:I_DichVu .
+
+geo:R_DBSCL geo:specializesIn geo:I_TrongTrot .
+
+geo:R_DBSCL geo:specializesIn geo:I_ThuySan .
+
+geo:R_DBSCL geo:specializesIn geo:I_CN_CheBien_LTTP .
+
+geo:CR_Lua geo:grownIn geo:R_DBSH .
+
+geo:CR_Lua geo:grownIn geo:R_DBSCL .
+
+geo:CR_CaPhe geo:grownIn geo:R_TN .
+
+geo:CR_CaoSu geo:grownIn geo:R_DNB .
+
+geo:CR_CaoSu geo:grownIn geo:R_TN .
+
+geo:CR_Che geo:grownIn geo:R_TDMNBB .
+
+geo:CR_Dieu geo:grownIn geo:R_DNB .
+
+geo:CR_HoTieu geo:grownIn geo:R_DNB .
+
+geo:CR_HoTieu geo:grownIn geo:R_TN .
+
+geo:CR_CayAnQua geo:grownIn geo:R_DBSCL .
+
+geo:CR_CayAnQua geo:grownIn geo:R_DNB .
+
+geo:CR_CayCongNghiep_NgayNgan geo:grownIn geo:R_DBSH .
+
+geo:CR_CayCongNghiep_NgayNgan geo:grownIn geo:R_BTB .
+
+geo:LV_TrauBo geo:raisedIn geo:R_TDMNBB .
+
+geo:LV_TrauBo geo:raisedIn geo:R_BTB .
+
+geo:LV_Lon geo:raisedIn geo:R_DBSH .
+
+geo:LV_Lon geo:raisedIn geo:R_DBSCL .
+
+geo:LV_GiaCam geo:raisedIn geo:R_DBSH .
+
+geo:LV_GiaCam geo:raisedIn geo:R_DBSCL .
+
+geo:PH_GioMua geo:occursIn geo:R_VietNam .
+
+geo:PH_Bao geo:occursIn geo:R_BTB .
+
+geo:PH_Bao geo:occursIn geo:R_DHNTB .
+
+geo:PH_Lu geo:occursIn geo:R_DBSCL .
+
+geo:PH_Lu geo:occursIn geo:R_BTB .
+
+geo:PH_HanHan geo:occursIn geo:R_TN .
+
+geo:PH_HanHan geo:occursIn geo:R_DHNTB .
+
+geo:PH_XamNhapMan geo:occursIn geo:R_DBSCL .
+
+geo:NF_KhiHauNhietDoi geo:causes geo:PH_GioMua .
+
+geo:PH_GioMua geo:causes geo:PH_Bao .
+
+geo:PH_BienDoiKhiHau geo:causes geo:PH_XamNhapMan .
+
+geo:PH_BienDoiKhiHau geo:causes geo:PH_HanHan .
+
+geo:C_CNHDH geo:causes geo:PR_ChuyenDichCoCauKT .
+
+geo:C_CNHDH geo:causes geo:PR_DoThiHoa .
+
+geo:PR_HoiNhapASEAN geo:causes geo:PR_HoiNhapQT .
+
+geo:C_VT_DiaLyVN geo:prerequisiteOf geo:NF_KhiHauNhietDoi .
+
+geo:C_VT_DiaLyVN geo:prerequisiteOf geo:C_LanhTho .
+
+geo:C_KinhDoVoiDo geo:prerequisiteOf geo:C_VT_DiaLyVN .
+
+geo:C_BanDo geo:prerequisiteOf geo:C_VT_DiaLyVN .
+
+geo:DM_MatDoDanSo geo:prerequisiteOf geo:DM_PhanBoDanCu .
+
+geo:DM_TangTruongDanSo geo:prerequisiteOf geo:DM_CoCauDanSoTheoTuoi .
+
+geo:DM_PhanBoDanCu geo:prerequisiteOf geo:DM_LaoDongVaViecLam .
+
+geo:DM_LaoDongVaViecLam geo:prerequisiteOf geo:DM_ChatLuongCuocSong .
+
+geo:C_NenKinhTeNhieuThanhPhan geo:prerequisiteOf geo:C_CNHDH .
+
+geo:C_CNHDH geo:prerequisiteOf geo:PR_CongNghiepHoa .
+
+geo:C_CNHDH geo:prerequisiteOf geo:C_ChuyenDichCoCauLaoDong .
+
+geo:C_ChuyenDichCoCauLaoDong geo:prerequisiteOf geo:PH_ChuyenDichCoCauKT .
+
+geo:I_NongNghiep geo:prerequisiteOf geo:I_TrongTrot .
+
+geo:I_NongNghiep geo:prerequisiteOf geo:I_ChanNuoi .
+
+geo:I_NongNghiep geo:prerequisiteOf geo:I_LamNghiep .
+
+geo:I_NongNghiep geo:prerequisiteOf geo:I_ThuySan .
+
+geo:I_CongNghiep geo:prerequisiteOf geo:I_CN_KhaiThac .
+
+geo:I_CongNghiep geo:prerequisiteOf geo:I_CN_CheBien_LTTP .
+
+geo:I_CongNghiep geo:prerequisiteOf geo:I_CN_DetMay .
+
+geo:I_DichVu geo:prerequisiteOf geo:I_GiaoThong .
+
+geo:I_DichVu geo:prerequisiteOf geo:I_DuLich .
+
+geo:I_DichVu geo:prerequisiteOf geo:I_ThuongMai .
+
+geo:R_VietNam geo:prerequisiteOf geo:R_TDMNBB .
+
+geo:R_VietNam geo:prerequisiteOf geo:R_DBSH .
+
+geo:R_VietNam geo:prerequisiteOf geo:R_BTB .
+
+geo:R_TDMNBB geo:prerequisiteOf geo:I_CN_KhaiThac .
+
+geo:RE_DatBazan geo:prerequisiteOf geo:CR_CaPhe .
+
+geo:RE_DatPhuSa geo:prerequisiteOf geo:CR_Lua .
+
+geo:RE_TiemNangThuyDien geo:prerequisiteOf geo:I_CongNghiep .
+
+geo:RE_ThuySanBien geo:prerequisiteOf geo:I_ThuySan .
+
+geo:R_BienDong geo:prerequisiteOf geo:R_QuanDaoHoangSa .
+
+geo:R_BienDong geo:prerequisiteOf geo:R_QuanDaoTruongSa .
+
+geo:C_HoiNhapKinhTeQT geo:prerequisiteOf geo:PR_HoiNhapASEAN .
+
+geo:PR_HoiNhapASEAN geo:prerequisiteOf geo:PR_HoiNhapQT .
+
+geo:C_PTBenVung geo:prerequisiteOf geo:PH_BienDoiKhiHau .
+
+geo:C_GDP geo:prerequisiteOf geo:C_GDP_BinhQuan .
+
+geo:R_DBSH geo:similarTo geo:R_DBSCL .
+
+geo:R_TDMNBB geo:similarTo geo:R_TN .
+
+geo:R_BTB geo:similarTo geo:R_DHNTB .
+
+geo:PH_Bao geo:similarTo geo:PH_Lu .
+
+geo:CR_CaPhe geo:similarTo geo:CR_CaoSu .
+
+geo:CR_Lua geo:similarTo geo:CR_NgoKhoai .
+
+geo:R_DBSH geo:contrastsWith geo:R_TDMNBB .
+
+geo:R_DNB geo:contrastsWith geo:R_DBSCL .
+
+geo:R_HaNoi geo:contrastsWith geo:R_HCM .
+
+geo:NF_DBSH_Plain geo:contrastsWith geo:NF_TruongSon .
+
+geo:CR_Lua geo:contrastsWith geo:CR_CaPhe .
+

@@ -1,0 +1,1965 @@
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix lit:  <http://edu.vn/lit9/ontology#> .
+
+<http://edu.vn/lit9/ontology> a owl:Ontology ;
+    rdfs:label "Ontology Ngu Van 9 - Cold-start Question Difficulty Estimation"@vi ;
+    owl:versionInfo "0.1.0" .
+
+#################################################################
+#   CLASSES
+#################################################################
+
+lit:LitEntity        a owl:Class ; rdfs:label "Thuc the Van hoc"@vi .
+lit:LiteraryWork     a owl:Class ; rdfs:subClassOf lit:LitEntity ; rdfs:label "Tac pham van hoc"@vi .
+lit:Author           a owl:Class ; rdfs:subClassOf lit:LitEntity ; rdfs:label "Tac gia"@vi .
+lit:Character        a owl:Class ; rdfs:subClassOf lit:LitEntity ; rdfs:label "Nhan vat"@vi .
+lit:LiteraryDevice   a owl:Class ; rdfs:subClassOf lit:LitEntity ; rdfs:label "Bien phap nghe thuat"@vi .
+lit:Theme            a owl:Class ; rdfs:subClassOf lit:LitEntity ; rdfs:label "Chu de / Tu tuong"@vi .
+lit:Genre            a owl:Class ; rdfs:subClassOf lit:LitEntity ; rdfs:label "The loai"@vi .
+lit:HistoricalPeriod a owl:Class ; rdfs:subClassOf lit:LitEntity ; rdfs:label "Thoi ky van hoc"@vi .
+lit:LessonUnit       a owl:Class ; rdfs:label "Bai hoc SGK"@vi .
+lit:Textbook         a owl:Class ; rdfs:label "Bo SGK"@vi .
+
+#################################################################
+#   OBJECT PROPERTIES
+#################################################################
+
+lit:authoredBy a owl:ObjectProperty ;
+    rdfs:domain lit:LiteraryWork ; rdfs:range lit:Author ;
+    rdfs:label "sang tac boi"@vi .
+
+lit:contains a owl:ObjectProperty ;
+    rdfs:domain lit:LiteraryWork ; rdfs:range lit:Character ;
+    rdfs:label "co nhan vat"@vi .
+
+lit:uses a owl:ObjectProperty ;
+    rdfs:domain lit:LiteraryWork ; rdfs:range lit:LiteraryDevice ;
+    rdfs:label "su dung (nghe thuat)"@vi .
+
+lit:expresses a owl:ObjectProperty ;
+    rdfs:domain lit:LiteraryWork ; rdfs:range lit:Theme ;
+    rdfs:label "the hien chu de"@vi .
+
+lit:hasGenre a owl:ObjectProperty ;
+    rdfs:domain lit:LiteraryWork ; rdfs:range lit:Genre ;
+    rdfs:label "thuoc the loai"@vi .
+
+lit:writtenIn a owl:ObjectProperty ;
+    rdfs:domain lit:LiteraryWork ; rdfs:range lit:HistoricalPeriod ;
+    rdfs:label "sang tac vao thoi ky"@vi .
+
+lit:activeIn a owl:ObjectProperty ;
+    rdfs:domain lit:Author ; rdfs:range lit:HistoricalPeriod ;
+    rdfs:label "hoat dong vao thoi ky"@vi .
+
+lit:relatedWork a owl:ObjectProperty , owl:SymmetricProperty ;
+    rdfs:label "lien he voi tac pham"@vi .
+
+lit:appearsInLesson a owl:ObjectProperty ; rdfs:range lit:LessonUnit ; rdfs:label "xuat hien trong bai"@vi .
+lit:partOfTextbook  a owl:ObjectProperty ; rdfs:range lit:Textbook ; rdfs:label "thuoc bo SGK"@vi .
+
+lit:similarTo a owl:ObjectProperty , owl:SymmetricProperty ; rdfs:label "tuong tu"@vi .
+lit:contrastsWith a owl:ObjectProperty , owl:SymmetricProperty ; rdfs:label "doi lap"@vi .
+
+#################################################################
+#   DATA PROPERTIES
+#################################################################
+
+lit:abstractness a owl:DatatypeProperty ; rdfs:range xsd:integer ;
+    rdfs:comment "1=rat cu the, 5=rat truu tuong/trieu tuong"@vi .
+lit:bloomLevel a owl:DatatypeProperty ; rdfs:range xsd:integer .
+lit:interpretiveDepth a owl:DatatypeProperty ; rdfs:range xsd:integer ;
+    rdfs:comment "1=hieu be mat, 5=can phan tich sau, da tang nghia"@vi .
+lit:historicalDistance a owl:DatatypeProperty ; rdfs:range xsd:integer ;
+    rdfs:comment "1=hien dai (it tu co), 5=trung dai (nhieu tu co, dien co)"@vi .
+lit:yearWritten a owl:DatatypeProperty ; rdfs:range xsd:string .
+lit:frequencyInTextbook a owl:DatatypeProperty ; rdfs:range xsd:integer .
+lit:curriculumPosition a owl:DatatypeProperty ; rdfs:range xsd:integer .
+lit:aliases a owl:DatatypeProperty ; rdfs:range xsd:string .
+lit:confidence a owl:DatatypeProperty ; rdfs:range xsd:integer .
+
+#################################################################
+#   TEXTBOOKS
+#################################################################
+
+lit:TB_Old a lit:Textbook ; rdfs:label "SGK Ngu Van 9 (bo cu)"@vi ; lit:confidence 3 .
+lit:TB_KNTT a lit:Textbook ; rdfs:label "SGK Ngu Van 9 - Ket noi tri thuc"@vi ; lit:confidence 3 .
+lit:TB_CTST a lit:Textbook ; rdfs:label "SGK Ngu Van 9 - Chan troi sang tao"@vi ; lit:confidence 3 .
+lit:TB_CD a lit:Textbook ; rdfs:label "SGK Ngu Van 9 - Canh Dieu"@vi ; lit:confidence 3 .
+
+
+#################################################################
+#   HISTORICAL PERIODS
+#################################################################
+
+lit:HP_TrungDai a lit:HistoricalPeriod ;
+    rdfs:label "Van hoc trung dai Viet Nam (X-XIX)"@vi ;
+    lit:aliases "Van hoc co|Van hoc trung dai" ;
+    lit:abstractness 4 ;
+    lit:confidence 3 .
+
+lit:HP_CanDai a lit:HistoricalPeriod ;
+    rdfs:label "Van hoc can dai (cuoi XIX - dau XX)"@vi ;
+    lit:abstractness 4 ;
+    lit:confidence 3 .
+
+lit:HP_1930_1945 a lit:HistoricalPeriod ;
+    rdfs:label "Van hoc 1930-1945 (Tho moi, van hien thuc)"@vi ;
+    lit:aliases "Tho Moi|Van hoc hien thuc" ;
+    lit:abstractness 3 ;
+    lit:confidence 3 .
+
+lit:HP_KhangChien a lit:HistoricalPeriod ;
+    rdfs:label "Van hoc khang chien chong Phap va My (1945-1975)"@vi ;
+    lit:aliases "Van hoc khang chien|Van hoc cach mang" ;
+    lit:abstractness 3 ;
+    lit:confidence 3 .
+
+lit:HP_HienDai a lit:HistoricalPeriod ;
+    rdfs:label "Van hoc Viet Nam hien dai (sau 1975)"@vi ;
+    lit:aliases "Van hoc sau 1975" ;
+    lit:abstractness 3 ;
+    lit:confidence 3 .
+
+lit:HP_NuocNgoai a lit:HistoricalPeriod ;
+    rdfs:label "Van hoc nuoc ngoai"@vi ;
+    lit:aliases "Van hoc the gioi" ;
+    lit:abstractness 3 ;
+    lit:confidence 2 .
+
+
+#################################################################
+#   GENRES
+#################################################################
+
+lit:G_TruyenTho a lit:Genre ;
+    rdfs:label "Truyen tho (chu Nom)"@vi ;
+    lit:abstractness 4 ;
+    lit:confidence 3 .
+
+lit:G_TruyenNgan a lit:Genre ;
+    rdfs:label "Truyen ngan"@vi ;
+    lit:abstractness 2 ;
+    lit:confidence 3 .
+
+lit:G_TieuThuyet a lit:Genre ;
+    rdfs:label "Tieu thuyet"@vi ;
+    lit:abstractness 3 ;
+    lit:confidence 3 .
+
+lit:G_ThoLucBat a lit:Genre ;
+    rdfs:label "Tho luc bat"@vi ;
+    lit:abstractness 3 ;
+    lit:confidence 3 .
+
+lit:G_ThoBayChuTuDo a lit:Genre ;
+    rdfs:label "Tho bay chu / tho tu do"@vi ;
+    lit:abstractness 3 ;
+    lit:confidence 3 .
+
+lit:G_ThoTruTinh a lit:Genre ;
+    rdfs:label "Tho tru tinh hien dai"@vi ;
+    lit:abstractness 3 ;
+    lit:confidence 3 .
+
+lit:G_Kich a lit:Genre ;
+    rdfs:label "Kich noi"@vi ;
+    lit:abstractness 3 ;
+    lit:confidence 3 .
+
+lit:G_VanNghiLuan a lit:Genre ;
+    rdfs:label "Van nghi luan (xa hoi, van hoc)"@vi ;
+    lit:abstractness 3 ;
+    lit:confidence 3 .
+
+lit:G_BuoiKy_TuyBut a lit:Genre ;
+    rdfs:label "But ky, tuy but"@vi ;
+    lit:abstractness 3 ;
+    lit:confidence 3 .
+
+lit:G_TruyenCo a lit:Genre ;
+    rdfs:label "Truyen co (nuoc ngoai)"@vi ;
+    lit:abstractness 2 ;
+    lit:confidence 2 .
+
+
+#################################################################
+#   AUTHORS
+#################################################################
+
+lit:A_NguyenDu a lit:Author ;
+    rdfs:label "Nguyen Du"@vi ;
+    lit:aliases "Thanh Hien|Nguyen Du" ;
+    lit:abstractness 3 ;
+    lit:frequencyInTextbook 15 ;
+    lit:confidence 3 .
+
+lit:A_NguyenDinhChieu a lit:Author ;
+    rdfs:label "Nguyen Dinh Chieu"@vi ;
+    lit:aliases "Do Chieu" ;
+    lit:abstractness 3 ;
+    lit:frequencyInTextbook 8 ;
+    lit:confidence 3 .
+
+lit:A_NguyenDu_Cu a lit:Author ;
+    rdfs:label "Nguyen Du (Nguyen Du cua the ky XV)"@vi ;
+    lit:abstractness 3 ;
+    lit:frequencyInTextbook 0 ;
+    lit:confidence 1 .
+
+lit:A_NguyenDu_NamXuong a lit:Author ;
+    rdfs:label "Nguyen Du (Truyen Ky Man Luc)"@vi ;
+    lit:aliases "Nguyen Du" ;
+    lit:abstractness 3 ;
+    lit:frequencyInTextbook 3 ;
+    lit:confidence 1 .
+
+lit:A_NgoGiaVanPhai a lit:Author ;
+    rdfs:label "Ngo gia van phai"@vi ;
+    lit:abstractness 3 ;
+    lit:frequencyInTextbook 5 ;
+    lit:confidence 3 .
+
+lit:A_ChinhHuu a lit:Author ;
+    rdfs:label "Chinh Huu"@vi ;
+    lit:abstractness 3 ;
+    lit:frequencyInTextbook 6 ;
+    lit:confidence 3 .
+
+lit:A_PhamTienDuat a lit:Author ;
+    rdfs:label "Pham Tien Duat"@vi ;
+    lit:abstractness 3 ;
+    lit:frequencyInTextbook 6 ;
+    lit:confidence 3 .
+
+lit:A_NguyenDuy a lit:Author ;
+    rdfs:label "Nguyen Duy"@vi ;
+    lit:abstractness 3 ;
+    lit:frequencyInTextbook 6 ;
+    lit:confidence 3 .
+
+lit:A_BangViet a lit:Author ;
+    rdfs:label "Bang Viet"@vi ;
+    lit:abstractness 3 ;
+    lit:frequencyInTextbook 5 ;
+    lit:confidence 3 .
+
+lit:A_NguyenKhoaDiem a lit:Author ;
+    rdfs:label "Nguyen Khoa Diem"@vi ;
+    lit:abstractness 3 ;
+    lit:frequencyInTextbook 5 ;
+    lit:confidence 3 .
+
+lit:A_HuyCan a lit:Author ;
+    rdfs:label "Huy Can"@vi ;
+    lit:abstractness 3 ;
+    lit:frequencyInTextbook 6 ;
+    lit:confidence 3 .
+
+lit:A_HuuThinh a lit:Author ;
+    rdfs:label "Huu Thinh"@vi ;
+    lit:abstractness 3 ;
+    lit:frequencyInTextbook 5 ;
+    lit:confidence 3 .
+
+lit:A_ThanhHai a lit:Author ;
+    rdfs:label "Thanh Hai"@vi ;
+    lit:abstractness 3 ;
+    lit:frequencyInTextbook 5 ;
+    lit:confidence 3 .
+
+lit:A_VienPhuong a lit:Author ;
+    rdfs:label "Vien Phuong"@vi ;
+    lit:abstractness 3 ;
+    lit:frequencyInTextbook 5 ;
+    lit:confidence 3 .
+
+lit:A_YPhuong a lit:Author ;
+    rdfs:label "Y Phuong"@vi ;
+    lit:abstractness 3 ;
+    lit:frequencyInTextbook 5 ;
+    lit:confidence 3 .
+
+lit:A_CheLanVien a lit:Author ;
+    rdfs:label "Che Lan Vien"@vi ;
+    lit:abstractness 3 ;
+    lit:frequencyInTextbook 5 ;
+    lit:confidence 3 .
+
+lit:A_KimLan a lit:Author ;
+    rdfs:label "Kim Lan"@vi ;
+    lit:abstractness 3 ;
+    lit:frequencyInTextbook 6 ;
+    lit:confidence 3 .
+
+lit:A_NguyenThanhLong a lit:Author ;
+    rdfs:label "Nguyen Thanh Long"@vi ;
+    lit:abstractness 3 ;
+    lit:frequencyInTextbook 5 ;
+    lit:confidence 3 .
+
+lit:A_NguyenQuangSang a lit:Author ;
+    rdfs:label "Nguyen Quang Sang"@vi ;
+    lit:abstractness 3 ;
+    lit:frequencyInTextbook 6 ;
+    lit:confidence 3 .
+
+lit:A_NguyenMinhChau a lit:Author ;
+    rdfs:label "Nguyen Minh Chau"@vi ;
+    lit:abstractness 3 ;
+    lit:frequencyInTextbook 5 ;
+    lit:confidence 3 .
+
+lit:A_LeMinhKhue a lit:Author ;
+    rdfs:label "Le Minh Khue"@vi ;
+    lit:abstractness 3 ;
+    lit:frequencyInTextbook 5 ;
+    lit:confidence 3 .
+
+lit:A_NguyenHuyTuong a lit:Author ;
+    rdfs:label "Nguyen Huy Tuong"@vi ;
+    lit:abstractness 3 ;
+    lit:frequencyInTextbook 4 ;
+    lit:confidence 3 .
+
+lit:A_LuuQuangVu a lit:Author ;
+    rdfs:label "Luu Quang Vu"@vi ;
+    lit:abstractness 3 ;
+    lit:frequencyInTextbook 4 ;
+    lit:confidence 3 .
+
+lit:A_Maupassant a lit:Author ;
+    rdfs:label "Guy de Maupassant (Mo-pa-xang)"@vi ;
+    lit:aliases "Mo-pa-xang" ;
+    lit:abstractness 3 ;
+    lit:frequencyInTextbook 3 ;
+    lit:confidence 2 .
+
+lit:A_Gorki a lit:Author ;
+    rdfs:label "Maksim Gor-ki"@vi ;
+    lit:aliases "Maxim Gorki|Mac-xim Goroki" ;
+    lit:abstractness 3 ;
+    lit:frequencyInTextbook 3 ;
+    lit:confidence 2 .
+
+lit:A_DanielDefoe a lit:Author ;
+    rdfs:label "Daniel Defoe (Di-phoi)"@vi ;
+    lit:aliases "Di-phoi" ;
+    lit:abstractness 3 ;
+    lit:frequencyInTextbook 3 ;
+    lit:confidence 2 .
+
+lit:A_LaPhongTen a lit:Author ;
+    rdfs:label "Jean de La Fontaine (La Phong-ten)"@vi ;
+    lit:aliases "La Phong-ten" ;
+    lit:abstractness 3 ;
+    lit:frequencyInTextbook 3 ;
+    lit:confidence 2 .
+
+
+#################################################################
+#   LITERARY WORKS
+#################################################################
+
+lit:W_TruyenKieu a lit:LiteraryWork ;
+    rdfs:label "Truyen Kieu"@vi ;
+    lit:aliases "Doan truong tan thanh" ;
+    lit:yearWritten "~1820" ;
+    lit:abstractness 4 ;
+    lit:interpretiveDepth 5 ;
+    lit:historicalDistance 5 ;
+    lit:frequencyInTextbook 20 ;
+    lit:confidence 3 .
+
+lit:W_ChuyenNguoiConGaiNX a lit:LiteraryWork ;
+    rdfs:label "Chuyen nguoi con gai Nam Xuong"@vi ;
+    lit:yearWritten "~XVI" ;
+    lit:abstractness 4 ;
+    lit:interpretiveDepth 4 ;
+    lit:historicalDistance 5 ;
+    lit:frequencyInTextbook 8 ;
+    lit:confidence 3 .
+
+lit:W_HoangLeNhatThongChi_14 a lit:LiteraryWork ;
+    rdfs:label "Hoang Le nhat thong chi - Hoi thu 14"@vi ;
+    lit:yearWritten "~XIX" ;
+    lit:abstractness 3 ;
+    lit:interpretiveDepth 3 ;
+    lit:historicalDistance 5 ;
+    lit:frequencyInTextbook 5 ;
+    lit:confidence 3 .
+
+lit:W_LucVanTien_CuuKNN a lit:LiteraryWork ;
+    rdfs:label "Luc Van Tien cuu Kieu Nguyet Nga (trich)"@vi ;
+    lit:yearWritten "~1860" ;
+    lit:abstractness 3 ;
+    lit:interpretiveDepth 3 ;
+    lit:historicalDistance 4 ;
+    lit:frequencyInTextbook 5 ;
+    lit:confidence 3 .
+
+lit:W_DongChi a lit:LiteraryWork ;
+    rdfs:label "Dong chi"@vi ;
+    lit:yearWritten "1948" ;
+    lit:abstractness 3 ;
+    lit:interpretiveDepth 3 ;
+    lit:historicalDistance 2 ;
+    lit:frequencyInTextbook 8 ;
+    lit:confidence 3 .
+
+lit:W_BaiThoTDXKK a lit:LiteraryWork ;
+    rdfs:label "Bai tho ve tieu doi xe khong kinh"@vi ;
+    lit:yearWritten "1969" ;
+    lit:abstractness 3 ;
+    lit:interpretiveDepth 3 ;
+    lit:historicalDistance 2 ;
+    lit:frequencyInTextbook 8 ;
+    lit:confidence 3 .
+
+lit:W_AnhTrang a lit:LiteraryWork ;
+    rdfs:label "Anh trang"@vi ;
+    lit:yearWritten "1978" ;
+    lit:abstractness 4 ;
+    lit:interpretiveDepth 4 ;
+    lit:historicalDistance 2 ;
+    lit:frequencyInTextbook 7 ;
+    lit:confidence 3 .
+
+lit:W_BepLua a lit:LiteraryWork ;
+    rdfs:label "Bep lua"@vi ;
+    lit:yearWritten "1963" ;
+    lit:abstractness 3 ;
+    lit:interpretiveDepth 4 ;
+    lit:historicalDistance 2 ;
+    lit:frequencyInTextbook 6 ;
+    lit:confidence 3 .
+
+lit:W_KhucHatRu a lit:LiteraryWork ;
+    rdfs:label "Khuc hat ru nhung em be lon tren lung me"@vi ;
+    lit:yearWritten "1971" ;
+    lit:abstractness 3 ;
+    lit:interpretiveDepth 3 ;
+    lit:historicalDistance 2 ;
+    lit:frequencyInTextbook 6 ;
+    lit:confidence 3 .
+
+lit:W_DoanThuyenDanhCa a lit:LiteraryWork ;
+    rdfs:label "Doan thuyen danh ca"@vi ;
+    lit:yearWritten "1958" ;
+    lit:abstractness 3 ;
+    lit:interpretiveDepth 3 ;
+    lit:historicalDistance 2 ;
+    lit:frequencyInTextbook 6 ;
+    lit:confidence 3 .
+
+lit:W_SangThu a lit:LiteraryWork ;
+    rdfs:label "Sang thu"@vi ;
+    lit:yearWritten "1977" ;
+    lit:abstractness 3 ;
+    lit:interpretiveDepth 3 ;
+    lit:historicalDistance 2 ;
+    lit:frequencyInTextbook 6 ;
+    lit:confidence 3 .
+
+lit:W_MuaXuanNhoNho a lit:LiteraryWork ;
+    rdfs:label "Mua xuan nho nho"@vi ;
+    lit:yearWritten "1980" ;
+    lit:abstractness 3 ;
+    lit:interpretiveDepth 4 ;
+    lit:historicalDistance 2 ;
+    lit:frequencyInTextbook 6 ;
+    lit:confidence 3 .
+
+lit:W_ViengLangBac a lit:LiteraryWork ;
+    rdfs:label "Vieng lang Bac"@vi ;
+    lit:yearWritten "1976" ;
+    lit:abstractness 3 ;
+    lit:interpretiveDepth 4 ;
+    lit:historicalDistance 2 ;
+    lit:frequencyInTextbook 6 ;
+    lit:confidence 3 .
+
+lit:W_NoiVoiCon a lit:LiteraryWork ;
+    rdfs:label "Noi voi con"@vi ;
+    lit:yearWritten "~1980" ;
+    lit:abstractness 3 ;
+    lit:interpretiveDepth 4 ;
+    lit:historicalDistance 2 ;
+    lit:frequencyInTextbook 5 ;
+    lit:confidence 3 .
+
+lit:W_ConCo a lit:LiteraryWork ;
+    rdfs:label "Con co"@vi ;
+    lit:yearWritten "1962" ;
+    lit:abstractness 4 ;
+    lit:interpretiveDepth 5 ;
+    lit:historicalDistance 2 ;
+    lit:frequencyInTextbook 5 ;
+    lit:confidence 3 .
+
+lit:W_Lang a lit:LiteraryWork ;
+    rdfs:label "Lang"@vi ;
+    lit:yearWritten "1948" ;
+    lit:abstractness 2 ;
+    lit:interpretiveDepth 3 ;
+    lit:historicalDistance 2 ;
+    lit:frequencyInTextbook 7 ;
+    lit:confidence 3 .
+
+lit:W_LangLeSaPa a lit:LiteraryWork ;
+    rdfs:label "Lang le Sa Pa"@vi ;
+    lit:yearWritten "1970" ;
+    lit:abstractness 2 ;
+    lit:interpretiveDepth 3 ;
+    lit:historicalDistance 2 ;
+    lit:frequencyInTextbook 6 ;
+    lit:confidence 3 .
+
+lit:W_ChiecLuocNga a lit:LiteraryWork ;
+    rdfs:label "Chiec luoc nga"@vi ;
+    lit:yearWritten "1966" ;
+    lit:abstractness 2 ;
+    lit:interpretiveDepth 3 ;
+    lit:historicalDistance 2 ;
+    lit:frequencyInTextbook 7 ;
+    lit:confidence 3 .
+
+lit:W_BenQue a lit:LiteraryWork ;
+    rdfs:label "Ben que"@vi ;
+    lit:yearWritten "1985" ;
+    lit:abstractness 3 ;
+    lit:interpretiveDepth 4 ;
+    lit:historicalDistance 2 ;
+    lit:frequencyInTextbook 5 ;
+    lit:confidence 3 .
+
+lit:W_NhungNgoiSao_XX a lit:LiteraryWork ;
+    rdfs:label "Nhung ngoi sao xa xoi"@vi ;
+    lit:yearWritten "1971" ;
+    lit:abstractness 2 ;
+    lit:interpretiveDepth 3 ;
+    lit:historicalDistance 2 ;
+    lit:frequencyInTextbook 6 ;
+    lit:confidence 3 .
+
+lit:W_BacSon a lit:LiteraryWork ;
+    rdfs:label "Bac Son (trich)"@vi ;
+    lit:yearWritten "1946" ;
+    lit:abstractness 2 ;
+    lit:interpretiveDepth 3 ;
+    lit:historicalDistance 2 ;
+    lit:frequencyInTextbook 4 ;
+    lit:confidence 3 .
+
+lit:W_ToiVaChungTa a lit:LiteraryWork ;
+    rdfs:label "Toi va chung ta (trich)"@vi ;
+    lit:yearWritten "1984" ;
+    lit:abstractness 3 ;
+    lit:interpretiveDepth 3 ;
+    lit:historicalDistance 2 ;
+    lit:frequencyInTextbook 4 ;
+    lit:confidence 3 .
+
+lit:W_BoCuaXiMong a lit:LiteraryWork ;
+    rdfs:label "Bo cua Xi-mong"@vi ;
+    lit:aliases "Bo cua Xi-Mong" ;
+    lit:yearWritten "1879" ;
+    lit:abstractness 2 ;
+    lit:interpretiveDepth 3 ;
+    lit:historicalDistance 3 ;
+    lit:frequencyInTextbook 4 ;
+    lit:confidence 2 .
+
+lit:W_NhungDuaTreGorki a lit:LiteraryWork ;
+    rdfs:label "Nhung dua tre (trich Thoi tho au)"@vi ;
+    lit:yearWritten "1913-14" ;
+    lit:abstractness 2 ;
+    lit:interpretiveDepth 3 ;
+    lit:historicalDistance 2 ;
+    lit:frequencyInTextbook 3 ;
+    lit:confidence 2 .
+
+lit:W_RobinsonCruxo a lit:LiteraryWork ;
+    rdfs:label "Ro-bin-xon Cru-xo (trich)"@vi ;
+    lit:aliases "Robinson Crusoe" ;
+    lit:yearWritten "1719" ;
+    lit:abstractness 2 ;
+    lit:interpretiveDepth 3 ;
+    lit:historicalDistance 3 ;
+    lit:frequencyInTextbook 3 ;
+    lit:confidence 2 .
+
+lit:W_ChoSoiVaCuu_LPT a lit:LiteraryWork ;
+    rdfs:label "Cho soi va cuu trong tho ngu ngon cua La Phong-ten"@vi ;
+    lit:yearWritten "~XVII" ;
+    lit:abstractness 3 ;
+    lit:interpretiveDepth 3 ;
+    lit:historicalDistance 3 ;
+    lit:frequencyInTextbook 3 ;
+    lit:confidence 2 .
+
+
+#################################################################
+#   CHARACTERS
+#################################################################
+
+lit:CH_ThuyKieu a lit:Character ;
+    rdfs:label "Thuy Kieu"@vi ;
+    lit:abstractness 3 ;
+    lit:confidence 3 .
+
+lit:CH_ThuyVan a lit:Character ;
+    rdfs:label "Thuy Van"@vi ;
+    lit:abstractness 3 ;
+    lit:confidence 3 .
+
+lit:CH_KimTrong a lit:Character ;
+    rdfs:label "Kim Trong"@vi ;
+    lit:abstractness 3 ;
+    lit:confidence 3 .
+
+lit:CH_MaGiamSinh a lit:Character ;
+    rdfs:label "Ma Giam Sinh"@vi ;
+    lit:abstractness 3 ;
+    lit:confidence 3 .
+
+lit:CH_TuHai a lit:Character ;
+    rdfs:label "Tu Hai"@vi ;
+    lit:abstractness 3 ;
+    lit:confidence 3 .
+
+lit:CH_HoanThu a lit:Character ;
+    rdfs:label "Hoan Thu"@vi ;
+    lit:abstractness 3 ;
+    lit:confidence 3 .
+
+lit:CH_VuNuong a lit:Character ;
+    rdfs:label "Vu Nuong (Vu Thi Thiet)"@vi ;
+    lit:abstractness 3 ;
+    lit:confidence 3 .
+
+lit:CH_TruongSinh a lit:Character ;
+    rdfs:label "Truong Sinh"@vi ;
+    lit:abstractness 3 ;
+    lit:confidence 3 .
+
+lit:CH_LucVanTien a lit:Character ;
+    rdfs:label "Luc Van Tien"@vi ;
+    lit:abstractness 3 ;
+    lit:confidence 3 .
+
+lit:CH_KieuNguyetNga a lit:Character ;
+    rdfs:label "Kieu Nguyet Nga"@vi ;
+    lit:abstractness 3 ;
+    lit:confidence 3 .
+
+lit:CH_NguoiLinh_DC a lit:Character ;
+    rdfs:label "Anh linh (trong Dong chi)"@vi ;
+    lit:abstractness 3 ;
+    lit:confidence 3 .
+
+lit:CH_NguoiLai_TDXKK a lit:Character ;
+    rdfs:label "Nguoi lai xe Truong Son"@vi ;
+    lit:abstractness 3 ;
+    lit:confidence 3 .
+
+lit:CH_OngHai a lit:Character ;
+    rdfs:label "Ong Hai"@vi ;
+    lit:abstractness 2 ;
+    lit:confidence 3 .
+
+lit:CH_AnhThanhNien a lit:Character ;
+    rdfs:label "Anh thanh nien (lam khi tuong)"@vi ;
+    lit:abstractness 2 ;
+    lit:confidence 3 .
+
+lit:CH_OngSau a lit:Character ;
+    rdfs:label "Ong Sau (cha be Thu)"@vi ;
+    lit:abstractness 2 ;
+    lit:confidence 3 .
+
+lit:CH_BeThu a lit:Character ;
+    rdfs:label "Be Thu"@vi ;
+    lit:abstractness 2 ;
+    lit:confidence 3 .
+
+lit:CH_NhiBenQue a lit:Character ;
+    rdfs:label "Nhi (Ben que)"@vi ;
+    lit:abstractness 3 ;
+    lit:confidence 3 .
+
+lit:CH_PhuongDinh a lit:Character ;
+    rdfs:label "Phuong Dinh (Nhung ngoi sao xa xoi)"@vi ;
+    lit:abstractness 2 ;
+    lit:confidence 3 .
+
+lit:CH_Thao a lit:Character ;
+    rdfs:label "Thao (Nhung ngoi sao xa xoi)"@vi ;
+    lit:abstractness 2 ;
+    lit:confidence 3 .
+
+lit:CH_NhoNgoiSao a lit:Character ;
+    rdfs:label "Nho (Nhung ngoi sao xa xoi)"@vi ;
+    lit:abstractness 2 ;
+    lit:confidence 3 .
+
+lit:CH_XiMong a lit:Character ;
+    rdfs:label "Xi-mong"@vi ;
+    lit:abstractness 2 ;
+    lit:confidence 2 .
+
+lit:CH_PhiLip a lit:Character ;
+    rdfs:label "Bac Phi-lip"@vi ;
+    lit:abstractness 2 ;
+    lit:confidence 2 .
+
+
+#################################################################
+#   LITERARY DEVICES
+#################################################################
+
+lit:LD_SoSanh a lit:LiteraryDevice ;
+    rdfs:label "So sanh (tu tu)"@vi ;
+    lit:abstractness 2 ;
+    lit:confidence 3 .
+
+lit:LD_NhanHoa a lit:LiteraryDevice ;
+    rdfs:label "Nhan hoa"@vi ;
+    lit:abstractness 2 ;
+    lit:confidence 3 .
+
+lit:LD_AnDu a lit:LiteraryDevice ;
+    rdfs:label "An du"@vi ;
+    lit:abstractness 3 ;
+    lit:confidence 3 .
+
+lit:LD_HoanDu a lit:LiteraryDevice ;
+    rdfs:label "Hoan du"@vi ;
+    lit:abstractness 3 ;
+    lit:confidence 3 .
+
+lit:LD_DiepNgu a lit:LiteraryDevice ;
+    rdfs:label "Diep ngu"@vi ;
+    lit:abstractness 2 ;
+    lit:confidence 3 .
+
+lit:LD_DiepCauTruc a lit:LiteraryDevice ;
+    rdfs:label "Diep cau truc"@vi ;
+    lit:abstractness 3 ;
+    lit:confidence 3 .
+
+lit:LD_DaoNgu a lit:LiteraryDevice ;
+    rdfs:label "Dao ngu (dao trat tu)"@vi ;
+    lit:abstractness 3 ;
+    lit:confidence 3 .
+
+lit:LD_LietKe a lit:LiteraryDevice ;
+    rdfs:label "Liet ke"@vi ;
+    lit:abstractness 2 ;
+    lit:confidence 3 .
+
+lit:LD_DoiLap a lit:LiteraryDevice ;
+    rdfs:label "Tuong phan / doi lap"@vi ;
+    lit:abstractness 3 ;
+    lit:confidence 3 .
+
+lit:LD_CauHoiTuTu a lit:LiteraryDevice ;
+    rdfs:label "Cau hoi tu tu"@vi ;
+    lit:abstractness 3 ;
+    lit:confidence 3 .
+
+lit:LD_NoiQuaQuaPhong a lit:LiteraryDevice ;
+    rdfs:label "Noi qua, cuong dieu"@vi ;
+    lit:aliases "Phong dai" ;
+    lit:abstractness 3 ;
+    lit:confidence 3 .
+
+lit:LD_NoiGiamNoiTranh a lit:LiteraryDevice ;
+    rdfs:label "Noi giam, noi tranh"@vi ;
+    lit:abstractness 3 ;
+    lit:confidence 3 .
+
+lit:LD_Choi_Chu a lit:LiteraryDevice ;
+    rdfs:label "Choi chu"@vi ;
+    lit:abstractness 4 ;
+    lit:confidence 3 .
+
+lit:LD_DienCo a lit:LiteraryDevice ;
+    rdfs:label "Dien co, dien tich"@vi ;
+    lit:abstractness 4 ;
+    lit:confidence 3 .
+
+lit:LD_TuongTrung a lit:LiteraryDevice ;
+    rdfs:label "Tuong trung / bieu tuong"@vi ;
+    lit:aliases "Bieu tuong" ;
+    lit:abstractness 4 ;
+    lit:confidence 3 .
+
+lit:LD_TruongTu_Vong a lit:LiteraryDevice ;
+    rdfs:label "Truong tu vung"@vi ;
+    lit:abstractness 3 ;
+    lit:confidence 3 .
+
+lit:LD_TuLay a lit:LiteraryDevice ;
+    rdfs:label "Tu lay (goi cam giac)"@vi ;
+    lit:abstractness 2 ;
+    lit:confidence 3 .
+
+lit:LD_TuTuongHinh a lit:LiteraryDevice ;
+    rdfs:label "Tu tuong hinh, tu tuong thanh"@vi ;
+    lit:abstractness 2 ;
+    lit:confidence 3 .
+
+
+#################################################################
+#   THEMES
+#################################################################
+
+lit:T_TinhYeuQueHuong a lit:Theme ;
+    rdfs:label "Tinh yeu que huong, dat nuoc"@vi ;
+    lit:abstractness 3 ;
+    lit:confidence 3 .
+
+lit:T_TinhDongChi a lit:Theme ;
+    rdfs:label "Tinh dong chi, dong doi"@vi ;
+    lit:abstractness 3 ;
+    lit:confidence 3 .
+
+lit:T_TinhCamGiaDinh a lit:Theme ;
+    rdfs:label "Tinh cam gia dinh (me con, cha con, ba chau)"@vi ;
+    lit:abstractness 3 ;
+    lit:confidence 3 .
+
+lit:T_ThanPhanPhuNu a lit:Theme ;
+    rdfs:label "Than phan nguoi phu nu phong kien"@vi ;
+    lit:abstractness 4 ;
+    lit:confidence 3 .
+
+lit:T_VeDepNguoiLaoDong a lit:Theme ;
+    rdfs:label "Ve dep nguoi lao dong"@vi ;
+    lit:abstractness 3 ;
+    lit:confidence 3 .
+
+lit:T_VeDepNguoiLinh a lit:Theme ;
+    rdfs:label "Ve dep nguoi linh cach mang"@vi ;
+    lit:abstractness 3 ;
+    lit:confidence 3 .
+
+lit:T_LongYeuNuoc a lit:Theme ;
+    rdfs:label "Long yeu nuoc"@vi ;
+    lit:abstractness 3 ;
+    lit:confidence 3 .
+
+lit:T_KhaoVongHoaBinh a lit:Theme ;
+    rdfs:label "Khao vong hoa binh, cuoc song yen am"@vi ;
+    lit:abstractness 4 ;
+    lit:confidence 3 .
+
+lit:T_CaiThienSungSuc a lit:Theme ;
+    rdfs:label "Cai thien va cai ac; cong ly"@vi ;
+    lit:abstractness 4 ;
+    lit:confidence 3 .
+
+lit:T_SuCoDon_TrietLy a lit:Theme ;
+    rdfs:label "Su co don, triet ly nhan sinh"@vi ;
+    lit:abstractness 5 ;
+    lit:confidence 3 .
+
+lit:T_Bien_VoTan a lit:Theme ;
+    rdfs:label "Thien nhien - bien ca, vu tru"@vi ;
+    lit:abstractness 3 ;
+    lit:confidence 3 .
+
+lit:T_SuChuyenGiao a lit:Theme ;
+    rdfs:label "Su chuyen giao the he, truyen thong"@vi ;
+    lit:abstractness 3 ;
+    lit:confidence 3 .
+
+lit:T_ChiToDuc a lit:Theme ;
+    rdfs:label "Chi hieu, dao lam nguoi"@vi ;
+    lit:abstractness 3 ;
+    lit:confidence 3 .
+
+lit:T_SuHySinh_KC a lit:Theme ;
+    rdfs:label "Su hy sinh vi dat nuoc"@vi ;
+    lit:abstractness 3 ;
+    lit:confidence 3 .
+
+lit:T_NguoiMe a lit:Theme ;
+    rdfs:label "Hinh anh nguoi me"@vi ;
+    lit:abstractness 3 ;
+    lit:confidence 3 .
+
+
+#################################################################
+#   LESSON UNITS
+#################################################################
+
+lit:TB_Old_B01 a lit:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 1: Phong cach Ho Chi Minh"@vi ;
+    lit:partOfTextbook lit:TB_Old ;
+    lit:curriculumPosition 1 .
+
+lit:TB_Old_B02 a lit:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 2: Cac phuong cham hoi thoai"@vi ;
+    lit:partOfTextbook lit:TB_Old ;
+    lit:curriculumPosition 2 .
+
+lit:TB_Old_B03 a lit:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 3: Dau tranh cho mot the gioi hoa binh"@vi ;
+    lit:partOfTextbook lit:TB_Old ;
+    lit:curriculumPosition 3 .
+
+lit:TB_Old_B04 a lit:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 4: Tuyen bo the gioi ve su song con..."@vi ;
+    lit:partOfTextbook lit:TB_Old ;
+    lit:curriculumPosition 4 .
+
+lit:TB_Old_B05 a lit:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 5: Chuyen nguoi con gai Nam Xuong"@vi ;
+    lit:partOfTextbook lit:TB_Old ;
+    lit:curriculumPosition 5 .
+
+lit:TB_Old_B06 a lit:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 6: Xung ho trong hoi thoai"@vi ;
+    lit:partOfTextbook lit:TB_Old ;
+    lit:curriculumPosition 6 .
+
+lit:TB_Old_B07 a lit:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 7: Chuyen cu trong phu chua Trinh"@vi ;
+    lit:partOfTextbook lit:TB_Old ;
+    lit:curriculumPosition 7 .
+
+lit:TB_Old_B08 a lit:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 8: Hoang Le nhat thong chi - Hoi thu 14"@vi ;
+    lit:partOfTextbook lit:TB_Old ;
+    lit:curriculumPosition 8 .
+
+lit:TB_Old_B09 a lit:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 9: Truyen Kieu cua Nguyen Du"@vi ;
+    lit:partOfTextbook lit:TB_Old ;
+    lit:curriculumPosition 9 .
+
+lit:TB_Old_B10 a lit:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 10: Chi em Thuy Kieu (trich TK)"@vi ;
+    lit:partOfTextbook lit:TB_Old ;
+    lit:curriculumPosition 10 .
+
+lit:TB_Old_B11 a lit:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 11: Canh ngay xuan (trich TK)"@vi ;
+    lit:partOfTextbook lit:TB_Old ;
+    lit:curriculumPosition 11 .
+
+lit:TB_Old_B12 a lit:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 12: Kieu o lau Ngung Bich (trich TK)"@vi ;
+    lit:partOfTextbook lit:TB_Old ;
+    lit:curriculumPosition 12 .
+
+lit:TB_Old_B13 a lit:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 13: Ma Giam Sinh mua Kieu (trich TK)"@vi ;
+    lit:partOfTextbook lit:TB_Old ;
+    lit:curriculumPosition 13 .
+
+lit:TB_Old_B14 a lit:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 14: Thuy Kieu bao an bao oan (trich TK)"@vi ;
+    lit:partOfTextbook lit:TB_Old ;
+    lit:curriculumPosition 14 .
+
+lit:TB_Old_B15 a lit:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 15: Luc Van Tien cuu Kieu Nguyet Nga"@vi ;
+    lit:partOfTextbook lit:TB_Old ;
+    lit:curriculumPosition 15 .
+
+lit:TB_Old_B16 a lit:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 16: Luc Van Tien gap nan"@vi ;
+    lit:partOfTextbook lit:TB_Old ;
+    lit:curriculumPosition 16 .
+
+lit:TB_Old_B17 a lit:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 17: Dong chi (Chinh Huu)"@vi ;
+    lit:partOfTextbook lit:TB_Old ;
+    lit:curriculumPosition 17 .
+
+lit:TB_Old_B18 a lit:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 18: Bai tho ve tieu doi xe khong kinh (Pham Tien Duat)"@vi ;
+    lit:partOfTextbook lit:TB_Old ;
+    lit:curriculumPosition 18 .
+
+lit:TB_Old_B19 a lit:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 19: Doan thuyen danh ca (Huy Can)"@vi ;
+    lit:partOfTextbook lit:TB_Old ;
+    lit:curriculumPosition 19 .
+
+lit:TB_Old_B20 a lit:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 20: Bep lua (Bang Viet)"@vi ;
+    lit:partOfTextbook lit:TB_Old ;
+    lit:curriculumPosition 20 .
+
+lit:TB_Old_B21 a lit:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 21: Khuc hat ru nhung em be lon tren lung me"@vi ;
+    lit:partOfTextbook lit:TB_Old ;
+    lit:curriculumPosition 21 .
+
+lit:TB_Old_B22 a lit:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 22: Anh trang (Nguyen Duy)"@vi ;
+    lit:partOfTextbook lit:TB_Old ;
+    lit:curriculumPosition 22 .
+
+lit:TB_Old_B23 a lit:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 23: Lang (Kim Lan)"@vi ;
+    lit:partOfTextbook lit:TB_Old ;
+    lit:curriculumPosition 23 .
+
+lit:TB_Old_B24 a lit:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 24: Lang le Sa Pa (Nguyen Thanh Long)"@vi ;
+    lit:partOfTextbook lit:TB_Old ;
+    lit:curriculumPosition 24 .
+
+lit:TB_Old_B25 a lit:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 25: Chiec luoc nga (Nguyen Quang Sang)"@vi ;
+    lit:partOfTextbook lit:TB_Old ;
+    lit:curriculumPosition 25 .
+
+lit:TB_Old_B26 a lit:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 26: Co huong (Lo Tan)"@vi ;
+    lit:partOfTextbook lit:TB_Old ;
+    lit:curriculumPosition 26 .
+
+lit:TB_Old_B27 a lit:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 27: Nhung dua tre (Gorki)"@vi ;
+    lit:partOfTextbook lit:TB_Old ;
+    lit:curriculumPosition 27 .
+
+lit:TB_Old_B28 a lit:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 28: Ban ve doc sach"@vi ;
+    lit:partOfTextbook lit:TB_Old ;
+    lit:curriculumPosition 28 .
+
+lit:TB_Old_B29 a lit:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 29: Tieng noi cua van nghe"@vi ;
+    lit:partOfTextbook lit:TB_Old ;
+    lit:curriculumPosition 29 .
+
+lit:TB_Old_B30 a lit:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 30: Chuan bi hanh trang vao the ky moi"@vi ;
+    lit:partOfTextbook lit:TB_Old ;
+    lit:curriculumPosition 30 .
+
+lit:TB_Old_B31 a lit:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 31: Cho soi va cuu trong tho ngu ngon La Phong-ten"@vi ;
+    lit:partOfTextbook lit:TB_Old ;
+    lit:curriculumPosition 31 .
+
+lit:TB_Old_B32 a lit:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 32: Con co (Che Lan Vien)"@vi ;
+    lit:partOfTextbook lit:TB_Old ;
+    lit:curriculumPosition 32 .
+
+lit:TB_Old_B33 a lit:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 33: Mua xuan nho nho (Thanh Hai)"@vi ;
+    lit:partOfTextbook lit:TB_Old ;
+    lit:curriculumPosition 33 .
+
+lit:TB_Old_B34 a lit:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 34: Vieng lang Bac (Vien Phuong)"@vi ;
+    lit:partOfTextbook lit:TB_Old ;
+    lit:curriculumPosition 34 .
+
+lit:TB_Old_B35 a lit:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 35: Sang thu (Huu Thinh)"@vi ;
+    lit:partOfTextbook lit:TB_Old ;
+    lit:curriculumPosition 35 .
+
+lit:TB_Old_B36 a lit:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 36: Noi voi con (Y Phuong)"@vi ;
+    lit:partOfTextbook lit:TB_Old ;
+    lit:curriculumPosition 36 .
+
+lit:TB_Old_B37 a lit:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 37: May va song (Tago)"@vi ;
+    lit:partOfTextbook lit:TB_Old ;
+    lit:curriculumPosition 37 .
+
+lit:TB_Old_B38 a lit:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 38: Ben que (Nguyen Minh Chau)"@vi ;
+    lit:partOfTextbook lit:TB_Old ;
+    lit:curriculumPosition 38 .
+
+lit:TB_Old_B39 a lit:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 39: Nhung ngoi sao xa xoi (Le Minh Khue)"@vi ;
+    lit:partOfTextbook lit:TB_Old ;
+    lit:curriculumPosition 39 .
+
+lit:TB_Old_B40 a lit:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 40: Ro-bin-xon Cru-xo"@vi ;
+    lit:partOfTextbook lit:TB_Old ;
+    lit:curriculumPosition 40 .
+
+lit:TB_Old_B41 a lit:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 41: Bo cua Xi-mong"@vi ;
+    lit:partOfTextbook lit:TB_Old ;
+    lit:curriculumPosition 41 .
+
+lit:TB_Old_B42 a lit:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 42: Con cho Bac (Giac Lon-don)"@vi ;
+    lit:partOfTextbook lit:TB_Old ;
+    lit:curriculumPosition 42 .
+
+lit:TB_Old_B43 a lit:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 43: Bac Son (Nguyen Huy Tuong)"@vi ;
+    lit:partOfTextbook lit:TB_Old ;
+    lit:curriculumPosition 43 .
+
+lit:TB_Old_B44 a lit:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 44: Toi va chung ta (Luu Quang Vu)"@vi ;
+    lit:partOfTextbook lit:TB_Old ;
+    lit:curriculumPosition 44 .
+
+lit:TB_Old_B45 a lit:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 45: Tong ket phan van hoc"@vi ;
+    lit:partOfTextbook lit:TB_Old ;
+    lit:curriculumPosition 45 .
+
+lit:TB_KNTT_B01 a lit:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 1: KNTT Bai 1"@vi ;
+    lit:partOfTextbook lit:TB_KNTT ;
+    lit:curriculumPosition 1 .
+
+lit:TB_KNTT_B02 a lit:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 2: KNTT Bai 2"@vi ;
+    lit:partOfTextbook lit:TB_KNTT ;
+    lit:curriculumPosition 2 .
+
+lit:TB_KNTT_B03 a lit:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 3: KNTT Bai 3"@vi ;
+    lit:partOfTextbook lit:TB_KNTT ;
+    lit:curriculumPosition 3 .
+
+lit:TB_KNTT_B04 a lit:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 4: KNTT Bai 4"@vi ;
+    lit:partOfTextbook lit:TB_KNTT ;
+    lit:curriculumPosition 4 .
+
+lit:TB_KNTT_B05 a lit:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 5: KNTT Bai 5"@vi ;
+    lit:partOfTextbook lit:TB_KNTT ;
+    lit:curriculumPosition 5 .
+
+lit:TB_KNTT_B06 a lit:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 6: KNTT Bai 6"@vi ;
+    lit:partOfTextbook lit:TB_KNTT ;
+    lit:curriculumPosition 6 .
+
+lit:TB_KNTT_B07 a lit:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 7: KNTT Bai 7"@vi ;
+    lit:partOfTextbook lit:TB_KNTT ;
+    lit:curriculumPosition 7 .
+
+lit:TB_KNTT_B08 a lit:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 8: KNTT Bai 8"@vi ;
+    lit:partOfTextbook lit:TB_KNTT ;
+    lit:curriculumPosition 8 .
+
+lit:TB_KNTT_B09 a lit:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 9: KNTT Bai 9"@vi ;
+    lit:partOfTextbook lit:TB_KNTT ;
+    lit:curriculumPosition 9 .
+
+lit:TB_KNTT_B10 a lit:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 10: KNTT Bai 10"@vi ;
+    lit:partOfTextbook lit:TB_KNTT ;
+    lit:curriculumPosition 10 .
+
+lit:TB_KNTT_B11 a lit:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 11: KNTT Bai 11"@vi ;
+    lit:partOfTextbook lit:TB_KNTT ;
+    lit:curriculumPosition 11 .
+
+lit:TB_KNTT_B12 a lit:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 12: KNTT Bai 12"@vi ;
+    lit:partOfTextbook lit:TB_KNTT ;
+    lit:curriculumPosition 12 .
+
+lit:TB_KNTT_B13 a lit:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 13: KNTT Bai 13"@vi ;
+    lit:partOfTextbook lit:TB_KNTT ;
+    lit:curriculumPosition 13 .
+
+lit:TB_KNTT_B14 a lit:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 14: KNTT Bai 14"@vi ;
+    lit:partOfTextbook lit:TB_KNTT ;
+    lit:curriculumPosition 14 .
+
+lit:TB_KNTT_B15 a lit:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 15: KNTT Bai 15"@vi ;
+    lit:partOfTextbook lit:TB_KNTT ;
+    lit:curriculumPosition 15 .
+
+lit:TB_KNTT_B16 a lit:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 16: KNTT Bai 16"@vi ;
+    lit:partOfTextbook lit:TB_KNTT ;
+    lit:curriculumPosition 16 .
+
+lit:TB_KNTT_B17 a lit:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 17: KNTT Bai 17"@vi ;
+    lit:partOfTextbook lit:TB_KNTT ;
+    lit:curriculumPosition 17 .
+
+lit:TB_KNTT_B18 a lit:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 18: KNTT Bai 18"@vi ;
+    lit:partOfTextbook lit:TB_KNTT ;
+    lit:curriculumPosition 18 .
+
+lit:TB_KNTT_B19 a lit:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 19: KNTT Bai 19"@vi ;
+    lit:partOfTextbook lit:TB_KNTT ;
+    lit:curriculumPosition 19 .
+
+lit:TB_KNTT_B20 a lit:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 20: KNTT Bai 20"@vi ;
+    lit:partOfTextbook lit:TB_KNTT ;
+    lit:curriculumPosition 20 .
+
+lit:TB_KNTT_B21 a lit:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 21: KNTT Bai 21"@vi ;
+    lit:partOfTextbook lit:TB_KNTT ;
+    lit:curriculumPosition 21 .
+
+lit:TB_KNTT_B22 a lit:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 22: KNTT Bai 22"@vi ;
+    lit:partOfTextbook lit:TB_KNTT ;
+    lit:curriculumPosition 22 .
+
+lit:TB_KNTT_B23 a lit:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 23: KNTT Bai 23"@vi ;
+    lit:partOfTextbook lit:TB_KNTT ;
+    lit:curriculumPosition 23 .
+
+lit:TB_KNTT_B24 a lit:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 24: KNTT Bai 24"@vi ;
+    lit:partOfTextbook lit:TB_KNTT ;
+    lit:curriculumPosition 24 .
+
+lit:TB_KNTT_B25 a lit:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 25: KNTT Bai 25"@vi ;
+    lit:partOfTextbook lit:TB_KNTT ;
+    lit:curriculumPosition 25 .
+
+lit:TB_CTST_B01 a lit:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 1: CTST Bai 1"@vi ;
+    lit:partOfTextbook lit:TB_CTST ;
+    lit:curriculumPosition 1 .
+
+lit:TB_CTST_B02 a lit:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 2: CTST Bai 2"@vi ;
+    lit:partOfTextbook lit:TB_CTST ;
+    lit:curriculumPosition 2 .
+
+lit:TB_CTST_B03 a lit:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 3: CTST Bai 3"@vi ;
+    lit:partOfTextbook lit:TB_CTST ;
+    lit:curriculumPosition 3 .
+
+lit:TB_CTST_B04 a lit:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 4: CTST Bai 4"@vi ;
+    lit:partOfTextbook lit:TB_CTST ;
+    lit:curriculumPosition 4 .
+
+lit:TB_CTST_B05 a lit:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 5: CTST Bai 5"@vi ;
+    lit:partOfTextbook lit:TB_CTST ;
+    lit:curriculumPosition 5 .
+
+lit:TB_CTST_B06 a lit:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 6: CTST Bai 6"@vi ;
+    lit:partOfTextbook lit:TB_CTST ;
+    lit:curriculumPosition 6 .
+
+lit:TB_CTST_B07 a lit:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 7: CTST Bai 7"@vi ;
+    lit:partOfTextbook lit:TB_CTST ;
+    lit:curriculumPosition 7 .
+
+lit:TB_CTST_B08 a lit:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 8: CTST Bai 8"@vi ;
+    lit:partOfTextbook lit:TB_CTST ;
+    lit:curriculumPosition 8 .
+
+lit:TB_CTST_B09 a lit:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 9: CTST Bai 9"@vi ;
+    lit:partOfTextbook lit:TB_CTST ;
+    lit:curriculumPosition 9 .
+
+lit:TB_CTST_B10 a lit:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 10: CTST Bai 10"@vi ;
+    lit:partOfTextbook lit:TB_CTST ;
+    lit:curriculumPosition 10 .
+
+lit:TB_CTST_B11 a lit:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 11: CTST Bai 11"@vi ;
+    lit:partOfTextbook lit:TB_CTST ;
+    lit:curriculumPosition 11 .
+
+lit:TB_CTST_B12 a lit:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 12: CTST Bai 12"@vi ;
+    lit:partOfTextbook lit:TB_CTST ;
+    lit:curriculumPosition 12 .
+
+lit:TB_CTST_B13 a lit:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 13: CTST Bai 13"@vi ;
+    lit:partOfTextbook lit:TB_CTST ;
+    lit:curriculumPosition 13 .
+
+lit:TB_CTST_B14 a lit:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 14: CTST Bai 14"@vi ;
+    lit:partOfTextbook lit:TB_CTST ;
+    lit:curriculumPosition 14 .
+
+lit:TB_CTST_B15 a lit:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 15: CTST Bai 15"@vi ;
+    lit:partOfTextbook lit:TB_CTST ;
+    lit:curriculumPosition 15 .
+
+lit:TB_CTST_B16 a lit:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 16: CTST Bai 16"@vi ;
+    lit:partOfTextbook lit:TB_CTST ;
+    lit:curriculumPosition 16 .
+
+lit:TB_CTST_B17 a lit:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 17: CTST Bai 17"@vi ;
+    lit:partOfTextbook lit:TB_CTST ;
+    lit:curriculumPosition 17 .
+
+lit:TB_CTST_B18 a lit:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 18: CTST Bai 18"@vi ;
+    lit:partOfTextbook lit:TB_CTST ;
+    lit:curriculumPosition 18 .
+
+lit:TB_CTST_B19 a lit:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 19: CTST Bai 19"@vi ;
+    lit:partOfTextbook lit:TB_CTST ;
+    lit:curriculumPosition 19 .
+
+lit:TB_CTST_B20 a lit:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 20: CTST Bai 20"@vi ;
+    lit:partOfTextbook lit:TB_CTST ;
+    lit:curriculumPosition 20 .
+
+lit:TB_CTST_B21 a lit:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 21: CTST Bai 21"@vi ;
+    lit:partOfTextbook lit:TB_CTST ;
+    lit:curriculumPosition 21 .
+
+lit:TB_CTST_B22 a lit:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 22: CTST Bai 22"@vi ;
+    lit:partOfTextbook lit:TB_CTST ;
+    lit:curriculumPosition 22 .
+
+lit:TB_CTST_B23 a lit:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 23: CTST Bai 23"@vi ;
+    lit:partOfTextbook lit:TB_CTST ;
+    lit:curriculumPosition 23 .
+
+lit:TB_CTST_B24 a lit:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 24: CTST Bai 24"@vi ;
+    lit:partOfTextbook lit:TB_CTST ;
+    lit:curriculumPosition 24 .
+
+lit:TB_CTST_B25 a lit:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 25: CTST Bai 25"@vi ;
+    lit:partOfTextbook lit:TB_CTST ;
+    lit:curriculumPosition 25 .
+
+lit:TB_CD_B01 a lit:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 1: CD Bai 1"@vi ;
+    lit:partOfTextbook lit:TB_CD ;
+    lit:curriculumPosition 1 .
+
+lit:TB_CD_B02 a lit:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 2: CD Bai 2"@vi ;
+    lit:partOfTextbook lit:TB_CD ;
+    lit:curriculumPosition 2 .
+
+lit:TB_CD_B03 a lit:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 3: CD Bai 3"@vi ;
+    lit:partOfTextbook lit:TB_CD ;
+    lit:curriculumPosition 3 .
+
+lit:TB_CD_B04 a lit:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 4: CD Bai 4"@vi ;
+    lit:partOfTextbook lit:TB_CD ;
+    lit:curriculumPosition 4 .
+
+lit:TB_CD_B05 a lit:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 5: CD Bai 5"@vi ;
+    lit:partOfTextbook lit:TB_CD ;
+    lit:curriculumPosition 5 .
+
+lit:TB_CD_B06 a lit:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 6: CD Bai 6"@vi ;
+    lit:partOfTextbook lit:TB_CD ;
+    lit:curriculumPosition 6 .
+
+lit:TB_CD_B07 a lit:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 7: CD Bai 7"@vi ;
+    lit:partOfTextbook lit:TB_CD ;
+    lit:curriculumPosition 7 .
+
+lit:TB_CD_B08 a lit:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 8: CD Bai 8"@vi ;
+    lit:partOfTextbook lit:TB_CD ;
+    lit:curriculumPosition 8 .
+
+lit:TB_CD_B09 a lit:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 9: CD Bai 9"@vi ;
+    lit:partOfTextbook lit:TB_CD ;
+    lit:curriculumPosition 9 .
+
+lit:TB_CD_B10 a lit:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 10: CD Bai 10"@vi ;
+    lit:partOfTextbook lit:TB_CD ;
+    lit:curriculumPosition 10 .
+
+lit:TB_CD_B11 a lit:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 11: CD Bai 11"@vi ;
+    lit:partOfTextbook lit:TB_CD ;
+    lit:curriculumPosition 11 .
+
+lit:TB_CD_B12 a lit:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 12: CD Bai 12"@vi ;
+    lit:partOfTextbook lit:TB_CD ;
+    lit:curriculumPosition 12 .
+
+lit:TB_CD_B13 a lit:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 13: CD Bai 13"@vi ;
+    lit:partOfTextbook lit:TB_CD ;
+    lit:curriculumPosition 13 .
+
+lit:TB_CD_B14 a lit:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 14: CD Bai 14"@vi ;
+    lit:partOfTextbook lit:TB_CD ;
+    lit:curriculumPosition 14 .
+
+lit:TB_CD_B15 a lit:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 15: CD Bai 15"@vi ;
+    lit:partOfTextbook lit:TB_CD ;
+    lit:curriculumPosition 15 .
+
+lit:TB_CD_B16 a lit:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 16: CD Bai 16"@vi ;
+    lit:partOfTextbook lit:TB_CD ;
+    lit:curriculumPosition 16 .
+
+lit:TB_CD_B17 a lit:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 17: CD Bai 17"@vi ;
+    lit:partOfTextbook lit:TB_CD ;
+    lit:curriculumPosition 17 .
+
+lit:TB_CD_B18 a lit:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 18: CD Bai 18"@vi ;
+    lit:partOfTextbook lit:TB_CD ;
+    lit:curriculumPosition 18 .
+
+lit:TB_CD_B19 a lit:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 19: CD Bai 19"@vi ;
+    lit:partOfTextbook lit:TB_CD ;
+    lit:curriculumPosition 19 .
+
+lit:TB_CD_B20 a lit:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 20: CD Bai 20"@vi ;
+    lit:partOfTextbook lit:TB_CD ;
+    lit:curriculumPosition 20 .
+
+lit:TB_CD_B21 a lit:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 21: CD Bai 21"@vi ;
+    lit:partOfTextbook lit:TB_CD ;
+    lit:curriculumPosition 21 .
+
+lit:TB_CD_B22 a lit:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 22: CD Bai 22"@vi ;
+    lit:partOfTextbook lit:TB_CD ;
+    lit:curriculumPosition 22 .
+
+lit:TB_CD_B23 a lit:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 23: CD Bai 23"@vi ;
+    lit:partOfTextbook lit:TB_CD ;
+    lit:curriculumPosition 23 .
+
+lit:TB_CD_B24 a lit:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 24: CD Bai 24"@vi ;
+    lit:partOfTextbook lit:TB_CD ;
+    lit:curriculumPosition 24 .
+
+lit:TB_CD_B25 a lit:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 25: CD Bai 25"@vi ;
+    lit:partOfTextbook lit:TB_CD ;
+    lit:curriculumPosition 25 .
+
+
+#################################################################
+#   RELATIONSHIPS
+#################################################################
+
+lit:A_NguyenDu lit:activeIn lit:HP_TrungDai .
+
+lit:A_NguyenDinhChieu lit:activeIn lit:HP_TrungDai .
+
+lit:A_NguyenDu_Cu lit:activeIn lit:HP_TrungDai .
+
+lit:A_NguyenDu_NamXuong lit:activeIn lit:HP_TrungDai .
+
+lit:A_NgoGiaVanPhai lit:activeIn lit:HP_TrungDai .
+
+lit:A_ChinhHuu lit:activeIn lit:HP_KhangChien .
+
+lit:A_PhamTienDuat lit:activeIn lit:HP_KhangChien .
+
+lit:A_NguyenDuy lit:activeIn lit:HP_HienDai .
+
+lit:A_BangViet lit:activeIn lit:HP_HienDai .
+
+lit:A_NguyenKhoaDiem lit:activeIn lit:HP_KhangChien .
+
+lit:A_HuyCan lit:activeIn lit:HP_1930_1945 .
+
+lit:A_HuuThinh lit:activeIn lit:HP_HienDai .
+
+lit:A_ThanhHai lit:activeIn lit:HP_HienDai .
+
+lit:A_VienPhuong lit:activeIn lit:HP_HienDai .
+
+lit:A_YPhuong lit:activeIn lit:HP_HienDai .
+
+lit:A_CheLanVien lit:activeIn lit:HP_HienDai .
+
+lit:A_KimLan lit:activeIn lit:HP_KhangChien .
+
+lit:A_NguyenThanhLong lit:activeIn lit:HP_KhangChien .
+
+lit:A_NguyenQuangSang lit:activeIn lit:HP_KhangChien .
+
+lit:A_NguyenMinhChau lit:activeIn lit:HP_HienDai .
+
+lit:A_LeMinhKhue lit:activeIn lit:HP_HienDai .
+
+lit:A_NguyenHuyTuong lit:activeIn lit:HP_KhangChien .
+
+lit:A_LuuQuangVu lit:activeIn lit:HP_HienDai .
+
+lit:A_Maupassant lit:activeIn lit:HP_NuocNgoai .
+
+lit:A_Gorki lit:activeIn lit:HP_NuocNgoai .
+
+lit:A_DanielDefoe lit:activeIn lit:HP_NuocNgoai .
+
+lit:A_LaPhongTen lit:activeIn lit:HP_NuocNgoai .
+
+lit:W_TruyenKieu lit:authoredBy lit:A_NguyenDu .
+
+lit:W_ChuyenNguoiConGaiNX lit:authoredBy lit:A_NguyenDu_NamXuong .
+
+lit:W_HoangLeNhatThongChi_14 lit:authoredBy lit:A_NgoGiaVanPhai .
+
+lit:W_LucVanTien_CuuKNN lit:authoredBy lit:A_NguyenDinhChieu .
+
+lit:W_DongChi lit:authoredBy lit:A_ChinhHuu .
+
+lit:W_BaiThoTDXKK lit:authoredBy lit:A_PhamTienDuat .
+
+lit:W_AnhTrang lit:authoredBy lit:A_NguyenDuy .
+
+lit:W_BepLua lit:authoredBy lit:A_BangViet .
+
+lit:W_KhucHatRu lit:authoredBy lit:A_NguyenKhoaDiem .
+
+lit:W_DoanThuyenDanhCa lit:authoredBy lit:A_HuyCan .
+
+lit:W_SangThu lit:authoredBy lit:A_HuuThinh .
+
+lit:W_MuaXuanNhoNho lit:authoredBy lit:A_ThanhHai .
+
+lit:W_ViengLangBac lit:authoredBy lit:A_VienPhuong .
+
+lit:W_NoiVoiCon lit:authoredBy lit:A_YPhuong .
+
+lit:W_ConCo lit:authoredBy lit:A_CheLanVien .
+
+lit:W_Lang lit:authoredBy lit:A_KimLan .
+
+lit:W_LangLeSaPa lit:authoredBy lit:A_NguyenThanhLong .
+
+lit:W_ChiecLuocNga lit:authoredBy lit:A_NguyenQuangSang .
+
+lit:W_BenQue lit:authoredBy lit:A_NguyenMinhChau .
+
+lit:W_NhungNgoiSao_XX lit:authoredBy lit:A_LeMinhKhue .
+
+lit:W_BacSon lit:authoredBy lit:A_NguyenHuyTuong .
+
+lit:W_ToiVaChungTa lit:authoredBy lit:A_LuuQuangVu .
+
+lit:W_BoCuaXiMong lit:authoredBy lit:A_Maupassant .
+
+lit:W_NhungDuaTreGorki lit:authoredBy lit:A_Gorki .
+
+lit:W_RobinsonCruxo lit:authoredBy lit:A_DanielDefoe .
+
+lit:W_ChoSoiVaCuu_LPT lit:authoredBy lit:A_LaPhongTen .
+
+lit:W_TruyenKieu lit:writtenIn lit:HP_TrungDai .
+
+lit:W_ChuyenNguoiConGaiNX lit:writtenIn lit:HP_TrungDai .
+
+lit:W_HoangLeNhatThongChi_14 lit:writtenIn lit:HP_TrungDai .
+
+lit:W_LucVanTien_CuuKNN lit:writtenIn lit:HP_TrungDai .
+
+lit:W_DongChi lit:writtenIn lit:HP_KhangChien .
+
+lit:W_BaiThoTDXKK lit:writtenIn lit:HP_KhangChien .
+
+lit:W_AnhTrang lit:writtenIn lit:HP_HienDai .
+
+lit:W_BepLua lit:writtenIn lit:HP_HienDai .
+
+lit:W_KhucHatRu lit:writtenIn lit:HP_KhangChien .
+
+lit:W_DoanThuyenDanhCa lit:writtenIn lit:HP_KhangChien .
+
+lit:W_SangThu lit:writtenIn lit:HP_HienDai .
+
+lit:W_MuaXuanNhoNho lit:writtenIn lit:HP_HienDai .
+
+lit:W_ViengLangBac lit:writtenIn lit:HP_HienDai .
+
+lit:W_NoiVoiCon lit:writtenIn lit:HP_HienDai .
+
+lit:W_ConCo lit:writtenIn lit:HP_HienDai .
+
+lit:W_Lang lit:writtenIn lit:HP_KhangChien .
+
+lit:W_LangLeSaPa lit:writtenIn lit:HP_KhangChien .
+
+lit:W_ChiecLuocNga lit:writtenIn lit:HP_KhangChien .
+
+lit:W_BenQue lit:writtenIn lit:HP_HienDai .
+
+lit:W_NhungNgoiSao_XX lit:writtenIn lit:HP_HienDai .
+
+lit:W_BacSon lit:writtenIn lit:HP_KhangChien .
+
+lit:W_ToiVaChungTa lit:writtenIn lit:HP_HienDai .
+
+lit:W_BoCuaXiMong lit:writtenIn lit:HP_NuocNgoai .
+
+lit:W_NhungDuaTreGorki lit:writtenIn lit:HP_NuocNgoai .
+
+lit:W_RobinsonCruxo lit:writtenIn lit:HP_NuocNgoai .
+
+lit:W_ChoSoiVaCuu_LPT lit:writtenIn lit:HP_NuocNgoai .
+
+lit:W_TruyenKieu lit:hasGenre lit:G_TruyenTho .
+
+lit:W_ChuyenNguoiConGaiNX lit:hasGenre lit:G_TruyenNgan .
+
+lit:W_HoangLeNhatThongChi_14 lit:hasGenre lit:G_TieuThuyet .
+
+lit:W_LucVanTien_CuuKNN lit:hasGenre lit:G_TruyenTho .
+
+lit:W_DongChi lit:hasGenre lit:G_ThoBayChuTuDo .
+
+lit:W_BaiThoTDXKK lit:hasGenre lit:G_ThoTruTinh .
+
+lit:W_AnhTrang lit:hasGenre lit:G_ThoTruTinh .
+
+lit:W_BepLua lit:hasGenre lit:G_ThoTruTinh .
+
+lit:W_KhucHatRu lit:hasGenre lit:G_ThoTruTinh .
+
+lit:W_DoanThuyenDanhCa lit:hasGenre lit:G_ThoTruTinh .
+
+lit:W_SangThu lit:hasGenre lit:G_ThoTruTinh .
+
+lit:W_MuaXuanNhoNho lit:hasGenre lit:G_ThoTruTinh .
+
+lit:W_ViengLangBac lit:hasGenre lit:G_ThoTruTinh .
+
+lit:W_NoiVoiCon lit:hasGenre lit:G_ThoTruTinh .
+
+lit:W_ConCo lit:hasGenre lit:G_ThoTruTinh .
+
+lit:W_Lang lit:hasGenre lit:G_TruyenNgan .
+
+lit:W_LangLeSaPa lit:hasGenre lit:G_TruyenNgan .
+
+lit:W_ChiecLuocNga lit:hasGenre lit:G_TruyenNgan .
+
+lit:W_BenQue lit:hasGenre lit:G_TruyenNgan .
+
+lit:W_NhungNgoiSao_XX lit:hasGenre lit:G_TruyenNgan .
+
+lit:W_BacSon lit:hasGenre lit:G_Kich .
+
+lit:W_ToiVaChungTa lit:hasGenre lit:G_Kich .
+
+lit:W_BoCuaXiMong lit:hasGenre lit:G_TruyenNgan .
+
+lit:W_NhungDuaTreGorki lit:hasGenre lit:G_TruyenCo .
+
+lit:W_RobinsonCruxo lit:hasGenre lit:G_TieuThuyet .
+
+lit:W_ChoSoiVaCuu_LPT lit:hasGenre lit:G_VanNghiLuan .
+
+lit:W_TruyenKieu lit:contains lit:CH_ThuyKieu .
+
+lit:W_TruyenKieu lit:contains lit:CH_ThuyVan .
+
+lit:W_TruyenKieu lit:contains lit:CH_KimTrong .
+
+lit:W_TruyenKieu lit:contains lit:CH_MaGiamSinh .
+
+lit:W_TruyenKieu lit:contains lit:CH_TuHai .
+
+lit:W_TruyenKieu lit:contains lit:CH_HoanThu .
+
+lit:W_ChuyenNguoiConGaiNX lit:contains lit:CH_VuNuong .
+
+lit:W_ChuyenNguoiConGaiNX lit:contains lit:CH_TruongSinh .
+
+lit:W_LucVanTien_CuuKNN lit:contains lit:CH_LucVanTien .
+
+lit:W_LucVanTien_CuuKNN lit:contains lit:CH_KieuNguyetNga .
+
+lit:W_DongChi lit:contains lit:CH_NguoiLinh_DC .
+
+lit:W_BaiThoTDXKK lit:contains lit:CH_NguoiLai_TDXKK .
+
+lit:W_Lang lit:contains lit:CH_OngHai .
+
+lit:W_LangLeSaPa lit:contains lit:CH_AnhThanhNien .
+
+lit:W_ChiecLuocNga lit:contains lit:CH_OngSau .
+
+lit:W_ChiecLuocNga lit:contains lit:CH_BeThu .
+
+lit:W_BenQue lit:contains lit:CH_NhiBenQue .
+
+lit:W_NhungNgoiSao_XX lit:contains lit:CH_PhuongDinh .
+
+lit:W_NhungNgoiSao_XX lit:contains lit:CH_Thao .
+
+lit:W_NhungNgoiSao_XX lit:contains lit:CH_NhoNgoiSao .
+
+lit:W_BoCuaXiMong lit:contains lit:CH_XiMong .
+
+lit:W_BoCuaXiMong lit:contains lit:CH_PhiLip .
+
+lit:W_TruyenKieu lit:uses lit:LD_AnDu .
+
+lit:W_TruyenKieu lit:uses lit:LD_SoSanh .
+
+lit:W_TruyenKieu lit:uses lit:LD_DienCo .
+
+lit:W_TruyenKieu lit:uses lit:LD_NhanHoa .
+
+lit:W_TruyenKieu lit:uses lit:LD_DiepNgu .
+
+lit:W_TruyenKieu lit:uses lit:LD_DoiLap .
+
+lit:W_TruyenKieu lit:uses lit:LD_TruongTu_Vong .
+
+lit:W_TruyenKieu lit:uses lit:LD_TuongTrung .
+
+lit:W_ChuyenNguoiConGaiNX lit:uses lit:LD_TuongTrung .
+
+lit:W_ChuyenNguoiConGaiNX lit:uses lit:LD_DoiLap .
+
+lit:W_DongChi lit:uses lit:LD_SoSanh .
+
+lit:W_DongChi lit:uses lit:LD_DiepNgu .
+
+lit:W_DongChi lit:uses lit:LD_LietKe .
+
+lit:W_DongChi lit:uses lit:LD_TuongTrung .
+
+lit:W_BaiThoTDXKK lit:uses lit:LD_DiepNgu .
+
+lit:W_BaiThoTDXKK lit:uses lit:LD_TuongTrung .
+
+lit:W_BaiThoTDXKK lit:uses lit:LD_DiepCauTruc .
+
+lit:W_AnhTrang lit:uses lit:LD_NhanHoa .
+
+lit:W_AnhTrang lit:uses lit:LD_AnDu .
+
+lit:W_AnhTrang lit:uses lit:LD_TuongTrung .
+
+lit:W_BepLua lit:uses lit:LD_DiepNgu .
+
+lit:W_BepLua lit:uses lit:LD_TuongTrung .
+
+lit:W_BepLua lit:uses lit:LD_TuLay .
+
+lit:W_DoanThuyenDanhCa lit:uses lit:LD_NhanHoa .
+
+lit:W_DoanThuyenDanhCa lit:uses lit:LD_SoSanh .
+
+lit:W_DoanThuyenDanhCa lit:uses lit:LD_NoiQuaQuaPhong .
+
+lit:W_SangThu lit:uses lit:LD_NhanHoa .
+
+lit:W_SangThu lit:uses lit:LD_AnDu .
+
+lit:W_SangThu lit:uses lit:LD_TuLay .
+
+lit:W_MuaXuanNhoNho lit:uses lit:LD_AnDu .
+
+lit:W_MuaXuanNhoNho lit:uses lit:LD_TuongTrung .
+
+lit:W_MuaXuanNhoNho lit:uses lit:LD_DiepNgu .
+
+lit:W_ViengLangBac lit:uses lit:LD_AnDu .
+
+lit:W_ViengLangBac lit:uses lit:LD_TuongTrung .
+
+lit:W_ViengLangBac lit:uses lit:LD_NhanHoa .
+
+lit:W_NoiVoiCon lit:uses lit:LD_AnDu .
+
+lit:W_NoiVoiCon lit:uses lit:LD_DiepNgu .
+
+lit:W_ConCo lit:uses lit:LD_TuongTrung .
+
+lit:W_ConCo lit:uses lit:LD_DiepNgu .
+
+lit:W_KhucHatRu lit:uses lit:LD_DiepNgu .
+
+lit:W_KhucHatRu lit:uses lit:LD_AnDu .
+
+lit:W_Lang lit:uses lit:LD_DoiLap .
+
+lit:W_ChiecLuocNga lit:uses lit:LD_DoiLap .
+
+lit:W_NhungNgoiSao_XX lit:uses lit:LD_LietKe .
+
+lit:W_TruyenKieu lit:expresses lit:T_ThanPhanPhuNu .
+
+lit:W_TruyenKieu lit:expresses lit:T_CaiThienSungSuc .
+
+lit:W_TruyenKieu lit:expresses lit:T_ChiToDuc .
+
+lit:W_ChuyenNguoiConGaiNX lit:expresses lit:T_ThanPhanPhuNu .
+
+lit:W_ChuyenNguoiConGaiNX lit:expresses lit:T_ChiToDuc .
+
+lit:W_LucVanTien_CuuKNN lit:expresses lit:T_CaiThienSungSuc .
+
+lit:W_LucVanTien_CuuKNN lit:expresses lit:T_ChiToDuc .
+
+lit:W_HoangLeNhatThongChi_14 lit:expresses lit:T_LongYeuNuoc .
+
+lit:W_DongChi lit:expresses lit:T_TinhDongChi .
+
+lit:W_DongChi lit:expresses lit:T_VeDepNguoiLinh .
+
+lit:W_BaiThoTDXKK lit:expresses lit:T_TinhDongChi .
+
+lit:W_BaiThoTDXKK lit:expresses lit:T_VeDepNguoiLinh .
+
+lit:W_AnhTrang lit:expresses lit:T_SuChuyenGiao .
+
+lit:W_AnhTrang lit:expresses lit:T_SuCoDon_TrietLy .
+
+lit:W_BepLua lit:expresses lit:T_TinhCamGiaDinh .
+
+lit:W_BepLua lit:expresses lit:T_NguoiMe .
+
+lit:W_KhucHatRu lit:expresses lit:T_NguoiMe .
+
+lit:W_KhucHatRu lit:expresses lit:T_TinhCamGiaDinh .
+
+lit:W_DoanThuyenDanhCa lit:expresses lit:T_VeDepNguoiLaoDong .
+
+lit:W_DoanThuyenDanhCa lit:expresses lit:T_Bien_VoTan .
+
+lit:W_SangThu lit:expresses lit:T_SuCoDon_TrietLy .
+
+lit:W_MuaXuanNhoNho lit:expresses lit:T_TinhYeuQueHuong .
+
+lit:W_MuaXuanNhoNho lit:expresses lit:T_KhaoVongHoaBinh .
+
+lit:W_ViengLangBac lit:expresses lit:T_LongYeuNuoc .
+
+lit:W_ViengLangBac lit:expresses lit:T_TinhCamGiaDinh .
+
+lit:W_NoiVoiCon lit:expresses lit:T_TinhCamGiaDinh .
+
+lit:W_NoiVoiCon lit:expresses lit:T_TinhYeuQueHuong .
+
+lit:W_ConCo lit:expresses lit:T_NguoiMe .
+
+lit:W_ConCo lit:expresses lit:T_TinhCamGiaDinh .
+
+lit:W_Lang lit:expresses lit:T_LongYeuNuoc .
+
+lit:W_Lang lit:expresses lit:T_TinhYeuQueHuong .
+
+lit:W_LangLeSaPa lit:expresses lit:T_VeDepNguoiLaoDong .
+
+lit:W_LangLeSaPa lit:expresses lit:T_TinhYeuQueHuong .
+
+lit:W_ChiecLuocNga lit:expresses lit:T_TinhCamGiaDinh .
+
+lit:W_ChiecLuocNga lit:expresses lit:T_SuHySinh_KC .
+
+lit:W_BenQue lit:expresses lit:T_SuCoDon_TrietLy .
+
+lit:W_NhungNgoiSao_XX lit:expresses lit:T_VeDepNguoiLinh .
+
+lit:W_NhungNgoiSao_XX lit:expresses lit:T_SuHySinh_KC .
+
+lit:W_BacSon lit:expresses lit:T_LongYeuNuoc .
+
+lit:W_BoCuaXiMong lit:expresses lit:T_TinhCamGiaDinh .
+
+lit:W_NhungDuaTreGorki lit:expresses lit:T_TinhCamGiaDinh .
+
+lit:W_DongChi lit:relatedWork lit:W_BaiThoTDXKK .
+
+lit:W_BepLua lit:relatedWork lit:W_KhucHatRu .
+
+lit:W_MuaXuanNhoNho lit:relatedWork lit:W_ViengLangBac .
+
+lit:W_Lang lit:relatedWork lit:W_LangLeSaPa .
+
+lit:W_ChiecLuocNga lit:relatedWork lit:W_NhungNgoiSao_XX .
+
+lit:W_DongChi lit:similarTo lit:W_BaiThoTDXKK .
+
+lit:W_BepLua lit:similarTo lit:W_KhucHatRu .
+
+lit:W_BepLua lit:similarTo lit:W_NoiVoiCon .
+
+lit:W_MuaXuanNhoNho lit:similarTo lit:W_ViengLangBac .
+
+lit:CH_VuNuong lit:similarTo lit:CH_ThuyKieu .
+
+lit:A_NguyenDu lit:similarTo lit:A_NguyenDinhChieu .
+
+lit:LD_AnDu lit:similarTo lit:LD_HoanDu .
+
+lit:LD_SoSanh lit:similarTo lit:LD_NhanHoa .
+
+lit:W_DongChi lit:contrastsWith lit:W_BaiThoTDXKK .
+
+lit:W_TruyenKieu lit:contrastsWith lit:W_LucVanTien_CuuKNN .
+
+lit:CH_ThuyKieu lit:contrastsWith lit:CH_MaGiamSinh .
+
+lit:LD_SoSanh lit:contrastsWith lit:LD_AnDu .
+
+lit:T_VeDepNguoiLinh lit:contrastsWith lit:T_ThanPhanPhuNu .
+

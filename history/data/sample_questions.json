@@ -1,0 +1,71 @@
+{
+  "description": "Cau hoi mau Su 9 voi do kho tang dan theo nhan dinh cua GV (difficulty_hint 1-4).",
+  "scale": {
+    "1": "Biet - Nhan biet su kien/nhan vat co ban",
+    "2": "Hieu - Giai thich nguyen nhan, y nghia co ban",
+    "3": "Van dung - Phan tich, so sanh",
+    "4": "Van dung cao - Danh gia, rut ra bai hoc, lien he"
+  },
+  "questions": [
+    {
+      "id": "Q01",
+      "text": "Chủ tịch Hồ Chí Minh đọc Tuyên ngôn Độc lập vào ngày nào?",
+      "difficulty_hint": 1,
+      "note": "Factual recall, single event."
+    },
+    {
+      "id": "Q02",
+      "text": "ASEAN được thành lập vào năm nào và gồm những nước sáng lập nào?",
+      "difficulty_hint": 1,
+      "note": "Factual recall, world history."
+    },
+    {
+      "id": "Q03",
+      "text": "Trình bày diễn biến chính của chiến dịch Điện Biên Phủ 1954.",
+      "difficulty_hint": 2,
+      "note": "Present information, one major event."
+    },
+    {
+      "id": "Q04",
+      "text": "Vì sao Đảng Cộng sản Việt Nam ra đời đầu năm 1930 là một tất yếu lịch sử?",
+      "difficulty_hint": 3,
+      "note": "Causal + requires prerequisite understanding of pre-1930 movements."
+    },
+    {
+      "id": "Q05",
+      "text": "Phân tích nguyên nhân thắng lợi của Cách mạng tháng Tám năm 1945.",
+      "difficulty_hint": 3,
+      "note": "Analytical, depends on Hoi nghi TW 8, Viet Minh, WWII context."
+    },
+    {
+      "id": "Q06",
+      "text": "So sánh Hiệp định Genève 1954 và Hiệp định Paris 1973 về hoàn cảnh, nội dung và ý nghĩa.",
+      "difficulty_hint": 3,
+      "note": "Comparative across two periods."
+    },
+    {
+      "id": "Q07",
+      "text": "Đánh giá vai trò của Nguyễn Ái Quốc đối với cách mạng Việt Nam giai đoạn 1919-1930.",
+      "difficulty_hint": 4,
+      "note": "Evaluative, spans whole period, multiple prerequisite events."
+    },
+    {
+      "id": "Q08",
+      "text": "Từ đường lối Đổi mới 1986, rút ra bài học cho công cuộc xây dựng đất nước hiện nay.",
+      "difficulty_hint": 4,
+      "note": "Apply + evaluate, abstract concept, cross-era linkage."
+    },
+    {
+      "id": "Q09",
+      "text": "Phân tích tác động của trật tự hai cực Ianta đối với quan hệ quốc tế và cách mạng Việt Nam sau 1945.",
+      "difficulty_hint": 4,
+      "note": "Deep abstract concept, world + VN linkage, multiple prerequisite concepts."
+    },
+    {
+      "id": "Q10",
+      "text": "Liên Xô tan rã vào năm nào?",
+      "difficulty_hint": 1,
+      "note": "Factual recall, world history."
+    }
+  ]
+}

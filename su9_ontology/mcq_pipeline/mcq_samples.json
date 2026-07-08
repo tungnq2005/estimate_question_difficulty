@@ -1,0 +1,122 @@
+[
+  {
+    "id": "su9_001",
+    "stem": "Nguyên nhân sâu xa dẫn đến bùng nổ Chiến tranh thế giới thứ hai là gì?",
+    "correct": "Sự phát triển không đều của chủ nghĩa tư bản",
+    "distractors": [
+      "Chính sách thỏa hiệp, nhượng bộ của Anh, Pháp",
+      "Sự xuất hiện của chủ nghĩa phát xít",
+      "Khủng hoảng kinh tế 1929-1933"
+    ],
+    "difficulty": "Medium",
+    "source": "Bài 22: Chiến tranh thế giới thứ hai"
+  },
+  {
+    "id": "su9_002",
+    "stem": "Chiến thắng nào đã kết thúc cuộc kháng chiến chống Pháp của nhân dân ta?",
+    "correct": "Chiến thắng Điện Biên Phủ",
+    "distractors": [
+      "Chiến thắng Việt Bắc thu đông",
+      "Chiến thắng Biên giới thu đông",
+      "Chiến thắng Hòa Bình"
+    ],
+    "difficulty": "Easy",
+    "source": "Bài 18: Kháng chiến chống Pháp"
+  },
+  {
+    "id": "su9_003",
+    "stem": "Mặt trận Việt Minh được thành lập vào năm nào?",
+    "correct": "1941",
+    "distractors": [
+      "1930",
+      "1945",
+      "1939"
+    ],
+    "difficulty": "Easy",
+    "source": "Bài 16: Mặt trận Việt Minh"
+  },
+  {
+    "id": "su9_004",
+    "stem": "Sự kiện nào đánh dấu bước ngoặt của cuộc kháng chiến chống Mĩ?",
+    "correct": "Cuộc Tổng tiến công và nổi dậy Mậu Thân 1968",
+    "distractors": [
+      "Hiệp định Paris 1973",
+      "Chiến dịch Hồ Chí Minh 1975",
+      "Phong trào Đồng khởi 1960"
+    ],
+    "difficulty": "Hard",
+    "source": "Bài 30: Kháng chiến chống Mĩ"
+  },
+  {
+    "id": "su9_005",
+    "stem": "Lý do nào quan trọng nhất khiến Nguyễn Tất Thành ra đi tìm đường cứu nước?",
+    "correct": "Muốn tìm hiểu các nước phương Tây để tìm ra con đường cứu nước đúng đắn",
+    "distractors": [
+      "Muốn sang Pháp du học",
+      "Muốn học hỏi kĩ thuật phương Tây",
+      "Muốn thoát khỏi sự kiểm soát của gia đình"
+    ],
+    "difficulty": "Medium",
+    "source": "Bài 24: Nguyễn Tất Thành ra đi tìm đường cứu nước"
+  },
+  {
+    "id": "su9_006",
+    "stem": "Cuộc cách mạng tháng Tám năm 1945 mang tính chất gì?",
+    "correct": "Cách mạng dân tộc dân chủ nhân dân",
+    "distractors": [
+      "Cách mạng vô sản",
+      "Cách mạng tư sản",
+      "Cách mạng giải phóng dân tộc"
+    ],
+    "difficulty": "Hard",
+    "source": "Bài 23: Cách mạng tháng Tám"
+  },
+  {
+    "id": "su9_007",
+    "stem": "Ai là người khởi xướng phong trào Cần Vương?",
+    "correct": "Vua Hàm Nghi",
+    "distractors": [
+      "Tôn Thất Thuyết",
+      "Nguyễn Trường Tộ",
+      "Phan Đình Phùng"
+    ],
+    "difficulty": "Medium",
+    "source": "Bài 10: Phong trào Cần Vương"
+  },
+  {
+    "id": "su9_008",
+    "stem": "Hiệp định Giơ-ne-vơ được kí kết vào năm nào?",
+    "correct": "1954",
+    "distractors": [
+      "1945",
+      "1973",
+      "1950"
+    ],
+    "difficulty": "Easy",
+    "source": "Bài 19: Hiệp định Giơ-ne-vơ"
+  },
+  {
+    "id": "su9_009",
+    "stem": "Điểm giống nhau giữa phong trào Đồng Khởi và phong trào Cần Vương là gì?",
+    "correct": "Đều là phong trào đấu tranh chống lại ách thống trị của thực dân Pháp",
+    "distractors": [
+      "Đều chịu sự lãnh đạo của Đảng Cộng sản",
+      "Đều có sự tham gia của vua quan",
+      "Đều nổ ra ở miền Bắc"
+    ],
+    "difficulty": "Hard",
+    "source": "Bài 26 + Bài 10"
+  },
+  {
+    "id": "su9_010",
+    "stem": "Tác giả của 'Bản án chế độ thực dân Pháp' là ai?",
+    "correct": "Nguyễn Ái Quốc",
+    "distractors": [
+      "Phan Bội Châu",
+      "Phan Châu Trinh",
+      "Huỳnh Thúc Kháng"
+    ],
+    "difficulty": "Medium",
+    "source": "Bài 19: Nguyễn Ái Quốc"
+  }
+]

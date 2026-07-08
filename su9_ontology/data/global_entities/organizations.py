@@ -1,0 +1,97 @@
+# Format: (id, label, aliases, frequency, abstractness, confidence)
+ORGANIZATIONS = [
+    ("O_Bolshevik", "Đảng Bôn-sê-vích Nga", "", 10, 2, 3),
+    ("O_Comintern", "Quốc tế Cộng sản", "Quốc tế thứ ba", 12, 3, 3),
+    ("O_DangQuocXa", "Đảng Quốc xã", "Nazi", 10, 2, 3),
+    ("O_DangQuocGiaPhatXit", "Đảng Quốc gia phát xít (Italia)", "", 5, 2, 3),
+    ("O_PhePhatXit", "Phe Phát xít", "Trục Đức-Ý-Nhật", 15, 3, 3),
+    ("O_LienHopQuoc_WW2", "Khối Đồng minh chống phát xít", "Phe Đồng minh|Quân Đồng minh|Mặt trận Đồng minh|Đồng minh", 15, 3, 3),
+    ("O_DangCongSan_NhatBan", "Đảng Cộng sản Nhật Bản", "", 5, 2, 3),
+    ("O_QuocDanDang_TQ", "Quốc dân Đảng (Trung Quốc)", "", 8, 2, 3),
+    ("O_DangCongSan_TQ", "Đảng Cộng sản Trung Quốc", "", 8, 2, 3),
+    ("O_DangQuocDai", "Đảng Quốc đại (Ấn Độ)", "", 7, 2, 3),
+    ("O_DangCongSan_AnDo", "Đảng Cộng sản Ấn Độ", "", 5, 2, 3),
+    ("O_DangDanToc_Indonesia", "Đảng Dân tộc In-đô-nê-xi-a", "", 5, 2, 3),
+    ("O_VNQDD", "Việt Nam Quốc dân đảng", "VNQDĐ", 6, 2, 3),
+    #chapter 2
+    ("O_TuSanVN", "Giai cấp tư sản Việt Nam", "Tư sản dân tộc|Tư sản yêu nước", 10, 3, 3),
+    ("O_TieuTuSan", "Tầng lớp tiểu tư sản", "Tiểu tư sản|Trí thức trẻ|Học sinh, sinh viên", 10, 3, 3),
+    ("O_CongNhanVN", "Giai cấp công nhân Việt Nam", "Công nhân", 15, 3, 3),
+    ("O_NamDongThuXa", "Nam Đồng thư xã", "Nhà xuất bản Nam Đồng", 5, 2, 3),
+    ("O_HoiPhucViet", "Hội Phục Việt", "", 5, 2, 3),
+    ("O_VNQDD", "Việt Nam Quốc dân Đảng", "VNQDĐ|VN Quốc dân Đảng", 12, 2, 3),
+    ("O_TanViet", "Tân Việt Cách mạng đảng", "Đảng Tân Việt", 10, 2, 3),
+    ("O_HVNCMTN", "Hội Việt Nam Cách mạng Thanh niên", "Hội VN Cách mạng Thanh niên", 15, 2, 3),
+    ("O_CongHoi", "Công hội", "Công hội đỏ", 8, 2, 3),
+    
+    ("O_DangXaHoiPhap", "Đảng Xã hội Pháp", "", 5, 2, 3),
+    ("O_DangCongSanPhap", "Đảng Cộng sản Pháp", "", 5, 2, 3),
+    ("O_QuocTeCongSan", "Quốc tế Cộng sản", "Quốc tế 3|Comintern|Đại hội V", 15, 3, 3),
+    ("O_HoiLienHiepThuocDia", "Hội Liên hiệp thuộc địa", "", 5, 2, 3),
+    ("O_HoiNongDanQuocTe", "Hội đồng Quốc tế Nông dân", "", 5, 2, 3),
+    ("O_DDCSD", "Đông Dương Cộng sản Đảng", "", 10, 2, 3),
+    ("O_ANCSD", "An Nam Cộng sản Đảng", "", 10, 2, 3),
+    ("O_DDCSLD", "Đông Dương Cộng sản Liên đoàn", "", 10, 2, 3),
+    ("O_DangCongSanVN", "Đảng Cộng sản Việt Nam", "Đảng CSVN|Đảng duy nhất|Đội tiền phong", 20, 3, 3),
+    
+    ("O_ChinhQuyenXoViet", "Chính quyền Xô viết", "Xô viết|Các xô viết", 10, 2, 3),
+    ("O_MatTranNhanDanPhap", "Mặt trận Nhân dân Pháp", "", 8, 2, 3),
+    ("O_MatTranDanChuDongDuong", "Mặt trận Dân chủ Đông Dương", "Mặt trận Nhân dân phản đế Đông Dương|Mặt trận Dân chủ", 12, 2, 3),
+    
+    ("O_ThucDanPhap", "Thực dân Pháp", "Đế quốc Pháp|Pháp", 20, 2, 3),
+    ("O_QuanPhietNhat", "Quân phiệt Nhật Bản", "Phát xít Nhật|Nhật Bản|Nhật", 20, 2, 3),
+    ("O_VietMinh", "Mặt trận Việt Minh", "Mặt trận Việt Nam độc lập đồng minh|Hội Cứu quốc", 20, 2, 3),
+    ("O_VNTTGPQ", "Đội Việt Nam Tuyên truyền Giải phóng quân", "Việt Nam Tuyên truyền Giải phóng quân", 15, 2, 3),
+    ("O_CuuQuocQuan", "Cứu quốc quân", "", 10, 2, 3),
+    ("O_VN_GiaiPhongQuan", "Việt Nam Giải phóng quân", "", 15, 2, 3),
+    
+    ("O_UyBanKhoiNghia", "Ủy ban Khởi nghĩa toàn quốc", "", 10, 2, 3),
+    ("O_ChinhPhuLamThoi", "Chính phủ lâm thời", "Ủy ban Dân tộc giải phóng Việt Nam|Chính phủ VNDCCH", 15, 2, 3),
+    # ("O_DongMinh", "Quân Đồng minh", "Hồng quân Liên Xô|Đồng minh", 15, 2, 3),
+
+    ("O_PheTBCN", "Phe Tư bản chủ nghĩa", "Tư bản chủ nghĩa|Đế quốc chủ nghĩa", 20, 3, 3),
+    ("O_PheXHCN", "Phe Xã hội chủ nghĩa", "Xã hội chủ nghĩa", 20, 3, 3),
+    ("O_SEV", "Hội đồng Tương trợ Kinh tế (SEV)", "SEV", 15, 2, 3),
+    ("O_NATO", "Tổ chức Hiệp ước Bắc Đại Tây Dương (NATO)", "NATO", 15, 2, 3),
+    ("O_Warsaw", "Tổ chức Hiệp ước Vác-sa-va", "Vác-sa-va|Warsaw", 15, 2, 3),
+    
+    ("O_DangCSLienXo", "Đảng Cộng sản Liên Xô", "", 15, 2, 3),
+    ("O_SNG", "Cộng đồng các quốc gia độc lập (SNG)", "SNG|Cộng đồng SNG", 12, 2, 3),
+    
+    ("O_DangDanChu_My", "Đảng Dân chủ Mỹ", "Đảng Dân chủ|Democratic Party", 10, 2, 3),
+    ("O_DangCongHoa_My", "Đảng Cộng hòa Mỹ", "Đảng Cộng hòa|Republican Party", 10, 2, 3),
+    ("O_EEC", "Cộng đồng Kinh tế châu Âu (EEC)", "Thị trường chung châu Âu", 15, 2, 3),
+    ("O_EU", "Liên minh châu Âu (EU)", "Liên minh EU|European Union", 20, 2, 3),
+    ("O_PhongTrao26_7", "Phong trào 26-7", "Tổ chức cách mạng 26-7", 10, 2, 3),
+    ("O_CheDoBatista", "Chế độ độc tài Ba-ti-xta", "Chính quyền tay sai Mỹ", 9, 2, 3),
+    ("O_SCAP", "Bộ chỉ huy tối cao lực lượng Đồng minh (SCAP)", "Lực lượng SCAP", 8, 2, 3),
+    ("O_ASEAN", "Hiệp hội các quốc gia Đông Nam Á (ASEAN)", "ASEAN|Khối ASEAN", 15, 2, 3),
+    ("O_DangQuocDai", "Đảng Quốc đại Ấn Độ", "Đảng Quốc đại", 10, 2, 3),
+    
+    ("O_VNDCCH", "Nước Việt Nam Dân chủ Cộng hòa", "Chính phủ Việt Nam|Chính quyền cách mạng", 20, 3, 3),
+    ("O_THDQ", "Quân Trung Hoa Dân quốc", "Quân Tưởng|Tưởng Giới Thạch", 10, 2, 3),
+    ("O_ThucDanPhap", "Thực dân Pháp", "Quân Pháp|Pháp", 15, 3, 3),
+    ("O_QuanAnh", "Quân Anh", "Đế quốc Anh", 8, 2, 3),
+    ("O_VietQuocVietCach", "Việt Quốc, Việt Cách", "Đảng phái tay sai|Bọn phản động", 5, 2, 3),
+    ("O_QuocHoiKhoa1", "Quốc hội khóa I", "Quốc hội đầu tiên", 10, 2, 3),
+    ("O_NhaBinhDanHocVu", "Nha Bình dân học vụ", "Bình dân học vụ", 10, 2, 3),
+    
+    ("O_DangLaoDongVN", "Đảng Lao động Việt Nam", "Đảng Cộng sản Đông Dương", 20, 3, 3), # Đổi tên từ Đại hội II
+    ("O_MatTranLienViet", "Mặt trận Liên Việt", "Mặt trận Liên hiệp quốc dân Việt Nam", 15, 2, 3),
+    ("O_LienMinhVietMienLao", "Liên minh nhân dân Việt - Miên - Lào", "Liên minh Đông Dương", 10, 2, 3),
+    
+    ("O_ChinhQuyenDiem", "Chính quyền Ngô Đình Diệm", "Mỹ - Diệm|Ngụy quyền Sài Gòn", 15, 2, 3),
+    ("O_MTDTGPMNVN", "Mặt trận Dân tộc giải phóng miền Nam Việt Nam", "Mặt trận Giải phóng", 20, 3, 3),
+    ("O_DoiQuanTocDai", "Đội quân tóc dài", "Lực lượng nữ đấu tranh chính trị", 10, 2, 3),
+    
+    ("O_CPCM_LamThoi", "Chính phủ Cách mạng lâm thời Cộng hòa miền Nam VN", "Chính phủ Cách mạng lâm thời", 15, 2, 3),
+    ("O_QuanMy", "Quân đội Viễn chinh Mỹ", "Quân Mỹ|Lính Mỹ", 15, 3, 3),
+    ("O_QuanSaiGon", "Quân đội Sài Gòn", "Quân Ngụy|Lực lượng tay sai", 15, 3, 3),
+    
+    ("O_QuocHoiKhoa6", "Quốc hội khóa VI", "Quốc hội thống nhất", 15, 2, 3),
+    ("O_KhmerDo", "Chính quyền Pôn Pốt", "Khmer Đỏ|Campuchia dân chủ", 10, 2, 3),
+    ("O_LienHopQuoc", "Tổ chức Liên hợp quốc (UN)", "Liên hợp quốc|UN", 20, 2, 3),
+    ("O_DangCS_VN", "Đảng Cộng sản Việt Nam", "Đảng", 20, 3, 3),
+    
+    ("O_AlQaeda", "Tổ chức khủng bố Al-Qaeda", "Al-Qaeda", 5, 2, 3),
+]

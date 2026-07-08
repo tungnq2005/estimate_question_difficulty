@@ -1,0 +1,2421 @@
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix chem: <http://edu.vn/chem9/ontology#> .
+
+<http://edu.vn/chem9/ontology> a owl:Ontology ;
+    rdfs:label "Ontology Hoa 9 - Cold-start Question Difficulty Estimation"@vi ;
+    owl:versionInfo "0.1.0" .
+
+#################################################################
+#   CLASSES
+#################################################################
+
+chem:ChemEntity a owl:Class ; rdfs:label "Thuc the Hoa hoc"@vi .
+chem:Substance       a owl:Class ; rdfs:subClassOf chem:ChemEntity ; rdfs:label "Chat"@vi .
+chem:SubstanceClass  a owl:Class ; rdfs:subClassOf chem:ChemEntity ; rdfs:label "Loai chat"@vi .
+chem:Reaction        a owl:Class ; rdfs:subClassOf chem:ChemEntity ; rdfs:label "Phan ung"@vi .
+chem:ReactionType    a owl:Class ; rdfs:subClassOf chem:ChemEntity ; rdfs:label "Loai phan ung"@vi .
+chem:Property        a owl:Class ; rdfs:subClassOf chem:ChemEntity ; rdfs:label "Tinh chat"@vi .
+chem:FunctionalGroup a owl:Class ; rdfs:subClassOf chem:ChemEntity ; rdfs:label "Nhom chuc"@vi .
+chem:Process         a owl:Class ; rdfs:subClassOf chem:ChemEntity ; rdfs:label "Quy trinh san xuat"@vi .
+chem:Concept         a owl:Class ; rdfs:subClassOf chem:ChemEntity ; rdfs:label "Khai niem Hoa hoc"@vi .
+chem:LessonUnit      a owl:Class ; rdfs:label "Bai hoc SGK"@vi .
+chem:Textbook        a owl:Class ; rdfs:label "Bo SGK"@vi .
+
+#################################################################
+#   OBJECT PROPERTIES
+#################################################################
+
+chem:prerequisiteOf a owl:ObjectProperty , owl:TransitiveProperty ; rdfs:label "la tien de cua"@vi .
+
+chem:instanceOf a owl:ObjectProperty ;
+    rdfs:domain chem:Substance ; rdfs:range chem:SubstanceClass ;
+    rdfs:label "thuoc loai chat"@vi .
+
+chem:hasProperty a owl:ObjectProperty ;
+    rdfs:range chem:Property ; rdfs:label "co tinh chat"@vi .
+
+chem:reactsWith a owl:ObjectProperty , owl:SymmetricProperty ;
+    rdfs:domain chem:Substance ; rdfs:range chem:Substance ;
+    rdfs:label "tac dung voi"@vi .
+
+chem:reactant a owl:ObjectProperty ;
+    rdfs:domain chem:Reaction ; rdfs:range chem:Substance ;
+    rdfs:label "chat tham gia"@vi .
+
+chem:product a owl:ObjectProperty ;
+    rdfs:domain chem:Reaction ; rdfs:range chem:Substance ;
+    rdfs:label "chat san pham"@vi .
+
+chem:reactionType a owl:ObjectProperty ;
+    rdfs:domain chem:Reaction ; rdfs:range chem:ReactionType ;
+    rdfs:label "loai phan ung"@vi .
+
+chem:contains a owl:ObjectProperty ;
+    rdfs:domain chem:Substance ; rdfs:range chem:FunctionalGroup ;
+    rdfs:label "chua nhom chuc"@vi .
+
+chem:produces a owl:ObjectProperty ;
+    rdfs:domain chem:Process ; rdfs:range chem:Substance ;
+    rdfs:label "san xuat ra"@vi .
+
+chem:appearsInLesson a owl:ObjectProperty ; rdfs:range chem:LessonUnit ; rdfs:label "xuat hien trong bai"@vi .
+chem:partOfTextbook a owl:ObjectProperty ; rdfs:range chem:Textbook ; rdfs:label "thuoc bo SGK"@vi .
+
+chem:similarTo a owl:ObjectProperty , owl:SymmetricProperty ; rdfs:label "tuong tu"@vi .
+chem:contrastsWith a owl:ObjectProperty , owl:SymmetricProperty ; rdfs:label "khac biet"@vi .
+
+#################################################################
+#   DATA PROPERTIES
+#################################################################
+
+chem:abstractness a owl:DatatypeProperty ; rdfs:range xsd:integer ;
+    rdfs:comment "1=chat cu the, 5=khai niem rat truu tuong (xu the hoa hoc)"@vi .
+chem:bloomLevel a owl:DatatypeProperty ; rdfs:range xsd:integer .
+chem:frequencyInTextbook a owl:DatatypeProperty ; rdfs:range xsd:integer .
+chem:curriculumPosition a owl:DatatypeProperty ; rdfs:range xsd:integer .
+chem:formula a owl:DatatypeProperty ; rdfs:range xsd:string ;
+    rdfs:comment "Cong thuc hoa hoc"@vi .
+chem:balancingComplexity a owl:DatatypeProperty ; rdfs:range xsd:integer ;
+    rdfs:comment "Do phuc tap can bang PTHH (1-5)"@vi .
+chem:stepsInSynthesis a owl:DatatypeProperty ; rdfs:range xsd:integer ;
+    rdfs:comment "So buoc trong chuoi tong hop (cho Process)"@vi .
+chem:aliases a owl:DatatypeProperty ; rdfs:range xsd:string .
+chem:confidence a owl:DatatypeProperty ; rdfs:range xsd:integer .
+
+#################################################################
+#   TEXTBOOKS
+#################################################################
+
+chem:TB_Old a chem:Textbook ; rdfs:label "SGK Hoa 9 (bo cu)"@vi ; chem:confidence 3 .
+chem:TB_KNTT a chem:Textbook ; rdfs:label "SGK KHTN 9 - Ket noi tri thuc"@vi ; chem:confidence 3 .
+chem:TB_CTST a chem:Textbook ; rdfs:label "SGK KHTN 9 - Chan troi sang tao"@vi ; chem:confidence 3 .
+chem:TB_CD a chem:Textbook ; rdfs:label "SGK KHTN 9 - Canh Dieu"@vi ; chem:confidence 3 .
+
+
+#################################################################
+#   SUBSTANCE CLASSES
+#################################################################
+
+chem:SC_Oxit a chem:SubstanceClass ;
+    rdfs:label "Oxit"@vi ;
+    chem:abstractness 3 ;
+    chem:confidence 3 .
+
+chem:SC_OxitAxit a chem:SubstanceClass ;
+    rdfs:label "Oxit axit"@vi ;
+    chem:abstractness 3 ;
+    chem:confidence 3 .
+
+chem:SC_OxitBazo a chem:SubstanceClass ;
+    rdfs:label "Oxit bazo"@vi ;
+    chem:abstractness 3 ;
+    chem:confidence 3 .
+
+chem:SC_OxitLuongTinh a chem:SubstanceClass ;
+    rdfs:label "Oxit luong tinh"@vi ;
+    chem:abstractness 4 ;
+    chem:confidence 3 .
+
+chem:SC_OxitTrungTinh a chem:SubstanceClass ;
+    rdfs:label "Oxit trung tinh"@vi ;
+    chem:abstractness 4 ;
+    chem:confidence 3 .
+
+chem:SC_Axit a chem:SubstanceClass ;
+    rdfs:label "Axit"@vi ;
+    chem:abstractness 3 ;
+    chem:confidence 3 .
+
+chem:SC_AxitManh a chem:SubstanceClass ;
+    rdfs:label "Axit manh"@vi ;
+    chem:abstractness 3 ;
+    chem:confidence 3 .
+
+chem:SC_AxitYeu a chem:SubstanceClass ;
+    rdfs:label "Axit yeu"@vi ;
+    chem:abstractness 3 ;
+    chem:confidence 3 .
+
+chem:SC_Bazo a chem:SubstanceClass ;
+    rdfs:label "Bazo"@vi ;
+    chem:abstractness 3 ;
+    chem:confidence 3 .
+
+chem:SC_BazoTan a chem:SubstanceClass ;
+    rdfs:label "Bazo tan (Kiem)"@vi ;
+    chem:aliases "Kiem" ;
+    chem:abstractness 3 ;
+    chem:confidence 3 .
+
+chem:SC_BazoKhongTan a chem:SubstanceClass ;
+    rdfs:label "Bazo khong tan"@vi ;
+    chem:abstractness 3 ;
+    chem:confidence 3 .
+
+chem:SC_Muoi a chem:SubstanceClass ;
+    rdfs:label "Muoi"@vi ;
+    chem:abstractness 3 ;
+    chem:confidence 3 .
+
+chem:SC_MuoiAxit a chem:SubstanceClass ;
+    rdfs:label "Muoi axit"@vi ;
+    chem:abstractness 3 ;
+    chem:confidence 3 .
+
+chem:SC_MuoiTrungHoa a chem:SubstanceClass ;
+    rdfs:label "Muoi trung hoa"@vi ;
+    chem:abstractness 3 ;
+    chem:confidence 3 .
+
+chem:SC_KimLoai a chem:SubstanceClass ;
+    rdfs:label "Kim loai"@vi ;
+    chem:abstractness 3 ;
+    chem:confidence 3 .
+
+chem:SC_KimLoaiKiem a chem:SubstanceClass ;
+    rdfs:label "Kim loai kiem"@vi ;
+    chem:abstractness 3 ;
+    chem:confidence 3 .
+
+chem:SC_KimLoaiKiemTho a chem:SubstanceClass ;
+    rdfs:label "Kim loai kiem tho"@vi ;
+    chem:abstractness 3 ;
+    chem:confidence 3 .
+
+chem:SC_PhiKim a chem:SubstanceClass ;
+    rdfs:label "Phi kim"@vi ;
+    chem:abstractness 3 ;
+    chem:confidence 3 .
+
+chem:SC_Hidrocacbon a chem:SubstanceClass ;
+    rdfs:label "Hydrocarbon"@vi ;
+    chem:aliases "Hidro cacbon" ;
+    chem:abstractness 3 ;
+    chem:confidence 3 .
+
+chem:SC_HCNoi a chem:SubstanceClass ;
+    rdfs:label "Hydrocarbon no"@vi ;
+    chem:aliases "Ankan" ;
+    chem:abstractness 3 ;
+    chem:confidence 3 .
+
+chem:SC_HCKhong a chem:SubstanceClass ;
+    rdfs:label "Hydrocarbon khong no"@vi ;
+    chem:abstractness 3 ;
+    chem:confidence 3 .
+
+chem:SC_HCThom a chem:SubstanceClass ;
+    rdfs:label "Hydrocarbon thom"@vi ;
+    chem:aliases "Aren|Benzen" ;
+    chem:abstractness 3 ;
+    chem:confidence 3 .
+
+chem:SC_Ancol a chem:SubstanceClass ;
+    rdfs:label "Ancol"@vi ;
+    chem:aliases "Ruou|Alcohol" ;
+    chem:abstractness 3 ;
+    chem:confidence 3 .
+
+chem:SC_Axit_HC a chem:SubstanceClass ;
+    rdfs:label "Axit huu co"@vi ;
+    chem:aliases "Axit cacboxylic" ;
+    chem:abstractness 3 ;
+    chem:confidence 3 .
+
+chem:SC_Este a chem:SubstanceClass ;
+    rdfs:label "Este"@vi ;
+    chem:aliases "Ester" ;
+    chem:abstractness 3 ;
+    chem:confidence 3 .
+
+chem:SC_Gluxit a chem:SubstanceClass ;
+    rdfs:label "Gluxit (Cacbohidrat)"@vi ;
+    chem:aliases "Carbohydrate" ;
+    chem:abstractness 3 ;
+    chem:confidence 3 .
+
+chem:SC_Polime a chem:SubstanceClass ;
+    rdfs:label "Polyme"@vi ;
+    chem:aliases "Polymer" ;
+    chem:abstractness 3 ;
+    chem:confidence 3 .
+
+
+#################################################################
+#   SUBSTANCES
+#################################################################
+
+chem:S_CaO a chem:Substance ;
+    rdfs:label "Canxi oxit"@vi ;
+    chem:formula "CaO" ;
+    chem:aliases "Voi song|CaO" ;
+    chem:frequencyInTextbook 12 ;
+    chem:abstractness 1 ;
+    chem:confidence 3 .
+
+chem:S_SO2 a chem:Substance ;
+    rdfs:label "Luu huynh dioxit"@vi ;
+    chem:formula "SO2" ;
+    chem:aliases "Khi sunfuro|SO2" ;
+    chem:frequencyInTextbook 10 ;
+    chem:abstractness 1 ;
+    chem:confidence 3 .
+
+chem:S_SO3 a chem:Substance ;
+    rdfs:label "Luu huynh trioxit"@vi ;
+    chem:formula "SO3" ;
+    chem:aliases "SO3" ;
+    chem:frequencyInTextbook 6 ;
+    chem:abstractness 1 ;
+    chem:confidence 3 .
+
+chem:S_CO2 a chem:Substance ;
+    rdfs:label "Cacbon dioxit"@vi ;
+    chem:formula "CO2" ;
+    chem:aliases "Khi cacbonic|CO2" ;
+    chem:frequencyInTextbook 12 ;
+    chem:abstractness 1 ;
+    chem:confidence 3 .
+
+chem:S_CO a chem:Substance ;
+    rdfs:label "Cacbon monoxit"@vi ;
+    chem:formula "CO" ;
+    chem:aliases "CO" ;
+    chem:frequencyInTextbook 6 ;
+    chem:abstractness 1 ;
+    chem:confidence 3 .
+
+chem:S_P2O5 a chem:Substance ;
+    rdfs:label "Diphotpho pentaoxit"@vi ;
+    chem:formula "P2O5" ;
+    chem:aliases "P2O5" ;
+    chem:frequencyInTextbook 5 ;
+    chem:abstractness 1 ;
+    chem:confidence 3 .
+
+chem:S_Al2O3 a chem:Substance ;
+    rdfs:label "Nhom oxit"@vi ;
+    chem:formula "Al2O3" ;
+    chem:aliases "Al2O3" ;
+    chem:frequencyInTextbook 6 ;
+    chem:abstractness 1 ;
+    chem:confidence 3 .
+
+chem:S_Fe2O3 a chem:Substance ;
+    rdfs:label "Sat(III) oxit"@vi ;
+    chem:formula "Fe2O3" ;
+    chem:aliases "Fe2O3" ;
+    chem:frequencyInTextbook 8 ;
+    chem:abstractness 1 ;
+    chem:confidence 3 .
+
+chem:S_CuO a chem:Substance ;
+    rdfs:label "Dong(II) oxit"@vi ;
+    chem:formula "CuO" ;
+    chem:aliases "CuO" ;
+    chem:frequencyInTextbook 6 ;
+    chem:abstractness 1 ;
+    chem:confidence 3 .
+
+chem:S_Na2O a chem:Substance ;
+    rdfs:label "Natri oxit"@vi ;
+    chem:formula "Na2O" ;
+    chem:aliases "Na2O" ;
+    chem:frequencyInTextbook 5 ;
+    chem:abstractness 1 ;
+    chem:confidence 3 .
+
+chem:S_HCl a chem:Substance ;
+    rdfs:label "Axit clohidric"@vi ;
+    chem:formula "HCl" ;
+    chem:aliases "HCl" ;
+    chem:frequencyInTextbook 15 ;
+    chem:abstractness 1 ;
+    chem:confidence 3 .
+
+chem:S_H2SO4 a chem:Substance ;
+    rdfs:label "Axit sunfuric"@vi ;
+    chem:formula "H2SO4" ;
+    chem:aliases "H2SO4" ;
+    chem:frequencyInTextbook 15 ;
+    chem:abstractness 1 ;
+    chem:confidence 3 .
+
+chem:S_HNO3 a chem:Substance ;
+    rdfs:label "Axit nitric"@vi ;
+    chem:formula "HNO3" ;
+    chem:aliases "HNO3" ;
+    chem:frequencyInTextbook 10 ;
+    chem:abstractness 1 ;
+    chem:confidence 3 .
+
+chem:S_H2CO3 a chem:Substance ;
+    rdfs:label "Axit cacbonic"@vi ;
+    chem:formula "H2CO3" ;
+    chem:aliases "H2CO3" ;
+    chem:frequencyInTextbook 5 ;
+    chem:abstractness 1 ;
+    chem:confidence 3 .
+
+chem:S_H3PO4 a chem:Substance ;
+    rdfs:label "Axit photphoric"@vi ;
+    chem:formula "H3PO4" ;
+    chem:aliases "H3PO4" ;
+    chem:frequencyInTextbook 3 ;
+    chem:abstractness 1 ;
+    chem:confidence 3 .
+
+chem:S_H2SO3 a chem:Substance ;
+    rdfs:label "Axit sunfuro"@vi ;
+    chem:formula "H2SO3" ;
+    chem:aliases "H2SO3" ;
+    chem:frequencyInTextbook 3 ;
+    chem:abstractness 1 ;
+    chem:confidence 3 .
+
+chem:S_CH3COOH a chem:Substance ;
+    rdfs:label "Axit axetic"@vi ;
+    chem:formula "CH3COOH" ;
+    chem:aliases "Giam|CH3COOH" ;
+    chem:frequencyInTextbook 12 ;
+    chem:abstractness 1 ;
+    chem:confidence 3 .
+
+chem:S_NaOH a chem:Substance ;
+    rdfs:label "Natri hidroxit"@vi ;
+    chem:formula "NaOH" ;
+    chem:aliases "Xut|NaOH" ;
+    chem:frequencyInTextbook 15 ;
+    chem:abstractness 1 ;
+    chem:confidence 3 .
+
+chem:S_KOH a chem:Substance ;
+    rdfs:label "Kali hidroxit"@vi ;
+    chem:formula "KOH" ;
+    chem:aliases "KOH" ;
+    chem:frequencyInTextbook 8 ;
+    chem:abstractness 1 ;
+    chem:confidence 3 .
+
+chem:S_CaOH2 a chem:Substance ;
+    rdfs:label "Canxi hidroxit"@vi ;
+    chem:formula "Ca(OH)2" ;
+    chem:aliases "Voi toi|Ca(OH)2" ;
+    chem:frequencyInTextbook 10 ;
+    chem:abstractness 1 ;
+    chem:confidence 3 .
+
+chem:S_BaOH2 a chem:Substance ;
+    rdfs:label "Bari hidroxit"@vi ;
+    chem:formula "Ba(OH)2" ;
+    chem:aliases "Ba(OH)2" ;
+    chem:frequencyInTextbook 5 ;
+    chem:abstractness 1 ;
+    chem:confidence 3 .
+
+chem:S_CuOH2 a chem:Substance ;
+    rdfs:label "Dong(II) hidroxit"@vi ;
+    chem:formula "Cu(OH)2" ;
+    chem:aliases "Cu(OH)2" ;
+    chem:frequencyInTextbook 5 ;
+    chem:abstractness 1 ;
+    chem:confidence 3 .
+
+chem:S_FeOH3 a chem:Substance ;
+    rdfs:label "Sat(III) hidroxit"@vi ;
+    chem:formula "Fe(OH)3" ;
+    chem:aliases "Fe(OH)3" ;
+    chem:frequencyInTextbook 5 ;
+    chem:abstractness 1 ;
+    chem:confidence 3 .
+
+chem:S_AlOH3 a chem:Substance ;
+    rdfs:label "Nhom hidroxit"@vi ;
+    chem:formula "Al(OH)3" ;
+    chem:aliases "Al(OH)3" ;
+    chem:frequencyInTextbook 6 ;
+    chem:abstractness 1 ;
+    chem:confidence 3 .
+
+chem:S_NaCl a chem:Substance ;
+    rdfs:label "Natri clorua"@vi ;
+    chem:formula "NaCl" ;
+    chem:aliases "Muoi an|NaCl" ;
+    chem:frequencyInTextbook 15 ;
+    chem:abstractness 1 ;
+    chem:confidence 3 .
+
+chem:S_CaCO3 a chem:Substance ;
+    rdfs:label "Canxi cacbonat"@vi ;
+    chem:formula "CaCO3" ;
+    chem:aliases "Da voi|CaCO3" ;
+    chem:frequencyInTextbook 12 ;
+    chem:abstractness 1 ;
+    chem:confidence 3 .
+
+chem:S_NaHCO3 a chem:Substance ;
+    rdfs:label "Natri hidrocacbonat"@vi ;
+    chem:formula "NaHCO3" ;
+    chem:aliases "Thuoc muoi|NaHCO3" ;
+    chem:frequencyInTextbook 5 ;
+    chem:abstractness 1 ;
+    chem:confidence 3 .
+
+chem:S_Na2CO3 a chem:Substance ;
+    rdfs:label "Natri cacbonat"@vi ;
+    chem:formula "Na2CO3" ;
+    chem:aliases "Soda|Na2CO3" ;
+    chem:frequencyInTextbook 5 ;
+    chem:abstractness 1 ;
+    chem:confidence 3 .
+
+chem:S_CuSO4 a chem:Substance ;
+    rdfs:label "Dong(II) sunfat"@vi ;
+    chem:formula "CuSO4" ;
+    chem:aliases "CuSO4" ;
+    chem:frequencyInTextbook 8 ;
+    chem:abstractness 1 ;
+    chem:confidence 3 .
+
+chem:S_FeCl3 a chem:Substance ;
+    rdfs:label "Sat(III) clorua"@vi ;
+    chem:formula "FeCl3" ;
+    chem:aliases "FeCl3" ;
+    chem:frequencyInTextbook 5 ;
+    chem:abstractness 1 ;
+    chem:confidence 3 .
+
+chem:S_BaSO4 a chem:Substance ;
+    rdfs:label "Bari sunfat"@vi ;
+    chem:formula "BaSO4" ;
+    chem:aliases "BaSO4" ;
+    chem:frequencyInTextbook 4 ;
+    chem:abstractness 1 ;
+    chem:confidence 3 .
+
+chem:S_Na a chem:Substance ;
+    rdfs:label "Natri"@vi ;
+    chem:formula "Na" ;
+    chem:aliases "Na" ;
+    chem:frequencyInTextbook 10 ;
+    chem:abstractness 1 ;
+    chem:confidence 3 .
+
+chem:S_K a chem:Substance ;
+    rdfs:label "Kali"@vi ;
+    chem:formula "K" ;
+    chem:aliases "K" ;
+    chem:frequencyInTextbook 6 ;
+    chem:abstractness 1 ;
+    chem:confidence 3 .
+
+chem:S_Ca a chem:Substance ;
+    rdfs:label "Canxi"@vi ;
+    chem:formula "Ca" ;
+    chem:aliases "Ca" ;
+    chem:frequencyInTextbook 8 ;
+    chem:abstractness 1 ;
+    chem:confidence 3 .
+
+chem:S_Mg a chem:Substance ;
+    rdfs:label "Magie"@vi ;
+    chem:formula "Mg" ;
+    chem:aliases "Mg" ;
+    chem:frequencyInTextbook 8 ;
+    chem:abstractness 1 ;
+    chem:confidence 3 .
+
+chem:S_Al a chem:Substance ;
+    rdfs:label "Nhom"@vi ;
+    chem:formula "Al" ;
+    chem:aliases "Al" ;
+    chem:frequencyInTextbook 10 ;
+    chem:abstractness 1 ;
+    chem:confidence 3 .
+
+chem:S_Fe a chem:Substance ;
+    rdfs:label "Sat"@vi ;
+    chem:formula "Fe" ;
+    chem:aliases "Fe" ;
+    chem:frequencyInTextbook 15 ;
+    chem:abstractness 1 ;
+    chem:confidence 3 .
+
+chem:S_Cu a chem:Substance ;
+    rdfs:label "Dong"@vi ;
+    chem:formula "Cu" ;
+    chem:aliases "Cu" ;
+    chem:frequencyInTextbook 8 ;
+    chem:abstractness 1 ;
+    chem:confidence 3 .
+
+chem:S_Zn a chem:Substance ;
+    rdfs:label "Kem"@vi ;
+    chem:formula "Zn" ;
+    chem:aliases "Zn" ;
+    chem:frequencyInTextbook 6 ;
+    chem:abstractness 1 ;
+    chem:confidence 3 .
+
+chem:S_Ag a chem:Substance ;
+    rdfs:label "Bac"@vi ;
+    chem:formula "Ag" ;
+    chem:aliases "Ag" ;
+    chem:frequencyInTextbook 4 ;
+    chem:abstractness 1 ;
+    chem:confidence 3 .
+
+chem:S_Au a chem:Substance ;
+    rdfs:label "Vang"@vi ;
+    chem:formula "Au" ;
+    chem:aliases "Au" ;
+    chem:frequencyInTextbook 3 ;
+    chem:abstractness 1 ;
+    chem:confidence 3 .
+
+chem:S_Cl2 a chem:Substance ;
+    rdfs:label "Clo"@vi ;
+    chem:formula "Cl2" ;
+    chem:aliases "Cl2" ;
+    chem:frequencyInTextbook 10 ;
+    chem:abstractness 1 ;
+    chem:confidence 3 .
+
+chem:S_O2 a chem:Substance ;
+    rdfs:label "Oxi"@vi ;
+    chem:formula "O2" ;
+    chem:aliases "O2" ;
+    chem:frequencyInTextbook 12 ;
+    chem:abstractness 1 ;
+    chem:confidence 3 .
+
+chem:S_H2 a chem:Substance ;
+    rdfs:label "Hidro"@vi ;
+    chem:formula "H2" ;
+    chem:aliases "H2" ;
+    chem:frequencyInTextbook 12 ;
+    chem:abstractness 1 ;
+    chem:confidence 3 .
+
+chem:S_N2 a chem:Substance ;
+    rdfs:label "Nito"@vi ;
+    chem:formula "N2" ;
+    chem:aliases "N2" ;
+    chem:frequencyInTextbook 5 ;
+    chem:abstractness 1 ;
+    chem:confidence 3 .
+
+chem:S_C_element a chem:Substance ;
+    rdfs:label "Cacbon"@vi ;
+    chem:formula "C" ;
+    chem:aliases "C" ;
+    chem:frequencyInTextbook 8 ;
+    chem:abstractness 1 ;
+    chem:confidence 3 .
+
+chem:S_S_element a chem:Substance ;
+    rdfs:label "Luu huynh"@vi ;
+    chem:formula "S" ;
+    chem:aliases "S" ;
+    chem:frequencyInTextbook 6 ;
+    chem:abstractness 1 ;
+    chem:confidence 3 .
+
+chem:S_CH4 a chem:Substance ;
+    rdfs:label "Metan"@vi ;
+    chem:formula "CH4" ;
+    chem:aliases "Khi bun|Khi mo dau|CH4" ;
+    chem:frequencyInTextbook 10 ;
+    chem:abstractness 1 ;
+    chem:confidence 3 .
+
+chem:S_C2H4 a chem:Substance ;
+    rdfs:label "Etilen"@vi ;
+    chem:formula "C2H4" ;
+    chem:aliases "Ethylene|C2H4" ;
+    chem:frequencyInTextbook 8 ;
+    chem:abstractness 1 ;
+    chem:confidence 3 .
+
+chem:S_C2H2 a chem:Substance ;
+    rdfs:label "Axetilen"@vi ;
+    chem:formula "C2H2" ;
+    chem:aliases "Acetylene|C2H2" ;
+    chem:frequencyInTextbook 8 ;
+    chem:abstractness 1 ;
+    chem:confidence 3 .
+
+chem:S_C6H6 a chem:Substance ;
+    rdfs:label "Benzen"@vi ;
+    chem:formula "C6H6" ;
+    chem:aliases "Benzene|C6H6" ;
+    chem:frequencyInTextbook 8 ;
+    chem:abstractness 1 ;
+    chem:confidence 3 .
+
+chem:S_C2H5OH a chem:Substance ;
+    rdfs:label "Ancol etylic"@vi ;
+    chem:formula "C2H5OH" ;
+    chem:aliases "Ruou etylic|Ethanol|C2H5OH" ;
+    chem:frequencyInTextbook 12 ;
+    chem:abstractness 1 ;
+    chem:confidence 3 .
+
+chem:S_CH3OH a chem:Substance ;
+    rdfs:label "Metanol"@vi ;
+    chem:formula "CH3OH" ;
+    chem:aliases "CH3OH" ;
+    chem:frequencyInTextbook 3 ;
+    chem:abstractness 1 ;
+    chem:confidence 3 .
+
+chem:S_EsteC2H5 a chem:Substance ;
+    rdfs:label "Etyl axetat"@vi ;
+    chem:formula "CH3COOC2H5" ;
+    chem:aliases "CH3COOC2H5" ;
+    chem:frequencyInTextbook 4 ;
+    chem:abstractness 1 ;
+    chem:confidence 3 .
+
+chem:S_Glucose a chem:Substance ;
+    rdfs:label "Glucoz"@vi ;
+    chem:formula "C6H12O6" ;
+    chem:aliases "Glucozo|Glucose|C6H12O6" ;
+    chem:frequencyInTextbook 8 ;
+    chem:abstractness 1 ;
+    chem:confidence 3 .
+
+chem:S_Saccarose a chem:Substance ;
+    rdfs:label "Saccaroz"@vi ;
+    chem:formula "C12H22O11" ;
+    chem:aliases "Saccarozo|Sucrose|C12H22O11" ;
+    chem:frequencyInTextbook 6 ;
+    chem:abstractness 1 ;
+    chem:confidence 3 .
+
+chem:S_TinhBot a chem:Substance ;
+    rdfs:label "Tinh bot"@vi ;
+    chem:formula "(C6H10O5)n" ;
+    chem:aliases "(C6H10O5)n" ;
+    chem:frequencyInTextbook 6 ;
+    chem:abstractness 1 ;
+    chem:confidence 3 .
+
+chem:S_Xenluloz a chem:Substance ;
+    rdfs:label "Xenluloz"@vi ;
+    chem:formula "(C6H10O5)n" ;
+    chem:aliases "Xenlulozo|Cellulose|(C6H10O5)n" ;
+    chem:frequencyInTextbook 5 ;
+    chem:abstractness 1 ;
+    chem:confidence 3 .
+
+chem:S_Poli_Ethylene a chem:Substance ;
+    rdfs:label "Polietilen"@vi ;
+    chem:formula "(-CH2-CH2-)n" ;
+    chem:aliases "PE|(-CH2-CH2-)n" ;
+    chem:frequencyInTextbook 3 ;
+    chem:abstractness 2 ;
+    chem:confidence 3 .
+
+chem:S_Poli_VinylClorua a chem:Substance ;
+    rdfs:label "Polivinyl clorua"@vi ;
+    chem:formula "(-CH2-CHCl-)n" ;
+    chem:aliases "PVC|(-CH2-CHCl-)n" ;
+    chem:frequencyInTextbook 3 ;
+    chem:abstractness 2 ;
+    chem:confidence 3 .
+
+chem:S_H2O a chem:Substance ;
+    rdfs:label "Nuoc"@vi ;
+    chem:formula "H2O" ;
+    chem:aliases "H2O" ;
+    chem:frequencyInTextbook 20 ;
+    chem:abstractness 1 ;
+    chem:confidence 3 .
+
+
+#################################################################
+#   REACTION TYPES
+#################################################################
+
+chem:RT_TrungHoa a chem:ReactionType ;
+    rdfs:label "Phan ung trung hoa"@vi ;
+    chem:abstractness 3 ;
+    chem:bloomLevel 2 ;
+    chem:confidence 3 .
+
+chem:RT_PhanHuy a chem:ReactionType ;
+    rdfs:label "Phan ung phan huy"@vi ;
+    chem:abstractness 3 ;
+    chem:bloomLevel 2 ;
+    chem:confidence 3 .
+
+chem:RT_HoaHop a chem:ReactionType ;
+    rdfs:label "Phan ung hoa hop"@vi ;
+    chem:abstractness 3 ;
+    chem:bloomLevel 2 ;
+    chem:confidence 3 .
+
+chem:RT_The a chem:ReactionType ;
+    rdfs:label "Phan ung the"@vi ;
+    chem:abstractness 3 ;
+    chem:bloomLevel 2 ;
+    chem:confidence 3 .
+
+chem:RT_TraoDoi a chem:ReactionType ;
+    rdfs:label "Phan ung trao doi"@vi ;
+    chem:abstractness 3 ;
+    chem:bloomLevel 2 ;
+    chem:confidence 3 .
+
+chem:RT_OXK a chem:ReactionType ;
+    rdfs:label "Phan ung oxi hoa - khu"@vi ;
+    chem:aliases "OXK" ;
+    chem:abstractness 4 ;
+    chem:bloomLevel 3 ;
+    chem:confidence 3 .
+
+chem:RT_Cong a chem:ReactionType ;
+    rdfs:label "Phan ung cong"@vi ;
+    chem:abstractness 3 ;
+    chem:bloomLevel 2 ;
+    chem:confidence 3 .
+
+chem:RT_TrungHop a chem:ReactionType ;
+    rdfs:label "Phan ung trung hop"@vi ;
+    chem:abstractness 4 ;
+    chem:bloomLevel 3 ;
+    chem:confidence 3 .
+
+chem:RT_ThuyPhan a chem:ReactionType ;
+    rdfs:label "Phan ung thuy phan"@vi ;
+    chem:abstractness 4 ;
+    chem:bloomLevel 3 ;
+    chem:confidence 3 .
+
+chem:RT_Este_Hoa a chem:ReactionType ;
+    rdfs:label "Phan ung este hoa"@vi ;
+    chem:abstractness 4 ;
+    chem:bloomLevel 3 ;
+    chem:confidence 3 .
+
+chem:RT_LenMen a chem:ReactionType ;
+    rdfs:label "Phan ung len men"@vi ;
+    chem:abstractness 3 ;
+    chem:bloomLevel 2 ;
+    chem:confidence 3 .
+
+chem:RT_Chay a chem:ReactionType ;
+    rdfs:label "Phan ung chay"@vi ;
+    chem:aliases "Dot chay" ;
+    chem:abstractness 2 ;
+    chem:bloomLevel 2 ;
+    chem:confidence 3 .
+
+
+#################################################################
+#   PROPERTIES
+#################################################################
+
+chem:P_TanTrongNuoc a chem:Property ;
+    rdfs:label "Tan trong nuoc"@vi ;
+    chem:abstractness 2 ;
+    chem:bloomLevel 2 ;
+    chem:confidence 3 .
+
+chem:P_PhanUngVoiAxit a chem:Property ;
+    rdfs:label "Phan ung voi axit"@vi ;
+    chem:abstractness 3 ;
+    chem:bloomLevel 2 ;
+    chem:confidence 3 .
+
+chem:P_PhanUngVoiBazo a chem:Property ;
+    rdfs:label "Phan ung voi bazo"@vi ;
+    chem:abstractness 3 ;
+    chem:bloomLevel 2 ;
+    chem:confidence 3 .
+
+chem:P_PhanUngVoiOxi a chem:Property ;
+    rdfs:label "Phan ung voi oxi (chay)"@vi ;
+    chem:abstractness 2 ;
+    chem:bloomLevel 2 ;
+    chem:confidence 3 .
+
+chem:P_PhanUngVoiNuoc a chem:Property ;
+    rdfs:label "Phan ung voi nuoc"@vi ;
+    chem:abstractness 3 ;
+    chem:bloomLevel 2 ;
+    chem:confidence 3 .
+
+chem:P_PhanUngVoiKimLoai a chem:Property ;
+    rdfs:label "Phan ung voi kim loai"@vi ;
+    chem:abstractness 3 ;
+    chem:bloomLevel 2 ;
+    chem:confidence 3 .
+
+chem:P_LamDoiMauQT a chem:Property ;
+    rdfs:label "Lam doi mau quy tim"@vi ;
+    chem:abstractness 2 ;
+    chem:bloomLevel 2 ;
+    chem:confidence 3 .
+
+chem:P_DoiMauPhenolphthalein a chem:Property ;
+    rdfs:label "Doi mau phenolphtalein"@vi ;
+    chem:abstractness 2 ;
+    chem:bloomLevel 2 ;
+    chem:confidence 3 .
+
+chem:P_TacDungVoiPhiKim a chem:Property ;
+    rdfs:label "Tac dung voi phi kim"@vi ;
+    chem:abstractness 3 ;
+    chem:bloomLevel 2 ;
+    chem:confidence 3 .
+
+chem:P_DienPhanDuocDDND a chem:Property ;
+    rdfs:label "Dien phan duoc dung dich"@vi ;
+    chem:abstractness 4 ;
+    chem:bloomLevel 3 ;
+    chem:confidence 3 .
+
+
+#################################################################
+#   FUNCTIONAL GROUPS
+#################################################################
+
+chem:FG_OH a chem:FunctionalGroup ;
+    rdfs:label "Nhom hidroxyl -OH"@vi ;
+    chem:aliases "-OH" ;
+    chem:abstractness 3 ;
+    chem:confidence 3 .
+
+chem:FG_COOH a chem:FunctionalGroup ;
+    rdfs:label "Nhom cacboxyl -COOH"@vi ;
+    chem:aliases "-COOH" ;
+    chem:abstractness 4 ;
+    chem:confidence 3 .
+
+chem:FG_Este_Link a chem:FunctionalGroup ;
+    rdfs:label "Lien ket este -COO-"@vi ;
+    chem:aliases "-COO-" ;
+    chem:abstractness 4 ;
+    chem:confidence 3 .
+
+chem:FG_DoiLK a chem:FunctionalGroup ;
+    rdfs:label "Lien ket doi C=C"@vi ;
+    chem:abstractness 3 ;
+    chem:confidence 3 .
+
+chem:FG_BaLK a chem:FunctionalGroup ;
+    rdfs:label "Lien ket ba C=C=C"@vi ;
+    chem:aliases "Lien ket ba" ;
+    chem:abstractness 3 ;
+    chem:confidence 3 .
+
+chem:FG_Vong6 a chem:FunctionalGroup ;
+    rdfs:label "Vong benzen"@vi ;
+    chem:abstractness 4 ;
+    chem:confidence 3 .
+
+
+#################################################################
+#   CONCEPTS
+#################################################################
+
+chem:C_HoaTri a chem:Concept ;
+    rdfs:label "Hoa tri"@vi ;
+    chem:abstractness 3 ;
+    chem:bloomLevel 2 ;
+    chem:confidence 3 .
+
+chem:C_PTHH a chem:Concept ;
+    rdfs:label "Phuong trinh hoa hoc"@vi ;
+    chem:aliases "PTHH" ;
+    chem:abstractness 3 ;
+    chem:bloomLevel 2 ;
+    chem:confidence 3 .
+
+chem:C_CanBangPTHH a chem:Concept ;
+    rdfs:label "Can bang phuong trinh hoa hoc"@vi ;
+    chem:aliases "Can bang PTHH" ;
+    chem:abstractness 3 ;
+    chem:bloomLevel 3 ;
+    chem:confidence 3 .
+
+chem:C_BangTuanHoan a chem:Concept ;
+    rdfs:label "Bang tuan hoan cac nguyen to hoa hoc"@vi ;
+    chem:aliases "BTH" ;
+    chem:abstractness 4 ;
+    chem:bloomLevel 3 ;
+    chem:confidence 3 .
+
+chem:C_ChuKi a chem:Concept ;
+    rdfs:label "Chu ki (BTH)"@vi ;
+    chem:abstractness 4 ;
+    chem:bloomLevel 3 ;
+    chem:confidence 3 .
+
+chem:C_NhomA a chem:Concept ;
+    rdfs:label "Nhom A trong BTH"@vi ;
+    chem:abstractness 4 ;
+    chem:bloomLevel 3 ;
+    chem:confidence 3 .
+
+chem:C_DinhLuatTuanHoan a chem:Concept ;
+    rdfs:label "Dinh luat tuan hoan"@vi ;
+    chem:abstractness 5 ;
+    chem:bloomLevel 3 ;
+    chem:confidence 3 .
+
+chem:C_DayHoatDongKimLoai a chem:Concept ;
+    rdfs:label "Day hoat dong hoa hoc cua kim loai"@vi ;
+    chem:aliases "Day hoat dong" ;
+    chem:abstractness 4 ;
+    chem:bloomLevel 3 ;
+    chem:confidence 3 .
+
+chem:C_DieuChe_KL_1 a chem:Concept ;
+    rdfs:label "Dieu che kim loai (luyen kim)"@vi ;
+    chem:abstractness 4 ;
+    chem:bloomLevel 3 ;
+    chem:confidence 3 .
+
+chem:C_pH a chem:Concept ;
+    rdfs:label "Do pH cua dung dich"@vi ;
+    chem:aliases "pH" ;
+    chem:abstractness 3 ;
+    chem:bloomLevel 2 ;
+    chem:confidence 3 .
+
+chem:C_MolKhoiLuong a chem:Concept ;
+    rdfs:label "Mol va khoi luong mol"@vi ;
+    chem:abstractness 3 ;
+    chem:bloomLevel 2 ;
+    chem:confidence 3 .
+
+chem:C_NongDoDungDich a chem:Concept ;
+    rdfs:label "Nong do dung dich (C%, CM)"@vi ;
+    chem:abstractness 3 ;
+    chem:bloomLevel 2 ;
+    chem:confidence 3 .
+
+chem:C_SuChuyenHoa_DongDang a chem:Concept ;
+    rdfs:label "Su chuyen hoa cac chat huu co"@vi ;
+    chem:abstractness 4 ;
+    chem:bloomLevel 3 ;
+    chem:confidence 3 .
+
+chem:C_DongPhan a chem:Concept ;
+    rdfs:label "Dong phan"@vi ;
+    chem:abstractness 4 ;
+    chem:bloomLevel 3 ;
+    chem:confidence 3 .
+
+
+#################################################################
+#   PROCESSES
+#################################################################
+
+chem:PR_DienPhanNaCl a chem:Process ;
+    rdfs:label "Dien phan dung dich NaCl bao hoa"@vi ;
+    chem:aliases "San xuat NaOH" ;
+    chem:stepsInSynthesis 3 ;
+    chem:abstractness 4 ;
+    chem:bloomLevel 3 ;
+    chem:confidence 3 .
+
+chem:PR_LuyenGang a chem:Process ;
+    rdfs:label "Luyen gang trong lo cao"@vi ;
+    chem:stepsInSynthesis 4 ;
+    chem:abstractness 4 ;
+    chem:bloomLevel 3 ;
+    chem:confidence 3 .
+
+chem:PR_LuyenThep a chem:Process ;
+    rdfs:label "Luyen thep tu gang"@vi ;
+    chem:stepsInSynthesis 4 ;
+    chem:abstractness 4 ;
+    chem:bloomLevel 3 ;
+    chem:confidence 3 .
+
+chem:PR_SanXuat_H2SO4 a chem:Process ;
+    rdfs:label "San xuat H2SO4 cong nghiep"@vi ;
+    chem:stepsInSynthesis 3 ;
+    chem:abstractness 4 ;
+    chem:bloomLevel 3 ;
+    chem:confidence 3 .
+
+chem:PR_SanXuat_NH3 a chem:Process ;
+    rdfs:label "San xuat NH3 (tong hop Haber)"@vi ;
+    chem:stepsInSynthesis 3 ;
+    chem:abstractness 4 ;
+    chem:bloomLevel 3 ;
+    chem:confidence 2 .
+
+chem:PR_LenMenRuou a chem:Process ;
+    rdfs:label "Len men ruou etylic tu tinh bot"@vi ;
+    chem:stepsInSynthesis 3 ;
+    chem:abstractness 3 ;
+    chem:bloomLevel 3 ;
+    chem:confidence 3 .
+
+chem:PR_LenMenGiam a chem:Process ;
+    rdfs:label "Len men giam tu ruou"@vi ;
+    chem:stepsInSynthesis 2 ;
+    chem:abstractness 3 ;
+    chem:bloomLevel 2 ;
+    chem:confidence 3 .
+
+chem:PR_SanXuat_Voi a chem:Process ;
+    rdfs:label "Nung voi (San xuat voi song)"@vi ;
+    chem:stepsInSynthesis 2 ;
+    chem:abstractness 2 ;
+    chem:bloomLevel 2 ;
+    chem:confidence 3 .
+
+chem:PR_SanXuatXiMang a chem:Process ;
+    rdfs:label "San xuat xi mang"@vi ;
+    chem:stepsInSynthesis 3 ;
+    chem:abstractness 3 ;
+    chem:bloomLevel 2 ;
+    chem:confidence 3 .
+
+chem:PR_SanXuatThuyTinh a chem:Process ;
+    rdfs:label "San xuat thuy tinh"@vi ;
+    chem:stepsInSynthesis 2 ;
+    chem:abstractness 3 ;
+    chem:bloomLevel 2 ;
+    chem:confidence 3 .
+
+
+#################################################################
+#   REACTIONS
+#################################################################
+
+chem:R_NaOH_HCl a chem:Reaction ;
+    rdfs:label "NaOH + HCl -> NaCl + H2O"@vi ;
+    chem:aliases "Trung hoa manh" ;
+    chem:reactionType chem:RT_TrungHoa ;
+    chem:balancingComplexity 1 ;
+    chem:bloomLevel 2 ;
+    chem:confidence 3 .
+
+chem:R_CaO_H2O a chem:Reaction ;
+    rdfs:label "CaO + H2O -> Ca(OH)2"@vi ;
+    chem:aliases "Voi song + nuoc" ;
+    chem:reactionType chem:RT_HoaHop ;
+    chem:balancingComplexity 1 ;
+    chem:bloomLevel 2 ;
+    chem:confidence 3 .
+
+chem:R_CO2_CaOH2 a chem:Reaction ;
+    rdfs:label "CO2 + Ca(OH)2 -> CaCO3 + H2O"@vi ;
+    chem:aliases "CO2 lam duc nuoc voi" ;
+    chem:reactionType chem:RT_TraoDoi ;
+    chem:balancingComplexity 2 ;
+    chem:bloomLevel 2 ;
+    chem:confidence 3 .
+
+chem:R_CaCO3_Nhiet a chem:Reaction ;
+    rdfs:label "CaCO3 -> CaO + CO2 (t)"@vi ;
+    chem:aliases "Nung da voi" ;
+    chem:reactionType chem:RT_PhanHuy ;
+    chem:balancingComplexity 1 ;
+    chem:bloomLevel 2 ;
+    chem:confidence 3 .
+
+chem:R_Zn_HCl a chem:Reaction ;
+    rdfs:label "Zn + 2HCl -> ZnCl2 + H2"@vi ;
+    chem:aliases "Kem + axit" ;
+    chem:reactionType chem:RT_The ;
+    chem:balancingComplexity 1 ;
+    chem:bloomLevel 2 ;
+    chem:confidence 3 .
+
+chem:R_Fe_CuSO4 a chem:Reaction ;
+    rdfs:label "Fe + CuSO4 -> FeSO4 + Cu"@vi ;
+    chem:aliases "Sat day dong" ;
+    chem:reactionType chem:RT_The ;
+    chem:balancingComplexity 1 ;
+    chem:bloomLevel 2 ;
+    chem:confidence 3 .
+
+chem:R_Fe_HCl a chem:Reaction ;
+    rdfs:label "Fe + 2HCl -> FeCl2 + H2"@vi ;
+    chem:aliases "Sat + axit loang" ;
+    chem:reactionType chem:RT_The ;
+    chem:balancingComplexity 1 ;
+    chem:bloomLevel 2 ;
+    chem:confidence 3 .
+
+chem:R_Cu_H2SO4dac a chem:Reaction ;
+    rdfs:label "Cu + 2H2SO4d -> CuSO4 + SO2 + 2H2O"@vi ;
+    chem:aliases "Cu + H2SO4 dac nong" ;
+    chem:reactionType chem:RT_OXK ;
+    chem:balancingComplexity 3 ;
+    chem:bloomLevel 3 ;
+    chem:confidence 3 .
+
+chem:R_Al_NaOH a chem:Reaction ;
+    rdfs:label "2Al + 2NaOH + 2H2O -> 2NaAlO2 + 3H2"@vi ;
+    chem:aliases "Nhom + kiem" ;
+    chem:reactionType chem:RT_OXK ;
+    chem:balancingComplexity 3 ;
+    chem:bloomLevel 3 ;
+    chem:confidence 3 .
+
+chem:R_CH4_Cl2 a chem:Reaction ;
+    rdfs:label "CH4 + Cl2 -> CH3Cl + HCl (as)"@vi ;
+    chem:aliases "Metan + clo" ;
+    chem:reactionType chem:RT_The ;
+    chem:balancingComplexity 2 ;
+    chem:bloomLevel 3 ;
+    chem:confidence 3 .
+
+chem:R_C2H4_Br2 a chem:Reaction ;
+    rdfs:label "C2H4 + Br2 -> C2H4Br2"@vi ;
+    chem:aliases "Etilen mat mau brom" ;
+    chem:reactionType chem:RT_Cong ;
+    chem:balancingComplexity 1 ;
+    chem:bloomLevel 2 ;
+    chem:confidence 3 .
+
+chem:R_C2H2_H2 a chem:Reaction ;
+    rdfs:label "C2H2 + 2H2 -> C2H6 (Ni)"@vi ;
+    chem:aliases "Cong hidro" ;
+    chem:reactionType chem:RT_Cong ;
+    chem:balancingComplexity 1 ;
+    chem:bloomLevel 2 ;
+    chem:confidence 3 .
+
+chem:R_C2H5OH_Na a chem:Reaction ;
+    rdfs:label "2C2H5OH + 2Na -> 2C2H5ONa + H2"@vi ;
+    chem:aliases "Ruou + natri" ;
+    chem:reactionType chem:RT_The ;
+    chem:balancingComplexity 2 ;
+    chem:bloomLevel 3 ;
+    chem:confidence 3 .
+
+chem:R_CH3COOH_NaOH a chem:Reaction ;
+    rdfs:label "CH3COOH + NaOH -> CH3COONa + H2O"@vi ;
+    chem:aliases "Axit axetic + kiem" ;
+    chem:reactionType chem:RT_TrungHoa ;
+    chem:balancingComplexity 1 ;
+    chem:bloomLevel 2 ;
+    chem:confidence 3 .
+
+chem:R_CH3COOH_C2H5OH a chem:Reaction ;
+    rdfs:label "CH3COOH + C2H5OH -> CH3COOC2H5 + H2O"@vi ;
+    chem:aliases "Este hoa" ;
+    chem:reactionType chem:RT_Este_Hoa ;
+    chem:balancingComplexity 1 ;
+    chem:bloomLevel 3 ;
+    chem:confidence 3 .
+
+chem:R_Glucose_Fermentation a chem:Reaction ;
+    rdfs:label "C6H12O6 -> 2C2H5OH + 2CO2"@vi ;
+    chem:aliases "Len men ruou" ;
+    chem:reactionType chem:RT_LenMen ;
+    chem:balancingComplexity 2 ;
+    chem:bloomLevel 2 ;
+    chem:confidence 3 .
+
+chem:R_C_O2 a chem:Reaction ;
+    rdfs:label "C + O2 -> CO2"@vi ;
+    chem:aliases "Dot cacbon" ;
+    chem:reactionType chem:RT_Chay ;
+    chem:balancingComplexity 1 ;
+    chem:bloomLevel 1 ;
+    chem:confidence 3 .
+
+chem:R_H2_O2 a chem:Reaction ;
+    rdfs:label "2H2 + O2 -> 2H2O"@vi ;
+    chem:aliases "Hidro chay" ;
+    chem:reactionType chem:RT_Chay ;
+    chem:balancingComplexity 1 ;
+    chem:bloomLevel 1 ;
+    chem:confidence 3 .
+
+chem:R_SO2_O2_V2O5 a chem:Reaction ;
+    rdfs:label "2SO2 + O2 -> 2SO3 (V2O5)"@vi ;
+    chem:aliases "Oxi hoa SO2" ;
+    chem:reactionType chem:RT_OXK ;
+    chem:balancingComplexity 2 ;
+    chem:bloomLevel 3 ;
+    chem:confidence 3 .
+
+
+#################################################################
+#   LESSON UNITS
+#################################################################
+
+chem:TB_Old_B01 a chem:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 1: Tinh chat hoa hoc cua oxit"@vi ;
+    chem:partOfTextbook chem:TB_Old ;
+    chem:curriculumPosition 1 .
+
+chem:TB_Old_B02 a chem:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 2: Mot so oxit quan trong"@vi ;
+    chem:partOfTextbook chem:TB_Old ;
+    chem:curriculumPosition 2 .
+
+chem:TB_Old_B03 a chem:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 3: Tinh chat hoa hoc cua axit"@vi ;
+    chem:partOfTextbook chem:TB_Old ;
+    chem:curriculumPosition 3 .
+
+chem:TB_Old_B04 a chem:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 4: Mot so axit quan trong"@vi ;
+    chem:partOfTextbook chem:TB_Old ;
+    chem:curriculumPosition 4 .
+
+chem:TB_Old_B05 a chem:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 5: Luyen tap: tinh chat cua oxit va axit"@vi ;
+    chem:partOfTextbook chem:TB_Old ;
+    chem:curriculumPosition 5 .
+
+chem:TB_Old_B06 a chem:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 6: Thuc hanh: tinh chat hoa hoc"@vi ;
+    chem:partOfTextbook chem:TB_Old ;
+    chem:curriculumPosition 6 .
+
+chem:TB_Old_B07 a chem:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 7: Tinh chat hoa hoc cua bazo"@vi ;
+    chem:partOfTextbook chem:TB_Old ;
+    chem:curriculumPosition 7 .
+
+chem:TB_Old_B08 a chem:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 8: Mot so bazo quan trong (NaOH, Ca(OH)2)"@vi ;
+    chem:partOfTextbook chem:TB_Old ;
+    chem:curriculumPosition 8 .
+
+chem:TB_Old_B09 a chem:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 9: Tinh chat hoa hoc cua muoi"@vi ;
+    chem:partOfTextbook chem:TB_Old ;
+    chem:curriculumPosition 9 .
+
+chem:TB_Old_B10 a chem:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 10: Mot so muoi quan trong"@vi ;
+    chem:partOfTextbook chem:TB_Old ;
+    chem:curriculumPosition 10 .
+
+chem:TB_Old_B11 a chem:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 11: Phan bon hoa hoc"@vi ;
+    chem:partOfTextbook chem:TB_Old ;
+    chem:curriculumPosition 11 .
+
+chem:TB_Old_B12 a chem:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 12: Moi quan he giua cac loai hop chat vo co"@vi ;
+    chem:partOfTextbook chem:TB_Old ;
+    chem:curriculumPosition 12 .
+
+chem:TB_Old_B13 a chem:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 13: Luyen tap chuong I"@vi ;
+    chem:partOfTextbook chem:TB_Old ;
+    chem:curriculumPosition 13 .
+
+chem:TB_Old_B14 a chem:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 14: Thuc hanh"@vi ;
+    chem:partOfTextbook chem:TB_Old ;
+    chem:curriculumPosition 14 .
+
+chem:TB_Old_B15 a chem:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 15: Tinh chat vat li cua kim loai"@vi ;
+    chem:partOfTextbook chem:TB_Old ;
+    chem:curriculumPosition 15 .
+
+chem:TB_Old_B16 a chem:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 16: Tinh chat hoa hoc cua kim loai"@vi ;
+    chem:partOfTextbook chem:TB_Old ;
+    chem:curriculumPosition 16 .
+
+chem:TB_Old_B17 a chem:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 17: Day hoat dong hoa hoc cua kim loai"@vi ;
+    chem:partOfTextbook chem:TB_Old ;
+    chem:curriculumPosition 17 .
+
+chem:TB_Old_B18 a chem:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 18: Nhom"@vi ;
+    chem:partOfTextbook chem:TB_Old ;
+    chem:curriculumPosition 18 .
+
+chem:TB_Old_B19 a chem:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 19: Sat"@vi ;
+    chem:partOfTextbook chem:TB_Old ;
+    chem:curriculumPosition 19 .
+
+chem:TB_Old_B20 a chem:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 20: Hop kim: gang, thep"@vi ;
+    chem:partOfTextbook chem:TB_Old ;
+    chem:curriculumPosition 20 .
+
+chem:TB_Old_B21 a chem:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 21: Su an mon kim loai"@vi ;
+    chem:partOfTextbook chem:TB_Old ;
+    chem:curriculumPosition 21 .
+
+chem:TB_Old_B22 a chem:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 22: Luyen tap chuong II"@vi ;
+    chem:partOfTextbook chem:TB_Old ;
+    chem:curriculumPosition 22 .
+
+chem:TB_Old_B23 a chem:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 23: Thuc hanh"@vi ;
+    chem:partOfTextbook chem:TB_Old ;
+    chem:curriculumPosition 23 .
+
+chem:TB_Old_B24 a chem:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 24: Tinh chat cua phi kim"@vi ;
+    chem:partOfTextbook chem:TB_Old ;
+    chem:curriculumPosition 24 .
+
+chem:TB_Old_B25 a chem:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 25: Clo"@vi ;
+    chem:partOfTextbook chem:TB_Old ;
+    chem:curriculumPosition 25 .
+
+chem:TB_Old_B26 a chem:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 26: Cacbon"@vi ;
+    chem:partOfTextbook chem:TB_Old ;
+    chem:curriculumPosition 26 .
+
+chem:TB_Old_B27 a chem:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 27: Cac oxit cua cacbon"@vi ;
+    chem:partOfTextbook chem:TB_Old ;
+    chem:curriculumPosition 27 .
+
+chem:TB_Old_B28 a chem:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 28: Axit cacbonic va muoi cacbonat"@vi ;
+    chem:partOfTextbook chem:TB_Old ;
+    chem:curriculumPosition 28 .
+
+chem:TB_Old_B29 a chem:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 29: Silic. Cong nghiep silicat"@vi ;
+    chem:partOfTextbook chem:TB_Old ;
+    chem:curriculumPosition 29 .
+
+chem:TB_Old_B30 a chem:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 30: So luoc bang tuan hoan cac nguyen to hoa hoc"@vi ;
+    chem:partOfTextbook chem:TB_Old ;
+    chem:curriculumPosition 30 .
+
+chem:TB_Old_B31 a chem:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 31: Luyen tap chuong III"@vi ;
+    chem:partOfTextbook chem:TB_Old ;
+    chem:curriculumPosition 31 .
+
+chem:TB_Old_B32 a chem:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 32: Thuc hanh"@vi ;
+    chem:partOfTextbook chem:TB_Old ;
+    chem:curriculumPosition 32 .
+
+chem:TB_Old_B33 a chem:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 33: Khai niem ve hop chat huu co va hoa hoc huu co"@vi ;
+    chem:partOfTextbook chem:TB_Old ;
+    chem:curriculumPosition 33 .
+
+chem:TB_Old_B34 a chem:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 34: Cau tao phan tu hop chat huu co"@vi ;
+    chem:partOfTextbook chem:TB_Old ;
+    chem:curriculumPosition 34 .
+
+chem:TB_Old_B35 a chem:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 35: Metan"@vi ;
+    chem:partOfTextbook chem:TB_Old ;
+    chem:curriculumPosition 35 .
+
+chem:TB_Old_B36 a chem:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 36: Etilen"@vi ;
+    chem:partOfTextbook chem:TB_Old ;
+    chem:curriculumPosition 36 .
+
+chem:TB_Old_B37 a chem:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 37: Axetilen"@vi ;
+    chem:partOfTextbook chem:TB_Old ;
+    chem:curriculumPosition 37 .
+
+chem:TB_Old_B38 a chem:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 38: Benzen"@vi ;
+    chem:partOfTextbook chem:TB_Old ;
+    chem:curriculumPosition 38 .
+
+chem:TB_Old_B39 a chem:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 39: Dau mo va khi thien nhien"@vi ;
+    chem:partOfTextbook chem:TB_Old ;
+    chem:curriculumPosition 39 .
+
+chem:TB_Old_B40 a chem:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 40: Nhien lieu"@vi ;
+    chem:partOfTextbook chem:TB_Old ;
+    chem:curriculumPosition 40 .
+
+chem:TB_Old_B41 a chem:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 41: Luyen tap chuong IV"@vi ;
+    chem:partOfTextbook chem:TB_Old ;
+    chem:curriculumPosition 41 .
+
+chem:TB_Old_B42 a chem:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 42: Thuc hanh"@vi ;
+    chem:partOfTextbook chem:TB_Old ;
+    chem:curriculumPosition 42 .
+
+chem:TB_Old_B43 a chem:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 43: Ruou etylic"@vi ;
+    chem:partOfTextbook chem:TB_Old ;
+    chem:curriculumPosition 43 .
+
+chem:TB_Old_B44 a chem:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 44: Axit axetic"@vi ;
+    chem:partOfTextbook chem:TB_Old ;
+    chem:curriculumPosition 44 .
+
+chem:TB_Old_B45 a chem:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 45: Moi lien he giua etilen, ruou etylic, axit axetic"@vi ;
+    chem:partOfTextbook chem:TB_Old ;
+    chem:curriculumPosition 45 .
+
+chem:TB_Old_B46 a chem:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 46: Chat beo"@vi ;
+    chem:partOfTextbook chem:TB_Old ;
+    chem:curriculumPosition 46 .
+
+chem:TB_Old_B47 a chem:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 47: Luyen tap ruou, axit, chat beo"@vi ;
+    chem:partOfTextbook chem:TB_Old ;
+    chem:curriculumPosition 47 .
+
+chem:TB_Old_B48 a chem:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 48: Thuc hanh"@vi ;
+    chem:partOfTextbook chem:TB_Old ;
+    chem:curriculumPosition 48 .
+
+chem:TB_Old_B49 a chem:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 49: Glucoz"@vi ;
+    chem:partOfTextbook chem:TB_Old ;
+    chem:curriculumPosition 49 .
+
+chem:TB_Old_B50 a chem:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 50: Saccaroz"@vi ;
+    chem:partOfTextbook chem:TB_Old ;
+    chem:curriculumPosition 50 .
+
+chem:TB_Old_B51 a chem:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 51: Tinh bot, xenluloz"@vi ;
+    chem:partOfTextbook chem:TB_Old ;
+    chem:curriculumPosition 51 .
+
+chem:TB_Old_B52 a chem:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 52: Protein"@vi ;
+    chem:partOfTextbook chem:TB_Old ;
+    chem:curriculumPosition 52 .
+
+chem:TB_Old_B53 a chem:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 53: Polime"@vi ;
+    chem:partOfTextbook chem:TB_Old ;
+    chem:curriculumPosition 53 .
+
+chem:TB_Old_B54 a chem:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 54: Thuc hanh"@vi ;
+    chem:partOfTextbook chem:TB_Old ;
+    chem:curriculumPosition 54 .
+
+chem:TB_Old_B55 a chem:LessonUnit ;
+    rdfs:label "[TB_Old] Bai 55: On tap cuoi nam"@vi ;
+    chem:partOfTextbook chem:TB_Old ;
+    chem:curriculumPosition 55 .
+
+chem:TB_KNTT_B01 a chem:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 1: KNTT Bai 1"@vi ;
+    chem:partOfTextbook chem:TB_KNTT ;
+    chem:curriculumPosition 1 .
+
+chem:TB_KNTT_B02 a chem:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 2: KNTT Bai 2"@vi ;
+    chem:partOfTextbook chem:TB_KNTT ;
+    chem:curriculumPosition 2 .
+
+chem:TB_KNTT_B03 a chem:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 3: KNTT Bai 3"@vi ;
+    chem:partOfTextbook chem:TB_KNTT ;
+    chem:curriculumPosition 3 .
+
+chem:TB_KNTT_B04 a chem:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 4: KNTT Bai 4"@vi ;
+    chem:partOfTextbook chem:TB_KNTT ;
+    chem:curriculumPosition 4 .
+
+chem:TB_KNTT_B05 a chem:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 5: KNTT Bai 5"@vi ;
+    chem:partOfTextbook chem:TB_KNTT ;
+    chem:curriculumPosition 5 .
+
+chem:TB_KNTT_B06 a chem:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 6: KNTT Bai 6"@vi ;
+    chem:partOfTextbook chem:TB_KNTT ;
+    chem:curriculumPosition 6 .
+
+chem:TB_KNTT_B07 a chem:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 7: KNTT Bai 7"@vi ;
+    chem:partOfTextbook chem:TB_KNTT ;
+    chem:curriculumPosition 7 .
+
+chem:TB_KNTT_B08 a chem:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 8: KNTT Bai 8"@vi ;
+    chem:partOfTextbook chem:TB_KNTT ;
+    chem:curriculumPosition 8 .
+
+chem:TB_KNTT_B09 a chem:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 9: KNTT Bai 9"@vi ;
+    chem:partOfTextbook chem:TB_KNTT ;
+    chem:curriculumPosition 9 .
+
+chem:TB_KNTT_B10 a chem:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 10: KNTT Bai 10"@vi ;
+    chem:partOfTextbook chem:TB_KNTT ;
+    chem:curriculumPosition 10 .
+
+chem:TB_KNTT_B11 a chem:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 11: KNTT Bai 11"@vi ;
+    chem:partOfTextbook chem:TB_KNTT ;
+    chem:curriculumPosition 11 .
+
+chem:TB_KNTT_B12 a chem:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 12: KNTT Bai 12"@vi ;
+    chem:partOfTextbook chem:TB_KNTT ;
+    chem:curriculumPosition 12 .
+
+chem:TB_KNTT_B13 a chem:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 13: KNTT Bai 13"@vi ;
+    chem:partOfTextbook chem:TB_KNTT ;
+    chem:curriculumPosition 13 .
+
+chem:TB_KNTT_B14 a chem:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 14: KNTT Bai 14"@vi ;
+    chem:partOfTextbook chem:TB_KNTT ;
+    chem:curriculumPosition 14 .
+
+chem:TB_KNTT_B15 a chem:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 15: KNTT Bai 15"@vi ;
+    chem:partOfTextbook chem:TB_KNTT ;
+    chem:curriculumPosition 15 .
+
+chem:TB_KNTT_B16 a chem:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 16: KNTT Bai 16"@vi ;
+    chem:partOfTextbook chem:TB_KNTT ;
+    chem:curriculumPosition 16 .
+
+chem:TB_KNTT_B17 a chem:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 17: KNTT Bai 17"@vi ;
+    chem:partOfTextbook chem:TB_KNTT ;
+    chem:curriculumPosition 17 .
+
+chem:TB_KNTT_B18 a chem:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 18: KNTT Bai 18"@vi ;
+    chem:partOfTextbook chem:TB_KNTT ;
+    chem:curriculumPosition 18 .
+
+chem:TB_KNTT_B19 a chem:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 19: KNTT Bai 19"@vi ;
+    chem:partOfTextbook chem:TB_KNTT ;
+    chem:curriculumPosition 19 .
+
+chem:TB_KNTT_B20 a chem:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 20: KNTT Bai 20"@vi ;
+    chem:partOfTextbook chem:TB_KNTT ;
+    chem:curriculumPosition 20 .
+
+chem:TB_KNTT_B21 a chem:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 21: KNTT Bai 21"@vi ;
+    chem:partOfTextbook chem:TB_KNTT ;
+    chem:curriculumPosition 21 .
+
+chem:TB_KNTT_B22 a chem:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 22: KNTT Bai 22"@vi ;
+    chem:partOfTextbook chem:TB_KNTT ;
+    chem:curriculumPosition 22 .
+
+chem:TB_KNTT_B23 a chem:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 23: KNTT Bai 23"@vi ;
+    chem:partOfTextbook chem:TB_KNTT ;
+    chem:curriculumPosition 23 .
+
+chem:TB_KNTT_B24 a chem:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 24: KNTT Bai 24"@vi ;
+    chem:partOfTextbook chem:TB_KNTT ;
+    chem:curriculumPosition 24 .
+
+chem:TB_KNTT_B25 a chem:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 25: KNTT Bai 25"@vi ;
+    chem:partOfTextbook chem:TB_KNTT ;
+    chem:curriculumPosition 25 .
+
+chem:TB_KNTT_B26 a chem:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 26: KNTT Bai 26"@vi ;
+    chem:partOfTextbook chem:TB_KNTT ;
+    chem:curriculumPosition 26 .
+
+chem:TB_KNTT_B27 a chem:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 27: KNTT Bai 27"@vi ;
+    chem:partOfTextbook chem:TB_KNTT ;
+    chem:curriculumPosition 27 .
+
+chem:TB_KNTT_B28 a chem:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 28: KNTT Bai 28"@vi ;
+    chem:partOfTextbook chem:TB_KNTT ;
+    chem:curriculumPosition 28 .
+
+chem:TB_KNTT_B29 a chem:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 29: KNTT Bai 29"@vi ;
+    chem:partOfTextbook chem:TB_KNTT ;
+    chem:curriculumPosition 29 .
+
+chem:TB_KNTT_B30 a chem:LessonUnit ;
+    rdfs:label "[TB_KNTT] Bai 30: KNTT Bai 30"@vi ;
+    chem:partOfTextbook chem:TB_KNTT ;
+    chem:curriculumPosition 30 .
+
+chem:TB_CTST_B01 a chem:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 1: CTST Bai 1"@vi ;
+    chem:partOfTextbook chem:TB_CTST ;
+    chem:curriculumPosition 1 .
+
+chem:TB_CTST_B02 a chem:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 2: CTST Bai 2"@vi ;
+    chem:partOfTextbook chem:TB_CTST ;
+    chem:curriculumPosition 2 .
+
+chem:TB_CTST_B03 a chem:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 3: CTST Bai 3"@vi ;
+    chem:partOfTextbook chem:TB_CTST ;
+    chem:curriculumPosition 3 .
+
+chem:TB_CTST_B04 a chem:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 4: CTST Bai 4"@vi ;
+    chem:partOfTextbook chem:TB_CTST ;
+    chem:curriculumPosition 4 .
+
+chem:TB_CTST_B05 a chem:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 5: CTST Bai 5"@vi ;
+    chem:partOfTextbook chem:TB_CTST ;
+    chem:curriculumPosition 5 .
+
+chem:TB_CTST_B06 a chem:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 6: CTST Bai 6"@vi ;
+    chem:partOfTextbook chem:TB_CTST ;
+    chem:curriculumPosition 6 .
+
+chem:TB_CTST_B07 a chem:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 7: CTST Bai 7"@vi ;
+    chem:partOfTextbook chem:TB_CTST ;
+    chem:curriculumPosition 7 .
+
+chem:TB_CTST_B08 a chem:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 8: CTST Bai 8"@vi ;
+    chem:partOfTextbook chem:TB_CTST ;
+    chem:curriculumPosition 8 .
+
+chem:TB_CTST_B09 a chem:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 9: CTST Bai 9"@vi ;
+    chem:partOfTextbook chem:TB_CTST ;
+    chem:curriculumPosition 9 .
+
+chem:TB_CTST_B10 a chem:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 10: CTST Bai 10"@vi ;
+    chem:partOfTextbook chem:TB_CTST ;
+    chem:curriculumPosition 10 .
+
+chem:TB_CTST_B11 a chem:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 11: CTST Bai 11"@vi ;
+    chem:partOfTextbook chem:TB_CTST ;
+    chem:curriculumPosition 11 .
+
+chem:TB_CTST_B12 a chem:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 12: CTST Bai 12"@vi ;
+    chem:partOfTextbook chem:TB_CTST ;
+    chem:curriculumPosition 12 .
+
+chem:TB_CTST_B13 a chem:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 13: CTST Bai 13"@vi ;
+    chem:partOfTextbook chem:TB_CTST ;
+    chem:curriculumPosition 13 .
+
+chem:TB_CTST_B14 a chem:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 14: CTST Bai 14"@vi ;
+    chem:partOfTextbook chem:TB_CTST ;
+    chem:curriculumPosition 14 .
+
+chem:TB_CTST_B15 a chem:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 15: CTST Bai 15"@vi ;
+    chem:partOfTextbook chem:TB_CTST ;
+    chem:curriculumPosition 15 .
+
+chem:TB_CTST_B16 a chem:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 16: CTST Bai 16"@vi ;
+    chem:partOfTextbook chem:TB_CTST ;
+    chem:curriculumPosition 16 .
+
+chem:TB_CTST_B17 a chem:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 17: CTST Bai 17"@vi ;
+    chem:partOfTextbook chem:TB_CTST ;
+    chem:curriculumPosition 17 .
+
+chem:TB_CTST_B18 a chem:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 18: CTST Bai 18"@vi ;
+    chem:partOfTextbook chem:TB_CTST ;
+    chem:curriculumPosition 18 .
+
+chem:TB_CTST_B19 a chem:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 19: CTST Bai 19"@vi ;
+    chem:partOfTextbook chem:TB_CTST ;
+    chem:curriculumPosition 19 .
+
+chem:TB_CTST_B20 a chem:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 20: CTST Bai 20"@vi ;
+    chem:partOfTextbook chem:TB_CTST ;
+    chem:curriculumPosition 20 .
+
+chem:TB_CTST_B21 a chem:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 21: CTST Bai 21"@vi ;
+    chem:partOfTextbook chem:TB_CTST ;
+    chem:curriculumPosition 21 .
+
+chem:TB_CTST_B22 a chem:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 22: CTST Bai 22"@vi ;
+    chem:partOfTextbook chem:TB_CTST ;
+    chem:curriculumPosition 22 .
+
+chem:TB_CTST_B23 a chem:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 23: CTST Bai 23"@vi ;
+    chem:partOfTextbook chem:TB_CTST ;
+    chem:curriculumPosition 23 .
+
+chem:TB_CTST_B24 a chem:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 24: CTST Bai 24"@vi ;
+    chem:partOfTextbook chem:TB_CTST ;
+    chem:curriculumPosition 24 .
+
+chem:TB_CTST_B25 a chem:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 25: CTST Bai 25"@vi ;
+    chem:partOfTextbook chem:TB_CTST ;
+    chem:curriculumPosition 25 .
+
+chem:TB_CTST_B26 a chem:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 26: CTST Bai 26"@vi ;
+    chem:partOfTextbook chem:TB_CTST ;
+    chem:curriculumPosition 26 .
+
+chem:TB_CTST_B27 a chem:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 27: CTST Bai 27"@vi ;
+    chem:partOfTextbook chem:TB_CTST ;
+    chem:curriculumPosition 27 .
+
+chem:TB_CTST_B28 a chem:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 28: CTST Bai 28"@vi ;
+    chem:partOfTextbook chem:TB_CTST ;
+    chem:curriculumPosition 28 .
+
+chem:TB_CTST_B29 a chem:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 29: CTST Bai 29"@vi ;
+    chem:partOfTextbook chem:TB_CTST ;
+    chem:curriculumPosition 29 .
+
+chem:TB_CTST_B30 a chem:LessonUnit ;
+    rdfs:label "[TB_CTST] Bai 30: CTST Bai 30"@vi ;
+    chem:partOfTextbook chem:TB_CTST ;
+    chem:curriculumPosition 30 .
+
+chem:TB_CD_B01 a chem:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 1: CD Bai 1"@vi ;
+    chem:partOfTextbook chem:TB_CD ;
+    chem:curriculumPosition 1 .
+
+chem:TB_CD_B02 a chem:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 2: CD Bai 2"@vi ;
+    chem:partOfTextbook chem:TB_CD ;
+    chem:curriculumPosition 2 .
+
+chem:TB_CD_B03 a chem:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 3: CD Bai 3"@vi ;
+    chem:partOfTextbook chem:TB_CD ;
+    chem:curriculumPosition 3 .
+
+chem:TB_CD_B04 a chem:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 4: CD Bai 4"@vi ;
+    chem:partOfTextbook chem:TB_CD ;
+    chem:curriculumPosition 4 .
+
+chem:TB_CD_B05 a chem:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 5: CD Bai 5"@vi ;
+    chem:partOfTextbook chem:TB_CD ;
+    chem:curriculumPosition 5 .
+
+chem:TB_CD_B06 a chem:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 6: CD Bai 6"@vi ;
+    chem:partOfTextbook chem:TB_CD ;
+    chem:curriculumPosition 6 .
+
+chem:TB_CD_B07 a chem:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 7: CD Bai 7"@vi ;
+    chem:partOfTextbook chem:TB_CD ;
+    chem:curriculumPosition 7 .
+
+chem:TB_CD_B08 a chem:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 8: CD Bai 8"@vi ;
+    chem:partOfTextbook chem:TB_CD ;
+    chem:curriculumPosition 8 .
+
+chem:TB_CD_B09 a chem:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 9: CD Bai 9"@vi ;
+    chem:partOfTextbook chem:TB_CD ;
+    chem:curriculumPosition 9 .
+
+chem:TB_CD_B10 a chem:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 10: CD Bai 10"@vi ;
+    chem:partOfTextbook chem:TB_CD ;
+    chem:curriculumPosition 10 .
+
+chem:TB_CD_B11 a chem:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 11: CD Bai 11"@vi ;
+    chem:partOfTextbook chem:TB_CD ;
+    chem:curriculumPosition 11 .
+
+chem:TB_CD_B12 a chem:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 12: CD Bai 12"@vi ;
+    chem:partOfTextbook chem:TB_CD ;
+    chem:curriculumPosition 12 .
+
+chem:TB_CD_B13 a chem:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 13: CD Bai 13"@vi ;
+    chem:partOfTextbook chem:TB_CD ;
+    chem:curriculumPosition 13 .
+
+chem:TB_CD_B14 a chem:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 14: CD Bai 14"@vi ;
+    chem:partOfTextbook chem:TB_CD ;
+    chem:curriculumPosition 14 .
+
+chem:TB_CD_B15 a chem:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 15: CD Bai 15"@vi ;
+    chem:partOfTextbook chem:TB_CD ;
+    chem:curriculumPosition 15 .
+
+chem:TB_CD_B16 a chem:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 16: CD Bai 16"@vi ;
+    chem:partOfTextbook chem:TB_CD ;
+    chem:curriculumPosition 16 .
+
+chem:TB_CD_B17 a chem:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 17: CD Bai 17"@vi ;
+    chem:partOfTextbook chem:TB_CD ;
+    chem:curriculumPosition 17 .
+
+chem:TB_CD_B18 a chem:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 18: CD Bai 18"@vi ;
+    chem:partOfTextbook chem:TB_CD ;
+    chem:curriculumPosition 18 .
+
+chem:TB_CD_B19 a chem:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 19: CD Bai 19"@vi ;
+    chem:partOfTextbook chem:TB_CD ;
+    chem:curriculumPosition 19 .
+
+chem:TB_CD_B20 a chem:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 20: CD Bai 20"@vi ;
+    chem:partOfTextbook chem:TB_CD ;
+    chem:curriculumPosition 20 .
+
+chem:TB_CD_B21 a chem:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 21: CD Bai 21"@vi ;
+    chem:partOfTextbook chem:TB_CD ;
+    chem:curriculumPosition 21 .
+
+chem:TB_CD_B22 a chem:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 22: CD Bai 22"@vi ;
+    chem:partOfTextbook chem:TB_CD ;
+    chem:curriculumPosition 22 .
+
+chem:TB_CD_B23 a chem:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 23: CD Bai 23"@vi ;
+    chem:partOfTextbook chem:TB_CD ;
+    chem:curriculumPosition 23 .
+
+chem:TB_CD_B24 a chem:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 24: CD Bai 24"@vi ;
+    chem:partOfTextbook chem:TB_CD ;
+    chem:curriculumPosition 24 .
+
+chem:TB_CD_B25 a chem:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 25: CD Bai 25"@vi ;
+    chem:partOfTextbook chem:TB_CD ;
+    chem:curriculumPosition 25 .
+
+chem:TB_CD_B26 a chem:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 26: CD Bai 26"@vi ;
+    chem:partOfTextbook chem:TB_CD ;
+    chem:curriculumPosition 26 .
+
+chem:TB_CD_B27 a chem:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 27: CD Bai 27"@vi ;
+    chem:partOfTextbook chem:TB_CD ;
+    chem:curriculumPosition 27 .
+
+chem:TB_CD_B28 a chem:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 28: CD Bai 28"@vi ;
+    chem:partOfTextbook chem:TB_CD ;
+    chem:curriculumPosition 28 .
+
+chem:TB_CD_B29 a chem:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 29: CD Bai 29"@vi ;
+    chem:partOfTextbook chem:TB_CD ;
+    chem:curriculumPosition 29 .
+
+chem:TB_CD_B30 a chem:LessonUnit ;
+    rdfs:label "[TB_CD] Bai 30: CD Bai 30"@vi ;
+    chem:partOfTextbook chem:TB_CD ;
+    chem:curriculumPosition 30 .
+
+
+#################################################################
+#   RELATIONSHIPS
+#################################################################
+
+chem:S_CaO chem:instanceOf chem:SC_OxitBazo .
+
+chem:S_SO2 chem:instanceOf chem:SC_OxitAxit .
+
+chem:S_SO3 chem:instanceOf chem:SC_OxitAxit .
+
+chem:S_CO2 chem:instanceOf chem:SC_OxitAxit .
+
+chem:S_CO chem:instanceOf chem:SC_OxitTrungTinh .
+
+chem:S_P2O5 chem:instanceOf chem:SC_OxitAxit .
+
+chem:S_Al2O3 chem:instanceOf chem:SC_OxitLuongTinh .
+
+chem:S_Fe2O3 chem:instanceOf chem:SC_OxitBazo .
+
+chem:S_CuO chem:instanceOf chem:SC_OxitBazo .
+
+chem:S_Na2O chem:instanceOf chem:SC_OxitBazo .
+
+chem:S_HCl chem:instanceOf chem:SC_AxitManh .
+
+chem:S_H2SO4 chem:instanceOf chem:SC_AxitManh .
+
+chem:S_HNO3 chem:instanceOf chem:SC_AxitManh .
+
+chem:S_H2CO3 chem:instanceOf chem:SC_AxitYeu .
+
+chem:S_H3PO4 chem:instanceOf chem:SC_AxitYeu .
+
+chem:S_H2SO3 chem:instanceOf chem:SC_AxitYeu .
+
+chem:S_CH3COOH chem:instanceOf chem:SC_Axit_HC .
+
+chem:S_NaOH chem:instanceOf chem:SC_BazoTan .
+
+chem:S_KOH chem:instanceOf chem:SC_BazoTan .
+
+chem:S_CaOH2 chem:instanceOf chem:SC_BazoTan .
+
+chem:S_BaOH2 chem:instanceOf chem:SC_BazoTan .
+
+chem:S_CuOH2 chem:instanceOf chem:SC_BazoKhongTan .
+
+chem:S_FeOH3 chem:instanceOf chem:SC_BazoKhongTan .
+
+chem:S_AlOH3 chem:instanceOf chem:SC_BazoKhongTan .
+
+chem:S_NaCl chem:instanceOf chem:SC_MuoiTrungHoa .
+
+chem:S_CaCO3 chem:instanceOf chem:SC_MuoiTrungHoa .
+
+chem:S_NaHCO3 chem:instanceOf chem:SC_MuoiAxit .
+
+chem:S_Na2CO3 chem:instanceOf chem:SC_MuoiTrungHoa .
+
+chem:S_CuSO4 chem:instanceOf chem:SC_MuoiTrungHoa .
+
+chem:S_FeCl3 chem:instanceOf chem:SC_MuoiTrungHoa .
+
+chem:S_BaSO4 chem:instanceOf chem:SC_MuoiTrungHoa .
+
+chem:S_Na chem:instanceOf chem:SC_KimLoaiKiem .
+
+chem:S_K chem:instanceOf chem:SC_KimLoaiKiem .
+
+chem:S_Ca chem:instanceOf chem:SC_KimLoaiKiemTho .
+
+chem:S_Mg chem:instanceOf chem:SC_KimLoai .
+
+chem:S_Al chem:instanceOf chem:SC_KimLoai .
+
+chem:S_Fe chem:instanceOf chem:SC_KimLoai .
+
+chem:S_Cu chem:instanceOf chem:SC_KimLoai .
+
+chem:S_Zn chem:instanceOf chem:SC_KimLoai .
+
+chem:S_Ag chem:instanceOf chem:SC_KimLoai .
+
+chem:S_Au chem:instanceOf chem:SC_KimLoai .
+
+chem:S_Cl2 chem:instanceOf chem:SC_PhiKim .
+
+chem:S_O2 chem:instanceOf chem:SC_PhiKim .
+
+chem:S_H2 chem:instanceOf chem:SC_PhiKim .
+
+chem:S_N2 chem:instanceOf chem:SC_PhiKim .
+
+chem:S_C_element chem:instanceOf chem:SC_PhiKim .
+
+chem:S_S_element chem:instanceOf chem:SC_PhiKim .
+
+chem:S_CH4 chem:instanceOf chem:SC_HCNoi .
+
+chem:S_C2H4 chem:instanceOf chem:SC_HCKhong .
+
+chem:S_C2H2 chem:instanceOf chem:SC_HCKhong .
+
+chem:S_C6H6 chem:instanceOf chem:SC_HCThom .
+
+chem:S_C2H5OH chem:instanceOf chem:SC_Ancol .
+
+chem:S_CH3OH chem:instanceOf chem:SC_Ancol .
+
+chem:S_EsteC2H5 chem:instanceOf chem:SC_Este .
+
+chem:S_Glucose chem:instanceOf chem:SC_Gluxit .
+
+chem:S_Saccarose chem:instanceOf chem:SC_Gluxit .
+
+chem:S_TinhBot chem:instanceOf chem:SC_Gluxit .
+
+chem:S_Xenluloz chem:instanceOf chem:SC_Gluxit .
+
+chem:S_Poli_Ethylene chem:instanceOf chem:SC_Polime .
+
+chem:S_Poli_VinylClorua chem:instanceOf chem:SC_Polime .
+
+chem:SC_Axit chem:hasProperty chem:P_LamDoiMauQT .
+
+chem:SC_Axit chem:hasProperty chem:P_PhanUngVoiBazo .
+
+chem:SC_Axit chem:hasProperty chem:P_PhanUngVoiKimLoai .
+
+chem:SC_BazoTan chem:hasProperty chem:P_DoiMauPhenolphthalein .
+
+chem:SC_BazoTan chem:hasProperty chem:P_TanTrongNuoc .
+
+chem:SC_Bazo chem:hasProperty chem:P_PhanUngVoiAxit .
+
+chem:SC_KimLoai chem:hasProperty chem:P_PhanUngVoiOxi .
+
+chem:SC_KimLoai chem:hasProperty chem:P_PhanUngVoiPhiKim .
+
+chem:SC_KimLoaiKiem chem:hasProperty chem:P_PhanUngVoiNuoc .
+
+chem:SC_KimLoaiKiemTho chem:hasProperty chem:P_PhanUngVoiNuoc .
+
+chem:SC_OxitAxit chem:hasProperty chem:P_PhanUngVoiBazo .
+
+chem:SC_OxitBazo chem:hasProperty chem:P_PhanUngVoiAxit .
+
+chem:SC_OxitLuongTinh chem:hasProperty chem:P_PhanUngVoiAxit .
+
+chem:SC_OxitLuongTinh chem:hasProperty chem:P_PhanUngVoiBazo .
+
+chem:S_C2H5OH chem:contains chem:FG_OH .
+
+chem:S_CH3OH chem:contains chem:FG_OH .
+
+chem:S_CH3COOH chem:contains chem:FG_COOH .
+
+chem:S_EsteC2H5 chem:contains chem:FG_Este_Link .
+
+chem:S_C2H4 chem:contains chem:FG_DoiLK .
+
+chem:S_C2H2 chem:contains chem:FG_BaLK .
+
+chem:S_C6H6 chem:contains chem:FG_Vong6 .
+
+chem:R_NaOH_HCl chem:reactant chem:S_NaOH .
+
+chem:R_NaOH_HCl chem:reactant chem:S_HCl .
+
+chem:R_CaO_H2O chem:reactant chem:S_CaO .
+
+chem:R_CaO_H2O chem:reactant chem:S_H2O .
+
+chem:R_CO2_CaOH2 chem:reactant chem:S_CO2 .
+
+chem:R_CO2_CaOH2 chem:reactant chem:S_CaOH2 .
+
+chem:R_CaCO3_Nhiet chem:reactant chem:S_CaCO3 .
+
+chem:R_Zn_HCl chem:reactant chem:S_Zn .
+
+chem:R_Zn_HCl chem:reactant chem:S_HCl .
+
+chem:R_Fe_CuSO4 chem:reactant chem:S_Fe .
+
+chem:R_Fe_CuSO4 chem:reactant chem:S_CuSO4 .
+
+chem:R_Fe_HCl chem:reactant chem:S_Fe .
+
+chem:R_Fe_HCl chem:reactant chem:S_HCl .
+
+chem:R_Al_NaOH chem:reactant chem:S_Al .
+
+chem:R_Al_NaOH chem:reactant chem:S_NaOH .
+
+chem:R_Al_NaOH chem:reactant chem:S_H2O .
+
+chem:R_CH4_Cl2 chem:reactant chem:S_CH4 .
+
+chem:R_CH4_Cl2 chem:reactant chem:S_Cl2 .
+
+chem:R_C2H4_Br2 chem:reactant chem:S_C2H4 .
+
+chem:R_C2H5OH_Na chem:reactant chem:S_C2H5OH .
+
+chem:R_C2H5OH_Na chem:reactant chem:S_Na .
+
+chem:R_CH3COOH_NaOH chem:reactant chem:S_CH3COOH .
+
+chem:R_CH3COOH_NaOH chem:reactant chem:S_NaOH .
+
+chem:R_CH3COOH_C2H5OH chem:reactant chem:S_CH3COOH .
+
+chem:R_CH3COOH_C2H5OH chem:reactant chem:S_C2H5OH .
+
+chem:R_Glucose_Fermentation chem:reactant chem:S_Glucose .
+
+chem:R_C_O2 chem:reactant chem:S_C_element .
+
+chem:R_C_O2 chem:reactant chem:S_O2 .
+
+chem:R_H2_O2 chem:reactant chem:S_H2 .
+
+chem:R_H2_O2 chem:reactant chem:S_O2 .
+
+chem:R_SO2_O2_V2O5 chem:reactant chem:S_SO2 .
+
+chem:R_SO2_O2_V2O5 chem:reactant chem:S_O2 .
+
+chem:R_NaOH_HCl chem:product chem:S_NaCl .
+
+chem:R_NaOH_HCl chem:product chem:S_H2O .
+
+chem:R_CaO_H2O chem:product chem:S_CaOH2 .
+
+chem:R_CO2_CaOH2 chem:product chem:S_CaCO3 .
+
+chem:R_CO2_CaOH2 chem:product chem:S_H2O .
+
+chem:R_CaCO3_Nhiet chem:product chem:S_CaO .
+
+chem:R_CaCO3_Nhiet chem:product chem:S_CO2 .
+
+chem:R_Zn_HCl chem:product chem:S_H2 .
+
+chem:R_Fe_CuSO4 chem:product chem:S_Cu .
+
+chem:R_Fe_HCl chem:product chem:S_H2 .
+
+chem:R_Cu_H2SO4dac chem:product chem:S_CuSO4 .
+
+chem:R_Cu_H2SO4dac chem:product chem:S_SO2 .
+
+chem:R_Cu_H2SO4dac chem:product chem:S_H2O .
+
+chem:R_Al_NaOH chem:product chem:S_H2 .
+
+chem:R_CH3COOH_NaOH chem:product chem:S_H2O .
+
+chem:R_CH3COOH_C2H5OH chem:product chem:S_EsteC2H5 .
+
+chem:R_CH3COOH_C2H5OH chem:product chem:S_H2O .
+
+chem:R_Glucose_Fermentation chem:product chem:S_C2H5OH .
+
+chem:R_Glucose_Fermentation chem:product chem:S_CO2 .
+
+chem:R_C_O2 chem:product chem:S_CO2 .
+
+chem:R_H2_O2 chem:product chem:S_H2O .
+
+chem:R_SO2_O2_V2O5 chem:product chem:S_SO3 .
+
+chem:PR_DienPhanNaCl chem:produces chem:S_NaOH .
+
+chem:PR_LuyenGang chem:produces chem:S_Fe .
+
+chem:PR_LuyenThep chem:produces chem:S_Fe .
+
+chem:PR_SanXuat_H2SO4 chem:produces chem:S_H2SO4 .
+
+chem:PR_LenMenRuou chem:produces chem:S_C2H5OH .
+
+chem:PR_LenMenGiam chem:produces chem:S_CH3COOH .
+
+chem:PR_SanXuat_Voi chem:produces chem:S_CaO .
+
+chem:SC_Oxit chem:prerequisiteOf chem:SC_Axit .
+
+chem:SC_Oxit chem:prerequisiteOf chem:SC_Bazo .
+
+chem:SC_Axit chem:prerequisiteOf chem:SC_Muoi .
+
+chem:SC_Bazo chem:prerequisiteOf chem:SC_Muoi .
+
+chem:C_HoaTri chem:prerequisiteOf chem:C_PTHH .
+
+chem:C_PTHH chem:prerequisiteOf chem:C_CanBangPTHH .
+
+chem:C_CanBangPTHH chem:prerequisiteOf chem:R_NaOH_HCl .
+
+chem:SC_OxitBazo chem:prerequisiteOf chem:S_CaO .
+
+chem:SC_OxitAxit chem:prerequisiteOf chem:S_CO2 .
+
+chem:S_CaO chem:prerequisiteOf chem:R_CaO_H2O .
+
+chem:R_CaO_H2O chem:prerequisiteOf chem:S_CaOH2 .
+
+chem:SC_Axit chem:prerequisiteOf chem:S_HCl .
+
+chem:SC_Axit chem:prerequisiteOf chem:S_H2SO4 .
+
+chem:S_HCl chem:prerequisiteOf chem:R_NaOH_HCl .
+
+chem:S_HCl chem:prerequisiteOf chem:R_Zn_HCl .
+
+chem:SC_Muoi chem:prerequisiteOf chem:S_NaCl .
+
+chem:SC_Muoi chem:prerequisiteOf chem:S_CaCO3 .
+
+chem:S_CaCO3 chem:prerequisiteOf chem:R_CaCO3_Nhiet .
+
+chem:SC_KimLoai chem:prerequisiteOf chem:C_DayHoatDongKimLoai .
+
+chem:C_DayHoatDongKimLoai chem:prerequisiteOf chem:R_Fe_CuSO4 .
+
+chem:C_DayHoatDongKimLoai chem:prerequisiteOf chem:C_DieuChe_KL_1 .
+
+chem:C_DieuChe_KL_1 chem:prerequisiteOf chem:PR_LuyenGang .
+
+chem:PR_LuyenGang chem:prerequisiteOf chem:PR_LuyenThep .
+
+chem:SC_KimLoai chem:prerequisiteOf chem:S_Al .
+
+chem:SC_KimLoai chem:prerequisiteOf chem:S_Fe .
+
+chem:S_Al chem:prerequisiteOf chem:R_Al_NaOH .
+
+chem:SC_PhiKim chem:prerequisiteOf chem:S_Cl2 .
+
+chem:SC_PhiKim chem:prerequisiteOf chem:S_C_element .
+
+chem:S_C_element chem:prerequisiteOf chem:R_C_O2 .
+
+chem:R_C_O2 chem:prerequisiteOf chem:S_CO2 .
+
+chem:S_CO2 chem:prerequisiteOf chem:S_H2CO3 .
+
+chem:S_H2CO3 chem:prerequisiteOf chem:S_Na2CO3 .
+
+chem:S_C_element chem:prerequisiteOf chem:C_BangTuanHoan .
+
+chem:C_BangTuanHoan chem:prerequisiteOf chem:C_ChuKi .
+
+chem:C_BangTuanHoan chem:prerequisiteOf chem:C_NhomA .
+
+chem:C_NhomA chem:prerequisiteOf chem:C_DinhLuatTuanHoan .
+
+chem:C_SuChuyenHoa_DongDang chem:prerequisiteOf chem:SC_Hidrocacbon .
+
+chem:SC_Hidrocacbon chem:prerequisiteOf chem:SC_HCNoi .
+
+chem:SC_Hidrocacbon chem:prerequisiteOf chem:SC_HCKhong .
+
+chem:SC_Hidrocacbon chem:prerequisiteOf chem:SC_HCThom .
+
+chem:SC_HCNoi chem:prerequisiteOf chem:S_CH4 .
+
+chem:SC_HCKhong chem:prerequisiteOf chem:S_C2H4 .
+
+chem:SC_HCKhong chem:prerequisiteOf chem:S_C2H2 .
+
+chem:SC_HCThom chem:prerequisiteOf chem:S_C6H6 .
+
+chem:S_CH4 chem:prerequisiteOf chem:R_CH4_Cl2 .
+
+chem:S_C2H4 chem:prerequisiteOf chem:R_C2H4_Br2 .
+
+chem:S_C2H4 chem:prerequisiteOf chem:S_C2H5OH .
+
+chem:SC_Ancol chem:prerequisiteOf chem:S_C2H5OH .
+
+chem:S_C2H5OH chem:prerequisiteOf chem:R_C2H5OH_Na .
+
+chem:S_C2H5OH chem:prerequisiteOf chem:S_CH3COOH .
+
+chem:SC_Axit_HC chem:prerequisiteOf chem:S_CH3COOH .
+
+chem:S_CH3COOH chem:prerequisiteOf chem:R_CH3COOH_NaOH .
+
+chem:S_CH3COOH chem:prerequisiteOf chem:R_CH3COOH_C2H5OH .
+
+chem:R_CH3COOH_C2H5OH chem:prerequisiteOf chem:S_EsteC2H5 .
+
+chem:SC_Este chem:prerequisiteOf chem:S_EsteC2H5 .
+
+chem:SC_Gluxit chem:prerequisiteOf chem:S_Glucose .
+
+chem:S_Glucose chem:prerequisiteOf chem:R_Glucose_Fermentation .
+
+chem:R_Glucose_Fermentation chem:prerequisiteOf chem:S_C2H5OH .
+
+chem:S_Glucose chem:prerequisiteOf chem:S_Saccarose .
+
+chem:S_Glucose chem:prerequisiteOf chem:S_TinhBot .
+
+chem:S_C2H4 chem:prerequisiteOf chem:S_Poli_Ethylene .
+
+chem:PR_LenMenRuou chem:prerequisiteOf chem:S_C2H5OH .
+
+chem:PR_LenMenGiam chem:prerequisiteOf chem:S_CH3COOH .
+
+chem:PR_LenMenRuou chem:prerequisiteOf chem:PR_LenMenGiam .
+
+chem:S_C2H5OH chem:prerequisiteOf chem:PR_LenMenGiam .
+
+chem:S_CH4 chem:similarTo chem:S_C2H4 .
+
+chem:S_C2H4 chem:similarTo chem:S_C2H2 .
+
+chem:S_HCl chem:similarTo chem:S_H2SO4 .
+
+chem:S_NaOH chem:similarTo chem:S_KOH .
+
+chem:SC_Oxit chem:similarTo chem:SC_Muoi .
+
+chem:R_Fe_CuSO4 chem:similarTo chem:R_Zn_HCl .
+
+chem:SC_Axit chem:contrastsWith chem:SC_Bazo .
+
+chem:SC_OxitAxit chem:contrastsWith chem:SC_OxitBazo .
+
+chem:SC_HCNoi chem:contrastsWith chem:SC_HCKhong .
+
+chem:RT_HoaHop chem:contrastsWith chem:RT_PhanHuy .
+
+chem:RT_The chem:contrastsWith chem:RT_TraoDoi .
+
+chem:S_Glucose chem:contrastsWith chem:S_Saccarose .
+
