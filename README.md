@@ -37,7 +37,7 @@ Ba "khối" (bucket) — nhìn là hiểu ngay đâu là *engine*, đâu là *d�
 │   │   ├── data/            #      Chuong1..7 + global_entities (dict giàu thông tin)
 │   │   ├── ontology/        #      su9.ttl (sinh ra)
 │   │   ├── samples/         #      mcq_samples.json (10 câu demo)
-│   │   │                    #      + mcq_crawled.json (669 câu vietjack, nhãn LLM 4 mức)
+│   │   │                    #      + mcq_crawled.json (3.152 câu vietjack, nhãn LLM 4 mức)
 │   │   └── legacy/          #      bản history cũ (319 thực thể) — LƯU TRỮ, xem docs/HISTORY_MERGE.md
 │   ├── physics/ math/ chemistry/ english/ geography/ literature/
 │   │                        #    mỗi môn: build.py + build_data.py + display_labels.py
@@ -126,11 +126,13 @@ print(len(engine), "thực thể,", engine.nx_graph.number_of_edges(), "cạnh")
   Sử (baseline) / Hóa+Địa (dense_relational) / Toán+Lý (prereq_dag, +4 feature số) /
   Văn (attributive_tree, +3 feature thuộc tính) / Anh (linguistic, 26 feature riêng)
   — thiết kế: [docs/PIPELINE_REDESIGN_PLAN.md](docs/PIPELINE_REDESIGN_PLAN.md).
-- ✅ **669 câu MCQ Sử thật** (vietjack, phục hồi từ nhánh git cũ) + nhãn độ khó LLM
-  4 mức (Nhận biết/Thông hiểu/Vận dụng/Vận dụng cao) tại
+- ✅ **3.152 câu MCQ Sử thật** (669 phục hồi từ nhánh git cũ + 2.483 crawl mới
+  từ họ VietJack: SGK cũ + KNTT/CTST/CD) + nhãn độ khó LLM 4 mức
+  (Nhận biết 1.395 / Thông hiểu 1.269 / Vận dụng 387 / Vận dụng cao 101) tại
   `subjects/history/samples/mcq_crawled.json` — **chờ giáo viên kiểm định nhãn**.
-- ✅ Train đầu tiên (679 câu Sử): accuracy **61.8%** — Easy F1 0.75, Medium 0.60,
-  Hard 0.12 (thiếu mẫu Hard; cần thêm data + giáo viên duyệt nhãn).
+- ✅ Train (3.162 câu Sử, test 20%): accuracy **69.2%** — Easy F1 0.77,
+  Medium 0.68, Hard 0.42 (đợt 679 câu: 61.8%, Hard F1 chỉ 0.12 — thêm data
+  cải thiện rõ; recall Hard 0.31 vẫn là điểm yếu cần giáo viên duyệt nhãn).
 - ⏳ Các mục nghiên cứu còn treo: xem [docs/DEFERRED.md](docs/DEFERRED.md).
 - 🔀 Vì sao gộp `history` từ hai bản cũ: xem [docs/HISTORY_MERGE.md](docs/HISTORY_MERGE.md).
 - 📄 Báo cáo tiến độ: [docs/BAO_CAO_TIEN_DO_TUAN_2.md](docs/BAO_CAO_TIEN_DO_TUAN_2.md).
