@@ -15,7 +15,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Tuple
+from typing import Optional, Tuple
 
 REPO_ROOT = Path(__file__).resolve().parents[1]      # shared/ -> repo root
 SUBJECTS_DIR = REPO_ROOT / "subjects"
@@ -26,6 +26,14 @@ NON_ENTITY_CLASSES = {"LessonUnit", "Textbook"}
 NON_SEMANTIC_EDGES = {"partOfTextbook", "appearsInLesson", "belongsToLesson",
                       "curriculumPosition"}
 
+# Feature-profile clusters (see docs/PIPELINE_REDESIGN_PLAN.md):
+#   history          — flagship baseline; rich causal/temporal graph + weightsJson
+#   dense_relational — entity-phrase answers, dense domain edges (chem, geo)
+#   prereq_dag       — prerequisite-dominated graph, numeric answers (math, phys)
+#   attributive_tree — attribution edges only, no prerequisite DAG (literature)
+#   linguistic       — answers are natural-language sentences, not entity
+#                      phrases; gets its own feature block (english)
+
 
 @dataclass(frozen=True)
 class SubjectConfig:
@@ -34,6 +42,10 @@ class SubjectConfig:
     prefix: str                    # ttl filename prefix, e.g. "su9", "phys9"
     entity_classes: Tuple[str, ...] = ()   # local names; () => auto-discover
     edge_props: Tuple[str, ...] = ()       # local names; () => auto-discover
+    cluster: str = "generic"               # feature-profile cluster (above)
+    # Object property whose edges form the pedagogical prerequisite DAG.
+    # None => the subject has no prerequisite concept (depth features stay 0).
+    prereq_edge: Optional[str] = "prerequisiteOf"
 
     @property
     def dir(self) -> Path:
@@ -60,24 +72,31 @@ HISTORY = SubjectConfig(
                 "similarTo", "contrastsWith", "occursAt", "occursDuring",
                 "involvedConcept", "hasPerson", "hasOrganization",
                 "locatedIn", "leads"),
+    cluster="history",
 )
 
 
-def _simple(name: str, prefix: str) -> SubjectConfig:
+def _simple(name: str, prefix: str, cluster: str,
+            prereq_edge: Optional[str] = "prerequisiteOf") -> SubjectConfig:
     """A tuple-based subject: shared IRI scheme, classes/edges auto-discovered."""
     return SubjectConfig(name=name,
                          namespace=f"http://edu.vn/{prefix}/ontology#",
-                         prefix=prefix)
+                         prefix=prefix,
+                         cluster=cluster,
+                         prereq_edge=prereq_edge)
 
 
 REGISTRY = {
     "history": HISTORY,
-    "physics": _simple("physics", "phys9"),
-    "math": _simple("math", "math9"),
-    "chemistry": _simple("chemistry", "chem9"),
-    "english": _simple("english", "eng9"),
-    "geography": _simple("geography", "geo9"),
-    "literature": _simple("literature", "lit9"),
+    "physics": _simple("physics", "phys9", cluster="prereq_dag"),
+    "math": _simple("math", "math9", cluster="prereq_dag"),
+    "chemistry": _simple("chemistry", "chem9", cluster="dense_relational"),
+    "english": _simple("english", "eng9", cluster="linguistic"),
+    "geography": _simple("geography", "geo9", cluster="dense_relational"),
+    # Literature's graph is pure attribution (author/work/genre/...) with no
+    # prerequisiteOf edges at all -> no prerequisite DAG concept.
+    "literature": _simple("literature", "lit9", cluster="attributive_tree",
+                          prereq_edge=None),
 }
 
 

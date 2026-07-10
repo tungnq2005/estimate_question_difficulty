@@ -149,31 +149,45 @@ class OntologyEngine:
         return cls(cfg.ttl_path, config=cfg, **kwargs)
 
     def _discover_classes(self) -> set:
-        """Entity classes = owl:Class in this subject's namespace (minus scaffolding)."""
+        """Entity classes = owl:Class in this subject's namespace (minus scaffolding).
+
+        Declared-but-empty classes (no individual has rdf:type of them) are
+        skipped: several subjects declare schema classes that no emit function
+        ever populates, and keeping them would misrepresent the ontology shape.
+        """
         from ..subjects import NON_ENTITY_CLASSES
         out = set()
         for c in self.graph.subjects(RDF.type, OWL.Class):
             if isinstance(c, URIRef) and str(c).startswith(str(self.NS)):
                 if str(c).split("#")[-1] not in NON_ENTITY_CLASSES:
-                    out.add(c)
+                    if next(self.graph.subjects(RDF.type, c), None) is not None:
+                        out.add(c)
         return out
 
     def _discover_edge_props(self) -> set:
-        """Semantic edges = owl:ObjectProperty in namespace (minus curriculum links)."""
+        """Semantic edges = owl:ObjectProperty in namespace (minus curriculum links).
+
+        Declared-but-unused properties (zero triples) are skipped — e.g.
+        chem:reactsWith / math:generalizes exist only in the schema block and
+        would otherwise masquerade as real edge types.
+        """
         from ..subjects import NON_SEMANTIC_EDGES
         out = set()
         for p in self.graph.subjects(RDF.type, OWL.ObjectProperty):
             if isinstance(p, URIRef) and str(p).startswith(str(self.NS)):
                 if str(p).split("#")[-1] not in NON_SEMANTIC_EDGES:
-                    out.add(p)
+                    if next(self.graph.triples((None, p, None)), None) is not None:
+                        out.add(p)
         return out
 
     # ------------------------------------------------------------------
     # LOADING
     # ------------------------------------------------------------------
     def _load_entities(self) -> None:
-        for cls in self._entity_classes:
-            for s in self.graph.subjects(RDF.type, cls):
+        # Duyệt theo thứ tự sort để kết quả tất định giữa các lần chạy
+        # (set/dict + rdflib iterate theo hash order, đổi theo từng tiến trình).
+        for cls in sorted(self._entity_classes):
+            for s in sorted(self.graph.subjects(RDF.type, cls)):
                 uri = str(s)
                 ent = Entity(
                     uri=uri,
@@ -190,21 +204,33 @@ class OntologyEngine:
 
                 self.entities[uri] = ent
 
-        # Build label index (normalized)
+        # Build label index (normalized). Một khóa có thể bị nhiều entity
+        # tranh (nhãn/alias trùng sau khi bỏ dấu — ontology Sử có 38 khóa như
+        # vậy). Quy tắc thắng-thua tất định: nhãn chính (rdfs:label) thắng
+        # alias; cùng hạng thì URI nhỏ hơn theo thứ tự từ điển thắng.
+        claims: Dict[str, Tuple[int, str]] = {}
         for uri, ent in self.entities.items():
-            for name in [ent.label] + ent.aliases:
+            for tier, name in [(0, ent.label)] + [(1, a) for a in ent.aliases]:
                 key = _normalize(name)
-                if key and len(key) >= 2:
-                    self.label_index[key] = uri
+                if not key or len(key) < 2:
+                    continue
+                cand = (tier, uri)
+                cur = claims.get(key)
+                if cur is None or cand < cur:
+                    claims[key] = cand
+        self.label_index = {key: uri for key, (_, uri) in claims.items()}
 
+    # Các getter dưới đây sort giá trị trước khi chọn: một số entity bị khai
+    # báo trùng với giá trị khác nhau, "cái đầu tiên" theo rdflib là ngẫu
+    # nhiên theo tiến trình — sort để lần nào cũng chọn cùng một giá trị.
     def _get_label(self, s) -> str:
-        for o in self.graph.objects(s, RDFS.label):
+        for o in sorted(self.graph.objects(s, RDFS.label), key=str):
             return str(o)
         return str(s).split("#")[-1]
 
     def _get_aliases(self, s) -> List[str]:
         out: List[str] = []
-        for o in self.graph.objects(s, self.NS.aliases):
+        for o in sorted(self.graph.objects(s, self.NS.aliases), key=str):
             for part in str(o).split("|"):
                 part = part.strip()
                 if part:
@@ -212,7 +238,7 @@ class OntologyEngine:
         return out
 
     def _get_int(self, s, prop) -> Optional[int]:
-        for o in self.graph.objects(s, prop):
+        for o in sorted(self.graph.objects(s, prop), key=str):
             try:
                 return int(o)
             except (TypeError, ValueError):
@@ -221,7 +247,7 @@ class OntologyEngine:
 
     def _get_weights(self, s) -> Dict[str, int]:
         """Parse weightsJson từ ontology."""
-        for o in self.graph.objects(s, self.NS.weightsJson):
+        for o in sorted(self.graph.objects(s, self.NS.weightsJson), key=str):
             try:
                 return json.loads(str(o))
             except (json.JSONDecodeError, TypeError):
@@ -236,25 +262,36 @@ class OntologyEngine:
         for uri, ent in self.entities.items():
             g.add_node(uri, label=ent.label, cls=ent.cls)
 
-        # Thêm cạnh từ Object Properties
+        # Thêm cạnh từ Object Properties. Gom rồi sort trước khi add: cùng một
+        # cặp (s, o) có thể mang 2 prop khác nhau (VD vừa prerequisiteOf vừa
+        # solves) — DiGraph chỉ giữ 1 prop, prop "thắng" phải tất định
+        # (sau sort: prop lớn nhất theo thứ tự từ điển thắng).
+        edges = []
         for s, p, o in self.graph:
             if p in self._edge_props and isinstance(o, URIRef):
                 s_str, o_str = str(s), str(o)
                 if s_str in self.entities and o_str in self.entities:
-                    g.add_edge(s_str, o_str, prop=str(p).split("#")[-1])
+                    prop = str(p).split("#")[-1]
+                    edges.append((s_str, o_str, prop))
                     # Undirected-style cho similar/contrast
                     if p in {self.NS.similarTo, self.NS.contrastsWith}:
-                        g.add_edge(o_str, s_str, prop=str(p).split("#")[-1])
+                        edges.append((o_str, s_str, prop))
+        for s_str, o_str, prop in sorted(edges):
+            g.add_edge(s_str, o_str, prop=prop)
 
         self._nx = g
 
     def _precompute_metrics(self) -> None:
         assert self._nx is not None
 
-        # Prerequisite depth: longest path dọc theo prerequisiteOf
+        # Prerequisite depth: longest path dọc theo cạnh tiên quyết của môn.
+        # Tên cạnh lấy từ config (mặc định "prerequisiteOf"); None = môn không
+        # có khái niệm DAG tiên quyết (VD: literature) -> depth toàn 0.
+        prereq_prop = (self.config.prereq_edge if self.config is not None
+                       else "prerequisiteOf")
         prereq_edges = [
             (u, v) for u, v, d in self._nx.edges(data=True)
-            if d.get("prop") == "prerequisiteOf"
+            if prereq_prop is not None and d.get("prop") == prereq_prop
         ]
         prereq_g = nx.DiGraph()
         prereq_g.add_nodes_from(self._nx.nodes())
@@ -436,8 +473,10 @@ class OntologyEngine:
         found: List[Tuple[int, int, Entity]] = []
         taken = [False] * len(normalized)
 
-        # Sắp xếp label index giảm dần theo độ dài (longest match)
-        sorted_labels = sorted(self.label_index.items(), key=lambda t: -len(t[0]))
+        # Sắp xếp label index giảm dần theo độ dài (longest match);
+        # cùng độ dài thì theo thứ tự từ điển để kết quả tất định.
+        sorted_labels = sorted(self.label_index.items(),
+                               key=lambda t: (-len(t[0]), t[0]))
 
         for name_key, uri in sorted_labels:
             ent = self.entities.get(uri)

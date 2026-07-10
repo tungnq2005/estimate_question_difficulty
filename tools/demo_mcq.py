@@ -142,6 +142,33 @@ def display_report(mcq: MCQ, engine: OntologyEngine):
     print()
 
 
+def display_english_report(mcq: MCQ, engine: OntologyEngine):
+    """Báo cáo cho cụm linguistic (Tiếng Anh) — feature block riêng."""
+    from shared.mcq.english_features import extract_english_mcq_features
+    feats = extract_english_mcq_features(mcq, engine)
+
+    print("=" * 80)
+    print(f"  Câu hỏi: {mcq.id}")
+    print(f"  Stem:    {mcq.stem}")
+    print(f"  Đúng:    {mcq.correct}")
+    for i, d in enumerate(mcq.distractors):
+        print(f"  Sai {i+1}:   {d}")
+    print(f"  Nhãn gốc: {mcq.difficulty}")
+    print("=" * 80)
+    groups = [
+        ("E1 - Stem-KG (entity khớp ở stem)", ("stem_",)),
+        ("E2 - Độ phức tạp ngôn ngữ của phương án", ("ans_",)),
+        ("E3 - Distractor sát đáp án tới đâu", ("dist_",)),
+        ("E4 - Text-only tái dùng (KAD + PhoBERT)", ("kad_", "emb_")),
+    ]
+    for title, prefixes in groups:
+        print(f"\n  [{title}]")
+        for name in feats.feature_names:
+            if name.startswith(prefixes):
+                print(f"      {name}: {getattr(feats, name):.4f}")
+    print()
+
+
 def main(subject: str = "history"):
     sys.stdout.reconfigure(encoding='utf-8')
     cfg = get_config(subject)
@@ -149,7 +176,7 @@ def main(subject: str = "history"):
     print("=" * 80)
     print("  MCQ DIFFICULTY ESTIMATION PIPELINE v4.1")
     print("  Sử dụng Knowledge Graph + Knowledge Entropy + Embedding")
-    print(f"  Môn: {subject}  |  33 features | 3 blocks | Unified Pipeline")
+    print(f"  Môn: {subject}  |  cụm: {cfg.cluster}")
     print("=" * 80)
 
     # Bước 1: Load Ontology
@@ -174,13 +201,24 @@ def main(subject: str = "history"):
 
     mcqs = load_mcqs(json_path)
     print(f"  ✅ Đã load {len(mcqs)} câu hỏi trắc nghiệm")
-    
+
+    # Cụm linguistic (Tiếng Anh): đáp án là câu tiếng Anh tự nhiên, không phải
+    # cụm từ entity -> đi nhánh feature block riêng (english_features.py).
+    if cfg.cluster == "linguistic":
+        print("\n[3/3] Feature block riêng cho Tiếng Anh (26 features)...")
+        for mcq in mcqs:
+            display_english_report(mcq, engine)
+        print("=" * 80)
+        print(f"  Ontology: {len(engine)} entities | Số MCQ: {len(mcqs)}"
+              f" | 26 features/vector (E1 stem-KG + E2 ngôn ngữ + E3 nhiễu + E4 text-only)")
+        return
+
     # Bước 3: Tính features
     print("\n[3/4] Đang tính features cho từng câu hỏi...")
     print("  (Lần đầu sẽ load PhoBERT ~5s, các lần sau nhanh hơn)")
     features_list = batch_extract_features(mcqs, engine, verbose=True)
-    print(f"  ✅ Đã tính xong {len(features_list)} feature vectors (33 features/vector)")
-    
+    print(f"  ✅ Đã tính xong {len(features_list)} feature vectors")
+
     # Bước 4: Báo cáo
     print("\n[4/4] Xuất báo cáo Explainable AI...")
     for mcq in mcqs:

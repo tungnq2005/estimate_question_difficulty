@@ -17,9 +17,18 @@ duyệt và nên làm trên nhánh riêng, đối chiếu byte-diff trước/sau
   năm→Period, NER). → thêm liên kết năm→Period ⇒ **đổi feature MCQ**.
 
 ## Nhóm B — Sửa lỗi đúng đắn (đổi số)
-- **Xác định (determinism)**: một số thực thể bị khai báo trùng → thứ tự nhãn
-  `rdfs:label` phụ thuộc iteration ⇒ vector PhoBERT / knowledge_entropy không tái lập
-  100% giữa các lần chạy. Chuẩn hoá để tái lập được.
+- **Xác định (determinism)**: ✅ **ĐÃ XỬ LÝ phía LOAD (07/2026, có duyệt)**.
+  Kiểm chứng thực tế cho thấy nặng hơn đánh giá ban đầu: 2 lần chạy cùng code
+  lệch **57 giá trị Block A** (kể cả Sử — 38 khóa nhãn bị ≥2 entity tranh
+  chấp, thứ tự iterate đổi theo hash seed từng tiến trình) ⇒ số liệu cũ chưa
+  bao giờ ổn định, không tồn tại "bộ số đã công bố" để bảo toàn. Đã sửa trong
+  `ontology_bridge.py`: iterate theo thứ tự sort + tie-break tất định (nhãn
+  chính thắng alias, cùng hạng URI nhỏ thắng; cạnh trùng cặp (s,o) lấy prop
+  lớn nhất theo từ điển). Sau sửa: 2 lần chạy thường giống hệt; cấu trúc
+  434 entity / 761 cạnh / diameter 12 giữ nguyên. *Còn treo phần DATA*:
+  các khai báo trùng trong `data/` (nguồn của 38 tranh chấp) vẫn nên được
+  giáo viên rà và hợp nhất — giờ chỉ là làm sạch dữ liệu, không còn gây
+  bất định.
 - **`emit_dynamic_entity` (Lịch sử)** không phát `abstractness`/`bloomLevel`/
   `frequencyInTextbook` cho bất kỳ Event nào dù schema có khai báo ⇒
   `kg_abstractness_mean`, `kg_bloom_level_mean` đang tính lệch. Bổ sung sau khi có Nhóm A.

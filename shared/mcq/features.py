@@ -121,7 +121,32 @@ class MCQFeatures:
     """emb_stem_correct_sim - emb_stem_distractor_mean_sim.
        Cao → stem phân biệt rõ đúng/sai → DỄ
        Thấp/Âm → stem gây nhầm lẫn → KHÓ"""
-    
+
+    # ====== META: chất lượng khớp KG (1 feature) ======
+    entity_match_coverage: float = 0.0
+    """Tỉ lệ phương án (đáp án đúng + distractors) khớp được >=1 entity KG.
+       Cho phép phân biệt "feature KG = 0 vì thật sự không nhầm lẫn" với
+       "= 0 vì không khớp được entity" — thấp nghĩa là Block A ít tin cậy."""
+
+    # ====== CỤM C (prereq_dag: Toán, Lý) — đáp án dạng số (4 features) ======
+    # Chỉ được tính khi config.cluster == "prereq_dag"; môn khác giữ 0.0.
+    numeric_answer_present: float = 0.0
+    numeric_magnitude_ratio_to_correct: float = 0.0
+    """Tỉ lệ distractor số lệch đáp án đúng một hệ số kinh điển (x0.5/x2/x4/x10...)."""
+    numeric_reciprocal_swap_match: float = 0.0
+    """Có distractor mang dấu vết đảo tử-mẫu tỉ số trong stem (lệch r^2 lần)."""
+    numeric_same_formula_family: float = 0.0
+    """Các Quantity khớp trong stem cùng thuộc một Formula tới mức nào (Lý)."""
+
+    # ====== CỤM D (attributive_tree: Văn) — quan hệ thuộc tính (3 features) ======
+    # Chỉ được tính khi config.cluster == "attributive_tree"; môn khác giữ 0.0.
+    kg_same_author_correct_distractor: float = 0.0
+    """Tỉ lệ distractor cùng tác giả với đáp án đúng (nhầm lẫn trong cụm tác giả)."""
+    kg_same_period_correct_distractor: float = 0.0
+    """Tỉ lệ distractor cùng giai đoạn văn học với đáp án đúng."""
+    kg_shared_theme_device_jaccard: float = 0.0
+    """Jaccard lớn nhất giữa tập chủ đề/biện pháp của đáp án đúng và distractor."""
+
     # Label (optional)
     label: Optional[str] = None
     
@@ -218,10 +243,31 @@ def extract_single_mcq_features(
     for k, v in emb_feats.items():
         if hasattr(features, k):
             setattr(features, k, v)
-    
+
+    # Meta: độ phủ khớp entity trên các phương án
+    option_entities = [correct_entities] + distractors_entities
+    features.entity_match_coverage = (
+        sum(1 for ents in option_entities if ents) / len(option_entities)
+    )
+
+    # === Bước 6: Feature riêng theo cụm môn (xem shared/subjects.py) ===
+    cluster = engine.config.cluster if engine.config is not None else "history"
+    if cluster == "prereq_dag":
+        from .numeric_features import compute_numeric_features
+        for k, v in compute_numeric_features(
+            mcq.stem, mcq.correct, mcq.distractors, stem_entities, engine
+        ).items():
+            setattr(features, k, v)
+    elif cluster == "attributive_tree":
+        from .literature_features import compute_literature_features
+        for k, v in compute_literature_features(
+            correct_entities, distractors_entities, engine
+        ).items():
+            setattr(features, k, v)
+
     # Label
     features.label = mcq.difficulty
-    
+
     return features
 
 
