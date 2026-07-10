@@ -20,27 +20,34 @@ Ba "khối" (bucket) — nhìn là hiểu ngay đâu là *engine*, đâu là *d�
 ├── shared/                  # 1) ENGINE — code dùng chung, subject-agnostic (import shared)
 │   ├── ttl_builder.py       #    data (build_data.py) -> Turtle/OWL
 │   ├── form_template.py     #    sinh form giáo viên kiểm định độ khó
-│   ├── subjects.py          #    REGISTRY: cấu hình từng môn (namespace, lớp, cạnh)
-│   └── mcq/                 #    Pipeline độ khó MCQ (33 features)
-│       ├── ontology_bridge.py  #  OntologyEngine: TTL -> NetworkX graph + KAD
-│       ├── jaccard.py          #  độ dễ nhầm giữa đáp án đúng và nhiễu
-│       ├── rsi.py              #  mức câu dẫn "để lộ" đáp án
-│       ├── features.py         #  gộp 33 features + train XGBoost
-│       └── embedding_cache.py  #  PhoBERT (tuỳ chọn)
+│   ├── subjects.py          #    REGISTRY: cấu hình từng môn (namespace, lớp, cạnh, CỤM)
+│   └── mcq/                 #    Pipeline độ khó MCQ (cluster-aware, xem docs/PIPELINE_REDESIGN_PLAN.md)
+│       ├── ontology_bridge.py     #  OntologyEngine: TTL -> NetworkX graph + KAD (tất định)
+│       ├── jaccard.py             #  độ dễ nhầm giữa đáp án đúng và nhiễu
+│       ├── rsi.py                 #  mức câu dẫn "để lộ" đáp án
+│       ├── features.py            #  gộp features (41 field, gate theo cụm) + train XGBoost
+│       ├── numeric_features.py    #  cụm Toán/Lý: đáp án số (hệ số trượt tay, đảo tử-mẫu)
+│       ├── literature_features.py #  cụm Văn: cùng tác giả/giai đoạn/chủ đề
+│       ├── english_features.py    #  cụm Anh: 26 feature ngôn ngữ học riêng
+│       └── embedding_cache.py     #  PhoBERT (tuỳ chọn)
 │
 ├── subjects/                # 2) DỮ LIỆU — mỗi môn 1 thư mục
 │   ├── history/             #    môn chủ lực (trước đây là su9_ontology/)
 │   │   ├── build.py         #      data/ -> ontology/su9.ttl (+.owl)
 │   │   ├── data/            #      Chuong1..7 + global_entities (dict giàu thông tin)
 │   │   ├── ontology/        #      su9.ttl (sinh ra)
-│   │   ├── samples/         #      mcq_samples.json
+│   │   ├── samples/         #      mcq_samples.json (10 câu demo)
+│   │   │                    #      + mcq_crawled.json (669 câu vietjack, nhãn LLM 4 mức)
 │   │   └── legacy/          #      bản history cũ (319 thực thể) — LƯU TRỮ, xem docs/HISTORY_MERGE.md
 │   ├── physics/ math/ chemistry/ english/ geography/ literature/
-│   │                        #    mỗi môn: build.py + build_data.py + display_labels.py + ontology/
+│   │                        #    mỗi môn: build.py + build_data.py + display_labels.py
+│   │                        #    + ontology/ + samples/mcq_samples.json (10 câu/môn)
 │
 ├── tools/                   # 3) CÔNG CỤ chạy trực tiếp
 │   ├── build_all.py         #    build ontology cho cả 7 môn
-│   ├── demo_mcq.py          #    demo pipeline độ khó (--subject)
+│   ├── demo_mcq.py          #    demo pipeline độ khó (--subject; Anh đi nhánh riêng)
+│   ├── train.py             #    train XGBoost độ khó (--subject, gộp mọi nguồn samples có nhãn)
+│   ├── crawl/               #    parse_legacy_su.py (+ crawler VietJack)
 │   ├── stats.py             #    thống kê ontology 1 môn
 │   └── view.py              #    tra cứu tương tác đồ thị Lịch sử (CLI)
 │
@@ -82,7 +89,10 @@ python tools/stats.py history          # hoặc: physics, math, chemistry, ...
 # 3) Demo pipeline độ khó MCQ (in báo cáo XAI cho từng câu)
 python tools/demo_mcq.py --subject history
 
-# 4) Tra cứu tương tác đồ thị Lịch sử
+# 4) Train XGBoost phân loại Dễ/Trung bình/Khó (dùng mọi câu có nhãn của môn)
+python tools/train.py --subject history
+
+# 5) Tra cứu tương tác đồ thị Lịch sử
 python tools/view.py
 ```
 
@@ -111,7 +121,16 @@ print(len(engine), "thực thể,", engine.nx_graph.number_of_edges(), "cạnh")
 ## Trạng thái & bước tiếp theo
 
 - ✅ Ontology + pipeline độ khó của **Lịch sử** chạy đầy đủ (434 thực thể, 761 cạnh).
-- ✅ 6 môn còn lại đã build được ontology và **nạp được vào engine** (qua auto-discovery).
-- ⏳ Các mục nghiên cứu còn treo (thay đổi số liệu → cần duyệt): xem [docs/DEFERRED.md](docs/DEFERRED.md).
+- ✅ 6 môn còn lại đã build ontology, có 10 câu MCQ mẫu/môn, **nạp được vào engine**.
+- ✅ Pipeline **tất định** (2 lần chạy cho kết quả giống hệt) và **phân biệt theo cụm môn**:
+  Sử (baseline) / Hóa+Địa (dense_relational) / Toán+Lý (prereq_dag, +4 feature số) /
+  Văn (attributive_tree, +3 feature thuộc tính) / Anh (linguistic, 26 feature riêng)
+  — thiết kế: [docs/PIPELINE_REDESIGN_PLAN.md](docs/PIPELINE_REDESIGN_PLAN.md).
+- ✅ **669 câu MCQ Sử thật** (vietjack, phục hồi từ nhánh git cũ) + nhãn độ khó LLM
+  4 mức (Nhận biết/Thông hiểu/Vận dụng/Vận dụng cao) tại
+  `subjects/history/samples/mcq_crawled.json` — **chờ giáo viên kiểm định nhãn**.
+- ✅ Train đầu tiên (679 câu Sử): accuracy **61.8%** — Easy F1 0.75, Medium 0.60,
+  Hard 0.12 (thiếu mẫu Hard; cần thêm data + giáo viên duyệt nhãn).
+- ⏳ Các mục nghiên cứu còn treo: xem [docs/DEFERRED.md](docs/DEFERRED.md).
 - 🔀 Vì sao gộp `history` từ hai bản cũ: xem [docs/HISTORY_MERGE.md](docs/HISTORY_MERGE.md).
 - 📄 Báo cáo tiến độ: [docs/BAO_CAO_TIEN_DO_TUAN_2.md](docs/BAO_CAO_TIEN_DO_TUAN_2.md).
