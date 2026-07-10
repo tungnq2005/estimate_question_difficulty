@@ -524,66 +524,87 @@ def features_to_dataframe(features_list: List[MCQFeatures]) -> "pd.DataFrame":
 def train_xgboost(
     features_list: List[MCQFeatures],
     test_size: float = 0.2,
-    random_state: int = 42
+    random_state: int = 42,
+    cv_folds: int = 0,
 ) -> dict:
     """
     Huấn luyện XGBoost classifier.
-    
+
     Args:
         features_list: Danh sách features đã gán nhãn
-        test_size: Tỷ lệ test
+        test_size: Tỷ lệ test (bỏ qua khi cv_folds > 0)
         random_state: Seed
-    
+        cv_folds: >0 thì đánh giá bằng stratified k-fold CV (ổn định hơn
+            1 lần split, khuyến nghị 5); model trả về vẫn fit trên toàn bộ data
+
     Returns:
         Dict chứa model, accuracy, classification report
     """
     import numpy as np
     import pandas as pd
-    from sklearn.model_selection import train_test_split
+    from sklearn.model_selection import (StratifiedKFold, cross_val_predict,
+                                         train_test_split)
     from sklearn.preprocessing import LabelEncoder
     from sklearn.metrics import accuracy_score, classification_report
     import xgboost as xgb
-    
+
     # Tạo DataFrame
     df = features_to_dataframe(features_list)
-    
+
     # Lọc các dòng có label
     df_labeled = df[df["label"].notna()].copy()
-    
+
     if len(df_labeled) < 10:
         return {"error": f"Not enough labeled data ({len(df_labeled)} samples)"}
-    
+
     # Encode labels
     le = LabelEncoder()
     y = le.fit_transform(df_labeled["label"].values)
-    
+
     # Feature matrix
-    feat_cols = [c for c in df_labeled.columns 
+    feat_cols = [c for c in df_labeled.columns
                  if c not in ["mcq_id", "label"]]
     X = df_labeled[feat_cols].values
-    
-    # Train/test split
-    X_train, X_test, y_train, y_test = train_test_split(
-        X, y, test_size=test_size, random_state=random_state, stratify=y
-    )
-    
-    # Huấn luyện XGBoost
-    model = xgb.XGBClassifier(
-        n_estimators=100,
-        max_depth=6,
-        learning_rate=0.1,
-        objective="multi:softmax",
-        num_class=len(le.classes_),
-        random_state=random_state,
-        use_label_encoder=False,
-        eval_metric="mlogloss",
-    )
-    model.fit(X_train, y_train)
-    
-    # Đánh giá
-    y_pred = model.predict(X_test)
-    accuracy = accuracy_score(y_test, y_pred)
-    report = classification_report(y_test, y_pred, target_names=le.classes_)
+
+    # Class weight cân bằng (n / (k * n_c)) — kéo recall lớp thiểu số (Hard)
+    counts = np.bincount(y)
+    class_w = len(y) / (len(counts) * counts.astype(float))
+    weight_of = lambda yy: class_w[yy]
+
+    def make_model():
+        return xgb.XGBClassifier(
+            n_estimators=600,
+            max_depth=6,
+            learning_rate=0.05,
+            subsample=0.8,
+            colsample_bytree=0.8,
+            min_child_weight=2,
+            objective="multi:softmax",
+            num_class=len(le.classes_),
+            random_state=random_state,
+            eval_metric="mlogloss",
+            n_jobs=-1,
+        )
+
+    if cv_folds > 0:
+        cv = StratifiedKFold(n_splits=cv_folds, shuffle=True,
+                             random_state=random_state)
+        y_pred = cross_val_predict(make_model(), X, y, cv=cv,
+                                   params={"sample_weight": weight_of(y)})
+        y_eval = y
+        model = make_model()
+        model.fit(X, y, sample_weight=weight_of(y))
+    else:
+        X_train, X_test, y_train, y_test = train_test_split(
+            X, y, test_size=test_size, random_state=random_state, stratify=y
+        )
+        model = make_model()
+        model.fit(X_train, y_train, sample_weight=weight_of(y_train))
+        y_pred = model.predict(X_test)
+        y_eval = y_test
+
+    accuracy = accuracy_score(y_eval, y_pred)
+    report = classification_report(y_eval, y_pred, target_names=le.classes_)
     
     # Feature importance
     importance = pd.DataFrame({

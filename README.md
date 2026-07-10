@@ -127,12 +127,16 @@ print(len(engine), "thực thể,", engine.nx_graph.number_of_edges(), "cạnh")
   Văn (attributive_tree, +3 feature thuộc tính) / Anh (linguistic, 26 feature riêng)
   — thiết kế: [docs/PIPELINE_REDESIGN_PLAN.md](docs/PIPELINE_REDESIGN_PLAN.md).
 - ✅ **3.152 câu MCQ Sử thật** (669 phục hồi từ nhánh git cũ + 2.483 crawl mới
-  từ họ VietJack: SGK cũ + KNTT/CTST/CD) + nhãn độ khó LLM 4 mức
-  (Nhận biết 1.395 / Thông hiểu 1.269 / Vận dụng 387 / Vận dụng cao 101) tại
-  `subjects/history/samples/mcq_crawled.json` — **chờ giáo viên kiểm định nhãn**.
-- ✅ Train (3.162 câu Sử, test 20%): accuracy **69.2%** — Easy F1 0.77,
-  Medium 0.68, Hard 0.42 (đợt 679 câu: 61.8%, Hard F1 chỉ 0.12 — thêm data
-  cải thiện rõ; recall Hard 0.31 vẫn là điểm yếu cần giáo viên duyệt nhãn).
+  từ họ VietJack: SGK cũ + KNTT/CTST/CD) + nhãn độ khó 4 mức bằng **voting
+  3 phiếu LLM độc lập** (2 giám khảo chấm mù + nhãn gốc; đa số thắng, 3 phiếu
+  3 kiểu → mức giữa + cờ `needs_review`): Nhận biết 1.234 / Thông hiểu 1.399 /
+  Vận dụng 433 / Vận dụng cao 86, `label_source="llm_vote3"`, 124 câu gắn
+  `needs_review` — **ưu tiên cho giáo viên kiểm định**.
+- ✅ Train (3.162 câu Sử, tuned XGBoost + class weight, 5-fold CV):
+  accuracy **75.6%** — Easy F1 0.80, Medium 0.77, Hard **0.61**
+  (bỏ 124 câu `needs_review`: 77.1%). Chặng cải thiện: 61.8% (679 câu) →
+  69% (3.162 câu, params cũ) → 75.6% (voting nhãn + tuned). Điểm yếu Hard
+  đã thu hẹp mạnh (F1 0.12 → 0.61).
 - ⏳ Các mục nghiên cứu còn treo: xem [docs/DEFERRED.md](docs/DEFERRED.md).
 - 🔀 Vì sao gộp `history` từ hai bản cũ: xem [docs/HISTORY_MERGE.md](docs/HISTORY_MERGE.md).
 - 📄 Báo cáo tiến độ: [docs/BAO_CAO_TIEN_DO_TUAN_2.md](docs/BAO_CAO_TIEN_DO_TUAN_2.md).

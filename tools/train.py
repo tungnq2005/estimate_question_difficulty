@@ -46,6 +46,8 @@ def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--subject", default="history")
     ap.add_argument("--test-size", type=float, default=0.2)
+    ap.add_argument("--cv", type=int, default=0,
+                    help="k>0: đánh giá bằng stratified k-fold CV thay vì 1 split")
     ap.add_argument("--csv", help="đường dẫn lưu ma trận feature (tuỳ chọn)")
     args = ap.parse_args()
 
@@ -64,12 +66,13 @@ def main() -> None:
         features_to_dataframe(feats).to_csv(args.csv, index=False, encoding="utf-8")
         print(f"  đã lưu feature matrix -> {args.csv}")
 
-    result = train_xgboost(feats, test_size=args.test_size)
+    result = train_xgboost(feats, test_size=args.test_size, cv_folds=args.cv)
     if "error" in result:
         sys.exit(f"Train lỗi: {result['error']}")
 
-    print(f"\n=== KẾT QUẢ (test_size={args.test_size}, "
-          f"n={result['n_samples']}) ===")
+    eval_note = (f"{args.cv}-fold CV" if args.cv > 0
+                 else f"test_size={args.test_size}")
+    print(f"\n=== KẾT QUẢ ({eval_note}, n={result['n_samples']}) ===")
     print(f"Accuracy: {result['accuracy']:.4f}")
     print(result["classification_report"])
     print("Top 15 feature importance:")
