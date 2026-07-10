@@ -1,0 +1,122 @@
+[
+  {
+    "id": "phys9_001",
+    "stem": "Dụng cụ nào sau đây được dùng để đo cường độ dòng điện trong mạch điện?",
+    "correct": "Ampe kế",
+    "distractors": [
+      "Vôn kế",
+      "Biến trở (con chạy)",
+      "Đồng hồ đo điện (công tơ)"
+    ],
+    "difficulty": "Easy",
+    "source": "Bài 1: Sự phụ thuộc của cường độ dòng điện vào hiệu điện thế"
+  },
+  {
+    "id": "phys9_002",
+    "stem": "Trong hệ đo lường quốc tế, đơn vị của cường độ dòng điện là gì?",
+    "correct": "Ampe (A)",
+    "distractors": [
+      "Vôn (V)",
+      "Ôm (Ω)",
+      "Oát (W)"
+    ],
+    "difficulty": "Easy",
+    "source": "Bài 1: Sự phụ thuộc của cường độ dòng điện vào hiệu điện thế"
+  },
+  {
+    "id": "phys9_003",
+    "stem": "Đoạn mạch trong đó các điện trở được mắc liên tiếp thành một dãy duy nhất, sao cho dòng điện chỉ có một đường đi qua tất cả các điện trở, được gọi là gì?",
+    "correct": "Đoạn mạch nối tiếp",
+    "distractors": [
+      "Đoạn mạch song song",
+      "Đoạn mạch hỗn hợp",
+      "Đoản mạch / quá tải"
+    ],
+    "difficulty": "Easy",
+    "source": "Bài 4: Đoạn mạch nối tiếp"
+  },
+  {
+    "id": "phys9_004",
+    "stem": "Hệ thức nào sau đây biểu diễn đúng mối liên hệ giữa hiệu điện thế U, cường độ dòng điện I và điện trở R của một dây dẫn theo định luật Ôm?",
+    "correct": "U = I · R (định luật Ôm)",
+    "distractors": [
+      "R = ρ · L / S (điện trở dây dẫn)",
+      "P = U · I (công suất điện)",
+      "Q = I² · R · t (nhiệt lượng toả ra — Jun-Len-xơ)"
+    ],
+    "difficulty": "Medium",
+    "source": "Bài 2: Điện trở của dây dẫn - Định luật Ôm"
+  },
+  {
+    "id": "phys9_005",
+    "stem": "Đối với đoạn mạch gồm hai điện trở R1 và R2 mắc song song, điện trở tương đương R_tđ của đoạn mạch được tính theo công thức nào?",
+    "correct": "1/R_tđ = 1/R₁ + 1/R₂ (mạch song song)",
+    "distractors": [
+      "R_tđ = R₁ + R₂ (mạch nối tiếp)",
+      "R = ρ · L / S (điện trở dây dẫn)",
+      "U = U₁ + U₂ (mạch nối tiếp)"
+    ],
+    "difficulty": "Medium",
+    "source": "Bài 5: Đoạn mạch song song"
+  },
+  {
+    "id": "phys9_006",
+    "stem": "Một bếp điện hoạt động bình thường ở hiệu điện thế 220V và cường độ dòng điện qua bếp là 3A. Công suất điện của bếp là bao nhiêu?",
+    "correct": "660W",
+    "distractors": [
+      "73,3W",
+      "220W",
+      "6600W"
+    ],
+    "difficulty": "Medium",
+    "source": "Bài 11: Công suất điện"
+  },
+  {
+    "id": "phys9_007",
+    "stem": "Nhiệt lượng tỏa ra ở dây dẫn khi có dòng điện chạy qua tỉ lệ thuận với bình phương cường độ dòng điện, với điện trở của dây và với thời gian dòng điện chạy qua. Đây là nội dung của định luật nào?",
+    "correct": "Định luật Jun – Len-xơ",
+    "distractors": [
+      "Định luật Ôm (Ohm)",
+      "Định luật bảo toàn và chuyển hóa năng lượng",
+      "Định luật khúc xạ ánh sáng"
+    ],
+    "difficulty": "Medium",
+    "source": "Bài 15: Định luật Jun - Lenxo"
+  },
+  {
+    "id": "phys9_008",
+    "stem": "Khi số đường sức từ xuyên qua tiết diện của một cuộn dây dẫn kín biến thiên (tăng hoặc giảm) thì trong cuộn dây đó xuất hiện dòng điện. Hiện tượng này được gọi là gì?",
+    "correct": "Hiện tượng cảm ứng điện từ (Faraday)",
+    "distractors": [
+      "Từ trường của dòng điện",
+      "Tác dụng từ của dòng điện",
+      "Sự nhiễm từ của kim loại (sắt, thép)"
+    ],
+    "difficulty": "Hard",
+    "source": "Bài 29-30: Hiện tượng cảm ứng điện từ - Điều kiện xuất hiện dòng điện cảm ứng"
+  },
+  {
+    "id": "phys9_009",
+    "stem": "Đặt một vật ngoài khoảng tiêu cự của một thấu kính hội tụ. Ảnh của vật tạo bởi thấu kính khi đó là ảnh gì, có thể hứng được trên màn chắn?",
+    "correct": "Ảnh thật (qua thấu kính)",
+    "distractors": [
+      "Ảnh ảo (qua thấu kính)",
+      "Ảnh ảo, cùng chiều với vật",
+      "Ảnh thật nhưng luôn nhỏ hơn vật"
+    ],
+    "difficulty": "Hard",
+    "source": "Bài 41: Ảnh của một vật tạo bởi thấu kính hội tụ"
+  },
+  {
+    "id": "phys9_010",
+    "stem": "Một máy biến thế có cuộn sơ cấp gồm 4000 vòng và cuộn thứ cấp gồm 200 vòng, hai đầu cuộn sơ cấp được mắc vào hiệu điện thế xoay chiều 220V để hạ thế. Hiệu điện thế xuất hiện ở hai đầu cuộn thứ cấp (mạch thứ cấp kín) là bao nhiêu?",
+    "correct": "11V",
+    "distractors": [
+      "22V",
+      "110V",
+      "4400V"
+    ],
+    "difficulty": "Hard",
+    "source": "Bài 35: Máy biến thế"
+  }
+]

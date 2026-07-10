@@ -1,0 +1,122 @@
+[
+  {
+    "id": "eng9_001",
+    "stem": "Chọn đáp án đúng để hoàn thành câu sau theo thì hiện tại đơn (Present Simple tense): 'Every morning, my father ___ to work by bike.'",
+    "correct": "goes",
+    "distractors": [
+      "go",
+      "is going",
+      "went"
+    ],
+    "difficulty": "Easy",
+    "source": "Global Success 9 – Grammar: Present Simple tense"
+  },
+  {
+    "id": "eng9_002",
+    "stem": "Chọn đáp án đúng để hoàn thành câu sau theo thì quá khứ đơn (Past Simple tense): 'Last summer, we ___ Da Lat with our family.'",
+    "correct": "visited",
+    "distractors": [
+      "visit",
+      "are visiting",
+      "have visited"
+    ],
+    "difficulty": "Easy",
+    "source": "Global Success 9 – Grammar: Past Simple tense"
+  },
+  {
+    "id": "eng9_003",
+    "stem": "Từ vựng nào sau đây thuộc chủ đề City life (cuộc sống thành thị) trong chương trình Tiếng Anh 9?",
+    "correct": "traffic jam",
+    "distractors": [
+      "rice paddy",
+      "buffalo",
+      "village fair"
+    ],
+    "difficulty": "Easy",
+    "source": "Tiếng Anh 9 (thí điểm) – Unit 2: City life"
+  },
+  {
+    "id": "eng9_004",
+    "stem": "Chuyển câu chủ động sau sang câu bị động (Passive voice): 'They built this bridge in 1990.'",
+    "correct": "This bridge was built in 1990.",
+    "distractors": [
+      "This bridge is built in 1990.",
+      "This bridge was build in 1990.",
+      "This bridge has been built in 1990."
+    ],
+    "difficulty": "Medium",
+    "source": "Global Success 9 – Unit 3: Passive Voice (Simple Past)"
+  },
+  {
+    "id": "eng9_005",
+    "stem": "Chuyển câu trực tiếp sau sang câu tường thuật (Reported speech): She said, 'I am watching TV now.'",
+    "correct": "She said (that) she was watching TV then.",
+    "distractors": [
+      "She said that she is watching TV now.",
+      "She said that she watches TV now.",
+      "She says that she was watching TV then."
+    ],
+    "difficulty": "Medium",
+    "source": "Global Success 9 – Unit 4: Reported Speech (Statements)"
+  },
+  {
+    "id": "eng9_006",
+    "stem": "Chọn đáp án đúng để hoàn thành câu so sánh hơn và nhất (Comparatives and superlatives): 'Mount Everest is ___ mountain in the world.'",
+    "correct": "the highest",
+    "distractors": [
+      "the higher",
+      "higher",
+      "the most high"
+    ],
+    "difficulty": "Medium",
+    "source": "Global Success 9 – Grammar: Comparatives and Superlatives"
+  },
+  {
+    "id": "eng9_007",
+    "stem": "Chọn động từ khuyết thiếu (Modal verbs) phù hợp nhất để đưa ra lời khuyên (Giving advice) trong câu sau: 'You look tired. I think you ___ get some rest.'",
+    "correct": "should",
+    "distractors": [
+      "must",
+      "can",
+      "will"
+    ],
+    "difficulty": "Medium",
+    "source": "Global Success 9 – Grammar: Modal Verbs (should/must)"
+  },
+  {
+    "id": "eng9_008",
+    "stem": "Câu nào sau đây sử dụng đúng cấu trúc điều kiện loại 2 (Second conditional), phân biệt với điều kiện loại 1 (First conditional)?",
+    "correct": "If I had more free time, I would learn to play the guitar.",
+    "distractors": [
+      "If I have more free time, I will learn to play the guitar.",
+      "If I had more free time, I will learn to play the guitar.",
+      "If I have had more free time, I would learn to play the guitar."
+    ],
+    "difficulty": "Hard",
+    "source": "Global Success 9 – Grammar: Conditional Sentences Type 1 & 2"
+  },
+  {
+    "id": "eng9_009",
+    "stem": "Câu nào sau đây sử dụng đúng mệnh đề quan hệ không xác định (Non-defining relative clauses), phân biệt với mệnh đề quan hệ xác định (Defining relative clauses)?",
+    "correct": "My father, who has worked as an engineer for 20 years, is going to retire next year.",
+    "distractors": [
+      "My father who has worked as an engineer for 20 years is going to retire next year.",
+      "My father, that has worked as an engineer for 20 years, is going to retire next year.",
+      "My father which has worked as an engineer for 20 years is going to retire next year."
+    ],
+    "difficulty": "Hard",
+    "source": "Global Success 9 – Grammar: Relative Clauses (Defining vs Non-defining)"
+  },
+  {
+    "id": "eng9_010",
+    "stem": "Chọn câu đúng theo cấu trúc điều kiện loại 3 (Third conditional), diễn tả một điều kiện không có thật trong quá khứ, để hoàn thành ý: 'Cô ấy bị điểm thấp trong kỳ thi vì không học chăm chỉ.'",
+    "correct": "If she had studied harder for the exam, she wouldn't have got such a low mark.",
+    "distractors": [
+      "If she studied harder for the exam, she wouldn't get such a low mark.",
+      "If she had studied harder for the exam, she wouldn't get such a low mark.",
+      "If she has studied harder for the exam, she won't have got such a low mark."
+    ],
+    "difficulty": "Hard",
+    "source": "Global Success 9 – Grammar: Conditional Sentences Type 3"
+  }
+]

@@ -1,0 +1,122 @@
+[
+  {
+    "id": "chem9_001",
+    "stem": "Ba oxit CaO, Na2O và CuO đều thuộc loại chất nào sau đây trong các hợp chất vô cơ?",
+    "correct": "Oxit bazơ",
+    "distractors": [
+      "Oxit axit",
+      "Oxit lưỡng tính",
+      "Oxit trung tính"
+    ],
+    "difficulty": "Easy",
+    "source": "Bài 1: Tính chất hóa học của oxit"
+  },
+  {
+    "id": "chem9_002",
+    "stem": "Trong dân gian, chất nào sau đây thường được gọi là 'vôi sống'?",
+    "correct": "Canxi oxit",
+    "distractors": [
+      "Natri oxit",
+      "Nhôm oxit",
+      "Lưu huỳnh đioxit"
+    ],
+    "difficulty": "Easy",
+    "source": "Bài 2: Một số oxit quan trọng"
+  },
+  {
+    "id": "chem9_003",
+    "stem": "Đơn chất phi kim nào sau đây thường được dùng để khử trùng nước sinh hoạt và nước bể bơi?",
+    "correct": "Clo",
+    "distractors": [
+      "Oxi",
+      "Nitơ",
+      "Hiđro"
+    ],
+    "difficulty": "Easy",
+    "source": "Bài 25: Clo"
+  },
+  {
+    "id": "chem9_004",
+    "stem": "Cho phương trình hóa học: Zn + 2HCl → ZnCl2 + H2. Phản ứng trên thuộc loại phản ứng hóa học nào sau đây?",
+    "correct": "Phản ứng thế",
+    "distractors": [
+      "Phản ứng trao đổi",
+      "Phản ứng hóa hợp",
+      "Phản ứng phân hủy"
+    ],
+    "difficulty": "Medium",
+    "source": "Bài 16: Tính chất hóa học của kim loại"
+  },
+  {
+    "id": "chem9_005",
+    "stem": "Kim loại nào sau đây tác dụng được với nước ở nhiệt độ thường, tạo thành dung dịch bazơ và giải phóng khí hiđro?",
+    "correct": "Natri",
+    "distractors": [
+      "Sắt",
+      "Đồng",
+      "Nhôm"
+    ],
+    "difficulty": "Medium",
+    "source": "Bài 16: Tính chất hóa học của kim loại"
+  },
+  {
+    "id": "chem9_006",
+    "stem": "Phản ứng Fe + CuSO4 → FeSO4 + Cu chứng tỏ sắt hoạt động hóa học mạnh hơn kim loại nào sau đây?",
+    "correct": "Đồng",
+    "distractors": [
+      "Kali",
+      "Natri",
+      "Canxi"
+    ],
+    "difficulty": "Medium",
+    "source": "Bài 17: Dãy hoạt động hóa học của kim loại"
+  },
+  {
+    "id": "chem9_007",
+    "stem": "Chất nào sau đây là hiđrocacbon không no, có phản ứng đặc trưng làm mất màu dung dịch brom?",
+    "correct": "Etilen",
+    "distractors": [
+      "Metan",
+      "Benzen",
+      "Rượu etylic"
+    ],
+    "difficulty": "Medium",
+    "source": "Bài 36: Etilen"
+  },
+  {
+    "id": "chem9_008",
+    "stem": "Có hai dung dịch mất nhãn là axit sunfuric và axit clohiđric. Có thể dùng chất nào sau đây để phân biệt hai dung dịch này, vì nó chỉ tạo kết tủa trắng với một trong hai dung dịch?",
+    "correct": "Bari hiđroxit",
+    "distractors": [
+      "Natri hiđroxit",
+      "Kali hiđroxit",
+      "Nhôm hiđroxit"
+    ],
+    "difficulty": "Hard",
+    "source": "Bài 4: Một số axit quan trọng"
+  },
+  {
+    "id": "chem9_009",
+    "stem": "Đốt cháy hoàn toàn khí metan (CH4) trong khí oxi dư, sau đó dẫn toàn bộ sản phẩm cháy qua dung dịch nước vôi trong lấy dư thì thấy xuất hiện kết tủa trắng. Kết tủa đó là chất nào sau đây?",
+    "correct": "Canxi cacbonat",
+    "distractors": [
+      "Canxi hiđroxit",
+      "Canxi oxit",
+      "Natri cacbonat"
+    ],
+    "difficulty": "Hard",
+    "source": "Bài 35 + Bài 28: Metan; Axit cacbonic và muối cacbonat"
+  },
+  {
+    "id": "chem9_010",
+    "stem": "Nhôm và sắt đều là kim loại phổ biến, nhưng theo phương trình 2Al + 2NaOH + 2H2O → 2NaAlO2 + 3H2, chỉ có một kim loại phản ứng được với dung dịch natri hiđroxit và giải phóng khí hiđro. Đó là kim loại nào?",
+    "correct": "Nhôm",
+    "distractors": [
+      "Sắt",
+      "Đồng",
+      "Bạc"
+    ],
+    "difficulty": "Hard",
+    "source": "Bài 18: Nhôm"
+  }
+]

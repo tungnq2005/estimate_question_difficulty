@@ -1,0 +1,122 @@
+[
+  {
+    "id": "geo9_001",
+    "stem": "Than đá là khoáng sản nổi bật nhất của vùng nào ở nước ta?",
+    "correct": "Trung du và miền núi Bắc Bộ",
+    "distractors": [
+      "Đồng bằng sông Hồng",
+      "Tây Nguyên",
+      "Đông Nam Bộ"
+    ],
+    "difficulty": "Easy",
+    "source": "Bài 15-16: Vùng Trung du và miền núi Bắc Bộ"
+  },
+  {
+    "id": "geo9_002",
+    "stem": "Vùng nào được coi là vựa lúa lớn nhất của cả nước?",
+    "correct": "Đồng bằng sông Cửu Long",
+    "distractors": [
+      "Đồng bằng sông Hồng",
+      "Bắc Trung Bộ",
+      "Duyên hải Nam Trung Bộ"
+    ],
+    "difficulty": "Easy",
+    "source": "Bài 27-28: Vùng Đồng bằng sông Cửu Long"
+  },
+  {
+    "id": "geo9_003",
+    "stem": "Cây cà phê được trồng nhiều nhất ở vùng nào của Việt Nam?",
+    "correct": "Tây Nguyên",
+    "distractors": [
+      "Đông Nam Bộ",
+      "Trung du và miền núi Bắc Bộ",
+      "Đồng bằng sông Cửu Long"
+    ],
+    "difficulty": "Easy",
+    "source": "Bài 23-24: Vùng Tây Nguyên"
+  },
+  {
+    "id": "geo9_004",
+    "stem": "Đông Nam Bộ có thế mạnh phát triển công nghiệp chủ yếu là nhờ tài nguyên nào sau đây?",
+    "correct": "Dầu mỏ và khí đốt",
+    "distractors": [
+      "Than đá",
+      "Quặng sắt",
+      "Đất phù sa"
+    ],
+    "difficulty": "Medium",
+    "source": "Bài 25-26: Vùng Đông Nam Bộ"
+  },
+  {
+    "id": "geo9_005",
+    "stem": "Vào mùa khô, hiện tượng xâm nhập mặn diễn ra nghiêm trọng nhất ở vùng nào của nước ta?",
+    "correct": "Đồng bằng sông Cửu Long",
+    "distractors": [
+      "Đồng bằng sông Hồng",
+      "Bắc Trung Bộ",
+      "Tây Nguyên"
+    ],
+    "difficulty": "Medium",
+    "source": "Bài 27: Vùng Đồng bằng sông Cửu Long - tự nhiên"
+  },
+  {
+    "id": "geo9_006",
+    "stem": "Thiên tai nào thường xuyên đổ bộ và gây thiệt hại lớn cho cả Bắc Trung Bộ và Duyên hải Nam Trung Bộ?",
+    "correct": "Bão",
+    "distractors": [
+      "Xâm nhập mặn",
+      "Hạn hán",
+      "Sương muối"
+    ],
+    "difficulty": "Medium",
+    "source": "Bài 19-22: Vùng Bắc Trung Bộ và Duyên hải Nam Trung Bộ"
+  },
+  {
+    "id": "geo9_007",
+    "stem": "Sự chênh lệch rõ rệt giữa vùng đồng bằng và miền núi ở nước ta thể hiện đặc điểm nào của dân cư Việt Nam?",
+    "correct": "Phân bố dân cư",
+    "distractors": [
+      "Mật độ dân số",
+      "Cơ cấu dân số theo tuổi",
+      "Chất lượng cuộc sống"
+    ],
+    "difficulty": "Medium",
+    "source": "Bài 3: Phân bố dân cư và các loại hình quần cư"
+  },
+  {
+    "id": "geo9_008",
+    "stem": "So với Đồng bằng sông Cửu Long, thế mạnh kinh tế nổi bật hơn hẳn của Đông Nam Bộ là phát triển mạnh ngành nào sau đây?",
+    "correct": "Công nghiệp",
+    "distractors": [
+      "Nông nghiệp",
+      "Thủy sản",
+      "Trồng trọt"
+    ],
+    "difficulty": "Hard",
+    "source": "Bài 25-28: So sánh vùng Đông Nam Bộ và Đồng bằng sông Cửu Long"
+  },
+  {
+    "id": "geo9_009",
+    "stem": "Nhờ địa hình đồi núi, cao nguyên cùng hệ thống sông có độ dốc lớn, cả vùng Trung du và miền núi Bắc Bộ lẫn vùng Tây Nguyên đều có thế mạnh nổi bật về tài nguyên nào sau đây?",
+    "correct": "Tiềm năng thủy điện",
+    "distractors": [
+      "Than đá",
+      "Đất phù sa",
+      "Dầu mỏ và khí đốt"
+    ],
+    "difficulty": "Hard",
+    "source": "Bài 15-24: So sánh vùng Trung du miền núi Bắc Bộ và Tây Nguyên"
+  },
+  {
+    "id": "geo9_010",
+    "stem": "Dân số nước ta tăng nhanh trong khi nền kinh tế phát triển chưa theo kịp sẽ gây sức ép lớn nhất đến vấn đề nào sau đây?",
+    "correct": "Lao động và việc làm",
+    "distractors": [
+      "Chất lượng cuộc sống",
+      "Cơ cấu dân số theo tuổi",
+      "Phân bố dân cư"
+    ],
+    "difficulty": "Hard",
+    "source": "Bài 2 + Bài 4: Dân số, gia tăng dân số và Lao động, việc làm"
+  }
+]

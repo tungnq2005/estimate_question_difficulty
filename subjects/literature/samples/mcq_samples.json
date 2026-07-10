@@ -1,0 +1,122 @@
+[
+  {
+    "id": "lit9_001",
+    "stem": "Ai là tác giả của \"Truyện Kiều\"?",
+    "correct": "Nguyễn Du",
+    "distractors": [
+      "Nguyễn Đình Chiểu",
+      "Nguyễn Duy",
+      "Ngô gia văn phái"
+    ],
+    "difficulty": "Easy",
+    "source": "Bài 9: Truyện Kiều của Nguyễn Du"
+  },
+  {
+    "id": "lit9_002",
+    "stem": "Truyện ngắn \"Làng\" là sáng tác của nhà văn nào?",
+    "correct": "Kim Lân",
+    "distractors": [
+      "Nguyễn Thành Long",
+      "Nguyễn Quang Sáng",
+      "Nguyễn Minh Châu"
+    ],
+    "difficulty": "Easy",
+    "source": "Bài 23: Làng (Kim Lân)"
+  },
+  {
+    "id": "lit9_003",
+    "stem": "Trong truyện ngắn \"Chiếc lược ngà\", bé gái nhất quyết không nhận cha vì vết thẹo trên mặt tên là gì?",
+    "correct": "Bé Thu",
+    "distractors": [
+      "Kiều Nguyệt Nga",
+      "Thúy Vân",
+      "Phương Định"
+    ],
+    "difficulty": "Easy",
+    "source": "Bài 25: Chiếc lược ngà (Nguyễn Quang Sáng)"
+  },
+  {
+    "id": "lit9_004",
+    "stem": "\"Truyện Kiều\" của Nguyễn Du thuộc thể loại nào?",
+    "correct": "Truyện thơ (chữ Nôm)",
+    "distractors": [
+      "Tiểu thuyết",
+      "Truyện ngắn",
+      "Kịch nói"
+    ],
+    "difficulty": "Medium",
+    "source": "Bài 9: Truyện Kiều của Nguyễn Du"
+  },
+  {
+    "id": "lit9_005",
+    "stem": "\"Truyện Kiều\" ra đời trong thời kỳ văn học nào?",
+    "correct": "Văn học trung đại Việt Nam (thế kỷ X–XIX)",
+    "distractors": [
+      "Văn học kháng chiến chống Pháp và Mỹ (1945–1975)",
+      "Văn học Việt Nam hiện đại (sau 1975)",
+      "Văn học nước ngoài"
+    ],
+    "difficulty": "Medium",
+    "source": "Bài 9: Truyện Kiều của Nguyễn Du"
+  },
+  {
+    "id": "lit9_006",
+    "stem": "Trong câu thơ \"Mặt trời của mẹ, em nằm trên lưng\" (Khúc hát ru những em bé lớn trên lưng mẹ), hình ảnh \"mặt trời\" dùng để chỉ em bé được xây dựng bằng biện pháp tu từ nào?",
+    "correct": "Ẩn dụ",
+    "distractors": [
+      "Nhân hóa",
+      "Hoán dụ",
+      "So sánh"
+    ],
+    "difficulty": "Medium",
+    "source": "Bài 21: Khúc hát ru những em bé lớn trên lưng mẹ (Nguyễn Khoa Điềm)"
+  },
+  {
+    "id": "lit9_007",
+    "stem": "Nhân vật Vũ Nương xuất hiện trong tác phẩm nào?",
+    "correct": "Chuyện người con gái Nam Xương",
+    "distractors": [
+      "Truyện Kiều",
+      "Lục Vân Tiên cứu Kiều Nguyệt Nga",
+      "Những ngôi sao xa xôi"
+    ],
+    "difficulty": "Medium",
+    "source": "Bài 5: Chuyện người con gái Nam Xương"
+  },
+  {
+    "id": "lit9_008",
+    "stem": "Biện pháp tu từ nào gọi tên sự vật, hiện tượng này bằng tên của một sự vật, hiện tượng khác có quan hệ gần gũi (tương cận) với nó, khác với ẩn dụ vốn dựa trên nét tương đồng?",
+    "correct": "Hoán dụ",
+    "distractors": [
+      "Ẩn dụ",
+      "So sánh",
+      "Nhân hóa"
+    ],
+    "difficulty": "Hard",
+    "source": "Tổng kết Tiếng Việt: phân biệt Ẩn dụ và Hoán dụ"
+  },
+  {
+    "id": "lit9_009",
+    "stem": "Cặp tác phẩm nào cùng viết về vẻ đẹp người lính cách mạng nhưng ra đời ở hai giai đoạn kháng chiến khác nhau (chống Pháp và chống Mỹ)?",
+    "correct": "Đồng chí và Bài thơ về tiểu đội xe không kính",
+    "distractors": [
+      "Bếp lửa và Khúc hát ru những em bé lớn trên lưng mẹ",
+      "Mùa xuân nho nhỏ và Viếng lăng Bác",
+      "Làng và Lặng lẽ Sa Pa"
+    ],
+    "difficulty": "Hard",
+    "source": "Bài 17-18: Đồng chí (Chính Hữu) & Bài thơ về tiểu đội xe không kính (Phạm Tiến Duật)"
+  },
+  {
+    "id": "lit9_010",
+    "stem": "Chủ đề nào KHÔNG được thể hiện trong \"Truyện Kiều\" của Nguyễn Du?",
+    "correct": "Tình đồng chí, đồng đội",
+    "distractors": [
+      "Thân phận người phụ nữ phong kiến",
+      "Cái thiện và cái ác; công lý",
+      "Chí hiếu, đạo làm người"
+    ],
+    "difficulty": "Hard",
+    "source": "Bài 45: Tổng kết phần văn học - chủ đề Truyện Kiều"
+  }
+]
