@@ -1,0 +1,398 @@
+{
+  "subject": "su9",
+  "teacher": "anonymous",
+  "exported_at": "2026-08-17T11:28:30.029Z",
+  "summary": {
+    "total_items": 120,
+    "answered": 90,
+    "by_verdict": {
+      "easy": 38,
+      "medium": 45,
+      "hard": 7
+    }
+  },
+  "responses": {
+    "su9_vj_0003": {
+      "verdict": "easy",
+      "ts": "2026-08-17T09:10:19.942Z"
+    },
+    "su9_vj_0016": {
+      "verdict": "easy",
+      "ts": "2026-08-17T09:10:37.686Z"
+    },
+    "su9_vj_0031": {
+      "verdict": "easy",
+      "ts": "2026-08-17T09:10:51.218Z"
+    },
+    "su9_vj_0039": {
+      "verdict": "easy",
+      "ts": "2026-08-17T09:10:57.380Z"
+    },
+    "su9_vj_0045": {
+      "verdict": "medium",
+      "ts": "2026-08-17T09:11:11.205Z",
+      "comment": "Trung bình dễ"
+    },
+    "su9_vj_0054": {
+      "verdict": "medium",
+      "ts": "2026-08-17T09:11:21.492Z"
+    },
+    "su9_vj_0063": {
+      "verdict": "easy",
+      "ts": "2026-08-17T09:11:25.673Z"
+    },
+    "su9_vj_0083": {
+      "verdict": "medium",
+      "ts": "2026-08-17T09:11:56.186Z",
+      "comment": "TB Dễ"
+    },
+    "su9_vj_0093": {
+      "verdict": "medium",
+      "ts": "2026-08-17T09:12:38.514Z",
+      "comment": "TB Dễ"
+    },
+    "su9_vj_0097": {
+      "verdict": "easy",
+      "ts": "2026-08-17T09:12:43.867Z"
+    },
+    "su9_vj_0108": {
+      "verdict": "easy",
+      "ts": "2026-08-17T09:12:47.469Z",
+      "comment": "TB Dễ"
+    },
+    "su9_vj_0114": {
+      "verdict": "easy",
+      "ts": "2026-08-17T09:14:02.772Z"
+    },
+    "su9_vj_0143": {
+      "verdict": "easy",
+      "ts": "2026-08-17T09:14:08.260Z"
+    },
+    "su9_vj_0149": {
+      "verdict": "medium",
+      "ts": "2026-08-17T09:14:22.279Z"
+    },
+    "su9_vj_0154": {
+      "verdict": "medium",
+      "ts": "2026-08-17T09:14:33.021Z"
+    },
+    "su9_vj_0151": {
+      "verdict": "medium",
+      "ts": "2026-08-17T09:14:40.071Z",
+      "comment": "TB khó"
+    },
+    "su9_vj_0206": {
+      "verdict": "easy",
+      "ts": "2026-08-17T09:14:46.024Z"
+    },
+    "su9_vj_0242": {
+      "verdict": "medium",
+      "ts": "2026-08-17T09:15:53.200Z"
+    },
+    "su9_vj_0265": {
+      "verdict": "medium",
+      "ts": "2026-08-17T09:16:31.056Z"
+    },
+    "su9_vj_0274": {
+      "verdict": "medium",
+      "ts": "2026-08-17T09:16:46.053Z"
+    },
+    "su9_vj_0292": {
+      "verdict": "medium",
+      "ts": "2026-08-17T10:13:36.981Z"
+    },
+    "su9_vj_0311": {
+      "verdict": "medium",
+      "ts": "2026-08-17T10:13:45.003Z",
+      "comment": "TB Dễ"
+    },
+    "su9_vj_0328": {
+      "verdict": "hard",
+      "ts": "2026-08-17T10:14:00.470Z"
+    },
+    "su9_vj_0348": {
+      "verdict": "hard",
+      "ts": "2026-08-17T10:14:27.366Z",
+      "comment": "TB khó"
+    },
+    "su9_vj_0354": {
+      "verdict": "medium",
+      "ts": "2026-08-17T10:16:55.607Z",
+      "comment": "TB khó, sẽ khó nếu đáp án nhiễu hơn xíu"
+    },
+    "su9_vj_0355": {
+      "verdict": "easy",
+      "ts": "2026-08-17T10:17:24.367Z"
+    },
+    "su9_vj_0357": {
+      "verdict": "easy",
+      "ts": "2026-08-17T10:17:28.736Z",
+      "comment": "TB dễ"
+    },
+    "su9_vj_0358": {
+      "verdict": "medium",
+      "ts": "2026-08-17T10:17:36.641Z"
+    },
+    "su9_vj_0365": {
+      "verdict": "medium",
+      "ts": "2026-08-17T10:18:33.707Z"
+    },
+    "su9_vj_0407": {
+      "verdict": "easy",
+      "ts": "2026-08-17T10:18:37.355Z"
+    },
+    "su9_vj_0415": {
+      "verdict": "easy",
+      "ts": "2026-08-17T10:19:20.085Z",
+      "comment": "TB dễ"
+    },
+    "su9_vj_0427": {
+      "verdict": "medium",
+      "ts": "2026-08-17T10:21:07.356Z"
+    },
+    "su9_vj_0434": {
+      "verdict": "medium",
+      "ts": "2026-08-17T10:21:11.245Z"
+    },
+    "su9_vj_0448": {
+      "verdict": "hard",
+      "ts": "2026-08-17T10:21:18.155Z"
+    },
+    "su9_vj_0449": {
+      "verdict": "easy",
+      "ts": "2026-08-17T10:23:18.204Z"
+    },
+    "su9_vj_0451": {
+      "verdict": "easy",
+      "ts": "2026-08-17T10:23:25.589Z"
+    },
+    "su9_vj_0464": {
+      "verdict": "hard",
+      "ts": "2026-08-17T10:24:06.985Z",
+      "comment": "đáp án nhiễu tốt"
+    },
+    "su9_vj_0477": {
+      "verdict": "medium",
+      "ts": "2026-08-17T10:24:21.239Z",
+      "comment": "khó ở đáp án nhiễu"
+    },
+    "su9_vj_0487": {
+      "verdict": "easy",
+      "ts": "2026-08-17T10:24:33.584Z",
+      "comment": "TB Dễ"
+    },
+    "su9_vj_0521": {
+      "verdict": "medium",
+      "ts": "2026-08-17T10:26:09.753Z"
+    },
+    "su9_vj_0525": {
+      "verdict": "medium",
+      "ts": "2026-08-17T10:27:42.182Z"
+    },
+    "su9_vj_0552": {
+      "verdict": "easy",
+      "ts": "2026-08-17T10:27:47.059Z",
+      "comment": "TB Dễ"
+    },
+    "su9_vj_0563": {
+      "verdict": "medium",
+      "ts": "2026-08-17T10:28:01.358Z",
+      "comment": "TB Dễ"
+    },
+    "su9_vj_0569": {
+      "verdict": "medium",
+      "ts": "2026-08-17T10:28:24.325Z"
+    },
+    "su9_vj_0589": {
+      "verdict": "easy",
+      "ts": "2026-08-17T10:28:27.603Z"
+    },
+    "su9_vj_0629": {
+      "verdict": "medium",
+      "ts": "2026-08-17T10:28:41.568Z"
+    },
+    "su9_vj_0637": {
+      "verdict": "medium",
+      "ts": "2026-08-17T10:28:45.269Z"
+    },
+    "su9_vj_0641": {
+      "verdict": "easy",
+      "ts": "2026-08-17T10:30:13.345Z"
+    },
+    "su9_vj_0660": {
+      "verdict": "medium",
+      "ts": "2026-08-17T10:30:23.169Z",
+      "comment": "TB Dễ"
+    },
+    "su9_vj_0676": {
+      "verdict": "easy",
+      "ts": "2026-08-17T10:30:30.679Z"
+    },
+    "su9_vj_0758": {
+      "verdict": "easy",
+      "ts": "2026-08-17T10:30:50.792Z"
+    },
+    "su9_vj_0999": {
+      "verdict": "easy",
+      "ts": "2026-08-17T10:30:57.412Z"
+    },
+    "su9_vj_1276": {
+      "verdict": "medium",
+      "ts": "2026-08-17T10:31:03.291Z"
+    },
+    "su9_vj_1703": {
+      "verdict": "medium",
+      "ts": "2026-08-17T10:31:41.029Z"
+    },
+    "su9_vj_1749": {
+      "verdict": "easy",
+      "ts": "2026-08-17T10:31:44.581Z"
+    },
+    "su9_vj_1755": {
+      "verdict": "medium",
+      "ts": "2026-08-17T10:31:50.082Z"
+    },
+    "su9_vj_1767": {
+      "verdict": "easy",
+      "ts": "2026-08-17T10:32:34.667Z"
+    },
+    "su9_vj_1771": {
+      "verdict": "easy",
+      "ts": "2026-08-17T10:33:16.155Z"
+    },
+    "su9_vj_1780": {
+      "verdict": "medium",
+      "ts": "2026-08-17T10:33:19.915Z"
+    },
+    "su9_vj_1821": {
+      "verdict": "medium",
+      "ts": "2026-08-17T10:33:24.657Z"
+    },
+    "su9_vj_1823": {
+      "verdict": "medium",
+      "ts": "2026-08-17T10:33:55.588Z"
+    },
+    "su9_vj_1832": {
+      "verdict": "easy",
+      "ts": "2026-08-17T10:34:08.139Z"
+    },
+    "su9_vj_1838": {
+      "verdict": "easy",
+      "ts": "2026-08-17T10:34:16.529Z"
+    },
+    "su9_vj_1857": {
+      "verdict": "easy",
+      "ts": "2026-08-17T10:34:20.051Z"
+    },
+    "su9_vj_1874": {
+      "verdict": "hard",
+      "ts": "2026-08-17T10:35:06.343Z",
+      "comment": "TB Khó vì Distraction của câu A tốt"
+    },
+    "su9_vj_1939": {
+      "verdict": "medium",
+      "ts": "2026-08-17T10:35:22.975Z"
+    },
+    "su9_vj_1952": {
+      "verdict": "medium",
+      "ts": "2026-08-17T10:35:31.463Z"
+    },
+    "su9_vj_1958": {
+      "verdict": "easy",
+      "ts": "2026-08-17T10:36:52.465Z"
+    },
+    "su9_vj_1963": {
+      "verdict": "easy",
+      "ts": "2026-08-17T10:36:57.343Z"
+    },
+    "su9_vj_1987": {
+      "verdict": "medium",
+      "ts": "2026-08-17T10:37:07.466Z"
+    },
+    "su9_vj_1995": {
+      "verdict": "medium",
+      "ts": "2026-08-17T11:15:31.466Z"
+    },
+    "su9_vj_2100": {
+      "verdict": "medium",
+      "ts": "2026-08-17T11:17:51.001Z",
+      "comment": ""
+    },
+    "su9_vj_2102": {
+      "verdict": "hard",
+      "ts": "2026-08-17T11:22:23.908Z",
+      "comment": "TB Khó"
+    },
+    "su9_vj_2130": {
+      "verdict": "medium",
+      "ts": "2026-08-17T11:22:59.145Z"
+    },
+    "su9_vj_2139": {
+      "verdict": "medium",
+      "ts": "2026-08-17T11:23:02.845Z"
+    },
+    "su9_vj_2152": {
+      "verdict": "easy",
+      "ts": "2026-08-17T11:23:08.979Z"
+    },
+    "su9_vj_2175": {
+      "verdict": "hard",
+      "ts": "2026-08-17T11:23:55.208Z",
+      "comment": "TB Khó"
+    },
+    "su9_vj_2191": {
+      "verdict": "easy",
+      "ts": "2026-08-17T11:24:52.506Z"
+    },
+    "su9_vj_2196": {
+      "verdict": "medium",
+      "ts": "2026-08-17T11:25:16.845Z"
+    },
+    "su9_vj_2225": {
+      "verdict": "medium",
+      "ts": "2026-08-17T11:25:40.260Z"
+    },
+    "su9_vj_2237": {
+      "verdict": "medium",
+      "ts": "2026-08-17T11:26:02.062Z"
+    },
+    "su9_vj_2246": {
+      "verdict": "medium",
+      "ts": "2026-08-17T11:26:15.127Z"
+    },
+    "su9_vj_2250": {
+      "comment": "câu này hình như KQ có vấn đề, consider câu D",
+      "verdict": "easy",
+      "ts": "2026-08-17T11:27:38.753Z"
+    },
+    "su9_vj_2253": {
+      "verdict": "easy",
+      "ts": "2026-08-17T11:27:45.202Z",
+      "comment": "TB Dễ"
+    },
+    "su9_vj_2322": {
+      "verdict": "medium",
+      "ts": "2026-08-17T11:27:53.024Z"
+    },
+    "su9_vj_2343": {
+      "verdict": "easy",
+      "ts": "2026-08-17T11:27:55.708Z"
+    },
+    "su9_vj_2356": {
+      "verdict": "easy",
+      "ts": "2026-08-17T11:28:02.867Z"
+    },
+    "su9_vj_2385": {
+      "verdict": "medium",
+      "ts": "2026-08-17T11:28:06.579Z"
+    },
+    "su9_vj_2396": {
+      "verdict": "easy",
+      "ts": "2026-08-17T11:28:09.576Z"
+    },
+    "su9_vj_2408": {
+      "verdict": "medium",
+      "ts": "2026-08-17T11:28:15.148Z"
+    }
+  }
+}

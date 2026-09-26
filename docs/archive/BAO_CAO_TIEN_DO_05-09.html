@@ -1,0 +1,114 @@
+<h2>BÁO CÁO TIẾN ĐỘ NGHIÊN CỨU 05/09</h2>
+<p><b>Đề tài:</b> Ước lượng độ khó câu hỏi trắc nghiệm bằng Đồ thị Tri thức và Học máy</p>
+<p><b>Mốc trước (22/08):</b> chốt phương án <b>A2 — lấy hướng H2 làm trục chính</b>: <i>"độ khó ở miền cấu trúc do LOẠI thao tác nhận thức quyết định, không phải vị trí kiến thức"</i></p>
+
+<h3>1. Tiến độ thực hiện</h3>
+
+<p>Kỳ này nhóm tách công việc thành <b>hai mảng độc lập</b>, mỗi mảng có bộ dữ liệu riêng, dụng cụ đo riêng và kết luận riêng: <b>mảng Vật lí</b> (miền cấu trúc — nơi luận điểm A2 áp dụng) và <b>mảng Lịch sử</b> (miền tự sự). Tổng chi phí gọi mô hình ngôn ngữ: 271 lượt, 0 lỗi.</p>
+
+<h3>1.1. MẢNG VẬT LÍ — kiểm luận điểm A2 tới cùng</h3>
+
+<p><b>Dữ liệu:</b> 1.539 câu nhãn giáo viên (đã có từ kỳ trước), phân bố NB 443 · TH 510 · VD 367 · VDC 219.</p>
+
+<p><b>Việc đã làm:</b> dựng dụng cụ đo <i>trục thao tác</i> — thứ kỳ trước chưa có. Hai nguồn: <b>đồ thị tiên quyết</b> trong ontology (<code>prerequisiteOf</code>, 216 cạnh, chuỗi dài nhất 9 bậc, đi đúng thang <i>Đại lượng → Khái niệm → Định luật → Công thức → Phương pháp → Dạng bài</i>), và <b>vết giải do máy sinh</b> (giải bài rồi báo cáo mấy bước, dùng công thức nào, mấy ẩn — lấy làm <i>đặc trưng</i>, không lấy làm nhãn).</p>
+
+<p><b>Kết quả 1 — trục thao tác qua cả ba phép kiểm.</b> Thiết kế: chỉ so các câu <b>trong cùng một bài</b>, tức giữ nguyên chủ đề, chỉ để trục thao tác thay đổi.</p>
+
+<table border="1" cellpadding="5" cellspacing="0">
+<tr><th>Phép kiểm (53 bài)</th><th>Kết quả</th></tr>
+<tr><td>Hệ số hiệu ứng trong cùng bài</td><td><b>t = +21,5</b>; hệ số trong bài <i>lớn hơn</i> giữa các bài ⇒ không phải nhiễu chủ đề</td></tr>
+<tr><td>So cặp câu cùng bài</td><td><b>90,5%</b> số cặp: câu nhiều bước hơn được giáo viên gán mức cao hơn</td></tr>
+<tr><td><i>Đối chứng: cột xáo ngẫu nhiên</i></td><td><i>50,7% — trượt đúng như phải thế, nên thiết kế không tự sinh kết quả</i></td></tr>
+<tr><td>Can thiệp trên dữ liệu thật</td><td>giải thích <b>17,5%</b> khoảng cách độ khó giữa hai câu cùng bài</td></tr>
+</table>
+
+<p><b>⇒ Luận điểm A2 được xác nhận trên miền cấu trúc.</b></p>
+
+<p><b>Kết quả 2 — đồ thị tri thức đóng góp bao nhiêu, ở đâu.</b> Tách riêng từng kênh, cộng dồn lên nền "vết giải":</p>
+
+<table border="1" cellpadding="5" cellspacing="0">
+<tr><th>Kênh</th><th>ΔAUC tầng cao</th><th>ΔQWK 4 mức</th></tr>
+<tr><td>Chú giải sẵn trong ontology</td><td>+0,004</td><td>+0,012</td></tr>
+<tr><td><b>Đồ thị tiên quyết</b></td><td><b>+0,049</b> (p = 0,000)</td><td>+0,001 (p = <b>0,92</b>)</td></tr>
+<tr><td>— phần rút gọn được về "đếm số khái niệm"</td><td>+0,047</td><td>—</td></tr>
+<tr><td><b>— phần thật sự cần tới đồ thị</b></td><td><b>+0,021</b></td><td>—</td></tr>
+</table>
+
+<p>Hai kết luận: đồ thị giúp phân biệt <i>tầng cao hay không</i>, <b>không</b> giúp xếp đúng 4 mức (p = 0,92); và khoảng 43% cái tưởng là đóng góp của cấu trúc đồ thị thật ra chỉ là <i>đếm số khái niệm câu chạm tới</i>. Phần thật sự cần đồ thị là <b>+0,021 AUC</b> — đây mới là phần sẽ tăng nếu đầu tư làm dày ontology.</p>
+
+<p><b>Kết quả 3 — trục kiến thức ở môn Lý chạy NGƯỢC.</b> Khái niệm càng trung tâm thì câu càng <b>DỄ</b> (t = −3,22 trong bài; ρ giữa các bài = <b>−0,759</b>). Lý do: định luật Ôm, công suất là <i>nền móng</i> được hỏi ở tầng nhận biết, còn câu vận dụng cao là <b>tình huống số liệu riêng lẻ</b>, chạm rất ít khái niệm có tên. Kết quả này củng cố vế "không phải vị trí kiến thức" của A2 — nhưng theo một cách mạnh hơn: quan hệ không phải bằng 0 mà là <b>âm</b>.</p>
+
+<p><b>Kết quả 4 — so với phương án "hỏi thẳng máy cho xong".</b></p>
+
+<table border="1" cellpadding="5" cellspacing="0">
+<tr><th>n = 1.539</th><th>QWK</th><th>AUC tầng cao</th><th>Bắt được câu VDC</th></tr>
+<tr><td>chỉ nhãn máy</td><td><b>0,540</b></td><td>0,765</td><td><b>11,0%</b></td></tr>
+<tr><td>chỉ đặc trưng của đề tài</td><td>0,531</td><td><b>0,832</b></td><td><b>31,1%</b></td></tr>
+<tr><td>kết hợp cả hai</td><td><b>0,560</b></td><td><b>0,840</b></td><td>32,0%</td></tr>
+</table>
+
+<p>Nhìn cột QWK thì đề tài <b>thua</b> một lần gọi máy — em xin báo cáo thẳng. Nhưng máy <b>gộp câu Vận dụng cao vào Vận dụng</b> (bắt 11%), còn đề tài bắt 31%. Kiểm định chính thức: đặc trưng của đề tài thêm cho máy <b>ΔAUC +0,075 (p = 0,000)</b>. Sản phẩm dùng được ngay: danh sách 100 câu nghi tầng cao thì <b>93 câu đúng</b> (nền 38,1%); cờ cảnh báo "máy có thể chấm hụt câu này" đạt AUC <b>0,764</b>.</p>
+
+<p><b>Kết quả 5 — giả thuyết Vinu bị bác bỏ.</b> Can thiệp phản thực có đối chứng khớp cho p = 0,044 nhưng <b>ngược hướng</b>; hồi quy khoảng cách kiểm soát 14 biến p = 0,000 cũng <b>ngược hướng</b>; so cặp câu cùng bài 41,6% (dưới 50%). Tức đáp án càng <i>xa</i> phương án nhiễu thì câu càng <i>khó</i> — bác bỏ mạnh hơn "không tìm thấy hiệu ứng".</p>
+
+<hr>
+
+<h3>1.2. MẢNG LỊCH SỬ — xây bộ dữ liệu nhãn người và kiểm hai trục</h3>
+
+<p><b>Việc lớn nhất của mảng này: thu được bộ nhãn giáo viên.</b> Trước đó môn Sử chỉ có 90 câu nhãn người, không đủ để kết luận gì.</p>
+
+<table border="1" cellpadding="5" cellspacing="0">
+<tr><th>Hạng mục</th><th>Nội dung</th></tr>
+<tr><td>Nguồn</td><td>kenhgiaovien.com — 34 bài, mỗi bài chia sẵn 4 mức theo <b>ma trận đề</b> do giáo viên soạn</td></tr>
+<tr><td>Quy mô</td><td>crawl 1.339 câu → <b>1.276 câu dùng được</b> (từ 90 câu, tăng 14 lần)</td></tr>
+<tr><td>Phân bố</td><td>NB 519 · TH 589 · VD 81 · VDC 87</td></tr>
+<tr><td>Đáp án</td><td>trang nguồn không có → sinh bằng máy, <b>đã đo</b>: 87,7–89,6%; phần hai lượt khớp nhau (91% số câu) đạt <b>92,7%</b>, phần lệch nhau 36,8% ⇒ hệ tự khai báo được câu đáng ngờ. <b>Nhãn độ khó vẫn hoàn toàn của giáo viên.</b></td></tr>
+</table>
+
+<p><b>Kết quả 1 — phát hiện một TRỤC GIẢ đang lấn át pipeline.</b> Bộ này có ưu thế đặc biệt: nhiều câu mang <i>cả nhãn giáo viên lẫn nhãn máy</i>, nên kiểm được một câu hỏi không kiểm được ở đâu khác — <b>một đặc trưng đo độ khó, hay đo thói quen của người gán nhãn?</b> Phép kiểm: giữ nguyên câu hỏi, giữ nguyên đặc trưng, chỉ đổi người chấm.</p>
+
+<table border="1" cellpadding="5" cellspacing="0">
+<tr><th>Khối đặc trưng</th><th>Đoán điểm MÁY</th><th>Đoán điểm GIÁO VIÊN</th><th>Còn giữ lại</th></tr>
+<tr><td>Hành văn (độ dài)</td><td>0,408</td><td>0,152</td><td><b>37%</b></td></tr>
+<tr><td>Đồ thị tri thức</td><td>0,193</td><td>0,143</td><td><b>74%</b></td></tr>
+</table>
+
+<p>Nếu nhãn giáo viên "chỉ nhiễu hơn" thì cả hai dòng phải rụng cùng tỉ lệ — thực tế 37% so với 74%, chênh lệch có ý nghĩa (<b>p = 0,022</b>). Chặt hơn nữa, trên 225 câu có <i>cả hai nhãn</i>, cùng câu cùng đặc trưng chỉ đổi cột nhãn: khối hành văn rụng từ 0,345 xuống 0,072 (p = 0,017). <b>⇒ Độ dài văn bản đo thói quen người gán nhãn, không đo độ khó.</b> Đã loại toàn bộ cột đếm chữ khỏi mọi cấu hình báo cáo — cả hai mảng.</p>
+
+<p><b>Kết quả 2 — trục thao tác KHÔNG đo được ở môn Sử, và nay biết vì sao.</b> Chạy đúng dụng cụ đã dùng bên Lý thì được <b>AUC 0,495 — đúng bằng tung đồng xu</b>, và giữ nguyên kể cả khi chỉ xét phần đồ thị nối được. Nguyên nhân nằm ở <b>loại cạnh trong ontology</b>: <code>su9.ttl</code> có <b>0 cạnh "phải biết Y trước mới tới được X"</b> — cạnh của nó chỉ mã hoá "cái gì liên quan cái gì" (diễn ra ở, diễn ra trong, có nội dung). Khoảng cách trên đồ thị đó phản ánh <i>cách người dựng ontology nối</i>, không phản ánh việc học sinh phải làm mấy bước. Không phải ý tưởng sai, mà là <b>đo trên một đồ thị không chứa loại thông tin đó</b>.</p>
+
+<p><b>Kết quả 3 — trục kiến thức là trục CHÍNH ở môn Sử.</b> Khái niệm càng trung tâm thì câu càng <b>KHÓ</b> (t = +2,87 trong bài; ρ trong bài = <b>+0,201</b>), vì nhân vật và sự kiện trung tâm chính là thứ được hỏi ở tầng phân tích, đánh giá. Trục này giải thích <b>62,5%</b> khoảng cách độ khó giữa hai câu cùng bài, trong khi nhóm đối chứng chỉ chiếm 1,8%.</p>
+
+<p><b>Kết quả 4 — so với "hỏi thẳng máy".</b> Ở mảng này bất đối xứng rất sạch: đặc trưng của đề tài <b>thêm cho máy</b> ΔQWK +0,064 (p = 0,029) và ΔAUC +0,088 (p = 0,003); nhưng máy <b>không thêm được gì</b> cho đề tài (p = 0,360 và 0,127). Danh sách 100 câu nghi tầng cao: <b>31 câu đúng</b> trên tỉ lệ nền 13,2% — gấp 2,3 lần, hữu ích nhưng chưa phải máy chấm.</p>
+
+<p><b>Kết quả 5 — giả thuyết Vinu cũng bị bác bỏ ở mảng này.</b> Can thiệp phản thực so đối chứng khớp p = 0,101 và 0,947; hồi quy khoảng cách kiểm soát 14 biến p = 0,158; tương quan thô của chính đại lượng đó với nhãn ρ = +0,015.</p>
+
+<hr>
+
+<h3>1.3. Hai điều chỉ thấy được khi có cả hai mảng</h3>
+
+<p><b>(i) Điều kiện phạm vi của A2 nay giải thích được bằng cơ chế.</b> Kỳ trước A2 nói "ở miền cấu trúc" như một quan sát. Nay nói được nguyên nhân: <b>216 cạnh tiên quyết so với 0</b>. Trục thao tác đo được hay không phụ thuộc vào việc ontology có loại cạnh mang nghĩa "phải biết trước" hay không — một tiêu chí kiểm tra được trước khi bắt tay vào bất kỳ môn nào.</p>
+
+<p><b>(ii) Trục kiến thức đổi dấu, nên phát biểu A2 cần nới.</b> A2 viết độ khó "không phải vị trí kiến thức". Đo kỹ thì mệnh đề này quá mạnh: vị trí kiến thức <i>có</i> đóng góp, nhưng <b>chiều đóng góp phụ thuộc môn</b> — âm ở Lý (−0,759 giữa các bài), dương ở Sử (+0,201 trong bài). Em đề xuất sửa thành: <i>"ở miền cấu trúc, độ khó do loại thao tác nhận thức quyết định; vị trí kiến thức vẫn đóng góp nhưng <b>chiều đóng góp phụ thuộc môn</b>, nên không thể dùng chung một công thức cho mọi môn."</i></p>
+
+<p>Bổ sung: kỳ trước nhận định hai trục trực giao dựa trên ví dụ minh hoạ. Nay đo trực tiếp — tương quan giữa dự đoán của hai trục chỉ <b>ρ = +0,217</b> (Sử) và <b>+0,127</b> (Lý), <b>xác nhận trực giao</b>.</p>
+
+<h3>2. Khó khăn gặp phải</h3>
+
+<ul>
+<li><b>Phát hiện một lỗi dữ liệu làm sai lệch kết quả hai kỳ trước.</b> Khối đặc trưng đồ thị tri thức thiếu 4 cột — đúng 4 cột đo khoảng cách giữa các phương án. Chương trình vẫn chạy, không báo lỗi, chỉ làm kết luận sai: kết luận cũ "đồ thị tri thức thêm gần như 0 giá trị" thực ra là +0,036 QWK ở mảng Lý. Đã sửa và sinh lại toàn bộ, đồng thời bổ sung <b>phép kiểm toàn vẹn bắt buộc</b> cho mọi bước ghép dữ liệu — phép này lập tức bắt tiếp 25 câu mang bộ phương án của một đề khác.</li>
+<li><b>Chưa có dữ liệu trả lời của học sinh</b> (cả hai mảng). "Độ khó" trong đề tài là mức nhận thức giáo viên gán theo ma trận đề, không phải tỉ lệ trả lời đúng — nên nhóm nói được "hai nguồn nhãn đo hai thứ khác nhau" nhưng <b>chưa nói được nguồn nào đúng</b>.</li>
+<li><b>Mảng Lịch sử: tầng cao gần như không bắt được</b> (recall 0–7%) vì cả bộ chỉ có 168/1.276 câu tầng cao. Mảng này hiện chỉ đạt mức đèn sàng lọc nhị phân.</li>
+<li><b>Hai lỗi phương pháp tự phát hiện:</b> giá trị p của phép so cặp không đáng tin vì các cặp không độc lập (đã chuyển sang bootstrap AUC); và một cột đặc trưng lấy từ máy thực chất là nhãn độ khó trá hình — riêng nó đạt QWK 0,492 — đã loại khỏi mọi cấu hình báo cáo.</li>
+</ul>
+
+<h3>3. Công việc sắp tới</h3>
+
+<ul>
+<li><b>Viết lại lớp giải thích</b> để phát ngôn bằng <i>tỉ trọng đã đo được</i> (62,5% ở mảng Sử · 17,5% ở mảng Lý · 1,8% nhóm đối chứng) thay vì điểm quy kết SHAP, và có quyền trả lời "không đủ căn cứ để kết luận".</li>
+<li><b>Đóng gói để tái lập:</b> một script chạy lại toàn bộ thí nghiệm kèm bảng kết quả đóng băng, để hội đồng kiểm chứng được.</li>
+<li><b>Gộp tài liệu thành khung bài báo</b> — dự kiến hai chương kết quả tách theo hai mảng, cộng một chương ngắn cho phần 1.3.</li>
+<li><b>Không làm tiếp</b> (đã đo được là không đáng chi phí): thêm đặc trưng mới, mở rộng thêm môn, làm dày ontology, chờ dữ liệu học sinh.</li>
+</ul>
+
+<p><b>Em xin ý kiến thầy 3 điểm:</b> (1) có đồng ý <b>nới phát biểu A2</b> như mục 1.3(ii) không? (2) có nên <b>dẫn bằng AUC tầng cao và precision@k thay vì QWK</b> không, vì QWK mời đúng phép so sánh mà đề tài thua? (3) hai mảng nên viết thành <b>hai chương riêng</b> như đề xuất trên, hay gộp thành một chương theo từng trục?</p>

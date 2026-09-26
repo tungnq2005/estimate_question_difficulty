@@ -1,10 +1,11 @@
 """
 Demo: End-to-End MCQ Difficulty Estimation Pipeline v4.1
 ===========================================================
-Pipeline đầy đủ với 33 features (3 blocks):
-  Block A (KG):       24 features - Jaccard + RSI + KG Structure
+Pipeline đầy đủ với 41 trường đặc trưng (3 blocks + meta + cụm môn):
+  Block A (KG):       27 features - KG Structure + Jaccard + RSI + Văn
   Block B (KAD):       3 features - Knowledge Entropy + Path Distance 🆕
   Block C (Embedding): 6 features - PhoBERT cosine similarities 🆕
+  Meta + cụm môn:      5 features - entity_match_coverage + numeric_ (prereq_dag)
 
 Usage:
   python tools/demo_mcq.py               # history (default)
@@ -44,7 +45,7 @@ def load_mcqs(json_path: str) -> list:
 
 def display_report(mcq: MCQ, engine: OntologyEngine):
     """Display full report for one MCQ with XAI explanation."""
-    # Compute features (33-d vector)
+    # Compute features (41-d vector)
     feats = extract_single_mcq_features(mcq, engine)
     
     # Re-extract entities for XAI

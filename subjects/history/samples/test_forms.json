@@ -1,0 +1,1236 @@
+{
+  "meta": {
+    "seed": 42,
+    "pool_size": 120,
+    "n_pairs": 20,
+    "n_disagreement": 30,
+    "n_needs_review": 15,
+    "n_stratified_fill": 35,
+    "n_anchors": 10,
+    "has_feature_matrix": true
+  },
+  "control_pairs": [
+    {
+      "core_or_edge_a": "su9_vj_1958",
+      "core_or_edge_b": "su9_vj_1838",
+      "group": "ket_qua/Medium",
+      "gap": 0.1270207852193995,
+      "label_a": "Medium",
+      "label_b": "Medium"
+    },
+    {
+      "core_or_edge_a": "su9_vj_1780",
+      "core_or_edge_b": "su9_vj_0149",
+      "group": "nguyen_nhan/Hard",
+      "gap": 0.1270207852193995,
+      "label_a": "Hard",
+      "label_b": "Hard"
+    },
+    {
+      "core_or_edge_a": "su9_vj_0039",
+      "core_or_edge_b": "su9_vj_0045",
+      "group": "quoc_gia_nao/Easy",
+      "gap": 0.1270207852193995,
+      "label_a": "Easy",
+      "label_b": "Easy"
+    },
+    {
+      "core_or_edge_a": "su9_vj_0629",
+      "core_or_edge_b": "su9_vj_0054",
+      "group": "so_sanh/Hard",
+      "gap": 0.1270207852193995,
+      "label_a": "Hard",
+      "label_b": "Hard"
+    },
+    {
+      "core_or_edge_a": "su9_vj_2838",
+      "core_or_edge_b": "su9_vj_0434",
+      "group": "y_nghia/Medium",
+      "gap": 0.1270207852193995,
+      "label_a": "Medium",
+      "label_b": "Medium"
+    },
+    {
+      "core_or_edge_a": "su9_vj_0354",
+      "core_or_edge_b": "su9_vj_0427",
+      "group": "khong_phai/Hard",
+      "gap": 0.1235565819861432,
+      "label_a": "Hard",
+      "label_b": "Hard"
+    },
+    {
+      "core_or_edge_a": "su9_vj_0265",
+      "core_or_edge_b": "su9_vj_0114",
+      "group": "khong_phai/Medium",
+      "gap": 0.0946882217090069,
+      "label_a": "Medium",
+      "label_b": "Medium"
+    },
+    {
+      "core_or_edge_a": "su9_vj_2963",
+      "core_or_edge_b": "su9_vj_0143",
+      "group": "nguyen_nhan/Medium",
+      "gap": 0.0558891454965357,
+      "label_a": "Medium",
+      "label_b": "Medium"
+    },
+    {
+      "core_or_edge_a": "su9_vj_1963",
+      "core_or_edge_b": "su9_vj_2253",
+      "group": "ket_qua/Easy",
+      "gap": 0.0550423402617397,
+      "label_a": "Easy",
+      "label_b": "Easy"
+    },
+    {
+      "core_or_edge_a": "su9_vj_2924",
+      "core_or_edge_b": "su9_vj_0097",
+      "group": "su_kien_nao/Easy",
+      "gap": 0.0491586935004948,
+      "label_a": "Easy",
+      "label_b": "Easy"
+    },
+    {
+      "core_or_edge_a": "su9_vj_0448",
+      "core_or_edge_b": "su9_vj_0451",
+      "group": "vai_tro/Hard",
+      "gap": 0.0469591993841416,
+      "label_a": "Hard",
+      "label_b": "Hard"
+    },
+    {
+      "core_or_edge_a": "su9_vj_1874",
+      "core_or_edge_b": "su9_vj_2139",
+      "group": "su_kien_nao/Medium",
+      "gap": 0.0463048498845266,
+      "label_a": "Medium",
+      "label_b": "Medium"
+    },
+    {
+      "core_or_edge_a": "su9_vj_3052",
+      "core_or_edge_b": "su9_vj_1823",
+      "group": "quoc_gia_nao/Medium",
+      "gap": 0.0423402617397999,
+      "label_a": "Medium",
+      "label_b": "Medium"
+    },
+    {
+      "core_or_edge_a": "su9_vj_2246",
+      "core_or_edge_b": "su9_vj_2196",
+      "group": "su_kien_nao/Hard",
+      "gap": 0.0421478060046189,
+      "label_a": "Hard",
+      "label_b": "Hard"
+    },
+    {
+      "core_or_edge_a": "su9_vj_2540",
+      "core_or_edge_b": "su9_vj_3025",
+      "group": "y_nghia/Hard",
+      "gap": 0.0404157043879908,
+      "label_a": "Hard",
+      "label_b": "Hard"
+    },
+    {
+      "core_or_edge_a": "su9_vj_0016",
+      "core_or_edge_b": "su9_vj_0641",
+      "group": "khong_phai/Easy",
+      "gap": 0.0392609699769053,
+      "label_a": "Easy",
+      "label_b": "Easy"
+    },
+    {
+      "core_or_edge_a": "su9_vj_0206",
+      "core_or_edge_b": "su9_vj_2827",
+      "group": "vai_tro/Medium",
+      "gap": 0.0346420323325635,
+      "label_a": "Medium",
+      "label_b": "Medium"
+    },
+    {
+      "core_or_edge_a": "su9_vj_0151",
+      "core_or_edge_b": "su9_vj_0311",
+      "group": "so_sanh/Medium",
+      "gap": 0.0323325635103926,
+      "label_a": "Medium",
+      "label_b": "Medium"
+    },
+    {
+      "core_or_edge_a": "su9_vj_1857",
+      "core_or_edge_b": "su9_vj_2535",
+      "group": "so_sanh/Easy",
+      "gap": 0.0288683602771362,
+      "label_a": "Easy",
+      "label_b": "Easy"
+    },
+    {
+      "core_or_edge_a": "su9_vj_2913",
+      "core_or_edge_b": "su9_vj_2385",
+      "group": "y_nghia/Easy",
+      "gap": 0.0103926096997691,
+      "label_a": "Easy",
+      "label_b": "Easy"
+    }
+  ],
+  "anchors": [
+    {
+      "id": "su9_vj_0154",
+      "stem": "Năm 2013 Chủ tịch nước Trương Tấn Sang và Tổng thống Hoa Kỳ B Obama đã đưa mối quan hệ hợp tác Việt  Mĩ lên tầm cao mới đó là quan hệ",
+      "difficulty": "Easy",
+      "is_anchor": true,
+      "template": "khac"
+    },
+    {
+      "id": "su9_vj_2714",
+      "stem": "Sau Chiến tranh thế giới thứ hai , quan hệ giữa Mỹ và Liên Xô là",
+      "difficulty": "Easy",
+      "is_anchor": true,
+      "template": "khac"
+    },
+    {
+      "id": "su9_vj_2322",
+      "stem": "Ngày 8/9/1951, nhằm tận dụng nguồn viện trợ của Mỹ phục vụ cho phát triển kinh tế, Nhật Bản ký kết với Mĩ bản",
+      "difficulty": "Easy",
+      "is_anchor": true,
+      "template": "khac"
+    },
+    {
+      "id": "su9_vj_1832",
+      "stem": "Trong thời kỳ Chiến tranh lạnh, Liên Xô đã",
+      "difficulty": "Medium",
+      "is_anchor": true,
+      "template": "khac"
+    },
+    {
+      "id": "su9_vj_1749",
+      "stem": "Chiến thắng nào sau đây của nhân dân Liên Xô đã làm phá sản chiến lược “Chiến tranh chớp nhoáng” của Hitle?",
+      "difficulty": "Medium",
+      "is_anchor": true,
+      "template": "khac"
+    },
+    {
+      "id": "su9_vj_2250",
+      "stem": "Nội dung nào phản ánh đúng kết quả sự đối đầu căng thẳng giữa M ỹ và Liên Xô sau Chiến tranh thế giới thứ hai?",
+      "difficulty": "Medium",
+      "is_anchor": true,
+      "template": "ket_qua"
+    },
+    {
+      "id": "su9_vj_1767",
+      "stem": "Sự bùng nổ của cuộc khởi nghĩa Yên Bái (9/2/1930) xuất phát từ nguyên nhân trực tiếp nào sau đây?",
+      "difficulty": "Medium",
+      "is_anchor": true,
+      "template": "nguyen_nhan"
+    },
+    {
+      "id": "su9_vj_0449",
+      "stem": "Thời cơ ngàn năm có một để nhân dân Việt Nam tổng khởi nghĩa giành chính quyền năm 1945 kết thúc khi",
+      "difficulty": "Hard",
+      "is_anchor": true,
+      "template": "khac"
+    },
+    {
+      "id": "su9_vj_3082",
+      "stem": "Điểm tương đồng trong chính sách của chính quyền Xô viết Nghệ - Tĩnh (1930 - 1931) và chính quyền Việt Nam Dân chủ Cộng hòa (1945 - 1946) là",
+      "difficulty": "Hard",
+      "is_anchor": true,
+      "template": "so_sanh"
+    },
+    {
+      "id": "su9_vj_0464",
+      "stem": "Khó khăn lớn nhất của nước Việt Nam Dân chủ Cộng hòa sau cách mạng tháng Tám năm 1945 là gì",
+      "difficulty": "Hard",
+      "is_anchor": true,
+      "template": "khac"
+    }
+  ],
+  "forms": {
+    "A": [
+      {
+        "id": "su9_vj_0154",
+        "stem": "Năm 2013 Chủ tịch nước Trương Tấn Sang và Tổng thống Hoa Kỳ B Obama đã đưa mối quan hệ hợp tác Việt  Mĩ lên tầm cao mới đó là quan hệ",
+        "difficulty": "Easy",
+        "is_anchor": true,
+        "template": "khac"
+      },
+      {
+        "id": "su9_vj_2714",
+        "stem": "Sau Chiến tranh thế giới thứ hai , quan hệ giữa Mỹ và Liên Xô là",
+        "difficulty": "Easy",
+        "is_anchor": true,
+        "template": "khac"
+      },
+      {
+        "id": "su9_vj_2322",
+        "stem": "Ngày 8/9/1951, nhằm tận dụng nguồn viện trợ của Mỹ phục vụ cho phát triển kinh tế, Nhật Bản ký kết với Mĩ bản",
+        "difficulty": "Easy",
+        "is_anchor": true,
+        "template": "khac"
+      },
+      {
+        "id": "su9_vj_1832",
+        "stem": "Trong thời kỳ Chiến tranh lạnh, Liên Xô đã",
+        "difficulty": "Medium",
+        "is_anchor": true,
+        "template": "khac"
+      },
+      {
+        "id": "su9_vj_1749",
+        "stem": "Chiến thắng nào sau đây của nhân dân Liên Xô đã làm phá sản chiến lược “Chiến tranh chớp nhoáng” của Hitle?",
+        "difficulty": "Medium",
+        "is_anchor": true,
+        "template": "khac"
+      },
+      {
+        "id": "su9_vj_2250",
+        "stem": "Nội dung nào phản ánh đúng kết quả sự đối đầu căng thẳng giữa M ỹ và Liên Xô sau Chiến tranh thế giới thứ hai?",
+        "difficulty": "Medium",
+        "is_anchor": true,
+        "template": "ket_qua"
+      },
+      {
+        "id": "su9_vj_1767",
+        "stem": "Sự bùng nổ của cuộc khởi nghĩa Yên Bái (9/2/1930) xuất phát từ nguyên nhân trực tiếp nào sau đây?",
+        "difficulty": "Medium",
+        "is_anchor": true,
+        "template": "nguyen_nhan"
+      },
+      {
+        "id": "su9_vj_0449",
+        "stem": "Thời cơ ngàn năm có một để nhân dân Việt Nam tổng khởi nghĩa giành chính quyền năm 1945 kết thúc khi",
+        "difficulty": "Hard",
+        "is_anchor": true,
+        "template": "khac"
+      },
+      {
+        "id": "su9_vj_3082",
+        "stem": "Điểm tương đồng trong chính sách của chính quyền Xô viết Nghệ - Tĩnh (1930 - 1931) và chính quyền Việt Nam Dân chủ Cộng hòa (1945 - 1946) là",
+        "difficulty": "Hard",
+        "is_anchor": true,
+        "template": "so_sanh"
+      },
+      {
+        "id": "su9_vj_0464",
+        "stem": "Khó khăn lớn nhất của nước Việt Nam Dân chủ Cộng hòa sau cách mạng tháng Tám năm 1945 là gì",
+        "difficulty": "Hard",
+        "is_anchor": true,
+        "template": "khac"
+      },
+      {
+        "id": "su9_vj_1958",
+        "stem": "Nội dung nào sau đây không phản ánh đúng kết quả cuộc đấu tranh bảo vệ biên giới Tây Nam của quân dân Việt Nam (1975 - 1978)?",
+        "difficulty": "Medium",
+        "is_anchor": false,
+        "template": "ket_qua"
+      },
+      {
+        "id": "su9_vj_1838",
+        "stem": "Hệ quả công cuộc cải cách về kinh tế của Liên Xô trong những năm 80 của thế kỉ XX là gì?",
+        "difficulty": "Medium",
+        "is_anchor": false,
+        "template": "ket_qua"
+      },
+      {
+        "id": "su9_vj_0629",
+        "stem": "Điểm khác nhau trong hành động khiêu khích của tập đoàn Pônpốt và Trung Quốc trong cuộc đấu tranh bảo vệ biên giới phía Bắc và phía Tây Nam là gì",
+        "difficulty": "Hard",
+        "is_anchor": false,
+        "template": "so_sanh"
+      },
+      {
+        "id": "su9_vj_0054",
+        "stem": "Điểm khác biệt lớn nhất của phong trào giải phóng dân tộc sau chiến tranh thế giới thứ hai so với giai đoạn trước là",
+        "difficulty": "Hard",
+        "is_anchor": false,
+        "template": "so_sanh"
+      },
+      {
+        "id": "su9_vj_0265",
+        "stem": "Đâu không phải là mục đích của thực dân Pháp khi thực hiện các chính sách văn hóa  giáo dục nô dịch ở Việt Nam",
+        "difficulty": "Medium",
+        "is_anchor": false,
+        "template": "khong_phai"
+      },
+      {
+        "id": "su9_vj_0114",
+        "stem": "Nội dung nào dưới đây không phải là những thách thức mà nhân dân châu Phi phải đối mặt trong công cuộc xây dựng và phát triển đất nước hiện nay",
+        "difficulty": "Medium",
+        "is_anchor": false,
+        "template": "khong_phai"
+      },
+      {
+        "id": "su9_vj_2924",
+        "stem": "Ngày 7/2/1965, Mĩ đã dựa vào sự kiện nào để lấy cớ tiến hành chiến tranh phá hoại miền Bắc lần thứ nhất?",
+        "difficulty": "Easy",
+        "is_anchor": false,
+        "template": "su_kien_nao"
+      },
+      {
+        "id": "su9_vj_0097",
+        "stem": "Sự kiện nào được xem là mốc mở đầu cho phong trào giải phóng dân tộc ở châu Phi",
+        "difficulty": "Easy",
+        "is_anchor": false,
+        "template": "su_kien_nao"
+      },
+      {
+        "id": "su9_vj_3052",
+        "stem": "Trong thời kỳ Chiến tranh lạnh, quốc gia nào sau đây không không chịu tác động trực tiếp của Chiến tranh lạnh?",
+        "difficulty": "Medium",
+        "is_anchor": false,
+        "template": "quoc_gia_nao"
+      },
+      {
+        "id": "su9_vj_1823",
+        "stem": "Trong thời kì Chiến tranh lạnh, Mỹ ủng hộ quốc gia nào sau đây?",
+        "difficulty": "Medium",
+        "is_anchor": false,
+        "template": "quoc_gia_nao"
+      },
+      {
+        "id": "su9_vj_0016",
+        "stem": "Đâu không phải là kết quả của công cuộc xây dựng cơ sở vật chất kĩ thuật của CNXH ở Liên Xô giai đoạn 1950  1973",
+        "difficulty": "Easy",
+        "is_anchor": false,
+        "template": "khong_phai"
+      },
+      {
+        "id": "su9_vj_0641",
+        "stem": "Đâu không phải là nội dung của Ba chương trình kinh tế được thực hiện trong kế hoạch 5 năm 19861990",
+        "difficulty": "Easy",
+        "is_anchor": false,
+        "template": "khong_phai"
+      },
+      {
+        "id": "su9_vj_1857",
+        "stem": "Sau Chiến tranh thế giới thứ hai, về mặt quân, Mỹ đạt được ưu thế vượt trội nào sau đây so với các nước tư bản khác?",
+        "difficulty": "Easy",
+        "is_anchor": false,
+        "template": "so_sanh"
+      },
+      {
+        "id": "su9_vj_2535",
+        "stem": "So với Chiến dịch Điện Biên Phủ năm 1954, chiến dịch Hồ Chí Minh năm 1975 của quân dân Việt Nam diễn ra ở địa bàn nào?",
+        "difficulty": "Easy",
+        "is_anchor": false,
+        "template": "so_sanh"
+      },
+      {
+        "id": "su9_vj_0563",
+        "stem": "Nội dung nào trong Hiệp định Pari 1973 có tác động tích cực đến sự thay đổi so sánh lực lượng giữa cách mạng Việt Nam và Mĩ ở mn Việt Nam",
+        "difficulty": "Hard",
+        "is_anchor": false,
+        "template": "khac"
+      },
+      {
+        "id": "su9_vj_2926",
+        "stem": "Tính chất ác liệt của chiến lược “Chiến tranh cục bộ” so với chiến lược “Chiến tranh đặc biệt” của đế quốc Mĩ ở miền Nam Việt Nam được thể hiện qua thủ đoạn nào sau đây?",
+        "difficulty": "Hard",
+        "is_anchor": false,
+        "template": "so_sanh"
+      },
+      {
+        "id": "su9_vj_0063",
+        "stem": "Điểm nổi bật của tình hình kinh tế Trung Quốc trong những năm 1978 đến năm 1998 là gì",
+        "difficulty": "Medium",
+        "is_anchor": false,
+        "template": "khac"
+      },
+      {
+        "id": "su9_vj_2549",
+        "stem": "Việt Nam trở thành nơi diễn ra “cuộc đụng đầu lịch sử mang tính chất thời đại và có tầm vóc quốc tế thời kì 1954 - 1975” vì",
+        "difficulty": "Hard",
+        "is_anchor": false,
+        "template": "khac"
+      },
+      {
+        "id": "su9_vj_0003",
+        "stem": "Trong những năm 5060 của thế kỉ XX nền kinh tế Kiên Xô phát triển mạnh",
+        "difficulty": "Easy",
+        "is_anchor": false,
+        "template": "khac"
+      },
+      {
+        "id": "su9_vj_2396",
+        "stem": "Cuối tháng 12 năm 1946, ở các đô thị phía Bắc vĩ tuyến 16, quân dân Việt Nam đã",
+        "difficulty": "Easy",
+        "is_anchor": false,
+        "template": "khac"
+      },
+      {
+        "id": "su9_vj_2356",
+        "stem": "Sau khi Cách mạng tháng Tám thành công, các thế lực ngoại xâm và nội phản ở Việt Nam đều có chung âm mưu nào sau đây?",
+        "difficulty": "Medium",
+        "is_anchor": false,
+        "template": "khac"
+      },
+      {
+        "id": "su9_vj_0758",
+        "stem": "Sự ra đời của nước Cộng hòa Nhân dân Trung Hoa (1949) có ý nghĩa như thế nào đối với Trung Quốc?",
+        "difficulty": "Medium",
+        "is_anchor": false,
+        "template": "y_nghia"
+      },
+      {
+        "id": "su9_vj_0487",
+        "stem": "Chiến thắng Việt Bắc năm 1947 của quân dân Việt Nam đã buộc thực dân Pháp phải chuyển từ chiến lược đánh nhanh thắng nhanh sang",
+        "difficulty": "Medium",
+        "is_anchor": false,
+        "template": "khac"
+      },
+      {
+        "id": "su9_vj_0292",
+        "stem": "Một trong những nguyên nhân thất bại của phong trào yêu nước theo khuynh hướng dân chủ tư sản ở Việt Nam từ sau Chiến tranh thế giới thứ nhất đến đầu năm 1930 là do giai cấp tư sản",
+        "difficulty": "Hard",
+        "is_anchor": false,
+        "template": "nguyen_nhan"
+      },
+      {
+        "id": "su9_vj_0637",
+        "stem": "Nội dung nào dưới đây không phản ánh đúng mục tiêu của Đảng cộng Sản Việt Nam đề ra trong kế hoạch 5 năm 1996  2000",
+        "difficulty": "Medium",
+        "is_anchor": false,
+        "template": "khac"
+      },
+      {
+        "id": "su9_vj_0365",
+        "stem": "Căn cứ vào đâu để khẳng định Xô Viết Nghệ  Tĩnh thật sự là chính quyền cách mạng của quần chúng dưới sự lãnh đạo của Đảng",
+        "difficulty": "Hard",
+        "is_anchor": false,
+        "template": "khac"
+      },
+      {
+        "id": "su9_vj_0415",
+        "stem": "Nhiệm vụ hàng đầu của cách mạng Việt Nam được xác định tại Hội nghị lần thứ 8 Ban chấp hành Trung ương Đảng Cộng sản Đông Dương 51941 là gì",
+        "difficulty": "Medium",
+        "is_anchor": false,
+        "template": "khac"
+      },
+      {
+        "id": "su9_vj_2152",
+        "stem": "Nhiệm vụ hàng đầu của cách mạng Việt Nam được Nguyễn Ái Quốc nêu trong Cương lĩnh chính trị đầu tiên của Đảng là",
+        "difficulty": "Easy",
+        "is_anchor": false,
+        "template": "khac"
+      },
+      {
+        "id": "su9_vj_2935",
+        "stem": "Thủ đoạn của Mĩ trong chiến lược “Việt Nam hóa chiến tranh” (1969 - 1973) có điểm mới so với các chiến lược chiến tranh trước đó trên lĩnh vực nào?",
+        "difficulty": "Medium",
+        "is_anchor": false,
+        "template": "so_sanh"
+      },
+      {
+        "id": "su9_vj_2102",
+        "stem": "Việt Nam Quốc dân đảng xác định lực lượng chủ chốt tiến hành bạo lực cách mạng là",
+        "difficulty": "Easy",
+        "is_anchor": false,
+        "template": "khac"
+      }
+    ],
+    "B": [
+      {
+        "id": "su9_vj_0154",
+        "stem": "Năm 2013 Chủ tịch nước Trương Tấn Sang và Tổng thống Hoa Kỳ B Obama đã đưa mối quan hệ hợp tác Việt  Mĩ lên tầm cao mới đó là quan hệ",
+        "difficulty": "Easy",
+        "is_anchor": true,
+        "template": "khac"
+      },
+      {
+        "id": "su9_vj_2714",
+        "stem": "Sau Chiến tranh thế giới thứ hai , quan hệ giữa Mỹ và Liên Xô là",
+        "difficulty": "Easy",
+        "is_anchor": true,
+        "template": "khac"
+      },
+      {
+        "id": "su9_vj_2322",
+        "stem": "Ngày 8/9/1951, nhằm tận dụng nguồn viện trợ của Mỹ phục vụ cho phát triển kinh tế, Nhật Bản ký kết với Mĩ bản",
+        "difficulty": "Easy",
+        "is_anchor": true,
+        "template": "khac"
+      },
+      {
+        "id": "su9_vj_1832",
+        "stem": "Trong thời kỳ Chiến tranh lạnh, Liên Xô đã",
+        "difficulty": "Medium",
+        "is_anchor": true,
+        "template": "khac"
+      },
+      {
+        "id": "su9_vj_1749",
+        "stem": "Chiến thắng nào sau đây của nhân dân Liên Xô đã làm phá sản chiến lược “Chiến tranh chớp nhoáng” của Hitle?",
+        "difficulty": "Medium",
+        "is_anchor": true,
+        "template": "khac"
+      },
+      {
+        "id": "su9_vj_2250",
+        "stem": "Nội dung nào phản ánh đúng kết quả sự đối đầu căng thẳng giữa M ỹ và Liên Xô sau Chiến tranh thế giới thứ hai?",
+        "difficulty": "Medium",
+        "is_anchor": true,
+        "template": "ket_qua"
+      },
+      {
+        "id": "su9_vj_1767",
+        "stem": "Sự bùng nổ của cuộc khởi nghĩa Yên Bái (9/2/1930) xuất phát từ nguyên nhân trực tiếp nào sau đây?",
+        "difficulty": "Medium",
+        "is_anchor": true,
+        "template": "nguyen_nhan"
+      },
+      {
+        "id": "su9_vj_0449",
+        "stem": "Thời cơ ngàn năm có một để nhân dân Việt Nam tổng khởi nghĩa giành chính quyền năm 1945 kết thúc khi",
+        "difficulty": "Hard",
+        "is_anchor": true,
+        "template": "khac"
+      },
+      {
+        "id": "su9_vj_3082",
+        "stem": "Điểm tương đồng trong chính sách của chính quyền Xô viết Nghệ - Tĩnh (1930 - 1931) và chính quyền Việt Nam Dân chủ Cộng hòa (1945 - 1946) là",
+        "difficulty": "Hard",
+        "is_anchor": true,
+        "template": "so_sanh"
+      },
+      {
+        "id": "su9_vj_0464",
+        "stem": "Khó khăn lớn nhất của nước Việt Nam Dân chủ Cộng hòa sau cách mạng tháng Tám năm 1945 là gì",
+        "difficulty": "Hard",
+        "is_anchor": true,
+        "template": "khac"
+      },
+      {
+        "id": "su9_vj_1780",
+        "stem": "Nguyên nhân chủ yếu nào thúc đẩy Nguyễn Tất Thành ra đi tìm đường cứu nước, giải phóng dân tộc năm 1911?",
+        "difficulty": "Hard",
+        "is_anchor": false,
+        "template": "nguyen_nhan"
+      },
+      {
+        "id": "su9_vj_0149",
+        "stem": "Nguyên nhân cơ bản nhất thúc đẩy nền kinh tế Mỹ phát triển nhanh chóng sau chiến tranh thế giới thứ hai là",
+        "difficulty": "Hard",
+        "is_anchor": false,
+        "template": "nguyen_nhan"
+      },
+      {
+        "id": "su9_vj_2838",
+        "stem": "Trong Cách mạng tháng Tám năm 1945, khởi nghĩa tại các đô thị thắng lợi có ý nghĩa quyết định nhất vì đây là nơi",
+        "difficulty": "Medium",
+        "is_anchor": false,
+        "template": "y_nghia"
+      },
+      {
+        "id": "su9_vj_0434",
+        "stem": "Tên gọi Đội Việt Nam tuyên truyền giải phóng quân có ý nghĩa như thế nào",
+        "difficulty": "Medium",
+        "is_anchor": false,
+        "template": "y_nghia"
+      },
+      {
+        "id": "su9_vj_2963",
+        "stem": "Nguyên nhân khách quan góp phần làm nên thắng lợi của cuộc kháng chiến chống Mĩ, cứu nước (1954 - 1975) của nhân dân Việt Nam là",
+        "difficulty": "Medium",
+        "is_anchor": false,
+        "template": "nguyen_nhan"
+      },
+      {
+        "id": "su9_vj_0143",
+        "stem": "Nguyên nhân nào không tạo điều kiện cho nền kinh tế Mỹ phát triển mạnh sau chiến tranh thế giới thứ hai",
+        "difficulty": "Medium",
+        "is_anchor": false,
+        "template": "nguyen_nhan"
+      },
+      {
+        "id": "su9_vj_0448",
+        "stem": "Nội dung nào sau đây không thể hiện đúng vai trò của Hồ Chí Minh trong cách mạng tháng Tám 1945",
+        "difficulty": "Hard",
+        "is_anchor": false,
+        "template": "vai_tro"
+      },
+      {
+        "id": "su9_vj_0451",
+        "stem": "Nội dung nào không phản ánh đúng về vai trò của Mặt trận Việt Minh từ khi thành lập đến Cách mạng tháng Tám năm 1945",
+        "difficulty": "Hard",
+        "is_anchor": false,
+        "template": "vai_tro"
+      },
+      {
+        "id": "su9_vj_2246",
+        "stem": "Sự kiện nào là “sản phẩm” của Chiến tranh lạnh và là cuộc đụng đầu trực tiếp đầu tiên giữa hai phe?",
+        "difficulty": "Hard",
+        "is_anchor": false,
+        "template": "su_kien_nao"
+      },
+      {
+        "id": "su9_vj_2196",
+        "stem": "Trong quá trình lãnh đạo cách mạng của Đảng, sự kiện nào là mốc đánh dấu sự phát triển hơn nữa tư tưởng cách mạng của Nguyễn Ái Quốc - Hồ Chí Minh thể hiện trong Cương lĩnh chính trị đầu tiên?",
+        "difficulty": "Hard",
+        "is_anchor": false,
+        "template": "su_kien_nao"
+      },
+      {
+        "id": "su9_vj_0206",
+        "stem": "Vai trò quan trọng nhất của tổ chức Liên hợp quốc là gì",
+        "difficulty": "Medium",
+        "is_anchor": false,
+        "template": "vai_tro"
+      },
+      {
+        "id": "su9_vj_2827",
+        "stem": "Lực lượng vũ trang nào giữ vai trò quan trọng đối với thắng lợi của Tổng khởi nghĩa tháng Tám năm 1945?",
+        "difficulty": "Medium",
+        "is_anchor": false,
+        "template": "vai_tro"
+      },
+      {
+        "id": "su9_vj_2913",
+        "stem": "“Chiến dịch này là một chiến dịch lịch sử của quân đội ta, ta đánh thắng chiến dịch này có ý nghĩa quân sự và ý nghĩa chính trị quan trọng” là nhận định của Chủ tịch Hồ Chí Minh về",
+        "difficulty": "Easy",
+        "is_anchor": false,
+        "template": "y_nghia"
+      },
+      {
+        "id": "su9_vj_2385",
+        "stem": "Trận đánh nào có tính chất ác liệt và ý nghĩa quyết định nhất trong chiến dịch Biên giới thu - đông 1950?",
+        "difficulty": "Easy",
+        "is_anchor": false,
+        "template": "y_nghia"
+      },
+      {
+        "id": "su9_vj_0348",
+        "stem": "Cương lĩnh chính trị đầu tiên của Đảng Cộng sản Việt Nam bao gồm nhiều văn kiện ngoại trừ",
+        "difficulty": "Easy",
+        "is_anchor": false,
+        "template": "khong_phai"
+      },
+      {
+        "id": "su9_vj_0083",
+        "stem": "Từ những năm 90 của thế kỳ XX đến nay ASEAN đã chuyển trọng tâm hoạt động sang hợp tác trên lĩnh vực",
+        "difficulty": "Easy",
+        "is_anchor": false,
+        "template": "khac"
+      },
+      {
+        "id": "su9_vj_0355",
+        "stem": "Để giải quyết hậu quả của cuộc khủng hoảng kinh tế 19291933 thực dân Pháp đã thực hiện biện pháp gì",
+        "difficulty": "Medium",
+        "is_anchor": false,
+        "template": "khac"
+      },
+      {
+        "id": "su9_vj_2857",
+        "stem": "Nhiệm vụ chính của nhân dân Trung Quốc từ năm 1953 đến năm 1978 là",
+        "difficulty": "Medium",
+        "is_anchor": false,
+        "template": "khac"
+      },
+      {
+        "id": "su9_vj_2784",
+        "stem": "Cương lĩnh chính trị đầu tiên của Đảng Cộng sản Việt Nam là cương lĩnh đúng đắn và sáng tạo vì đã",
+        "difficulty": "Hard",
+        "is_anchor": false,
+        "template": "khac"
+      },
+      {
+        "id": "su9_vj_0407",
+        "stem": "Nhiệm vụ hàng đầu của cách mạng Việt Nam thời kì 1939  1945 là gì",
+        "difficulty": "Medium",
+        "is_anchor": false,
+        "template": "khac"
+      },
+      {
+        "id": "su9_vj_2621",
+        "stem": "Nhận xét nào sau đây đúng về GDP của Việt Nam từ năm 1995 đến năm 2021?",
+        "difficulty": "Medium",
+        "is_anchor": false,
+        "template": "khac"
+      },
+      {
+        "id": "su9_vj_2651",
+        "stem": "Trong quá trình xây dựng chủ nghĩa xã hội (1925-1941), Liên Xô đã đặt trọng tâm phát triển lĩnh vực nào?",
+        "difficulty": "Easy",
+        "is_anchor": false,
+        "template": "khac"
+      },
+      {
+        "id": "su9_vj_1276",
+        "stem": "Đại thắng mùa xuân 1975 đã đưa Việt Nam bước vào thời kì",
+        "difficulty": "Medium",
+        "is_anchor": false,
+        "template": "khac"
+      },
+      {
+        "id": "su9_vj_0552",
+        "stem": "Mĩ chính thức tiến hành cuộc chiến tranh phá hoại miền Bắc lần thứ nhất trong khi đang thực hiện chiến lược chiến tranh nào ở miền Nam Việt Nam",
+        "difficulty": "Hard",
+        "is_anchor": false,
+        "template": "khac"
+      },
+      {
+        "id": "su9_vj_0093",
+        "stem": "Ý nào sau đây không chứng minh cho nhận định Từ đầu những năm 90 của thế kỉ XX một chương mới đã mở ra trong lịch sử khu vực Đông Nam Á",
+        "difficulty": "Hard",
+        "is_anchor": false,
+        "template": "khac"
+      },
+      {
+        "id": "su9_vj_0525",
+        "stem": "Cuộc tiến công chiến lược Đông Xuân 19531954 đã khoét sâu vào điểm yếu nào của kế hoạch Nava",
+        "difficulty": "Hard",
+        "is_anchor": false,
+        "template": "khac"
+      },
+      {
+        "id": "su9_vj_0358",
+        "stem": "Mục tiêu đấu tranh của phong trào 1930 1931 là gì",
+        "difficulty": "Hard",
+        "is_anchor": false,
+        "template": "khac"
+      },
+      {
+        "id": "su9_vj_0589",
+        "stem": "Chiến dịch Điện Biên Phủ 1954 và chiến dịch Hồ Chí Minh 1975 đều",
+        "difficulty": "Hard",
+        "is_anchor": false,
+        "template": "khac"
+      },
+      {
+        "id": "su9_vj_2531",
+        "stem": "Nội dung nào sau đây phản ánh điểm khác biệt về âm mưu của Mĩ khi tiến hành chiến tranh phá hoại miền Bắc lần thứ hai (1972) so với lần thứ nhất (1965 - 1968)?",
+        "difficulty": "Hard",
+        "is_anchor": false,
+        "template": "so_sanh"
+      },
+      {
+        "id": "su9_vj_0031",
+        "stem": "Công cuộc xây dựng chủ nghĩa xã hội của các nước Đông Âu đã mắc phải sai lầm nghiêm trọng nào",
+        "difficulty": "Medium",
+        "is_anchor": false,
+        "template": "khac"
+      }
+    ],
+    "C": [
+      {
+        "id": "su9_vj_0154",
+        "stem": "Năm 2013 Chủ tịch nước Trương Tấn Sang và Tổng thống Hoa Kỳ B Obama đã đưa mối quan hệ hợp tác Việt  Mĩ lên tầm cao mới đó là quan hệ",
+        "difficulty": "Easy",
+        "is_anchor": true,
+        "template": "khac"
+      },
+      {
+        "id": "su9_vj_2714",
+        "stem": "Sau Chiến tranh thế giới thứ hai , quan hệ giữa Mỹ và Liên Xô là",
+        "difficulty": "Easy",
+        "is_anchor": true,
+        "template": "khac"
+      },
+      {
+        "id": "su9_vj_2322",
+        "stem": "Ngày 8/9/1951, nhằm tận dụng nguồn viện trợ của Mỹ phục vụ cho phát triển kinh tế, Nhật Bản ký kết với Mĩ bản",
+        "difficulty": "Easy",
+        "is_anchor": true,
+        "template": "khac"
+      },
+      {
+        "id": "su9_vj_1832",
+        "stem": "Trong thời kỳ Chiến tranh lạnh, Liên Xô đã",
+        "difficulty": "Medium",
+        "is_anchor": true,
+        "template": "khac"
+      },
+      {
+        "id": "su9_vj_1749",
+        "stem": "Chiến thắng nào sau đây của nhân dân Liên Xô đã làm phá sản chiến lược “Chiến tranh chớp nhoáng” của Hitle?",
+        "difficulty": "Medium",
+        "is_anchor": true,
+        "template": "khac"
+      },
+      {
+        "id": "su9_vj_2250",
+        "stem": "Nội dung nào phản ánh đúng kết quả sự đối đầu căng thẳng giữa M ỹ và Liên Xô sau Chiến tranh thế giới thứ hai?",
+        "difficulty": "Medium",
+        "is_anchor": true,
+        "template": "ket_qua"
+      },
+      {
+        "id": "su9_vj_1767",
+        "stem": "Sự bùng nổ của cuộc khởi nghĩa Yên Bái (9/2/1930) xuất phát từ nguyên nhân trực tiếp nào sau đây?",
+        "difficulty": "Medium",
+        "is_anchor": true,
+        "template": "nguyen_nhan"
+      },
+      {
+        "id": "su9_vj_0449",
+        "stem": "Thời cơ ngàn năm có một để nhân dân Việt Nam tổng khởi nghĩa giành chính quyền năm 1945 kết thúc khi",
+        "difficulty": "Hard",
+        "is_anchor": true,
+        "template": "khac"
+      },
+      {
+        "id": "su9_vj_3082",
+        "stem": "Điểm tương đồng trong chính sách của chính quyền Xô viết Nghệ - Tĩnh (1930 - 1931) và chính quyền Việt Nam Dân chủ Cộng hòa (1945 - 1946) là",
+        "difficulty": "Hard",
+        "is_anchor": true,
+        "template": "so_sanh"
+      },
+      {
+        "id": "su9_vj_0464",
+        "stem": "Khó khăn lớn nhất của nước Việt Nam Dân chủ Cộng hòa sau cách mạng tháng Tám năm 1945 là gì",
+        "difficulty": "Hard",
+        "is_anchor": true,
+        "template": "khac"
+      },
+      {
+        "id": "su9_vj_0039",
+        "stem": "Ngay sau khi Chiến tranh thế giới thứ hai kết thúc những nước nào ở khu vực Đông Nam Á giành được độc lập sớm nhất",
+        "difficulty": "Easy",
+        "is_anchor": false,
+        "template": "quoc_gia_nao"
+      },
+      {
+        "id": "su9_vj_0045",
+        "stem": "Từ cuối những năm 70 của thế kỉ XX ở châu Phi chế độ phân biệt chủng tộc tập trung ở các quốc gia nào",
+        "difficulty": "Easy",
+        "is_anchor": false,
+        "template": "quoc_gia_nao"
+      },
+      {
+        "id": "su9_vj_0354",
+        "stem": "Nhận xét nào sau đây không đúng khi đánh giá về nhiệm vụ cách mạng được xác định trong Cương lĩnh chính trị năm 1930",
+        "difficulty": "Hard",
+        "is_anchor": false,
+        "template": "khong_phai"
+      },
+      {
+        "id": "su9_vj_0427",
+        "stem": "Nội dung nào sau đây không phải là ý nghĩa của cao trào kháng Nhật cứu nước",
+        "difficulty": "Hard",
+        "is_anchor": false,
+        "template": "khong_phai"
+      },
+      {
+        "id": "su9_vj_1963",
+        "stem": "Một trong những kết quả tiêu biểu về kinh tế của Việt Nam giai đoạn 1986 - 1991 là",
+        "difficulty": "Easy",
+        "is_anchor": false,
+        "template": "ket_qua"
+      },
+      {
+        "id": "su9_vj_2253",
+        "stem": "Nội dung nào là kết quả của kế hoạch 5 năm lần thứ tư (1946 - 1950) nhằm khôi phục kinh tế và phát triển đất nước ở Liên Xô?",
+        "difficulty": "Easy",
+        "is_anchor": false,
+        "template": "ket_qua"
+      },
+      {
+        "id": "su9_vj_1874",
+        "stem": "Đến những năm 90 của thế kỉ XX, tình hình chính trị khu vực Đông Nam Á cải thiện rõ rệt sau sự kiện nào?",
+        "difficulty": "Medium",
+        "is_anchor": false,
+        "template": "su_kien_nao"
+      },
+      {
+        "id": "su9_vj_2139",
+        "stem": "Nguyễn Ái Quốc đã bước đầu đặt cơ sở cho mối quan hệ giữa cách mạng Việt Nam với phong trào giải phóng dân tộc trên thế giới trong sự kiện nào?",
+        "difficulty": "Medium",
+        "is_anchor": false,
+        "template": "su_kien_nao"
+      },
+      {
+        "id": "su9_vj_2540",
+        "stem": "Hiệp định Pa-ri về chấm dứt chiến tranh, lập lại hòa bình ở Việt Nam năm 1973 không có ý nghĩa nào nào sau đây?",
+        "difficulty": "Hard",
+        "is_anchor": false,
+        "template": "y_nghia"
+      },
+      {
+        "id": "su9_vj_3025",
+        "stem": "Nội dung nào sau đây phản ánh đúng ý nghĩa của phong trào “Vô sản hóa” năm 1928 do Hội Việt Nam Cách mạng Thanh niên tiến hành?",
+        "difficulty": "Hard",
+        "is_anchor": false,
+        "template": "y_nghia"
+      },
+      {
+        "id": "su9_vj_0151",
+        "stem": "Điểm giống nhau trong chính sách đối ngoại của các đời tổng thống Mỹ trong những năm 1945  1991 là gì",
+        "difficulty": "Medium",
+        "is_anchor": false,
+        "template": "so_sanh"
+      },
+      {
+        "id": "su9_vj_0311",
+        "stem": "Con đường cứu nước của Nguyễn Ái Quốc có điểm gì mới so với Phan Bội Châu là đi sang",
+        "difficulty": "Medium",
+        "is_anchor": false,
+        "template": "so_sanh"
+      },
+      {
+        "id": "su9_vj_2175",
+        "stem": "Cao trào dân chủ 1936 - 1939 và phong trào cách mạng 1930 - 1931 ở Việt Nam không có điểm khác biệt về",
+        "difficulty": "Hard",
+        "is_anchor": false,
+        "template": "so_sanh"
+      },
+      {
+        "id": "su9_vj_0328",
+        "stem": "Nguyên nhân khách quan dẫn đến sự thất bại của khởi nghĩa Yên Bái 1930",
+        "difficulty": "Medium",
+        "is_anchor": false,
+        "template": "nguyen_nhan"
+      },
+      {
+        "id": "su9_vj_2933",
+        "stem": "Nội dung nào không phải là mục đích phong trào đấu tranh chính trị của nhân dân miền Nam những năm 1969 - 1973?",
+        "difficulty": "Medium",
+        "is_anchor": false,
+        "template": "khong_phai"
+      },
+      {
+        "id": "su9_vj_0521",
+        "stem": "Đâu không phải là những biện pháp được Pháp thực hiện trước khi kế hoạch Nava bị đảo lộn",
+        "difficulty": "Medium",
+        "is_anchor": false,
+        "template": "khong_phai"
+      },
+      {
+        "id": "su9_vj_2505",
+        "stem": "Mĩ chính thức gây ra cuộc chiến tranh bằng không quân và hải quân đối với miền Bắc Việt Nam khi nào?",
+        "difficulty": "Medium",
+        "is_anchor": false,
+        "template": "khac"
+      },
+      {
+        "id": "su9_vj_0477",
+        "stem": "Nội dung đường lối kháng chiến chống thực dân Pháp 19461954 của Đảng và Chính phủ nước Việt Nam Dân chủ Cộng hòa là gì",
+        "difficulty": "Easy",
+        "is_anchor": false,
+        "template": "khac"
+      },
+      {
+        "id": "su9_vj_1771",
+        "stem": "Nội dung nào sau đây phản ánh điểm khác nhau căn bản trong hoạt động của Hội Việt Nam Cách mạng Thanh niên với Việt Nam Quốc dân Đảng?",
+        "difficulty": "Hard",
+        "is_anchor": false,
+        "template": "so_sanh"
+      },
+      {
+        "id": "su9_vj_1821",
+        "stem": "Đại hội Quốc dân họp ở Tân Trào (16/8/1945) đã quyết định thành lập",
+        "difficulty": "Easy",
+        "is_anchor": false,
+        "template": "khac"
+      },
+      {
+        "id": "su9_vj_0660",
+        "stem": "Nhân tố hàng đầu quyết định mọi thắng lợi của cách mạng Việt Nam từ năm 1930 đến năm 2000 là gì",
+        "difficulty": "Hard",
+        "is_anchor": false,
+        "template": "khac"
+      },
+      {
+        "id": "su9_vj_0242",
+        "stem": "Đâu là nhân tố quyết định đến sự phát triển của một quốc gia nửa sau thế kỉ XX",
+        "difficulty": "Medium",
+        "is_anchor": false,
+        "template": "khac"
+      },
+      {
+        "id": "su9_vj_0676",
+        "stem": "Một trong những mục tiêu của hội đồng tương trợ kinh tế (SEV) khi thành lập là:",
+        "difficulty": "Medium",
+        "is_anchor": false,
+        "template": "khac"
+      },
+      {
+        "id": "su9_vj_0274",
+        "stem": "Nội dung nào dưới đây không phản ánh đúng những tác động tích cực trong cuộc khai thác thuộc địa lần thứ 2 của Pháp ở Việt Nam",
+        "difficulty": "Hard",
+        "is_anchor": false,
+        "template": "khac"
+      },
+      {
+        "id": "su9_vj_2598",
+        "stem": "Trong trật tự thế giới đa cực, sự gia tăng vai trò của các trung tâm, các tổ chức quốc tế phản ánh nội dung nào sau đây?",
+        "difficulty": "Hard",
+        "is_anchor": false,
+        "template": "vai_tro"
+      },
+      {
+        "id": "su9_vj_2237",
+        "stem": "Để tiến hành Chiến tranh lạnh với Liên Xô, M ỹ và các cường quốc đã không thực hiện biện pháp nào sau đây ?",
+        "difficulty": "Medium",
+        "is_anchor": false,
+        "template": "khac"
+      },
+      {
+        "id": "su9_vj_2408",
+        "stem": "Trong kế hoạch Bô-la-e, để bao vây Việt Bắc từ phía Tây, Pháp đã sử dụng thủ đoạn nào sau đây?",
+        "difficulty": "Easy",
+        "is_anchor": false,
+        "template": "khac"
+      },
+      {
+        "id": "su9_vj_3121",
+        "stem": "Đường lối đổi mới được Đảng Cộng sản Việt Nam đề ra từ Đại hội VI (12/1986) xác định trọng tâm là đổi mới về",
+        "difficulty": "Easy",
+        "is_anchor": false,
+        "template": "khac"
+      },
+      {
+        "id": "su9_vj_2859",
+        "stem": "Nội dung nào sau đây phản ánh đặc điểm của ASEAN trong giai đoạn 1967 - 1975?",
+        "difficulty": "Medium",
+        "is_anchor": false,
+        "template": "khac"
+      },
+      {
+        "id": "su9_vj_1703",
+        "stem": "Nhiệm vụ khôi khục kinh tế, xây dựng chủ nghĩa xã hội đặt ra yêu cầu bức thiết gì đối với các nước Cộng hoà Xô viết (1918-1921)?",
+        "difficulty": "Medium",
+        "is_anchor": false,
+        "template": "khac"
+      }
+    ]
+  },
+  "spares": [
+    {
+      "id": "su9_vj_0108",
+      "stem": "Chế độ Apácthai Là sự phân biệt con người dựa trên",
+      "difficulty": "Easy",
+      "is_anchor": false,
+      "template": "khac"
+    },
+    {
+      "id": "su9_vj_0357",
+      "stem": "Phong trào cách mạng 19301931 phát triển lên đến đỉnh cao ở địa phương nào",
+      "difficulty": "Easy",
+      "is_anchor": false,
+      "template": "khac"
+    },
+    {
+      "id": "su9_vj_0569",
+      "stem": "Chiến dịch Điện Biên Phủ năm 1954 và trận Điện Biên Phủ trên không năm 1972 của quân dân Việt Nam đều",
+      "difficulty": "Hard",
+      "is_anchor": false,
+      "template": "khac"
+    },
+    {
+      "id": "su9_vj_0999",
+      "stem": "Từ việc bản “Yêu sách của nhân dân An Nam” không được Hội nghị Vécxai (1919) chấp nhận, Nguyễn Ái Quốc rút ra kết luận: muốn được giải phóng, các dân tộc (thuộc địa)",
+      "difficulty": "Medium",
+      "is_anchor": false,
+      "template": "khac"
+    },
+    {
+      "id": "su9_vj_1755",
+      "stem": "Trên đường truy quét phát xít Đức đến sào huyệt cuối cùng (1944), Hồng quân Liên Xô không giúp đỡ quốc gia nào được giải phóng?",
+      "difficulty": "Easy",
+      "is_anchor": false,
+      "template": "quoc_gia_nao"
+    },
+    {
+      "id": "su9_vj_1939",
+      "stem": "Trong những năm 1954 - 1956, Mĩ dựng lên chính quyền tay sai đứng đầu là Ngô Đình Diệm ở miền Nam Việt Nam nhằm mục đích nào sau đây?",
+      "difficulty": "Medium",
+      "is_anchor": false,
+      "template": "khac"
+    },
+    {
+      "id": "su9_vj_1952",
+      "stem": "Cuộc hành quân lớn nhất của Mĩ trong cuộc phản công chiến lược mùa khô 1966 - 1967 là tấn công vào",
+      "difficulty": "Easy",
+      "is_anchor": false,
+      "template": "khac"
+    },
+    {
+      "id": "su9_vj_1987",
+      "stem": "Ý nào sau đây không mô tả đúng tình hình xã hội của Trung Quốc?",
+      "difficulty": "Medium",
+      "is_anchor": false,
+      "template": "khac"
+    },
+    {
+      "id": "su9_vj_1995",
+      "stem": "Nội dung nào sau đây phản ánh đúng tình hình kinh tế Hàn Quốc đầu thế kỷ XXI?",
+      "difficulty": "Medium",
+      "is_anchor": false,
+      "template": "khac"
+    },
+    {
+      "id": "su9_vj_2100",
+      "stem": "Chiến tranh thế giới thứ hai (1939-1945) đã không có tác động nào đến tình hình thế giới?",
+      "difficulty": "Hard",
+      "is_anchor": false,
+      "template": "khac"
+    },
+    {
+      "id": "su9_vj_2130",
+      "stem": "Đảng Cộng sản Việt Nam ra đời năm 1930 có tác động nào đối với phong trào đấu tranh của giai cấp công nhân Việt Nam?",
+      "difficulty": "Hard",
+      "is_anchor": false,
+      "template": "khac"
+    },
+    {
+      "id": "su9_vj_2191",
+      "stem": "Nội dung nào sau đây phản ánh bài học kinh nghiệm của phong trào 1930 - 1931 được Đảng Cộng sản Đông Dương vận dụng trong giai đoạn 1939 - 1945?",
+      "difficulty": "Hard",
+      "is_anchor": false,
+      "template": "khac"
+    },
+    {
+      "id": "su9_vj_2225",
+      "stem": "Đội Việt Nam Tuyên truyền Giải phóng quân được thành lập năm 1944 với nhiệm vụ trọng tâm nào sau đây?",
+      "difficulty": "Medium",
+      "is_anchor": false,
+      "template": "khac"
+    },
+    {
+      "id": "su9_vj_2343",
+      "stem": "Sau Chiến tranh thế giới thứ hai, giai đoạn nào nhân dân Campuchia rơi vào thảm họa diệt chủng?",
+      "difficulty": "Easy",
+      "is_anchor": false,
+      "template": "khac"
+    },
+    {
+      "id": "su9_vj_2449",
+      "stem": "Với Hiệp định Giơ-ne-vơ 1954 về chấm dứt chiến tranh, lập lại hòa bình ở Đông Dương, Mỹ đã",
+      "difficulty": "Medium",
+      "is_anchor": false,
+      "template": "khac"
+    },
+    {
+      "id": "su9_vj_2874",
+      "stem": "Điểm mới trong nhiệm vụ của cách mạng Việt Nam giai đoạn 1951 - 1953 so với giai đoạn 1946 - 1950 là",
+      "difficulty": "Hard",
+      "is_anchor": false,
+      "template": "so_sanh"
+    },
+    {
+      "id": "su9_vj_2875",
+      "stem": "Năm 1952, Đảng và Chính phủ Việt Nam đề ra phong trào nào trên mặt trận kinh tế đã lôi cuốn mọi người, mọi ngành, mọi giới tham gia vào sản xuất?",
+      "difficulty": "Easy",
+      "is_anchor": false,
+      "template": "khac"
+    },
+    {
+      "id": "su9_vj_2903",
+      "stem": "Nhận xét nào sau đây là đúng về mối quan hệ giữa hậu phương và tiền tuyến trong kháng chiến chống Pháp (1945 - 1954)?",
+      "difficulty": "Hard",
+      "is_anchor": false,
+      "template": "khac"
+    },
+    {
+      "id": "su9_vj_2953",
+      "stem": "Chiến thắng trong chiến dịch Huế - Đà Nẵng năm 1975 của quân dân Việt Nam có ý nghĩa nào sau đây?",
+      "difficulty": "Medium",
+      "is_anchor": false,
+      "template": "y_nghia"
+    },
+    {
+      "id": "su9_vj_3074",
+      "stem": "Từ năm 1947, Mỹ thực hiện kế hoạch Mácsan đã tác động như thế nào tới cục diện các nước Đông Âu và Tây Âu?",
+      "difficulty": "Medium",
+      "is_anchor": false,
+      "template": "khac"
+    }
+  ]
+}

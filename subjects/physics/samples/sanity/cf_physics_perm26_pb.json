@@ -1,0 +1,152 @@
+{
+  "subject": "physics",
+  "label_by": "GIÁO VIÊN (ma trận đề kenhgiaovien) — NHÃN ĐÃ XÁO (seed 26, kiểm tra tỉnh táo)",
+  "backend": "text",
+  "seed": 26,
+  "donor_seed": 42,
+  "n_items": 1539,
+  "surface_kind": "numeric",
+  "surface_cols": [
+    "num_answer_present",
+    "num_mag_ratio",
+    "num_recip_swap",
+    "num_formula_family",
+    "num_option_count"
+  ],
+  "kg_cols": [
+    "kg_entity_match_coverage",
+    "kg_num_correct",
+    "kg_num_distractor",
+    "kg_prereq_correct",
+    "kg_prereq_distractor",
+    "kg_centrality_mean",
+    "kad_path_distance_mean",
+    "jaccard_kg_max",
+    "jaccard_kg_mean",
+    "rsi_dc"
+  ],
+  "n_donors": 3888,
+  "base_expected_level_mean": 1.2370985655405642,
+  "arms": {
+    "num_down": {
+      "n": 603,
+      "promise": -1,
+      "desc": "bỏ 1 nhiễu có số → trục thao tác nhẹ đi",
+      "delta_mean": 0.009228989853361354,
+      "delta_median": 0.0023035796706618594,
+      "direction_agreement": 0.4842454394693201,
+      "delta_kgonly_mean": 0.022336165325339285,
+      "control_arm": "placebo",
+      "vs_control_diff": -0.015751142257181168,
+      "vs_control_p": 0.006120795240685956,
+      "hop_old_mean": 0.17647058823529413,
+      "hop_new_mean_measured": 6.166666666666667,
+      "frac_disconnected": 0.9800995024875622
+    },
+    "num_up": {
+      "n": 1058,
+      "promise": 1,
+      "desc": "thêm 1 nhiễu có số → trục thao tác nặng lên",
+      "delta_mean": 0.05169071021885487,
+      "delta_median": 0.0481718365505992,
+      "direction_agreement": 0.6162570888468809,
+      "delta_kgonly_mean": 0.003695389033393804,
+      "control_arm": "placebo",
+      "vs_control_diff": 0.017964709920585565,
+      "vs_control_p": 0.006480663229658866,
+      "hop_old_mean": 0.38164251207729466,
+      "hop_new_mean_measured": 6.753968253968254,
+      "frac_disconnected": 0.8809073724007561
+    },
+    "kg_near": {
+      "n": 469,
+      "promise": 1,
+      "desc": "nhiễu cách đáp án 1 hop → dễ nhầm hơn",
+      "delta_mean": 0.034040579106051745,
+      "delta_median": 0.0298103517957653,
+      "direction_agreement": 0.5778251599147122,
+      "delta_kgonly_mean": 0.06571370601526964,
+      "control_arm": "placebo_ent",
+      "vs_control_diff": -0.01629295360633933,
+      "vs_control_p": 0.05984800113886633,
+      "hop_old_mean": 0.3342618384401114,
+      "hop_new_mean_measured": 0.7526652452025586,
+      "frac_disconnected": 0.0
+    },
+    "kg_far": {
+      "n": 632,
+      "promise": -1,
+      "desc": "nhiễu cách đáp án ≥3 hop → dễ loại hơn",
+      "delta_mean": 0.06084221120250708,
+      "delta_median": 0.06252334946596794,
+      "direction_agreement": 0.3528481012658228,
+      "delta_kgonly_mean": 0.06787937306898463,
+      "control_arm": "placebo_ent",
+      "vs_control_diff": 0.003326496136607949,
+      "vs_control_p": 0.6974889481514064,
+      "hop_old_mean": 0.3502202643171806,
+      "hop_new_mean_measured": 6.2,
+      "frac_disconnected": 0.7626582278481012
+    },
+    "placebo": {
+      "n": 1539,
+      "promise": 0,
+      "desc": "thay nhiễu bất kỳ, khớp bề mặt → không hứa gì",
+      "delta_mean": 0.029974590454233778,
+      "delta_median": 0.02464393672628451,
+      "direction_agreement": 0.2871994801819363,
+      "delta_kgonly_mean": 0.012167404719390571,
+      "hop_old_mean": 0.3464052287581699,
+      "hop_new_mean_measured": 5.351851851851852,
+      "frac_disconnected": 0.9298245614035088
+    },
+    "placebo_ent": {
+      "n": 1356,
+      "promise": 0,
+      "desc": "như placebo nhưng donor buộc có thực thể",
+      "delta_mean": 0.029031932710397407,
+      "delta_median": 0.0157804265251959,
+      "direction_agreement": 0.28761061946902655,
+      "delta_kgonly_mean": 0.042607584429573776,
+      "hop_old_mean": 0.3464052287581699,
+      "hop_new_mean_measured": 4.733333333333333,
+      "frac_disconnected": 0.8672566371681416
+    },
+    "regression_hop_controlled": {
+      "coef": 0.0010544540419680755,
+      "se": 0.0012278900187216177,
+      "p": 0.3905612082905572,
+      "n": 2457,
+      "n_controls": 14
+    },
+    "attribution": {
+      "surface": 0.050177578576748795,
+      "kg": 0.0941245705431907,
+      "kg_share": 0.6407961424815481,
+      "text": 0.550427319896408
+    },
+    "faithfulness": {
+      "num_down": {
+        "group": "attr_surface",
+        "spearman": 0.06728287239298629,
+        "p": 0.09881113624474558,
+        "spearman_placebo_control": -0.12410445713788822,
+        "n": 603
+      },
+      "kg_near": {
+        "group": "attr_kg",
+        "spearman": -0.06134491151561708,
+        "p": 0.18476863698714224,
+        "spearman_placebo_control": 0.05097080941365756,
+        "n": 469
+      },
+      "kg_far": {
+        "group": "attr_kg",
+        "spearman": -0.029882737991345644,
+        "p": 0.4533024832767744,
+        "spearman_placebo_control": 0.00423604995669531,
+        "n": 632
+      }
+    }
+  }
+}

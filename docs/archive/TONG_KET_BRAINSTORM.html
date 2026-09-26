@@ -1,0 +1,232 @@
+<h1>TỔNG KẾT ĐỀ TÀI — tài liệu để cùng thầy brainstorm</h1>
+<p><b>Đề tài:</b> Ước lượng độ khó câu hỏi trắc nghiệm bằng Đồ thị Tri thức và Học máy<br>
+<b>Ngày:</b> 22/08/2026 · <b>Mục đích:</b> bản đồ trạng thái để cùng nghĩ. Phần I–IV là dữ kiện; <b>Phần V là phần chính</b> — 10 câu hỏi mở em chưa có đáp án. Phần III.2 chỉ là phương án sàn để buổi làm việc có chỗ bấu, không phải kết luận.</p>
+
+<hr>
+
+<h2>PHẦN I — BÀI TOÁN VÀ ĐỊNH VỊ</h2>
+
+<h3>1.1. Bài toán</h3>
+
+<p>Khi giáo viên soạn đề trắc nghiệm, không ai biết chắc câu nào khó câu nào dễ cho tới khi học sinh làm xong. Bài toán: <b>đọc câu hỏi và dự đoán độ khó trước khi triển khai</b>, trong điều kiện <i>cold-start</i> — chưa có dữ liệu trả lời nào. Đây là lý do không dùng được IRT, vốn bắt buộc phải có log trả lời.</p>
+
+<p><b>Giả thuyết gốc:</b> câu MCQ khó khi các phương án nhiễu <i>gần</i> đáp án đúng về mặt tri thức. Để đo "gần", dựng đồ thị tri thức theo sách giáo khoa rồi đo khoảng cách giữa các phương án trên đó.</p>
+
+<h3>1.2. Định vị trong văn liệu (đọc toàn văn 7 công trình, tháng 7)</h3>
+
+<table border="1" cellpadding="6" cellspacing="0">
+<tr><th>Phát hiện</th><th>Ý nghĩa với đề tài</th></tr>
+<tr><td>Vinu 2015 đã định nghĩa <i>đúng</i> giả thuyết gốc của em: "độ khó = độ tương tự giữa đáp án đúng và các đáp án nhiễu"</td><td><b>Ý tưởng cốt lõi không mới.</b> Cái mới phải nằm ở chỗ khác: ontology theo chương trình học, tiếng Việt, câu hỏi thật của giáo viên, giải thích được</td></tr>
+<tr><td>Chỉ 4/38 công trình trong survey dùng KG, và <b>cả 4 đều chỉ dùng độ khó làm mục tiêu trung gian</b> cho việc sinh câu hỏi tự động</td><td>Chưa ai đặt KG làm trung tâm cho QDE trên câu hỏi thật — vừa là khoảng trống, vừa là dấu hiệu cảnh báo</td></tr>
+<tr><td>Survey khẳng định: với môn kiến thức nội dung, độ khó nằm ở <i>chủ đề được hỏi</i>, không ở câu chữ</td><td>Luận cứ mạnh nhất biện minh cho hướng ontology</td></tr>
+<tr><td>Cỡ dữ liệu trung bình của lĩnh vực: 28.700 câu</td><td>Em có 4.691 câu có nhãn — <b>nhỏ hơn một bậc</b>. Survey khuyến nghị dùng đặc trưng tường minh khi ít dữ liệu → biện minh cho XGBoost thay vì học sâu</td></tr>
+</table>
+
+<hr>
+
+<h2>PHẦN II — CÁC HƯỚNG ĐÃ TRIỂN KHAI VÀ KẾT CỤC</h2>
+
+<table border="1" cellpadding="6" cellspacing="0">
+<tr><th>#</th><th>Hướng</th><th>Đã làm gì</th><th>Kết cục</th></tr>
+<tr><td>1</td><td><b>Ontology thủ công 7 môn</b></td><td>Lịch sử 480 thực thể / 937 quan hệ; 6 môn còn lại ~666 thực thể</td><td>✅ Thành công về sản phẩm; nhưng giá trị dự báo độ khó thì không (xem #5, #6)</td></tr>
+<tr><td>2</td><td><b>Pipeline đặc trưng theo cụm môn</b></td><td>41 đặc trưng, bật/tắt theo 5 cụm (Sử / Hóa-Địa / Toán-Lý / Văn / Anh)</td><td>✅ Chạy được cả 7 môn. Phát sinh: 22/33 đặc trưng phụ thuộc việc khớp được thực thể</td></tr>
+<tr><td>3</td><td><b>XGBoost + XAI trên nhãn tự gán</b></td><td>3.152 câu Sử, nhãn 3 phiếu do nhóm gán → 75,6%</td><td>⚠️ Con số đo <i>khả năng tái tạo cách gán nhãn của nhóm</i>, không đo độ khó</td></tr>
+<tr><td>4</td><td><b>Mô phỏng học sinh bằng LLM</b></td><td>4.996 lượt, 5 mức năng lực, chấm mù, 4 cơ chế chống thiên lệch</td><td>✅ Hiệu lực tốt (tương quan hạng năng lực–điểm +1,000; KR-20 0,78–0,84). ⚠️ Hiệu ứng sàn: tỉ lệ đúng 0,713 vs đề thật 0,5–0,6</td></tr>
+<tr><td>5</td><td><b>Kiểm chất lượng nhãn tự gán</b></td><td>Thăm dò bằng n-gram câu dẫn; đo mức thu hẹp bất định; đảo chuẩn chấm</td><td>❌ Âm tính: nhãn tự gán bám hành văn, không bám độ khó nội dung</td></tr>
+<tr><td>6</td><td><b>Pivot sang Vật lí</b> (miền có cấu trúc)</td><td>1.539 câu nhãn giáo viên thật; ablation công bằng</td><td>❌ Âm tính: KG thêm ~0 giá trị biên (QWK 0,375 vs 0,371); trong nhóm VD-vs-VDC còn âm (−0,024)</td></tr>
+<tr><td>7</td><td><b>Tìm tín hiệu thay thế trên Lý</b></td><td>Tương quan đơn biến từng đặc trưng với nhãn</td><td>✅ <b>DƯƠNG TÍNH:</b> "số lựa chọn chứa con số" tương quan +0,470, đơn điệu sạch NB 0,41 → TH 1,09 → VD 2,32 → VDC 2,74</td></tr>
+<tr><td>8</td><td><b>Máy chấm mức nhận thức vs giáo viên</b></td><td>1.539 câu, chấm mù, rubric Bộ GD&amp;ĐT</td><td>⚠️ κ = +0,284 (fair), polychoric +0,644. <b>Mù mức VDC: chỉ nhận ra 11%</b></td></tr>
+<tr><td>9</td><td><b>Khung Cold→Warm</b></td><td>Đo MAE khi trộn prior mô hình với k lượt trả lời</td><td>❌ <b>k* = 0</b> trên dữ liệu mô phỏng — trung bình toàn cục thắng cả hai prior ngay từ đầu</td></tr>
+<tr><td>10</td><td><b>Dựng ontology bằng LLM</b></td><td>2 LLM kiểm chéo trích thực thể + quan hệ tiên quyết từ SGK Lý</td><td>✅ Thành công: 132 → 319 thực thể, độ phủ 0,187 → 0,427</td></tr>
+<tr><td>11</td><td><b>Thu nhãn giáo viên môn Sử</b></td><td>Form web 120 câu</td><td>⚠️ 90/120 câu từ <b>1 giáo viên</b>; κ với nhãn tự gán ≈ −0,02</td></tr>
+<tr><td>12</td><td><b>Khảo sát học sinh thật</b></td><td>Xin phép nhà trường cho ~150 em</td><td>❌ <b>KHÔNG ĐƯỢC DUYỆT.</b> 3 đề Google Form đã dựng sẵn, chờ đường cá nhân</td></tr>
+</table>
+
+<hr>
+
+<h2>PHẦN III — CÁC HÀNH ĐỘNG QUAN TRỌNG</h2>
+
+<h3>3.1. Sáu hành động đã làm thay đổi cục diện đề tài</h3>
+
+<table border="1" cellpadding="6" cellspacing="0">
+<tr><th>#</th><th>Hành động</th><th>Vì sao quyết định như vậy</th><th>Kết quả nó tạo ra</th></tr>
+<tr><td><b>A1</b></td><td><b>Dừng việc tinh chỉnh mô hình, đi tìm nguồn nhãn do người thật gán</b></td><td>Nhãn tự gán không thể vừa là dữ liệu huấn luyện vừa là chuẩn đánh giá. Tiếp tục đẩy con số lên 80% sẽ chỉ làm mô hình bắt chước nhóm giỏi hơn</td><td><b>Thu được 1.539 câu Lý nhãn NB/TH/VD/VDC do giáo viên soạn</b> — nền của mọi kết luận chính hiện nay</td></tr>
+<tr><td><b>A2</b></td><td><b>Kiểm chất lượng nhãn bằng phép thăm dò chỉ đọc câu dẫn</b></td><td>Cần một phép đo phát hiện được "mô hình học khuôn mẫu thay vì học nội dung", không phụ thuộc vào việc có dữ liệu học sinh hay không</td><td>Đo được nhãn tự gán bám hành văn (53,0% vs 42,0%) nhưng ≈ 0 với hiệu suất làm bài. <b>Phép đo này áp dụng được cho bất kỳ bộ nhãn nào</b></td></tr>
+<tr><td><b>A3</b></td><td><b>Pivot thí nghiệm sang Vật lí</b></td><td>Nếu KG không hiệu quả trên miền tự sự (Sử), phải kiểm ở miền <i>có cấu trúc</i> trước khi kết luận — Lý có chuỗi tiên quyết, công thức, đáp án số, đúng thiết kế của engine</td><td>Kết luận âm tính về KG trở nên <b>vững</b> vì được kiểm ở điều kiện thuận lợi nhất cho nó, bằng nhãn người thật</td></tr>
+<tr><td><b>A4</b></td><td><b>Dựng ontology bằng LLM có kiểm soát (2 LLM kiểm chéo)</b></td><td>Ontology Lý gốc quá mỏng (độ phủ 0,187) — chạy thí nghiệm trên đó thì mọi kết quả đều vô nghĩa</td><td>132 → 319 thực thể, độ phủ 0,187 → 0,427. Đồng thời <b>trả lời câu hỏi thầy từng nêu về khả năng tổng quát hóa</b>: dựng ontology không nhất thiết phải làm tay</td></tr>
+<tr><td><b>A5</b></td><td><b>Tất định hóa toàn bộ pipeline</b></td><td>Phát hiện 2 lần chạy cùng code cho ra 57 giá trị đặc trưng khác nhau — nghĩa là mọi số liệu trước đó không tái lập được</td><td>Từ đây mọi con số <b>tái lập được</b>. Đây là điều kiện cần để bất cứ kết quả nào có thể công bố</td></tr>
+<tr><td><b>A6</b></td><td><b>Đổi thước đo sang QWK / macro-F1</b></td><td>Survey và Thuy 2025 đều phê phán dùng accuracy trên dữ liệu mất cân bằng (lớp Khó chỉ 16,4%)</td><td>Mọi thí nghiệm mới báo cáo bằng thước đo đúng chuẩn của lĩnh vực</td></tr>
+</table>
+
+<h3>3.2. Hướng mặc định — phương án sàn, không phải kết luận</h3>
+
+<p>Nếu <b>không có gì thay đổi</b> về nguồn lực, đây là đường em đi được mà không chờ ai. Em đặt nó ở đây để buổi làm việc có một cái sàn — <b>nhưng phần V mới là chỗ em muốn nghĩ lại cùng thầy</b>, kể cả nghĩ lại chính hướng này.</p>
+
+<p><b>Ba nhánh phải loại</b> vì đều cần thêm người: khảo sát học sinh (không được duyệt), giáo viên Sử thứ hai (không có kênh, không ngân sách), kiểm chéo nhãn Lý (cùng lý do).</p>
+
+<p><b>Hướng mặc định:</b> nhận bộ nhãn NB/TH/VD/VDC của 1.539 câu Vật lí làm chuẩn đối chiếu, tập trung vào luận điểm <b>hai trục độ khó</b> — trục <i>kiến thức</i> (vị trí khái niệm trong chuỗi học, thứ KG đo) và trục <i>thao tác</i> (mức phức tạp việc học sinh phải làm, thứ nhãn Bloom mã hóa).</p>
+
+<h4>Vì sao tạm tin được bộ nhãn này</h4>
+
+<table border="1" cellpadding="6" cellspacing="0">
+<tr><td width="4%"><b>1</b></td><td><b>Nguồn độc lập với đề tài</b> — giáo viên gán khi soạn ma trận đề, từ trước, không liên quan gì tới nghiên cứu này</td></tr>
+<tr><td><b>2</b></td><td><b>Không phải phán đoán của một người</b> — 1.539 câu trải trên <b>53 bài</b>, nhiều người soạn, cùng rubric Bộ GD&amp;ĐT</td></tr>
+<tr><td><b>3</b></td><td><b>Có cấu trúc ma trận rõ</b> — 44/53 bài đủ cả 4 mức, tỉ lệ trong bài đúng dạng chuẩn (nhiều NB/TH, ít VD/VDC)</td></tr>
+<tr><td><b>4</b></td><td><b>Nhất quán nội tại, kiểm được bằng số</b> — đặc trưng "số lựa chọn chứa con số" tăng đơn điệu sạch qua cả 4 mức (0,41 → 1,09 → 2,32 → 2,74). Nhãn nhiễu loạn thì không ra được gradient như vậy</td></tr>
+</table>
+
+<p><b>Nhưng đây là bằng chứng gián tiếp</b>, không thay được kiểm định liên-người-chấm. Và nó chỉ nói bộ nhãn <i>nhất quán</i>, chưa nói nó <b>đo đúng độ khó</b> — hai chuyện khác nhau, xem Q6.</p>
+
+<h4>Ba việc tự chủ hoàn toàn (~2,5 ngày công)</h4>
+
+<table border="1" cellpadding="6" cellspacing="0">
+<tr><th>#</th><th>Việc</th><th>Nó mở khoá cái gì</th></tr>
+<tr><td><b>V1</b></td><td>Ablation đủ ba nguồn đặc trưng (văn bản / số / tri thức), kèm chuyển sang mục tiêu ordinal</td><td>Chốt luận điểm hai trục bằng một bảng — bảng hội đồng nhìn đầu tiên</td></tr>
+<tr><td><b>V2</b></td><td>Thí nghiệm đo "số bước thao tác" — cho máy giải từng bước rồi chấm lại 219 câu VDC</td><td>Biến phát hiện thành <b>phương pháp đo được</b> (xem Q1)</td></tr>
+<tr><td><b>V3</b></td><td>Sinh lại ma trận đặc trưng với ontology đầy đủ</td><td>Trả nợ kỹ thuật trước khi số vào luận văn</td></tr>
+</table>
+
+<hr>
+
+<h2>PHẦN IV — TÀI SẢN HIỆN CÓ</h2>
+
+<table border="1" cellpadding="6" cellspacing="0">
+<tr><th>Loại</th><th>Nội dung</th><th>Ghi chú</th></tr>
+<tr><td>Dữ liệu nhãn <b>người</b></td><td>1.539 câu Lý (NB/TH/VD/VDC, giáo viên soạn) + 90 câu Sử (1 giáo viên)</td><td><b>Chuẩn đối chiếu chính thức của đề tài</b></td></tr>
+<tr><td>Dữ liệu nhãn <b>tự gán</b></td><td>3.152 câu Sử (3 phiếu)</td><td>Dùng được làm dữ liệu, không dùng được làm chuẩn</td></tr>
+<tr><td>Dữ liệu chưa nhãn</td><td>416 câu KHTN</td><td></td></tr>
+<tr><td>Ontology</td><td>Lịch sử 480/937 · Vật lí 319 · 5 môn còn lại ~530 thực thể</td><td>Chuẩn RDF/OWL, tái sử dụng được</td></tr>
+<tr><td>Phản hồi mô phỏng</td><td>4.996 lượt trên 100 câu, đã kiểm định hiệu lực</td><td>Có hiệu ứng sàn</td></tr>
+<tr><td>Công cụ</td><td>~30 script: pipeline đặc trưng, huấn luyện, kiểm toán nhãn, mô phỏng, Cold→Warm, sinh form, crawler, dựng ontology bằng LLM</td><td>Đã tất định hóa</td></tr>
+<tr><td>Dựng sẵn nhưng chưa dùng được</td><td>3 đề Google Form cho học sinh; form giáo viên 120 câu</td><td>Chờ nếu có người — không nằm trong kế hoạch chính</td></tr>
+</table>
+
+<hr>
+
+<h2>PHẦN V — CÂU HỎI MỞ ĐỂ CÙNG NGHĨ</h2>
+
+<p><i>Phần này không có câu nào em đã có đáp án. Xếp từ câu hẹp tới câu có thể lật cả đề tài. Chỗ nào em có thiên hướng thì ghi rõ là <b>thiên hướng</b>, không phải kết luận.</i></p>
+
+<h3>NHÓM A — Câu hỏi về bản chất của thứ đang đo</h3>
+
+<h4>Q1. ⭐ Đo "số bước thao tác" tự động bằng cách nào — và làm vậy có phá vỡ đề tài không?</h4>
+
+<p>Em đo được độ khó nằm ở <i>thao tác</i> chứ không ở vị trí kiến thức. Nhưng chưa có cách đo thao tác từ bề mặt câu hỏi, và có dấu hiệu nó <b>không đo được từ bề mặt</b>: máy chấm nhận ra mức VDC chỉ 11%, vì "vận dụng cao" chỉ lộ ra qua <i>lời giải</i>.</p>
+
+<p>Ba hướng, chưa cái nào kiểm: (a) cho máy giải rồi đếm bước/công thức; (b) đếm số đại lượng phải tra trước khi tính được; (c) đo độ dài lời giải mẫu.</p>
+
+<p><b>Chỗ vướng thật:</b> hướng (a) mạnh nhất nhưng đã cần một bộ giải — mà cold-start nghĩa là "không cần gì ngoài câu hỏi". <i>Vậy "giải được câu hỏi" có tính là cold-start không?</i> Em thấy có thể lập luận cả hai chiều: một bên nói bộ giải cũng chỉ đọc câu hỏi nên vẫn là cold-start; bên kia nói nếu đã giải được thì bài toán đã khác. <b>Em không tự quyết được ranh giới này.</b></p>
+
+<h4>Q2. "Độ khó" có phải một khái niệm đơn nhất không?</h4>
+
+<p>Dữ liệu của em cho thấy bốn nguồn nhãn <b>không đồng thuận</b> với nhau. Cách đọc mặc định là "ba nguồn sai, một nguồn đúng". Nhưng có một cách đọc khác: <b>chúng đo bốn thứ khác nhau, và cả bốn đều đúng theo nghĩa riêng.</b></p>
+
+<table border="1" cellpadding="6" cellspacing="0">
+<tr><th>Nguồn</th><th>Có thể đang đo</th></tr>
+<tr><td>Giáo viên (ma trận đề)</td><td>Mức <b>nhận thức</b> cần huy động — thao tác</td></tr>
+<tr><td>Nhóm tự gán</td><td>Khuôn mẫu <b>dạng câu hỏi</b></td></tr>
+<tr><td>Máy chấm</td><td>Cái gì lộ ra trên <b>bề mặt câu chữ</b></td></tr>
+<tr><td>Tỉ lệ trả lời đúng</td><td>Kết quả tổng hợp của <b>tất cả</b> + việc học sinh đã học tới đâu</td></tr>
+</table>
+
+<p>Nếu cách đọc thứ hai đúng thì bài toán không phải "dự đoán độ khó" mà là <b>"dự đoán một vector nhiều chiều"</b>: khó vì nhận thức / khó vì tính toán / khó vì phương án nhiễu / khó vì chưa học tới. <i>Thầy thấy hướng này có đứng được không, hay quá tham?</i></p>
+
+<h4>Q3. Thang NB/TH/VD/VDC là thang nhận thức, không phải thang độ khó — có nên tách hẳn hai bài toán?</h4>
+
+<p>Đề tài đang dùng lẫn hai thang: Sử dùng Dễ/TB/Khó (chủ quan, về độ khó), Lý dùng NB/TH/VD/VDC (khách quan, về mức nhận thức). Em vẫn nói chung là "độ khó" — nhưng một câu Nhận biết về kiến thức hiếm gặp <i>vẫn có thể khó</i>, còn một câu Vận dụng quen thuộc <i>vẫn có thể dễ</i>.</p>
+
+<p><i>Có nên tách thành hai bài toán riêng, hay chấp nhận nhập nhằng và nêu ở phần hạn chế?</i> Nếu tách thì đề tài rõ ràng hơn về khái niệm nhưng mất đi tính thống nhất giữa hai môn.</p>
+
+<h4>Q4. Độ khó với AI — có nên bỏ giả định "độ khó là thuộc tính tuyệt đối của câu hỏi"?</h4>
+
+<p>Venugopal 2020 (Semantic Web) là công trình duy nhất trong văn liệu xử lý nghiêm túc chuyện này: <i>cùng một câu hỏi, học sinh giỏi thấy dễ, học sinh yếu thấy khó</i>. Họ dựng ba mô hình cho ba nhóm năng lực rồi dùng IRT tổng hợp.</p>
+
+<p>Đề tài của em <b>bỏ qua hoàn toàn chiều này</b> — coi độ khó là một nhãn cố định. Cách rẻ để đưa vào: bắt mô hình xuất <i>phân phối xác suất trên các mức</i> thay vì một nhãn cứng, rồi diễn giải theo nhóm năng lực. Đây cũng là cầu nối tự nhiên sang IRT — thứ đề tài đang né vì cold-start. <i>Có đáng mở chiều này ra không, hay sẽ làm loãng?</i></p>
+
+<h3>NHÓM B — Câu hỏi về chỗ đứng của Đồ thị Tri thức</h3>
+
+<h4>Q5. ⭐ Hay KG không sai chỗ, mà sai VIỆC — nên dùng để SINH câu hỏi thay vì ĐO độ khó?</h4>
+
+<p>Đây là câu em nghĩ ra muộn và thấy đáng bàn nhất trong nhóm này.</p>
+
+<p>Cả <b>4/4 công trình dùng KG</b> trong survey đều đặt độ khó làm <i>mục tiêu trung gian cho việc sinh câu hỏi tự động</i> — không ai lấy nó làm mục tiêu cuối. Em từng đọc đó là "khoảng trống chưa ai lấp". Nhưng sau kết quả âm tính của mình, có thể đọc ngược lại: <b>đó không phải khoảng trống, đó là chỗ KG thật sự có sức mạnh.</b></p>
+
+<p>Lý do có lý: khi <i>đo</i>, ta phải hy vọng khoảng cách trên đồ thị tương ứng với độ khó — và em đã đo được là không. Nhưng khi <i>sinh</i>, ta <b>chủ động chọn</b> phương án nhiễu ở khoảng cách mong muốn — đồ thị trở thành công cụ điều khiển, không phải công cụ tiên đoán. Bài toán đảo chiều thì điểm yếu thành điểm mạnh.</p>
+
+<p><i>Câu hỏi:</i> đề tài có nên chuyển thành <b>"sinh câu hỏi trắc nghiệm có kiểm soát độ khó bằng KG"</b> không? Ontology 7 môn đã có sẵn, dùng được ngay. Rủi ro: đây gần như là một đề tài mới, và phần đánh giá lại cần người thật làm bài — đúng thứ đang bị chặn.</p>
+
+<h4>Q6. Em đã kiểm KG trên hai miền và cùng thất bại. Nhưng hai miền đó có phải chỗ tốt nhất cho KG không?</h4>
+
+<p>Đã kiểm: Sử (miền tự sự) và Lý (miền tính toán). Cả hai âm tính. Nhưng có thể em chọn sai miền để kiểm — <b>giả thuyết gốc nói KG hiệu quả khi các phương án nhiễu là những thực thể dễ nhầm với nhau</b>. Miền khớp nhất với điều đó có lẽ là nơi câu hỏi hỏi <i>phân biệt giữa các thực thể cùng loại</i>: phân loại sinh học, chất và phản ứng trong Hóa, địa danh và hiện tượng trong Địa.</p>
+
+<p>Nhóm đã có ontology cho Hóa (159 thực thể, quan hệ dày) và Địa. <i>Có đáng kiểm thêm một miền nữa trước khi kết luận "KG không dùng được cho QDE" không — hay hai miền đã đủ để kết luận, và kiểm thêm chỉ là cố vớt?</i> Em thật sự không biết ngưỡng đủ ở đâu.</p>
+
+<h4>Q7. Nếu KG chuyển sang "gợi ý kiến thức tiên quyết cần ôn" thì đó có đủ sức nặng cho một luận văn không?</h4>
+
+<p>Đây là việc KG làm tốt và em có bằng chứng: đồ thị tiên quyết Lý đã có 255 cạnh, 29% câu có độ sâu tiên quyết > 0. Sản phẩm sẽ là: <i>học sinh làm sai câu này → hệ thống chỉ ra cần ôn lại khái niệm nào trước</i>.</p>
+
+<p>Nhưng đây là <b>bài toán khác hẳn</b>, và em không rõ nó có phải một đóng góp nghiên cứu hay chỉ là một tính năng kỹ thuật. <i>Thầy đánh giá thế nào?</i></p>
+
+<h3>NHÓM C — Chỗ kinh nghiệm của thầy quyết định, không phải dữ liệu của em</h3>
+
+<h4>Q8. Kết quả âm tính có công bố được ở đâu không, và ở dạng nào?</h4>
+
+<p>Em có: kết quả âm tính đo bằng nhiều phép độc lập trên hai môn, kèm một cơ chế giải thích (hai trục trực giao), cộng bộ dữ liệu tiếng Việt đầu tiên. Em <b>không biết</b> hội nghị/tạp chí trong nước có nhận dạng bài này không, hay bắt buộc phải có kết quả dương tính. Nếu có chỗ nhận thì nên viết thành <i>một bài kiểm chứng</i> hay <i>một bài mô tả dataset</i>?</p>
+
+<h4>Q9. Nếu điều kiện nguồn lực thay đổi thì bức tranh đổi thế nào?</h4>
+
+<p>Em liệt kê để thầy thấy chỗ nào một hành động nhỏ mở ra nhiều nhất:</p>
+
+<table border="1" cellpadding="6" cellspacing="0">
+<tr><th>Nếu có được…</th><th>Thì mở ra</th></tr>
+<tr><td><b>1 giáo viên Lý</b> chấm lại ~120 câu (~45 phút)</td><td>Bộ nhãn nền có kiểm định trực tiếp thay vì bằng chứng gián tiếp — <b>củng cố mọi kết luận chính</b></td></tr>
+<tr><td><b>1 giáo viên Sử thứ hai</b> (~45 phút)</td><td>Phân định được H<sub>a</sub>/H<sub>b</sub>; mở lại nhánh so sánh bốn nguồn nhãn (K3)</td></tr>
+<tr><td><b>~40 học sinh</b> làm 3 đề đã dựng sẵn</td><td>Tỉ lệ trả lời đúng thật → thay mô phỏng ở mọi chỗ; k* thành con số đáng tin; gỡ hạn chế lớn nhất của luận văn</td></tr>
+</table>
+
+<p><b>Điểm đáng chú ý:</b> chi phí của cả ba đều là <b>vài chục phút của một người</b> — rào cản là <i>tiếp cận</i>, không phải công sức. Nếu thầy có kênh nào thì đây là chỗ một lời giới thiệu đổi được rất nhiều.</p>
+
+<h4>Q10. Em nên tối ưu cho cái gì?</h4>
+
+<p>Ba mục tiêu này kéo về ba hướng khác nhau, và em <b>chưa rõ mình nên ưu tiên cái nào</b>:</p>
+
+<ul>
+<li><b>Bảo vệ an toàn</b> → chọn hướng mặc định ở Phần III.2, mọi thứ tự chủ, không rủi ro</li>
+<li><b>Giá trị khoa học cao nhất</b> → có lẽ là Q2 (độ khó là vector nhiều chiều) hoặc Q5 (đảo sang bài toán sinh câu hỏi) — nhưng cả hai đều gần như làm lại</li>
+<li><b>Có thứ dùng được thật</b> → Q7 (gợi ý kiến thức tiên quyết) hoặc hướng XAI: không xuất nhãn, mà xuất <i>chẩn đoán vì sao câu này khó</i> để giáo viên sửa đề</li>
+</ul>
+
+<p><i>Em nghĩ đây mới là câu cần chốt trước, vì mọi câu còn lại đều là hệ quả của nó.</i></p>
+
+<h2>PHẦN VI — RÀNG BUỘC THỰC TẾ</h2>
+
+<table border="1" cellpadding="6" cellspacing="0">
+<tr><th>Ràng buộc</th><th>Chi tiết</th></tr>
+<tr><td><b>Phê duyệt</b></td><td>Không tổ chức khảo sát học sinh qua trường được</td></tr>
+<tr><td><b>Nhân lực nhãn</b></td><td>Không có thêm giáo viên. Toàn bộ kế hoạch phải đứng trên dữ liệu đã có</td></tr>
+<tr><td><b>Ngân sách</b></td><td>Không có thù lao cho người chấm. Chi phí LLM: hai mốc đã chạy là mô phỏng 4.996 lượt (model rẻ) và chấm 1.539 câu (77 lượt model mạnh)</td></tr>
+<tr><td><b>Dữ liệu</b></td><td>4.691 câu có nhãn — nhỏ hơn trung bình lĩnh vực (28.700) một bậc</td></tr>
+<tr><td><b>Chất lượng chú giải</b></td><td>Một số chú giải của ontology Sử (tần suất trong SGK, mức Bloom, ánh xạ bài học) là <b>ước lượng chuyên gia, không phải đo đếm thật</b> — luận văn phải nêu rõ thay vì trình bày như số đo</td></tr>
+<tr><td><b>Nợ kỹ thuật</b></td><td>~2,5 ngày công để trả hết phần bắt buộc trước khi viết</td></tr>
+</table>
+
+<hr>
+
+<h2>PHẦN VII — BA KỊCH BẢN, TÙY CÂU Q10 CHỐT THẾ NÀO</h2>
+
+<p>Em không đóng sẵn một khung, vì việc chọn khung phụ thuộc câu <b>Q10</b> — tối ưu cho <i>bảo vệ an toàn</i>, cho <i>giá trị khoa học</i>, hay cho <i>thứ dùng được thật</i>. Ba kịch bản tương ứng:</p>
+
+<table border="1" cellpadding="6" cellspacing="0">
+<tr><th>Kịch bản</th><th>Trục chính</th><th>Chi phí</th><th>Rủi ro</th></tr>
+<tr><td><b>Sàn</b><br><i>(ưu tiên an toàn)</i></td><td>Hai trục độ khó — thao tác vs kiến thức, trên 1.539 câu nhãn giáo viên. Kèm benchmark tiếng Việt làm đóng góp hạ tầng</td><td>~2,5 ngày công, không chờ ai</td><td>Nếu <b>Q1</b> không gỡ được thì dừng ở mức mô tả hiện tượng, chưa thành phương pháp</td></tr>
+<tr><td><b>Mở rộng</b><br><i>(ưu tiên giá trị khoa học)</i></td><td>Một trong hai: <b>Q2</b> — độ khó là vector nhiều chiều thay vì một nhãn; hoặc <b>Q5</b> — đảo sang dùng KG để <i>sinh</i> câu hỏi có kiểm soát độ khó</td><td>Gần như làm lại phần thực nghiệm; Q5 còn cần người thật đánh giá</td><td>Cao. Nhưng đây là chỗ đề tài có thể vượt khỏi khuôn một công cụ chấm điểm</td></tr>
+<tr><td><b>Ứng dụng</b><br><i>(ưu tiên dùng được)</i></td><td><b>Q7</b> — KG gợi ý kiến thức tiên quyết cần ôn; hoặc hướng XAI: không xuất nhãn mà xuất <i>chẩn đoán vì sao câu này khó</i> để giáo viên sửa đề</td><td>Vừa; ontology và đồ thị tiên quyết đã có sẵn</td><td>Chưa rõ có được tính là đóng góp nghiên cứu hay chỉ là tính năng kỹ thuật (chính là <b>Q7</b>)</td></tr>
+</table>
+
+<p><b>Điều em chắc chắn:</b> khung cũ "KG dự đoán độ khó" phải bỏ — chính dữ liệu của em bác bỏ nó. <b>Điều em chưa chắc:</b> mọi thứ còn lại.</p>
+
+<p><b>Nếu buổi làm việc chỉ kịp chốt một thứ</b>, em mong đó là <b>Q10</b>: em nên tối ưu cho cái gì. Chốt được nó thì các câu khác tự xếp chỗ.</p>
+
+<hr>
+
+<p><i>Tài liệu lập ngày 22/08/2026. Mọi con số lấy từ file kết quả thực chạy, trừ các mục ghi rõ "ước lượng".</i></p>

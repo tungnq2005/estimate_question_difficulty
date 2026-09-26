@@ -1,0 +1,18 @@
+{
+  "subject": "history",
+  "n_total": 1339,
+  "repair": {
+    "giữ (LLM)": 1128,
+    "khớp đúng": 211
+  },
+  "model": "deepseek-v4-flash",
+  "passes": 2,
+  "n_propagated": 0,
+  "n_with_answer": 1339,
+  "n_option_defect": 3,
+  "answer_source": {
+    "llm_answer_key": 1079,
+    "vietjack": 211,
+    "llm_answer_key:propagated": 49
+  }
+}

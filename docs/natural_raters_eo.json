@@ -1,0 +1,84 @@
+{
+  "physics": {
+    "label_by": "GIÁO VIÊN (ma trận đề kenhgiaovien)",
+    "n_items_model": 1539,
+    "model_grouped_qwk_all_items": 0.5753622529059849,
+    "pairs_all": 71,
+    "pairs_with_pred": 71,
+    "clusters": 69,
+    "cross_page_pairs": 38,
+    "agree_hh": 0.4647887323943662,
+    "agree_mh": 0.5,
+    "qwk_human_human": 0.390945194598888,
+    "qwk_machine_human": 0.4720772029742131,
+    "diff_machine_minus_human": 0.08113200837532508,
+    "kappa2_human_human": 0.431241655540721,
+    "kappa2_machine_human": 0.4030573248407644,
+    "ceiling_sqrt_hh": 0.6252561032080278,
+    "ci95": {
+      "hh": [
+        0.20114618505854956,
+        0.580130790200264
+      ],
+      "mh": [
+        0.30035836494358764,
+        0.6192923295367231
+      ],
+      "diff": [
+        -0.0928015585565527,
+        0.24111913934265594
+      ],
+      "hh_tier": [
+        0.18693957226598276,
+        0.6587578499728032
+      ],
+      "mh_tier": [
+        0.19329134973440681,
+        0.5898548961834585
+      ]
+    },
+    "n_boot": 2000,
+    "isomorphic": null
+  },
+  "history_gv": {
+    "label_by": "GIÁO VIÊN (ma trận đề kenhgiaovien)",
+    "n_items_model": 1276,
+    "model_grouped_qwk_all_items": 0.37092985768894204,
+    "pairs_all": 54,
+    "pairs_with_pred": 53,
+    "clusters": 49,
+    "cross_page_pairs": 24,
+    "agree_hh": 0.7547169811320755,
+    "agree_mh": 0.7075471698113207,
+    "qwk_human_human": 0.35467037745694896,
+    "qwk_machine_human": 0.34709314890858,
+    "diff_machine_minus_human": -0.007577228548368953,
+    "kappa2_human_human": 0.49282296650717705,
+    "kappa2_machine_human": 0.22370173102529967,
+    "ceiling_sqrt_hh": 0.5955420870576226,
+    "ci95": {
+      "hh": [
+        -0.050134488542234734,
+        0.8065447262510439
+      ],
+      "mh": [
+        0.01296290229623561,
+        0.6423139531278373
+      ],
+      "diff": [
+        -0.4412269534441311,
+        0.2555647272884373
+      ],
+      "hh_tier": [
+        -0.04950495049504933,
+        1.0
+      ],
+      "mh_tier": [
+        -0.0642409342042914,
+        0.644927536231884
+      ]
+    },
+    "n_boot": 2000,
+    "isomorphic": null
+  }
+}

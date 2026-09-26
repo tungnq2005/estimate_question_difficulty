@@ -1,0 +1,3037 @@
+{
+  "subject": "history_gv",
+  "n": 250,
+  "reps": 16,
+  "seed": 42,
+  "editable_down": 0.128,
+  "editable_up": 0.26,
+  "editable_any": 0.508,
+  "items": [
+    {
+      "id": "kgv_su_0009",
+      "L0": 0,
+      "n_try": 64,
+      "rate": 0.59375,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "len_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 1,
+        "donor": "Chủ yếu đấu tranh dưới hình thức khởi nghĩa vũ trang.",
+        "to": 1,
+        "d_ey": 0.00418717195177476
+      },
+      "n_uncertified_moves": 26
+    },
+    {
+      "id": "kgv_su_0026",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0029",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0037",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0042",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.125,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "len_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 2,
+        "donor": "Phát xít Đức đầu hàng lực lượng Đồng minh.",
+        "to": 1,
+        "d_ey": 0.3323813269595205
+      },
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0044",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.09375,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 3
+    },
+    {
+      "id": "kgv_su_0049",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0055",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.0625,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "len_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Do quân Đồng minh vẫn chưa vào giải giáp ở 3 nước này",
+        "to": 1,
+        "d_ey": 0.6451846393313085
+      },
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0069",
+      "L0": 0,
+      "n_try": 48,
+      "rate": 0.20833333333333334,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "len_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Bước đầu khẳng định vai trò của giai cấp công nhân.",
+        "to": 1,
+        "d_ey": 0.23873886472216316
+      },
+      "n_uncertified_moves": 1
+    },
+    {
+      "id": "kgv_su_0070",
+      "L0": 1,
+      "n_try": 48,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0074",
+      "L0": 0,
+      "n_try": 64,
+      "rate": 0.03125,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "len_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 1,
+        "donor": "Thể hiện sự thắng thế của khuynh hướng vô sản trong cuộc đấu tranh giành quyền lãnh đạo cách mạng Trung Quốc.",
+        "to": 1,
+        "d_ey": 0.6904808425564473
+      },
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0085",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.4375,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "len_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 2,
+        "donor": "Viết bài cho các báo Nhân đạo, Đời sống công nhân",
+        "to": 1,
+        "d_ey": 0.16447199814814784
+      },
+      "n_uncertified_moves": 1
+    },
+    {
+      "id": "kgv_su_0090",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.03125,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "len_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Tinh thần đoàn kết trong liên minh chiến đấu của nhân dân 3 nước Đông Dương.",
+        "to": 1,
+        "d_ey": 0.7289172646442614
+      },
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0093",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0099",
+      "L0": 0,
+      "n_try": 48,
+      "rate": 0.3541666666666667,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "len_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 1,
+        "donor": "Để huy động toàn dân tham gia kháng chiến",
+        "to": 1,
+        "d_ey": 0.2375313710603434
+      },
+      "n_uncertified_moves": 6
+    },
+    {
+      "id": "kgv_su_0100",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0107",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0110",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.09375,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "len_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 2,
+        "donor": "Đảng cộng sản Đông Dương được công nhận là phân bộ độc lập trực thuộc Quốc tế cộng sản",
+        "to": 1,
+        "d_ey": 0.3593400033024008
+      },
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0111",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0123",
+      "L0": 0,
+      "n_try": 48,
+      "rate": 0.4583333333333333,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "len_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 1,
+        "donor": "Miền Bắc khôi phục kinh tế, hàn gắn vết thương chiến tranh.",
+        "to": 1,
+        "d_ey": 0.21878892237987402
+      },
+      "n_uncertified_moves": 13
+    },
+    {
+      "id": "kgv_su_0124",
+      "L0": 3,
+      "n_try": 32,
+      "rate": 0.28125,
+      "cheapest_down": {
+        "arm": "len_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 2,
+        "donor": "Xây dựng một mô hình về CNXH không phù hợp với sự biến đổi của thế giới và thực tế khách quan.",
+        "to": 1,
+        "d_ey": -0.12354736227624685
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 4
+    },
+    {
+      "id": "kgv_su_0133",
+      "L0": 0,
+      "n_try": 64,
+      "rate": 0.4375,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "len_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Đại lục có phong trào giải phóng dân tộc phát triển nhất.",
+        "to": 1,
+        "d_ey": 0.19713511176608656
+      },
+      "n_uncertified_moves": 20
+    },
+    {
+      "id": "kgv_su_0138",
+      "L0": 0,
+      "n_try": 48,
+      "rate": 0.3125,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "len_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 2,
+        "donor": "Hội nghị lần thứ nhất ban chấp hành Trung ương Đảng Cộng sản Việt Nam (11 - 1930)",
+        "to": 1,
+        "d_ey": 0.003750694759223072
+      },
+      "n_uncertified_moves": 6
+    },
+    {
+      "id": "kgv_su_0140",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.03125,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 1
+    },
+    {
+      "id": "kgv_su_0150",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.15625,
+      "cheapest_down": {
+        "arm": "len_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 2,
+        "donor": "Công nhân, nông dân, tiểu tư sản, tư sẩn và địa chủ phong kiến.",
+        "to": 0,
+        "d_ey": -0.3042516387000398
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 9
+    },
+    {
+      "id": "kgv_su_0152",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.0625,
+      "cheapest_down": {
+        "arm": "len_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Chính quyền Xô Viết được thành lập.",
+        "to": 0,
+        "d_ey": -0.19379769287521353
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0157",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0165",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0167",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.625,
+      "cheapest_down": {
+        "arm": "len_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 2,
+        "donor": "Tác phẩm “Đường kách mệnh” và “Bản án chế độ thực dân” được đưa vào Việt Nam.",
+        "to": 0,
+        "d_ey": 0.023038974313713823
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 16
+    },
+    {
+      "id": "kgv_su_0175",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0184",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0185",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0186",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.8125,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "len_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Lao động trong lĩnh vực nông nghiệp giảm xuống.",
+        "to": 1,
+        "d_ey": 0.03401458702732185
+      },
+      "n_uncertified_moves": 14
+    },
+    {
+      "id": "kgv_su_0191",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.3125,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "len_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 1,
+        "donor": "Nghĩa quân Cu Ba chiếm lĩnh thủ đô La-ha-ba-na (1/1/1959).",
+        "to": 1,
+        "d_ey": 0.33329297068618735
+      },
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0199",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0202",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.125,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "len_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 1,
+        "donor": "Để tăng cường tình đoàn kết giữa Liên Xô và các nước Đông Âu.",
+        "to": 1,
+        "d_ey": 0.5564256888789976
+      },
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0207",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0209",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0216",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0217",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0230",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0233",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0248",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.09375,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 3
+    },
+    {
+      "id": "kgv_su_0258",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0260",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.21875,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 7
+    },
+    {
+      "id": "kgv_su_0277",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.1875,
+      "cheapest_down": {
+        "arm": "len_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 2,
+        "donor": "Nền kinh tế miền Bắc đủ sức chi viện cho miền Nam.",
+        "to": 0,
+        "d_ey": -0.036496575800424313
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 10
+    },
+    {
+      "id": "kgv_su_0282",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.09375,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "len_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Tây Nguyên có vị trí chiến lược cả ta và địch đều cố nắm giữ",
+        "to": 1,
+        "d_ey": 0.4766931643547915
+      },
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0289",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0298",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0302",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0323",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.25,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "len_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Kinh tế phát triển chưa bền vững.",
+        "to": 1,
+        "d_ey": 0.3521687790867799
+      },
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0332",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.03125,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 2
+    },
+    {
+      "id": "kgv_su_0334",
+      "L0": 2,
+      "n_try": 32,
+      "rate": 0.8125,
+      "cheapest_down": {
+        "arm": "len_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Thừa nhận quyền tự do báo chí, tự do hội họp, tự do ngôn luận của dân tộc Việt Nam.",
+        "to": 1,
+        "d_ey": -0.1239530585280686
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 15
+    },
+    {
+      "id": "kgv_su_0336",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0340",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.015625,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 1
+    },
+    {
+      "id": "kgv_su_0347",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0355",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.125,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "len_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Đấu tranh trên cả 3 mặt trận: chính trị- quân sự- ngoại giao.",
+        "to": 1,
+        "d_ey": 0.6546688972797446
+      },
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0356",
+      "L0": 3,
+      "n_try": 64,
+      "rate": 0.78125,
+      "cheapest_down": {
+        "arm": "len_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Cách mạng Việt Nam trở thành một bộ phận của cách mạng thế giới.",
+        "to": 0,
+        "d_ey": -0.1366318158393729
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 37
+    },
+    {
+      "id": "kgv_su_0362",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0364",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0374",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0376",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0389",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.09375,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "len_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Tranh thủ thời gian hoà hoãn củng cố và phát triển lực lượng cách mạng.",
+        "to": 1,
+        "d_ey": 0.29307357498337255
+      },
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0393",
+      "L0": 0,
+      "n_try": 48,
+      "rate": 0.10416666666666667,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "len_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 2,
+        "donor": "Góp phần làm tan rã hệ thống thuộc địa của chủ nghĩa đế quốc",
+        "to": 1,
+        "d_ey": 0.5488897041914121
+      },
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0398",
+      "L0": 0,
+      "n_try": 48,
+      "rate": 0.041666666666666664,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "len_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 1,
+        "donor": "Từ khi Mĩ ném bom nguyên tử xuống Hirôsima và Nagaxaki của Nhật.",
+        "to": 1,
+        "d_ey": 0.9053651846899875
+      },
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0400",
+      "L0": 1,
+      "n_try": 48,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0402",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.28125,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "len_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Gửi tối hậu thư cho chính phủ VNDCCH yêu cầu giải tán lực lượng tự vệ ở Hà Nội.",
+        "to": 1,
+        "d_ey": 0.33650306357126153
+      },
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0410",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0416",
+      "L0": 1,
+      "n_try": 48,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0417",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.125,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 8
+    },
+    {
+      "id": "kgv_su_0427",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0430",
+      "L0": 1,
+      "n_try": 48,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0435",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.3125,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 10
+    },
+    {
+      "id": "kgv_su_0445",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.09375,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 3
+    },
+    {
+      "id": "kgv_su_0453",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0459",
+      "L0": 0,
+      "n_try": 48,
+      "rate": 0.5625,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "len_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 1,
+        "donor": "Nhân dân miền Nam Việt Nam tự quyết định tương lai chính trị của họ thông qua tổng tuyển cue tự do, không có sự can thiệp của nước ngoài.",
+        "to": 1,
+        "d_ey": 0.19418644585492384
+      },
+      "n_uncertified_moves": 11
+    },
+    {
+      "id": "kgv_su_0461",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.4375,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 14
+    },
+    {
+      "id": "kgv_su_0462",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0465",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.25,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "len_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Là thách thức, vì hòa bình ở nhiều khu vực bị đe dọa bởi xung đột sắc tộc, tôn giáo, tranh chấp lãnh thổ, chủ nghĩa khủng bố và li khai",
+        "to": 1,
+        "d_ey": 0.09389756903369617
+      },
+      "n_uncertified_moves": 2
+    },
+    {
+      "id": "kgv_su_0475",
+      "L0": 0,
+      "n_try": 64,
+      "rate": 0.234375,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "len_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 2,
+        "donor": "Chủ nghĩa thực dân cũ bị sụp đổ hoàn toàn.",
+        "to": 1,
+        "d_ey": 0.22956791358048934
+      },
+      "n_uncertified_moves": 4
+    },
+    {
+      "id": "kgv_su_0484",
+      "L0": 0,
+      "n_try": 48,
+      "rate": 0.041666666666666664,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "len_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 1,
+        "donor": "Không cho hàng hóa nước ngoài vào Việt Nam.",
+        "to": 1,
+        "d_ey": 1.2217957435235522
+      },
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0487",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0493",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0494",
+      "L0": 1,
+      "n_try": 48,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0495",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0500",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0501",
+      "L0": 0,
+      "n_try": 48,
+      "rate": 0.9375,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "len_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 1,
+        "donor": "Xây dựng nhiều công trình hiện đại trên mặt biển và dưới đáy biển.",
+        "to": 1,
+        "d_ey": 0.17504753908697318
+      },
+      "n_uncertified_moves": 29
+    },
+    {
+      "id": "kgv_su_0504",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0516",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.03125,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "len_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 2,
+        "donor": "Là thách thức, vì hòa bình ở nhiều khu vực bị đe dọa bởi xung đột sắc tộc, tôn giáo, tranh chấp lãnh thổ, chủ nghĩa khủng bố và li khai",
+        "to": 1,
+        "d_ey": 0.4961618664223332
+      },
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0523",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.15625,
+      "cheapest_down": {
+        "arm": "len_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 1,
+        "donor": "Tác phẩm “Đường kách mệnh” và “Bản án chế độ thực dân” được đưa vào Việt Nam.",
+        "to": 0,
+        "d_ey": -0.019681831708335373
+      },
+      "cheapest_up": {
+        "arm": "len_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 1,
+        "donor": "Là vùng đông dân nhất thế giới, bao gồm những nước có lãnh thổ rộng lớn với nguồn tài nguyên thiên nhiên phong phú.",
+        "to": 2,
+        "d_ey": 0.6202751725919939
+      },
+      "n_uncertified_moves": 2
+    },
+    {
+      "id": "kgv_su_0527",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0528",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0531",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.34375,
+      "cheapest_down": {
+        "arm": "len_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "01/03/1999.",
+        "to": 0,
+        "d_ey": -0.18243175514385312
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 5
+    },
+    {
+      "id": "kgv_su_0533",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0545",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0546",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0551",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.171875,
+      "cheapest_down": {
+        "arm": "len_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 2,
+        "donor": "Công nhân, nông dân, thợ thủ công.",
+        "to": 0,
+        "d_ey": -0.19543152686222676
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 10
+    },
+    {
+      "id": "kgv_su_0557",
+      "L0": 0,
+      "n_try": 64,
+      "rate": 0.3125,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "len_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 2,
+        "donor": "Mở ra quá trình sụp đổ không sao gượng nổi của ngụy quyền Sài Gòn.",
+        "to": 1,
+        "d_ey": -0.004396647728205139
+      },
+      "n_uncertified_moves": 11
+    },
+    {
+      "id": "kgv_su_0560",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0562",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0563",
+      "L0": 0,
+      "n_try": 64,
+      "rate": 0.03125,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "len_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 2,
+        "donor": "Giáng một đòn mạnh vào âm mưu chia rẽ, lật đổ, xâm lược của các thế lực thù địch.",
+        "to": 1,
+        "d_ey": 0.11503652316380752
+      },
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0567",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.03125,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 1
+    },
+    {
+      "id": "kgv_su_0568",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0577",
+      "L0": 0,
+      "n_try": 48,
+      "rate": 0.08333333333333333,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "len_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Để khoét sâu những mâu thuẫn trong kế hoạch đánh nhanh thắng nhanh của Pháp",
+        "to": 1,
+        "d_ey": 0.19382079639236022
+      },
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0578",
+      "L0": 1,
+      "n_try": 48,
+      "rate": 0.5208333333333334,
+      "cheapest_down": {
+        "arm": "len_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Giải phóng thị xã Tuyên Quang.",
+        "to": 0,
+        "d_ey": -0.22074509802377484
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 23
+    },
+    {
+      "id": "kgv_su_0579",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.0625,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 2
+    },
+    {
+      "id": "kgv_su_0586",
+      "L0": 0,
+      "n_try": 64,
+      "rate": 0.3125,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "len_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Xác định đúng nhiệm vụ cách mạng là đánh đổ đế quốc.",
+        "to": 1,
+        "d_ey": 0.13988429735306374
+      },
+      "n_uncertified_moves": 11
+    },
+    {
+      "id": "kgv_su_0592",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.640625,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 41
+    },
+    {
+      "id": "kgv_su_0599",
+      "L0": 0,
+      "n_try": 64,
+      "rate": 0.5,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "len_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 2,
+        "donor": "Bước đầu xây dựng lực lượng cho cách mạng.",
+        "to": 1,
+        "d_ey": -0.032486155964259966
+      },
+      "n_uncertified_moves": 20
+    },
+    {
+      "id": "kgv_su_0600",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.0625,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "len_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Thời gian để xây dựng lực lượng, chuyển bại thành thắng quá ngắn (18 tháng)",
+        "to": 1,
+        "d_ey": 0.36433465233460627
+      },
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0606",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.015625,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 1
+    },
+    {
+      "id": "kgv_su_0611",
+      "L0": 1,
+      "n_try": 48,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0616",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0623",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.21875,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 7
+    },
+    {
+      "id": "kgv_su_0626",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.171875,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 11
+    },
+    {
+      "id": "kgv_su_0627",
+      "L0": 3,
+      "n_try": 32,
+      "rate": 0.4375,
+      "cheapest_down": {
+        "arm": "len_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Là thách thức, vì hòa bình ở nhiều khu vực bị đe dọa bởi xung đột sắc tộc, tôn giáo, tranh chấp lãnh thổ, chủ nghĩa khủng bố và li khai",
+        "to": 1,
+        "d_ey": -0.811792366319984
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 6
+    },
+    {
+      "id": "kgv_su_0630",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0634",
+      "L0": 0,
+      "n_try": 64,
+      "rate": 0.78125,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "len_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 1,
+        "donor": "Chủ nghĩa Mác-Lê nin với phong trào công nhân và phong trào nông dân",
+        "to": 1,
+        "d_ey": 0.002286870414804798
+      },
+      "n_uncertified_moves": 34
+    },
+    {
+      "id": "kgv_su_0647",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0649",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0659",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.15625,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 5
+    },
+    {
+      "id": "kgv_su_0668",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.09375,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 6
+    },
+    {
+      "id": "kgv_su_0675",
+      "L0": 0,
+      "n_try": 64,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0676",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0678",
+      "L0": 0,
+      "n_try": 48,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0681",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0686",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.28125,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "len_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 2,
+        "donor": "Tập trung lực lượng để đối phó với Trung Hoa Dân Quốc",
+        "to": 1,
+        "d_ey": 0.2633616872947225
+      },
+      "n_uncertified_moves": 2
+    },
+    {
+      "id": "kgv_su_0691",
+      "L0": 0,
+      "n_try": 64,
+      "rate": 0.296875,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "len_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 2,
+        "donor": "Thắng lợi của cách mạng Trung Quốc 1/10/1949. Trung Quốc, Liên Xô và các nước xã hội chủ nghĩa đặt quan hệ ngoại giao với Việt Nam.",
+        "to": 1,
+        "d_ey": 0.3628917880412952
+      },
+      "n_uncertified_moves": 5
+    },
+    {
+      "id": "kgv_su_0702",
+      "L0": 3,
+      "n_try": 32,
+      "rate": 0.5625,
+      "cheapest_down": {
+        "arm": "len_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 1,
+        "donor": "Khôi phục nền kinh tế Nhật Bản đạt mức trước chiến tranh.",
+        "to": 2,
+        "d_ey": 0.18360442449751568
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 8
+    },
+    {
+      "id": "kgv_su_0706",
+      "L0": 1,
+      "n_try": 48,
+      "rate": 0.0625,
+      "cheapest_down": {
+        "arm": "len_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Ủy ban dân tộc giait phóng Việt Nam cải tổ thành Chính phủ lâm thời nước VNDCCH.",
+        "to": 0,
+        "d_ey": -0.15891986814448578
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 2
+    },
+    {
+      "id": "kgv_su_0715",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0728",
+      "L0": 1,
+      "n_try": 48,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0730",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.03125,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 1
+    },
+    {
+      "id": "kgv_su_0747",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.40625,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "len_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Bình định kết hợp phản công và tiến công lực lượng cách mạng.",
+        "to": 1,
+        "d_ey": 0.3625945924145854
+      },
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0752",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0757",
+      "L0": 0,
+      "n_try": 64,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0759",
+      "L0": 0,
+      "n_try": 48,
+      "rate": 0.22916666666666666,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "len_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 2,
+        "donor": "Tạo sự cạnh tranh giữa hàng hóa các nước nhập vào Đông Dương.",
+        "to": 1,
+        "d_ey": 0.27060145740073116
+      },
+      "n_uncertified_moves": 4
+    },
+    {
+      "id": "kgv_su_0765",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.09375,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 6
+    },
+    {
+      "id": "kgv_su_0773",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.03125,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 1
+    },
+    {
+      "id": "kgv_su_0774",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0780",
+      "L0": 3,
+      "n_try": 32,
+      "rate": 0.09375,
+      "cheapest_down": {
+        "arm": "len_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 2,
+        "donor": "Phải chia sẻ quyền lợi ở Đông Dương với phát xít Nhật",
+        "to": 1,
+        "d_ey": -0.7868516476375826
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0782",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.375,
+      "cheapest_down": {
+        "arm": "len_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 1,
+        "donor": "Tây Nam Phi.",
+        "to": 0,
+        "d_ey": -0.17442550295178094
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 9
+    },
+    {
+      "id": "kgv_su_0785",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.0625,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "len_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Tăng cường hệ thống phòng ngự trên đường số 4",
+        "to": 1,
+        "d_ey": 0.2757304669522617
+      },
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0787",
+      "L0": 0,
+      "n_try": 64,
+      "rate": 0.546875,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "len_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "sự chống phá của các thế lực bên ngoài, khiến công cuộc cải tổ thực hiện chưa hiệu quả.",
+        "to": 1,
+        "d_ey": 0.17217025527670887
+      },
+      "n_uncertified_moves": 21
+    },
+    {
+      "id": "kgv_su_0789",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0798",
+      "L0": 1,
+      "n_try": 48,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0801",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0813",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0817",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.015625,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 1
+    },
+    {
+      "id": "kgv_su_0824",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0826",
+      "L0": 0,
+      "n_try": 64,
+      "rate": 0.125,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "len_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Đấu tranh mạnh mẽ theo khuynh hướng vô sản.",
+        "to": 1,
+        "d_ey": 0.14409955205459857
+      },
+      "n_uncertified_moves": 1
+    },
+    {
+      "id": "kgv_su_0829",
+      "L0": 0,
+      "n_try": 64,
+      "rate": 0.1875,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "len_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Hội phản đế Đồng minh Đông Dương.",
+        "to": 1,
+        "d_ey": 0.11288845957501592
+      },
+      "n_uncertified_moves": 1
+    },
+    {
+      "id": "kgv_su_0830",
+      "L0": 0,
+      "n_try": 64,
+      "rate": 0.640625,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "len_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Vận dụng quan điểm của chủ nghĩa Mác Lênin “cách mạng là sự nghiệp của quần chúng”",
+        "to": 1,
+        "d_ey": 0.06779705034254102
+      },
+      "n_uncertified_moves": 27
+    },
+    {
+      "id": "kgv_su_0834",
+      "L0": 0,
+      "n_try": 64,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0836",
+      "L0": 0,
+      "n_try": 48,
+      "rate": 0.5208333333333334,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "len_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 1,
+        "donor": "Bắc Sơn (Lạng Sơn) và Tuyên Quang",
+        "to": 1,
+        "d_ey": -0.01619223297852823
+      },
+      "n_uncertified_moves": 19
+    },
+    {
+      "id": "kgv_su_0841",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0844",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0845",
+      "L0": 1,
+      "n_try": 48,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0853",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0854",
+      "L0": 1,
+      "n_try": 48,
+      "rate": 0.08333333333333333,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "len_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Hàn Quốc, Nhật Bản, Hồng Công, Singapore.",
+        "to": 3,
+        "d_ey": 0.11456641163433212
+      },
+      "n_uncertified_moves": 3
+    },
+    {
+      "id": "kgv_su_0856",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.125,
+      "cheapest_down": {
+        "arm": "len_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 2,
+        "donor": "Châu phi có phong trào giải phóng dân tộc phát triển sớm nhất và mạnh nhất.",
+        "to": 0,
+        "d_ey": -0.026337358978102188
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 2
+    },
+    {
+      "id": "kgv_su_0860",
+      "L0": 3,
+      "n_try": 48,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0867",
+      "L0": 0,
+      "n_try": 64,
+      "rate": 0.03125,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "len_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 2,
+        "donor": "Kết thúc ách nô dịch hơn 100 năm của đế quốc và hàng nghìn năm của chế độ phong kiến.",
+        "to": 1,
+        "d_ey": 0.4402802325628512
+      },
+      "n_uncertified_moves": 1
+    },
+    {
+      "id": "kgv_su_0871",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0872",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0877",
+      "L0": 3,
+      "n_try": 32,
+      "rate": 0.75,
+      "cheapest_down": {
+        "arm": "len_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 2,
+        "donor": "Ổn định tình hình kinh tế – xã hội, đáp ứng những nhu cầu cấp thiết của đời sống nhân dân, giảm nhẹ sự mất cân đối của nền kinh tế.",
+        "to": 1,
+        "d_ey": -0.08969780674620487
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 16
+    },
+    {
+      "id": "kgv_su_0891",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0901",
+      "L0": 2,
+      "n_try": 64,
+      "rate": 0.125,
+      "cheapest_down": {
+        "arm": "len_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 1,
+        "donor": "Vì sau chiến tranh Triều Tiên Mĩ muốn tăng cường can thiệp vào Đông Dương.",
+        "to": 1,
+        "d_ey": -0.6902190740004568
+      },
+      "cheapest_up": {
+        "arm": "len_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 1,
+        "donor": "Triệu tập Đại hội Quốc dân tại Tân Trào.",
+        "to": 3,
+        "d_ey": 0.017635880219858624
+      },
+      "n_uncertified_moves": 5
+    },
+    {
+      "id": "kgv_su_0903",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0907",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0908",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.5,
+      "cheapest_down": {
+        "arm": "len_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 2,
+        "donor": "Dùng người Việt đánh người Việt, lấy chiến tranh nuôi chiến tranh.",
+        "to": 0,
+        "d_ey": -0.31384836841965946
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 15
+    },
+    {
+      "id": "kgv_su_0913",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.03125,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 1
+    },
+    {
+      "id": "kgv_su_0918",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0920",
+      "L0": 2,
+      "n_try": 32,
+      "rate": 0.71875,
+      "cheapest_down": {
+        "arm": "len_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 1,
+        "donor": "Thường xuyên xảy ra các cuộc xung đột, nội chiến đẫm máu giữa các sắc tộc, tôn giáo.",
+        "to": 1,
+        "d_ey": -0.06036509823491154
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 10
+    },
+    {
+      "id": "kgv_su_0921",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.4375,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "len_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 2,
+        "donor": "Tiến nhanh trên con đường XHCN.",
+        "to": 1,
+        "d_ey": 0.03798071810653059
+      },
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0925",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0927",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0929",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.25,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "len_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Chống thực dân Pháp giành độc lập và chống phong kiến đòi ruộng đất cho dân cày.",
+        "to": 1,
+        "d_ey": 0.035143725841003226
+      },
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0930",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.03125,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 2
+    },
+    {
+      "id": "kgv_su_0931",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0933",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.125,
+      "cheapest_down": {
+        "arm": "len_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 2,
+        "donor": "“Độc lập dân tộc” và “Ruộng đất dân cày”.",
+        "to": 0,
+        "d_ey": -0.3422371776690277
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 3
+    },
+    {
+      "id": "kgv_su_0943",
+      "L0": 2,
+      "n_try": 32,
+      "rate": 0.1875,
+      "cheapest_down": {
+        "arm": "len_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Trận Điện Biên Phủ trên không 1972.",
+        "to": 0,
+        "d_ey": -0.398557655824634
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0945",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0946",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0951",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0952",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.4375,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "len_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Tiêu diệt lực lượng du kích của ta",
+        "to": 1,
+        "d_ey": 0.2078352044711908
+      },
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0956",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.25,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 8
+    },
+    {
+      "id": "kgv_su_0958",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0966",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.109375,
+      "cheapest_down": {
+        "arm": "len_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Khủng bố, tranh chấp lãnh thổ, li khai, xung đột tôn giáo.",
+        "to": 0,
+        "d_ey": -0.164014822320531
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 6
+    },
+    {
+      "id": "kgv_su_0968",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0969",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0972",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0973",
+      "L0": 3,
+      "n_try": 32,
+      "rate": 0.71875,
+      "cheapest_down": {
+        "arm": "len_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 2,
+        "donor": "Thực hiện \"Cuộc cách mạng Xanh\" trong nông nghiệp, trong giao thông, thông tin liên lạc, chinh phục vũ trụ,...",
+        "to": 1,
+        "d_ey": -0.008365099748733229
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 9
+    },
+    {
+      "id": "kgv_su_0982",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.5,
+      "cheapest_down": {
+        "arm": "len_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Bầu cử được tiến hành, người da đen được bầu làm tổng thống.",
+        "to": 0,
+        "d_ey": 0.1773414351999858
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 15
+    },
+    {
+      "id": "kgv_su_0985",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.03125,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "len_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 2,
+        "donor": "Xây dựng một bước cơ sở vật chất – kĩ thuật của chủ nghĩa xã hội, cải thiện một bước đời sống vật chất và văn hóa của nhân dân lao động.",
+        "to": 1,
+        "d_ey": 0.7722645166900822
+      },
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0986",
+      "L0": 3,
+      "n_try": 64,
+      "rate": 0.6875,
+      "cheapest_down": {
+        "arm": "len_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 1,
+        "donor": "Phong trào công nhân chuyển từ đấu tranh tự phát sang tự giác.",
+        "to": 1,
+        "d_ey": -0.4930459417632431
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 38
+    },
+    {
+      "id": "kgv_su_0999",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_1003",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.0625,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 4
+    },
+    {
+      "id": "kgv_su_1006",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_1008",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_1009",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_1014",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.21875,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "len_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 1,
+        "donor": "Chấm dứt sự nô dịch và thống trị của chủ nghĩa thực dân cũ ở Trung Quốc.",
+        "to": 1,
+        "d_ey": 0.16116066375040172
+      },
+      "n_uncertified_moves": 1
+    },
+    {
+      "id": "kgv_su_1017",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_1021",
+      "L0": 0,
+      "n_try": 48,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_1029",
+      "L0": 1,
+      "n_try": 48,
+      "rate": 0.5,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 24
+    },
+    {
+      "id": "kgv_su_1034",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.1875,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "len_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 1,
+        "donor": "Phong trào đấu tranh đòi thả tư do cho Phan Bội Châu (1925)",
+        "to": 1,
+        "d_ey": 0.3006062522412213
+      },
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_1045",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_1047",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_1048",
+      "L0": 1,
+      "n_try": 48,
+      "rate": 0.020833333333333332,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 1
+    },
+    {
+      "id": "kgv_su_1051",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_1053",
+      "L0": 1,
+      "n_try": 48,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_1060",
+      "L0": 3,
+      "n_try": 32,
+      "rate": 0.0625,
+      "cheapest_down": {
+        "arm": "len_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Chuẩn bị gây ra một cuộc chiến tranh thế giới mới.",
+        "to": 1,
+        "d_ey": -1.139377037346142
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_1061",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_1088",
+      "L0": 0,
+      "n_try": 64,
+      "rate": 0.078125,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "len_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "ở Hà Nội, thực dân Pháp liên tiếp gây những cuộc xung đột vũ trang.",
+        "to": 1,
+        "d_ey": 0.24711584822777927
+      },
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_1102",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.375,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 12
+    },
+    {
+      "id": "kgv_su_1107",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.265625,
+      "cheapest_down": {
+        "arm": "len_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "ở Tây Âu, nhanh chóng lan sang Liên Xô.",
+        "to": 0,
+        "d_ey": -0.16112285503578883
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 16
+    },
+    {
+      "id": "kgv_su_1114",
+      "L0": 1,
+      "n_try": 48,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_1128",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_1133",
+      "L0": 3,
+      "n_try": 64,
+      "rate": 0.59375,
+      "cheapest_down": {
+        "arm": "len_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 2,
+        "donor": "Đường lối đổi mới về cơ bản là đúng đắn cần phải có những bước đi phù hợp.",
+        "to": 2,
+        "d_ey": -0.38940191212427466
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 35
+    },
+    {
+      "id": "kgv_su_1137",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_1149",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_1159",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_1169",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_1182",
+      "L0": 0,
+      "n_try": 64,
+      "rate": 0.015625,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "len_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 2,
+        "donor": "Khoa học phát minh, phát hiện các quy luật trong các lĩnh vực Toán, Lý, Hóa, Sinh.",
+        "to": 1,
+        "d_ey": 0.8067086672242769
+      },
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_1190",
+      "L0": 0,
+      "n_try": 64,
+      "rate": 0.125,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "len_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 2,
+        "donor": "Pháp muốn giữ thế hòa hoãn tạm thời để chờ cơ hội phản công",
+        "to": 2,
+        "d_ey": 0.13565628585247835
+      },
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_1192",
+      "L0": 0,
+      "n_try": 64,
+      "rate": 0.015625,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "len_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Là thời cơ, vì hòa bình, ổn định và hợp tác phát triển cho phép các nước tận dụng những thành tựu của cách mạng khoa học - kĩ thuật, lấy kinh tế làm trọng điểm và tích cực mở rộng các quan hệ kinh tế.",
+        "to": 2,
+        "d_ey": 1.206513735998544
+      },
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_1197",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_1204",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_1205",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_1210",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.09375,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 3
+    },
+    {
+      "id": "kgv_su_1220",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.375,
+      "cheapest_down": {
+        "arm": "len_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 2,
+        "donor": "Thời gian tồn tại của chính quyền Xô Việt Nghệ- Tĩnh",
+        "to": 0,
+        "d_ey": -0.18853351085166914
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 10
+    },
+    {
+      "id": "kgv_su_1224",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.28125,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "len_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 2,
+        "donor": "Điện khí hóa sản xuất.",
+        "to": 1,
+        "d_ey": 0.20654213633238228
+      },
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_1225",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_1226",
+      "L0": 0,
+      "n_try": 64,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_1230",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_1240",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.4375,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "len_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 2,
+        "donor": "Các cuộc đấu tranh đều mang tính chất chính trị, vượt ra ngoài phạm vi một xưởng, bước đầu liên kết được nhiều ngành, nhiều địa phương.",
+        "to": 1,
+        "d_ey": 0.32609965335787316
+      },
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_1243",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_1249",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_1255",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_1256",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.046875,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 3
+    },
+    {
+      "id": "kgv_su_1279",
+      "L0": 0,
+      "n_try": 64,
+      "rate": 0.140625,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "len_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 2,
+        "donor": "Các phong trào dân tộc của công nhân, nông dân và các tầng lớp xã hội khác liên tiếp bùng nổ trong cả nước.",
+        "to": 1,
+        "d_ey": 0.011263487779883619
+      },
+      "n_uncertified_moves": 1
+    },
+    {
+      "id": "kgv_su_1280",
+      "L0": 0,
+      "n_try": 64,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_1283",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.03125,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "len_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Là vùng đông dân nhất thế giới, bao gồm những nước có lãnh thổ rộng lớn với nguồn tài nguyên thiên nhiên phong phú.",
+        "to": 2,
+        "d_ey": 0.4648425471127151
+      },
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_1294",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.125,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 4
+    },
+    {
+      "id": "kgv_su_1298",
+      "L0": 0,
+      "n_try": 48,
+      "rate": 0.020833333333333332,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "len_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Mọi phát minh về kĩ thuật đều bắt dựa vào các ngành khoa học cơ bản.",
+        "to": 2,
+        "d_ey": 0.303984897028325
+      },
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_1308",
+      "L0": 0,
+      "n_try": 48,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_1314",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.0625,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "len_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 2,
+        "donor": "Vận dụng quan điểm của chủ nghĩa Mác Lênin và truyền thống lịch sử dân tộc.",
+        "to": 1,
+        "d_ey": 0.4084516465319868
+      },
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_1325",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_1331",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_1335",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.46875,
+      "cheapest_down": {
+        "arm": "len_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 1,
+        "donor": "Mâu thuẫn giữa nhân dân ta với phát xít Nhật và phong kiến tay sai.",
+        "to": 0,
+        "d_ey": -0.11905317631089385
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 28
+    }
+  ]
+}

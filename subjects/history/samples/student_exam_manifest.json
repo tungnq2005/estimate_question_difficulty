@@ -1,0 +1,499 @@
+{
+  "A": [
+    {
+      "item_id": "su9_vj_0113",
+      "stem": "Nenxơn Mandela là lãnh tụ của phong trào đấu tranh",
+      "correct_text": "chống chế độ phân biệt chủng tộc ở Nam Phi",
+      "options": [
+        "giải phóng dân tộc ở châu Phi",
+        "chống chế độ độc tài thân Mĩ ở Cuba",
+        "chống chế độ phân biệt chủng tộc ở Nam Phi",
+        "xóa bỏ đói nghèo ở Nam Phi"
+      ]
+    },
+    {
+      "item_id": "su9_vj_0739",
+      "stem": "Cuộc nội chiến ở Trung Quốc (1946-1949) diễn ra giữa các lực lượng nào?",
+      "correct_text": "Quốc dân Đảng và Đảng Cộng sản Trung Quốc",
+      "options": [
+        "Chính quyền Mãn Thanh và Trung Hoa Dân Quốc",
+        "Chính quyền Mãn Thanh và Đảng Cộng sản Trung Quốc",
+        "Chính quyền Mãn Châu với Đảng Cộng sản.",
+        "Quốc dân Đảng và Đảng Cộng sản Trung Quốc"
+      ]
+    },
+    {
+      "item_id": "su9_vj_0506",
+      "stem": "Nhiệm vụ tập hợp xây dựng lực lượng khối đoàn kết dân tộc từ năm 1951 đến năm 1954 do mặt trận nào đảm nhiệm",
+      "correct_text": "Mặt trận Liên Việt",
+      "options": [
+        "Liên minh nhân dân Việt Miên Lào",
+        "Mặt trận Liên Việt",
+        "Mặt trận Việt Minh",
+        "Hội Liên Việt"
+      ]
+    },
+    {
+      "item_id": "su9_vj_2790",
+      "stem": "Năm 1923, Nguyễn Ái Quốc chính thức được bầu vào tổ chức nào sau đây?",
+      "correct_text": "Hội đồng Quốc tế Nông dân.",
+      "options": [
+        "Đảng Xã hội Pháp.",
+        "Hội đồng Quốc tế Nông dân.",
+        "Quốc tế Cộng sản.",
+        "Đảng Cộng sản Pháp."
+      ]
+    },
+    {
+      "item_id": "su9_vj_1813",
+      "stem": "Từ tháng 9/1940 đến tháng 3/1945, nhân dân Việt Nam chịu hai tầng cai trị áp bức bóc lột của thế lực nào sau đây?",
+      "correct_text": "Thực dân Pháp và Quân phiệt Nhật.",
+      "options": [
+        "Thực dân Pháp và Quân phiệt Nhật.",
+        "Tư sản dân tộc và đại địa chủ.",
+        "Quân phiệt Nhật và tay sai.",
+        "Thực dân Pháp và phong kiến."
+      ]
+    },
+    {
+      "item_id": "su9_vj_2077",
+      "stem": "Từ năm 1922, lãnh đạo phong trào đấu tranh của giai cấp công nhân Nhật Bản là",
+      "correct_text": "Đảng Cộng sản.",
+      "options": [
+        "Quốc dân Đảng.",
+        "Đảng Quốc đại.",
+        "Đảng Dân chủ.",
+        "Đảng Cộng sản."
+      ]
+    },
+    {
+      "item_id": "su9_vj_1953",
+      "stem": "Mĩ mở cuộc hành quân đánh vào căn cứ Dương Minh Châu (Bắc Tây Ninh) nhằm mục đích nào sau đây?",
+      "correct_text": "Tiêu diệt quân chủ lực và cơ quan đầu não của ta.",
+      "options": [
+        "Giành lại thế chủ động trên chiến trường chính.",
+        "Phá hoại hậu phương, xây dựng các ấp chiến lược.",
+        "Tiêu diệt quân chủ lực và cơ quan đầu não của ta.",
+        "Uy hiếp tinh thần chiến đấu của quân dân ta."
+      ]
+    },
+    {
+      "item_id": "su9_vj_1974",
+      "stem": "Trọng tâm trong chính sách đối ngoại của Mỹ giai đoạn 1991 - 2000 là",
+      "correct_text": "cố gắng thiết lập trật tự thế giới mới theo xu hướng đơn cực.",
+      "options": [
+        "cố gắng thiết lập trật tự thế giới mới theo xu hướng đơn cực.",
+        "cạnh tranh với Trung Quốc và các cường quốc khác.",
+        "phát động chiến lược toàn cầu chống khủng bố.",
+        "cải thiện quan hệ với Liên Xô và phe xã hội chủ nghĩa."
+      ]
+    },
+    {
+      "item_id": "su9_vj_2295",
+      "stem": "Sau Chiến tranh thế giới thứ hai, Mỹ đã thành lập khối quân sự ở khu vực nào sau đây?",
+      "correct_text": "Đông Nam Á.",
+      "options": [
+        "Đông Bắc Á.",
+        "Đông Nam Á.",
+        "Bắc Phi.",
+        "Đông Âu."
+      ]
+    },
+    {
+      "item_id": "su9_vj_2676",
+      "stem": "Nội dung nào sau đây phản ánh đúng đặc điểm của Nhật Bản ngay sau Chiến tranh thế giới thứ nhất?",
+      "correct_text": "Nền kinh tế Nhật Bản phát triển nhanh chóng sau chiến tranh.",
+      "options": [
+        "Cuộc khủng hoảng tài chính trầm trọng đã diễn ra ở Tôkiô.",
+        "Nội bộ giới quân phiệt và tài phiệt Nhật có sự phân hóa sâu sắc.",
+        "Nền kinh tế Nhật Bản phát triển nhanh chóng sau chiến tranh.",
+        "Chính quyền Nhật Bản tiến hành quân sự hóa bộ máy nhà nước."
+      ]
+    },
+    {
+      "item_id": "su9_vj_2489",
+      "stem": "Trong những năm 1960 - 1965, khẩu hiệu “Một tấc không đi, một li không rời” ra đời trong phong trào đấu tranh nào của quân dân miền Nam?",
+      "correct_text": "Phá “Ấp chiến lược”.",
+      "options": [
+        "“Phụ nữ ba đảm đang”.",
+        "Phá “Ấp chiến lược”.",
+        "“Đồng khởi”.",
+        "“Người cày có ruộng”."
+      ]
+    },
+    {
+      "item_id": "su9_vj_0481",
+      "stem": "Quốc gia đầu tiên công nhận và đặt quan hệ ngoại giao với Việt Nam Dân chủ Cộng hòa là quốc gia nào",
+      "correct_text": "Trung Quốc",
+      "options": [
+        "Tiệp Khắc",
+        "Trung Quốc",
+        "Liên Xô",
+        "Cộng hòa Dân chủ Đức"
+      ]
+    },
+    {
+      "item_id": "su9_vj_2583",
+      "stem": "Hành động nào sau đây của Trung Quốc đối với Việt Nam trong nửa sau những năm 70 của thế kỷ XX là biểu hiện cho quan hệ căng thẳng giữa hai nước?",
+      "correct_text": "Chấm dứt các viện trợ kinh tế, kỹ thuật.",
+      "options": [
+        "Cấm vận về kinh tế, cô lập về chính trị.",
+        "Ngăn cản Việt Nam gia nhập Liên hợp quốc.",
+        "Công nhận và ủng hộ Chính quyền Sài Gòn.",
+        "Chấm dứt các viện trợ kinh tế, kỹ thuật."
+      ]
+    },
+    {
+      "item_id": "su9_vj_2808",
+      "stem": "Chính sách thống trị của thực dân Pháp ở Đông Dương trong những năm Chiến tranh thế giới thứ hai nhằm mục đích nào sau đây?",
+      "correct_text": "Vơ vét sức người, sức của ở Đông Dương để phục vụ chiến tranh.",
+      "options": [
+        "Vơ vét sức người, sức của ở Đông Dương để phục vụ chiến tranh.",
+        "Chống lại sự bành trướng của chủ nghĩa phát xít ở châu Á.",
+        "Chuẩn bị tuyên chiến với quân Nhật khi chúng vào Đông Dương.",
+        "Khôi phục và phát triển lại nền kinh tế đang bị khủng hoảng."
+      ]
+    },
+    {
+      "item_id": "su9_vj_2486",
+      "stem": "Nội dung nào không phản ánh đúng về chiến lược “Chiến tranh đặc biệt” (1961 - 1965) của Mĩ thực hiện ở miền Nam Việt Nam?",
+      "correct_text": "Là chiến lược chiến tranh có quy mô lớn và mức độ ác liệt nhất.",
+      "options": [
+        "Được tiến hành bằng quân đội Sài Gòn do cố vấn Mĩ chỉ huy.",
+        "Là chiến lược chiến tranh có quy mô lớn và mức độ ác liệt nhất.",
+        "Là hình thức chiến tranh xâm lược thực dân kiểu mới của Mĩ.",
+        "Nhằm chống lại lượng cách mạng và nhân dân miền Nam."
+      ]
+    },
+    {
+      "item_id": "su9_vj_2125",
+      "stem": "Năm 1929, tổ chức Việt Nam Quốc dân đảng có hoạt động tiêu biểu nào sau đây?",
+      "correct_text": "Ám sát trùm mộ phu Ba-danh.",
+      "options": [
+        "Ám sát toàn quyền Đông Dương Méc-lanh.",
+        "Ám sát trùm mộ phu Ba-danh.",
+        "Khởi nghĩa Yên Bái.",
+        "Đấu tranh đòi thả Nguyễn An Ninh."
+      ]
+    },
+    {
+      "item_id": "su9_vj_2248",
+      "stem": "Thông điệp của Tổng thống Truman tại Quốc hội Mỹ (3/1947) đã",
+      "correct_text": "củng cố hơn nữa mối quan hệ giữa Mỹ và Tây Âu.",
+      "options": [
+        "ngăn chặn quá trình mở rộng của chủ nghĩa xã hội.",
+        "tạo nên sự đối lập giữa các nước Đông Âu và Tây Âu.",
+        "củng cố hơn nữa mối quan hệ giữa Mỹ và Tây Âu.",
+        "mở đầu việc xác lập trật tự hai cực trên thế giới."
+      ]
+    },
+    {
+      "item_id": "su9_vj_3063",
+      "stem": "Sự kiện nào sau đây đánh dấu chủ nghĩa xã hội đã vượt ra khỏi phạm vi một nước (Liên Xô) và bước đầu trở thành hệ thống thế giới?",
+      "correct_text": "Sự ra đời các nhà nước Dân chủ Nhân dân Đông Âu.",
+      "options": [
+        "Sự ra đời nhà nước Cộng hoà Nhân dân Trung Hoa.",
+        "Sự ra đời nhà nước Cộng hoà Cuba ở châu Mỹ.",
+        "Chủ nghĩa xã hội ra đời ở Việt Nam và Triều Tiên.",
+        "Sự ra đời các nhà nước Dân chủ Nhân dân Đông Âu."
+      ]
+    },
+    {
+      "item_id": "su9_vj_2268",
+      "stem": "Năm 1949, Liên Xô và các nước Đông Âu thành lập Hội đồng tương trợ kinh tế (SEV) nhằm mục đích nào sau đây?",
+      "correct_text": "Tăng cường sự hợp tác giữa các nước xã hội chủ nghĩa ở châu Âu.",
+      "options": [
+        "Đạt được thế cân bằng về sức mạnh quân sự đối với các nước Tây Âu.",
+        "Viện trợ không hoàn lại cho các nước Đông Âu phát triển kinh tế.",
+        "Tăng cường chạy đua vũ trang với các nước tư bản chủ nghĩa.",
+        "Tăng cường sự hợp tác giữa các nước xã hội chủ nghĩa ở châu Âu."
+      ]
+    },
+    {
+      "item_id": "su9_vj_2975",
+      "stem": "Năm 1965, Mĩ ồ ạt đưa quân viễn chinh, quân đồng minh vào chiến trường miền Nam Việt Nam vì",
+      "correct_text": "quân đội Sài Gòn không có khả năng tự đứng vững.",
+      "options": [
+        "muốn tiến hành cuộc đảo chính lật đổ Ngô Đình Diệm.",
+        "muốn nhanh chóng kết thúc chiến tranh ở Việt Nam.",
+        "muốn đẩy mạnh chiến tranh ra cả ba nước Đông Dương.",
+        "quân đội Sài Gòn không có khả năng tự đứng vững."
+      ]
+    },
+    {
+      "item_id": "su9_vj_1817",
+      "stem": "Sự kiện nào sau đây không tác động mạnh mẽ đến tiến trình Việt Nam trong những năm 1939 - 1945?",
+      "correct_text": "Sự ra đời và hoạt động tích cực của tổ chức Liên hợp quốc.",
+      "options": [
+        "Nhật mở rộng cuộc chiến tranh ra châu Á - Thái Bình Dương.",
+        "Đức xâm lược Pháp, Pháp phải nuôi số quân Đức chiếm đóng.",
+        "Sự ra đời và hoạt động tích cực của tổ chức Liên hợp quốc.",
+        "Quân phiệt Nhật Bản đầu hàng phe Đồng minh vô điều kiện."
+      ]
+    },
+    {
+      "item_id": "su9_vj_2879",
+      "stem": "Nội dung nào sau đây không phải mục đích của Pháp khi đề ra kế hoạch Na-va năm 1953?",
+      "correct_text": "Biến Điện Biên Phủ thành pháo đài bất khả xâm phạm.",
+      "options": [
+        "Kết thúc chiến tranh ở Việt Nam trong danh dự.",
+        "Biến Điện Biên Phủ thành pháo đài bất khả xâm phạm.",
+        "Xoay chuyển cục diện chiến tranh Đông Dương.",
+        "Chuyển bại thành thắng trong vòng 18 tháng."
+      ]
+    },
+    {
+      "item_id": "su9_vj_3043",
+      "stem": "Hội nghị Ban Chấp hành Trung ương Đảng (5/1941) tạm gác khẩu hiệu “Cách mạng ruộng đất”, đề ra khẩu hiệu “Tịch thu ruộng đất của đế quốc và Việt gian chia cho dân cày” đã chứng tỏ",
+      "correct_text": "nhiệm vụ dân chủ được tiến hành từng bước để phục vụ nhiệm vụ dân tộc.",
+      "options": [
+        "Đảng đã vận dụng sáng tạo chủ trương của phe Đồng minh chống phát xít.",
+        "nhiệm vụ dân chủ được tiến hành từng bước để phục vụ nhiệm vụ dân tộc.",
+        "vấn đề dân cày ít quan trọng trong bối cảnh đất nước chưa được giải phóng.",
+        "Việt Nam cần tập trung nhiệm vụ để chống đế quốc trên lĩnh vực kinh tế."
+      ]
+    },
+    {
+      "item_id": "su9_vj_1739",
+      "stem": "Cuộc kháng chiến chống quân Nhật của nhân dân Trung Quốc (1937 - 1945) đã",
+      "correct_text": "làm tiêu hao và tiêu diệt một bộ phận lớn quân Nhật.",
+      "options": [
+        "trở thành thắng lợi tiên phong trong đấu tranh chống phát xít.",
+        "quyết định đến số phận của Nhật trong chiến tranh thế giới.",
+        "buộc Nhật hoàng tuyên bố đầu hàng Đồng minh vô điều kiện.",
+        "làm tiêu hao và tiêu diệt một bộ phận lớn quân Nhật."
+      ]
+    },
+    {
+      "item_id": "su9_vj_0494",
+      "stem": "Sự kiện nào đánh dấu việc Mĩ bắt đầu dính líu và can thiệp vào cuộc chiến tranh Đông Dương",
+      "correct_text": "Giúp Pháp thực hiện kế hoạch Rơve",
+      "options": [
+        "Kí với Pháp Hiệp định phòng thủ chung Đông Dương",
+        "Giúp Pháp thực hiện kế hoạch Đờlát đơTátxinhi",
+        "Giúp Pháp thực hiện kế hoạch Rơve",
+        "Kí với Bảo Đại Hiệp ước hợp tác kinh tế Việt Mĩ"
+      ]
+    },
+    {
+      "item_id": "su9_vj_2840",
+      "stem": "Trong thời kì 1939 - 1945, Trung ương Đảng và lãnh tụ Hồ Chí Minh quyết định đặt nhiệm vụ giải phóng dân tộc lên hàng đầu dựa trên cơ sở nào sau đây?",
+      "correct_text": "Mâu thuẫn giữa nhân dân Việt Nam với Pháp - Nhật trở nên gay gắt.",
+      "options": [
+        "Mâu thuẫn giữa nhân dân Việt Nam với Pháp - Nhật trở nên gay gắt.",
+        "Chiến tranh thế giới thứ hai bùng nổ, nước Pháp bị phát xít Đức chiếm đóng.",
+        "Nhiệm vụ dân chủ giành ruộng đất cho dân cày không còn phù hợp.",
+        "Quân phiệt Nhật vào miền Bắc Việt Nam, lật đổ sự thống trị của Pháp."
+      ]
+    },
+    {
+      "item_id": "su9_001",
+      "stem": "Nguyên nhân sâu xa dẫn đến bùng nổ Chiến tranh thế giới thứ hai là gì?",
+      "correct_text": "Sự phát triển không đều của chủ nghĩa tư bản",
+      "options": [
+        "Sự phát triển không đều của chủ nghĩa tư bản",
+        "Khủng hoảng kinh tế 1929-1933",
+        "Sự xuất hiện của chủ nghĩa phát xít",
+        "Chính sách thỏa hiệp, nhượng bộ của Anh, Pháp"
+      ]
+    },
+    {
+      "item_id": "su9_vj_1965",
+      "stem": "Nội dung nào sau đây phản ánh đúng ý nghĩa của công cuộc Đổi mới đất nước giai đoạn 1986 - 1991?",
+      "correct_text": "Đưa Việt Nam dần thoát khỏi tình trạng khủng hoảng.",
+      "options": [
+        "Đưa Việt Nam dần thoát khỏi tình trạng khủng hoảng.",
+        "Thu nhập bình quân đầu người của Việt Nam đạt tốp đầu của châu Á.",
+        "Mỹ tuyên bố xoá bỏ lệnh cấm vận đối với Việt Nam.",
+        "Đưa Việt Nam trở thành cường quốc công nghiệp trong khu vực."
+      ]
+    },
+    {
+      "item_id": "su9_vj_2552",
+      "stem": "Trong cuộc kháng chiến chống Mĩ, cứu nước (1954 - 1975), Tây Nguyên là nơi được Đảng Lao động Việt Nam chọn để mở đầu cho sự kiện nào?",
+      "correct_text": "Tổng tiến công và nổi dậy Xuân năm 1975.",
+      "options": [
+        "Trận “Điện Biên Phủ trên không” cuối 1972.",
+        "Tổng tiến công và nổi dậy Xuân năm 1975.",
+        "Tổng tiến công và nổi dậy Xuân Mậu Thân 1968.",
+        "Cuộc tiến công chiến lược năm 1972."
+      ]
+    },
+    {
+      "item_id": "su9_vj_2952",
+      "stem": "Nội dung nào sau đây phản ánh vị thế của Đà Nẵng trong chiến lược của Mỹ ở miền Nam Việt Nam?",
+      "correct_text": "Căn cứ quân sự liên hợp lớn nhất của Mĩ và quân đội Sài Gòn.",
+      "options": [
+        "Căn cứ phòng thủ của địch để bảo vệ Sài Gòn từ phía Đông.",
+        "Là thành phố lớn tập trung nhiều cơ quan đầu não của địch.",
+        "Căn cứ quân sự liên hợp lớn nhất của Mĩ và quân đội Sài Gòn.",
+        "Là địa bàn chiến lược quan trọng để chống phá miền Bắc."
+      ]
+    },
+    {
+      "item_id": "su9_vj_2376",
+      "stem": "Để đấu tranh chống ngoại xâm nội phản (1945 - 1946), Đảng và Chính phủ Việt Nam đã sử dụng chính sách nào sau đây?",
+      "correct_text": "Từng bước phân hóa và cô lập kẻ thù của cách mạng.",
+      "options": [
+        "Hòa với kẻ thù nguy hiểm nhất để có thời gian hòa bình.",
+        "Ngả về phía các nước Đồng minh để chống nội phản.",
+        "Từng bước phân hóa và cô lập kẻ thù của cách mạng.",
+        "Khoét sâu mâu thuẫn giữa các nước đồng minh."
+      ]
+    },
+    {
+      "item_id": "su9_vj_0196",
+      "stem": "Hội nghị Ianta 1945 có sự tham gia của các nước nào",
+      "correct_text": "Liên Xô Mĩ Anh",
+      "options": [
+        "Liên Xô Mĩ Anh",
+        "Mĩ Liên Xô Trung Quốc",
+        "Anh Pháp Đức",
+        "Anh Pháp Nhật Bản"
+      ]
+    },
+    {
+      "item_id": "su9_vj_1842",
+      "stem": "Nội dung nào sau đây phản ánh đúng đặc điểm về mặt xã hội của Liên Xô trong những năm 1945 - 1973?",
+      "correct_text": "Nhân dân tin tưởng vào sự lãnh đạo của Đảng và con đường xây dựng chủ nghĩa xã hội.",
+      "options": [
+        "Giai cấp địa chủ phong kiến sở hữu nhiều ruộng đất, làm chủ về kinh tế ở nông thôn.",
+        "Xã hội có sự phân hóa triệt để, loại bỏ phương thức sản xuất tư bản chủ nghĩa.",
+        "Nhà nước tiến hành quốc hữu hóa các xí nghiệp của tư bản, cải tạo xã hội chủ nghĩa.",
+        "Nhân dân tin tưởng vào sự lãnh đạo của Đảng và con đường xây dựng chủ nghĩa xã hội."
+      ]
+    },
+    {
+      "item_id": "su9_vj_2993",
+      "stem": "Trong những năm 20 của thế kỉ XX, chính đảng nào nắm quyền ở Mỹ?",
+      "correct_text": "Đảng Cộng hòa.",
+      "options": [
+        "Đảng Bảo thủ.",
+        "Đảng Cộng hòa.",
+        "Đảng Dân chủ.",
+        "Đảng Tự do."
+      ]
+    },
+    {
+      "item_id": "su9_vj_1912",
+      "stem": "Việc kí Hiệp định Giơ-ne-vơ năm 1954 có ý nghĩa nào sau đây đối với dân tộc?",
+      "correct_text": "Kết thúc thắng lợi hoàn toàn cuộc kháng chiến chống thực dân Pháp ở Việt Nam.",
+      "options": [
+        "Là mốc đánh dấu chế độ quân chủ ở Việt Nam đã hoàn toàn sụp đổ.",
+        "Kết thúc thắng lợi hoàn toàn cuộc kháng chiến chống thực dân Pháp ở Việt Nam.",
+        "Là mốc đánh dấu sự sụp đổ hoàn toàn của chủ nghĩa thực dân mới ở Việt Nam.",
+        "Chứng tỏ cuộc cách mạng dân tộc dân chủ nhân dân đã hoàn thành trong cả nước."
+      ]
+    },
+    {
+      "item_id": "su9_vj_1894",
+      "stem": "Khi thực dân Pháp trở lại xâm lược (23/9/1945), quân dân Sài Gòn - Chợ Lớn đã",
+      "correct_text": "kiên quyết đứng lên chống Pháp.",
+      "options": [
+        "nhanh chóng đầu hàng thực dân Pháp.",
+        "hòa hoãn với Pháp để giữ vững hòa bình.",
+        "hợp tác với thực dân Pháp.",
+        "kiên quyết đứng lên chống Pháp."
+      ]
+    },
+    {
+      "item_id": "su9_vj_1848",
+      "stem": "Công cuộc khôi phục kinh tế, hàn gắn vết thương chiến tranh ở Liên Xô từ năm 1945 đến 1950 có ý nghĩa nào sau đây?",
+      "correct_text": "Là nền tảng vững chắc để Liên Xô xây dựng chủ nghĩa xã hội.",
+      "options": [
+        "Quyết định đến thành bại trong chạy đua vũ trang với Mỹ.",
+        "Khắc phục được những khó khăn của Chiến tranh thế giới hai.",
+        "Đạt được thế cân bằng về sức mạnh nguyên tử với Mỹ.",
+        "Là nền tảng vững chắc để Liên Xô xây dựng chủ nghĩa xã hội."
+      ]
+    },
+    {
+      "item_id": "su9_vj_0003",
+      "stem": "Trong những năm 5060 của thế kỉ XX nền kinh tế Kiên Xô phát triển mạnh",
+      "correct_text": "chiếm 20 sản lượng công nghiệp toàn thế giới",
+      "options": [
+        "chiếm 25 sản lượng điện toàn thế giới",
+        "chiếm 20 sản lượng công nghiệp toàn thế giới",
+        "chiếm 30 sản lượng than toàn thế giới",
+        "chiếm 20 sản lượng nông nghiệp toàn thế giới"
+      ]
+    },
+    {
+      "item_id": "su9_vj_2286",
+      "stem": "Theo quy định của Hiến pháp Mỹ, hai đảng nào thay nhau lên nắm chính quyền?",
+      "correct_text": "Đảng Dân chủ và Đảng Cộng hòa.",
+      "options": [
+        "Đảng Tự do và Đảng Bảo thủ.",
+        "Đảng Cộng sản và Đảng Xã hội.",
+        "Đảng Cộng hòa và Đảng Xã hội.",
+        "Đảng Dân chủ và Đảng Cộng hòa."
+      ]
+    },
+    {
+      "item_id": "su9_vj_0996",
+      "stem": "Phong trào “vô sản hóa” do Hội Việt Nam Cách mạng Thanh niên phát động và thực hiện là",
+      "correct_text": "cơ hội thuận lợi giúp những người cộng sản về nước hoạt động.",
+      "options": [
+        "phương thức tự rèn luyện của những chiến sĩ cách mạng tiến bộ.",
+        "cơ hội thuận lợi giúp những người cộng sản về nước hoạt động.",
+        "điều kiện để công nhân phát triển về số lượng và trở thành giai cấp.",
+        "mốc đánh dấu phong trào công nhân hoàn toàn trở thành tự giác."
+      ]
+    },
+    {
+      "item_id": "su9_vj_1996",
+      "stem": "Sang thế kỷ XXI, nền kinh tế Hàn Quốc đã đạt được vị thế nào sau đây?",
+      "correct_text": "Trở thành 1 trong 15 nước có nền kinh tế lớn nhất thế giới.",
+      "options": [
+        "Nắm giữ chuỗi cung ứng toàn cầu ở khu vực Đông Bắc Á.",
+        "Có nền kinh tế quy lớn lớn nhất ở khu vực Đông Bắc Á.",
+        "Đi đầu thế giới trong việc sản xuất ô tô và chất bán dẫn.",
+        "Trở thành 1 trong 15 nước có nền kinh tế lớn nhất thế giới."
+      ]
+    },
+    {
+      "item_id": "su9_vj_1824",
+      "stem": "Sự kiện nào sau đây đánh dấu sự tan vỡ mối quan hệ Đồng minh chống phát xít giữa Mĩ và Liên Xô sau Chiến tranh thế giới thứ hai?",
+      "correct_text": "Mĩ chính thức phát động Chiến tranh lạnh (1947).",
+      "options": [
+        "Việc Liên Xô chế tạo thành công bom nguyên tử (1949).",
+        "Sự phân chia phạm vi đóng quân giữa Mĩ và Liên Xô.",
+        "Sự ra đời của Tổ chức Hiệp ước Bắc Đại Tây Dương.",
+        "Mĩ chính thức phát động Chiến tranh lạnh (1947)."
+      ]
+    },
+    {
+      "item_id": "su9_vj_3019",
+      "stem": "Nội dung nào sau đây phản ánh đường lối đối ngoại của chính phủ Mỹ trước các cuộc chiến tranh xâm lược của các nước phát xít trong những năm 30 của thế kỷ XX?",
+      "correct_text": "Ban hành đạo luật trung lập, không can thiệp vào các sự kiện bên ngoài châu Mỹ.",
+      "options": [
+        "Kêu gọi các nước tư bản thành lập một liên minh để tiêu diệt chủ nghĩa phát xít",
+        "Thực hiện chính sách nhượng bộ phát xít để giữ vững hòa mình ở châu Mỹ.",
+        "Ban hành đạo luật trung lập, không can thiệp vào các sự kiện bên ngoài châu Mỹ.",
+        "Đề xuất thành lập phe đồng minh để đoàn kết với Liên Xô chống lại phát xít."
+      ]
+    },
+    {
+      "item_id": "su9_vj_1704",
+      "stem": "Sau thắng lợi của Cách mạng tháng Mười Nga năm 1917, nhiệm vụ hàng đầu của Chính quyền Xô viết là gì?",
+      "correct_text": "Đập tan bộ máy nhà nước cũ, xây dựng nhà nước mới của người lao động.",
+      "options": [
+        "Đập tan bộ máy nhà nước cũ, xây dựng nhà nước mới của người lao động.",
+        "Đưa nước Nga giành những thắng lợi quan trọng trong chiến tranh thế giới.",
+        "Xoá bỏ cơ sở vật chất còn lại của chế độ phong kiến chuyên chế Nga hoàng.",
+        "Mở rộng hơn nữa phạm vi ảnh hưởng của nước Nga đến các châu lục khác."
+      ]
+    },
+    {
+      "item_id": "su9_vj_1801",
+      "stem": "Sự kiện nào đánh dấu sự phục hồi lực lượng lãnh đạo cách mạng của Đảng Cộng sản Đông Dương giai đoạn 1932 - 1935?",
+      "correct_text": "Đại hội đại biểu lần thứ nhất của Đảng (3/1935).",
+      "options": [
+        "Hội nghị Ban Chấp hành Trung ương Đảng (5/1941).",
+        "Hội nghị Ban Chấp hành Trung ương Đảng (11/1939).",
+        "Hội nghị Ban Chấp hành Trung ương Đảng (7/1936).",
+        "Đại hội đại biểu lần thứ nhất của Đảng (3/1935)."
+      ]
+    }
+  ]
+}

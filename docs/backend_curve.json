@@ -1,0 +1,215 @@
+{
+  "physics": {
+    "xgb15": {
+      "opaque_share": 0.0,
+      "rho_split_half": 0.7223732761829578,
+      "reliability_full_spearman_brown": 0.8388115238107354,
+      "ceiling_sqrt": 0.849925453309264,
+      "rho_shap_vs_intervention": 0.29680739962477015,
+      "frac_ceiling_shap": 0.3492158029496856,
+      "rho_groupshap_vs_intervention": 0.22394329061939303,
+      "frac_ceiling_groupshap": 0.2634858030753744,
+      "attribution_undefined": [],
+      "gate_iut": [],
+      "robust_arms": [
+        "num_down"
+      ],
+      "false_cert_iut": 0,
+      "dup_machine_human": 0.09068881966078235,
+      "dup_human_human": 0.390945194598888,
+      "grouped_qwk": 0.38013808935156645,
+      "sel20_entropy": 0.45,
+      "sel20_strength": 0.3,
+      "rho_strength_entropy": 0.2926172064417418,
+      "recourse_down": 0.336,
+      "recourse_up": 0.156
+    },
+    "tfidf": {
+      "opaque_share": 0.49686998087620715,
+      "rho_split_half": 0.6729961475357967,
+      "reliability_full_spearman_brown": 0.8045399847776956,
+      "ceiling_sqrt": 0.8203634240602129,
+      "rho_shap_vs_intervention": 0.13224242055087893,
+      "frac_ceiling_shap": 0.16119980081068633,
+      "rho_groupshap_vs_intervention": 0.3285680557084087,
+      "frac_ceiling_groupshap": 0.40051524247903636,
+      "attribution_undefined": [],
+      "gate_iut": [
+        "BỀ MẶT"
+      ],
+      "robust_arms": [
+        "num_down",
+        "num_up"
+      ],
+      "false_cert_iut": 0,
+      "dup_machine_human": 0.3357951747907435,
+      "dup_human_human": 0.390945194598888,
+      "grouped_qwk": 0.5875418080034158,
+      "sel20_entropy": 0.7166666666666667,
+      "sel20_strength": 0.38333333333333336,
+      "rho_strength_entropy": 0.17360809559890125,
+      "recourse_down": 0.248,
+      "recourse_up": 0.268
+    },
+    "text": {
+      "opaque_share": 0.7759920583995996,
+      "rho_split_half": 0.7048252618217892,
+      "reliability_full_spearman_brown": 0.8268592419478904,
+      "ceiling_sqrt": 0.8395387196680026,
+      "rho_shap_vs_intervention": -0.050380925866583326,
+      "frac_ceiling_shap": -0.060010246920483394,
+      "rho_groupshap_vs_intervention": 0.03636923567970576,
+      "frac_ceiling_groupshap": 0.043320498301838956,
+      "attribution_undefined": [],
+      "gate_iut": [
+        "BỀ MẶT"
+      ],
+      "robust_arms": [
+        "num_down",
+        "num_up"
+      ],
+      "false_cert_iut": 0,
+      "dup_machine_human": 0.4094590921446045,
+      "dup_human_human": 0.390945194598888,
+      "grouped_qwk": 0.5807620336823665,
+      "sel20_entropy": 0.8166666666666667,
+      "sel20_strength": 0.48333333333333334,
+      "rho_strength_entropy": -0.12419935003444303,
+      "recourse_down": 0.2,
+      "recourse_up": 0.404
+    },
+    "emb": {
+      "opaque_share": 1.0,
+      "rho_split_half": 0.7251463879122547,
+      "reliability_full_spearman_brown": 0.8406780931672883,
+      "ceiling_sqrt": 0.851555275899489,
+      "rho_shap_vs_intervention": null,
+      "frac_ceiling_shap": null,
+      "rho_groupshap_vs_intervention": null,
+      "frac_ceiling_groupshap": null,
+      "attribution_undefined": [
+        "shap",
+        "groupshap"
+      ],
+      "gate_iut": [
+        "BỀ MẶT"
+      ],
+      "robust_arms": [
+        "num_down",
+        "num_up"
+      ],
+      "false_cert_iut": 0,
+      "dup_machine_human": 0.4720772029742131,
+      "dup_human_human": 0.390945194598888,
+      "grouped_qwk": 0.5753622529059849,
+      "sel20_entropy": 0.7833333333333333,
+      "sel20_strength": 0.55,
+      "rho_strength_entropy": -0.07120163825063733,
+      "recourse_down": 0.172,
+      "recourse_up": 0.452
+    }
+  },
+  "history_gv": {
+    "xgb15": {
+      "opaque_share": 0.0,
+      "rho_split_half": 0.733384343419406,
+      "reliability_full_spearman_brown": 0.8461878015728194,
+      "ceiling_sqrt": 0.8563786215333764,
+      "rho_shap_vs_intervention": -0.08782714003609131,
+      "frac_ceiling_shap": -0.10255643686998361,
+      "rho_groupshap_vs_intervention": 0.028146393717146004,
+      "frac_ceiling_groupshap": 0.03286676361297867,
+      "attribution_undefined": [],
+      "gate_iut": [
+        "BỀ MẶT"
+      ],
+      "robust_arms": [
+        "len_down"
+      ],
+      "false_cert_iut": 0,
+      "dup_machine_human": 0.002959205242020757,
+      "dup_human_human": 0.35467037745694896,
+      "grouped_qwk": 0.13688788974684785,
+      "sel20_entropy": 0.8333333333333334,
+      "sel20_strength": 0.5333333333333333,
+      "rho_strength_entropy": 0.17522636982819242,
+      "recourse_down": 0.308,
+      "recourse_up": 0.152
+    },
+    "tfidf": {
+      "opaque_share": 0.5644080890812306,
+      "rho_split_half": 0.5147059613006669,
+      "reliability_full_spearman_brown": 0.6796117193051683,
+      "ceiling_sqrt": 0.7174301090006378,
+      "rho_shap_vs_intervention": 0.09539726171146169,
+      "frac_ceiling_shap": 0.1329708086051026,
+      "rho_groupshap_vs_intervention": 0.1729222520455237,
+      "frac_ceiling_groupshap": 0.24103010157519048,
+      "attribution_undefined": [],
+      "gate_iut": [],
+      "robust_arms": [
+        "len_up"
+      ],
+      "false_cert_iut": 0,
+      "dup_machine_human": 0.36942932042750554,
+      "dup_human_human": 0.35467037745694896,
+      "grouped_qwk": 0.347925717286485,
+      "sel20_entropy": 0.8833333333333333,
+      "sel20_strength": 0.6166666666666667,
+      "rho_strength_entropy": 0.13258718421623983,
+      "recourse_down": 0.116,
+      "recourse_up": 0.3
+    },
+    "text": {
+      "opaque_share": 0.8791777108234967,
+      "rho_split_half": 0.6375096418660889,
+      "reliability_full_spearman_brown": 0.7786331458049793,
+      "ceiling_sqrt": 0.7984420090814918,
+      "rho_shap_vs_intervention": 0.04702491546378481,
+      "frac_ceiling_shap": 0.0588958433160113,
+      "rho_groupshap_vs_intervention": 0.12265534308754458,
+      "frac_ceiling_groupshap": 0.1536183488499613,
+      "attribution_undefined": [],
+      "gate_iut": [],
+      "robust_arms": [
+        "len_up"
+      ],
+      "false_cert_iut": 1,
+      "dup_machine_human": 0.34709314890858,
+      "dup_human_human": 0.35467037745694896,
+      "grouped_qwk": 0.35762226549078,
+      "sel20_entropy": 0.8833333333333333,
+      "sel20_strength": 0.7,
+      "rho_strength_entropy": -0.13500701662800063,
+      "recourse_down": 0.128,
+      "recourse_up": 0.26
+    },
+    "emb": {
+      "opaque_share": 1.0,
+      "rho_split_half": 0.5984442332337299,
+      "reliability_full_spearman_brown": 0.7487833742226319,
+      "ceiling_sqrt": 0.7735917742800332,
+      "rho_shap_vs_intervention": null,
+      "frac_ceiling_shap": null,
+      "rho_groupshap_vs_intervention": null,
+      "frac_ceiling_groupshap": null,
+      "attribution_undefined": [
+        "shap",
+        "groupshap"
+      ],
+      "gate_iut": [],
+      "robust_arms": [
+        "len_up"
+      ],
+      "false_cert_iut": 0,
+      "dup_machine_human": 0.34709314890858,
+      "dup_human_human": 0.35467037745694896,
+      "grouped_qwk": 0.37092985768894204,
+      "sel20_entropy": 0.8666666666666667,
+      "sel20_strength": 0.7,
+      "rho_strength_entropy": -0.09859876520901584,
+      "recourse_down": 0.14,
+      "recourse_up": 0.272
+    }
+  }
+}

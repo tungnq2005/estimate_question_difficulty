@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Báo cáo tiến độ NCKH — Ước lượng độ khó câu hỏi Lịch sử 9</title>
+<style>
+  body { font-family: "Times New Roman", Georgia, serif; font-size: 12.5pt;
+         line-height: 1.45; color: #000; max-width: 740px; margin: 24px auto;
+         padding: 0 16px; }
+  h1 { font-size: 16pt; text-align: center; margin: 0 0 2px; }
+  h2 { font-size: 13.5pt; border-bottom: 1px solid #333; padding-bottom: 2px;
+       margin: 18px 0 8px; }
+  h3 { font-size: 12.5pt; margin: 13px 0 5px; }
+  p, li { text-align: justify; margin: 5px 0; }
+  ul { margin: 5px 0; padding-left: 22px; }
+  .sub { text-align: center; font-size: 12pt; margin: 0 0 14px; }
+  table { border-collapse: collapse; width: 100%; margin: 9px 0; font-size: 11.5pt; }
+  th, td { border: 1px solid #666; padding: 4px 9px; text-align: left; }
+  th { background: #eee; }
+  td.n, th.n { text-align: center; }
+  .note { font-size: 11pt; color: #333; }
+</style>
+</head>
+<body>
+
+<h1>BÁO CÁO TIẾN ĐỘ NGHIÊN CỨU KHOA HỌC</h1>
+<p class="sub"><b>Đề tài:</b> Ước lượng độ khó câu hỏi trắc nghiệm Lịch sử lớp 9
+bằng Đồ thị Tri thức (Knowledge Graph) và Học máy (XGBoost)</p>
+
+<h2>1. Mục tiêu và ý tưởng</h2>
+<p>Đề tài xây dựng công cụ <b>chấm trước độ khó</b> của câu hỏi trắc nghiệm Lịch
+sử lớp 9: chỉ dựa vào nội dung câu hỏi, máy dự đoán câu đó ở mức <b>Dễ, Trung
+bình hay Khó</b> mà <b>không cần</b> cho học sinh làm thử. Điều này khác với các
+phương pháp truyền thống (như lý thuyết ứng đáp IRT) vốn bắt buộc phải có dữ liệu
+trả lời của học sinh — ở đây ta giải bài toán trong điều kiện "chưa có dữ liệu
+trả lời" (cold-start). Hệ thống còn <b>giải thích được vì sao</b> câu hỏi khó hay
+dễ, giúp giáo viên điều chỉnh đề.</p>
+<p>Ý tưởng cốt lõi: câu <b>khó</b> là câu mà các phương án sai (đáp án nhiễu) rất
+gần với đáp án đúng, dễ gây nhầm; câu <b>dễ</b> là câu đáp án đúng nổi bật hẳn.
+Để máy đo được mức "gần – xa" giữa các đáp án, nhóm dựng một <b>đồ thị tri thức
+(bản đồ kiến thức) môn Lịch sử</b> và dạy máy đọc câu hỏi dựa trên bản đồ này,
+kết hợp mô hình ngôn ngữ tiếng Việt. Quy trình gồm 3 pha: (1) dựng bản đồ kiến
+thức; (2) biến mỗi câu hỏi thành một bộ chỉ số; (3) huấn luyện mô hình phân loại
+và sinh giải thích.</p>
+
+<h2>2. Kết quả đã đạt được</h2>
+
+<h3>2.1. Pha 1 — Bản đồ kiến thức Lịch sử 9</h3>
+<p>Nhóm đã số hóa kiến thức Lịch sử lớp 9 (Chương 1: Thế giới 1918–1945; Chương
+2: Việt Nam 1918–1945, chương trình GDPT 2018) thành một mạng lưới liên kết các
+điểm kiến thức, lưu theo chuẩn đồ thị tri thức RDF/OWL.</p>
+<table>
+<tr><th>Quy mô bản đồ kiến thức</th><th class="n">Số lượng</th></tr>
+<tr><td>Điểm kiến thức (sự kiện, nhân vật, địa danh, khái niệm…)</td><td class="n">434</td></tr>
+<tr><td>Mối liên hệ (xảy ra ở đâu/khi nào, do ai, nguyên nhân…)</td><td class="n">761</td></tr>
+<tr><td>Đường kính đồ thị (độ "rộng" tối đa của mạng lưới)</td><td class="n">12</td></tr>
+</table>
+<p>Các điểm kiến thức được phân thành <b>8 loại</b>: Sự kiện (84), Địa danh (79),
+Khái niệm (76), Tổ chức (76), Giai đoạn (45), Tài liệu (35), Nhân vật (24), Phong
+trào (15); nối với nhau bằng <b>12 kiểu quan hệ</b> (xảy-ra-tại, diễn-ra-trong,
+do-tổ-chức, nguyên-nhân-sâu-xa/trực-tiếp…). Mỗi điểm còn được ghi chú thêm: mức
+độ trừu tượng (298 điểm), mức tư duy Bloom (74), tần suất trong SGK (174) và 623
+tên gọi khác nhau (giúp máy nhận ra dù câu hỏi diễn đạt khác).</p>
+
+<h3>2.2. Pha 2 — Biến mỗi câu hỏi thành 34 chỉ số</h3>
+<p>Với mỗi câu hỏi, hệ thống tự dò các điểm kiến thức xuất hiện trong đề bài và
+từng đáp án, rồi tính ra <b>34 chỉ số</b> chia 3 nhóm:</p>
+<ul>
+<li><b>Nhóm A – Dựa trên bản đồ kiến thức (24 chỉ số):</b> đo <b>độ giống nhau
+giữa đáp án đúng và các đáp án nhiễu</b> (kỹ thuật Jaccard 3 mức và chỉ số RSI).
+Đáp án nhiễu càng gần đáp án đúng trên bản đồ ⇒ càng dễ nhầm ⇒ câu càng khó. Nhóm
+này cũng đo xem đề bài đã "gợi ý" đáp án rõ tới đâu.</li>
+<li><b>Nhóm B – Lượng thông tin của câu (3 chỉ số):</b> đo câu hỏi chạm tới ít hay
+nhiều mảng kiến thức (dùng entropy thông tin). Câu chạm 1–2 điểm kiến thức thường
+là câu hẹp (dễ); câu trải rộng nhiều điểm thường khó hơn.</li>
+<li><b>Nhóm C – Ngữ nghĩa văn bản (6 chỉ số):</b> dùng mô hình ngôn ngữ tiếng Việt
+<b>PhoBERT</b> để đo các câu chữ giống hay khác nhau về <b>nghĩa</b>, kể cả khi
+dùng từ ngữ khác nhau — bổ sung cho phần bản đồ kiến thức.</li>
+</ul>
+<p class="note">Ngoài ra có 1 chỉ số phụ đánh giá độ tin cậy của phép dò kiến
+thức trên từng câu. Với các môn khác, bộ chỉ số mở rộng tối đa tới 41 (xem mục
+2.5).</p>
+<p><b>Hai điểm kỹ thuật quan trọng:</b> (i) mô hình ngôn ngữ PhoBERT đã chạy thực
+(nhóm B và C không còn để trống như giai đoạn demo); (ii) toàn bộ quy trình cho
+<b>kết quả giống hệt nhau qua mỗi lần chạy</b> — trước đây kết quả bị dao động do
+thứ tự xử lý dữ liệu ngẫu nhiên, nay đã khắc phục triệt để, bảo đảm nghiên cứu
+kiểm chứng lại được.</p>
+
+<h3>2.3. Pha 2 (tiếp) — Thu thập và gán nhãn dữ liệu</h3>
+<p>Nhóm đã có <b>3.152 câu hỏi trắc nghiệm Lịch sử 9 thật</b> (đủ câu hỏi, 4
+phương án, đáp án đúng, lời giải): 669 câu khôi phục từ dữ liệu cũ và 2.483 câu
+thu thập bổ sung, đã lọc trùng lặp.</p>
+<p>Khâu khó nhất là <b>gán nhãn độ khó</b>. Nhóm dùng phương pháp <b>"chấm 3 vòng
+độc lập, lấy đa số"</b>: mỗi câu được hai bộ chấm tự động đánh giá riêng rẽ và
+<b>chấm mù</b> (không nhìn thấy nhãn cũ để khỏi bị ảnh hưởng), theo đúng thang
+quen thuộc ở Việt Nam — <b>Nhận biết / Thông hiểu / Vận dụng / Vận dụng cao</b> —
+rồi cộng nhãn có sẵn làm phiếu thứ ba và lấy theo số đông. Câu nào ba phiếu vẫn
+lệch nhau thì đánh dấu để giáo viên duyệt.</p>
+<table>
+<tr><th>Độ tin cậy của nhãn (kiểm chứng định lượng)</th><th class="n">Kết quả</th></tr>
+<tr><td>Hai bộ chấm độc lập cho cùng một mức</td><td class="n">89,8%</td></tr>
+<tr><td>Hai bộ chấm chênh nhau nhiều nhất 1 bậc</td><td class="n">100%</td></tr>
+<tr><td>Ba phiếu nhất trí hoàn toàn / đa số 2-3 / lệch hẳn</td><td class="n">79,2% / 20,3% / 0,4%</td></tr>
+</table>
+<p>Nhờ cách này, số câu trùng nội dung nhưng bị gán nhãn mâu thuẫn giảm từ
+<b>106 xuống còn 6</b>; <b>124 câu</b> còn phân vân được đánh dấu riêng để nhờ
+giáo viên kiểm định. Phân bố nhãn cuối: <b>1.234 câu Dễ, 1.399 câu Trung bình,
+519 câu Khó</b>.</p>
+
+<h3>2.4. Pha 3 — Huấn luyện mô hình và kết quả</h3>
+<p>Nhóm dùng thuật toán <b>XGBoost</b> (mô hình học máy mạnh, phổ biến cho dữ liệu
+dạng bảng) để học từ 3.152 câu. Vì số câu Khó ít hơn hẳn, nhóm áp <b>trọng số cân
+bằng</b> để mô hình không bỏ quên lớp Khó. Độ chính xác được đo bằng <b>kiểm định
+chéo 5 phần (5-fold)</b> — chia dữ liệu 5 phần luân phiên kiểm tra để có con số
+ổn định, đáng tin.</p>
+<p style="background:#fff3cd;border:1px solid #f5c542;border-radius:6px;padding:10px 14px">
+<b>⚠️ Cập nhật quan trọng (rà soát 08/2026):</b> khi rà soát lại, nhóm phát hiện
+trong 3.152 câu chỉ có <b>2.147 nội dung thật sự khác nhau</b> — <b>54,7%</b> là
+bản sao do quá trình thu thập lấy trùng từ nhiều trang mirror cùng một nguồn.
+Việc chia 5-fold ngẫu nhiên trước đó để bản sao của cùng một câu rơi vào cả tập
+học lẫn tập kiểm tra, khiến mô hình <b>học thuộc lòng</b> thay vì học quy luật —
+mọi con số accuracy trước đó (kể cả 75,6%) <b>bị thổi phồng và không còn hiệu
+lực</b>. Bảng dưới đây là kết quả đã sửa, đo lại sau khi loại bản sao.</p>
+<table>
+<tr><th>Mô hình</th><th class="n">Còn rò rỉ (sai)</th><th class="n">Đã khử trùng lặp (đúng)</th></tr>
+<tr><td>XGBoost 41 chỉ số (đầy đủ)</td><td class="n">75,6%</td><td class="n"><b>61,6%</b></td></tr>
+<tr><td>Chỉ dùng chỉ số bản đồ kiến thức</td><td class="n">74,7%</td><td class="n"><b>55,9%</b></td></tr>
+<tr><td>Chỉ dùng văn bản thuần (TF-IDF, đối chứng)</td><td class="n">82,2%</td><td class="n"><b>69,9%</b></td></tr>
+</table>
+<p>Hai điều cần nói thẳng: <b>(1)</b> mô hình chỉ dùng văn bản thuần đang <b>vượt</b>
+toàn bộ pipeline bản đồ kiến thức (69,9% so với 61,6%) sau khi sửa lỗi — nghĩa
+là bản đồ kiến thức <b>chưa chứng minh được giá trị gia tăng</b> so với cách làm
+rẻ hơn nhiều. <b>(2)</b> Các cụm từ mà mô hình văn bản dựa vào để phân biệt mức độ
+lại là <b>khuôn mẫu của câu hỏi</b> ("quốc gia nào", "năm" → Dễ; "nguyên nhân" →
+Trung bình; "điểm khác biệt", "so với" → Khó) chứ không phải nội dung kiến thức —
+dấu hiệu cho thấy nhãn do AI chấm có thể đang phản ánh <b>dạng câu hỏi</b> hơn là
+<b>độ khó thật</b>. Đây chính là lý do nhóm đang làm khảo sát học sinh thật + nhờ
+thêm một giáo viên xác nhận, để có nguồn nhãn đối chứng độc lập với AI trước khi
+kết luận con số accuracy nào là chính thức.</p>
+
+<h3>2.5. Giải thích được (XAI)</h3>
+<p>Với mỗi câu, hệ thống chỉ ra <b>vì sao câu đó khó/dễ</b> qua 4 khía cạnh: mức
+trùng từ khóa giữa đề và đáp án, mức trùng kiến thức, độ gần ngữ nghĩa, và mức
+gây nhiễu của các phương án sai — kèm gợi ý chỉnh sửa (ví dụ: thêm từ khóa vào đề
+cho rõ, hoặc tách các đáp án nhiễu ra xa nhau).</p>
+
+<h3>2.6. Xây bản đồ kiến thức và pipeline cho cả 7 môn</h3>
+<p>Song song với môn Lịch sử (môn chủ lực, hoàn thiện nhất), nhóm đã <b>dựng bản
+đồ kiến thức cho toàn bộ 7 môn lớp 9</b> và đưa tất cả vào <b>chung một bộ máy xử
+lý (engine)</b>. Hiện cả 7 môn đều nạp và chạy được trên pipeline chung, với tổng
+cộng <b>1.146 điểm kiến thức và 1.758 mối liên hệ</b>.</p>
+<table>
+<tr><th>Môn</th><th class="n">Điểm kiến thức</th><th class="n">Liên hệ</th><th>Nhóm đặc thù (cluster)</th></tr>
+<tr><td>Lịch sử</td><td class="n">434</td><td class="n">761</td><td>Sử (chuẩn)</td></tr>
+<tr><td>Hóa học</td><td class="n">159</td><td class="n">242</td><td rowspan="2">Quan hệ dày (chất – phản ứng, vị trí – nguyên nhân)</td></tr>
+<tr><td>Địa lí</td><td class="n">108</td><td class="n">148</td></tr>
+<tr><td>Vật lí</td><td class="n">132</td><td class="n">168</td><td rowspan="2">Kiến thức bắc cầu (khái niệm này cần học trước khái niệm kia)</td></tr>
+<tr><td>Toán</td><td class="n">115</td><td class="n">107</td></tr>
+<tr><td>Ngữ văn</td><td class="n">124</td><td class="n">238</td><td>Cây thuộc tính (tác giả – tác phẩm – chủ đề)</td></tr>
+<tr><td>Tiếng Anh</td><td class="n">74</td><td class="n">94</td><td>Ngôn ngữ học</td></tr>
+</table>
+<p>Điểm mấu chốt là <b>mỗi môn có đặc thù khác nhau nên không thể dùng một bộ chỉ
+số cứng nhắc cho tất cả</b>. Ví dụ: đáp án môn Sử là các cụm từ tên sự kiện/nhân
+vật (khớp thẳng vào bản đồ kiến thức); nhưng đáp án môn Toán–Lý nhiều khi là
+<b>con số</b>, còn đáp án môn Anh lại là <b>câu tiếng Anh hoàn chỉnh</b> — cả hai
+loại này không khớp trực tiếp vào bản đồ được. Vì vậy nhóm chia 7 môn thành
+<b>5 nhóm (cluster)</b>, mỗi nhóm bật/tắt các chỉ số phù hợp:</p>
+<ul>
+<li><b>Sử</b> — nhóm chuẩn, dùng đầy đủ 34 chỉ số dựa trên bản đồ kiến thức.</li>
+<li><b>Hóa – Địa</b> — bản đồ nhiều loại quan hệ đặc thù (chất phản ứng với chất,
+địa điểm gây ra hiện tượng…), tận dụng tốt bộ chỉ số về độ giống nhau.</li>
+<li><b>Toán – Lý</b> — bổ sung <b>4 chỉ số riêng cho đáp án dạng số</b>, nhận diện
+các kiểu nhiễu điển hình như "áp đúng công thức nhưng thay số sai" (lệch hệ số
+×2, ×0,5…) hay "đảo tử–mẫu" của một tỉ số.</li>
+<li><b>Văn</b> — thêm 3 chỉ số về đồng tác giả / cùng giai đoạn / cùng chủ đề, vì
+đáp án nhiễu môn Văn hay là các tác giả–tác phẩm cùng nhóm.</li>
+<li><b>Anh</b> — do đáp án là câu tiếng Anh, nhóm dựng <b>bộ 26 chỉ số ngôn ngữ
+học riêng</b> (độ phức tạp thì động từ, số mệnh đề, mức giống nhau giữa các
+phương án…).</li>
+</ul>
+<p>Nhờ thiết kế này, bộ chỉ số đầy đủ mở rộng tới <b>41 chỉ số</b>, tự động điều
+chỉnh theo từng môn, mà <b>không làm thay đổi</b> 34 chỉ số gốc của môn Lịch sử.
+Hiện Lịch sử đã có dữ liệu gán nhãn đầy đủ để huấn luyện; 6 môn còn lại đã sẵn
+sàng về bản đồ kiến thức và pipeline, đang ở bước thu thập – gán nhãn dữ liệu
+theo đúng quy trình đã kiểm chứng ở môn Sử.</p>
+
+<h2>3. Kế hoạch tiếp theo</h2>
+<p>Ưu tiên đổi từ "nâng accuracy" sang "có nhãn đối chứng đáng tin cậy để biết
+accuracy hiện tại có ý nghĩa hay không" — hệ quả trực tiếp từ phát hiện ở mục 2.4.</p>
+<ul>
+<li><b>Nhãn đối chứng độc lập (đang làm):</b> khảo sát trên lớp học thật + xác
+nhận của một giáo viên thứ hai, làm nguồn kiểm tra chéo cho nhãn do AI chấm —
+điều kiện bắt buộc trước khi công bố bất kỳ con số accuracy nào là kết quả chính.</li>
+<li><b>PhoBERT fine-tune làm chuẩn đối chứng bắt buộc:</b> huấn luyện sâu (không
+chỉ dùng embedding có sẵn) trên Google Colab, đánh giá đúng theo 5 phần đã dùng
+để so sánh công bằng, không rò rỉ. Nếu PhoBERT cũng vượt pipeline bản đồ kiến
+thức như TF-IDF đã vượt, đây là bằng chứng cần <b>thiết kế lại</b> cách đưa tri
+thức vào mô hình, không chỉ là vấn đề thiếu dữ liệu.</li>
+<li><b>Kết hợp (stacking):</b> đưa xác suất dự đoán của PhoBERT làm chỉ số bổ
+sung cho mô hình bản đồ kiến thức, kiểm tra xem tri thức có cộng thêm được gì
+hay không — đây là câu hỏi nghiên cứu thật, thay vì nhắm một ngưỡng accuracy
+định trước.</li>
+<li><b>Nhờ giáo viên kiểm định nhãn</b>, ưu tiên 124 câu còn phân vân và các câu
+mức Khó, để bộ dữ liệu có độ tin cậy cao nhất.</li>
+<li><b>Mở rộng bản đồ kiến thức</b> sang Chương 3 (Việt Nam 1945–1975) và các bài
+còn lại.</li>
+</ul>
+
+</body>
+</html>

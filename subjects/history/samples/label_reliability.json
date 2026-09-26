@@ -1,0 +1,154 @@
+{
+  "A_simulation_arbitration": {
+    "nhãn GIÁO VIÊN": {
+      "rho": -0.080893129248996,
+      "p": 0.48726713469467303,
+      "rho_high_disc": -0.24607886136630935,
+      "p_high_disc": 0.10321550234388988
+    },
+    "nhãn LLM": {
+      "rho": 0.21384475698304953,
+      "p": 0.06361363679644233,
+      "rho_high_disc": 0.10482433185598108,
+      "p_high_disc": 0.4931628643708261
+    },
+    "n": 76,
+    "n_high_disc": 45
+  },
+  "B_llm_test_retest": {
+    "vote_1": {
+      "n": 715,
+      "agreement": 0.8769230769230769,
+      "kappa": 0.8062259014252806
+    },
+    "vote_2": {
+      "n": 715,
+      "agreement": 0.8545454545454545,
+      "kappa": 0.7723306410625387
+    },
+    "vote_3": {
+      "n": 715,
+      "agreement": 0.862937062937063,
+      "kappa": 0.7802380466998071
+    },
+    "pooled": {
+      "n": 2145,
+      "agreement": 0.8648018648018648,
+      "kappa": 0.7864063001643029
+    }
+  },
+  "C_integrity": {
+    "n_solo": 1422,
+    "solo_mismatch": 0,
+    "n_groups": 715,
+    "group_majority_explained": 683,
+    "unexplained": 32,
+    "examples": [
+      {
+        "dup_group": 13,
+        "votes": [
+          "Nhận biết|Thông hiểu|Nhận biết",
+          "Nhận biết|Thông hiểu|Thông hiểu"
+        ],
+        "label": "Thông hiểu",
+        "group_majority": "Nhận biết"
+      },
+      {
+        "dup_group": 33,
+        "votes": [
+          "Thông hiểu|Thông hiểu|Nhận biết",
+          "Nhận biết|Nhận biết|Nhận biết",
+          "Thông hiểu|Thông hiểu|Nhận biết"
+        ],
+        "label": "Thông hiểu",
+        "group_majority": "Nhận biết"
+      },
+      {
+        "dup_group": 211,
+        "votes": [
+          "Thông hiểu|Thông hiểu|Nhận biết",
+          "Nhận biết|Nhận biết|Nhận biết"
+        ],
+        "label": "Thông hiểu",
+        "group_majority": "Nhận biết"
+      },
+      {
+        "dup_group": 281,
+        "votes": [
+          "Nhận biết|Nhận biết|Nhận biết",
+          "Vận dụng|Vận dụng|Vận dụng"
+        ],
+        "label": "Vận dụng",
+        "group_majority": "Nhận biết"
+      },
+      {
+        "dup_group": 283,
+        "votes": [
+          "Thông hiểu|Vận dụng|Thông hiểu",
+          "Vận dụng|Thông hiểu|Vận dụng"
+        ],
+        "label": "Vận dụng",
+        "group_majority": "Thông hiểu"
+      },
+      {
+        "dup_group": 285,
+        "votes": [
+          "Thông hiểu|Thông hiểu|Nhận biết",
+          "Thông hiểu|Thông hiểu|Nhận biết",
+          "Nhận biết|Nhận biết|Nhận biết"
+        ],
+        "label": "Thông hiểu",
+        "group_majority": "Nhận biết"
+      },
+      {
+        "dup_group": 302,
+        "votes": [
+          "Vận dụng cao|Vận dụng|Vận dụng",
+          "Thông hiểu|Thông hiểu|Thông hiểu"
+        ],
+        "label": "Vận dụng",
+        "group_majority": "Thông hiểu"
+      },
+      {
+        "dup_group": 337,
+        "votes": [
+          "Nhận biết|Nhận biết|Nhận biết",
+          "Thông hiểu|Nhận biết|Thông hiểu"
+        ],
+        "label": "Thông hiểu",
+        "group_majority": "Nhận biết"
+      },
+      {
+        "dup_group": 363,
+        "votes": [
+          "Vận dụng|Vận dụng cao|Vận dụng cao",
+          "Vận dụng|Vận dụng|Vận dụng",
+          "Vận dụng cao|Vận dụng cao|Vận dụng"
+        ],
+        "label": "Vận dụng cao",
+        "group_majority": "Vận dụng"
+      },
+      {
+        "dup_group": 367,
+        "votes": [
+          "Vận dụng|Vận dụng|Thông hiểu",
+          "Thông hiểu|Thông hiểu|Thông hiểu"
+        ],
+        "label": "Vận dụng",
+        "group_majority": "Thông hiểu"
+      }
+    ]
+  },
+  "D_learnability": {
+    "nhãn GIÁO VIÊN": {
+      "acc": 0.3888888888888889,
+      "baseline": 0.5,
+      "kappa": -0.12270356089816281
+    },
+    "nhãn LLM (ĐỐI CHỨNG)": {
+      "acc": 0.36666666666666664,
+      "baseline": 0.4111111111111111,
+      "kappa": 0.03389830508474578
+    }
+  }
+}

@@ -998,6 +998,13 @@ su9:L_TrungDong a su9:Location ;
     su9:abstractness 2 ;
     su9:confidence 3 ;
     su9:status "Active" .
+su9:L_MaCao a su9:Location ;
+    rdfs:label "Ma Cao"@vi ;
+    su9:aliases "Macau|Macao" ;
+    su9:locatedIn su9:L_TrungQuoc ;
+    su9:abstractness 1 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
 
 ### PERSONS & ORGS ###
 su9:Pe_Lenin a su9:Person ;
@@ -1169,6 +1176,41 @@ su9:Pe_TruongChinh a su9:Person ;
     rdfs:label "Trường Chinh"@vi ;
     su9:aliases "Tổng Bí thư Trường Chinh" ;
     su9:frequencyInTextbook 10 ;
+    su9:abstractness 1 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:Pe_Yeltsin a su9:Person ;
+    rdfs:label "B. En-xin"@vi ;
+    su9:aliases "Boris Yeltsin|Tổng thống En-xin" ;
+    su9:frequencyInTextbook 8 ;
+    su9:abstractness 1 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:Pe_Putin a su9:Person ;
+    rdfs:label "V. Pu-tin"@vi ;
+    su9:aliases "Vladimir Putin|Tổng thống Pu-tin" ;
+    su9:frequencyInTextbook 10 ;
+    su9:abstractness 1 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:Pe_TapCanBinh a su9:Person ;
+    rdfs:label "Tập Cận Bình"@vi ;
+    su9:aliases "Xi Jinping|Chủ tịch Tập Cận Bình" ;
+    su9:frequencyInTextbook 8 ;
+    su9:abstractness 1 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:Pe_NguyenVanLinh a su9:Person ;
+    rdfs:label "Nguyễn Văn Linh"@vi ;
+    su9:aliases "Tổng Bí thư Nguyễn Văn Linh|Người khởi xướng Đổi mới" ;
+    su9:frequencyInTextbook 8 ;
+    su9:abstractness 1 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:Pe_VoVanKiet a su9:Person ;
+    rdfs:label "Võ Văn Kiệt"@vi ;
+    su9:aliases "Thủ tướng Võ Văn Kiệt" ;
+    su9:frequencyInTextbook 8 ;
     su9:abstractness 1 ;
     su9:confidence 3 ;
     su9:status "Active" .
@@ -1701,6 +1743,20 @@ su9:O_AlQaeda a su9:Organization ;
     rdfs:label "Tổ chức khủng bố Al-Qaeda"@vi ;
     su9:aliases "Al-Qaeda" ;
     su9:frequencyInTextbook 5 ;
+    su9:abstractness 2 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:O_WTO a su9:Organization ;
+    rdfs:label "Tổ chức Thương mại Thế giới (WTO)"@vi ;
+    su9:aliases "WTO" ;
+    su9:frequencyInTextbook 15 ;
+    su9:abstractness 2 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:O_APEC a su9:Organization ;
+    rdfs:label "Diễn đàn Hợp tác Kinh tế châu Á - Thái Bình Dương (APEC)"@vi ;
+    su9:aliases "APEC" ;
+    su9:frequencyInTextbook 10 ;
     su9:abstractness 2 ;
     su9:confidence 3 ;
     su9:status "Active" .
@@ -2328,6 +2384,62 @@ su9:C_VanhDaiConDuong a su9:Concept ;
     su9:bloomLevel 3 ;
     su9:confidence 3 ;
     su9:status "Active" .
+su9:C_ToanCauHoa a su9:Concept ;
+    rdfs:label "Xu thế toàn cầu hóa"@vi ;
+    su9:aliases "Toàn cầu hóa|Globalization" ;
+    su9:frequencyInTextbook 20 ;
+    su9:abstractness 5 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:C_CachMangKHKT_HienDai a su9:Concept ;
+    rdfs:label "Cách mạng khoa học - kĩ thuật hiện đại"@vi ;
+    su9:aliases "Cách mạng KH-KT|Cách mạng công nghiệp 4.0" ;
+    su9:frequencyInTextbook 20 ;
+    su9:abstractness 5 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:C_HoiNhapQuocTe a su9:Concept ;
+    rdfs:label "Hội nhập quốc tế"@vi ;
+    su9:aliases "Đa phương hóa, đa dạng hóa quan hệ đối ngoại" ;
+    su9:frequencyInTextbook 18 ;
+    su9:abstractness 5 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:C_KinhTeTriThuc a su9:Concept ;
+    rdfs:label "Kinh tế tri thức"@vi ;
+    su9:aliases "Nền kinh tế dựa trên tri thức và công nghệ" ;
+    su9:frequencyInTextbook 15 ;
+    su9:abstractness 5 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:C_KhungHoangTaiChinhChauA a su9:Concept ;
+    rdfs:label "Khủng hoảng tài chính châu Á 1997"@vi ;
+    su9:aliases "Khủng hoảng tài chính - tiền tệ châu Á" ;
+    su9:frequencyInTextbook 15 ;
+    su9:abstractness 4 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:C_CongTyXuyenQuocGia a su9:Concept ;
+    rdfs:label "Công ty xuyên quốc gia"@vi ;
+    su9:aliases "TNCs|Tập đoàn đa quốc gia" ;
+    su9:frequencyInTextbook 15 ;
+    su9:abstractness 4 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
+su9:C_DanChuHoa a su9:Concept ;
+    rdfs:label "Xu hướng dân chủ hóa"@vi ;
+    su9:aliases "Chuyển đổi dân chủ|Cải cách chính trị" ;
+    su9:frequencyInTextbook 12 ;
+    su9:abstractness 4 ;
+    su9:bloomLevel 3 ;
+    su9:confidence 3 ;
+    su9:status "Active" .
 
 ### MOVEMENTS ###
 su9:M_CachMang_ChauAu_1918_1923 a su9:Movement ;
@@ -2829,6 +2941,33 @@ su9:D_CH6_DaiHoiDang6_ChiTiet a su9:Document ;
     su9:hasContent "+ Quan điểm: Đổi mới toàn diện, đồng bộ, TRỌNG TÂM LÀ KINH TẾ. Đổi mới không phải là thay đổi mục tiêu CNXH mà là đổi mới hình thức, biện pháp.\n        + Kinh tế: Xóa bỏ bao cấp; Xây dựng kinh tế hàng hóa nhiều thành phần (cơ chế thị trường); Kêu gọi đầu tư nước ngoài.\n        + Chính trị: Xây dựng Nhà nước pháp quyền XHCN." ;
     su9:involvedConcept su9:C_KinhTeThiTruong_XHCN ;
     su9:weightsJson "{\"C_KinhTeThiTruong_XHCN\": 10}" .
+su9:D_CH5_HienPhapNga1993 a su9:Document ;
+    rdfs:label "Hiến pháp Liên bang Nga (12/1993)"@vi ;
+    su9:aliases "Hiến pháp Nga 1993" ;
+    su9:occursAt su9:L_Nga ;
+    su9:occursDuring su9:P_1991_2000 ;
+    su9:hasCauseDirect "Xung đột gay gắt giữa Tổng thống En-xin và Xô-viết tối cao (Duma) về mô hình thể chế sau khi Liên Xô tan rã, đỉnh điểm là khủng hoảng Hiến pháp tháng 10/1993." ;
+    su9:hasContent "Xác lập mô hình cộng hòa Tổng thống Liên bang, trao quyền lực lớn cho Tổng thống; đặt nền móng thể chế chính trị của nước Nga hậu Xô viết." ;
+    su9:hasResult "Chấm dứt giai đoạn tranh giành quyền lực đầu thập niên 1990, ổn định khung thể chế nhà nước Nga." ;
+    su9:hasPerson su9:Pe_Yeltsin ;
+    su9:weightsJson "{\"Pe_Yeltsin\": 8}" .
+su9:D_CH5_HienChuongASEAN a su9:Document ;
+    rdfs:label "Hiến chương ASEAN (11/2007)"@vi ;
+    su9:aliases "Hiến chương ASEAN" ;
+    su9:occursAt su9:L_DongNamA ;
+    su9:occursDuring su9:P_Tu2001 ;
+    su9:hasContent "Văn kiện pháp lý đầu tiên xác lập tư cách pháp nhân cho ASEAN, quy định nguyên tắc, mục tiêu và bộ máy tổ chức hoạt động." ;
+    su9:hasResult "Tạo cơ sở pháp lý và thể chế quan trọng để xây dựng Cộng đồng ASEAN (thành lập năm 2015)." ;
+    su9:hasOrganization su9:O_ASEAN ;
+    su9:weightsJson "{\"O_ASEAN\": 10}" .
+su9:D_CH6_HiepDinhThuongMaiVietMy a su9:Document ;
+    rdfs:label "Hiệp định Thương mại song phương Việt Nam - Hoa Kỳ (BTA, 2000)"@vi ;
+    su9:aliases "Hiệp định BTA" ;
+    su9:occursAt su9:L_VietNam ;
+    su9:occursDuring su9:P_1991_2000 ;
+    su9:hasCauseDirect "Nhu cầu mở rộng quan hệ kinh tế - thương mại với Mỹ sau khi hai nước bình thường hóa quan hệ ngoại giao (1995)." ;
+    su9:hasContent "Ký kết năm 2000, có hiệu lực năm 2001, mở đường cho hàng hóa Việt Nam tiếp cận thị trường Mỹ theo quy chế quan hệ thương mại bình thường." ;
+    su9:hasResult "Kim ngạch xuất khẩu của Việt Nam sang Mỹ tăng vọt, đặt nền tảng quan trọng trước khi Việt Nam gia nhập WTO." .
 
 ### EVENTS ###
 su9:E_XayDungCNXH_LienXo_1922_1945 a su9:Event ;
@@ -3639,8 +3778,306 @@ su9:E_CH5_DaCuc_HinhThanh a su9:Event ;
     su9:involvedConcept su9:C_TratTuDaCuc ;
     su9:involvedConcept su9:C_VanhDaiConDuong ;
     su9:weightsJson "{\"C_TratTuDaCuc\": 10, \"C_VanhDaiConDuong\": 8}" .
+su9:E_CH5_LienBangNga_ThanhLap a su9:Event ;
+    rdfs:label "Sự thành lập Liên bang Nga (12/1991)"@vi ;
+    su9:aliases "Liên bang Nga ra đời" ;
+    su9:occursAt su9:L_Nga ;
+    su9:occursDuring su9:P_1991_2000 ;
+    su9:hasCauseDirect "Liên Xô tan rã (12/1991); Liên bang Nga kế thừa địa vị pháp lý của Liên Xô tại Liên hợp quốc (kể cả ghế Ủy viên thường trực Hội đồng Bảo an) và trên trường quốc tế." ;
+    su9:hasContent "B. En-xin làm Tổng thống đầu tiên. Nước Nga tiến hành cải cách theo hướng thị trường tự do ('liệu pháp sốc'), tư nhân hóa nhanh tài sản nhà nước." ;
+    su9:hasResult "Kinh tế suy thoái nghiêm trọng, lạm phát phi mã đầu thập niên 1990, một bộ phận lớn tài sản quốc gia rơi vào tay giới tài phiệt mới nổi (oligarch)." ;
+    su9:hasPerson su9:Pe_Yeltsin ;
+    su9:involvedConcept su9:C_KinhTeThiTruong ;
+    su9:weightsJson "{\"Pe_Yeltsin\": 10, \"C_KinhTeThiTruong\": 8}" .
+su9:E_CH5_Nga_KhungHoangChinhTri1990s a su9:Event ;
+    rdfs:label "Khủng hoảng chính trị - xã hội ở Nga thập niên 1990"@vi ;
+    su9:aliases "Khủng hoảng nước Nga thời En-xin|Chiến tranh Chechnya" ;
+    su9:occursAt su9:L_Nga ;
+    su9:occursDuring su9:P_1991_2000 ;
+    su9:hasCauseDeep "Cải cách kinh tế - chính trị quá nhanh và thiếu đồng bộ sau khi Liên Xô tan rã, quyền lực trung ương suy yếu." ;
+    su9:hasContent "Xung đột Hiến pháp giữa Tổng thống và Quốc hội (10/1993); phong trào li khai và chiến tranh Chechnya lần thứ nhất (1994-1996) đe dọa sự toàn vẹn lãnh thổ. Kinh tế tăng trưởng âm trong suốt giai đoạn 1991-1996." ;
+    su9:hasResult "Vị thế cường quốc của Nga suy giảm mạnh so với thời Liên Xô, uy tín quốc tế xuống thấp. Từ năm 1997, kinh tế Nga đã bắt đầu có dấu hiệu phục hồi dù còn mong manh (trước khi tiếp tục bị ảnh hưởng bởi khủng hoảng tài chính 1998)." ;
+    su9:hasPerson su9:Pe_Yeltsin ;
+    su9:weightsJson "{\"Pe_Yeltsin\": 8}" .
+su9:E_CH5_Nga_Putin_PhucHoi a su9:Event ;
+    rdfs:label "Nước Nga phục hồi dưới thời V. Pu-tin (từ năm 2000)"@vi ;
+    su9:aliases "Nước Nga thời Putin" ;
+    su9:occursAt su9:L_Nga ;
+    su9:occursDuring su9:P_Tu2001 ;
+    su9:hasCauseDirect "V. Pu-tin lên nắm quyền, thực hiện các biện pháp chấn chỉnh kinh tế - chính trị, tăng cường vai trò nhà nước, tận dụng giá dầu mỏ - khí đốt tăng cao, tiếp nối đà phục hồi manh nha từ năm 1997." ;
+    su9:hasContent "Kinh tế Nga phục hồi rõ rệt và tăng trưởng ổn định (GDP tăng khoảng 10% năm 2000), ngân sách nhà nước được củng cố, kiểm soát giới tài phiệt, vị thế quốc tế dần được khôi phục. Tăng trưởng những năm sau đó không đều, phụ thuộc nhiều vào xuất khẩu nguyên liệu và nhiên liệu (dầu mỏ, khí đốt)." ;
+    su9:hasAchievements "Khôi phục vị thế cường quốc, là một cực quan trọng trong xu hướng đa cực đầu thế kỷ XXI." ;
+    su9:hasPerson su9:Pe_Putin ;
+    su9:involvedConcept su9:C_TratTuDaCuc ;
+    su9:weightsJson "{\"Pe_Putin\": 10, \"C_TratTuDaCuc\": 6}" .
+su9:E_CH5_QuanHeNgaMy_NATO a su9:Event ;
+    rdfs:label "Quan hệ Nga - Mỹ/NATO: từ hợp tác đến căng thẳng"@vi ;
+    su9:aliases "NATO Đông tiến|Quan hệ Nga-phương Tây" ;
+    su9:occursAt su9:L_Nga ;
+    su9:occursDuring su9:P_Tu2001 ;
+    su9:hasCauseDirect "NATO liên tục mở rộng về phía Đông, kết nạp nhiều nước Đông Âu và Liên Xô cũ, bị Nga coi là đe dọa trực tiếp không gian an ninh chiến lược." ;
+    su9:hasContent "Quan hệ Nga - phương Tây chuyển từ hợp tác thận trọng đầu thập niên 1990 sang cạnh tranh, đối đầu gay gắt, đặc biệt từ khủng hoảng Ukraine (2014)." ;
+    su9:hasResult "Góp phần định hình lại cục diện an ninh châu Âu và xu hướng đa cực hóa quan hệ quốc tế." ;
+    su9:hasOrganization su9:O_NATO ;
+    su9:involvedConcept su9:C_TratTuDaCuc ;
+    su9:weightsJson "{\"O_NATO\": 8, \"C_TratTuDaCuc\": 6}" .
+su9:E_CH5_My_SieuCuongThapNien90 a su9:Event ;
+    rdfs:label "Nước Mỹ - siêu cường duy nhất và 'nền kinh tế mới' (thập niên 1990)"@vi ;
+    su9:occursAt su9:L_My ;
+    su9:occursDuring su9:P_1991_2000 ;
+    su9:hasContent "Sau khi Liên Xô tan rã, Mỹ trở thành siêu cường duy nhất, có ưu thế vượt trội về kinh tế, quân sự, khoa học - công nghệ. Kinh tế Mỹ tăng trưởng mạnh nhờ bùng nổ công nghệ thông tin và Internet ('nền kinh tế mới')." ;
+    su9:hasResult "Mỹ theo đuổi tham vọng thiết lập trật tự thế giới đơn cực, chi phối quan hệ quốc tế." ;
+    su9:hasOrganization su9:O_DangDanChu_My ;
+    su9:involvedConcept su9:C_TratTuDonCuc ;
+    su9:involvedConcept su9:C_ChienLuocToanCau ;
+    su9:weightsJson "{\"O_DangDanChu_My\": 5, \"C_TratTuDonCuc\": 10, \"C_ChienLuocToanCau\": 6}" .
+su9:E_CH5_My_SuyThoaiChuKy a su9:Event ;
+    rdfs:label "Các đợt suy thoái kinh tế theo chu kỳ của Mỹ (2000 đến nay)"@vi ;
+    su9:aliases "Bong bóng dot-com|Đại suy thoái 2008-2009|Suy thoái COVID-19" ;
+    su9:occursAt su9:L_My ;
+    su9:occursDuring su9:P_Tu2001 ;
+    su9:hasContent "Kinh tế Mỹ trải qua nhiều đợt suy thoái theo chu kỳ: bong bóng công nghệ 'dot-com' vỡ (2000-2003), khủng hoảng tài chính toàn cầu (2008-2009), và suy thoái do đại dịch COVID-19 (từ 2020)." ;
+    su9:hasResult "Sau mỗi đợt suy thoái, kinh tế Mỹ đều phục hồi và tiếp tục duy trì vị trí nền kinh tế lớn nhất thế giới." .
+su9:E_CH5_My_CongNgheCao_DanDau a su9:Event ;
+    rdfs:label "Mỹ duy trì vị trí dẫn đầu về công nghệ cao"@vi ;
+    su9:aliases "Công nghệ thông tin Mỹ|Hàng không vũ trụ Mỹ|Dược phẩm Mỹ|Xe điện Tesla" ;
+    su9:occursAt su9:L_My ;
+    su9:occursDuring su9:P_Tu2001 ;
+    su9:hasContent "Mỹ tiếp tục giữ vị trí hàng đầu thế giới ở nhiều lĩnh vực công nghệ cao: hàng không vũ trụ, dược phẩm, công nghệ thông tin, và các ngành công nghệ mới như xe điện (tiêu biểu là hãng Tesla)." ;
+    su9:hasAchievements "Củng cố sức mạnh kinh tế - công nghệ, là nền tảng duy trì vai trò cường quốc hàng đầu của Mỹ trong bối cảnh cạnh tranh với Trung Quốc." ;
+    su9:involvedConcept su9:C_KinhTeTriThuc ;
+    su9:involvedConcept su9:C_CachMangKHKT_HienDai ;
+    su9:weightsJson "{\"C_KinhTeTriThuc\": 8, \"C_CachMangKHKT_HienDai\": 6}" .
+su9:E_CH5_My_CanThiepQuanSu a su9:Event ;
+    rdfs:label "Chính sách can thiệp quân sự của Mỹ sau Chiến tranh lạnh"@vi ;
+    su9:aliases "Chiến tranh Vùng Vịnh|Chiến tranh Afghanistan|Chiến tranh Iraq" ;
+    su9:occursAt su9:L_TrungDong ;
+    su9:occursDuring su9:P_Tu2001 ;
+    su9:hasCauseDirect "Mỹ lấy danh nghĩa chống khủng bố và bảo vệ lợi ích chiến lược để can thiệp quân sự vào nhiều khu vực: Chiến tranh Vùng Vịnh (1991) đẩy lùi I-rắc khỏi Cô-oét; sau sự kiện 11/9/2001, phát động chiến tranh tại Afghanistan (2001) và Iraq (2003)." ;
+    su9:hasContent "Các cuộc chiến tranh kéo dài, tốn kém, gây nhiều tranh cãi về tính chính danh, làm suy giảm sức mạnh kinh tế - quân sự và uy tín quốc tế của Mỹ." ;
+    su9:hasResult "Góp phần thúc đẩy xu hướng đa cực hóa quan hệ quốc tế, Mỹ dần phải chia sẻ vai trò lãnh đạo thế giới với các trung tâm quyền lực khác." ;
+    su9:hasOrganization su9:L_My ;
+    su9:involvedConcept su9:C_ChienLuocToanCau ;
+    su9:weightsJson "{\"L_My\": 10, \"C_ChienLuocToanCau\": 8}" .
+su9:E_CH5_TrungQuoc_TroiDay a su9:Event ;
+    rdfs:label "Trung Quốc trỗi dậy mạnh mẽ (từ 1991 đến nay)"@vi ;
+    su9:aliases "Sự trỗi dậy của Trung Quốc" ;
+    su9:occursAt su9:L_TrungQuoc ;
+    su9:occursDuring su9:P_Tu2001 ;
+    su9:hasCauseDirect "Tiếp tục đường lối cải cách mở cửa từ năm 1978, thu hút mạnh đầu tư nước ngoài, đẩy mạnh xuất khẩu và ứng dụng khoa học - công nghệ." ;
+    su9:hasContent "Kinh tế Trung Quốc tăng trưởng liên tục với tốc độ cao nhất thế giới trong giai đoạn 1980-2010, gia nhập WTO (2001); đầu thế kỷ XXI kinh tế Trung Quốc xếp thứ 6 thế giới, đến năm 2010 vượt Nhật Bản trở thành nền kinh tế lớn thứ hai thế giới. Từ năm 2010, Trung Quốc bắt đầu điều chỉnh mô hình tăng trưởng, chuyển dần từ dựa vào xuất khẩu - chế tạo sang thúc đẩy tiêu dùng nội địa. Trung Quốc triển khai Sáng kiến Vành đai - Con đường (BRI) nhằm mở rộng ảnh hưởng kinh tế - chính trị toàn cầu." ;
+    su9:hasAchievements "Trở thành một trong những trung tâm quyền lực chính của xu hướng thế giới đa cực đầu thế kỷ XXI." ;
+    su9:hasPerson su9:Pe_DangTieuBinh ;
+    su9:hasPerson su9:Pe_TapCanBinh ;
+    su9:hasOrganization su9:O_DangCongSan_TQ ;
+    su9:involvedConcept su9:C_CNXH_DacSacTrungQuoc ;
+    su9:involvedConcept su9:C_VanhDaiConDuong ;
+    su9:involvedConcept su9:C_TratTuDaCuc ;
+    su9:weightsJson "{\"Pe_DangTieuBinh\": 6, \"Pe_TapCanBinh\": 8, \"O_DangCongSan_TQ\": 10, \"C_CNXH_DacSacTrungQuoc\": 10, \"C_VanhDaiConDuong\": 10, \"C_TratTuDaCuc\": 6}" .
+su9:E_CH5_TrungQuoc_ThuHoiHongKongMaCao a su9:Event ;
+    rdfs:label "Trung Quốc thu hồi Hồng Kông (1997) và Ma Cao (1999)"@vi ;
+    su9:aliases "Hồng Kông trở về Trung Quốc|Ma Cao trở về Trung Quốc" ;
+    su9:occursAt su9:L_HongKong ;
+    su9:occursDuring su9:P_1991_2000 ;
+    su9:hasCauseDirect "Kết quả đàm phán ngoại giao giữa Trung Quốc với Anh (Tuyên bố chung Trung - Anh 1984) và Bồ Đào Nha, chấm dứt chế độ thuộc địa/nhượng địa kéo dài hơn một thế kỷ." ;
+    su9:hasContent "Anh trao trả Hồng Kông (7/1997), Bồ Đào Nha trao trả Ma Cao (12/1999) cho Trung Quốc, áp dụng mô hình 'một quốc gia, hai chế độ'." ;
+    su9:hasResult "Trung Quốc hoàn thành thu hồi các vùng lãnh thổ bị chiếm đóng từ thời cận đại, nâng cao vị thế và sự toàn vẹn lãnh thổ quốc gia." .
+su9:E_CH5_NhatBanHanQuoc_PhatTrien a su9:Event ;
+    rdfs:label "Nhật Bản, Hàn Quốc và các nền kinh tế công nghiệp mới phục hồi và phát triển"@vi ;
+    su9:aliases "Các con rồng châu Á" ;
+    su9:occursAt su9:L_Asia ;
+    su9:occursDuring su9:P_Tu2001 ;
+    su9:hasContent "Nhật Bản phục hồi sau giai đoạn suy thoái cuối thế kỷ XX, từ đầu những năm 2000 tiếp tục là một trung tâm tài chính hàng đầu thế giới; Hàn Quốc phục hồi mạnh mẽ sau khủng hoảng tài chính châu Á 1997. Cùng với Xin-ga-po, Đài Loan, Hồng Kông ('4 con rồng châu Á'), các nền kinh tế này tiếp tục đi đầu về công nghệ và công nghiệp chế tạo." ;
+    su9:involvedConcept su9:C_PhatTrienThanKi ;
+    su9:weightsJson "{\"C_PhatTrienThanKi\": 8}" .
+su9:E_CH5_DongA_ThachThucXaHoi a su9:Event ;
+    rdfs:label "Thách thức xã hội ở các nền kinh tế Đông Á"@vi ;
+    su9:aliases "Già hóa dân số Nhật Bản|Thất nghiệp thanh niên Hàn Quốc|Phân hóa giàu nghèo Trung Quốc" ;
+    su9:occursAt su9:L_Asia ;
+    su9:occursDuring su9:P_Tu2001 ;
+    su9:hasContent "Bên cạnh thành tựu kinh tế, các nước Đông Bắc Á đối mặt nhiều thách thức xã hội: Trung Quốc với tình trạng phân hóa giàu - nghèo gia tăng, Nhật Bản với tình trạng già hóa dân số nghiêm trọng, Hàn Quốc với khó khăn việc làm cho thanh niên; nạn tham nhũng vẫn là vấn đề nan giải ở cả Trung Quốc và Hàn Quốc." ;
+    su9:hasLimitations "Các thách thức này đặt ra yêu cầu cải cách xã hội song song với duy trì tăng trưởng kinh tế." .
+su9:E_CH5_ChauA_KhungHoangTaiChinh1997 a su9:Event ;
+    rdfs:label "Khủng hoảng tài chính - tiền tệ châu Á (1997)"@vi ;
+    su9:aliases "Khủng hoảng tài chính châu Á 1997" ;
+    su9:occursAt su9:L_DongNamA ;
+    su9:occursDuring su9:P_1991_2000 ;
+    su9:hasCauseDirect "Bắt nguồn từ Thái Lan (thả nổi đồng baht, 7/1997) do dòng vốn đầu cơ ngắn hạn rút ồ ạt, lan nhanh sang Hàn Quốc, Indonesia, Malaysia, Philippines và nhiều nền kinh tế Đông Á khác." ;
+    su9:hasContent "Đồng tiền mất giá mạnh, thị trường chứng khoán sụp đổ, nhiều doanh nghiệp phá sản, tăng trưởng kinh tế khu vực sụt giảm nghiêm trọng." ;
+    su9:hasResult "Bộc lộ những rủi ro của mô hình tăng trưởng dựa vào vốn vay ngắn hạn nước ngoài, thúc đẩy cải cách hệ thống tài chính - ngân hàng ở nhiều nước châu Á." ;
+    su9:involvedConcept su9:C_KhungHoangTaiChinhChauA ;
+    su9:weightsJson "{\"C_KhungHoangTaiChinhChauA\": 10}" .
+su9:E_CH5_DongNamA_DanChuHoa a su9:Event ;
+    rdfs:label "Chuyển đổi chính trị theo hướng dân chủ hóa ở Đông Nam Á"@vi ;
+    su9:aliases "Cách mạng Indonesia 1998|Phong trào dân chủ Philippines|Phong trào dân chủ Thái Lan|Cải cách Myanmar" ;
+    su9:occursAt su9:L_DongNamA ;
+    su9:occursDuring su9:P_1991_2000 ;
+    su9:hasContent "Nhiều quốc gia Đông Nam Á chuyển đổi từ chế độ độc tài sang chế độ dân chủ, tiêu biểu là Indonesia sau cuộc cách mạng năm 1998 (Tổng thống Xu-hác-tô từ chức). Các phong trào dân chủ, đòi cải cách chính trị diễn ra mạnh mẽ ở Philippines và Thái Lan. Myanmar có một số bước tiến cải cách chính trị nhưng vẫn còn nhiều thách thức." ;
+    su9:hasResult "Vai trò của các tổ chức xã hội dân sự ngày càng được đề cao trong việc thúc đẩy dân chủ hóa khu vực." ;
+    su9:involvedConcept su9:C_DanChuHoa ;
+    su9:weightsJson "{\"C_DanChuHoa\": 10}" .
+su9:E_CH5_DongNamA_ASEAN_MoRong a su9:Event ;
+    rdfs:label "Đông Nam Á và ASEAN mở rộng, xây dựng Cộng đồng ASEAN"@vi ;
+    su9:aliases "ASEAN mở rộng thành ASEAN 10" ;
+    su9:occursAt su9:L_DongNamA ;
+    su9:occursDuring su9:P_1991_2000 ;
+    su9:hasContent "Sau khi kết nạp Việt Nam (1995), Lào và Myanmar (1997), Campuchia (1999), ASEAN hoàn thành mục tiêu trở thành tổ chức khu vực gồm 10 quốc gia Đông Nam Á. Năm 2015, Cộng đồng ASEAN chính thức được thành lập trên 3 trụ cột chính trị - an ninh, kinh tế, văn hóa - xã hội." ;
+    su9:hasAchievements "Đông Nam Á chuyển từ đối đầu sang hợp tác, trở thành khu vực phát triển năng động, có vai trò ngày càng lớn trong cấu trúc khu vực châu Á - Thái Bình Dương." ;
+    su9:hasOrganization su9:O_ASEAN ;
+    su9:involvedConcept su9:C_HoiNhapQuocTe ;
+    su9:weightsJson "{\"O_ASEAN\": 10, \"C_HoiNhapQuocTe\": 8}" .
+su9:E_CH5_AnDo_PhatTrien a su9:Event ;
+    rdfs:label "Ấn Độ cải cách kinh tế và vươn lên thành cường quốc"@vi ;
+    su9:occursAt su9:L_AnDo ;
+    su9:occursDuring su9:P_1991_2000 ;
+    su9:hasCauseDirect "Cải cách kinh tế theo hướng tự do hóa, mở cửa thị trường từ năm 1991." ;
+    su9:hasContent "Ấn Độ phát triển theo hướng khác Trung Quốc: tập trung chủ yếu vào dịch vụ và công nghệ thông tin thay vì chế tạo - xuất khẩu, nên tốc độ tăng trưởng nhìn chung thấp hơn Trung Quốc trong cùng giai đoạn. Ấn Độ đẩy mạnh phát triển công nghệ thông tin, đồng thời thúc đẩy đầu tư hạ tầng và tiếp tục cải cách kinh tế, trở thành một trong những nền kinh tế lớn và tăng trưởng nhanh nhất thế giới." ;
+    su9:involvedConcept su9:C_KinhTeTriThuc ;
+    su9:weightsJson "{\"C_KinhTeTriThuc\": 8}" .
+su9:E_CH6_BinhThuongHoaVietMy a su9:Event ;
+    rdfs:label "Bình thường hóa quan hệ Việt Nam - Hoa Kỳ (1995)"@vi ;
+    su9:occursAt su9:L_VietNam ;
+    su9:occursDuring su9:P_1991_2000 ;
+    su9:hasCauseDirect "Kết quả của quá trình đấu tranh ngoại giao kiên trì cùng với đường lối đối ngoại đổi mới, đa phương hóa, đa dạng hóa của Việt Nam sau Đại hội VI, VII." ;
+    su9:hasContent "Tháng 7/1995, Việt Nam và Hoa Kỳ chính thức thiết lập quan hệ ngoại giao, mở ra giai đoạn hợp tác kinh tế - thương mại giữa hai nước." ;
+    su9:hasAchievements "Phá thế bao vây, cấm vận, mở rộng không gian đối ngoại cho công cuộc Đổi mới." ;
+    su9:involvedConcept su9:C_HoiNhapQuocTe ;
+    su9:weightsJson "{\"C_HoiNhapQuocTe\": 10}" .
+su9:E_CH6_VietNam_GiaNhapASEAN a su9:Event ;
+    rdfs:label "Việt Nam gia nhập ASEAN (7/1995)"@vi ;
+    su9:occursAt su9:L_VietNam ;
+    su9:occursDuring su9:P_1991_2000 ;
+    su9:hasContent "Việt Nam chính thức trở thành thành viên thứ 7 của ASEAN, đánh dấu bước hội nhập khu vực quan trọng đầu tiên sau thời kỳ đổi mới." ;
+    su9:hasResult "Tạo tiền đề để Việt Nam tiếp tục hội nhập sâu rộng vào các tổ chức khu vực và quốc tế khác." ;
+    su9:hasOrganization su9:O_ASEAN ;
+    su9:involvedConcept su9:C_HoiNhapQuocTe ;
+    su9:weightsJson "{\"O_ASEAN\": 10, \"C_HoiNhapQuocTe\": 10}" .
+su9:E_CH6_VietNam_ThamGiaAPEC a su9:Event ;
+    rdfs:label "Việt Nam gia nhập APEC (11/1998)"@vi ;
+    su9:occursAt su9:L_VietNam ;
+    su9:occursDuring su9:P_1991_2000 ;
+    su9:hasContent "Việt Nam trở thành thành viên chính thức của Diễn đàn Hợp tác Kinh tế châu Á - Thái Bình Dương, mở rộng quan hệ hợp tác kinh tế với các nền kinh tế lớn trong khu vực." ;
+    su9:hasOrganization su9:O_APEC ;
+    su9:involvedConcept su9:C_HoiNhapQuocTe ;
+    su9:weightsJson "{\"O_APEC\": 10, \"C_HoiNhapQuocTe\": 8}" .
+su9:E_CH6_VietNam_GiaNhapWTO a su9:Event ;
+    rdfs:label "Việt Nam gia nhập Tổ chức Thương mại Thế giới - WTO (1/2007)"@vi ;
+    su9:occursAt su9:L_VietNam ;
+    su9:occursDuring su9:P_Tu2001 ;
+    su9:hasCauseDeep "Yêu cầu hội nhập sâu vào nền kinh tế toàn cầu để thu hút đầu tư, mở rộng thị trường xuất khẩu, đẩy mạnh công nghiệp hóa - hiện đại hóa đất nước." ;
+    su9:hasContent "Sau 11 năm đàm phán, tháng 1/2007 Việt Nam chính thức trở thành thành viên thứ 150 của WTO." ;
+    su9:hasResult "Kim ngạch xuất nhập khẩu và thu hút đầu tư nước ngoài tăng mạnh, kinh tế Việt Nam hội nhập toàn diện vào chuỗi giá trị toàn cầu." ;
+    su9:hasOrganization su9:O_WTO ;
+    su9:involvedConcept su9:C_HoiNhapQuocTe ;
+    su9:involvedConcept su9:C_ToanCauHoa ;
+    su9:weightsJson "{\"O_WTO\": 10, \"C_HoiNhapQuocTe\": 10, \"C_ToanCauHoa\": 6}" .
+su9:E_CH6_DaiHoiDang_KienDinhDoiMoi a su9:Event ;
+    rdfs:label "Các kỳ Đại hội Đảng kiên định và bổ sung đường lối Đổi mới (Đại hội VII đến XIII)"@vi ;
+    su9:aliases "Đại hội VII|Đại hội VIII|Đại hội IX|Đại hội X|Đẩy mạnh công nghiệp hóa hiện đại hóa" ;
+    su9:occursAt su9:L_VietNam ;
+    su9:occursDuring su9:P_Tu2001 ;
+    su9:hasContent "Từ Đại hội VII (1991) trở đi, Đảng Cộng sản Việt Nam liên tục bổ sung, hoàn thiện đường lối Đổi mới: xác định mục tiêu 'dân giàu, nước mạnh, xã hội công bằng, dân chủ, văn minh', đẩy mạnh công nghiệp hóa - hiện đại hóa, chủ động hội nhập kinh tế quốc tế, xây dựng nền kinh tế thị trường định hướng xã hội chủ nghĩa." ;
+    su9:hasPerson su9:Pe_NguyenVanLinh ;
+    su9:hasPerson su9:Pe_VoVanKiet ;
+    su9:hasOrganization su9:O_DangCS_VN ;
+    su9:involvedConcept su9:C_KinhTeThiTruong_XHCN ;
+    su9:weightsJson "{\"Pe_NguyenVanLinh\": 4, \"Pe_VoVanKiet\": 4, \"O_DangCS_VN\": 10, \"C_KinhTeThiTruong_XHCN\": 8}" .
+su9:E_CH6_DoiMoi_ThanhTuu a su9:Event ;
+    rdfs:label "Thành tựu và hạn chế của công cuộc Đổi mới (từ 1991 đến nay)"@vi ;
+    su9:occursAt su9:L_VietNam ;
+    su9:occursDuring su9:P_Tu2001 ;
+    su9:hasContent "Kinh tế tăng trưởng liên tục, chuyển từ nền kinh tế kế hoạch hóa tập trung sang kinh tế thị trường định hướng xã hội chủ nghĩa; năm 2008 Việt Nam chính thức thoát khỏi nhóm nước thu nhập thấp, gia nhập nhóm nước có thu nhập trung bình. GDP năm 2019 gấp khoảng 12,5 lần so với năm 2001; công nghiệp và dịch vụ chiếm khoảng 70% GDP (2020). Đời sống nhân dân được cải thiện rõ rệt, tỉ lệ hộ nghèo giảm mạnh; đến năm 2020, Việt Nam thiết lập quan hệ ngoại giao với 189/193 quốc gia thành viên Liên hợp quốc." ;
+    su9:hasAchievements "Từ một nước nghèo, thiếu lương thực, Việt Nam trở thành nước có thu nhập trung bình, là một trong những nước xuất khẩu gạo, nông sản hàng đầu thế giới; nằm trong nhóm quốc gia có chỉ số phát triển con người (HDI) cao." ;
+    su9:hasLimitations "Chất lượng tăng trưởng, năng suất lao động, năng lực cạnh tranh của nền kinh tế còn nhiều hạn chế; nguy cơ tụt hậu và các thách thức về môi trường, phân hóa giàu nghèo vẫn hiện hữu." ;
+    su9:hasOrganization su9:O_DangCS_VN ;
+    su9:involvedConcept su9:C_KinhTeThiTruong_XHCN ;
+    su9:involvedConcept su9:C_DoiMoiKinhTe ;
+    su9:weightsJson "{\"O_DangCS_VN\": 10, \"C_KinhTeThiTruong_XHCN\": 10, \"C_DoiMoiKinhTe\": 8}" .
+su9:E_CH7_CMKHKT_DacDiem a su9:Event ;
+    rdfs:label "Đặc điểm cuộc cách mạng khoa học - kĩ thuật hiện đại"@vi ;
+    su9:occursAt su9:L_Global ;
+    su9:occursDuring su9:P_1945_1991 ;
+    su9:hasContent "Khoa học trở thành lực lượng sản xuất trực tiếp: mọi phát minh kĩ thuật đều bắt nguồn từ nghiên cứu khoa học, chứ không phải ngược lại như các cuộc cách mạng công nghiệp trước đây. Diễn ra trên nhiều lĩnh vực với tốc độ và quy mô chưa từng có." ;
+    su9:hasAchievements "Thời gian từ phát minh khoa học đến ứng dụng vào sản xuất được rút ngắn liên tục." ;
+    su9:involvedConcept su9:C_CachMangKHKT_HienDai ;
+    su9:weightsJson "{\"C_CachMangKHKT_HienDai\": 10}" .
+su9:E_CH7_CMKHKT_ThanhTuu a su9:Event ;
+    rdfs:label "Các thành tựu chủ yếu của cách mạng khoa học - kĩ thuật hiện đại"@vi ;
+    su9:aliases "Công nghệ thông tin|Internet|Công nghệ sinh học|Bản đồ gen người|Con người lên Mặt Trăng" ;
+    su9:occursAt su9:L_Global ;
+    su9:occursDuring su9:P_Tu2001 ;
+    su9:hasContent "Công nghệ thông tin: máy tính, Internet, điện thoại di động phát triển bùng nổ, kết nối toàn cầu; công nghệ sinh học đạt bước tiến vượt bậc (kĩ thuật di truyền, nghiên cứu giải mã gen); chinh phục vũ trụ (con người lần đầu đặt chân lên Mặt Trăng, năm 1969); năng lượng mới (năng lượng hạt nhân, năng lượng tái tạo); vật liệu mới, tự động hóa và robot." ;
+    su9:hasAchievements "Tạo ra bước ngoặt trong lịch sử văn minh nhân loại, đưa loài người bước sang nền văn minh trí tuệ." ;
+    su9:involvedConcept su9:C_CachMangKHKT_HienDai ;
+    su9:involvedConcept su9:C_KinhTeTriThuc ;
+    su9:weightsJson "{\"C_CachMangKHKT_HienDai\": 10, \"C_KinhTeTriThuc\": 8}" .
+su9:E_CH7_CMKHKT_TacDong a su9:Event ;
+    rdfs:label "Tác động của cách mạng khoa học - kĩ thuật hiện đại"@vi ;
+    su9:occursAt su9:L_Global ;
+    su9:occursDuring su9:P_Tu2001 ;
+    su9:hasCauseDirect "Sự bùng nổ và lan tỏa nhanh chóng của các thành tựu khoa học - kĩ thuật hiện đại vào mọi lĩnh vực đời sống." ;
+    su9:hasContent "Tăng năng suất lao động, nâng cao mức sống và chất lượng cuộc sống con người, làm thay đổi cơ cấu dân cư, chuyển dịch cơ cấu kinh tế theo hướng dịch vụ - công nghệ cao." ;
+    su9:hasResult "Đồng thời gây ra hệ quả tiêu cực: ô nhiễm môi trường, biến đổi khí hậu, chế tạo vũ khí hủy diệt hàng loạt, các tai nạn lao động và dịch bệnh mới, gia tăng khoảng cách giàu - nghèo giữa các nhóm nước." ;
+    su9:hasLimitations "Các nước đang phát triển đối mặt nguy cơ tụt hậu về công nghệ nếu không kịp thích ứng." ;
+    su9:involvedConcept su9:C_CachMangKHKT_HienDai ;
+    su9:weightsJson "{\"C_CachMangKHKT_HienDai\": 8}" .
+su9:E_CH7_ToanCauHoa_BieuHien a su9:Event ;
+    rdfs:label "Biểu hiện của xu thế toàn cầu hóa"@vi ;
+    su9:occursAt su9:L_Global ;
+    su9:occursDuring su9:P_Tu2001 ;
+    su9:hasCauseDeep "Cách mạng khoa học - kĩ thuật hiện đại, nhất là công nghệ thông tin, tạo điều kiện kết nối và lưu chuyển vốn, hàng hóa, lao động, tri thức trên phạm vi toàn cầu." ;
+    su9:hasContent "Biểu hiện trên 4 lĩnh vực chính: (1) Thương mại - kim ngạch xuất nhập khẩu hàng hóa, dịch vụ tăng nhanh, mạng lưới thương mại mở rộng; (2) Tài chính - thị trường tài chính quốc tế liên kết chặt chẽ, dòng vốn đầu tư trực tiếp nước ngoài tăng mạnh qua các công ty đa quốc gia; (3) Văn hóa - giao lưu, tiếp biến văn hóa giữa các quốc gia diễn ra sâu rộng; (4) Lao động - di cư lao động xuyên quốc gia gia tăng. Đồng thời là sự ra đời và mở rộng của các tổ chức liên kết kinh tế khu vực và toàn cầu (WTO, EU, ASEAN, APEC)." ;
+    su9:hasOrganization su9:O_WTO ;
+    su9:hasOrganization su9:O_EU ;
+    su9:hasOrganization su9:O_ASEAN ;
+    su9:hasOrganization su9:O_APEC ;
+    su9:involvedConcept su9:C_ToanCauHoa ;
+    su9:weightsJson "{\"O_WTO\": 8, \"O_EU\": 6, \"O_ASEAN\": 6, \"O_APEC\": 6, \"C_ToanCauHoa\": 10}" .
+su9:E_CH7_ToanCauHoa_TapDoanXuyenQuocGia a su9:Event ;
+    rdfs:label "Vai trò ngày càng lớn của các công ty xuyên quốc gia"@vi ;
+    su9:aliases "Công ty đa quốc gia|TNCs" ;
+    su9:occursAt su9:L_Global ;
+    su9:occursDuring su9:P_Tu2001 ;
+    su9:hasContent "Các công ty xuyên quốc gia (TNCs) mở rộng mạng lưới sản xuất - kinh doanh ra nhiều quốc gia, chi phối phần lớn thương mại, đầu tư và chuyển giao công nghệ quốc tế, hình thành các chuỗi giá trị và chuỗi cung ứng toàn cầu." ;
+    su9:hasResult "Thúc đẩy phân công lao động quốc tế sâu rộng nhưng cũng làm gia tăng sự phụ thuộc lẫn nhau và rủi ro lan truyền khủng hoảng giữa các nền kinh tế." ;
+    su9:involvedConcept su9:C_CongTyXuyenQuocGia ;
+    su9:involvedConcept su9:C_ToanCauHoa ;
+    su9:weightsJson "{\"C_CongTyXuyenQuocGia\": 10, \"C_ToanCauHoa\": 6}" .
+su9:E_CH7_ToanCauHoa_ThoiCoThachThuc a su9:Event ;
+    rdfs:label "Thời cơ và thách thức của toàn cầu hóa với các nước đang phát triển"@vi ;
+    su9:aliases "Toàn cầu hóa và Việt Nam" ;
+    su9:occursAt su9:L_VietNam ;
+    su9:occursDuring su9:P_Tu2001 ;
+    su9:hasContent "Thời cơ: mở rộng thị trường, thu hút vốn đầu tư và công nghệ, rút ngắn khoảng cách phát triển nếu tận dụng tốt cơ hội hội nhập. Thách thức: nguy cơ tụt hậu, cạnh tranh gay gắt, phụ thuộc kinh tế, nguy cơ đánh mất bản sắc văn hóa dân tộc nếu không có chiến lược hội nhập phù hợp." ;
+    su9:hasResult "Đặt ra yêu cầu các nước đang phát triển, trong đó có Việt Nam, phải vừa chủ động hội nhập vừa giữ vững độc lập, tự chủ." ;
+    su9:involvedConcept su9:C_ToanCauHoa ;
+    su9:involvedConcept su9:C_HoiNhapQuocTe ;
+    su9:weightsJson "{\"C_ToanCauHoa\": 10, \"C_HoiNhapQuocTe\": 8}" .
 
 ### PREREQUISITES ###
+su9:E_CH5_LienBangNga_ThanhLap su9:prerequisiteOf su9:E_CH5_Nga_KhungHoangChinhTri1990s .
+su9:E_CH5_Nga_KhungHoangChinhTri1990s su9:prerequisiteOf su9:E_CH5_Nga_Putin_PhucHoi .
+su9:E_CH5_Nga_Putin_PhucHoi su9:prerequisiteOf su9:E_CH5_QuanHeNgaMy_NATO .
+su9:D_CH5_HienPhapNga1993 su9:prerequisiteOf su9:E_CH5_Nga_Putin_PhucHoi .
+su9:E_CH5_My_SieuCuongThapNien90 su9:prerequisiteOf su9:E_CH5_My_SuyThoaiChuKy .
+su9:E_CH5_My_SuyThoaiChuKy su9:prerequisiteOf su9:E_CH5_My_CongNgheCao_DanDau .
+su9:E_CH5_ChauA_KhungHoangTaiChinh1997 su9:prerequisiteOf su9:E_CH5_DongNamA_ASEAN_MoRong .
+su9:E_CH5_ChauA_KhungHoangTaiChinh1997 su9:prerequisiteOf su9:E_CH5_NhatBanHanQuoc_PhatTrien .
+su9:D_CH5_HienChuongASEAN su9:prerequisiteOf su9:E_CH5_DongNamA_ASEAN_MoRong .
+su9:E_CH5_TrungQuoc_ThuHoiHongKongMaCao su9:prerequisiteOf su9:E_CH5_TrungQuoc_TroiDay .
+su9:E_CH5_DongNamA_DanChuHoa su9:prerequisiteOf su9:E_CH5_DongNamA_ASEAN_MoRong .
+su9:E_CH5_TrungQuoc_TroiDay su9:prerequisiteOf su9:E_CH5_DongA_ThachThucXaHoi .
+su9:E_CH5_NhatBanHanQuoc_PhatTrien su9:prerequisiteOf su9:E_CH5_DongA_ThachThucXaHoi .
+su9:E_CH6_BinhThuongHoaVietMy su9:prerequisiteOf su9:D_CH6_HiepDinhThuongMaiVietMy .
+su9:D_CH6_HiepDinhThuongMaiVietMy su9:prerequisiteOf su9:E_CH6_VietNam_GiaNhapWTO .
+su9:E_CH6_VietNam_GiaNhapASEAN su9:prerequisiteOf su9:E_CH6_VietNam_ThamGiaAPEC .
+su9:E_CH6_VietNam_ThamGiaAPEC su9:prerequisiteOf su9:E_CH6_VietNam_GiaNhapWTO .
+su9:E_CH6_DaiHoiDang_KienDinhDoiMoi su9:prerequisiteOf su9:E_CH6_VietNam_GiaNhapWTO .
+su9:E_CH6_VietNam_GiaNhapWTO su9:prerequisiteOf su9:E_CH6_DoiMoi_ThanhTuu .
+su9:E_CH7_CMKHKT_DacDiem su9:prerequisiteOf su9:E_CH7_CMKHKT_ThanhTuu .
+su9:E_CH7_CMKHKT_ThanhTuu su9:prerequisiteOf su9:E_CH7_CMKHKT_TacDong .
+su9:E_CH7_ToanCauHoa_BieuHien su9:prerequisiteOf su9:E_CH7_ToanCauHoa_TapDoanXuyenQuocGia .
+su9:E_CH7_ToanCauHoa_TapDoanXuyenQuocGia su9:prerequisiteOf su9:E_CH7_ToanCauHoa_ThoiCoThachThuc .
 su9:M_CachMang_ChauAu_1918_1923 su9:prerequisiteOf su9:E_ThanhLapQuocTeCongSan .
 su9:M_CachMang_ChauAu_1918_1923 su9:prerequisiteOf su9:D_NEP_1921 .
 su9:E_KhungHoangKinhTe_1929_1933 su9:prerequisiteOf su9:D_NewDeal_1932 .
@@ -3716,6 +4153,7 @@ su9:E_CH5_KhungBo11_9 su9:prerequisiteOf su9:L_TrungDong .
 su9:E_CH5_KhungHoangTaiChinh2008 su9:prerequisiteOf su9:E_CH5_DaCuc_HinhThanh .
 
 ### CAUSAL EDGES ###
+su9:E_CH5_My_CanThiepQuanSu su9:directCause su9:E_CH5_QuanHeNgaMy_NATO .
 su9:E_KhungHoangKinhTe_1929_1933 su9:directCause su9:D_NewDeal_1932 .
 su9:E_KhungHoangKinhTe_1929_1933 su9:directCause su9:E_PhatXitHoa_ChauAu_1929_1933 .
 su9:E_KhungHoangKinhTe_1929_1933 su9:directCause su9:E_NhatBan_PhatXitHoa_1933_1945 .
@@ -3728,16 +4166,36 @@ su9:E_CH2_PhapNhatBocLot su9:directCause su9:C_NanDoi1945 .
 su9:M_CH2_CaoTraoKhangNhat su9:directCause su9:C_TapDuotCachMang .
 su9:D_CH3_HocThuyetTruman su9:directCause su9:C_ChienTranhLanh .
 su9:C_DaNguyenChinhTri su9:directCause su9:E_CH3_DongAu_TanRa_1989 .
+su9:D_CH6_DaiHoiDang6 su9:deepCause su9:E_CH6_DaiHoiDang_KienDinhDoiMoi .
+su9:E_CH6_DaiHoiDang_KienDinhDoiMoi su9:deepCause su9:E_CH6_DoiMoi_ThanhTuu .
+su9:E_CH7_CMKHKT_TacDong su9:deepCause su9:E_CH7_ToanCauHoa_BieuHien .
 su9:C_HeThongVersaillesWashington su9:deepCause su9:E_WWII_NguyenNhan_TongQuat .
 su9:C_KhungHoangKinhTe su9:deepCause su9:E_WWII_NguyenNhan_TongQuat .
 su9:E_ThanhLapQuocTeCongSan su9:deepCause su9:M_GiaiPhongDanToc_DongNamA_1918_1945 .
 su9:C_KhungHoangKinhTe su9:deepCause su9:M_CH2_PhongTrao_1930_1931 .
 
 ### SIMILARITIES & CONTRASTS ###
+su9:E_CH5_Nga_Putin_PhucHoi su9:similarTo su9:E_CH5_DaCuc_HinhThanh .
+su9:E_CH5_QuanHeNgaMy_NATO su9:similarTo su9:E_CH5_DaCuc_HinhThanh .
+su9:E_CH5_TrungQuoc_TroiDay su9:similarTo su9:E_CH5_DaCuc_HinhThanh .
+su9:E_CH5_NhatBanHanQuoc_PhatTrien su9:similarTo su9:E_CH5_AnDo_PhatTrien .
+su9:E_CH5_DongNamA_DanChuHoa su9:similarTo su9:E_CH5_DongNamA_ASEAN_MoRong .
+su9:E_CH6_VietNam_GiaNhapASEAN su9:similarTo su9:E_CH5_DongNamA_ASEAN_MoRong .
+su9:E_CH7_ToanCauHoa_ThoiCoThachThuc su9:similarTo su9:E_CH6_VietNam_GiaNhapWTO .
+su9:E_CH7_ToanCauHoa_BieuHien su9:similarTo su9:E_CH5_TrungQuoc_TroiDay .
+su9:E_CH7_ToanCauHoa_TapDoanXuyenQuocGia su9:similarTo su9:E_CH5_ChauA_KhungHoangTaiChinh1997 .
 su9:D_NEP_1921 su9:similarTo su9:D_NewDeal_1932 .
 su9:E_PhatXitHoa_ChauAu_1929_1933 su9:similarTo su9:E_NhatBan_PhatXitHoa_1933_1945 .
 su9:C_KhuynhHuongVoSan su9:similarTo su9:C_KhuynhHuongTuSan .
 su9:E_CH3_LienXo_TanRa_1991 su9:similarTo su9:E_CH3_DongAu_TanRa_1989 .
+su9:E_CH5_LienBangNga_ThanhLap su9:contrastsWith su9:E_CH5_My_SieuCuongThapNien90 .
+su9:E_CH5_My_SieuCuongThapNien90 su9:contrastsWith su9:E_CH5_My_CanThiepQuanSu .
+su9:E_CH5_Nga_KhungHoangChinhTri1990s su9:contrastsWith su9:E_CH5_Nga_Putin_PhucHoi .
+su9:E_CH5_My_SuyThoaiChuKy su9:contrastsWith su9:E_CH5_My_CongNgheCao_DanDau .
+su9:E_CH5_TrungQuoc_TroiDay su9:contrastsWith su9:E_CH5_DongNamA_ASEAN_MoRong .
+su9:E_CH5_ChauA_KhungHoangTaiChinh1997 su9:contrastsWith su9:E_CH5_TrungQuoc_TroiDay .
+su9:E_CH5_TrungQuoc_TroiDay su9:contrastsWith su9:E_CH5_DongA_ThachThucXaHoi .
+su9:E_CH7_CMKHKT_DacDiem su9:contrastsWith su9:E_CH7_ToanCauHoa_ThoiCoThachThuc .
 su9:O_LienHopQuoc_WW2 su9:contrastsWith su9:O_PhePhatXit .
 su9:C_ChienTranhChinhNghia su9:contrastsWith su9:C_ChienTranhPhiNghia .
 su9:E_CH2_ThanhLapVNQDD su9:contrastsWith su9:E_CH2_ThanhLapTanViet .

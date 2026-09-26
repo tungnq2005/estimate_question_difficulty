@@ -104,4 +104,5 @@ LOCATIONS = [
     
     ("L_Nga", "Liên bang Nga", "Nga|Russia", "L_Global", 1, 3),
     ("L_TrungDong", "Khu vực Trung Đông", "Afghanistan và Iraq", "L_Global", 2, 3),
+    ("L_MaCao", "Ma Cao", "Macau|Macao", "L_TrungQuoc", 1, 3),
 ]

@@ -1,0 +1,49 @@
+{
+  "n_kgv": 1339,
+  "n_unique": 1279,
+  "n_canonical": 1279,
+  "n_with_answer": 211,
+  "n_paired": 225,
+  "agreement": {
+    "absolute": 0.5422222222222223,
+    "kappa": 0.2556847379239465,
+    "qwk": 0.09196351965426286,
+    "confusion_teacher_rows": [
+      [
+        42,
+        14,
+        1,
+        0
+      ],
+      [
+        25,
+        79,
+        27,
+        9
+      ],
+      [
+        7,
+        4,
+        1,
+        0
+      ],
+      [
+        11,
+        4,
+        1,
+        0
+      ]
+    ]
+  },
+  "high_tier": {
+    "teacher_vd_vdc": 28,
+    "llm_agrees": 2,
+    "llm_calls_nb": 18
+  },
+  "teacher_label_dist": {
+    "Nhận biết": 521,
+    "Thông hiểu": 590,
+    "Vận dụng": 81,
+    "Vận dụng cao": 87
+  }
+}

@@ -126,29 +126,34 @@ def _distractor_confusion(
     Thành phần 4: Distractor Confusion (DC)
     Đo mức độ gây confusion bởi distractors.
     
-    DC = avg_{d_i, d_j in distractors, i≠j} 
+    DC = avg_{d_i, d_j in distractors, i≠j}
            [max semantic_sim(d_i, d_j)]
-    
+
     DC càng cao → distractors càng giống nhau → gây nhầm lẫn cho học sinh.
+
+    TRẢ NaN khi KHÔNG TÍNH ĐƯỢC (dưới 2 đáp án nhiễu khớp được thực thể).
+    Trước đây trả 0.0 cho cả hai trường hợp, nhưng chúng nghĩa ngược nhau:
+    DC=0.0 nghĩa "các đáp án nhiễu hoàn toàn tách biệt" và vào công thức thành
+    (1−DC)=1.0, tức tín hiệu "câu rất dễ" MẠNH NHẤT có thể — trong khi thực tế
+    chỉ là không khớp được thực thể nào. Sai lệch này xảy ra đúng lúc dữ liệu
+    tệ nhất, và luôn đẩy về phía "dễ".
     """
-    if len(distractors_entities) < 2:
-        return 0.0
-    
+    # Chỉ các đáp án nhiễu KHỚP ĐƯỢC thực thể mới so sánh được với nhau
+    matched = [d for d in distractors_entities if d]
+    if len(matched) < 2:
+        return float("nan")
+
     # Tính similarity giữa các cặp distractor
     scores = []
-    for i in range(len(distractors_entities)):
-        for j in range(i + 1, len(distractors_entities)):
-            sim = _entity_overlap(distractors_entities[i], distractors_entities[j])
+    for i in range(len(matched)):
+        for j in range(i + 1, len(matched)):
+            sim = _entity_overlap(matched[i], matched[j])
             # Nếu overlap = 0, thử semantic closeness
             if sim == 0:
-                sim = _semantic_closeness(
-                    distractors_entities[i],
-                    distractors_entities[j],
-                    engine
-                )
+                sim = _semantic_closeness(matched[i], matched[j], engine)
             scores.append(sim)
-    
-    return sum(scores) / len(scores) if scores else 0.0
+
+    return sum(scores) / len(scores) if scores else float("nan")
 
 
 def compute_rsi_features(
@@ -185,14 +190,18 @@ def compute_rsi_features(
     eo_correct = _entity_overlap(stem_entities, correct_entities)
     sc_correct = _semantic_closeness(stem_entities, correct_entities, engine)
     dc = _distractor_confusion(distractors_entities, engine)
-    
+
+    # CỐ Ý để NaN lan truyền: khi dc không tính được thì rsi_correct (và kéo
+    # theo rsi_final) cũng không xác định — thà báo khuyết còn hơn điền một
+    # thành phần bịa vào công thức tổng. rsi_max_distractor KHÔNG dùng dc nên
+    # vẫn luôn tính được.
     rsi_correct = (
         w["term_overlap_w"] * to_correct +
         w["entity_overlap_w"] * eo_correct +
         w["semantic_closeness_w"] * sc_correct +
         w["distractor_confusion_w"] * (1.0 - dc)
     )
-    
+
     # === RSI cho từng distractor ===
     rsi_distractors = []
     for i, (d_text, d_ents) in enumerate(zip(distractors_texts, distractors_entities)):
@@ -318,15 +327,32 @@ def analyze_rsi_decomposition(
             f"{'Stem gần với đáp án đúng hơn trên KG.' if sc_correct > max(sc_distractors + [0]) else 'Stem có thể gần với đáp án sai hơn.'}"
         )
     }
+    dc_known = dc == dc  # False khi dc là NaN
     report["components"]["distractor_confusion"] = {
         "value": dc,
         "explanation": (
             f"Các distractors giống nhau ở mức {dc:.1%}. "
             f"{'Các distractors quá giống nhau, gây nhầm lẫn.' if dc > 0.3 else 'Các distractors khác biệt rõ ràng.'}"
+        ) if dc_known else (
+            "KHÔNG ĐO ĐƯỢC: dưới 2 đáp án nhiễu khớp được thực thể trong "
+            "ontology, nên không so sánh được chúng với nhau."
         )
     }
-    
-    # Verdict
+
+    # Verdict — phải chặn NaN TRƯỚC, vì mọi phép so sánh với NaN đều False nên
+    # câu không đo được sẽ rơi thẳng vào nhánh cuối và bị gán nhãn "KHÓ".
+    if not dc_known:
+        report["verdict"] = "KHÔNG XÁC ĐỊNH"
+        report["summary"] = (
+            "Không kết luận được bằng RSI: không khớp được đủ thực thể ở các "
+            "đáp án nhiễu để tính thành phần Distractor Confusion."
+        )
+        report["suggestion"] = (
+            "Gợi ý: bổ sung các thực thể/bí danh còn thiếu vào ontology, hoặc "
+            "đánh giá câu này bằng các đặc trưng không phụ thuộc khớp thực thể."
+        )
+        return report
+
     if rsi_final > 0.3:
         report["verdict"] = "DỄ"
         report["summary"] = (

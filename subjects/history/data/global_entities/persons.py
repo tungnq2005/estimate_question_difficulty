@@ -25,4 +25,11 @@ PERSONS = [
     ("Pe_MaoTrachDong", "Mao Trạch Đông", "Chủ tịch Mao", 10, 1, 3),
     ("Pe_DangTieuBinh", "Đặng Tiểu Bình", "Deng Xiaoping", 10, 1, 3),
     ("Pe_TruongChinh", "Trường Chinh", "Tổng Bí thư Trường Chinh", 10, 1, 3),
+
+    # Chương 5-7 (Thế giới & Việt Nam từ 1991 đến nay)
+    ("Pe_Yeltsin", "B. En-xin", "Boris Yeltsin|Tổng thống En-xin", 8, 1, 3),
+    ("Pe_Putin", "V. Pu-tin", "Vladimir Putin|Tổng thống Pu-tin", 10, 1, 3),
+    ("Pe_TapCanBinh", "Tập Cận Bình", "Xi Jinping|Chủ tịch Tập Cận Bình", 8, 1, 3),
+    ("Pe_NguyenVanLinh", "Nguyễn Văn Linh", "Tổng Bí thư Nguyễn Văn Linh|Người khởi xướng Đổi mới", 8, 1, 3),
+    ("Pe_VoVanKiet", "Võ Văn Kiệt", "Thủ tướng Võ Văn Kiệt", 8, 1, 3),
 ]

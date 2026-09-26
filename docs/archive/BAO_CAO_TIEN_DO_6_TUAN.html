@@ -1,0 +1,327 @@
+<h1>BÁO CÁO TIẾN ĐỘ NGHIÊN CỨU KHOA HỌC</h1>
+<p><b>Đề tài:</b> Ước lượng độ khó câu hỏi trắc nghiệm bằng Đồ thị Tri thức (Knowledge Graph) và Học máy<br>
+<b>Kỳ báo cáo:</b> 6 tuần, 11/07/2026 – 22/08/2026<br>
+<b>Báo cáo trước:</b> mốc mô hình XGBoost đạt 75,6% độ chính xác trên 3.152 câu Lịch sử 9</p>
+
+<hr>
+
+<h2>0. Tóm tắt nhanh cho người hướng dẫn</h2>
+
+<p>Sáu tuần qua là giai đoạn <b>kiểm chứng</b> thay vì giai đoạn <b>làm cho số đẹp hơn</b>. Nhóm đã dừng việc đẩy độ chính xác lên 80% như kế hoạch cũ, và thay vào đó đi trả lời câu hỏi nền tảng hơn: <i>con số 75,6% ở báo cáo trước thực sự đo cái gì?</i></p>
+
+<p>Kết quả kiểm chứng là <b>âm tính, nhưng có giá trị khoa học cao</b> và đã được đo bằng nhiều phép độc lập:</p>
+
+<ol>
+<li><b>Nhãn độ khó do LLM chấm (nền tảng của con số 75,6%) bám vào cách hành văn của câu hỏi, không bám vào độ khó nội dung.</b> Mô hình chỉ đọc n-gram của câu dẫn — không chạm gì tới kiến thức — đã đoán được nhãn LLM ở mức 53,0% so với 42,0% của phép đoán bừa, nhưng gần như không đoán được học sinh làm đúng hay sai (tương quan ≈ 0).</li>
+<li><b>Đặc trưng đồ thị tri thức không đủ mạnh để dự đoán độ khó.</b> Kiểm trên môn Sử (bằng phản hồi mô phỏng) và kiểm lại độc lập trên môn Vật lí (bằng nhãn giáo viên thật) đều cho kết luận giống nhau.</li>
+<li><b>Nhưng đồ thị tri thức vẫn giữ được tín hiệu ở nơi đặc trưng văn bản mất sạch</b> — đây là phát hiện dương tính đáng giá nhất của cả kỳ (mục 4.5).</li>
+<li><b>Trên môn Vật lí, tín hiệu độ khó thật đã tìm ra được</b>: nó nằm ở "câu có phải tính toán không", không nằm ở đồ thị tri thức (mục 4.7).</li>
+</ol>
+
+<p>Về khó khăn: rủi ro số 1 đã ghi trong kế hoạch — <b>đơn xin phép nhà trường tổ chức khảo sát ~150 học sinh KHÔNG được duyệt</b> — đã xảy ra thật vào giữa tháng 8, làm mất nguồn dữ liệu chuẩn (ground truth) mà cả ba đóng góp ban đầu dựa vào. Nhóm đã kích hoạt phương án dự phòng đã chuẩn bị sẵn. Chi tiết ở mục 5.</p>
+
+<hr>
+
+<h2>1. Dòng thời gian công việc</h2>
+
+<table border="1" cellpadding="6" cellspacing="0">
+<tr><th>Thời gian</th><th>Việc chính</th><th>Sản phẩm</th></tr>
+<tr><td>Tuần 1–2<br>(11–27/07)</td><td>Đọc <b>toàn văn</b> 7 công trình nền tảng (không đọc tóm tắt), định vị lại đề tài trong văn liệu quốc tế</td><td><code>docs/TOM_TAT_BAI_BAO.md</code>, <code>docs/RELATED_WORK.md</code></td></tr>
+<tr><td>Tuần 3<br>(28/07–06/08)</td><td>Mở rộng ontology Lịch sử (Chương 5–7, Bài 21–24); viết công cụ khử trùng lặp, kiểm tra độ phủ thực thể</td><td>Ontology Sử: 434 → <b>480</b> thực thể</td></tr>
+<tr><td>Tuần 4<br>(07–12/08)</td><td>Dựng toàn bộ hạ tầng đo lường: form giáo viên, form học sinh, phân tích câu hỏi (KR-20), khung Cold→Warm, mô phỏng học sinh bằng LLM</td><td>7 công cụ mới; 4.996 lượt trả lời mô phỏng</td></tr>
+<tr><td>Tuần 5<br>(13–18/08)</td><td><b>T1 không được duyệt</b> → chuyển hướng. Chạy kiểm toán nhãn (E1), chẩn đoán prior, thu nhãn giáo viên thật; pivot thí nghiệm sang Vật lí</td><td><code>docs/PIVOT_T1_KHONG_DUYET.md</code>, <code>docs/PHYSICS_EXPERIMENT.md</code></td></tr>
+<tr><td>Tuần 6<br>(19–22/08)</td><td>Đối chứng LLM chấm độ khó vs nhãn giáo viên trên 1.539 câu Vật lí</td><td><code>docs/LLM_JUDGE_PHYSICS.md</code></td></tr>
+</table>
+
+<hr>
+
+<h2>2. Đọc văn liệu và định vị lại đề tài</h2>
+
+<p>Nhóm đã đọc toàn văn 7 công trình (không phải đọc tóm tắt), trong đó có bài khảo sát nền tảng của lĩnh vực (<i>ACM Computing Surveys</i> 2023, khảo sát 38 công trình 2015–2021). Ba điều rút ra buộc phải điều chỉnh đề tài:</p>
+
+<table border="1" cellpadding="6" cellspacing="0">
+<tr><th>Phát hiện từ văn liệu</th><th>Hệ quả với đề tài</th></tr>
+<tr><td><b>Ý tưởng cốt lõi của nhóm không mới.</b> Vinu 2015 đã định nghĩa đúng như vậy: "độ khó = độ tương tự giữa đáp án đúng và các đáp án nhiễu".</td><td>Phải trích dẫn thẳng và nêu rõ cái mới của nhóm nằm ở chỗ khác (ontology theo chương trình học chứ không phải bách khoa toàn thư; tiếng Việt; câu hỏi thật của giáo viên; giải thích được). Giấu đi mà hội đồng phát hiện thì mất uy tín.</td></tr>
+<tr><td><b>Cảnh báo về thước đo:</b> survey và Thuy 2025 đều phê phán việc dùng độ chính xác (accuracy) trên dữ liệu mất cân bằng, và việc coi 3 nhãn Dễ/TB/Khó như 3 nhãn rời rạc (đoán nhầm Dễ→Khó bị phạt bằng Dễ→TB).</td><td>Con số 75,6% ở báo cáo trước là thước đo <b>không phù hợp</b> (lớp Khó chỉ chiếm 16,4%). Phải bổ sung QWK / macro-F1. Từ kỳ này mọi thí nghiệm mới đều báo cáo QWK.</td></tr>
+<tr><td><b>Acquaye 2026:</b> cho LLM chấm trực tiếp độ khó cho kết quả <i>kém</i>; nhưng cho LLM <i>đóng vai học sinh làm bài</i> rồi khớp IRT thì đạt tương quan 0,75–0,82 với dữ liệu thật.</td><td>Nhãn 3-phiếu của nhóm <b>chính là</b> kiểu "chấm trực tiếp" bị bài này chỉ ra là kém tin cậy. Đây là nguồn gốc của toàn bộ công việc kiểm toán nhãn ở mục 4.</td></tr>
+</table>
+
+<hr>
+
+<h2>3. Mở rộng cơ sở dữ liệu tri thức</h2>
+
+<h3>3.1. Ontology Lịch sử 9</h3>
+
+<table border="1" cellpadding="6" cellspacing="0">
+<tr><th>Chỉ số</th><th>Báo cáo trước</th><th>Hiện tại</th></tr>
+<tr><td>Điểm kiến thức (thực thể)</td><td>434</td><td><b>480</b></td></tr>
+<tr><td>Mối liên hệ (quan hệ)</td><td>761</td><td><b>937</b></td></tr>
+<tr><td>Số bài đã mã hóa</td><td>Chương 1–2</td><td>+ Chương 5, 6, 7 (Bài 21–24)</td></tr>
+</table>
+
+<p>Phân bố hiện tại: Sự kiện 112 · Khái niệm 83 · Địa danh 80 · Tổ chức 78 · Giai đoạn 45 · Tài liệu 38 · Nhân vật 29 · Phong trào 15.</p>
+
+<h3>3.2. Ontology Vật lí 9 — bồi bằng LLM có kiểm soát</h3>
+
+<p>Ontology Vật lí ban đầu (132 thực thể, chỉ có điện và quang) quá mỏng để chạy thí nghiệm — độ phủ thực thể chỉ 0,187, tức là hơn 80% câu hỏi không khớp được điểm kiến thức nào, khiến mọi đặc trưng đồ thị vô nghĩa. Nhóm đã dựng quy trình <b>hai LLM kiểm chéo</b> (một LLM trích thực thể và quan hệ tiên quyết từ 5 chương SGK, một LLM khác kiểm lại), sau đó khử trùng lặp và gộp tự động.</p>
+
+<table border="1" cellpadding="6" cellspacing="0">
+<tr><th>Chỉ số</th><th>Trước</th><th>Sau</th></tr>
+<tr><td>Thực thể</td><td>132</td><td><b>319</b></td></tr>
+<tr><td>Quan hệ tiên quyết (khái niệm A phải học trước B)</td><td>67</td><td><b>255</b></td></tr>
+<tr><td>Độ phủ thực thể trên câu hỏi</td><td>0,187</td><td><b>0,427</b></td></tr>
+<tr><td>Tỉ lệ câu có độ sâu tiên quyết &gt; 0</td><td>~11%</td><td><b>29%</b></td></tr>
+</table>
+
+<p>Đây cũng là câu trả lời trực tiếp cho câu hỏi của thầy về <i>khả năng tổng quát hóa</i>: dựng ontology không nhất thiết phải làm tay hoàn toàn.</p>
+
+<h3>3.3. Dữ liệu câu hỏi Vật lí</h3>
+
+<p>Nhóm tìm được nguồn <b>kenhgiaovien.com</b> — tài nguyên giáo viên, mỗi bài đã chia sẵn 4 mức <b>Nhận biết / Thông hiểu / Vận dụng / Vận dụng cao</b> do chính giáo viên soạn. Đây là điều môn Sử không có: <b>nhãn mức độ do người thật gán, không phải do LLM gán</b>.</p>
+
+<ul>
+<li>Crawl 53 bài → <b>1.539 câu</b> dùng được, phân bố NB 443 / TH 510 / VD 367 / VDC 219.</li>
+<li>Nguồn không kèm đáp án → dùng LLM xác định đáp án cho cả 1.539 câu (đáp án vật lí là khách quan, khác hẳn nhãn độ khó chủ quan nên không gây vòng tròn lập luận).</li>
+<li>Thêm 416 câu VietJack (KHTN, có đáp án, chưa nhãn) → tổng ~1.955 câu.</li>
+</ul>
+
+<hr>
+
+<h2>4. Các thí nghiệm và kết quả</h2>
+
+<h3>4.1. Mô phỏng học sinh bằng LLM (thay cho học sinh thật)</h3>
+
+<p>Vì không có dữ liệu học sinh thật, nhóm cho LLM <b>thực sự đóng vai học sinh làm bài</b> (khác hoàn toàn việc hỏi LLM "câu này khó không"). Bốn cơ chế chống thiên lệch bắt buộc: (i) prompt hoàn toàn mù — không thấy nhãn, không thấy lời giải, không biết đâu là đáp án đúng; (ii) xáo trộn phương án theo quy tắc tất định để khử thiên lệch vị trí; (iii) lặp nhiều lần ở nhiệt độ 1,0 để p-value có phương sai thật; (iv) mỗi persona gắn với một mức học lực và tên học sinh cụ thể.</p>
+
+<p>Đã chạy <b>4.996 lượt trả lời</b> (100 câu × 50 lượt/câu). Kiểm định hiệu lực:</p>
+
+<table border="1" cellpadding="6" cellspacing="0">
+<tr><th>Chỉ số kiểm định</th><th>Giá trị</th><th>Đánh giá</th></tr>
+<tr><td>Tương quan hạng giữa mức học lực và tỉ lệ làm đúng</td><td><b>+1,000</b></td><td>đơn điệu hoàn hảo — mô phỏng có hiệu lực</td></tr>
+<tr><td>Độ trải từ persona yếu nhất tới giỏi nhất</td><td>0,348</td><td>đủ phương sai để phân tích</td></tr>
+<tr><td>Độ tin cậy nội tại KR-20 (3 đề)</td><td>0,783 / 0,802 / 0,844</td><td>đều vượt ngưỡng 0,70</td></tr>
+<tr><td>Tỉ lệ làm đúng trung bình</td><td>0,713</td><td>⚠ cao hơn đề thi thật ở Việt Nam (0,5–0,6) — hiệu ứng sàn, phải nêu là hạn chế</td></tr>
+</table>
+
+<h3>4.2. Kiểm toán nhãn LLM — kết quả trung tâm của kỳ này</h3>
+
+<p><b>Phép đo chốt hạ:</b> huấn luyện một mô hình <i>chỉ dùng n-gram của câu dẫn</i> — tức là chỉ nhìn cách hành văn, không chạm gì tới nội dung kiến thức — trên 2.047 câu, rồi chấm trên 100 câu có dữ liệu trả lời:</p>
+
+<table border="1" cellpadding="6" cellspacing="0">
+<tr><th>Mô hình chỉ đọc cách hành văn, đem khớp với…</th><th>Kết quả</th></tr>
+<tr><td><b>nhãn LLM</b></td><td>53,0% so với 42,0% đoán bừa → <b>+11,0 điểm</b></td></tr>
+<tr><td><b>tỉ lệ làm đúng thực tế</b></td><td>Pearson +0,040 · Spearman +0,091 → <b>≈ 0</b></td></tr>
+</table>
+
+<p>Diễn giải: <i>cách viết câu hỏi</i> đoán được nhãn LLM rõ rệt trên mức ngẫu nhiên, nhưng gần như không đoán được học sinh làm đúng hay sai. Đây là bằng chứng trực tiếp nhất cho luận điểm <b>nhãn LLM mã hóa dạng/khuôn mẫu câu hỏi, không mã hóa độ khó nội dung</b>.</p>
+
+<p><b>Phát hiện mạnh hơn cả thiết kế ban đầu:</b> hai câu bất kỳ được LLM gán <i>cùng một mức</i> vẫn chênh nhau trung bình <b>22,2 điểm phần trăm</b> tỉ lệ làm đúng, trong khi sàn nhiễu do lấy mẫu chỉ 6,1 điểm. Nghĩa là biết nhãn LLM gần như không thu hẹp được khoảng bất định về độ khó thật. Kết luận này áp dụng cho <i>toàn bộ</i> tập nhãn.</p>
+
+<h3>4.3. Nhãn giáo viên thật (17/08)</h3>
+
+<p>Đã nhờ được 1 giáo viên Sử chấm độ khó qua form: <b>90/120 câu</b> hoàn thành (Dễ 38 / Trung bình 45 / Khó 7).</p>
+
+<table border="1" cellpadding="6" cellspacing="0">
+<tr><th>Phép đo</th><th>Giá trị</th><th>Ý nghĩa</th></tr>
+<tr><td>Cohen κ (nhãn LLM ↔ nhãn giáo viên)</td><td><b>−0,021</b></td><td>gần như <b>không đồng thuận gì</b></td></tr>
+<tr><td>Spearman (LLM ↔ giáo viên)</td><td>+0,221</td><td>dưới ngưỡng có ý nghĩa với n≈76</td></tr>
+<tr><td>Tương quan nhãn giáo viên ↔ tỉ lệ làm đúng mô phỏng</td><td>+0,084</td><td>cũng gần 0</td></tr>
+<tr><td>Tương quan nhãn LLM ↔ tỉ lệ làm đúng mô phỏng</td><td>−0,264</td><td>đúng chiều nhưng yếu</td></tr>
+</table>
+
+<p><b>Đây là kết quả phải báo cáo trung thực:</b> cả hai nguồn nhãn đều tương quan yếu với hiệu suất làm bài mô phỏng. Vì vậy <b>chưa phân định được</b> hai giả thuyết cạnh tranh: (H<sub>a</sub>) nhãn LLM đo sai độ khó — điều nhóm muốn kết luận; hay (H<sub>b</sub>) chính phép mô phỏng đo sai độ khó. Cần thêm giáo viên thứ hai và/hoặc dữ liệu học sinh thật mới phân định được.</p>
+
+<p><b>Giả thuyết do thầy nêu (17/08) đã được kiểm và có tín hiệu ủng hộ.</b> Thầy đặt vấn đề: LLM chấm theo <i>câu chữ</i>, còn giáo viên — người dạy thật — coi trọng <i>độ nhiễu của phương án</i>. Nhóm chia đặc trưng làm hai nhóm tách biệt rồi đo:</p>
+
+<table border="1" cellpadding="6" cellspacing="0">
+<tr><th>Nhóm đặc trưng</th><th>Tương quan với nhãn giáo viên</th><th>Tương quan với nhãn LLM</th></tr>
+<tr><td>[A] Quan hệ đáp án đúng ↔ phương án nhiễu</td><td>0,088</td><td>0,113</td></tr>
+<tr><td>[B] Chỉ phụ thuộc cách viết câu dẫn</td><td>0,066</td><td><b>0,166</b></td></tr>
+</table>
+
+<p>Đúng chiều giả thuyết của thầy: nhãn LLM nghiêng hẳn về nhóm câu chữ. <b>Nhưng phải nói rõ:</b> với n≈76 câu, ngưỡng có ý nghĩa thống kê là 0,21 — mọi con số trong bảng đều dưới ngưỡng đó, nên đây mới là <i>tín hiệu gợi ý</i>, chưa phải bằng chứng. Cần thêm nhãn giáo viên để kết luận.</p>
+
+<h3>4.4. Khung Cold→Warm: cần bao nhiêu lượt trả lời thì đặc trưng tri thức hết giá trị?</h3>
+
+<p>Đây là câu hỏi nghiên cứu tổng quát nhất của đề tài. Đo sai số MAE khi trộn dự đoán mô hình với k lượt trả lời thật:</p>
+
+<table border="1" cellpadding="6" cellspacing="0">
+<tr><th>Nguồn dự đoán ban đầu</th><th>k=0</th><th>k=1</th><th>k=3</th><th>k=10</th><th>k=25</th></tr>
+<tr><td>(a) Đồ thị tri thức</td><td>0,2094</td><td>0,1779</td><td>0,1450</td><td>0,1058</td><td>0,0878</td></tr>
+<tr><td>(b) Đặc trưng văn bản</td><td>0,2441</td><td>0,1909</td><td>0,1523</td><td>0,1093</td><td>0,0895</td></tr>
+<tr><td>(c) Vô thông tin (chỉ lấy trung bình toàn cục)</td><td><b>0,1771</b></td><td>0,1567</td><td>0,1364</td><td>0,1036</td><td>0,0854</td></tr>
+</table>
+
+<p><b>k* = 0.</b> Nghĩa là: chỉ cần lấy trung bình toàn cục cũng đã tốt hơn cả hai mô hình ngay từ lượt trả lời đầu tiên. Đây là kết quả âm tính rõ ràng cho giá trị thực dụng của mô hình hiện tại.</p>
+
+<h3>4.5. Chẩn đoán prior — phát hiện dương tính đáng giá nhất</h3>
+
+<p>MAE trộn lẫn hai loại sai khác hẳn nhau về hệ quả: <b>sai thứ hạng</b> (mô hình không biết câu nào khó hơn — nghiêm trọng) và <b>sai hiệu chuẩn</b> (xếp hạng đúng nhưng lệch thang — sửa được). Tách ra rồi đo lại:</p>
+
+<table border="1" cellpadding="6" cellspacing="0">
+<tr><th>Chấm trên</th><th>Đặc trưng văn bản (TF-IDF)</th><th>Đặc trưng tri thức (KG)</th></tr>
+<tr><td><b>nhãn LLM</b> (5-fold, chống rò rỉ)</td><td><b>70,3%</b> độ chính xác</td><td>60,6% — thua đậm</td></tr>
+<tr><td><b>hiệu suất làm bài mô phỏng</b></td><td>Spearman <b>+0,019</b> — sụp về 0</td><td><b>+0,151</b> — giữ được tín hiệu</td></tr>
+</table>
+
+<p><b>Đảo ngược thứ hạng hoàn toàn.</b> Chấm trên nhãn LLM thì văn bản thắng đậm; chấm trên hiệu suất làm bài thì văn bản mất sạch tín hiệu còn tri thức giữ được. Điều này <b>khớp và củng cố</b> kết luận ở mục 4.2 bằng một phép đo hoàn toàn độc lập: nhãn LLM mã hóa khuôn mẫu — thứ TF-IDF bắt hoàn hảo; độ khó thật phụ thuộc nội dung — thứ TF-IDF mù tịt.</p>
+
+<p><b>Không được thổi phồng:</b> cả hai đều <i>yếu tuyệt đối</i> và đều thua trung bình toàn cục về MAE. Phát biểu đúng là <i>"đặc trưng tri thức giữ được tín hiệu thứ hạng yếu ở nơi đặc trưng văn bản mất sạch"</i>, <b>không phải</b> <i>"đồ thị tri thức thắng"</i>.</p>
+
+<h3>4.6. Kiểm chứng độc lập trên Vật lí — đồ thị tri thức có hiệu quả ở miền có cấu trúc không?</h3>
+
+<p>Giả thuyết pivot: môn Sử là miền tự sự nên đồ thị tri thức không phát huy; môn Lý có chuỗi tiên quyết rõ ràng (điện trở → định luật Ôm → đoạn mạch), đáp án là số, có công thức — đúng thiết kế của engine. Kiểm trên 1.539 câu có <b>nhãn giáo viên thật</b>:</p>
+
+<p><b>(a) Tương quan đơn biến giữa từng đặc trưng và nhãn:</b></p>
+
+<table border="1" cellpadding="6" cellspacing="0">
+<tr><th>Đặc trưng</th><th>Pearson</th><th>Spearman</th></tr>
+<tr><td><b>Số lựa chọn có chứa con số</b></td><td><b>+0,470</b></td><td><b>+0,463</b></td></tr>
+<tr><td>Độ phủ thực thể trong đồ thị</td><td>−0,319</td><td>−0,339</td></tr>
+<tr><td>Số thực thể trong phương án nhiễu</td><td>−0,270</td><td>−0,321</td></tr>
+<tr><td>Độ sâu chuỗi tiên quyết (lớn nhất)</td><td>−0,248</td><td>−0,292</td></tr>
+</table>
+
+<p>Số lựa chọn chứa con số tăng đơn điệu sạch theo mức: NB 0,41 → TH 1,09 → VD 2,32 → VDC 2,74.</p>
+
+<p><b>(b) Ablation công bằng</b> (XGBoost 4 lớp, 5-fold CV):</p>
+
+<table border="1" cellpadding="6" cellspacing="0">
+<tr><th>Bộ đặc trưng</th><th>QWK</th><th>macro-F1</th><th>Accuracy</th></tr>
+<tr><td>chỉ đặc trưng số</td><td>0,371</td><td>0,299</td><td>0,377</td></tr>
+<tr><td>chỉ đồ thị tri thức</td><td>0,316</td><td>0,293</td><td>0,368</td></tr>
+<tr><td>số + đồ thị tri thức</td><td>0,375</td><td>0,336</td><td>0,369</td></tr>
+<tr><td>đoán lớp đông nhất</td><td>—</td><td>—</td><td>0,331</td></tr>
+</table>
+
+<p><b>Đồ thị tri thức thêm gần như không có giá trị biên</b> (0,375 so với 0,371). Kiểm chặt hơn trong nhóm VD vs VDC (đều là câu tính toán, cho đồ thị "đất diễn"): mọi đặc trưng tri thức tương quan ≈ 0, QWK khi chỉ dùng đồ thị là <b>−0,024</b> (âm).</p>
+
+<p><b>Nguyên nhân gốc — và đây là phần có giá trị lý thuyết:</b> đồ thị tri thức đo <i>vị trí của kiến thức trong chuỗi học</i> (trục kiến thức); nhãn Bloom NB/TH/VD/VDC đo <i>mức phức tạp của thao tác nhận thức</i> (trục thao tác). Hai trục này <b>trực giao</b>. Ví dụ: "Tính điện trở tương đương của mạch hỗn hợp 3 điện trở" là VDC nhưng chỉ dùng khái niệm <i>điện trở</i> rất nông; còn "Định luật Ôm là gì?" là NB nhưng nhắc thẳng khái niệm nằm sâu hơn trong chuỗi. Độ sâu thậm chí đi <i>ngược</i> với độ khó. Vậy đồ thị tri thức <b>không đo sai</b> — nó đo đúng thứ nó được thiết kế để đo, chỉ là độ khó không nằm trên trục đó.</p>
+
+<p><b>Hệ quả tích cực:</b> đồ thị tri thức vẫn có giá trị thật ở nhiệm vụ khác — gợi ý kiến thức tiên quyết cần ôn trước khi làm bài, ánh xạ câu hỏi → khái niệm, phân tích chương trình. Chỉ là ước lượng độ khó không phải chỗ nó giúp.</p>
+
+<h3>4.7. LLM chấm độ khó có thay được giáo viên không? (21/08, n = 1.539)</h3>
+
+<p>Thí nghiệm cuối kỳ: cho LLM chấm mù (không thấy đáp án, phương án xáo trộn, theo đúng rubric Bộ GD&amp;ĐT) trên 1.539 câu Vật lí đã có nhãn giáo viên, rồi so.</p>
+
+<table border="1" cellpadding="6" cellspacing="0">
+<tr><th>Chỉ số</th><th>Giá trị</th><th>Ý nghĩa</th></tr>
+<tr><td>Cohen κ (thô)</td><td><b>+0,284</b></td><td>đồng thuận mức "khá thấp" (fair)</td></tr>
+<tr><td>QWK (có tính thứ tự)</td><td>+0,540</td><td></td></tr>
+<tr><td>Spearman ρ</td><td>+0,527</td><td></td></tr>
+<tr><td>Tương quan polychoric (biến ẩn)</td><td><b>+0,644</b></td><td>bất biến ngưỡng — đáng tin nhất</td></tr>
+<tr><td>Đồng thuận tuyệt đối</td><td>48,7%</td><td>một nửa số câu lệch ≥ 1 mức</td></tr>
+</table>
+
+<p>Ba kết luận:</p>
+<ol>
+<li><b>LLM không đoán bừa.</b> Polychoric 0,64 cho thấy LLM theo dõi được gradient NB→TH→VD→VDC. Khác hẳn tình trạng κ ≈ 0 bên môn Sử.</li>
+<li><b>Nhưng không tái tạo được nhãn giáo viên.</b> "LLM chấm đúng nhãn" là sai; "LLM chấm gần đúng" mới đúng.</li>
+<li><b>LLM mù mức Vận dụng cao.</b> Giáo viên gán 219 câu VDC; LLM chỉ nhận ra 24 câu (recall 11,0%) và đổ 123 câu (56%) xuống mức VD. Cơ chế: "vận dụng cao" (nhiều bước, kết hợp nhiều công thức) chỉ xác định được qua <b>lời giải</b>, còn bề mặt câu chữ chỉ để lộ "đây là bài tính". <b>Độ phức tạp của lời giải không nằm trên bề mặt câu hỏi</b> — đúng vào điểm mù mà đồ thị tri thức được dựng ra để lấp, và đã đo được là cũng không lấp được.</li>
+</ol>
+
+<p><i>Lưu ý bắt buộc để không tự lừa mình:</i> so κ=0,28 (Lý) với κ≈0 (Sử) <b>không phải</b> thí nghiệm có kiểm soát — Lý dùng thang nhận thức NB/TH/VD/VDC (khách quan), Sử dùng thang độ khó Dễ/TB/Khó (chủ quan). Chênh lệch một phần do đổi <i>định nghĩa nhãn</i>, không chỉ do đổi môn.</p>
+
+<hr>
+
+<h2>5. Khó khăn gặp phải</h2>
+
+<h3>5.1. Đơn xin phép khảo sát học sinh không được duyệt — khó khăn lớn nhất</h3>
+
+<p>Kế hoạch tổ chức cho ~150 học sinh làm bài khảo sát qua trường <b>không được duyệt</b>. Đây là rủi ro số 1 đã ghi sẵn trong kế hoạch 15 tuần kèm điều kiện kích hoạt phương án dự phòng, nên nhóm không bị động, nhưng hệ quả là thật:</p>
+
+<table border="1" cellpadding="6" cellspacing="0">
+<tr><th>Nguồn nhãn</th><th>Còn?</th><th>Ghi chú</th></tr>
+<tr><td>Tỉ lệ trả lời đúng từ ~150 học sinh</td><td>❌ mất</td><td>cần phê duyệt thể chế</td></tr>
+<tr><td>Nhãn giáo viên</td><td>✅ còn</td><td>nhờ cá nhân, không cần xin phép trường. <b>Nguồn nhãn phi-LLM duy nhất còn lại</b></td></tr>
+<tr><td>Nhãn 3-phiếu LLM (3.152 câu)</td><td>✅ còn</td><td>nhưng chính nó là <i>đối tượng bị kiểm toán</i>, không dùng làm chuẩn được</td></tr>
+<tr><td>Phản hồi mô phỏng bằng LLM</td><td>✅ còn</td><td>không phụ thuộc phê duyệt</td></tr>
+</table>
+
+<p><b>Rủi ro cốt lõi:</b> nếu mất nốt nhãn giáo viên thì toàn bộ đề tài trở thành <i>"LLM kiểm toán LLM"</i> — lập luận vòng tròn, không bảo vệ được trước hội đồng. Vì vậy việc thu nhãn giáo viên đã được nâng từ việc phụ lên <b>việc bắt buộc và là đường găng duy nhất</b>.</p>
+
+<h3>5.2. Kết quả cũ 75,6% không còn dùng được như một thành tựu</h3>
+
+<p>Sau khi đo được nhãn LLM bám khuôn mẫu câu chữ, con số 75,6% phải hiểu lại: mô hình học rất tốt cách <i>tái tạo nhãn</i>, nhưng nhãn đó không phản ánh độ khó nội dung. Nhóm phải chủ động hạ vai trò con số này trong luận văn thay vì trình bày như kết quả chính. Đây là quyết định khó nhưng bắt buộc — nếu hội đồng tự phát hiện thì hậu quả nặng hơn nhiều.</p>
+
+<h3>5.3. Một hạng mục trung tâm của kế hoạch đã thất bại</h3>
+
+<p>Thiết kế "20 cặp câu đối chứng" (mỗi cặp cùng khuôn mẫu nhưng khác trọng tâm kiến thức) là hạng mục trung tâm để chứng minh nhãn LLM bám khuôn mẫu. Kết quả:</p>
+
+<table border="1" cellpadding="6" cellspacing="0">
+<tr><th></th><th>Chênh lệch tỉ lệ làm đúng</th></tr>
+<tr><td>20 cặp đối chứng đã thiết kế</td><td>0,188</td></tr>
+<tr><td>Hai câu ngẫu nhiên cùng nhãn (5.000 hoán vị)</td><td>0,222</td></tr>
+<tr><td></td><td><b>p = 0,774 — không khác ngẫu nhiên</b></td></tr>
+</table>
+
+<p>Chỉ số dùng để chọn cặp ("trọng tâm SGK vs chi tiết ngoài lề") đã không bắt trúng thứ nó định bắt. Nhóm đã thay bằng phép đo trên toàn tập (mục 4.2) — thực ra <b>mạnh hơn</b> thiết kế gốc vì áp dụng cho toàn bộ nhãn chứ không phải 20 cặp được chọn lọc. Bản thân việc phát hiện thất bại này cũng đi kèm một sửa lỗi phương pháp: bản đầu dùng sai kiểm định (Wilcoxon signed-rank kiểm "A có cao hơn B không", trong khi giả thuyết cần kiểm là "|Δ| có lớn hơn mức ngẫu nhiên không") — đã thay bằng kiểm định hoán vị đúng.</p>
+
+<h3>5.4. LLM không chịu đóng vai học sinh yếu</h3>
+
+<p>Bản prompt đầu tiên cho persona "học lực Yếu" đạt tỉ lệ làm đúng 0,611 — quá cao, đúng kiểu hỏng kinh điển. Phải viết lại system prompt (nói thẳng "nhiệm vụ của bạn không phải là trả lời đúng", mô tả cụ thể hành vi đoán bừa, gắn mỗi persona với một điểm trung bình môn cụ thể):</p>
+
+<table border="1" cellpadding="6" cellspacing="0">
+<tr><th></th><th>prompt v1</th><th>prompt v2</th></tr>
+<tr><td>persona Yếu</td><td>0,611</td><td><b>0,483</b></td></tr>
+<tr><td>persona Khá</td><td>0,833</td><td>0,883</td></tr>
+<tr><td>độ trải</td><td>22 điểm</td><td><b>40 điểm</b></td></tr>
+</table>
+
+<p>Ngoài ra phát hiện: phải <b>tắt chế độ suy luận</b> của model. Khi bật, persona "Yếu" vẫn lập luận ra đáp án đúng → tỉ lệ đúng kịch trần ở mọi mức → mất phương sai → vô dụng. Học sinh thật trong phòng thi trả lời theo phản xạ. Việc siết prompt này <b>phải được báo cáo</b> vì nó là một bậc tự do của người nghiên cứu, không được trình bày như thể prompt đầu tiên đã chạy tốt.</p>
+
+<h3>5.5. Các khó khăn kỹ thuật khác</h3>
+
+<ul>
+<li><b>Chu trình làm sụp đồ thị tiên quyết:</b> khi gộp ontology do LLM sinh, hai cạnh tạo thành chu trình khiến toàn bộ độ sâu tiên quyết về 0. Đã bắt được và thêm cơ chế chống chu trình.</li>
+<li><b>Crawl dữ liệu:</b> nguồn kenhgiaovien dùng 4 định dạng tiêu đề mức độ khác nhau ("PHẦN 1.", "1.", "PHẦN 1:", "PHẦN I.") kèm lỗi chính tả trong bản gốc — phải viết parser chịu được cả bốn.</li>
+<li><b>Nhãn giáo viên chưa đủ:</b> mới có 1 giáo viên × 90 câu → <b>không tính được độ tin cậy liên-người-chấm</b>. Cần ít nhất giáo viên thứ hai.</li>
+<li><b>Hiệu ứng sàn của mô phỏng:</b> tỉ lệ làm đúng trung bình 0,713, cao hơn đề thi thật (0,5–0,6). Hệ quả là mọi phép đo MAE tuyệt đối bị ảnh hưởng; các phép đo dựa trên <i>thứ hạng</i> đáng tin hơn ở đây.</li>
+<li><b>Cỡ mẫu hiệu dụng nhỏ hơn con số danh nghĩa:</b> 50 "học sinh" thực chất là 5 mức năng lực × 10 lần lặp, nên tính độ phân biệt như thể 50 học sinh độc lập là lạc quan.</li>
+<li><b>Nợ kỹ thuật:</b> ma trận đặc trưng dùng cho các thí nghiệm Cold→Warm được sinh <i>trước</i> khi hoàn thiện ontology Bài 21–24. Ảnh hưởng dự kiến nhỏ (độ phủ chỉ tăng 0,340 → 0,354 trên ~5% tập) nhưng <b>phải sinh lại và chạy lại trước khi đưa số vào luận văn</b>.</li>
+</ul>
+
+<hr>
+
+<h2>6. Đề tài đã được định vị lại như thế nào</h2>
+
+<p>Ba đóng góp giữ nguyên bản chất nhưng <b>đổi thứ tự ưu tiên</b>:</p>
+
+<table border="1" cellpadding="6" cellspacing="0">
+<tr><th>#</th><th>Đóng góp</th><th>Thay đổi</th></tr>
+<tr><td>1</td><td><b>Bộ dữ liệu + ontology tiếng Việt công khai</b> — 3.152 MCQ Lịch sử có nhãn, 1.539 MCQ Vật lí nhãn giáo viên, ontology 480 + 319 thực thể, toàn bộ code pipeline</td><td>Từ <b>phụ → CHÍNH</b>. Không công trình QDE tiếng Việt nào tồn tại trong văn liệu quốc tế (survey liệt kê Anh 33 / Đức 3 / Trung 2 / Pháp 1 / Nga 1, không có Việt). Đóng góp này <b>không phụ thuộc bất kỳ phê duyệt nào</b>.</td></tr>
+<tr><td>2</td><td><b>Kiểm toán nhãn LLM</b> — bằng chứng định lượng cho thấy nhãn LLM mã hóa khuôn mẫu câu hỏi chứ không mã hóa độ khó nội dung</td><td>Vẫn là đóng góp thực nghiệm mạnh nhất; chỉ đổi chuẩn đối chiếu từ tỉ lệ trả lời đúng thật sang nhãn giáo viên + phản hồi mô phỏng.</td></tr>
+<tr><td>3</td><td><b>Khung Cold→Warm và câu hỏi k*</b> — cần bao nhiêu lượt trả lời thì đặc trưng tri thức hết giá trị</td><td>Hạ từ <i>kết quả thực nghiệm</i> xuống <b>đóng góp phương pháp luận + minh họa trên dữ liệu mô phỏng</b>. Mọi con số dẫn xuất phải ghi rõ "trên phản hồi mô phỏng" ở mọi vị trí xuất hiện.</td></tr>
+</table>
+
+<p><b>Về câu "vì sao mô phỏng học sinh không phải lập luận vòng tròn"</b> — đây là câu hội đồng chắc chắn hỏi, nhóm đã chuẩn bị trả lời có dẫn chứng: Acquaye 2026 phân biệt rõ hai tác vụ khác nhau về bản chất — (i) LLM chấm trực tiếp độ khó (chính là nhãn 3-phiếu của nhóm, và bài này chỉ ra là kém), và (ii) LLM đóng vai học sinh làm bài rồi khớp IRT (đạt tương quan 0,75–0,82 với dữ liệu thật). Dùng cái sau kiểm toán cái trước là hợp lệ vì chúng là hai tác vụ có hồ sơ thiên lệch khác nhau. Tuy vậy vẫn phải nêu rõ hạn chế: cả hai đều là LLM, và con số 0,75–0,82 là của bài gốc trên miền toán tiếng Anh, <b>không phải</b> kết quả của nhóm trên miền Sử tiếng Việt.</p>
+
+<hr>
+
+<h2>7. Kế hoạch tiếp theo</h2>
+
+<table border="1" cellpadding="6" cellspacing="0">
+<tr><th>Ưu tiên</th><th>Việc</th><th>Vì sao</th></tr>
+<tr><td><b>1</b></td><td><b>Thu nhãn của giáo viên thứ hai</b> (form đã dựng sẵn, 120 câu)</td><td>Đường găng duy nhất. Có 2 giáo viên mới tính được độ tin cậy liên-người-chấm và mới phân định được H<sub>a</sub>/H<sub>b</sub>. Không có nó thì đề tài là "LLM kiểm toán LLM".</td></tr>
+<tr><td><b>2</b></td><td>Chạy khảo sát học sinh quy mô nhỏ theo đường cá nhân (3 đề × 40 câu đã dựng sẵn thành Google Form, 10 câu neo chung)</td><td>Chỉ cần ~40 học sinh × 50 câu là đủ chạy thí nghiệm mồi cho khung Cold→Warm với dữ liệu <b>thật</b>. Bộ câu khảo sát đã được chọn lại theo nguyên tắc <b>không đọc nhãn độ khó ở bất kỳ đâu</b> để không cài sẵn thiên kiến.</td></tr>
+<tr><td><b>3</b></td><td>Sinh lại ma trận đặc trưng với ontology đầy đủ rồi chạy lại toàn bộ thí nghiệm E1/E3</td><td>Trả nợ kỹ thuật trước khi số đi vào luận văn.</td></tr>
+<tr><td><b>4</b></td><td>Chuyển toàn bộ thước đo sang QWK / macro-F1 / mục tiêu ordinal</td><td>Bắt buộc theo khuyến nghị của survey và Thuy 2025; rẻ, làm được ngay.</td></tr>
+<tr><td><b>5</b></td><td>Kiểm giả thuyết "LLM mù VDC do không thấy lời giải": cho LLM giải từng bước rồi chấm lại, xem recall VDC có nhảy không</td><td>Rẻ, và nếu đúng thì đây là một cơ chế giải thích sạch cho điểm mù của cold-start nói chung.</td></tr>
+<tr><td><b>6</b></td><td>Công bố dataset + ontology + code</td><td>Survey kêu gọi trực tiếp; gần như không tốn thêm công; không phụ thuộc phê duyệt nào.</td></tr>
+</table>
+
+<hr>
+
+<h2>8. Ghi chú về tinh thần báo cáo</h2>
+
+<p>Kỳ này có nhiều kết quả âm tính. Nhóm chọn ghi lại tất cả — kể cả hạng mục thất bại, kể cả những chỗ đã sửa sai phương pháp giữa chừng, kể cả việc con số 75,6% ở báo cáo trước không còn dùng được như một thành tựu — vì ba lý do:</p>
+
+<ol>
+<li>Kết quả âm tính <b>được đo bằng nhiều phép độc lập cho cùng kết luận</b> thì có giá trị khoa học thật, không phải thất bại của đề tài.</li>
+<li>Việc đổi thiết kế giữa chừng <b>không được giấu</b> — hội đồng chắc chắn sẽ hỏi "vì sao không có học sinh thật".</li>
+<li>Trong bối cảnh cả lĩnh vực đang dùng LLM để gán nhãn độ khó, một kiểm toán trung thực chỉ ra nhãn LLM đo <i>khuôn mẫu câu hỏi</i> chứ không đo <i>độ khó nội dung</i> — kèm phát hiện đảo ngược thứ hạng ở mục 4.5 — có thể là đóng góp đáng công bố hơn cả con số accuracy ban đầu.</li>
+</ol>
+
+<hr>
+
+<p><i>Báo cáo lập ngày 22/08/2026.</i></p>

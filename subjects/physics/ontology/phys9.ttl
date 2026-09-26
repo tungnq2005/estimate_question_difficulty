@@ -2123,3 +2123,645 @@ phys:PH_MatCan_MatLao phys:contrastsWith phys:DV_MatNguoi .
 
 phys:DV_MayPhatDien phys:contrastsWith phys:DV_DongCoDien1C .
 
+
+# ==== LLM supplement (ontology_llm_builder) ====
+phys:LLM_000 a phys:Quantity ;
+    rdfs:label "Tiết diện dây dẫn"@vi ;
+    phys:aliases "S" ;
+    phys:symbol "S" .
+phys:LLM_001 a phys:Quantity ;
+    rdfs:label "Điện năng"@vi ;
+    phys:aliases "A" ;
+    phys:symbol "A" .
+phys:LLM_002 a phys:Unit ;
+    rdfs:label "Ampe"@vi ;
+    phys:aliases "A" ;
+    phys:symbol "A" .
+phys:LLM_003 a phys:Unit ;
+    rdfs:label "Vôn"@vi ;
+    phys:aliases "V" ;
+    phys:symbol "V" .
+phys:LLM_004 a phys:Unit ;
+    rdfs:label "Ôm"@vi ;
+    phys:aliases "Ω" ;
+    phys:symbol "Ω" .
+phys:LLM_005 a phys:Unit ;
+    rdfs:label "Oát"@vi ;
+    phys:aliases "W" ;
+    phys:symbol "W" .
+phys:LLM_006 a phys:Unit ;
+    rdfs:label "Jun"@vi ;
+    phys:aliases "J" ;
+    phys:symbol "J" .
+phys:LLM_007 a phys:Unit ;
+    rdfs:label "Kilôoát giờ"@vi ;
+    phys:aliases "kWh" ;
+    phys:symbol "kWh" .
+phys:LLM_008 a phys:Concept ;
+    rdfs:label "Mạch hỗn hợp"@vi .
+phys:LLM_009 a phys:Concept ;
+    rdfs:label "Biến trở"@vi .
+phys:LLM_010 a phys:Concept ;
+    rdfs:label "Điện trở dùng trong kỹ thuật"@vi ;
+    phys:aliases "dien tro ky thuat" .
+phys:LLM_011 a phys:Formula ;
+    rdfs:label "Công thức định luật Ôm"@vi ;
+    phys:aliases "U=I.R|I=U/R|R=U/I" .
+phys:LLM_012 a phys:Formula ;
+    rdfs:label "Công thức tính điện trở theo chiều dài, tiết diện, vật liệu"@vi ;
+    phys:aliases "R=ρ.l/S" .
+phys:LLM_013 a phys:Formula ;
+    rdfs:label "Công thức công suất điện"@vi ;
+    phys:aliases "P=U.I|P=I^2.R|P=U^2/R" .
+phys:LLM_014 a phys:Formula ;
+    rdfs:label "Công thức điện năng"@vi ;
+    phys:aliases "A=P.t" .
+phys:LLM_015 a phys:Formula ;
+    rdfs:label "Công thức định luật Jun-Lenxơ"@vi ;
+    phys:aliases "Q=I^2.R.t" .
+phys:LLM_016 a phys:Concept ;
+    rdfs:label "Sự phụ thuộc của cường độ dòng điện vào hiệu điện thế"@vi ;
+    phys:aliases "su phu thuoc I vao U" .
+phys:LLM_017 a phys:Concept ;
+    rdfs:label "Sự phụ thuộc của điện trở vào chiều dài, tiết diện, vật liệu"@vi ;
+    phys:aliases "su phu thuoc R vao l, S, ρ" .
+phys:LLM_018 a phys:Method ;
+    rdfs:label "Phương pháp giải bài toán mạch nối tiếp"@vi ;
+    phys:aliases "pp mach noi tiep" .
+phys:LLM_019 a phys:Method ;
+    rdfs:label "Phương pháp giải bài toán mạch song song"@vi ;
+    phys:aliases "pp mach song song" .
+phys:LLM_020 a phys:Method ;
+    rdfs:label "Phương pháp giải bài toán mạch hỗn hợp"@vi ;
+    phys:aliases "pp mach hon hop" .
+phys:LLM_021 a phys:ProblemType ;
+    rdfs:label "Bài toán định luật Ôm"@vi .
+phys:LLM_022 a phys:ProblemType ;
+    rdfs:label "Bài toán công suất điện"@vi .
+phys:LLM_023 a phys:ProblemType ;
+    rdfs:label "Bài toán điện năng tiêu thụ"@vi ;
+    phys:aliases "bai toan dien nang" .
+phys:LLM_024 a phys:ProblemType ;
+    rdfs:label "Bài toán định luật Jun-Lenxơ"@vi ;
+    phys:aliases "bai toan Jun-Lenxo" .
+phys:LLM_025 a phys:Concept ;
+    rdfs:label "An toàn điện"@vi .
+phys:LLM_026 a phys:Concept ;
+    rdfs:label "Tiết kiệm điện"@vi .
+phys:LLM_027 a phys:Concept ;
+    rdfs:label "Nam châm vĩnh cửu"@vi .
+phys:LLM_028 a phys:Concept ;
+    rdfs:label "Từ phổ"@vi .
+phys:LLM_029 a phys:Concept ;
+    rdfs:label "Lực điện từ"@vi .
+phys:LLM_030 a phys:Law ;
+    rdfs:label "Quy tắc bàn tay trái"@vi .
+phys:LLM_031 a phys:Phenomenon ;
+    rdfs:label "Hiện tượng cảm ứng điện từ"@vi .
+phys:LLM_032 a phys:Concept ;
+    rdfs:label "Dòng điện cảm ứng"@vi .
+phys:LLM_033 a phys:Concept ;
+    rdfs:label "Truyền tải điện năng đi xa"@vi .
+phys:LLM_034 a phys:Quantity ;
+    rdfs:label "Số vòng dây"@vi ;
+    phys:aliases "N" ;
+    phys:symbol "N" .
+phys:LLM_035 a phys:Formula ;
+    rdfs:label "Công thức máy biến thế"@vi ;
+    phys:aliases "U1/U2 = N1/N2" .
+phys:LLM_036 a phys:Quantity ;
+    rdfs:label "Công suất hao phí"@vi ;
+    phys:aliases "Php" ;
+    phys:symbol "Php" .
+phys:LLM_037 a phys:Quantity ;
+    rdfs:label "Công suất truyền tải"@vi ;
+    phys:aliases "P" ;
+    phys:symbol "P" .
+phys:LLM_038 a phys:Unit ;
+    rdfs:label "Vòng"@vi .
+phys:LLM_039 a phys:Concept ;
+    rdfs:label "Từ trường của ống dây"@vi .
+phys:LLM_040 a phys:Concept ;
+    rdfs:label "Lõi sắt non"@vi .
+phys:LLM_041 a phys:Concept ;
+    rdfs:label "Nam châm điện"@vi .
+phys:LLM_042 a phys:Concept ;
+    rdfs:label "Điều kiện xuất hiện dòng điện cảm ứng"@vi .
+phys:LLM_043 a phys:Concept ;
+    rdfs:label "Tần số dòng điện xoay chiều"@vi ;
+    phys:aliases "f" ;
+    phys:symbol "f" .
+phys:LLM_044 a phys:Unit ;
+    rdfs:label "Héc"@vi ;
+    phys:aliases "Hz" ;
+    phys:symbol "Hz" .
+phys:LLM_045 a phys:Concept ;
+    rdfs:label "Khung dây dẫn kín"@vi .
+phys:LLM_046 a phys:Concept ;
+    rdfs:label "Suất điện động cảm ứng"@vi .
+phys:LLM_047 a phys:Concept ;
+    rdfs:label "Dòng điện một chiều"@vi .
+phys:LLM_048 a phys:Concept ;
+    rdfs:label "Cực Bắc"@vi ;
+    phys:aliases "N" ;
+    phys:symbol "N" .
+phys:LLM_049 a phys:Concept ;
+    rdfs:label "Cực Nam"@vi ;
+    phys:aliases "S" ;
+    phys:symbol "S" .
+phys:LLM_050 a phys:Concept ;
+    rdfs:label "Tương tác từ"@vi .
+phys:LLM_051 a phys:Concept ;
+    rdfs:label "Từ tính của dây dẫn"@vi .
+phys:LLM_052 a phys:Concept ;
+    rdfs:label "Chiều dòng điện"@vi .
+phys:LLM_053 a phys:Concept ;
+    rdfs:label "Chiều đường sức từ"@vi .
+phys:LLM_054 a phys:Concept ;
+    rdfs:label "Lực từ"@vi .
+phys:LLM_055 a phys:Concept ;
+    rdfs:label "Cảm ứng từ"@vi ;
+    phys:aliases "B" ;
+    phys:symbol "B" .
+phys:LLM_056 a phys:Concept ;
+    rdfs:label "Từ thông"@vi ;
+    phys:aliases "Φ" ;
+    phys:symbol "Φ" .
+phys:LLM_057 a phys:Concept ;
+    rdfs:label "Mạch điện kín"@vi .
+phys:LLM_058 a phys:Concept ;
+    rdfs:label "Dòng điện xoay chiều ba pha"@vi .
+phys:LLM_059 a phys:Concept ;
+    rdfs:label "Máy phát điện một chiều"@vi .
+phys:LLM_060 a phys:Concept ;
+    rdfs:label "Rôto"@vi .
+phys:LLM_061 a phys:Concept ;
+    rdfs:label "Stato"@vi .
+phys:LLM_062 a phys:Concept ;
+    rdfs:label "Cổ góp điện"@vi .
+phys:LLM_063 a phys:Concept ;
+    rdfs:label "Chổi than"@vi .
+phys:LLM_064 a phys:Concept ;
+    rdfs:label "Cuộn sơ cấp"@vi .
+phys:LLM_065 a phys:Concept ;
+    rdfs:label "Cuộn thứ cấp"@vi .
+phys:LLM_066 a phys:Concept ;
+    rdfs:label "Lõi thép"@vi .
+phys:LLM_067 a phys:Concept ;
+    rdfs:label "Tác dụng nhiệt của dòng điện"@vi .
+phys:LLM_068 a phys:Concept ;
+    rdfs:label "Tác dụng phát sáng của dòng điện"@vi .
+phys:LLM_069 a phys:Concept ;
+    rdfs:label "Tác dụng hóa học của dòng điện"@vi .
+phys:LLM_070 a phys:Concept ;
+    rdfs:label "Tác dụng sinh lí của dòng điện"@vi .
+phys:LLM_071 a phys:Concept ;
+    rdfs:label "Từ cực"@vi .
+phys:LLM_072 a phys:Concept ;
+    rdfs:label "Sự nhiễm từ của sắt, thép"@vi .
+phys:LLM_073 a phys:Concept ;
+    rdfs:label "Ứng dụng của nam châm"@vi .
+phys:LLM_074 a phys:Concept ;
+    rdfs:label "La bàn"@vi .
+phys:LLM_075 a phys:Concept ;
+    rdfs:label "Chuông điện"@vi .
+phys:LLM_076 a phys:Concept ;
+    rdfs:label "Rơ le điện từ"@vi .
+phys:LLM_077 a phys:Concept ;
+    rdfs:label "Loa điện"@vi .
+phys:LLM_078 a phys:Concept ;
+    rdfs:label "Truyền tải điện năng"@vi .
+phys:LLM_079 a phys:Concept ;
+    rdfs:label "Hao phí điện năng"@vi .
+phys:LLM_080 a phys:Concept ;
+    rdfs:label "Công suất hao phí do tỏa nhiệt"@vi .
+phys:LLM_081 a phys:Concept ;
+    rdfs:label "Hiệu suất truyền tải"@vi .
+phys:LLM_082 a phys:Concept ;
+    rdfs:label "Điện trở của dây dẫn"@vi .
+phys:LLM_083 a phys:Formula ;
+    rdfs:label "Công thức tính điện trở"@vi ;
+    phys:aliases "R = ρ.l/S" .
+phys:LLM_084 a phys:Formula ;
+    rdfs:label "Công thức công suất hao phí"@vi ;
+    phys:aliases "Php = R.P^2/U^2" .
+phys:LLM_085 a phys:Method ;
+    rdfs:label "Xác định chiều lực điện từ"@vi .
+phys:LLM_086 a phys:Method ;
+    rdfs:label "Vẽ đường sức từ"@vi .
+phys:LLM_087 a phys:Method ;
+    rdfs:label "Xác định cực của nam châm"@vi .
+phys:LLM_088 a phys:ProblemType ;
+    rdfs:label "Bài tập về máy biến thế"@vi .
+phys:LLM_089 a phys:ProblemType ;
+    rdfs:label "Bài tập về truyền tải điện năng"@vi .
+phys:LLM_090 a phys:ProblemType ;
+    rdfs:label "Bài tập về lực điện từ"@vi .
+phys:LLM_091 a phys:ProblemType ;
+    rdfs:label "Bài tập về cảm ứng điện từ"@vi .
+phys:LLM_092 a phys:Quantity ;
+    rdfs:label "Góc tới"@vi ;
+    phys:aliases "i" ;
+    phys:symbol "i" .
+phys:LLM_093 a phys:Quantity ;
+    rdfs:label "Góc khúc xạ"@vi ;
+    phys:aliases "r" ;
+    phys:symbol "r" .
+phys:LLM_094 a phys:Concept ;
+    rdfs:label "Chiết suất tỉ đối"@vi ;
+    phys:aliases "n21" ;
+    phys:symbol "n21" .
+phys:LLM_095 a phys:Concept ;
+    rdfs:label "Quang tâm"@vi ;
+    phys:aliases "O" ;
+    phys:symbol "O" .
+phys:LLM_096 a phys:Concept ;
+    rdfs:label "Trục chính"@vi .
+phys:LLM_097 a phys:Concept ;
+    rdfs:label "Tiêu điểm"@vi ;
+    phys:aliases "F" ;
+    phys:symbol "F" .
+phys:LLM_098 a phys:Concept ;
+    rdfs:label "Ảnh thật"@vi .
+phys:LLM_099 a phys:Concept ;
+    rdfs:label "Ảnh ảo"@vi .
+phys:LLM_100 a phys:Formula ;
+    rdfs:label "Công thức thấu kính"@vi ;
+    phys:aliases "1/f = 1/d + 1/d'" .
+phys:LLM_101 a phys:Device ;
+    rdfs:label "Mắt"@vi .
+phys:LLM_102 a phys:Concept ;
+    rdfs:label "Mắt cận"@vi ;
+    phys:aliases "can thi" .
+phys:LLM_103 a phys:Concept ;
+    rdfs:label "Mắt lão"@vi ;
+    phys:aliases "vien thi" .
+phys:LLM_104 a phys:Concept ;
+    rdfs:label "Ánh sáng trắng"@vi .
+phys:LLM_105 a phys:Concept ;
+    rdfs:label "Ánh sáng màu"@vi .
+phys:LLM_106 a phys:Concept ;
+    rdfs:label "Màu sắc các vật"@vi .
+phys:LLM_107 a phys:Quantity ;
+    rdfs:label "Số bội giác"@vi ;
+    phys:aliases "G" ;
+    phys:symbol "G" .
+phys:LLM_108 a phys:Quantity ;
+    rdfs:label "Khoảng cực cận"@vi ;
+    phys:aliases "D" ;
+    phys:symbol "D" .
+phys:LLM_109 a phys:Quantity ;
+    rdfs:label "Khoảng cực viễn"@vi .
+phys:LLM_110 a phys:Concept ;
+    rdfs:label "Điểm cực cận"@vi ;
+    phys:aliases "Cc" ;
+    phys:symbol "Cc" .
+phys:LLM_111 a phys:Concept ;
+    rdfs:label "Điểm cực viễn"@vi ;
+    phys:aliases "Cv" ;
+    phys:symbol "Cv" .
+phys:LLM_112 a phys:Concept ;
+    rdfs:label "Thể thủy tinh"@vi .
+phys:LLM_113 a phys:Concept ;
+    rdfs:label "Màng lưới"@vi ;
+    phys:aliases "vong mac" .
+phys:LLM_114 a phys:Concept ;
+    rdfs:label "Vật kính"@vi .
+phys:LLM_115 a phys:Concept ;
+    rdfs:label "Buồng tối"@vi .
+phys:LLM_116 a phys:Concept ;
+    rdfs:label "Phim"@vi .
+phys:LLM_117 a phys:Concept ;
+    rdfs:label "Kính cận"@vi .
+phys:LLM_118 a phys:Concept ;
+    rdfs:label "Kính lão"@vi .
+phys:LLM_119 a phys:Concept ;
+    rdfs:label "Màu sắc"@vi .
+phys:LLM_120 a phys:Concept ;
+    rdfs:label "Lăng kính"@vi .
+phys:LLM_121 a phys:Concept ;
+    rdfs:label "Đĩa CD"@vi .
+phys:LLM_122 a phys:Concept ;
+    rdfs:label "Bút laser"@vi .
+phys:LLM_123 a phys:Concept ;
+    rdfs:label "Ánh sáng đơn sắc"@vi .
+phys:LLM_124 a phys:Concept ;
+    rdfs:label "Ánh sáng không đơn sắc"@vi .
+phys:LLM_125 a phys:Concept ;
+    rdfs:label "Tác dụng nhiệt của ánh sáng"@vi .
+phys:LLM_126 a phys:Concept ;
+    rdfs:label "Tác dụng sinh học của ánh sáng"@vi .
+phys:LLM_127 a phys:Concept ;
+    rdfs:label "Tác dụng quang điện của ánh sáng"@vi .
+phys:LLM_128 a phys:Concept ;
+    rdfs:label "Năng lượng của ánh sáng"@vi .
+phys:LLM_129 a phys:Concept ;
+    rdfs:label "Màu sắc của vật dưới ánh sáng trắng"@vi .
+phys:LLM_130 a phys:Concept ;
+    rdfs:label "Màu sắc của vật dưới ánh sáng màu"@vi .
+phys:LLM_131 a phys:Concept ;
+    rdfs:label "Trộn ánh sáng màu"@vi .
+phys:LLM_132 a phys:Concept ;
+    rdfs:label "Sự điều tiết của mắt"@vi .
+phys:LLM_133 a phys:Concept ;
+    rdfs:label "Công thức tính số bội giác"@vi .
+phys:LLM_134 a phys:Concept ;
+    rdfs:label "Sự điều tiết"@vi .
+phys:LLM_135 a phys:Concept ;
+    rdfs:label "Năng lượng"@vi .
+phys:LLM_136 a phys:Concept ;
+    rdfs:label "Các dạng năng lượng"@vi .
+phys:LLM_137 a phys:Law ;
+    rdfs:label "Định luật bảo toàn năng lượng"@vi .
+phys:LLM_138 a phys:Concept ;
+    rdfs:label "Sản xuất điện năng"@vi .
+phys:LLM_139 a phys:Device ;
+    rdfs:label "Nhà máy nhiệt điện"@vi .
+phys:LLM_140 a phys:Device ;
+    rdfs:label "Nhà máy thủy điện"@vi .
+phys:LLM_141 a phys:Device ;
+    rdfs:label "Tua bin gió"@vi ;
+    phys:aliases "dien gio" .
+phys:LLM_142 a phys:Device ;
+    rdfs:label "Pin mặt trời"@vi ;
+    phys:aliases "dien mat troi" .
+phys:LLM_143 a phys:Device ;
+    rdfs:label "Nhà máy điện hạt nhân"@vi .
+phys:LLM_144 a phys:Concept ;
+    rdfs:label "Cơ năng"@vi ;
+    phys:aliases "mechanical energy" .
+phys:LLM_145 a phys:Concept ;
+    rdfs:label "Nhiệt năng"@vi .
+phys:LLM_146 a phys:Concept ;
+    rdfs:label "Quang năng"@vi .
+phys:LLM_147 a phys:Concept ;
+    rdfs:label "Hóa năng"@vi .
+phys:LLM_148 a phys:Concept ;
+    rdfs:label "Năng lượng hạt nhân"@vi .
+phys:LLM_149 a phys:Concept ;
+    rdfs:label "Động năng"@vi ;
+    phys:aliases "kinetic energy" .
+phys:LLM_150 a phys:Concept ;
+    rdfs:label "Thế năng"@vi .
+phys:LLM_151 a phys:Concept ;
+    rdfs:label "Thế năng hấp dẫn"@vi .
+phys:LLM_152 a phys:Concept ;
+    rdfs:label "Thế năng đàn hồi"@vi ;
+    phys:aliases "elastic potential energy" .
+phys:LLM_153 a phys:Concept ;
+    rdfs:label "Nhiên liệu"@vi .
+phys:LLM_154 a phys:Concept ;
+    rdfs:label "Hiệu suất"@vi .
+phys:LLM_155 a phys:Quantity ;
+    rdfs:label "Công suất"@vi ;
+    phys:aliases "power" ;
+    phys:symbol "P" .
+phys:LLM_156 a phys:Quantity ;
+    rdfs:label "Công"@vi ;
+    phys:symbol "A" .
+phys:LLM_157 a phys:Formula ;
+    rdfs:label "Công thức tính công suất"@vi ;
+    phys:aliases "P = A/t" .
+phys:LLM_158 a phys:Formula ;
+    rdfs:label "Công thức tính hiệu suất"@vi ;
+    phys:aliases "H = A_ci/A_tp" .
+phys:LLM_159 a phys:Method ;
+    rdfs:label "Phương pháp giải bài tập về sự chuyển hóa năng lượng"@vi ;
+    phys:aliases "phuong phap giai bai tap chuyen hoa nang luong" .
+phys:LLM_160 a phys:ProblemType ;
+    rdfs:label "Bài tập về định luật bảo toàn năng lượng"@vi ;
+    phys:aliases "bai tap dinh luat bao toan nang luong" .
+phys:LLM_161 a phys:ProblemType ;
+    rdfs:label "Bài tập về sản xuất điện năng"@vi ;
+    phys:aliases "bai tap san xuat dien nang" .
+phys:LLM_162 a phys:Concept ;
+    rdfs:label "Công cơ học"@vi ;
+    phys:aliases "work" .
+phys:LLM_163 a phys:Quantity ;
+    rdfs:label "Lực tác dụng"@vi ;
+    phys:aliases "F" ;
+    phys:symbol "F" .
+phys:LLM_164 a phys:Quantity ;
+    rdfs:label "Quãng đường dịch chuyển"@vi ;
+    phys:aliases "s" ;
+    phys:symbol "s" .
+phys:LLM_165 a phys:Formula ;
+    rdfs:label "Công thức tính công cơ học"@vi ;
+    phys:aliases "A = F.s|cong thuc tinh cong" .
+phys:LLM_166 a phys:Quantity ;
+    rdfs:label "Thời gian thực hiện công"@vi ;
+    phys:aliases "t" ;
+    phys:symbol "t" .
+phys:LLM_167 a phys:Concept ;
+    rdfs:label "Thế năng trọng trường"@vi ;
+    phys:aliases "gravitational potential energy" .
+phys:LLM_168 a phys:Quantity ;
+    rdfs:label "Khối lượng của vật"@vi ;
+    phys:aliases "m" ;
+    phys:symbol "m" .
+phys:LLM_169 a phys:Quantity ;
+    rdfs:label "Gia tốc trọng trường"@vi ;
+    phys:aliases "g" ;
+    phys:symbol "g" .
+phys:LLM_170 a phys:Quantity ;
+    rdfs:label "Độ cao so với mốc"@vi ;
+    phys:aliases "h" ;
+    phys:symbol "h" .
+phys:LLM_171 a phys:Formula ;
+    rdfs:label "Công thức tính thế năng trọng trường"@vi ;
+    phys:aliases "Wt = m.g.h" .
+phys:LLM_172 a phys:Quantity ;
+    rdfs:label "Độ biến dạng của lò xo"@vi ;
+    phys:aliases "delta l" ;
+    phys:symbol "Δl" .
+phys:LLM_173 a phys:Quantity ;
+    rdfs:label "Độ cứng của lò xo"@vi ;
+    phys:aliases "k" ;
+    phys:symbol "k" .
+phys:LLM_174 a phys:Formula ;
+    rdfs:label "Công thức tính thế năng đàn hồi"@vi ;
+    phys:aliases "Wt = 1/2.k.(Δl)^2" .
+phys:LLM_175 a phys:Quantity ;
+    rdfs:label "Vận tốc của vật"@vi ;
+    phys:aliases "v" ;
+    phys:symbol "v" .
+phys:LLM_176 a phys:Formula ;
+    rdfs:label "Công thức tính động năng"@vi ;
+    phys:aliases "Wđ = 1/2.m.v^2" .
+phys:LLM_177 a phys:Concept ;
+    rdfs:label "Sự chuyển hóa giữa động năng và thế năng"@vi ;
+    phys:aliases "chuyen hoa co nang" .
+phys:LLM_178 a phys:Law ;
+    rdfs:label "Định luật bảo toàn cơ năng"@vi ;
+    phys:aliases "conservation of mechanical energy" .
+phys:LLM_179 a phys:Method ;
+    rdfs:label "Phương pháp giải bài tập công cơ học"@vi .
+phys:LLM_180 a phys:Method ;
+    rdfs:label "Phương pháp giải bài tập công suất"@vi .
+phys:LLM_181 a phys:Method ;
+    rdfs:label "Phương pháp giải bài tập cơ năng"@vi .
+phys:LLM_182 a phys:ProblemType ;
+    rdfs:label "Dạng bài tập tính công cơ học"@vi .
+phys:LLM_183 a phys:ProblemType ;
+    rdfs:label "Dạng bài tập tính công suất"@vi .
+phys:LLM_184 a phys:ProblemType ;
+    rdfs:label "Dạng bài tập tính thế năng"@vi .
+phys:LLM_185 a phys:ProblemType ;
+    rdfs:label "Dạng bài tập tính động năng"@vi .
+phys:LLM_186 a phys:ProblemType ;
+    rdfs:label "Dạng bài tập chuyển hóa cơ năng"@vi .
+phys:LLM_000 phys:prerequisiteOf phys:LLM_012 .
+phys:LLM_012 phys:prerequisiteOf phys:LLM_017 .
+phys:LLM_008 phys:prerequisiteOf phys:LLM_020 .
+phys:LLM_018 phys:prerequisiteOf phys:LLM_021 .
+phys:LLM_019 phys:prerequisiteOf phys:LLM_021 .
+phys:LLM_020 phys:prerequisiteOf phys:LLM_021 .
+phys:LLM_013 phys:prerequisiteOf phys:LLM_022 .
+phys:LLM_001 phys:prerequisiteOf phys:LLM_014 .
+phys:LLM_014 phys:prerequisiteOf phys:LLM_023 .
+phys:LLM_015 phys:prerequisiteOf phys:LLM_024 .
+phys:LLM_025 phys:prerequisiteOf phys:LLM_026 .
+phys:LLM_029 phys:prerequisiteOf phys:LLM_030 .
+phys:LLM_031 phys:prerequisiteOf phys:LLM_032 .
+phys:LLM_034 phys:prerequisiteOf phys:LLM_035 .
+phys:LLM_037 phys:prerequisiteOf phys:LLM_036 .
+phys:LLM_083 phys:prerequisiteOf phys:LLM_082 .
+phys:LLM_082 phys:prerequisiteOf phys:LLM_084 .
+phys:LLM_084 phys:prerequisiteOf phys:LLM_033 .
+phys:LLM_039 phys:prerequisiteOf phys:LLM_040 .
+phys:LLM_040 phys:prerequisiteOf phys:LLM_041 .
+phys:LLM_041 phys:prerequisiteOf phys:LLM_073 .
+phys:LLM_031 phys:prerequisiteOf phys:LLM_042 .
+phys:LLM_042 phys:prerequisiteOf phys:LLM_032 .
+phys:LLM_043 phys:prerequisiteOf phys:LLM_044 .
+phys:LLM_045 phys:prerequisiteOf phys:LLM_031 .
+phys:LLM_046 phys:prerequisiteOf phys:LLM_031 .
+phys:LLM_048 phys:prerequisiteOf phys:LLM_050 .
+phys:LLM_049 phys:prerequisiteOf phys:LLM_050 .
+phys:LLM_054 phys:prerequisiteOf phys:LLM_029 .
+phys:LLM_056 phys:prerequisiteOf phys:LLM_031 .
+phys:LLM_057 phys:prerequisiteOf phys:LLM_031 .
+phys:LLM_071 phys:prerequisiteOf phys:LLM_027 .
+phys:LLM_072 phys:prerequisiteOf phys:LLM_041 .
+phys:LLM_073 phys:prerequisiteOf phys:LLM_074 .
+phys:LLM_073 phys:prerequisiteOf phys:LLM_075 .
+phys:LLM_073 phys:prerequisiteOf phys:LLM_076 .
+phys:LLM_073 phys:prerequisiteOf phys:LLM_077 .
+phys:LLM_078 phys:prerequisiteOf phys:LLM_033 .
+phys:LLM_079 phys:prerequisiteOf phys:LLM_033 .
+phys:LLM_080 phys:prerequisiteOf phys:LLM_036 .
+phys:LLM_081 phys:prerequisiteOf phys:LLM_033 .
+phys:LLM_085 phys:prerequisiteOf phys:LLM_030 .
+phys:LLM_087 phys:prerequisiteOf phys:LLM_027 .
+phys:LLM_088 phys:prerequisiteOf phys:LLM_035 .
+phys:LLM_089 phys:prerequisiteOf phys:LLM_084 .
+phys:LLM_090 phys:prerequisiteOf phys:LLM_030 .
+phys:LLM_091 phys:prerequisiteOf phys:LLM_031 .
+phys:LLM_101 phys:prerequisiteOf phys:LLM_102 .
+phys:LLM_101 phys:prerequisiteOf phys:LLM_103 .
+phys:LLM_107 phys:prerequisiteOf phys:LLM_108 .
+phys:LLM_104 phys:prerequisiteOf phys:LLM_106 .
+phys:LLM_105 phys:prerequisiteOf phys:LLM_106 .
+phys:LLM_106 phys:prerequisiteOf phys:LLM_119 .
+phys:LLM_125 phys:prerequisiteOf phys:LLM_128 .
+phys:LLM_126 phys:prerequisiteOf phys:LLM_128 .
+phys:LLM_127 phys:prerequisiteOf phys:LLM_128 .
+phys:LLM_128 phys:prerequisiteOf phys:LLM_129 .
+phys:LLM_128 phys:prerequisiteOf phys:LLM_130 .
+phys:LLM_129 phys:prerequisiteOf phys:LLM_131 .
+phys:LLM_130 phys:prerequisiteOf phys:LLM_131 .
+phys:LLM_101 phys:prerequisiteOf phys:LLM_132 .
+phys:LLM_132 phys:prerequisiteOf phys:LLM_110 .
+phys:LLM_132 phys:prerequisiteOf phys:LLM_111 .
+phys:LLM_110 phys:prerequisiteOf phys:LLM_108 .
+phys:LLM_111 phys:prerequisiteOf phys:LLM_109 .
+phys:LLM_108 phys:prerequisiteOf phys:LLM_102 .
+phys:LLM_109 phys:prerequisiteOf phys:LLM_103 .
+phys:LLM_102 phys:prerequisiteOf phys:LLM_117 .
+phys:LLM_103 phys:prerequisiteOf phys:LLM_118 .
+phys:LLM_107 phys:prerequisiteOf phys:LLM_133 .
+phys:LLM_101 phys:prerequisiteOf phys:LLM_112 .
+phys:LLM_101 phys:prerequisiteOf phys:LLM_113 .
+phys:LLM_101 phys:prerequisiteOf phys:LLM_134 .
+phys:LLM_134 phys:prerequisiteOf phys:LLM_110 .
+phys:LLM_134 phys:prerequisiteOf phys:LLM_111 .
+phys:LLM_110 phys:prerequisiteOf phys:LLM_108 .
+phys:LLM_111 phys:prerequisiteOf phys:LLM_109 .
+phys:LLM_108 phys:prerequisiteOf phys:LLM_102 .
+phys:LLM_109 phys:prerequisiteOf phys:LLM_103 .
+phys:LLM_102 phys:prerequisiteOf phys:LLM_117 .
+phys:LLM_103 phys:prerequisiteOf phys:LLM_118 .
+phys:LLM_107 phys:prerequisiteOf phys:LLM_133 .
+phys:LLM_106 phys:prerequisiteOf phys:LLM_131 .
+phys:LLM_125 phys:prerequisiteOf phys:LLM_128 .
+phys:LLM_126 phys:prerequisiteOf phys:LLM_128 .
+phys:LLM_127 phys:prerequisiteOf phys:LLM_128 .
+phys:LLM_135 phys:prerequisiteOf phys:LLM_136 .
+phys:LLM_135 phys:prerequisiteOf phys:LLM_001 .
+phys:LLM_135 phys:prerequisiteOf phys:LLM_144 .
+phys:LLM_135 phys:prerequisiteOf phys:LLM_145 .
+phys:LLM_135 phys:prerequisiteOf phys:LLM_146 .
+phys:LLM_135 phys:prerequisiteOf phys:LLM_147 .
+phys:LLM_135 phys:prerequisiteOf phys:LLM_148 .
+phys:LLM_144 phys:prerequisiteOf phys:LLM_149 .
+phys:LLM_144 phys:prerequisiteOf phys:LLM_150 .
+phys:LLM_150 phys:prerequisiteOf phys:LLM_151 .
+phys:LLM_150 phys:prerequisiteOf phys:LLM_152 .
+phys:LLM_001 phys:prerequisiteOf phys:LLM_138 .
+phys:LLM_138 phys:prerequisiteOf phys:LLM_139 .
+phys:LLM_138 phys:prerequisiteOf phys:LLM_140 .
+phys:LLM_138 phys:prerequisiteOf phys:LLM_141 .
+phys:LLM_138 phys:prerequisiteOf phys:LLM_142 .
+phys:LLM_138 phys:prerequisiteOf phys:LLM_143 .
+phys:LLM_153 phys:prerequisiteOf phys:LLM_139 .
+phys:LLM_149 phys:prerequisiteOf phys:LLM_140 .
+phys:LLM_146 phys:prerequisiteOf phys:LLM_142 .
+phys:LLM_148 phys:prerequisiteOf phys:LLM_143 .
+phys:LLM_156 phys:prerequisiteOf phys:LLM_155 .
+phys:LLM_155 phys:prerequisiteOf phys:LLM_157 .
+phys:LLM_156 phys:prerequisiteOf phys:LLM_157 .
+phys:LLM_154 phys:prerequisiteOf phys:LLM_158 .
+phys:LLM_156 phys:prerequisiteOf phys:LLM_158 .
+phys:LLM_137 phys:prerequisiteOf phys:LLM_160 .
+phys:LLM_159 phys:prerequisiteOf phys:LLM_160 .
+phys:LLM_138 phys:prerequisiteOf phys:LLM_161 .
+phys:LLM_139 phys:prerequisiteOf phys:LLM_161 .
+phys:LLM_140 phys:prerequisiteOf phys:LLM_161 .
+phys:LLM_141 phys:prerequisiteOf phys:LLM_161 .
+phys:LLM_142 phys:prerequisiteOf phys:LLM_161 .
+phys:LLM_143 phys:prerequisiteOf phys:LLM_161 .
+phys:LLM_163 phys:prerequisiteOf phys:LLM_162 .
+phys:LLM_164 phys:prerequisiteOf phys:LLM_162 .
+phys:LLM_162 phys:prerequisiteOf phys:LLM_165 .
+phys:LLM_165 phys:prerequisiteOf phys:LLM_006 .
+phys:LLM_162 phys:prerequisiteOf phys:LLM_155 .
+phys:LLM_166 phys:prerequisiteOf phys:LLM_155 .
+phys:LLM_155 phys:prerequisiteOf phys:LLM_157 .
+phys:LLM_157 phys:prerequisiteOf phys:LLM_005 .
+phys:LLM_162 phys:prerequisiteOf phys:LLM_144 .
+phys:LLM_144 phys:prerequisiteOf phys:LLM_167 .
+phys:LLM_168 phys:prerequisiteOf phys:LLM_167 .
+phys:LLM_169 phys:prerequisiteOf phys:LLM_167 .
+phys:LLM_170 phys:prerequisiteOf phys:LLM_167 .
+phys:LLM_167 phys:prerequisiteOf phys:LLM_171 .
+phys:LLM_144 phys:prerequisiteOf phys:LLM_152 .
+phys:LLM_172 phys:prerequisiteOf phys:LLM_152 .
+phys:LLM_173 phys:prerequisiteOf phys:LLM_152 .
+phys:LLM_152 phys:prerequisiteOf phys:LLM_174 .
+phys:LLM_144 phys:prerequisiteOf phys:LLM_149 .
+phys:LLM_168 phys:prerequisiteOf phys:LLM_149 .
+phys:LLM_175 phys:prerequisiteOf phys:LLM_149 .
+phys:LLM_149 phys:prerequisiteOf phys:LLM_176 .
+phys:LLM_167 phys:prerequisiteOf phys:LLM_177 .
+phys:LLM_149 phys:prerequisiteOf phys:LLM_177 .
+phys:LLM_177 phys:prerequisiteOf phys:LLM_178 .
+phys:LLM_165 phys:prerequisiteOf phys:LLM_179 .
+phys:LLM_157 phys:prerequisiteOf phys:LLM_180 .
+phys:LLM_171 phys:prerequisiteOf phys:LLM_181 .
+phys:LLM_176 phys:prerequisiteOf phys:LLM_181 .
+phys:LLM_179 phys:prerequisiteOf phys:LLM_182 .
+phys:LLM_180 phys:prerequisiteOf phys:LLM_183 .
+phys:LLM_171 phys:prerequisiteOf phys:LLM_184 .
+phys:LLM_176 phys:prerequisiteOf phys:LLM_185 .
+phys:LLM_178 phys:prerequisiteOf phys:LLM_186 .
+

@@ -96,4 +96,13 @@ CONCEPTS = [
     ("C_TratTuDonCuc", "Trật tự thế giới đơn cực", "Mỹ là siêu cường duy nhất", 20, 5, 3, 3),
     ("C_TratTuDaCuc", "Trật tự thế giới đa cực", "Nhiều trung tâm cạnh tranh quyền lực", 20, 5, 3, 3),
     ("C_VanhDaiConDuong", "Chiến lược Vành đai, Con đường", "Hệ thống kinh tế lấy Trung Quốc làm trung tâm", 15, 4, 3, 3),
+
+    # Chương 5-7 (Thế giới & Việt Nam từ 1991 đến nay)
+    ("C_ToanCauHoa", "Xu thế toàn cầu hóa", "Toàn cầu hóa|Globalization", 20, 5, 3, 3),
+    ("C_CachMangKHKT_HienDai", "Cách mạng khoa học - kĩ thuật hiện đại", "Cách mạng KH-KT|Cách mạng công nghiệp 4.0", 20, 5, 3, 3),
+    ("C_HoiNhapQuocTe", "Hội nhập quốc tế", "Đa phương hóa, đa dạng hóa quan hệ đối ngoại", 18, 5, 3, 3),
+    ("C_KinhTeTriThuc", "Kinh tế tri thức", "Nền kinh tế dựa trên tri thức và công nghệ", 15, 5, 3, 3),
+    ("C_KhungHoangTaiChinhChauA", "Khủng hoảng tài chính châu Á 1997", "Khủng hoảng tài chính - tiền tệ châu Á", 15, 4, 3, 3),
+    ("C_CongTyXuyenQuocGia", "Công ty xuyên quốc gia", "TNCs|Tập đoàn đa quốc gia", 15, 4, 3, 3),
+    ("C_DanChuHoa", "Xu hướng dân chủ hóa", "Chuyển đổi dân chủ|Cải cách chính trị", 12, 4, 3, 3),
 ]

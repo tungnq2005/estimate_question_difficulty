@@ -94,4 +94,8 @@ ORGANIZATIONS = [
     ("O_DangCS_VN", "Đảng Cộng sản Việt Nam", "Đảng", 20, 3, 3),
     
     ("O_AlQaeda", "Tổ chức khủng bố Al-Qaeda", "Al-Qaeda", 5, 2, 3),
+
+    # Chương 5-7 (Thế giới & Việt Nam từ 1991 đến nay)
+    ("O_WTO", "Tổ chức Thương mại Thế giới (WTO)", "WTO", 15, 2, 3),
+    ("O_APEC", "Diễn đàn Hợp tác Kinh tế châu Á - Thái Bình Dương (APEC)", "APEC", 10, 2, 3),
 ]

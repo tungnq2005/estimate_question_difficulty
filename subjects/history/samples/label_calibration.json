@@ -1,0 +1,10 @@
+{
+  "n": 76,
+  "kappa_raw": -0.021074815595363422,
+  "spearman_gv_llm": 0.2207056768158467,
+  "kendall_gv_llm": 0.20268111315691636,
+  "polychoric_gv_llm": 0.25134183028394247,
+  "agreement_raw": 0.32894736842105265,
+  "agreement_calibrated": 0.3684210526315789,
+  "kappa_calibrated": 0.03389830508474578
+}

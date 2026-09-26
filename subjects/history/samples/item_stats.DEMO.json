@@ -1,0 +1,988 @@
+{
+  "kr20_by_form": {
+    "A": {
+      "KR20": 0.8784305980711629,
+      "n_students": 50,
+      "n_items": 40
+    },
+    "B": {
+      "KR20": 0.8606044991223972,
+      "n_students": 50,
+      "n_items": 40
+    },
+    "C": {
+      "KR20": 0.8508206455846149,
+      "n_students": 50,
+      "n_items": 40
+    }
+  },
+  "n_low_discrimination": 9,
+  "n_extreme_p_value": 0,
+  "corr_llm_vs_pvalue": {
+    "n": 100,
+    "pearson": -0.9306506402810709,
+    "spearman": -0.9233510672442209
+  },
+  "items": [
+    {
+      "item_id": "su9_vj_0003",
+      "n": 50,
+      "p_value": 0.62,
+      "discrimination": 0.49999999999999994,
+      "point_biserial": 0.4213690108034239,
+      "form": "A"
+    },
+    {
+      "item_id": "su9_vj_0016",
+      "n": 50,
+      "p_value": 0.72,
+      "discrimination": 0.3571428571428572,
+      "point_biserial": 0.2949932726974201,
+      "form": "A"
+    },
+    {
+      "item_id": "su9_vj_0054",
+      "n": 50,
+      "p_value": 0.36,
+      "discrimination": 0.4285714285714286,
+      "point_biserial": 0.4104387523943529,
+      "form": "A"
+    },
+    {
+      "item_id": "su9_vj_0063",
+      "n": 50,
+      "p_value": 0.6,
+      "discrimination": 0.5714285714285714,
+      "point_biserial": 0.4990399901449604,
+      "form": "A"
+    },
+    {
+      "item_id": "su9_vj_0097",
+      "n": 50,
+      "p_value": 0.7,
+      "discrimination": 0.2142857142857143,
+      "point_biserial": 0.22849429085479575,
+      "form": "A"
+    },
+    {
+      "item_id": "su9_vj_0114",
+      "n": 50,
+      "p_value": 0.48,
+      "discrimination": 0.3571428571428572,
+      "point_biserial": 0.3059077412749532,
+      "form": "A"
+    },
+    {
+      "item_id": "su9_vj_0154",
+      "n": 50,
+      "p_value": 0.78,
+      "discrimination": 0.4285714285714286,
+      "point_biserial": 0.3886621563820045,
+      "form": "A"
+    },
+    {
+      "item_id": "su9_vj_0265",
+      "n": 50,
+      "p_value": 0.54,
+      "discrimination": 0.3571428571428572,
+      "point_biserial": 0.3296904293373633,
+      "form": "A"
+    },
+    {
+      "item_id": "su9_vj_0292",
+      "n": 50,
+      "p_value": 0.3,
+      "discrimination": 0.21428571428571427,
+      "point_biserial": 0.3058566182689976,
+      "form": "A"
+    },
+    {
+      "item_id": "su9_vj_0365",
+      "n": 50,
+      "p_value": 0.34,
+      "discrimination": 0.5,
+      "point_biserial": 0.4228185166951816,
+      "form": "A"
+    },
+    {
+      "item_id": "su9_vj_0415",
+      "n": 50,
+      "p_value": 0.6,
+      "discrimination": 0.5,
+      "point_biserial": 0.4545619512593376,
+      "form": "A"
+    },
+    {
+      "item_id": "su9_vj_0449",
+      "n": 50,
+      "p_value": 0.22,
+      "discrimination": 0.3571428571428571,
+      "point_biserial": 0.34850934709075665,
+      "form": "A"
+    },
+    {
+      "item_id": "su9_vj_0464",
+      "n": 50,
+      "p_value": 0.38,
+      "discrimination": 0.42857142857142855,
+      "point_biserial": 0.33849077344213135,
+      "form": "A"
+    },
+    {
+      "item_id": "su9_vj_0487",
+      "n": 50,
+      "p_value": 0.6,
+      "discrimination": 0.21428571428571436,
+      "point_biserial": 0.1821290112553415,
+      "form": "A"
+    },
+    {
+      "item_id": "su9_vj_0563",
+      "n": 50,
+      "p_value": 0.24,
+      "discrimination": 0.14285714285714288,
+      "point_biserial": 0.21766163753216616,
+      "form": "A"
+    },
+    {
+      "item_id": "su9_vj_0629",
+      "n": 50,
+      "p_value": 0.34,
+      "discrimination": 0.2857142857142857,
+      "point_biserial": 0.3040010052665537,
+      "form": "A"
+    },
+    {
+      "item_id": "su9_vj_0637",
+      "n": 50,
+      "p_value": 0.56,
+      "discrimination": 0.35714285714285715,
+      "point_biserial": 0.353581246868374,
+      "form": "A"
+    },
+    {
+      "item_id": "su9_vj_0641",
+      "n": 50,
+      "p_value": 0.74,
+      "discrimination": 0.5,
+      "point_biserial": 0.49473636607223576,
+      "form": "A"
+    },
+    {
+      "item_id": "su9_vj_0758",
+      "n": 50,
+      "p_value": 0.58,
+      "discrimination": 0.2857142857142857,
+      "point_biserial": 0.19536347942119528,
+      "form": "A"
+    },
+    {
+      "item_id": "su9_vj_1749",
+      "n": 50,
+      "p_value": 0.6,
+      "discrimination": 0.35714285714285715,
+      "point_biserial": 0.3444561534565448,
+      "form": "A"
+    },
+    {
+      "item_id": "su9_vj_1767",
+      "n": 50,
+      "p_value": 0.5,
+      "discrimination": 0.35714285714285715,
+      "point_biserial": 0.3918218104283945,
+      "form": "A"
+    },
+    {
+      "item_id": "su9_vj_1823",
+      "n": 50,
+      "p_value": 0.58,
+      "discrimination": 0.6428571428571429,
+      "point_biserial": 0.46078602446104194,
+      "form": "A"
+    },
+    {
+      "item_id": "su9_vj_1832",
+      "n": 50,
+      "p_value": 0.56,
+      "discrimination": 0.42857142857142855,
+      "point_biserial": 0.342778258794779,
+      "form": "A"
+    },
+    {
+      "item_id": "su9_vj_1838",
+      "n": 50,
+      "p_value": 0.48,
+      "discrimination": 0.5714285714285714,
+      "point_biserial": 0.5005524162915959,
+      "form": "A"
+    },
+    {
+      "item_id": "su9_vj_1857",
+      "n": 50,
+      "p_value": 0.76,
+      "discrimination": 0.3571428571428572,
+      "point_biserial": 0.24893897743247165,
+      "form": "A"
+    },
+    {
+      "item_id": "su9_vj_1958",
+      "n": 50,
+      "p_value": 0.44,
+      "discrimination": 0.5714285714285714,
+      "point_biserial": 0.4927640194397719,
+      "form": "A"
+    },
+    {
+      "item_id": "su9_vj_2102",
+      "n": 50,
+      "p_value": 0.74,
+      "discrimination": 0.2857142857142857,
+      "point_biserial": 0.3658998317314096,
+      "form": "A"
+    },
+    {
+      "item_id": "su9_vj_2152",
+      "n": 50,
+      "p_value": 0.76,
+      "discrimination": 0.2142857142857142,
+      "point_biserial": 0.2860201197291739,
+      "form": "A"
+    },
+    {
+      "item_id": "su9_vj_2250",
+      "n": 50,
+      "p_value": 0.5,
+      "discrimination": 0.3571428571428572,
+      "point_biserial": 0.3756542942060238,
+      "form": "A"
+    },
+    {
+      "item_id": "su9_vj_2322",
+      "n": 50,
+      "p_value": 0.7,
+      "discrimination": 0.28571428571428575,
+      "point_biserial": 0.3325781437810542,
+      "form": "A"
+    },
+    {
+      "item_id": "su9_vj_2356",
+      "n": 50,
+      "p_value": 0.62,
+      "discrimination": 0.5,
+      "point_biserial": 0.3991242042537985,
+      "form": "A"
+    },
+    {
+      "item_id": "su9_vj_2396",
+      "n": 50,
+      "p_value": 0.7,
+      "discrimination": 0.2857142857142857,
+      "point_biserial": 0.2515134415333042,
+      "form": "A"
+    },
+    {
+      "item_id": "su9_vj_2535",
+      "n": 50,
+      "p_value": 0.72,
+      "discrimination": 0.4285714285714286,
+      "point_biserial": 0.2831869165156906,
+      "form": "A"
+    },
+    {
+      "item_id": "su9_vj_2549",
+      "n": 50,
+      "p_value": 0.38,
+      "discrimination": 0.3571428571428572,
+      "point_biserial": 0.3384907734421314,
+      "form": "A"
+    },
+    {
+      "item_id": "su9_vj_2714",
+      "n": 50,
+      "p_value": 0.8,
+      "discrimination": 0.2857142857142857,
+      "point_biserial": 0.340296376388058,
+      "form": "A"
+    },
+    {
+      "item_id": "su9_vj_2924",
+      "n": 50,
+      "p_value": 0.6,
+      "discrimination": 0.6428571428571428,
+      "point_biserial": 0.5269674049070817,
+      "form": "A"
+    },
+    {
+      "item_id": "su9_vj_2926",
+      "n": 50,
+      "p_value": 0.42,
+      "discrimination": 0.4285714285714286,
+      "point_biserial": 0.42428612189232034,
+      "form": "A"
+    },
+    {
+      "item_id": "su9_vj_2935",
+      "n": 50,
+      "p_value": 0.46,
+      "discrimination": 0.5,
+      "point_biserial": 0.376424939293466,
+      "form": "A"
+    },
+    {
+      "item_id": "su9_vj_3052",
+      "n": 50,
+      "p_value": 0.54,
+      "discrimination": 0.5714285714285714,
+      "point_biserial": 0.48694907098856205,
+      "form": "A"
+    },
+    {
+      "item_id": "su9_vj_3082",
+      "n": 50,
+      "p_value": 0.36,
+      "discrimination": 0.5,
+      "point_biserial": 0.3600149927359558,
+      "form": "A"
+    },
+    {
+      "item_id": "su9_vj_0031",
+      "n": 50,
+      "p_value": 0.68,
+      "discrimination": 0.49999999999999994,
+      "point_biserial": 0.39935915679228856,
+      "form": "B"
+    },
+    {
+      "item_id": "su9_vj_0083",
+      "n": 50,
+      "p_value": 0.72,
+      "discrimination": 0.2142857142857142,
+      "point_biserial": 0.13882408322963233,
+      "form": "B"
+    },
+    {
+      "item_id": "su9_vj_0093",
+      "n": 50,
+      "p_value": 0.3,
+      "discrimination": 0.4285714285714286,
+      "point_biserial": 0.3489278271523661,
+      "form": "B"
+    },
+    {
+      "item_id": "su9_vj_0143",
+      "n": 50,
+      "p_value": 0.62,
+      "discrimination": 0.28571428571428575,
+      "point_biserial": 0.3151264341858447,
+      "form": "B"
+    },
+    {
+      "item_id": "su9_vj_0149",
+      "n": 50,
+      "p_value": 0.4,
+      "discrimination": 0.3571428571428571,
+      "point_biserial": 0.36576027513764514,
+      "form": "B"
+    },
+    {
+      "item_id": "su9_vj_0154",
+      "n": 50,
+      "p_value": 0.78,
+      "discrimination": 0.3571428571428572,
+      "point_biserial": 0.2874781336597906,
+      "form": "B"
+    },
+    {
+      "item_id": "su9_vj_0206",
+      "n": 50,
+      "p_value": 0.6,
+      "discrimination": 0.2857142857142857,
+      "point_biserial": 0.2168193456470894,
+      "form": "B"
+    },
+    {
+      "item_id": "su9_vj_0348",
+      "n": 50,
+      "p_value": 0.78,
+      "discrimination": 0.2857142857142857,
+      "point_biserial": 0.3285623457286792,
+      "form": "B"
+    },
+    {
+      "item_id": "su9_vj_0355",
+      "n": 50,
+      "p_value": 0.48,
+      "discrimination": 0.5,
+      "point_biserial": 0.3787767240977499,
+      "form": "B"
+    },
+    {
+      "item_id": "su9_vj_0358",
+      "n": 50,
+      "p_value": 0.26,
+      "discrimination": 0.4285714285714286,
+      "point_biserial": 0.38015227115903066,
+      "form": "B"
+    },
+    {
+      "item_id": "su9_vj_0407",
+      "n": 50,
+      "p_value": 0.5,
+      "discrimination": 0.49999999999999994,
+      "point_biserial": 0.3797457086496549,
+      "form": "B"
+    },
+    {
+      "item_id": "su9_vj_0434",
+      "n": 50,
+      "p_value": 0.64,
+      "discrimination": 0.2142857142857142,
+      "point_biserial": 0.11596901385315025,
+      "form": "B"
+    },
+    {
+      "item_id": "su9_vj_0448",
+      "n": 50,
+      "p_value": 0.42,
+      "discrimination": 0.5,
+      "point_biserial": 0.3984991303463062,
+      "form": "B"
+    },
+    {
+      "item_id": "su9_vj_0449",
+      "n": 50,
+      "p_value": 0.32,
+      "discrimination": 0.2857142857142857,
+      "point_biserial": 0.2322540903984266,
+      "form": "B"
+    },
+    {
+      "item_id": "su9_vj_0451",
+      "n": 50,
+      "p_value": 0.28,
+      "discrimination": 0.42857142857142855,
+      "point_biserial": 0.3381336349367369,
+      "form": "B"
+    },
+    {
+      "item_id": "su9_vj_0464",
+      "n": 50,
+      "p_value": 0.16,
+      "discrimination": 0.14285714285714285,
+      "point_biserial": 0.17477809631109084,
+      "form": "B"
+    },
+    {
+      "item_id": "su9_vj_0525",
+      "n": 50,
+      "p_value": 0.34,
+      "discrimination": 0.2142857142857143,
+      "point_biserial": 0.16877094978885562,
+      "form": "B"
+    },
+    {
+      "item_id": "su9_vj_0552",
+      "n": 50,
+      "p_value": 0.38,
+      "discrimination": 0.5,
+      "point_biserial": 0.40469941133701043,
+      "form": "B"
+    },
+    {
+      "item_id": "su9_vj_0589",
+      "n": 50,
+      "p_value": 0.42,
+      "discrimination": 0.14285714285714285,
+      "point_biserial": 0.21327516448814302,
+      "form": "B"
+    },
+    {
+      "item_id": "su9_vj_1276",
+      "n": 50,
+      "p_value": 0.6,
+      "discrimination": 0.5714285714285714,
+      "point_biserial": 0.42121420398543763,
+      "form": "B"
+    },
+    {
+      "item_id": "su9_vj_1749",
+      "n": 50,
+      "p_value": 0.5,
+      "discrimination": 0.4285714285714286,
+      "point_biserial": 0.449394668790194,
+      "form": "B"
+    },
+    {
+      "item_id": "su9_vj_1767",
+      "n": 50,
+      "p_value": 0.56,
+      "discrimination": 0.6428571428571429,
+      "point_biserial": 0.46381954619072646,
+      "form": "B"
+    },
+    {
+      "item_id": "su9_vj_1780",
+      "n": 50,
+      "p_value": 0.32,
+      "discrimination": 0.5,
+      "point_biserial": 0.4407729359033798,
+      "form": "B"
+    },
+    {
+      "item_id": "su9_vj_1832",
+      "n": 50,
+      "p_value": 0.48,
+      "discrimination": 0.7142857142857142,
+      "point_biserial": 0.5483694845044758,
+      "form": "B"
+    },
+    {
+      "item_id": "su9_vj_2196",
+      "n": 50,
+      "p_value": 0.28,
+      "discrimination": 0.35714285714285715,
+      "point_biserial": 0.3000536410804685,
+      "form": "B"
+    },
+    {
+      "item_id": "su9_vj_2246",
+      "n": 50,
+      "p_value": 0.38,
+      "discrimination": 0.42857142857142855,
+      "point_biserial": 0.3868409063005361,
+      "form": "B"
+    },
+    {
+      "item_id": "su9_vj_2250",
+      "n": 50,
+      "p_value": 0.42,
+      "discrimination": 0.21428571428571425,
+      "point_biserial": 0.23617361977172666,
+      "form": "B"
+    },
+    {
+      "item_id": "su9_vj_2322",
+      "n": 50,
+      "p_value": 0.7,
+      "discrimination": 0.3571428571428571,
+      "point_biserial": 0.30407271391236645,
+      "form": "B"
+    },
+    {
+      "item_id": "su9_vj_2385",
+      "n": 50,
+      "p_value": 0.74,
+      "discrimination": 0.1428571428571428,
+      "point_biserial": 0.05802940541962044,
+      "form": "B"
+    },
+    {
+      "item_id": "su9_vj_2531",
+      "n": 50,
+      "p_value": 0.36,
+      "discrimination": 0.2857142857142857,
+      "point_biserial": 0.23656789449633514,
+      "form": "B"
+    },
+    {
+      "item_id": "su9_vj_2621",
+      "n": 50,
+      "p_value": 0.56,
+      "discrimination": 0.5,
+      "point_biserial": 0.37028877224504336,
+      "form": "B"
+    },
+    {
+      "item_id": "su9_vj_2651",
+      "n": 50,
+      "p_value": 0.76,
+      "discrimination": 0.2857142857142857,
+      "point_biserial": 0.28032458212762806,
+      "form": "B"
+    },
+    {
+      "item_id": "su9_vj_2714",
+      "n": 50,
+      "p_value": 0.7,
+      "discrimination": 0.42857142857142855,
+      "point_biserial": 0.48631848584644716,
+      "form": "B"
+    },
+    {
+      "item_id": "su9_vj_2784",
+      "n": 50,
+      "p_value": 0.32,
+      "discrimination": 0.6428571428571429,
+      "point_biserial": 0.5787597568118994,
+      "form": "B"
+    },
+    {
+      "item_id": "su9_vj_2827",
+      "n": 50,
+      "p_value": 0.54,
+      "discrimination": 0.42857142857142855,
+      "point_biserial": 0.38420642202334704,
+      "form": "B"
+    },
+    {
+      "item_id": "su9_vj_2838",
+      "n": 50,
+      "p_value": 0.44,
+      "discrimination": 0.6428571428571428,
+      "point_biserial": 0.47300371762002863,
+      "form": "B"
+    },
+    {
+      "item_id": "su9_vj_2857",
+      "n": 50,
+      "p_value": 0.48,
+      "discrimination": 0.3571428571428572,
+      "point_biserial": 0.28688903880583677,
+      "form": "B"
+    },
+    {
+      "item_id": "su9_vj_2913",
+      "n": 50,
+      "p_value": 0.84,
+      "discrimination": 0.2857142857142857,
+      "point_biserial": 0.35238128741245983,
+      "form": "B"
+    },
+    {
+      "item_id": "su9_vj_2963",
+      "n": 50,
+      "p_value": 0.48,
+      "discrimination": 0.2857142857142857,
+      "point_biserial": 0.3154785917392911,
+      "form": "B"
+    },
+    {
+      "item_id": "su9_vj_3082",
+      "n": 50,
+      "p_value": 0.22,
+      "discrimination": 0.4285714285714286,
+      "point_biserial": 0.3855778291842627,
+      "form": "B"
+    },
+    {
+      "item_id": "su9_vj_0039",
+      "n": 50,
+      "p_value": 0.7,
+      "discrimination": 0.5714285714285714,
+      "point_biserial": 0.42620239905955665,
+      "form": "C"
+    },
+    {
+      "item_id": "su9_vj_0045",
+      "n": 50,
+      "p_value": 0.7,
+      "discrimination": 0.2142857142857142,
+      "point_biserial": 0.22782562173991402,
+      "form": "C"
+    },
+    {
+      "item_id": "su9_vj_0151",
+      "n": 50,
+      "p_value": 0.54,
+      "discrimination": 0.4285714285714286,
+      "point_biserial": 0.29726481319686004,
+      "form": "C"
+    },
+    {
+      "item_id": "su9_vj_0154",
+      "n": 50,
+      "p_value": 0.76,
+      "discrimination": 0.5,
+      "point_biserial": 0.340905102299982,
+      "form": "C"
+    },
+    {
+      "item_id": "su9_vj_0242",
+      "n": 50,
+      "p_value": 0.5,
+      "discrimination": 0.21428571428571436,
+      "point_biserial": 0.15350079458976026,
+      "form": "C"
+    },
+    {
+      "item_id": "su9_vj_0274",
+      "n": 50,
+      "p_value": 0.3,
+      "discrimination": 0.4285714285714286,
+      "point_biserial": 0.40548593017045254,
+      "form": "C"
+    },
+    {
+      "item_id": "su9_vj_0311",
+      "n": 50,
+      "p_value": 0.48,
+      "discrimination": 0.28571428571428575,
+      "point_biserial": 0.2332141440036128,
+      "form": "C"
+    },
+    {
+      "item_id": "su9_vj_0328",
+      "n": 50,
+      "p_value": 0.56,
+      "discrimination": 0.5,
+      "point_biserial": 0.3420733916317202,
+      "form": "C"
+    },
+    {
+      "item_id": "su9_vj_0354",
+      "n": 50,
+      "p_value": 0.4,
+      "discrimination": 0.4285714285714286,
+      "point_biserial": 0.46339050445053936,
+      "form": "C"
+    },
+    {
+      "item_id": "su9_vj_0427",
+      "n": 50,
+      "p_value": 0.3,
+      "discrimination": 0.5,
+      "point_biserial": 0.4965371964077489,
+      "form": "C"
+    },
+    {
+      "item_id": "su9_vj_0449",
+      "n": 50,
+      "p_value": 0.26,
+      "discrimination": 0.3571428571428571,
+      "point_biserial": 0.37212050411677006,
+      "form": "C"
+    },
+    {
+      "item_id": "su9_vj_0464",
+      "n": 50,
+      "p_value": 0.32,
+      "discrimination": 0.4285714285714286,
+      "point_biserial": 0.3722494431949188,
+      "form": "C"
+    },
+    {
+      "item_id": "su9_vj_0477",
+      "n": 50,
+      "p_value": 0.78,
+      "discrimination": 0.2142857142857143,
+      "point_biserial": 0.27964119821050526,
+      "form": "C"
+    },
+    {
+      "item_id": "su9_vj_0521",
+      "n": 50,
+      "p_value": 0.58,
+      "discrimination": 0.28571428571428575,
+      "point_biserial": 0.21019500901812535,
+      "form": "C"
+    },
+    {
+      "item_id": "su9_vj_0660",
+      "n": 50,
+      "p_value": 0.28,
+      "discrimination": 0.3571428571428571,
+      "point_biserial": 0.3622540685856373,
+      "form": "C"
+    },
+    {
+      "item_id": "su9_vj_0676",
+      "n": 50,
+      "p_value": 0.4,
+      "discrimination": 0.3571428571428572,
+      "point_biserial": 0.4145896140705822,
+      "form": "C"
+    },
+    {
+      "item_id": "su9_vj_1703",
+      "n": 50,
+      "p_value": 0.36,
+      "discrimination": 0.5714285714285714,
+      "point_biserial": 0.5290827678178498,
+      "form": "C"
+    },
+    {
+      "item_id": "su9_vj_1749",
+      "n": 50,
+      "p_value": 0.54,
+      "discrimination": 0.7142857142857142,
+      "point_biserial": 0.5671264586415663,
+      "form": "C"
+    },
+    {
+      "item_id": "su9_vj_1767",
+      "n": 50,
+      "p_value": 0.48,
+      "discrimination": 0.35714285714285715,
+      "point_biserial": 0.36236207485633953,
+      "form": "C"
+    },
+    {
+      "item_id": "su9_vj_1771",
+      "n": 50,
+      "p_value": 0.3,
+      "discrimination": 0.07142857142857145,
+      "point_biserial": 0.09504478090530982,
+      "form": "C"
+    },
+    {
+      "item_id": "su9_vj_1821",
+      "n": 50,
+      "p_value": 0.68,
+      "discrimination": 0.2857142857142857,
+      "point_biserial": 0.21365696373768048,
+      "form": "C"
+    },
+    {
+      "item_id": "su9_vj_1832",
+      "n": 50,
+      "p_value": 0.42,
+      "discrimination": 0.8571428571428572,
+      "point_biserial": 0.6763849600784373,
+      "form": "C"
+    },
+    {
+      "item_id": "su9_vj_1874",
+      "n": 50,
+      "p_value": 0.56,
+      "discrimination": 0.2142857142857143,
+      "point_biserial": 0.19501723470261262,
+      "form": "C"
+    },
+    {
+      "item_id": "su9_vj_1963",
+      "n": 50,
+      "p_value": 0.76,
+      "discrimination": 0.1428571428571428,
+      "point_biserial": 0.15112582760589435,
+      "form": "C"
+    },
+    {
+      "item_id": "su9_vj_2139",
+      "n": 50,
+      "p_value": 0.4,
+      "discrimination": 0.3571428571428572,
+      "point_biserial": 0.3299799885100503,
+      "form": "C"
+    },
+    {
+      "item_id": "su9_vj_2175",
+      "n": 50,
+      "p_value": 0.26,
+      "discrimination": 0.14285714285714288,
+      "point_biserial": 0.11460178440239198,
+      "form": "C"
+    },
+    {
+      "item_id": "su9_vj_2237",
+      "n": 50,
+      "p_value": 0.52,
+      "discrimination": 0.4285714285714286,
+      "point_biserial": 0.2829491844423048,
+      "form": "C"
+    },
+    {
+      "item_id": "su9_vj_2250",
+      "n": 50,
+      "p_value": 0.58,
+      "discrimination": 0.35714285714285715,
+      "point_biserial": 0.3106279742921846,
+      "form": "C"
+    },
+    {
+      "item_id": "su9_vj_2253",
+      "n": 50,
+      "p_value": 0.68,
+      "discrimination": 0.3571428571428572,
+      "point_biserial": 0.2884044222386833,
+      "form": "C"
+    },
+    {
+      "item_id": "su9_vj_2322",
+      "n": 50,
+      "p_value": 0.7,
+      "discrimination": 0.2142857142857143,
+      "point_biserial": 0.22151077507131606,
+      "form": "C"
+    },
+    {
+      "item_id": "su9_vj_2408",
+      "n": 50,
+      "p_value": 0.66,
+      "discrimination": 0.42857142857142855,
+      "point_biserial": 0.3920685768107663,
+      "form": "C"
+    },
+    {
+      "item_id": "su9_vj_2505",
+      "n": 50,
+      "p_value": 0.46,
+      "discrimination": 0.0714285714285714,
+      "point_biserial": 0.13418581263176055,
+      "form": "C"
+    },
+    {
+      "item_id": "su9_vj_2540",
+      "n": 50,
+      "p_value": 0.32,
+      "discrimination": 0.4285714285714286,
+      "point_biserial": 0.44220099438923066,
+      "form": "C"
+    },
+    {
+      "item_id": "su9_vj_2598",
+      "n": 50,
+      "p_value": 0.26,
+      "discrimination": 0.2142857142857143,
+      "point_biserial": 0.28536225821383365,
+      "form": "C"
+    },
+    {
+      "item_id": "su9_vj_2714",
+      "n": 50,
+      "p_value": 0.74,
+      "discrimination": 0.42857142857142855,
+      "point_biserial": 0.30024472256075024,
+      "form": "C"
+    },
+    {
+      "item_id": "su9_vj_2859",
+      "n": 50,
+      "p_value": 0.5,
+      "discrimination": 0.0714285714285714,
+      "point_biserial": 0.06781284615654534,
+      "form": "C"
+    },
+    {
+      "item_id": "su9_vj_2933",
+      "n": 50,
+      "p_value": 0.46,
+      "discrimination": 0.6428571428571428,
+      "point_biserial": 0.481812210330929,
+      "form": "C"
+    },
+    {
+      "item_id": "su9_vj_3025",
+      "n": 50,
+      "p_value": 0.3,
+      "discrimination": 0.2857142857142857,
+      "point_biserial": 0.36679278268790755,
+      "form": "C"
+    },
+    {
+      "item_id": "su9_vj_3082",
+      "n": 50,
+      "p_value": 0.2,
+      "discrimination": 0.2857142857142857,
+      "point_biserial": 0.2971173910292699,
+      "form": "C"
+    },
+    {
+      "item_id": "su9_vj_3121",
+      "n": 50,
+      "p_value": 0.74,
+      "discrimination": 0.4285714285714286,
+      "point_biserial": 0.36031976374113994,
+      "form": "C"
+    }
+  ]
+}

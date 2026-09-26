@@ -5,17 +5,18 @@ Sử dụng Knowledge Graph (Ontology) + Knowledge Entropy + Embedding
 cho Lịch sử 9 để dự đoán độ khó của câu hỏi trắc nghiệm
 và cung cấp Explainable AI (XAI).
 
-33 Features | 3 Blocks | Unified Pipeline
-  Block A (KG):       24 features - Jaccard + RSI + KG Structure
+41 Features | 3 Blocks + meta + cụm môn | Unified Pipeline
+  Block A (KG):       27 features - KG Structure + Jaccard + RSI + Văn
   Block B (KAD):       3 features - Knowledge Entropy + Path Distance
   Block C (Embedding): 6 features - PhoBERT cosine similarities
+  Meta + cụm môn:      5 features - entity_match_coverage + numeric_ (prereq_dag)
 
 Modules:
   - ontology_bridge: Load TTL ontology → NetworkX graph + KAD API
   - embedding_cache: Pre-compute PhoBERT embeddings cho entities
   - jaccard: 3-level Jaccard similarity (hard/soft/kg-weighted)
   - rsi: Relation Strength Indicativeness + 4-component decomposition
-  - features: 33 features across 3 blocks for XGBoost
+  - features: 41 fields across 3 blocks + meta + cụm môn, for XGBoost
   - demo: End-to-end pipeline demo
 """
 

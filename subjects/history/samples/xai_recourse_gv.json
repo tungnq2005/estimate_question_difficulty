@@ -1,0 +1,3181 @@
+{
+  "subject": "history_gv",
+  "n": 250,
+  "reps": 16,
+  "seed": 42,
+  "editable_down": 0.308,
+  "editable_up": 0.152,
+  "editable_any": 0.664,
+  "items": [
+    {
+      "id": "kgv_su_0009",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.65625,
+      "cheapest_down": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 2,
+        "donor": "Hội nghị Oasinhtơn",
+        "to": 0,
+        "d_ey": -0.11901403730735183
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 26
+    },
+    {
+      "id": "kgv_su_0026",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0029",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0037",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.375,
+      "cheapest_down": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Chế tạo ra công cụ sản xuất mới.",
+        "to": 0,
+        "d_ey": 0.020666404627263546
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 12
+    },
+    {
+      "id": "kgv_su_0042",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.15625,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 1,
+        "donor": "Đại hội Đảng V.",
+        "to": 1,
+        "d_ey": 0.38292995980009437
+      },
+      "n_uncertified_moves": 1
+    },
+    {
+      "id": "kgv_su_0044",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0049",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0055",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0069",
+      "L0": 1,
+      "n_try": 48,
+      "rate": 0.3958333333333333,
+      "cheapest_down": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 2,
+        "donor": "Mặt trận Dân chủ Đông Dương.",
+        "to": 0,
+        "d_ey": -0.3278925563208759
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 14
+    },
+    {
+      "id": "kgv_su_0070",
+      "L0": 1,
+      "n_try": 48,
+      "rate": 0.0625,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 3
+    },
+    {
+      "id": "kgv_su_0074",
+      "L0": 0,
+      "n_try": 64,
+      "rate": 0.25,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 16
+    },
+    {
+      "id": "kgv_su_0085",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.96875,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Hơn một thế kỉ.",
+        "to": 1,
+        "d_ey": 0.3315310701727867
+      },
+      "n_uncertified_moves": 15
+    },
+    {
+      "id": "kgv_su_0090",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0093",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0099",
+      "L0": 1,
+      "n_try": 48,
+      "rate": 0.2708333333333333,
+      "cheapest_down": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 2,
+        "donor": "Nhật Bản",
+        "to": 0,
+        "d_ey": -0.02298744674772024
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 7
+    },
+    {
+      "id": "kgv_su_0100",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.21875,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 1,
+        "donor": "Thực dân kiểu mới",
+        "to": 2,
+        "d_ey": 0.3134891684167087
+      },
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0107",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0110",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.34375,
+      "cheapest_down": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 1,
+        "donor": "Nhận cung cấp một phần lương thực",
+        "to": 0,
+        "d_ey": -0.025413677096366882
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0111",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0123",
+      "L0": 0,
+      "n_try": 48,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0124",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.46875,
+      "cheapest_down": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Việt Nam.",
+        "to": 0,
+        "d_ey": -0.007661584764719009
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0133",
+      "L0": 0,
+      "n_try": 64,
+      "rate": 0.03125,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 2
+    },
+    {
+      "id": "kgv_su_0138",
+      "L0": 1,
+      "n_try": 48,
+      "rate": 0.3333333333333333,
+      "cheapest_down": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 1,
+        "donor": "1957.",
+        "to": 0,
+        "d_ey": -0.3716015783138573
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 2
+    },
+    {
+      "id": "kgv_su_0140",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.59375,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 1,
+        "donor": "Bổ túc văn hóa.",
+        "to": 1,
+        "d_ey": 0.058983173221349716
+      },
+      "n_uncertified_moves": 16
+    },
+    {
+      "id": "kgv_su_0150",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.421875,
+      "cheapest_down": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 1,
+        "donor": "Trần Cừ",
+        "to": 0,
+        "d_ey": -0.0031741540879011154
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 21
+    },
+    {
+      "id": "kgv_su_0152",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.375,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 1,
+        "donor": "Mao Trạch Đông.",
+        "to": 1,
+        "d_ey": -0.011051544919610023
+      },
+      "n_uncertified_moves": 6
+    },
+    {
+      "id": "kgv_su_0157",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.03125,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 1
+    },
+    {
+      "id": "kgv_su_0165",
+      "L0": 3,
+      "n_try": 32,
+      "rate": 0.5,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 16
+    },
+    {
+      "id": "kgv_su_0167",
+      "L0": 3,
+      "n_try": 32,
+      "rate": 1.0,
+      "cheapest_down": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Dừa",
+        "to": 0,
+        "d_ey": -0.7548651322722435
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 16
+    },
+    {
+      "id": "kgv_su_0175",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.15625,
+      "cheapest_down": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 2,
+        "donor": "Ngân hàng quốc gia Pháp",
+        "to": 0,
+        "d_ey": -0.3281611050479114
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 7
+    },
+    {
+      "id": "kgv_su_0184",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.09375,
+      "cheapest_down": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 1,
+        "donor": "Chuyển từ đối đầu sang đối thoại.",
+        "to": 0,
+        "d_ey": -0.2217781748622656
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0185",
+      "L0": 3,
+      "n_try": 32,
+      "rate": 0.0625,
+      "cheapest_down": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 2,
+        "donor": "Nơi thành lập Hội Việt Nam Cách mạng Thanh niên.",
+        "to": 1,
+        "d_ey": -0.7395065203309059
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 1
+    },
+    {
+      "id": "kgv_su_0186",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.3125,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 10
+    },
+    {
+      "id": "kgv_su_0191",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.5,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 16
+    },
+    {
+      "id": "kgv_su_0199",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0202",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.21875,
+      "cheapest_down": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Moskva (Nga)",
+        "to": 0,
+        "d_ey": -0.15453382954001427
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 3
+    },
+    {
+      "id": "kgv_su_0207",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0209",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0216",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0217",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.59375,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 2,
+        "donor": "Hội nhập quốc tế.",
+        "to": 1,
+        "d_ey": 0.37270511500537395
+      },
+      "n_uncertified_moves": 15
+    },
+    {
+      "id": "kgv_su_0230",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.015625,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 1
+    },
+    {
+      "id": "kgv_su_0233",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.0625,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 2
+    },
+    {
+      "id": "kgv_su_0248",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.25,
+      "cheapest_down": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "22/12/1943.",
+        "to": 0,
+        "d_ey": -0.5716942455619574
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0258",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.125,
+      "cheapest_down": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Cao Bằng",
+        "to": 0,
+        "d_ey": -0.0009670257568359375
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0260",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.03125,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 1
+    },
+    {
+      "id": "kgv_su_0277",
+      "L0": 0,
+      "n_try": 64,
+      "rate": 0.15625,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 10
+    },
+    {
+      "id": "kgv_su_0282",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.5,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 16
+    },
+    {
+      "id": "kgv_su_0289",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0298",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.03125,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 1
+    },
+    {
+      "id": "kgv_su_0302",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.1875,
+      "cheapest_down": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 2,
+        "donor": "Phục vụ kháng chiến",
+        "to": 0,
+        "d_ey": -0.26991092041134834
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0323",
+      "L0": 2,
+      "n_try": 32,
+      "rate": 1.0,
+      "cheapest_down": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 2,
+        "donor": "Ấn Độ.",
+        "to": 0,
+        "d_ey": -0.6800430407747626
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 16
+    },
+    {
+      "id": "kgv_su_0332",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.0625,
+      "cheapest_down": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Vũ khí sinh học.",
+        "to": 0,
+        "d_ey": -0.023042794317007065
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0334",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0336",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0340",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.125,
+      "cheapest_down": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Người cùng khổ",
+        "to": 0,
+        "d_ey": -0.269053609110415
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 1
+    },
+    {
+      "id": "kgv_su_0347",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0355",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.09375,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 3
+    },
+    {
+      "id": "kgv_su_0356",
+      "L0": 0,
+      "n_try": 64,
+      "rate": 0.125,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 8
+    },
+    {
+      "id": "kgv_su_0362",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0364",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0374",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0376",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0389",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.0625,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 2
+    },
+    {
+      "id": "kgv_su_0393",
+      "L0": 0,
+      "n_try": 48,
+      "rate": 0.10416666666666667,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 5
+    },
+    {
+      "id": "kgv_su_0398",
+      "L0": 0,
+      "n_try": 48,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0400",
+      "L0": 1,
+      "n_try": 48,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0402",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.5625,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 2,
+        "donor": "Tâm tâm xã",
+        "to": 3,
+        "d_ey": 0.3062708415091038
+      },
+      "n_uncertified_moves": 11
+    },
+    {
+      "id": "kgv_su_0410",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.09375,
+      "cheapest_down": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 2,
+        "donor": "Sự ủng hộ của quốc tế.",
+        "to": 0,
+        "d_ey": 0.12698454735800624
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0416",
+      "L0": 0,
+      "n_try": 48,
+      "rate": 0.0625,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 3
+    },
+    {
+      "id": "kgv_su_0417",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.171875,
+      "cheapest_down": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Thuộc địa của Anh, Pháp.",
+        "to": 0,
+        "d_ey": -0.4290675388183445
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 2
+    },
+    {
+      "id": "kgv_su_0427",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.125,
+      "cheapest_down": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 2,
+        "donor": "Thế kỉ XIII.",
+        "to": 0,
+        "d_ey": -0.1904806848615408
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 5
+    },
+    {
+      "id": "kgv_su_0430",
+      "L0": 0,
+      "n_try": 48,
+      "rate": 0.375,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 2,
+        "donor": "Na–gôi–a.",
+        "to": 2,
+        "d_ey": 0.5596268475055695
+      },
+      "n_uncertified_moves": 16
+    },
+    {
+      "id": "kgv_su_0435",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.5,
+      "cheapest_down": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 1,
+        "donor": "Nhật Bản.",
+        "to": 0,
+        "d_ey": 0.033035634085536
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0445",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.53125,
+      "cheapest_down": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "quân đội Trung Quốc.",
+        "to": 0,
+        "d_ey": -0.6723941508680582
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 1
+    },
+    {
+      "id": "kgv_su_0453",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.125,
+      "cheapest_down": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 1,
+        "donor": "Cả B và C.",
+        "to": 0,
+        "d_ey": 0.1725624743849039
+      },
+      "cheapest_up": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 1,
+        "donor": "Nhật.",
+        "to": 3,
+        "d_ey": 0.9218300078064203
+      },
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0459",
+      "L0": 1,
+      "n_try": 48,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0461",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.5,
+      "cheapest_down": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 1,
+        "donor": "Sản xuất tàu vũ trụ.",
+        "to": 0,
+        "d_ey": -0.08457599952816963
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0462",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0465",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0475",
+      "L0": 0,
+      "n_try": 64,
+      "rate": 0.078125,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 5
+    },
+    {
+      "id": "kgv_su_0484",
+      "L0": 0,
+      "n_try": 48,
+      "rate": 0.041666666666666664,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 2
+    },
+    {
+      "id": "kgv_su_0487",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.5,
+      "cheapest_down": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 1,
+        "donor": "Nguyễn Văn Linh.",
+        "to": 0,
+        "d_ey": -0.26496938709169626
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0493",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.5,
+      "cheapest_down": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 1,
+        "donor": "Thanh Hóa",
+        "to": 0,
+        "d_ey": -0.11450779251754284
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0494",
+      "L0": 0,
+      "n_try": 48,
+      "rate": 0.5625,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 1,
+        "donor": "Khoa học – kĩ thuật.",
+        "to": 1,
+        "d_ey": 0.03604542091488838
+      },
+      "n_uncertified_moves": 24
+    },
+    {
+      "id": "kgv_su_0495",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0500",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.25,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 1,
+        "donor": "Đức.",
+        "to": 3,
+        "d_ey": 1.0550878562498838
+      },
+      "n_uncertified_moves": 7
+    },
+    {
+      "id": "kgv_su_0501",
+      "L0": 0,
+      "n_try": 48,
+      "rate": 0.7083333333333334,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Trần Phú",
+        "to": 1,
+        "d_ey": -0.006899742409586906
+      },
+      "n_uncertified_moves": 23
+    },
+    {
+      "id": "kgv_su_0504",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.09375,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 3
+    },
+    {
+      "id": "kgv_su_0516",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.34375,
+      "cheapest_down": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 1,
+        "donor": "Đào tạo được đội ngũ cách mạng đông đảo.",
+        "to": 0,
+        "d_ey": -0.21720926836133003
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0523",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.71875,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 2,
+        "donor": "Tiếng Đức.",
+        "to": 1,
+        "d_ey": -0.04407565575093031
+      },
+      "n_uncertified_moves": 8
+    },
+    {
+      "id": "kgv_su_0527",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0528",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0531",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0533",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.46875,
+      "cheapest_down": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Lực lượng tham gia.",
+        "to": 0,
+        "d_ey": -0.11980637907981873
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0545",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.6875,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 2,
+        "donor": "Nam.",
+        "to": 1,
+        "d_ey": 0.2896895259618759
+      },
+      "n_uncertified_moves": 6
+    },
+    {
+      "id": "kgv_su_0546",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0551",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.015625,
+      "cheapest_down": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "An Nam Cộng sản đảng.",
+        "to": 0,
+        "d_ey": -0.3955203671939671
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0557",
+      "L0": 0,
+      "n_try": 64,
+      "rate": 0.875,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Việt Nam Quốc dân đảng.",
+        "to": 1,
+        "d_ey": 0.18918953277170658
+      },
+      "n_uncertified_moves": 41
+    },
+    {
+      "id": "kgv_su_0560",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0562",
+      "L0": 2,
+      "n_try": 64,
+      "rate": 0.953125,
+      "cheapest_down": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "2017.",
+        "to": 1,
+        "d_ey": -0.40150486771017313
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 47
+    },
+    {
+      "id": "kgv_su_0563",
+      "L0": 0,
+      "n_try": 64,
+      "rate": 0.15625,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 10
+    },
+    {
+      "id": "kgv_su_0567",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.65625,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 1,
+        "donor": "Công hội",
+        "to": 1,
+        "d_ey": 0.22456049919128418
+      },
+      "n_uncertified_moves": 15
+    },
+    {
+      "id": "kgv_su_0568",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.015625,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Ma rốc.",
+        "to": 3,
+        "d_ey": 0.6484117694199085
+      },
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0577",
+      "L0": 0,
+      "n_try": 48,
+      "rate": 0.041666666666666664,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 2
+    },
+    {
+      "id": "kgv_su_0578",
+      "L0": 0,
+      "n_try": 48,
+      "rate": 0.0625,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 3
+    },
+    {
+      "id": "kgv_su_0579",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.3125,
+      "cheapest_down": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 1,
+        "donor": "Lê Khả Phiêu",
+        "to": 0,
+        "d_ey": -0.19631488341838121
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0586",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.046875,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 3
+    },
+    {
+      "id": "kgv_su_0592",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.3125,
+      "cheapest_down": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Tuyên ngôn Độc lập 2/9/1945.",
+        "to": 0,
+        "d_ey": -0.42685533966869116
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 4
+    },
+    {
+      "id": "kgv_su_0599",
+      "L0": 0,
+      "n_try": 64,
+      "rate": 0.25,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 16
+    },
+    {
+      "id": "kgv_su_0600",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0606",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0611",
+      "L0": 1,
+      "n_try": 48,
+      "rate": 0.08333333333333333,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 4
+    },
+    {
+      "id": "kgv_su_0616",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0623",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0626",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0627",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.125,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 4
+    },
+    {
+      "id": "kgv_su_0630",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0634",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0647",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0649",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.125,
+      "cheapest_down": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Để xoa dịu những mâu thuẫn trong nước",
+        "to": 0,
+        "d_ey": -0.35652966145426035
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0659",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0668",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0675",
+      "L0": 0,
+      "n_try": 64,
+      "rate": 0.28125,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 2,
+        "donor": "Đế quốc Anh.",
+        "to": 1,
+        "d_ey": 0.30254533886909485
+      },
+      "n_uncertified_moves": 8
+    },
+    {
+      "id": "kgv_su_0676",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.53125,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Giao thông vận tải.",
+        "to": 2,
+        "d_ey": -0.34118197951465845
+      },
+      "n_uncertified_moves": 14
+    },
+    {
+      "id": "kgv_su_0678",
+      "L0": 1,
+      "n_try": 48,
+      "rate": 0.041666666666666664,
+      "cheapest_down": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 1,
+        "donor": "Đại hội VI.",
+        "to": 0,
+        "d_ey": -0.1444613696075976
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 1
+    },
+    {
+      "id": "kgv_su_0681",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.046875,
+      "cheapest_down": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 2,
+        "donor": "Đông Dương đại hội",
+        "to": 0,
+        "d_ey": -0.3888556445017457
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 2
+    },
+    {
+      "id": "kgv_su_0686",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0691",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.15625,
+      "cheapest_down": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Kế hoạch 5 năm 1996 – 2000.",
+        "to": 0,
+        "d_ey": -0.358957378892228
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 1
+    },
+    {
+      "id": "kgv_su_0702",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0706",
+      "L0": 1,
+      "n_try": 48,
+      "rate": 0.125,
+      "cheapest_down": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 1,
+        "donor": "Cộng hòa Dân chủ Đức.",
+        "to": 0,
+        "d_ey": -0.09430032898671925
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 3
+    },
+    {
+      "id": "kgv_su_0715",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.03125,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 1
+    },
+    {
+      "id": "kgv_su_0728",
+      "L0": 1,
+      "n_try": 48,
+      "rate": 0.1875,
+      "cheapest_down": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 1,
+        "donor": "Neil Amstrong.",
+        "to": 0,
+        "d_ey": -0.11059609428048134
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 2
+    },
+    {
+      "id": "kgv_su_0730",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.09375,
+      "cheapest_down": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Nông dân",
+        "to": 0,
+        "d_ey": -0.14129308238625526
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0747",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.03125,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 1
+    },
+    {
+      "id": "kgv_su_0752",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0757",
+      "L0": 0,
+      "n_try": 64,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0759",
+      "L0": 1,
+      "n_try": 48,
+      "rate": 0.16666666666666666,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 8
+    },
+    {
+      "id": "kgv_su_0765",
+      "L0": 0,
+      "n_try": 64,
+      "rate": 0.09375,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 6
+    },
+    {
+      "id": "kgv_su_0773",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.4375,
+      "cheapest_down": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 2,
+        "donor": "Mặt trận Dân chủ Đông Dương.",
+        "to": 0,
+        "d_ey": -0.011883862316608429
+      },
+      "cheapest_up": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 2,
+        "donor": "Trừng phạt kinh tế Việt Nam.",
+        "to": 3,
+        "d_ey": 0.12503117322921753
+      },
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0774",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.234375,
+      "cheapest_down": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 2,
+        "donor": "Chiến dịch Việt Bắc thu- đông năm 1947",
+        "to": 0,
+        "d_ey": -0.40967127913609147
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 1
+    },
+    {
+      "id": "kgv_su_0780",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.125,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 4
+    },
+    {
+      "id": "kgv_su_0782",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.34375,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 11
+    },
+    {
+      "id": "kgv_su_0785",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.15625,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 5
+    },
+    {
+      "id": "kgv_su_0787",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.28125,
+      "cheapest_down": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 2,
+        "donor": "Đại hội thống nhất châu Phi.",
+        "to": 0,
+        "d_ey": -0.1385057158768177
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 6
+    },
+    {
+      "id": "kgv_su_0789",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0798",
+      "L0": 1,
+      "n_try": 48,
+      "rate": 0.2916666666666667,
+      "cheapest_down": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 1,
+        "donor": "Toàn quyền Pôn Đu-me",
+        "to": 0,
+        "d_ey": -0.345965095795691
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0801",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0813",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.171875,
+      "cheapest_down": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Thái Nguyên",
+        "to": 0,
+        "d_ey": -0.22740893438458443
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 6
+    },
+    {
+      "id": "kgv_su_0817",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.390625,
+      "cheapest_down": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Le peria",
+        "to": 0,
+        "d_ey": -0.27937223156914115
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 10
+    },
+    {
+      "id": "kgv_su_0824",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0826",
+      "L0": 0,
+      "n_try": 64,
+      "rate": 0.03125,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 2
+    },
+    {
+      "id": "kgv_su_0829",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.03125,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 2,
+        "donor": "Đô Lương",
+        "to": 3,
+        "d_ey": 0.7613551169633865
+      },
+      "n_uncertified_moves": 1
+    },
+    {
+      "id": "kgv_su_0830",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0834",
+      "L0": 0,
+      "n_try": 64,
+      "rate": 0.0625,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 4
+    },
+    {
+      "id": "kgv_su_0836",
+      "L0": 1,
+      "n_try": 48,
+      "rate": 0.08333333333333333,
+      "cheapest_down": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 2,
+        "donor": "Phát xít Italia.",
+        "to": 0,
+        "d_ey": -0.3583576772361994
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 3
+    },
+    {
+      "id": "kgv_su_0841",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0844",
+      "L0": 0,
+      "n_try": 64,
+      "rate": 0.421875,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 27
+    },
+    {
+      "id": "kgv_su_0845",
+      "L0": 1,
+      "n_try": 48,
+      "rate": 0.08333333333333333,
+      "cheapest_down": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 2,
+        "donor": "Sản xuất tàu vũ trụ.",
+        "to": 0,
+        "d_ey": 0.028152902610599995
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 1
+    },
+    {
+      "id": "kgv_su_0853",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.0625,
+      "cheapest_down": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 2,
+        "donor": "Công nhân",
+        "to": 0,
+        "d_ey": -0.439856078941375
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0854",
+      "L0": 1,
+      "n_try": 48,
+      "rate": 0.4583333333333333,
+      "cheapest_down": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 2,
+        "donor": "Kết quả.",
+        "to": 0,
+        "d_ey": 0.04628528654575348
+      },
+      "cheapest_up": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 2,
+        "donor": "Cờ Ba Nhất",
+        "to": 3,
+        "d_ey": 0.5813445448875427
+      },
+      "n_uncertified_moves": 17
+    },
+    {
+      "id": "kgv_su_0856",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.1875,
+      "cheapest_down": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Vô sản",
+        "to": 0,
+        "d_ey": -0.061518795788288116
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 1
+    },
+    {
+      "id": "kgv_su_0860",
+      "L0": 0,
+      "n_try": 48,
+      "rate": 0.041666666666666664,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 2
+    },
+    {
+      "id": "kgv_su_0867",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.09375,
+      "cheapest_down": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Ngày 1/8/1936 ở Hà Nội",
+        "to": 0,
+        "d_ey": -0.36362315714359283
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 2
+    },
+    {
+      "id": "kgv_su_0871",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0872",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.03125,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 1
+    },
+    {
+      "id": "kgv_su_0877",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.125,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 4
+    },
+    {
+      "id": "kgv_su_0891",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0901",
+      "L0": 2,
+      "n_try": 64,
+      "rate": 0.96875,
+      "cheapest_down": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 2,
+        "donor": "Cam",
+        "to": 1,
+        "d_ey": -0.41576965525746346
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 46
+    },
+    {
+      "id": "kgv_su_0903",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.1875,
+      "cheapest_down": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 1,
+        "donor": "Mĩ, Anh, Pháp.",
+        "to": 0,
+        "d_ey": -0.42341135861352086
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0907",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0908",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.5,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Bắc Sơn (Lạng Sơn) và Tuyên Quang",
+        "to": 1,
+        "d_ey": 0.19093142449855804
+      },
+      "n_uncertified_moves": 15
+    },
+    {
+      "id": "kgv_su_0913",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0918",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0920",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0921",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.71875,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 1,
+        "donor": "Kiềm chế được lạm phát.",
+        "to": 1,
+        "d_ey": -0.13041088078171015
+      },
+      "n_uncertified_moves": 16
+    },
+    {
+      "id": "kgv_su_0925",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.28125,
+      "cheapest_down": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 1,
+        "donor": "Chủ nghĩa thực dân mới.",
+        "to": 0,
+        "d_ey": -0.11367648467421532
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 1
+    },
+    {
+      "id": "kgv_su_0927",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.21875,
+      "cheapest_down": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 1,
+        "donor": "Cứ điểm Him Lam.",
+        "to": 0,
+        "d_ey": -0.19327219016849995
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0929",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.5,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 16
+    },
+    {
+      "id": "kgv_su_0930",
+      "L0": 0,
+      "n_try": 64,
+      "rate": 0.984375,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Tổng thống Dương Văn Minh tuyên bố từ chức",
+        "to": 1,
+        "d_ey": 0.017893804237246513
+      },
+      "n_uncertified_moves": 47
+    },
+    {
+      "id": "kgv_su_0931",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.015625,
+      "cheapest_down": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Chính cương vắn tắt",
+        "to": 0,
+        "d_ey": -0.47744038235396147
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0933",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.65625,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Tiệp Khắc.",
+        "to": 1,
+        "d_ey": 0.3711144272238016
+      },
+      "n_uncertified_moves": 10
+    },
+    {
+      "id": "kgv_su_0943",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.8125,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "4",
+        "to": 1,
+        "d_ey": 0.3541710712015629
+      },
+      "n_uncertified_moves": 10
+    },
+    {
+      "id": "kgv_su_0945",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0946",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0951",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.125,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "3-2-1.",
+        "to": 3,
+        "d_ey": 0.8089834824204445
+      },
+      "n_uncertified_moves": 1
+    },
+    {
+      "id": "kgv_su_0952",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.46875,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 15
+    },
+    {
+      "id": "kgv_su_0956",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.375,
+      "cheapest_down": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 1,
+        "donor": "quân đội Trung Quốc.",
+        "to": 0,
+        "d_ey": -0.27516197971999645
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0958",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0966",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.140625,
+      "cheapest_down": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 2,
+        "donor": "Khoa học công nghệ.",
+        "to": 0,
+        "d_ey": -0.7029609950259328
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 6
+    },
+    {
+      "id": "kgv_su_0968",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.3125,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 1,
+        "donor": "Những năm đầu thế kỉ XX.",
+        "to": 1,
+        "d_ey": 0.3318719102535397
+      },
+      "n_uncertified_moves": 8
+    },
+    {
+      "id": "kgv_su_0969",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.140625,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 9
+    },
+    {
+      "id": "kgv_su_0972",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0973",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0982",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_0985",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.15625,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 5
+    },
+    {
+      "id": "kgv_su_0986",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.421875,
+      "cheapest_down": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Li-Bi.",
+        "to": 0,
+        "d_ey": 0.013965760823339224
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 20
+    },
+    {
+      "id": "kgv_su_0999",
+      "L0": 0,
+      "n_try": 64,
+      "rate": 0.328125,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 2,
+        "donor": "2/10/1990.",
+        "to": 1,
+        "d_ey": 0.08372377790510654
+      },
+      "n_uncertified_moves": 6
+    },
+    {
+      "id": "kgv_su_1003",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.046875,
+      "cheapest_down": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Đảng Cộng sản Việt Nam",
+        "to": 0,
+        "d_ey": -0.41235230676829815
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 2
+    },
+    {
+      "id": "kgv_su_1006",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_1008",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.015625,
+      "cheapest_down": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 2,
+        "donor": "Đế quốc Pháp.",
+        "to": 0,
+        "d_ey": -0.33488050382584333
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_1009",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.03125,
+      "cheapest_down": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 2,
+        "donor": "Hồ Chí Minh đọc bản Tuyên ngôn độc lập",
+        "to": 0,
+        "d_ey": -0.558819130063057
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 1
+    },
+    {
+      "id": "kgv_su_1014",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_1017",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_1021",
+      "L0": 0,
+      "n_try": 48,
+      "rate": 0.3125,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "5 năm.",
+        "to": 2,
+        "d_ey": 0.45412083715200424
+      },
+      "n_uncertified_moves": 12
+    },
+    {
+      "id": "kgv_su_1029",
+      "L0": 1,
+      "n_try": 48,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_1034",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.0625,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 2
+    },
+    {
+      "id": "kgv_su_1045",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.078125,
+      "cheapest_down": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 2,
+        "donor": "Vùng Nam Mĩ.",
+        "to": 0,
+        "d_ey": -0.4935095456894487
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_1047",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.015625,
+      "cheapest_down": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Chiến dịch Huế Đà Nẵng",
+        "to": 0,
+        "d_ey": -0.5280154005158693
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_1048",
+      "L0": 1,
+      "n_try": 48,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_1051",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.25,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 16
+    },
+    {
+      "id": "kgv_su_1053",
+      "L0": 1,
+      "n_try": 48,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_1060",
+      "L0": 3,
+      "n_try": 32,
+      "rate": 1.0,
+      "cheapest_down": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 1,
+        "donor": "J.Nêru.",
+        "to": 0,
+        "d_ey": -0.9597494723275304
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 16
+    },
+    {
+      "id": "kgv_su_1061",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_1088",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.359375,
+      "cheapest_down": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 1,
+        "donor": "Cao su và than dễ khai thác.",
+        "to": 0,
+        "d_ey": -0.17137261386960745
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 8
+    },
+    {
+      "id": "kgv_su_1102",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.09375,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 3
+    },
+    {
+      "id": "kgv_su_1107",
+      "L0": 0,
+      "n_try": 64,
+      "rate": 0.21875,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 14
+    },
+    {
+      "id": "kgv_su_1114",
+      "L0": 1,
+      "n_try": 48,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_1128",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_1133",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.1875,
+      "cheapest_down": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Thuộc địa của Mĩ, Nhật.",
+        "to": 0,
+        "d_ey": -0.3047872930765152
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 7
+    },
+    {
+      "id": "kgv_su_1137",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_1149",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_1159",
+      "L0": 0,
+      "n_try": 64,
+      "rate": 0.703125,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Hoàn thành cuộc cách mạng dân chủ ở Trung Quốc.",
+        "to": 1,
+        "d_ey": 0.3700224182102829
+      },
+      "n_uncertified_moves": 29
+    },
+    {
+      "id": "kgv_su_1169",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.1875,
+      "cheapest_down": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Thượng Lào",
+        "to": 0,
+        "d_ey": -0.17622955585829914
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_1182",
+      "L0": 0,
+      "n_try": 64,
+      "rate": 0.03125,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 2
+    },
+    {
+      "id": "kgv_su_1190",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.5625,
+      "cheapest_down": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Lê Khả Phiêu",
+        "to": 0,
+        "d_ey": -0.17398423701524734
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 25
+    },
+    {
+      "id": "kgv_su_1192",
+      "L0": 0,
+      "n_try": 64,
+      "rate": 0.109375,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 7
+    },
+    {
+      "id": "kgv_su_1197",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_1204",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_1205",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_1210",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_1220",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.34375,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 1,
+        "donor": "Thứ nhất.",
+        "to": 1,
+        "d_ey": 0.46750546246767044
+      },
+      "n_uncertified_moves": 9
+    },
+    {
+      "id": "kgv_su_1224",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.21875,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Tiếng Đức.",
+        "to": 1,
+        "d_ey": -0.10077893733978271
+      },
+      "n_uncertified_moves": 3
+    },
+    {
+      "id": "kgv_su_1225",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_1226",
+      "L0": 0,
+      "n_try": 64,
+      "rate": 0.015625,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 1
+    },
+    {
+      "id": "kgv_su_1230",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_1240",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.5625,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "40 khu vực.",
+        "to": 1,
+        "d_ey": -0.10107138101011515
+      },
+      "n_uncertified_moves": 14
+    },
+    {
+      "id": "kgv_su_1243",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.3125,
+      "cheapest_down": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 1,
+        "donor": "Hung-ga-ri.",
+        "to": 0,
+        "d_ey": -0.07435016706585884
+      },
+      "cheapest_up": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 1,
+        "donor": "Trần Cừ",
+        "to": 3,
+        "d_ey": 0.7738586720079184
+      },
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_1249",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.15625,
+      "cheapest_down": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "12/10/1945.",
+        "to": 0,
+        "d_ey": -0.4962557207327336
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_1255",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.03125,
+      "cheapest_down": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 1,
+        "donor": "1948.",
+        "to": 0,
+        "d_ey": -0.4016115483827889
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_1256",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.125,
+      "cheapest_down": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 2,
+        "donor": "Tất cả đáp án đều đúng.",
+        "to": 0,
+        "d_ey": -0.18889252841472626
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 6
+    },
+    {
+      "id": "kgv_su_1279",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.328125,
+      "cheapest_down": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Việt Nam (1960 – 1975)",
+        "to": 0,
+        "d_ey": -0.19616447668522596
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 5
+    },
+    {
+      "id": "kgv_su_1280",
+      "L0": 0,
+      "n_try": 64,
+      "rate": 0.65625,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 2,
+        "donor": "Tiệp Khắc.",
+        "to": 3,
+        "d_ey": 0.20802116766571999
+      },
+      "n_uncertified_moves": 34
+    },
+    {
+      "id": "kgv_su_1283",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_1294",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_1298",
+      "L0": 0,
+      "n_try": 48,
+      "rate": 0.0625,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 3
+    },
+    {
+      "id": "kgv_su_1308",
+      "L0": 0,
+      "n_try": 48,
+      "rate": 0.20833333333333334,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 10
+    },
+    {
+      "id": "kgv_su_1314",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.09375,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 3
+    },
+    {
+      "id": "kgv_su_1325",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.96875,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 2,
+        "donor": "Ngày 8 – 8 – 1976.",
+        "to": 1,
+        "d_ey": 0.05720474198460579
+      },
+      "n_uncertified_moves": 16
+    },
+    {
+      "id": "kgv_su_1331",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.046875,
+      "cheapest_down": {
+        "arm": "len_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 2,
+        "donor": "1955.",
+        "to": 0,
+        "d_ey": -0.45455288887023926
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_su_1335",
+      "L0": 1,
+      "n_try": 64,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    }
+  ]
+}

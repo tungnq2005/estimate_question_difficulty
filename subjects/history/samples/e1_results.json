@@ -1,0 +1,31 @@
+{
+  "n_items": 100,
+  "p_sim_mean": 0.7129942176870749,
+  "corr_llm_psim": {
+    "pearson": -0.2578099094854007,
+    "spearman": -0.26352797460534083
+  },
+  "corr_teacher_psim": {
+    "pearson": 0.0836226544595661,
+    "spearman": 0.080893129248996
+  },
+  "corr_llm_teacher": {
+    "pearson": 0.19965152512589768,
+    "spearman": 0.22070567681584674
+  },
+  "kappa_llm_teacher": -0.021074815595363422,
+  "control_pairs": {
+    "n": 20,
+    "mean_abs_delta": 0.18754251700680274,
+    "null_mean_abs_delta": 0.2223114112244898,
+    "perm_p": 0.7736,
+    "noise_floor_delta": 0.0611854265249066
+  },
+  "template_probe": {
+    "n_train": 2047,
+    "acc_llm_label": 0.53,
+    "majority_baseline": 0.42,
+    "pearson_psim": 0.03971448256945649,
+    "spearman_psim": 0.09096055877730021
+  }
+}

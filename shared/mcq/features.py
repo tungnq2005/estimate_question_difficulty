@@ -1,21 +1,26 @@
 """
 Feature Engineering Module v4.1
 ================================
-Tổng hợp features từ 3 blocks thành vector đặc trưng 33 chiều:
+Tổng hợp thành vector đặc trưng **41 chiều** (dataclass MCQFeatures):
 
-  Block A (KG):       24 features - Jaccard + RSI + KG Structure
-  Block B (KAD):       3 features - Knowledge Entropy + Path Distance 🆕
-  Block C (Embedding): 6 features - PhoBERT cosine similarities 🆕
+  Block A (KG):       27 - KG Structure (8) + Jaccard (8) + RSI (8) + Văn (3)
+  Block B (KAD):       3 - Knowledge Entropy (2) + Path Distance (1)
+  Block C (Embedding): 6 - PhoBERT cosine similarities
+  meta:                1 - entity_match_coverage
+  Toán–Lý:             4 - numeric_* (chỉ cụm prereq_dag)
 
-Pipeline unified: Mọi câu hỏi (dù có match entity hay không)
-đều được tính đầy đủ 33 features → XGBoost tự học pattern.
+7 đặc trưng cuối bật/tắt theo `config.cluster` (xem shared/subjects.py), nên
+mỗi môn thực dùng 34–38 chiều; môn Sử dùng 34. Riêng tiếng Anh đi nhánh riêng
+với 26 đặc trưng ngôn ngữ học (shared/mcq/english_features.py).
+
+Đặc trưng KHÔNG tính được trả **NaN**, không phải 0.0 — xem MISSING bên dưới.
 
 Lý thuyết nền tảng:
   - Shannon Entropy (1948): Đo khối lượng thông tin trong câu hỏi
   - Graph Theory (Euler, 1736): Khoảng cách khái niệm giữa các đáp án
   - Semantic Similarity: Mức độ nhầm lẫn ngữ nghĩa giữa stem và options
 
-Output: DataFrame với 33 cột features + label (Easy/Medium/Hard)
+Output: DataFrame gồm mcq_id + 41 cột features + label (Easy/Medium/Hard)
 """
 
 from __future__ import annotations
@@ -32,6 +37,27 @@ from .ontology_bridge import Entity, OntologyEngine
 from .jaccard import compute_jaccard_features
 from .rsi import compute_rsi_features
 
+# Giá trị cho đặc trưng KHÔNG TÍNH ĐƯỢC (thiếu PhoBERT, không khớp được thực
+# thể nào, ...). Trước đây các trường hợp này trả 0.0 — nguy hiểm vì 0.0 là một
+# giá trị HỢP LỆ mang nghĩa riêng ("không có nhầm lẫn", "các đáp án tách biệt
+# tối đa"), nên thất bại trích xuất bị mô hình đọc thành tín hiệu thật, đúng
+# lúc dữ liệu tệ nhất. XGBoost xử lý NaN gốc (tự học nhánh cho giá trị khuyết)
+# nên không cần impute.
+MISSING = float("nan")
+
+# Đếm số lần từng đặc trưng bị khuyết trong một lần chạy batch, để
+# batch_extract_features() báo cáo lại thay vì im lặng.
+_missing_counts: Dict[str, int] = {}
+_missing_reasons: Dict[str, str] = {}
+
+
+def _mark_missing(features: Dict[str, float], names, reason: str) -> None:
+    """Đánh dấu các đặc trưng là khuyết (NaN) và ghi nhận lý do."""
+    for n in names:
+        features[n] = MISSING
+        _missing_counts[n] = _missing_counts.get(n, 0) + 1
+        _missing_reasons.setdefault(n, reason)
+
 
 @dataclass
 class MCQ:
@@ -47,11 +73,11 @@ class MCQ:
 
 @dataclass
 class MCQFeatures:
-    """Feature vector 33 chiều cho 1 MCQ."""
+    """Feature vector 41 chiều cho 1 MCQ (xem docstring đầu module)."""
     # Metadata
     mcq_id: str
     
-    # ====== BLOCK A: KG-based (24 features) ======
+    # ====== BLOCK A: KG-based (27 features) ======
     # A1: KG Structure (8)
     kg_num_correct_entities: int = 0
     kg_num_distractor_entities: float = 0.0
@@ -174,7 +200,7 @@ def extract_single_mcq_features(
     engine: OntologyEngine
 ) -> MCQFeatures:
     """
-    Tính features cho một MCQ duy nhất (33 features).
+    Tính features cho một MCQ duy nhất (41 trường; 7 trường cuối gate theo cụm môn).
     
     Pipeline unified:
       1. Entity extraction (match KG entities)
@@ -299,7 +325,12 @@ def _compute_kg_features(
             total += 1
     features["entity_diversity"] = float(len(all_uris) / total) if total > 0 else 0.0
     
-    # Abstractness
+    # Abstractness — su9:abstractness chỉ được emit cho Period/Location/Person/
+    # Organization/Concept (subjects/history/build.py:emit_static_entity); lớp
+    # Event (emit_dynamic_entity) KHÔNG BAO GIỜ có trường này trong dữ liệu
+    # nguồn (không phải build.py quên emit — data/*/events_*.py không có
+    # field "abstractness"/"bloom" nào). Câu hỏi Lịch sử phần lớn khớp vào
+    # Event -> abs_vals rỗng -> trước đây trả 0.0 giả (giống lỗi T5.2), nay NaN.
     abs_vals = [
         e.abstractness for e in correct_entities
         if e.abstractness is not None
@@ -308,11 +339,13 @@ def _compute_kg_features(
         for e in d_ents:
             if e.abstractness is not None:
                 abs_vals.append(e.abstractness)
-    features["abstractness_mean"] = float(
-        sum(abs_vals) / len(abs_vals) if abs_vals else 0.0
-    )
-    
-    # Bloom Level
+    if abs_vals:
+        features["abstractness_mean"] = float(sum(abs_vals) / len(abs_vals))
+    else:
+        _mark_missing(features, ["abstractness_mean"],
+                      "không có entity nào (thường là lớp Event) mang thuộc tính abstractness")
+
+    # Bloom Level — chỉ Concept có su9:bloomLevel; cùng lý do như trên.
     bloom_vals = [
         e.bloom_level for e in correct_entities
         if e.bloom_level is not None
@@ -321,9 +354,11 @@ def _compute_kg_features(
         for e in d_ents:
             if e.bloom_level is not None:
                 bloom_vals.append(e.bloom_level)
-    features["bloom_level_mean"] = float(
-        sum(bloom_vals) / len(bloom_vals) if bloom_vals else 0.0
-    )
+    if bloom_vals:
+        features["bloom_level_mean"] = float(sum(bloom_vals) / len(bloom_vals))
+    else:
+        _mark_missing(features, ["bloom_level_mean"],
+                      "không có entity nào (thường là lớp Event) mang thuộc tính bloomLevel")
     
     # Prerequisite depth
     prereq_correct = [
@@ -367,27 +402,36 @@ def _compute_kad_features(
     Knowledge-Augmented Difficulty dựa trên:
       1. Shannon Entropy: Đo khối lượng thông tin trong KG space
       2. Graph Path Distance: Đo khoảng cách khái niệm giữa đáp án
-    
-    Các feature này hoạt động MỌI LÚC, kể cả khi không match entity,
-    vì knowledge_entropy() dùng embedding chứ không dùng text matching.
+
+    Chỉ 2 feature entropy hoạt động mọi lúc (knowledge_entropy() dùng embedding
+    chứ không dùng text matching). Ngược lại kad_path_distance_mean CẦN khớp
+    được thực thể ở đáp án đúng và ít nhất một đáp án nhiễu — không khớp được
+    thì trả NaN (khuyết), xem MISSING ở đầu module.
     """
     features = {}
-    
+
     # === 1. Knowledge Entropy ===
     try:
         features["kad_entropy_stem"] = engine.knowledge_entropy(mcq.stem)
-    except Exception:
-        features["kad_entropy_stem"] = 0.0
-    
+    except Exception as e:
+        _mark_missing(features, ["kad_entropy_stem"],
+                      f"knowledge_entropy(stem) lỗi: {type(e).__name__}")
+
     try:
         features["kad_entropy_correct"] = engine.knowledge_entropy(mcq.correct)
-    except Exception:
-        features["kad_entropy_correct"] = 0.0
-    
+    except Exception as e:
+        _mark_missing(features, ["kad_entropy_correct"],
+                      f"knowledge_entropy(correct) lỗi: {type(e).__name__}")
+
     # === 2. Path Distance ===
-    # Distance giữa correct và từng distractor (nếu có entities)
+    # Distance giữa correct và từng distractor (nếu có entities).
+    # LƯU Ý: đặc trưng này CẦN khớp được thực thể ở cả đáp án đúng lẫn ít nhất
+    # một đáp án nhiễu — docstring cũ ghi "hoạt động mọi lúc" là sai (chỉ 2
+    # feature entropy mới không cần khớp thực thể). Khi không khớp được, trước
+    # đây trả hằng 0.5 ("neutral") — một con số bịa trông như dữ liệu thật;
+    # nay đánh dấu khuyết.
+    path_dists = []
     if correct_entities:
-        path_dists = []
         for d_ents in distractors_entities:
             if d_ents:
                 # Lấy khoảng cách ngắn nhất giữa bất kỳ cặp entity nào
@@ -397,14 +441,13 @@ def _compute_kad_features(
                     for e_d in d_ents
                 )
                 path_dists.append(d)
-        
-        if path_dists:
-            features["kad_path_distance_mean"] = float(np.mean(path_dists))
-        else:
-            features["kad_path_distance_mean"] = 0.5  # fallback
+
+    if path_dists:
+        features["kad_path_distance_mean"] = float(np.mean(path_dists))
     else:
-        features["kad_path_distance_mean"] = 0.5  # fallback: neutral
-    
+        _mark_missing(features, ["kad_path_distance_mean"],
+                      "không khớp được thực thể ở đáp án đúng và/hoặc nhiễu")
+
     return features
 
 
@@ -452,14 +495,15 @@ def _compute_embedding_features(
         features["emb_discriminative_power"] = stem_correct_sim - features["emb_stem_distractor_mean_sim"]
         
     except Exception as e:
-        # Fallback: nếu không load được PhoBERT, dùng giá trị mặc định
-        features["emb_stem_distractor_mean_sim"] = 0.0
-        features["emb_stem_distractor_max_sim"] = 0.0
-        features["emb_stem_distractor_min_sim"] = 0.0
-        features["emb_stem_distractor_std_sim"] = 0.0
-        features["emb_stem_correct_sim"] = 0.0
-        features["emb_discriminative_power"] = 0.0
-    
+        # Không load được PhoBERT (hoặc lỗi khi embed): đánh dấu KHUYẾT, không
+        # trả 0.0 — cosine 0.0 nghĩa là "stem và đáp án trực giao về ngữ nghĩa",
+        # một tín hiệu mạnh và sai hoàn toàn so với "không đo được".
+        _mark_missing(features, [
+            "emb_stem_distractor_mean_sim", "emb_stem_distractor_max_sim",
+            "emb_stem_distractor_min_sim", "emb_stem_distractor_std_sim",
+            "emb_stem_correct_sim", "emb_discriminative_power",
+        ], f"PhoBERT lỗi: {type(e).__name__}: {e}")
+
     return features
 
 
@@ -479,21 +523,70 @@ def batch_extract_features(
     Returns:
         List[MCQFeatures]
     """
+    _missing_counts.clear()
+    _missing_reasons.clear()
+
     results = []
+    n_failed = 0
     for i, mcq in enumerate(mcqs):
         if verbose:
             print(f"[{i+1}/{len(mcqs)}] Đang xử lý: {mcq.id}...", end=" ", flush=True)
-        
+
         try:
             feats = extract_single_mcq_features(mcq, engine)
             results.append(feats)
             if verbose:
                 print(f"OK (entropy_stem={feats.kad_entropy_stem:.3f}, disc_pow={feats.emb_discriminative_power:.3f})")
         except Exception as e:
+            n_failed += 1
             if verbose:
                 print(f"LỖI: {e}")
-    
+
+    report_missing(results, n_total=len(mcqs), n_failed=n_failed)
     return results
+
+
+def report_missing(features_list, n_total: int = 0, n_failed: int = 0) -> Dict[str, int]:
+    """In tỉ lệ khuyết của từng đặc trưng sau một lần chạy batch.
+
+    Đếm trực tiếp NaN trên vector kết quả — bắt được cả NaN sinh ra ngoài
+    module này (ví dụ rsi_dc trong rsi.py), không chỉ những chỗ có gọi
+    _mark_missing().
+
+    Bắt buộc nhìn vào con số này trước khi tin kết quả: đặc trưng khuyết tỉ lệ
+    cao nghĩa là mô hình gần như không có tín hiệu ở đó, và phải nêu trong báo
+    cáo thay vì để 0.0 giả làm nó trông như đang hoạt động.
+    """
+    n_total = n_total or len(features_list)
+    if n_failed:
+        print(f"\n  ⚠ {n_failed}/{n_total} câu lỗi hoàn toàn (không có feature).")
+    if not features_list:
+        return {}
+
+    skip = {"mcq_id", "label"}
+    counts: Dict[str, int] = {}
+    for f in features_list:
+        for k, v in asdict(f).items():
+            if k in skip or not isinstance(v, float):
+                continue
+            if v != v:  # NaN
+                counts[k] = counts.get(k, 0) + 1
+
+    if not counts:
+        print(f"\n  Không có đặc trưng nào khuyết trên {n_total} câu.")
+        return counts
+
+    print(f"\n  Đặc trưng KHUYẾT (NaN) trên {n_total} câu:")
+    for name, cnt in sorted(counts.items(), key=lambda kv: -kv[1]):
+        pct = cnt / n_total if n_total else 0.0
+        flag = "  ← khuyết >50%, phải nêu trong báo cáo" if pct > 0.5 else ""
+        print(f"    {name:<34} {cnt:>5}/{n_total} ({pct:>5.1%}){flag}")
+    reasons = {k: v for k, v in _missing_reasons.items() if k in counts}
+    if reasons:
+        print("  Lý do (lần đầu gặp):")
+        for name, reason in sorted(reasons.items()):
+            print(f"    {name:<34} {reason}")
+    return counts
 
 
 def features_to_dataframe(features_list: List[MCQFeatures]) -> "pd.DataFrame":
@@ -501,7 +594,7 @@ def features_to_dataframe(features_list: List[MCQFeatures]) -> "pd.DataFrame":
     Chuyển đổi features thành pandas DataFrame.
     
     Returns:
-        pd.DataFrame: 33 cột features + label
+        pd.DataFrame: mcq_id + 41 cột features + label
     """
     import pandas as pd
     
@@ -526,6 +619,7 @@ def train_xgboost(
     test_size: float = 0.2,
     random_state: int = 42,
     cv_folds: int = 0,
+    groups: Optional[Dict[str, int]] = None,
 ) -> dict:
     """
     Huấn luyện XGBoost classifier.
@@ -534,16 +628,20 @@ def train_xgboost(
         features_list: Danh sách features đã gán nhãn
         test_size: Tỷ lệ test (bỏ qua khi cv_folds > 0)
         random_state: Seed
-        cv_folds: >0 thì đánh giá bằng stratified k-fold CV (ổn định hơn
-            1 lần split, khuyến nghị 5); model trả về vẫn fit trên toàn bộ data
+        cv_folds: >0 thì đánh giá bằng k-fold CV (ổn định hơn 1 lần split,
+            khuyến nghị 5); model trả về vẫn fit trên toàn bộ data
+        groups: map mcq_id -> dup_group. Có thì dùng StratifiedGroupKFold để
+            mọi bản sao của cùng một nội dung nằm CÙNG một fold — chặn rò rỉ
+            mà vẫn giữ được toàn bộ dữ liệu để train. Không có thì rơi về
+            StratifiedKFold (chỉ an toàn nếu đã lọc trùng từ trước).
 
     Returns:
         Dict chứa model, accuracy, classification report
     """
     import numpy as np
     import pandas as pd
-    from sklearn.model_selection import (StratifiedKFold, cross_val_predict,
-                                         train_test_split)
+    from sklearn.model_selection import (StratifiedGroupKFold, StratifiedKFold,
+                                         cross_val_predict, train_test_split)
     from sklearn.preprocessing import LabelEncoder
     from sklearn.metrics import accuracy_score, classification_report
     import xgboost as xgb
@@ -586,11 +684,35 @@ def train_xgboost(
             n_jobs=-1,
         )
 
+    cv_scheme = None
     if cv_folds > 0:
-        cv = StratifiedKFold(n_splits=cv_folds, shuffle=True,
-                             random_state=random_state)
-        y_pred = cross_val_predict(make_model(), X, y, cv=cv,
-                                   params={"sample_weight": weight_of(y)})
+        g = None
+        if groups:
+            g = np.array([groups.get(i, -1) for i in df_labeled["mcq_id"]])
+            if (g == -1).any():
+                n_miss = int((g == -1).sum())
+                print(f"  ⚠ {n_miss} câu không có dup_group — mỗi câu tự thành "
+                      f"một nhóm riêng.")
+                # id âm duy nhất cho từng câu thiếu nhóm, tránh gộp nhầm chúng
+                # thành CÙNG một nhóm khổng lồ
+                g[g == -1] = -np.arange(1, n_miss + 1)
+
+        if g is not None:
+            cv = StratifiedGroupKFold(n_splits=cv_folds, shuffle=True,
+                                      random_state=random_state)
+            cv_scheme = f"StratifiedGroupKFold({cv_folds}, groups=dup_group)"
+            splits = list(cv.split(X, y, groups=g))
+            # Bảo hiểm: không nhóm nào được nằm ở cả train lẫn test
+            for tr, te in splits:
+                assert not (set(g[tr]) & set(g[te])), "rò rỉ nhóm giữa các fold!"
+            y_pred = cross_val_predict(make_model(), X, y, cv=splits,
+                                       params={"sample_weight": weight_of(y)})
+        else:
+            cv = StratifiedKFold(n_splits=cv_folds, shuffle=True,
+                                 random_state=random_state)
+            cv_scheme = f"StratifiedKFold({cv_folds}) — KHÔNG chặn nhóm trùng"
+            y_pred = cross_val_predict(make_model(), X, y, cv=cv,
+                                       params={"sample_weight": weight_of(y)})
         y_eval = y
         model = make_model()
         model.fit(X, y, sample_weight=weight_of(y))
@@ -619,6 +741,7 @@ def train_xgboost(
         "classification_report": report,
         "feature_importance": importance,
         "n_samples": len(df_labeled),
+        "cv_scheme": cv_scheme,
     }
 
 
@@ -642,7 +765,7 @@ if __name__ == "__main__":
     )
     
     feats = extract_single_mcq_features(mcq, engine)
-    print(f"=== Feature Vector 33 chiều cho MCQ: {mcq.id} ===")
+    print(f"=== Feature Vector 41 chiều cho MCQ: {mcq.id} ===")
     print(f"Label: {feats.label}")
     
     print(f"\nBlock A1 - KG Structure ({len([n for n in feats.feature_names if n.startswith('kg_')])} features):")

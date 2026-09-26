@@ -1,0 +1,3293 @@
+{
+  "subject": "physics",
+  "n": 250,
+  "reps": 16,
+  "seed": 42,
+  "editable_down": 0.248,
+  "editable_up": 0.268,
+  "editable_any": 0.52,
+  "items": [
+    {
+      "id": "kgv_0011",
+      "L0": 1,
+      "n_try": 48,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0030",
+      "L0": 0,
+      "n_try": 48,
+      "rate": 0.3958333333333333,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "num_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 1,
+        "donor": "Trước khi sửa chữa điện phải cắt nguồn điện.",
+        "to": 1,
+        "d_ey": 0.017888185171189397
+      },
+      "n_uncertified_moves": 1
+    },
+    {
+      "id": "kgv_0034",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0044",
+      "L0": 2,
+      "n_try": 48,
+      "rate": 0.9375,
+      "cheapest_down": {
+        "arm": "num_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Bóng đèn dây tóc mắc vào điện nhà 220 V.",
+        "to": 1,
+        "d_ey": -0.07243467104742662
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 31
+    },
+    {
+      "id": "kgv_0050",
+      "L0": 3,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0053",
+      "L0": 2,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0059",
+      "L0": 0,
+      "n_try": 48,
+      "rate": 0.9583333333333334,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "num_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "giảm 3 lần.",
+        "to": 1,
+        "d_ey": 0.1541743006970906
+      },
+      "n_uncertified_moves": 30
+    },
+    {
+      "id": "kgv_0065",
+      "L0": 1,
+      "n_try": 16,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0084",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.03125,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "num_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "f = 1,5 cm.",
+        "to": 1,
+        "d_ey": 0.3343369210239592
+      },
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0085",
+      "L0": 0,
+      "n_try": 16,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0091",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0104",
+      "L0": 3,
+      "n_try": 16,
+      "rate": 0.1875,
+      "cheapest_down": {
+        "arm": "num_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Một lần.",
+        "to": 2,
+        "d_ey": -0.03994288570846383
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0112",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0113",
+      "L0": 0,
+      "n_try": 16,
+      "rate": 0.6875,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "num_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Cường độ dòng điện giảm đi 0,2 A.",
+        "to": 1,
+        "d_ey": 0.12143680088551567
+      },
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0116",
+      "L0": 0,
+      "n_try": 16,
+      "rate": 0.0625,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "num_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "OA = 20cm;OA' = 60cm.",
+        "to": 1,
+        "d_ey": 0.4197703539217663
+      },
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0120",
+      "L0": 2,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0122",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.125,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "num_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Kính lúp có số bội giác G = 4.",
+        "to": 1,
+        "d_ey": 0.3513302048957945
+      },
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0123",
+      "L0": 1,
+      "n_try": 16,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0129",
+      "L0": 2,
+      "n_try": 16,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0130",
+      "L0": 2,
+      "n_try": 16,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0131",
+      "L0": 1,
+      "n_try": 16,
+      "rate": 0.0625,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "num_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Điện tích thử.",
+        "to": 2,
+        "d_ey": -0.026367661332205028
+      },
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0132",
+      "L0": 2,
+      "n_try": 16,
+      "rate": 0.125,
+      "cheapest_down": {
+        "arm": "num_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Cơ năng",
+        "to": 1,
+        "d_ey": -0.5510659789065322
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0134",
+      "L0": 3,
+      "n_try": 16,
+      "rate": 0.0625,
+      "cheapest_down": {
+        "arm": "num_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Thế năng",
+        "to": 2,
+        "d_ey": -0.7572308429094421
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0146",
+      "L0": 0,
+      "n_try": 16,
+      "rate": 0.3125,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "num_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Thời gian sử dụng điện là 877 giờ.",
+        "to": 1,
+        "d_ey": 0.35761264892805567
+      },
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0155",
+      "L0": 2,
+      "n_try": 16,
+      "rate": 0.8125,
+      "cheapest_down": {
+        "arm": "num_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "gương cầu lồi",
+        "to": 1,
+        "d_ey": -0.1147858132232833
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0162",
+      "L0": 3,
+      "n_try": 16,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0168",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.3125,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "num_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "R 1 < 2R 2",
+        "to": 1,
+        "d_ey": 0.38924328417035475
+      },
+      "n_uncertified_moves": 2
+    },
+    {
+      "id": "kgv_0176",
+      "L0": 0,
+      "n_try": 16,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0178",
+      "L0": 2,
+      "n_try": 48,
+      "rate": 0.3333333333333333,
+      "cheapest_down": {
+        "arm": "num_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Cả hai sơ đồ a và b.",
+        "to": 0,
+        "d_ey": -0.37807043863471534
+      },
+      "cheapest_up": {
+        "arm": "num_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "A và B là cực Nam.",
+        "to": 3,
+        "d_ey": -0.16488486582564166
+      },
+      "n_uncertified_moves": 9
+    },
+    {
+      "id": "kgv_0183",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0193",
+      "L0": 3,
+      "n_try": 16,
+      "rate": 0.125,
+      "cheapest_down": {
+        "arm": "num_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "i > r.",
+        "to": 2,
+        "d_ey": -0.44120931549397246
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0195",
+      "L0": 2,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0197",
+      "L0": 1,
+      "n_try": 48,
+      "rate": 0.16666666666666666,
+      "cheapest_down": {
+        "arm": "num_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Làm thí nghiệm với nguồn điện có hiệu điện thế 45V.",
+        "to": 0,
+        "d_ey": -0.25466159164711916
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 7
+    },
+    {
+      "id": "kgv_0208",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0215",
+      "L0": 1,
+      "n_try": 48,
+      "rate": 0.020833333333333332,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 1
+    },
+    {
+      "id": "kgv_0220",
+      "L0": 0,
+      "n_try": 48,
+      "rate": 0.25,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "num_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Có những thời điểm hiệu điện thế lớn hơn 220V.",
+        "to": 1,
+        "d_ey": 0.1397165028019986
+      },
+      "n_uncertified_moves": 4
+    },
+    {
+      "id": "kgv_0221",
+      "L0": 1,
+      "n_try": 16,
+      "rate": 0.1875,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "num_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "I1 = 20A; I2 = 2//3A.",
+        "to": 3,
+        "d_ey": 0.44320096609608717
+      },
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0225",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.03125,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "num_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 1,
+        "donor": "(I), (II), (III) đều sai.",
+        "to": 1,
+        "d_ey": 0.42417809272059365
+      },
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0237",
+      "L0": 1,
+      "n_try": 48,
+      "rate": 0.020833333333333332,
+      "cheapest_down": {
+        "arm": "num_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Tia khúc xạ luôn nằm trùng với pháp tuyến.",
+        "to": 0,
+        "d_ey": -0.4206628898429391
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0240",
+      "L0": 3,
+      "n_try": 32,
+      "rate": 0.125,
+      "cheapest_down": {
+        "arm": "num_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Nhiệt năng thành cơ năng.",
+        "to": 1,
+        "d_ey": -1.0445586950833807
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0244",
+      "L0": 1,
+      "n_try": 48,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0246",
+      "L0": 1,
+      "n_try": 16,
+      "rate": 0.125,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "num_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Ống dây",
+        "to": 2,
+        "d_ey": 0.14355997289625244
+      },
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0258",
+      "L0": 1,
+      "n_try": 48,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0262",
+      "L0": 1,
+      "n_try": 48,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0269",
+      "L0": 1,
+      "n_try": 48,
+      "rate": 0.020833333333333332,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 1
+    },
+    {
+      "id": "kgv_0279",
+      "L0": 1,
+      "n_try": 48,
+      "rate": 0.16666666666666666,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "num_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Cả hai kính lúp có ghi “2x” và “3x” có tiêu cự bằng nhau.",
+        "to": 2,
+        "d_ey": 0.054030898502342994
+      },
+      "n_uncertified_moves": 2
+    },
+    {
+      "id": "kgv_0301",
+      "L0": 1,
+      "n_try": 48,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0307",
+      "L0": 1,
+      "n_try": 48,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0308",
+      "L0": 1,
+      "n_try": 48,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0311",
+      "L0": 0,
+      "n_try": 16,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0333",
+      "L0": 1,
+      "n_try": 48,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0337",
+      "L0": 0,
+      "n_try": 48,
+      "rate": 0.2708333333333333,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "num_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Thấu kính phân kì có tiêu cự 8cm.",
+        "to": 1,
+        "d_ey": 0.2910501718869102
+      },
+      "n_uncertified_moves": 4
+    },
+    {
+      "id": "kgv_0346",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0353",
+      "L0": 1,
+      "n_try": 16,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0368",
+      "L0": 0,
+      "n_try": 16,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0389",
+      "L0": 0,
+      "n_try": 48,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0393",
+      "L0": 0,
+      "n_try": 48,
+      "rate": 0.1875,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "num_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Cường độ dòng điện qua điện trở R2 là 2A.",
+        "to": 1,
+        "d_ey": 0.1932282341323971
+      },
+      "n_uncertified_moves": 6
+    },
+    {
+      "id": "kgv_0396",
+      "L0": 1,
+      "n_try": 16,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0398",
+      "L0": 3,
+      "n_try": 16,
+      "rate": 0.0625,
+      "cheapest_down": {
+        "arm": "num_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Thấu kính hội tụ có tiêu cự 70cm.",
+        "to": 1,
+        "d_ey": -1.2009071684438422
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0399",
+      "L0": 1,
+      "n_try": 16,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0401",
+      "L0": 0,
+      "n_try": 16,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0407",
+      "L0": 0,
+      "n_try": 16,
+      "rate": 0.8125,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "num_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Các sơ đồ (2) và (3).",
+        "to": 1,
+        "d_ey": 0.16957712247077783
+      },
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0411",
+      "L0": 1,
+      "n_try": 16,
+      "rate": 0.5625,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "num_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "2Ω.",
+        "to": 2,
+        "d_ey": 0.1780070392819748
+      },
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0425",
+      "L0": 2,
+      "n_try": 48,
+      "rate": 0.3541666666666667,
+      "cheapest_down": {
+        "arm": "num_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Một Ôm (1W ) là điện trở của một dây dẫn khi giữa hai đầu dây có hiệu điện thế 1A thì tạo nên dòng điện không đổi có cường độ 1V.",
+        "to": 1,
+        "d_ey": -0.0021813253620457385
+      },
+      "cheapest_up": {
+        "arm": "num_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Khi bị nam châm hút, thanh sắt ngắt tiếp điểm T làm cho mạch 2 được đóng hở và không có dòng điện chạy qua động cơ.",
+        "to": 3,
+        "d_ey": 0.6527531958647901
+      },
+      "n_uncertified_moves": 10
+    },
+    {
+      "id": "kgv_0432",
+      "L0": 0,
+      "n_try": 16,
+      "rate": 0.3125,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "num_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Có thể nhìn rõ một vật cách mắt lớn hơn 10cm.",
+        "to": 1,
+        "d_ey": 0.29668525493840253
+      },
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0435",
+      "L0": 0,
+      "n_try": 16,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0443",
+      "L0": 1,
+      "n_try": 16,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0447",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.53125,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "num_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Có độ mau thưa tùy ý.",
+        "to": 3,
+        "d_ey": 0.2721175083421341
+      },
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0453",
+      "L0": 0,
+      "n_try": 16,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0465",
+      "L0": 1,
+      "n_try": 16,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0469",
+      "L0": 1,
+      "n_try": 16,
+      "rate": 0.8125,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "num_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Q=IR 2 t.",
+        "to": 2,
+        "d_ey": 0.29852936958733833
+      },
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0473",
+      "L0": 2,
+      "n_try": 16,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0474",
+      "L0": 2,
+      "n_try": 32,
+      "rate": 0.15625,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 5
+    },
+    {
+      "id": "kgv_0488",
+      "L0": 0,
+      "n_try": 48,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0489",
+      "L0": 1,
+      "n_try": 48,
+      "rate": 0.1875,
+      "cheapest_down": {
+        "arm": "num_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Cả ba phương án còn lại đều sai.",
+        "to": 0,
+        "d_ey": -0.1012881967339605
+      },
+      "cheapest_up": {
+        "arm": "num_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 1,
+        "donor": "Đèn 1 sáng yếu hơn bình thường, đèn 2 sáng mạnh hơn bình thường",
+        "to": 2,
+        "d_ey": 0.6359796514111689
+      },
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0490",
+      "L0": 0,
+      "n_try": 16,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0497",
+      "L0": 1,
+      "n_try": 16,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0498",
+      "L0": 0,
+      "n_try": 64,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0504",
+      "L0": 1,
+      "n_try": 48,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0506",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0511",
+      "L0": 1,
+      "n_try": 16,
+      "rate": 0.3125,
+      "cheapest_down": {
+        "arm": "num_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "chùm tia phản xạ.",
+        "to": 0,
+        "d_ey": -0.3332969249499864
+      },
+      "cheapest_up": {
+        "arm": "num_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Từ B sang A",
+        "to": 2,
+        "d_ey": 0.09239091650940812
+      },
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0531",
+      "L0": 1,
+      "n_try": 48,
+      "rate": 0.041666666666666664,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 2
+    },
+    {
+      "id": "kgv_0537",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.03125,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 1
+    },
+    {
+      "id": "kgv_0538",
+      "L0": 0,
+      "n_try": 48,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0547",
+      "L0": 1,
+      "n_try": 48,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0558",
+      "L0": 3,
+      "n_try": 16,
+      "rate": 0.3125,
+      "cheapest_down": {
+        "arm": "num_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Một lần",
+        "to": 2,
+        "d_ey": -0.20536332570698024
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0562",
+      "L0": 1,
+      "n_try": 16,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0564",
+      "L0": 0,
+      "n_try": 48,
+      "rate": 0.020833333333333332,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "num_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Kính phân kì có tiêu cự f = 1m",
+        "to": 1,
+        "d_ey": 0.4792423750829684
+      },
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0569",
+      "L0": 2,
+      "n_try": 16,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0586",
+      "L0": 0,
+      "n_try": 48,
+      "rate": 0.625,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "num_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "điện năng là 100J thì sẽ tạo ra quang năng là 10J.",
+        "to": 1,
+        "d_ey": 0.057518899708912885
+      },
+      "n_uncertified_moves": 17
+    },
+    {
+      "id": "kgv_0587",
+      "L0": 1,
+      "n_try": 16,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0591",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.15625,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "num_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Thấu kính hội tụ có tiêu cự 40cm.",
+        "to": 1,
+        "d_ey": 0.22163049473505292
+      },
+      "n_uncertified_moves": 1
+    },
+    {
+      "id": "kgv_0592",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.0625,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 2
+    },
+    {
+      "id": "kgv_0596",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0597",
+      "L0": 1,
+      "n_try": 48,
+      "rate": 0.125,
+      "cheapest_down": {
+        "arm": "num_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Lăng kính là một dụng cụ dùng để phân tích ánh sáng trắng thành ánh sáng màu.",
+        "to": 0,
+        "d_ey": -0.3038887166588219
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 4
+    },
+    {
+      "id": "kgv_0601",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.4375,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "num_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Pin.",
+        "to": 2,
+        "d_ey": -0.0368763495794453
+      },
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0602",
+      "L0": 2,
+      "n_try": 16,
+      "rate": 0.8125,
+      "cheapest_down": {
+        "arm": "num_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Không thay đổi.",
+        "to": 1,
+        "d_ey": 0.013523532817535378
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0609",
+      "L0": 2,
+      "n_try": 16,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0621",
+      "L0": 2,
+      "n_try": 16,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0626",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0628",
+      "L0": 3,
+      "n_try": 32,
+      "rate": 0.375,
+      "cheapest_down": {
+        "arm": "num_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "kẽ sọc lục và lam.",
+        "to": 1,
+        "d_ey": -0.32188274259310257
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0629",
+      "L0": 0,
+      "n_try": 48,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0632",
+      "L0": 0,
+      "n_try": 16,
+      "rate": 0.75,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "num_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Độ lớn của ảnh.",
+        "to": 1,
+        "d_ey": -0.019069192796056678
+      },
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0640",
+      "L0": 0,
+      "n_try": 16,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0641",
+      "L0": 2,
+      "n_try": 16,
+      "rate": 0.125,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "num_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Nổi được trên mặt nước.",
+        "to": 3,
+        "d_ey": 0.03923863502730063
+      },
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0645",
+      "L0": 1,
+      "n_try": 16,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0651",
+      "L0": 2,
+      "n_try": 16,
+      "rate": 0.1875,
+      "cheapest_down": {
+        "arm": "num_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Không tốn nhiên liệu.",
+        "to": 1,
+        "d_ey": -0.36321968750941713
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0657",
+      "L0": 0,
+      "n_try": 48,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0661",
+      "L0": 0,
+      "n_try": 48,
+      "rate": 0.08333333333333333,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "num_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Có thể nhìn rõ một vật cách mắt lớn hơn 10cm.",
+        "to": 1,
+        "d_ey": 0.4780352858416107
+      },
+      "n_uncertified_moves": 1
+    },
+    {
+      "id": "kgv_0662",
+      "L0": 0,
+      "n_try": 16,
+      "rate": 0.0625,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "num_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Mệnh đề (I) đúng. Mệnh đề (II) sai.",
+        "to": 1,
+        "d_ey": 0.25957355799624793
+      },
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0668",
+      "L0": 1,
+      "n_try": 16,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0672",
+      "L0": 3,
+      "n_try": 16,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0673",
+      "L0": 1,
+      "n_try": 16,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0677",
+      "L0": 3,
+      "n_try": 16,
+      "rate": 1.0,
+      "cheapest_down": {
+        "arm": "num_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Từ",
+        "to": 1,
+        "d_ey": -0.22658170889249196
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0678",
+      "L0": 3,
+      "n_try": 16,
+      "rate": 0.0625,
+      "cheapest_down": {
+        "arm": "num_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Oát.",
+        "to": 1,
+        "d_ey": -0.7876069868251556
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0679",
+      "L0": 1,
+      "n_try": 16,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0686",
+      "L0": 1,
+      "n_try": 16,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0687",
+      "L0": 1,
+      "n_try": 16,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0691",
+      "L0": 1,
+      "n_try": 16,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0707",
+      "L0": 1,
+      "n_try": 48,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0712",
+      "L0": 2,
+      "n_try": 16,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0721",
+      "L0": 3,
+      "n_try": 16,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0733",
+      "L0": 3,
+      "n_try": 16,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0734",
+      "L0": 1,
+      "n_try": 16,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0735",
+      "L0": 3,
+      "n_try": 16,
+      "rate": 0.8125,
+      "cheapest_down": {
+        "arm": "num_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "quạt gió",
+        "to": 0,
+        "d_ey": -0.7688484095377972
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0736",
+      "L0": 1,
+      "n_try": 16,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0738",
+      "L0": 2,
+      "n_try": 16,
+      "rate": 0.0625,
+      "cheapest_down": {
+        "arm": "num_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "thế năng.",
+        "to": 1,
+        "d_ey": -0.5471140485521879
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0739",
+      "L0": 3,
+      "n_try": 16,
+      "rate": 0.75,
+      "cheapest_down": {
+        "arm": "num_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "→ ∞ (rất lớn).",
+        "to": 2,
+        "d_ey": -0.2967128027418777
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0741",
+      "L0": 2,
+      "n_try": 16,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0753",
+      "L0": 1,
+      "n_try": 16,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0775",
+      "L0": 1,
+      "n_try": 16,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0782",
+      "L0": 2,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0789",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.15625,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "num_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 2,
+        "donor": "30 phút 45 giây",
+        "to": 2,
+        "d_ey": 0.29412288049313307
+      },
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0798",
+      "L0": 3,
+      "n_try": 16,
+      "rate": 0.6875,
+      "cheapest_down": {
+        "arm": "num_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "A = P/t",
+        "to": 1,
+        "d_ey": -0.2996130687088927
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0802",
+      "L0": 0,
+      "n_try": 16,
+      "rate": 0.9375,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "num_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "P = 4,8J.",
+        "to": 1,
+        "d_ey": 0.3722069951797664
+      },
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0805",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0809",
+      "L0": 0,
+      "n_try": 16,
+      "rate": 0.125,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "num_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "f = 100 cm.",
+        "to": 3,
+        "d_ey": 0.7925864226303817
+      },
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0817",
+      "L0": 2,
+      "n_try": 48,
+      "rate": 0.7083333333333334,
+      "cheapest_down": {
+        "arm": "num_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "phần ứng.",
+        "to": 1,
+        "d_ey": -0.23968165315472367
+      },
+      "cheapest_up": {
+        "arm": "num_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Lưu lượng nước đến",
+        "to": 3,
+        "d_ey": -0.05933066134869103
+      },
+      "n_uncertified_moves": 16
+    },
+    {
+      "id": "kgv_0833",
+      "L0": 0,
+      "n_try": 48,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0842",
+      "L0": 3,
+      "n_try": 16,
+      "rate": 0.375,
+      "cheapest_down": {
+        "arm": "num_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "nồi hơi",
+        "to": 2,
+        "d_ey": -0.10475829421856009
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0848",
+      "L0": 2,
+      "n_try": 16,
+      "rate": 0.25,
+      "cheapest_down": {
+        "arm": "num_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Không đổi",
+        "to": 1,
+        "d_ey": -0.18050972775392515
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0849",
+      "L0": 2,
+      "n_try": 16,
+      "rate": 0.0625,
+      "cheapest_down": {
+        "arm": "num_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Cơ năng của rô to → điện năng.",
+        "to": 1,
+        "d_ey": -0.6654371820157261
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0862",
+      "L0": 2,
+      "n_try": 64,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0868",
+      "L0": 2,
+      "n_try": 16,
+      "rate": 0.0625,
+      "cheapest_down": {
+        "arm": "num_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Cơ năng.",
+        "to": 1,
+        "d_ey": -0.7143948623041718
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0881",
+      "L0": 3,
+      "n_try": 16,
+      "rate": 0.0625,
+      "cheapest_down": {
+        "arm": "num_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Chuông điện",
+        "to": 2,
+        "d_ey": -0.8581927220191716
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0886",
+      "L0": 0,
+      "n_try": 48,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0897",
+      "L0": 1,
+      "n_try": 48,
+      "rate": 0.08333333333333333,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 4
+    },
+    {
+      "id": "kgv_0902",
+      "L0": 2,
+      "n_try": 16,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0903",
+      "L0": 3,
+      "n_try": 16,
+      "rate": 0.1875,
+      "cheapest_down": {
+        "arm": "num_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Hóa năng",
+        "to": 2,
+        "d_ey": -0.48724592428109004
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0907",
+      "L0": 3,
+      "n_try": 16,
+      "rate": 0.125,
+      "cheapest_down": {
+        "arm": "num_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "vô cùng",
+        "to": 1,
+        "d_ey": -0.39782758644162186
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0910",
+      "L0": 2,
+      "n_try": 32,
+      "rate": 0.59375,
+      "cheapest_down": {
+        "arm": "num_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "tím.",
+        "to": 1,
+        "d_ey": -0.11194257603223812
+      },
+      "cheapest_up": {
+        "arm": "num_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 2,
+        "donor": "Tần số 25Hz.",
+        "to": 3,
+        "d_ey": 0.20131537090145124
+      },
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0919",
+      "L0": 0,
+      "n_try": 16,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0924",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.21875,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "num_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 2,
+        "donor": "n = 4 (đoạn).",
+        "to": 2,
+        "d_ey": 0.00659356706894032
+      },
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0927",
+      "L0": 0,
+      "n_try": 48,
+      "rate": 0.5,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "num_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 1,
+        "donor": "Năng lượng hạt nhân",
+        "to": 1,
+        "d_ey": -0.0331446628030343
+      },
+      "n_uncertified_moves": 4
+    },
+    {
+      "id": "kgv_0931",
+      "L0": 2,
+      "n_try": 16,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0936",
+      "L0": 3,
+      "n_try": 16,
+      "rate": 0.125,
+      "cheapest_down": {
+        "arm": "num_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "La bàn",
+        "to": 1,
+        "d_ey": -1.0694850373369094
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0938",
+      "L0": 3,
+      "n_try": 16,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0939",
+      "L0": 3,
+      "n_try": 16,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0946",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0949",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0959",
+      "L0": 2,
+      "n_try": 16,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0960",
+      "L0": 3,
+      "n_try": 16,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0962",
+      "L0": 3,
+      "n_try": 16,
+      "rate": 0.0625,
+      "cheapest_down": {
+        "arm": "num_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Oát.",
+        "to": 2,
+        "d_ey": -0.4789668365851134
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0965",
+      "L0": 2,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0966",
+      "L0": 2,
+      "n_try": 16,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0967",
+      "L0": 2,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0989",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.09375,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 3
+    },
+    {
+      "id": "kgv_0994",
+      "L0": 3,
+      "n_try": 16,
+      "rate": 0.0625,
+      "cheapest_down": {
+        "arm": "num_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Động năng",
+        "to": 1,
+        "d_ey": -1.0731413643661973
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_0999",
+      "L0": 2,
+      "n_try": 16,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_1002",
+      "L0": 3,
+      "n_try": 16,
+      "rate": 0.0625,
+      "cheapest_down": {
+        "arm": "num_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Động năng",
+        "to": 2,
+        "d_ey": -0.7700881177357881
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_1005",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_1009",
+      "L0": 1,
+      "n_try": 16,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_1012",
+      "L0": 2,
+      "n_try": 16,
+      "rate": 0.75,
+      "cheapest_down": {
+        "arm": "num_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Không",
+        "to": 0,
+        "d_ey": -0.44192681166602354
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_1014",
+      "L0": 0,
+      "n_try": 48,
+      "rate": 0.1875,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "num_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Một Ôm (1W ) là dây dẫn khi giữa hai đầu dây có hiệu điện thế 1A thì tạo nên dòng điện không đổi có cường độ 1V.",
+        "to": 1,
+        "d_ey": 0.027387722127094616
+      },
+      "n_uncertified_moves": 3
+    },
+    {
+      "id": "kgv_1015",
+      "L0": 0,
+      "n_try": 16,
+      "rate": 0.4375,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "num_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Kính hội tụ có tiêu cự f = 0,5m",
+        "to": 1,
+        "d_ey": -0.06121273721745224
+      },
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_1021",
+      "L0": 0,
+      "n_try": 48,
+      "rate": 0.14583333333333334,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "num_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Có thể nhìn rõ một vật cách mắt lớn hơn 50cm.",
+        "to": 1,
+        "d_ey": -0.029318891172529504
+      },
+      "n_uncertified_moves": 3
+    },
+    {
+      "id": "kgv_1023",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.03125,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "num_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Kính hội tụ có tiêu cự f = 0,5m",
+        "to": 1,
+        "d_ey": 0.3605767904791141
+      },
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_1028",
+      "L0": 3,
+      "n_try": 16,
+      "rate": 0.875,
+      "cheapest_down": {
+        "arm": "num_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Có tác dụng dẫn điện từ mạch 1 sang mạch 2.",
+        "to": 0,
+        "d_ey": -0.03418590339615957
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_1029",
+      "L0": 1,
+      "n_try": 48,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_1045",
+      "L0": 1,
+      "n_try": 16,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_1047",
+      "L0": 0,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_1054",
+      "L0": 2,
+      "n_try": 16,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_1059",
+      "L0": 2,
+      "n_try": 16,
+      "rate": 0.0625,
+      "cheapest_down": {
+        "arm": "num_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "cơ năng",
+        "to": 1,
+        "d_ey": -0.540198503864632
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_1061",
+      "L0": 2,
+      "n_try": 16,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_1067",
+      "L0": 0,
+      "n_try": 16,
+      "rate": 0.3125,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "num_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "G = 25 – f",
+        "to": 1,
+        "d_ey": 0.7729323841837736
+      },
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_1079",
+      "L0": 1,
+      "n_try": 32,
+      "rate": 0.375,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 12
+    },
+    {
+      "id": "kgv_1085",
+      "L0": 2,
+      "n_try": 32,
+      "rate": 0.34375,
+      "cheapest_down": {
+        "arm": "num_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "ảnh thật, cùng chiều, nhỏ hơn vật.",
+        "to": 0,
+        "d_ey": -0.5883795548396553
+      },
+      "cheapest_up": {
+        "arm": "num_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "thay đổi khoảng cách từ thể thủy tinh đến màng lưới.",
+        "to": 3,
+        "d_ey": -0.17662035478814975
+      },
+      "n_uncertified_moves": 8
+    },
+    {
+      "id": "kgv_1086",
+      "L0": 1,
+      "n_try": 48,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_1087",
+      "L0": 2,
+      "n_try": 48,
+      "rate": 0.875,
+      "cheapest_down": {
+        "arm": "num_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Công mà dòng điện thực hiện trong một phút khi dụng cụ này được sử dụng với đúng hiệu điện thế 220V.",
+        "to": 1,
+        "d_ey": -0.25053695549276944
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 30
+    },
+    {
+      "id": "kgv_1092",
+      "L0": 1,
+      "n_try": 48,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_1095",
+      "L0": 0,
+      "n_try": 48,
+      "rate": 0.22916666666666666,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "num_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "OA = 50cm;OA' = 30cm. Sử dụng dữ kiện sau trả lời các câu 4,5 Vật AB cách thấu kính hội tụ 55 cm thì ảnh A’B’ cách thấu kính 20 cm.",
+        "to": 1,
+        "d_ey": 0.07635297614716818
+      },
+      "n_uncertified_moves": 4
+    },
+    {
+      "id": "kgv_1096",
+      "L0": 0,
+      "n_try": 48,
+      "rate": 0.5416666666666666,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "num_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "3,4375cm 2 .",
+        "to": 1,
+        "d_ey": 0.6057754803123847
+      },
+      "n_uncertified_moves": 11
+    },
+    {
+      "id": "kgv_1100",
+      "L0": 3,
+      "n_try": 48,
+      "rate": 0.10416666666666667,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 5
+    },
+    {
+      "id": "kgv_1101",
+      "L0": 1,
+      "n_try": 48,
+      "rate": 0.041666666666666664,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "num_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Bóng dây tóc tiết kiệm hơn bóng compac 304.000 VNĐ",
+        "to": 3,
+        "d_ey": 0.9040434588980568
+      },
+      "n_uncertified_moves": 1
+    },
+    {
+      "id": "kgv_1111",
+      "L0": 2,
+      "n_try": 48,
+      "rate": 0.22916666666666666,
+      "cheapest_down": {
+        "arm": "num_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Có thể nhìn rõ một vật cách mắt lớn hơn 50cm.",
+        "to": 1,
+        "d_ey": -0.1224569968558129
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 9
+    },
+    {
+      "id": "kgv_1113",
+      "L0": 3,
+      "n_try": 48,
+      "rate": 0.5,
+      "cheapest_down": {
+        "arm": "num_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Góc khúc xạ r = 60 0",
+        "to": 1,
+        "d_ey": -0.2798981511440255
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 21
+    },
+    {
+      "id": "kgv_1114",
+      "L0": 1,
+      "n_try": 48,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_1123",
+      "L0": 1,
+      "n_try": 48,
+      "rate": 0.041666666666666664,
+      "cheapest_down": {
+        "arm": "num_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Chiều dài lớn gấp 4 lần thì điện trở nhỏ hơn 4 lần, tiết diện lớn gấp 2 lần thì điện trở lớn gấp 2 lần. Vậy R 1 = 0,5R 2 .",
+        "to": 0,
+        "d_ey": -0.43244669984851214
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 1
+    },
+    {
+      "id": "kgv_1131",
+      "L0": 1,
+      "n_try": 48,
+      "rate": 0.125,
+      "cheapest_down": {
+        "arm": "num_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "I1 ≠ I2",
+        "to": 0,
+        "d_ey": -0.086709729618073
+      },
+      "cheapest_up": {
+        "arm": "num_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "3,125 mm.",
+        "to": 3,
+        "d_ey": 0.5423601998224263
+      },
+      "n_uncertified_moves": 2
+    },
+    {
+      "id": "kgv_1134",
+      "L0": 2,
+      "n_try": 48,
+      "rate": 0.7083333333333334,
+      "cheapest_down": {
+        "arm": "num_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "OA = 20cm;OA' = 60cm.",
+        "to": 1,
+        "d_ey": 0.1430084148537043
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 32
+    },
+    {
+      "id": "kgv_1138",
+      "L0": 2,
+      "n_try": 32,
+      "rate": 0.34375,
+      "cheapest_down": {
+        "arm": "num_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 2,
+        "donor": "Góc tới nhỏ hơn góc khúc xạ.",
+        "to": 0,
+        "d_ey": -0.7477990784041189
+      },
+      "cheapest_up": {
+        "arm": "num_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 2,
+        "donor": "Xung quanh nam châm.",
+        "to": 3,
+        "d_ey": 0.20821536835540932
+      },
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_1141",
+      "L0": 2,
+      "n_try": 16,
+      "rate": 0.4375,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "num_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "I 2 = 0,1A; I 3 = 0,3A",
+        "to": 3,
+        "d_ey": 0.28386013910577756
+      },
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_1146",
+      "L0": 3,
+      "n_try": 16,
+      "rate": 0.6875,
+      "cheapest_down": {
+        "arm": "num_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "hút.",
+        "to": 2,
+        "d_ey": -0.07921456928383197
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_1150",
+      "L0": 0,
+      "n_try": 48,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_1158",
+      "L0": 1,
+      "n_try": 48,
+      "rate": 0.75,
+      "cheapest_down": {
+        "arm": "num_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Bóng đèn dây tóc mắc vào điện nhà 220V.",
+        "to": 0,
+        "d_ey": 0.09823027679074459
+      },
+      "cheapest_up": {
+        "arm": "num_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "cuộn có n 1 vòng mắc vào hai đầu đường dây tải điện.",
+        "to": 2,
+        "d_ey": 0.005976259231518455
+      },
+      "n_uncertified_moves": 22
+    },
+    {
+      "id": "kgv_1160",
+      "L0": 2,
+      "n_try": 32,
+      "rate": 0.78125,
+      "cheapest_down": {
+        "arm": "num_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Tần số quay của máy phát điện ở nước ta hiện nay là 100 Hz.",
+        "to": 0,
+        "d_ey": -0.2335995893317805
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 15
+    },
+    {
+      "id": "kgv_1166",
+      "L0": 3,
+      "n_try": 48,
+      "rate": 0.5625,
+      "cheapest_down": {
+        "arm": "num_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Làm thí nghiệm với nguồn điện có hiệu điện thế 45V.",
+        "to": 2,
+        "d_ey": -0.1335072927101293
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 19
+    },
+    {
+      "id": "kgv_1170",
+      "L0": 2,
+      "n_try": 16,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_1178",
+      "L0": 2,
+      "n_try": 16,
+      "rate": 0.0625,
+      "cheapest_down": {
+        "arm": "num_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Thấu kính phân kì có tiêu cự 10cm.",
+        "to": 1,
+        "d_ey": -0.5182886143274117
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_1184",
+      "L0": 1,
+      "n_try": 48,
+      "rate": 0.6875,
+      "cheapest_down": {
+        "arm": "num_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "I1 = 20A; I2 = 2//3A.",
+        "to": 0,
+        "d_ey": 0.031362819750423876
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 26
+    },
+    {
+      "id": "kgv_1187",
+      "L0": 1,
+      "n_try": 16,
+      "rate": 0.0625,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "num_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Vật đặt cách kính 12cm và ảnh cách kính 120cm.",
+        "to": 3,
+        "d_ey": 0.5769403995536693
+      },
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_1188",
+      "L0": 1,
+      "n_try": 48,
+      "rate": 0.041666666666666664,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "num_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Lực hút giữa hai nam châm do 2 cực khác tên ở gần nhau.",
+        "to": 3,
+        "d_ey": 0.5824269253055167
+      },
+      "n_uncertified_moves": 1
+    },
+    {
+      "id": "kgv_1197",
+      "L0": 3,
+      "n_try": 48,
+      "rate": 0.125,
+      "cheapest_down": {
+        "arm": "num_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "đưa nam châm ra xa cuộn dây theo phương vuông góc với tiết diện S của cuộn dây.",
+        "to": 1,
+        "d_ey": -0.7121458372473433
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_1212",
+      "L0": 0,
+      "n_try": 16,
+      "rate": 0.1875,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "num_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "R4 = 25Ω",
+        "to": 1,
+        "d_ey": 0.5438731709245254
+      },
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_1213",
+      "L0": 2,
+      "n_try": 48,
+      "rate": 0.4583333333333333,
+      "cheapest_down": {
+        "arm": "num_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "đeo sát mắt một thấu kính hội tụ có tiêu cự 50cm.",
+        "to": 1,
+        "d_ey": -0.08417270719293257
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 18
+    },
+    {
+      "id": "kgv_1219",
+      "L0": 2,
+      "n_try": 32,
+      "rate": 0.5,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 16
+    },
+    {
+      "id": "kgv_1227",
+      "L0": 2,
+      "n_try": 48,
+      "rate": 0.7708333333333334,
+      "cheapest_down": {
+        "arm": "num_down",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Cực Bắc tại A, cực Nam tại B và từ trường đều ở hai cực.",
+        "to": 0,
+        "d_ey": -0.12869069884832207
+      },
+      "cheapest_up": {
+        "arm": "num_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 1,
+        "donor": "Ảnh thật cao 2cm.",
+        "to": 3,
+        "d_ey": 0.4426376429065537
+      },
+      "n_uncertified_moves": 16
+    },
+    {
+      "id": "kgv_1228",
+      "L0": 3,
+      "n_try": 48,
+      "rate": 0.0625,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 3
+    },
+    {
+      "id": "kgv_1230",
+      "L0": 0,
+      "n_try": 16,
+      "rate": 0.0625,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "num_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "ảnh ảo cao 2 cm.",
+        "to": 3,
+        "d_ey": 1.410995437391505
+      },
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_1235",
+      "L0": 3,
+      "n_try": 32,
+      "rate": 0.28125,
+      "cheapest_down": {
+        "arm": "num_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Kính lúp có số bội giác G = 5x.",
+        "to": 2,
+        "d_ey": -0.303757624730578
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_1245",
+      "L0": 1,
+      "n_try": 48,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_1248",
+      "L0": 1,
+      "n_try": 48,
+      "rate": 0.3541666666666667,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 17
+    },
+    {
+      "id": "kgv_1272",
+      "L0": 0,
+      "n_try": 16,
+      "rate": 0.1875,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "num_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "f = 17,67cm.",
+        "to": 1,
+        "d_ey": 0.2391250842139756
+      },
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_1291",
+      "L0": 2,
+      "n_try": 48,
+      "rate": 0.20833333333333334,
+      "cheapest_down": {
+        "arm": "num_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Đều là thấu kính hội tụ.(1)",
+        "to": 1,
+        "d_ey": -0.307627927564166
+      },
+      "cheapest_up": null,
+      "n_uncertified_moves": 9
+    },
+    {
+      "id": "kgv_1298",
+      "L0": 0,
+      "n_try": 16,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_1305",
+      "L0": 2,
+      "n_try": 16,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_1312",
+      "L0": 2,
+      "n_try": 16,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_1325",
+      "L0": 2,
+      "n_try": 48,
+      "rate": 0.2708333333333333,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "num_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Điện trở tương đương của cả mạch là 15Ω.",
+        "to": 3,
+        "d_ey": -0.08825227616153719
+      },
+      "n_uncertified_moves": 10
+    },
+    {
+      "id": "kgv_1326",
+      "L0": 0,
+      "n_try": 48,
+      "rate": 0.20833333333333334,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "num_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Kính phân kì có tiêu cự f = 1m",
+        "to": 1,
+        "d_ey": 0.4204564911426796
+      },
+      "n_uncertified_moves": 2
+    },
+    {
+      "id": "kgv_1329",
+      "L0": 1,
+      "n_try": 48,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_1343",
+      "L0": 1,
+      "n_try": 48,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_1357",
+      "L0": 1,
+      "n_try": 48,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_1365",
+      "L0": 1,
+      "n_try": 48,
+      "rate": 0.16666666666666666,
+      "cheapest_down": {
+        "arm": "num_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Làm thí nghiệm với nguồn điện có hiệu điện thế 45V.",
+        "to": 0,
+        "d_ey": -0.2662873922765535
+      },
+      "cheapest_up": {
+        "arm": "num_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Đèn 1 sáng yếu hơn bình thường, đèn 2 sáng mạnh hơn bình thường",
+        "to": 2,
+        "d_ey": 0.5096049103950336
+      },
+      "n_uncertified_moves": 6
+    },
+    {
+      "id": "kgv_1381",
+      "L0": 2,
+      "n_try": 32,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_1383",
+      "L0": 1,
+      "n_try": 48,
+      "rate": 0.0625,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "num_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Ở vị trí S 1 , xa tấm thủy tinh hơn S.",
+        "to": 2,
+        "d_ey": 0.4029593666154341
+      },
+      "n_uncertified_moves": 2
+    },
+    {
+      "id": "kgv_1408",
+      "L0": 0,
+      "n_try": 16,
+      "rate": 0.9375,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "num_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Số 2 và 3.",
+        "to": 2,
+        "d_ey": 0.27963728542494326
+      },
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_1417",
+      "L0": 0,
+      "n_try": 16,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_1426",
+      "L0": 0,
+      "n_try": 48,
+      "rate": 0.10416666666666667,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "num_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "phân kì có tiêu cự 25 cm.",
+        "to": 1,
+        "d_ey": 0.47811353159623005
+      },
+      "n_uncertified_moves": 2
+    },
+    {
+      "id": "kgv_1427",
+      "L0": 1,
+      "n_try": 48,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_1435",
+      "L0": 1,
+      "n_try": 48,
+      "rate": 0.020833333333333332,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 1
+    },
+    {
+      "id": "kgv_1447",
+      "L0": 0,
+      "n_try": 48,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_1453",
+      "L0": 0,
+      "n_try": 16,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_1454",
+      "L0": 0,
+      "n_try": 48,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_1475",
+      "L0": 1,
+      "n_try": 16,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_1485",
+      "L0": 0,
+      "n_try": 48,
+      "rate": 0.020833333333333332,
+      "cheapest_down": null,
+      "cheapest_up": {
+        "arm": "num_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "đeo sát mắt một thấu kính hội tụ có tiêu cự 50cm.",
+        "to": 1,
+        "d_ey": 0.3304852819375089
+      },
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_1500",
+      "L0": 2,
+      "n_try": 16,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_1531",
+      "L0": 1,
+      "n_try": 48,
+      "rate": 0.4166666666666667,
+      "cheapest_down": {
+        "arm": "num_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Loa không kêu, do lực tác dụng lên cuộn dây khi đó bằng 0 nên loa không phát ra được âm thanh.",
+        "to": 0,
+        "d_ey": -0.029662035812207277
+      },
+      "cheapest_up": {
+        "arm": "num_up",
+        "axis": "BỀ MẶT",
+        "certified": true,
+        "slot": 0,
+        "donor": "Cả hai kính lúp có ghi “2x” và “3x” có tiêu cự bằng nhau.",
+        "to": 2,
+        "d_ey": 0.20994310420018247
+      },
+      "n_uncertified_moves": 15
+    },
+    {
+      "id": "kgv_1533",
+      "L0": 2,
+      "n_try": 16,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_1538",
+      "L0": 2,
+      "n_try": 16,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    },
+    {
+      "id": "kgv_1542",
+      "L0": 2,
+      "n_try": 16,
+      "rate": 0.0,
+      "cheapest_down": null,
+      "cheapest_up": null,
+      "n_uncertified_moves": 0
+    }
+  ]
+}

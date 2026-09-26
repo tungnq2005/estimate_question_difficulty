@@ -1,0 +1,181 @@
+<h1>BÁO CÁO TIẾN ĐỘ — 6 TUẦN (11/07 – 22/08/2026)</h1>
+<p><b>Đề tài:</b> Ước lượng độ khó câu hỏi trắc nghiệm bằng Đồ thị Tri thức và Học máy<br>
+<b>Mốc trước:</b> XGBoost đạt 75,6% trên 3.152 câu Lịch sử 9 (dữ liệu do nhóm tự gán nhãn)</p>
+
+<h2>1. Một câu tóm tắt</h2>
+
+<p>Việc lớn nhất của 6 tuần qua là <b>chuyển từ dữ liệu nhóm tự gán nhãn sang dữ liệu có nhãn thật do giáo viên soạn</b> — và chạy lại toàn bộ phép đo trên nền nhãn thật đó. Kết quả đổi khác đáng kể so với báo cáo trước, mở ra ba hướng nghiên cứu tổng quát hơn hẳn đề tài ban đầu (mục 5).</p>
+
+<h2>2. Đã làm gì</h2>
+
+<ul>
+<li><b>Thu được bộ nhãn thật:</b> 1.539 câu Vật lí gắn mức NB/TH/VD/VDC do giáo viên soạn, + 90 câu Lịch sử do 1 giáo viên chấm trực tiếp.</li>
+<li>Đọc <b>toàn văn</b> 7 công trình nền tảng (survey ACM CSUR 2023 + 6 bài liên quan trực tiếp).</li>
+<li>Mở rộng ontology <b>Lịch sử: 434 → 480 thực thể, 761 → 937 quan hệ</b>; bồi ontology <b>Vật lí bằng LLM có kiểm soát: 132 → 319 thực thể</b> (độ phủ 0,187 → 0,427).</li>
+<li>Dựng hạ tầng đo lường: mô phỏng học sinh (<b>4.996 lượt trả lời</b>), phân tích câu hỏi (KR-20), khung Cold→Warm, bộ công cụ so sánh các nguồn nhãn.</li>
+</ul>
+
+<hr>
+
+<h2>3. Bộ nhãn thật NB/TH/VD/VDC — tài sản chính thu được kỳ này</h2>
+
+<p>Trước đây toàn bộ 3.152 câu Lịch sử là <b>do nhóm tự gán nhãn</b> (quy trình 3 phiếu độc lập). Đó là cách làm chấp nhận được khi chưa có nguồn nào khác, nhưng nhãn tự gán không thể vừa là <i>dữ liệu huấn luyện</i> vừa là <i>chuẩn để đánh giá</i>. Kỳ này nhóm đã lấp được chỗ đó.</p>
+
+<h3>3.1. Nguồn và quy mô</h3>
+
+<table border="1" cellpadding="6" cellspacing="0">
+<tr><th>Đặc điểm</th><th>Nội dung</th></tr>
+<tr><td>Nguồn</td><td>kenhgiaovien.com — trang tài nguyên giáo viên; mỗi bài đã chia sẵn 4 mức theo <b>ma trận đề</b></td></tr>
+<tr><td>Quy mô</td><td><b>1.539 câu</b> dùng được, lấy từ <b>53 bài</b> SGK Vật lí 9</td></tr>
+<tr><td>Thang nhãn</td><td><b>Nhận biết / Thông hiểu / Vận dụng / Vận dụng cao</b> — thang nhận thức chuẩn của Bộ GD&amp;ĐT</td></tr>
+<tr><td>Phân bố</td><td>NB <b>443</b> · TH <b>510</b> · VD <b>367</b> · VDC <b>219</b> — cả 4 mức đều đủ dày để huấn luyện và kiểm định</td></tr>
+<tr><td>Ai gán nhãn</td><td><b>Giáo viên soạn tài liệu</b>, gán khi thiết kế ma trận đề — không phải nhóm, không phải máy</td></tr>
+</table>
+
+<p><b>Vì sao đây là bước tiến quan trọng:</b> lần đầu đề tài có một chuẩn đối chiếu <i>do người thật gán</i> với cỡ mẫu đủ lớn để chạy 5-fold nghiêm túc — gấp <b>17 lần</b> số nhãn giáo viên thu được bên môn Lịch sử. Và nó <b>không phụ thuộc bất kỳ phê duyệt nào</b>, khác hẳn dữ liệu khảo sát học sinh.</p>
+
+<p><b>Hai điểm phải nêu thẳng:</b> (i) nguồn không kèm đáp án nên nhóm dùng LLM xác định đáp án cho cả 1.539 câu — đáp án vật lí là <i>khách quan</i>, khác hẳn nhãn mức độ <i>chủ quan</i>, nên việc này không làm nhiễm nhãn; (ii) nhãn lấy từ tài liệu công khai, <b>chưa được giáo viên thứ hai kiểm định chéo</b> — đây là việc nên làm và đã đưa vào danh mục chi phí (mục 6, C7).</p>
+
+<h3>3.2. Chạy lại toàn bộ phép đo trên nhãn thật — kết quả</h3>
+
+<p><b>(a) Ablation công bằng</b> (XGBoost 4 lớp, 5-fold CV trên 1.539 câu nhãn thật):</p>
+
+<table border="1" cellpadding="6" cellspacing="0">
+<tr><th>Bộ đặc trưng</th><th>QWK</th><th>macro-F1</th></tr>
+<tr><td>chỉ đặc trưng số</td><td>0,371</td><td>0,299</td></tr>
+<tr><td>chỉ đồ thị tri thức</td><td>0,316</td><td>0,293</td></tr>
+<tr><td>số + đồ thị tri thức</td><td>0,375</td><td>0,336</td></tr>
+<tr><td>đoán lớp đông nhất</td><td>—</td><td>acc 0,331</td></tr>
+</table>
+
+<p><b>⇒ Đồ thị tri thức thêm gần như không có giá trị biên</b> (0,375 so với 0,371). Kiểm chặt hơn trong nhóm VD vs VDC — đều là câu tính toán, cho KG "đất diễn" — thì QWK của KG-only còn <b>âm (−0,024)</b>. Đây là kết luận dựa trên <b>nhãn người</b>, nên nó vững hơn mọi kết luận trước đó của đề tài.</p>
+
+<p><b>(b) Tín hiệu thật đã tìm ra: "câu có phải tính toán không".</b> Số lựa chọn chứa con số tương quan <b>+0,470</b> với nhãn, tăng đơn điệu sạch qua cả 4 mức:</p>
+
+<table border="1" cellpadding="6" cellspacing="0">
+<tr><th>Mức</th><th>NB</th><th>TH</th><th>VD</th><th>VDC</th></tr>
+<tr><td>Số lựa chọn chứa con số (trung bình)</td><td>0,41</td><td>1,09</td><td>2,32</td><td>2,74</td></tr>
+</table>
+
+<p>Đây là <b>phát hiện dương tính</b> — và nó dẫn thẳng tới hướng tổng quát H2 ở mục 5.</p>
+
+<p><b>(c) Máy chấm mức nhận thức so với giáo viên</b> (1.539 câu, chấm mù, đúng rubric Bộ GD&amp;ĐT):</p>
+
+<table border="1" cellpadding="6" cellspacing="0">
+<tr><th>Chỉ số</th><th>Giá trị</th></tr>
+<tr><td>Cohen κ</td><td>+0,284 (mức "fair")</td></tr>
+<tr><td>Tương quan polychoric (biến ẩn)</td><td>+0,644 — bám đúng gradient NB→TH→VD→VDC</td></tr>
+<tr><td>Đồng thuận tuyệt đối</td><td>48,7% — một nửa số câu lệch ≥ 1 mức</td></tr>
+<tr><td><b>Nhận ra đúng mức Vận dụng cao</b></td><td><b>chỉ 11%</b> (24/219 câu), đổ 56% xuống mức VD</td></tr>
+</table>
+
+<p><b>Điểm mù VDC là phát hiện có giá trị nhất ở bảng này:</b> "vận dụng cao" nghĩa là nhiều bước, kết hợp nhiều công thức — thứ chỉ xác định được qua <b>lời giải</b>. Bề mặt câu chữ chỉ để lộ "đây là bài tính". <b>Độ phức tạp của lời giải không nằm trên bề mặt câu hỏi</b> — đây chính là giới hạn cốt lõi của mọi phương pháp cold-start, và cũng là khoảng trống mà đồ thị tri thức được dựng ra để lấp nhưng đo được là không lấp được.</p>
+
+<hr>
+
+<h2>4. Kết quả trên môn Lịch sử và bài học về nhãn tự gán</h2>
+
+<p>Song song, nhóm kiểm lại chất lượng bộ nhãn 3.152 câu Lịch sử <b>do chính nhóm gán</b>, bằng phản hồi mô phỏng của LLM đóng vai học sinh (4.996 lượt, kiểm định hiệu lực đạt: tương quan hạng năng lực–điểm +1,000; KR-20 0,78–0,84).</p>
+
+<table border="1" cellpadding="6" cellspacing="0">
+<tr><th>Phép đo</th><th>Kết quả</th></tr>
+<tr><td>Mô hình <i>chỉ đọc n-gram câu dẫn</i> (không chạm nội dung) đoán nhãn nhóm gán</td><td>53,0% vs 42,0% đoán bừa → <b>+11 điểm</b></td></tr>
+<tr><td>Cũng mô hình đó, đoán tỉ lệ học sinh làm đúng</td><td>Spearman +0,091 → <b>≈ 0</b></td></tr>
+<tr><td>Hai câu được gán <b>cùng một mức</b> vẫn chênh nhau tỉ lệ làm đúng</td><td><b>22,2 điểm phần trăm</b> (sàn nhiễu chỉ 6,1)</td></tr>
+</table>
+
+<p><b>⇒ Bộ nhãn nhóm tự gán bám vào cách hành văn nhiều hơn bám vào độ khó nội dung.</b> Nói cách khác, con số 75,6% ở báo cáo trước đo <i>khả năng tái tạo cách gán nhãn của chính nhóm</i>, không đo độ khó thật. Đây không phải sự cố — đó là giới hạn cố hữu của mọi bộ nhãn tự gán khi không có chuẩn đối chiếu độc lập, và chính vì thấy trước điều này mà nhóm đã đi tìm nguồn nhãn thật ở mục 3.</p>
+
+<p><b>Một quan sát phụ đáng chú ý:</b> khi đổi chuẩn chấm từ nhãn tự gán sang hiệu suất làm bài, thứ hạng hai nhóm đặc trưng <b>đảo ngược</b> — đặc trưng văn bản thắng đậm trên nhãn tự gán (70,3% vs 60,6%) nhưng mất sạch tín hiệu trên hiệu suất làm bài (ρ = +0,019), còn đặc trưng tri thức thì giữ được chút tín hiệu (ρ = +0,151). Cả hai đều yếu tuyệt đối, nên phát biểu đúng là <i>"đặc trưng tri thức giữ tín hiệu ở nơi đặc trưng văn bản mất sạch"</i>, không phải <i>"KG thắng"</i>.</p>
+
+<h3>Khó khăn</h3>
+
+<ol>
+<li><b>Đơn xin phép nhà trường khảo sát ~150 học sinh KHÔNG được duyệt.</b> Rủi ro số 1 đã ghi sẵn kèm phương án dự phòng nên không bị động — nhưng mất nguồn tỉ lệ trả lời đúng thật. Chính vì vậy bộ nhãn giáo viên ở mục 3 trở thành tài sản quan trọng nhất.</li>
+<li><b>Nhãn giáo viên môn Sử mới có 1 người × 90 câu</b> → chưa tính được độ tin cậy liên-người-chấm; tương quan với hiệu suất mô phỏng cũng chỉ +0,08. Cần người thứ hai.</li>
+<li><b>Một hạng mục trung tâm đã thất bại:</b> thiết kế 20 cặp câu đối chứng không lệch hơn cặp ngẫu nhiên (p = 0,774). Đã thay bằng phép đo trên toàn tập — thực ra mạnh hơn.</li>
+<li><b>Thước đo cũ không phù hợp:</b> accuracy trên dữ liệu mất cân bằng bị cả survey và Thuy 2025 phê phán. Mọi thí nghiệm mới đã chuyển sang QWK / macro-F1.</li>
+</ol>
+
+<hr>
+
+<h2>5. BA HƯỚNG TỔNG QUÁT — phần quan trọng nhất</h2>
+
+<p><i>Điểm chung: <b>không phụ thuộc môn học, ngôn ngữ hay bộ dữ liệu cụ thể</b>. Đây là chỗ đề tài vượt khỏi khuôn "một công cụ chấm độ khó cho Lịch sử 9".</i></p>
+
+<h3>H1. Nguồn nhãn nào phản ánh đúng độ khó?</h3>
+
+<table border="1" cellpadding="6" cellspacing="0">
+<tr><td width="22%"><b>Câu hỏi tổng quát</b></td><td>Một câu hỏi có thể được gán độ khó từ 4 nguồn: <b>giáo viên</b> (ma trận đề), <b>người nghiên cứu tự gán</b>, <b>máy chấm</b>, và <b>tỉ lệ trả lời đúng của học sinh</b>. Bốn nguồn này đo cùng một thứ hay bốn thứ khác nhau?</td></tr>
+<tr><td><b>Đã đo được</b></td><td>Bốn nguồn <b>lệch nhau đáng kể</b>: máy vs giáo viên κ = +0,28 (Lý, n=1.539) và κ ≈ −0,02 (Sử, n=90); nhãn tự gán tương quan mạnh với <i>hành văn</i> nhưng ≈ 0 với hiệu suất làm bài.</td></tr>
+<tr><td><b>Vì sao tổng quát</b></td><td>Bộ phép kiểm (thăm dò bằng n-gram câu dẫn, đo mức thu hẹp bất định, đảo chuẩn chấm) áp dụng cho <b>bất kỳ bộ nhãn độ khó nào</b> — bất kể môn, ngôn ngữ, người hay máy gán. Không công trình nào trong 38 bài của survey làm phép kiểm này.</td></tr>
+<tr><td><b>Còn thiếu</b></td><td>Giáo viên thứ hai để có độ tin cậy liên-người-chấm → <b>B1</b>/<b>B4</b>; và kiểm chéo nhãn kenhgiaovien → <b>C7</b>.</td></tr>
+</table>
+
+<h3>H2. Độ khó nằm trên trục nào — trục kiến thức hay trục thao tác?</h3>
+
+<table border="1" cellpadding="6" cellspacing="0">
+<tr><td width="22%"><b>Câu hỏi tổng quát</b></td><td>Đồ thị tri thức đo <i>vị trí kiến thức trong chuỗi học</i> (trục kiến thức). Thang NB/TH/VD/VDC đo <i>mức phức tạp của thao tác nhận thức</i> (trục thao tác). Độ khó nằm trên trục nào?</td></tr>
+<tr><td><b>Phát hiện</b></td><td><b>Hai trục trực giao</b> — chứng minh trên 1.539 câu nhãn thật. "Tính điện trở tương đương mạch hỗn hợp" là VDC nhưng khái niệm rất nông; "Định luật Ôm là gì?" là NB nhưng khái niệm nằm sâu hơn — độ sâu thậm chí đi <i>ngược</i> độ khó.</td></tr>
+<tr><td><b>Vì sao quan trọng</b></td><td>Đây là <b>lời giải thích cho một hiện tượng của cả lĩnh vực</b>: vì sao mọi cách tiếp cận KG cho ước lượng độ khó đều yếu — kể cả 4 công trình KG trong survey (cả 4 chỉ dùng độ khó làm mục tiêu trung gian, không ai đặt làm mục tiêu chính). KG <b>không đo sai</b>; độ khó chỉ đơn giản không nằm trên trục đó.</td></tr>
+<tr><td><b>Hệ quả tích cực</b></td><td>KG vẫn có giá trị thật ở <b>nhiệm vụ khác</b>: gợi ý kiến thức tiên quyết cần ôn trước khi làm bài, ánh xạ câu hỏi → khái niệm, phân tích chương trình. Đây là hướng nên chuyển KG sang.</td></tr>
+<tr><td><b>Còn thiếu</b></td><td>Bảng ablation đủ ba nguồn (văn bản / số / tri thức) → <b>C2</b>, ~1 ngày.</td></tr>
+</table>
+
+<h3>H3. Cold→Warm: vòng đời độ khó của một câu hỏi</h3>
+
+<table border="1" cellpadding="6" cellspacing="0">
+<tr><td width="22%"><b>Câu hỏi tổng quát</b></td><td><b>Cần bao nhiêu lượt trả lời của học sinh thì đặc trưng nội dung hết giá trị?</b> Ngày 0 dùng đặc trưng tri thức → 30 lượt thì trộn → 300 lượt thì IRT chiếm ưu thế.</td></tr>
+<tr><td><b>Vì sao tổng quát</b></td><td><b>Chính survey đề xuất hướng này và chưa ai làm.</b> Con số k* là đại lượng định lượng không phụ thuộc môn hay ngôn ngữ. Nâng đề tài từ <i>"ước lượng độ khó lúc cold-start"</i> thành <i>"khung ước lượng theo vòng đời câu hỏi"</i>.</td></tr>
+<tr><td><b>Đã có gì</b></td><td>Khung + công cụ chạy được. Hiện k* = 0 <b>trên dữ liệu mô phỏng</b> — prior mô hình chưa đủ tốt để có giá trị thực dụng.</td></tr>
+<tr><td><b>Còn thiếu</b></td><td>Dữ liệu trả lời <b>thật</b> → <b>B2</b> (chỉ ~40 học sinh là đủ chạy thí nghiệm mồi).</td></tr>
+</table>
+
+<p><b>Hướng phụ đã làm xong, xin báo để thầy biết:</b> <i>hạ chi phí dựng ontology bằng LLM</i> — trả lời trực tiếp câu hỏi thầy từng nêu về khả năng tổng quát hóa. Quy trình 2 LLM kiểm chéo đã nâng ontology Vật lí 132 → 319 thực thể, độ phủ 0,187 → 0,427. Kết luận: dựng ontology <b>không nhất thiết phải làm tay hoàn toàn</b>.</p>
+
+<hr>
+
+<h2>6. CÁC PHƯƠNG ÁN VÀ CHI PHÍ — xin thầy cho hướng</h2>
+
+<p><i>Quy ước:</i> <b>ngày công</b> = ngày làm việc của nhóm (ước lượng). <b>Lượt LLM</b> so với hai mốc đã chạy trong ngân sách hiện tại: mô phỏng học sinh 4.996 lượt (model rẻ, 8 token đầu ra/lượt) và chấm 1.539 câu Lý ≈ 77 lượt (model mạnh, gộp 20 câu/lượt). <b>Phụ thuộc ngoài</b> quyết định rủi ro.</p>
+
+<h3>Quyết định A — Trục chính của luận văn</h3>
+
+<table border="1" cellpadding="6" cellspacing="0">
+<tr><th>P/A</th><th>Nội dung</th><th>Chi phí</th><th>Được gì / Rủi ro</th></tr>
+<tr><td><b>A1</b></td><td>Giữ nguyên khung "KG dự đoán độ khó"</td><td>0 ngày công thêm</td><td>Không phải viết lại. <b>Rủi ro cao nhất</b> — chính kết quả trên nhãn thật bác bỏ luận điểm (ablation: +0,004 QWK)</td></tr>
+<tr><td><b>A2</b></td><td><b>Hướng H2 làm trục chính</b> — "độ khó ở miền cấu trúc do LOẠI thao tác nhận thức quyết định, không phải vị trí kiến thức"</td><td>~4–6 ngày (gồm C2)</td><td>Dựa hoàn toàn trên <b>1.539 câu nhãn giáo viên thật</b>, không phụ thuộc phê duyệt; tín hiệu mạnh (+0,470). Phải giải thích vì sao tên đề tài vẫn là KG</td></tr>
+<tr><td><b>A3</b></td><td><b>Hướng H1 làm trục chính</b> — "so sánh bốn nguồn nhãn độ khó"</td><td>~5–7 ngày viết lại mở đầu + phương pháp. <b>Phụ thuộc: cần giáo viên thứ 2</b></td><td>Dùng được toàn bộ kết quả mục 3 và 4; đúng thời sự. Nếu chỉ có 1 giáo viên thì kết luận phải thu hẹp</td></tr>
+<tr><td><b>A4</b></td><td><b>"Benchmark QDE tiếng Việt đầu tiên"</b> làm trục chính</td><td>~3–4 ngày dọn dữ liệu + giấy phép + mô tả. <b>Không phụ thuộc ai</b></td><td>Đóng góp không thể bị bác bỏ (chưa có công trình QDE tiếng Việt nào trong văn liệu quốc tế). Nhưng là đóng góp hạ tầng — đứng một mình có thể bị đánh giá nhẹ về phương pháp</td></tr>
+</table>
+
+<p><b>Đề xuất của nhóm:</b> <b>A2 làm trục chính</b> (vì đứng trên nhãn thật, không phụ thuộc ai) + A4 làm đóng góp số 1 + A3 làm một chương, giữ H3 làm chương triển vọng. Tổng thêm ~8–10 ngày công, chỉ phần A3 phụ thuộc bên ngoài.</p>
+
+<h3>Quyết định B — Bổ sung nguồn nhãn</h3>
+
+<table border="1" cellpadding="6" cellspacing="0">
+<tr><th>P/A</th><th>Nội dung</th><th>Chi phí</th><th>Được gì</th><th>Phụ thuộc</th></tr>
+<tr><td><b>B1</b></td><td>Giáo viên Sử <b>thứ hai</b> chấm 120 câu</td><td><b>Đo thật từ giáo viên thứ nhất: 42,7 phút làm việc</b> (trung vị 13,5 giây/câu). Form đã dựng sẵn — nhóm tốn 0 ngày công</td><td>Mở khoá <b>H1</b>: có κ liên-người-chấm. Script đã cài sẵn, chỉ chạy 1 lệnh</td><td><b>Cần 1 người</b></td></tr>
+<tr><td><b>B2</b></td><td>Khảo sát học sinh đường cá nhân, ~40 em × 40 câu</td><td>3 đề Google Form <b>đã dựng sẵn</b>; ~1 buổi tổ chức + ~1 ngày phân tích</td><td>Mở khoá <b>H3</b>: có tỉ lệ trả lời đúng THẬT → k* thành con số đáng tin</td><td>Cần ~40 học sinh lớp 9 ngoài kênh nhà trường</td></tr>
+<tr><td><b>B3</b></td><td>Dùng luôn <b>1.539 câu nhãn giáo viên đã có</b> làm chuẩn chính</td><td><b>0 — đã có, đã chạy xong</b></td><td>Cỡ mẫu gấp 17 lần nhãn GV Sử; đủ để chạy mọi thí nghiệm chính</td><td><b>Không phụ thuộc gì.</b> Nhưng là thang nhận thức, không phải thang độ khó, và không có tỉ lệ trả lời đúng</td></tr>
+<tr><td><b>B4</b></td><td>Nhờ/thuê 3–5 giáo viên chấm</td><td>~45 phút/giáo viên; thù lao × số người</td><td>κ liên-người-chấm đủ vững để công bố riêng phần so sánh nguồn nhãn</td><td>Cần kênh giới thiệu + ngân sách — <b>xin thầy cho biết có khả thi không</b></td></tr>
+</table>
+
+<h3>Quyết định C — Thí nghiệm bổ sung, xếp theo tỉ lệ giá trị / chi phí</h3>
+
+<table border="1" cellpadding="6" cellspacing="0">
+<tr><th>#</th><th>Thí nghiệm</th><th>Chi phí</th><th>Được gì</th></tr>
+<tr><td><b>C1</b></td><td>Sinh lại ma trận đặc trưng với ontology đầy đủ, chạy lại các phép đo bên Sử</td><td>~1 ngày, không tốn LLM</td><td><b>Bắt buộc</b> — trả nợ kỹ thuật trước khi số vào luận văn</td></tr>
+<tr><td><b>C2</b></td><td>Thêm đặc trưng văn bản vào ablation Lý cho đủ bộ ba (văn bản / số / tri thức)</td><td>~1 ngày, không tốn LLM</td><td>Chốt <b>H2</b> — bảng hội đồng sẽ nhìn đầu tiên</td></tr>
+<tr><td><b>C7</b></td><td><b>Kiểm chéo nhãn kenhgiaovien</b>: nhờ 1 giáo viên Lý chấm lại ~120 câu mẫu</td><td>~45 phút của 1 giáo viên</td><td>Xác nhận độ tin của bộ nhãn thật đang là nền của mọi kết luận chính — <b>nên làm sớm</b></td></tr>
+<tr><td><b>C3</b></td><td>Kiểm "điểm mù VDC do không thấy lời giải": cho máy giải từng bước rồi chấm lại 219 câu VDC</td><td>~0,5 ngày; ~220 lượt model mạnh có suy luận (cỡ gấp 3 lần lần đã chạy)</td><td>Nếu tỉ lệ nhận ra VDC nhảy → <b>cơ chế giải thích sạch cho giới hạn của mọi phương pháp cold-start</b></td></tr>
+<tr><td><b>C4</b></td><td>Test–retest bộ chấm tự động (đổi thứ tự xáo phương án / đổi model)</td><td>~0,5 ngày; 77–154 lượt</td><td>Biến κ = 0,284 từ "một lần đo" thành con số <b>có sai số</b></td></tr>
+<tr><td><b>C5</b></td><td>Chạy lại mô phỏng học sinh với chế độ suy luận <b>bật</b> — đối chứng phát hiện của Acquaye trên tiếng Việt</td><td>~0,5 ngày nhưng <b>đắt nhất về LLM</b>: ~5.000 lượt × 512 token đầu ra thay vì 8 — cỡ gấp ~60 lần</td><td>Đối chứng một phát hiện quốc tế trên miền tiếng Việt; cân nhắc ngân sách</td></tr>
+<tr><td><b>C6</b></td><td>Fine-tune PhoBERT (script Colab đã có)</td><td>~1–2 ngày + GPU Colab</td><td><b>Ưu tiên thấp nhất</b> — chỉ đáng làm sau khi chốt nguồn nhãn</td></tr>
+</table>
+
+<p><b>Gói tối thiểu nhóm đề xuất:</b> C1 + C2 + C7 + C4 ≈ <b>2,5 ngày công + 45 phút của 1 giáo viên Lý</b>, chi phí LLM không đáng kể — đủ để mọi con số trong luận văn đứng vững và chốt được hướng H2.</p>
+
+<hr>
+
+<p><i>Bản đầy đủ (toàn bộ số liệu, phương pháp, hạn chế): xem báo cáo chi tiết 6 tuần. Lập ngày 22/08/2026.</i></p>
